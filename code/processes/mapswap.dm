@@ -546,26 +546,42 @@
 		map.civf_research = list(customresearch,customresearch,customresearch,null)
 		return
 	/// TDM MODES ///
+		//Easy Mode - damage mod 0.5, no delay, no fov, no medals//
+	else if (vote.voted_gamemode == "Easy")
+		world << "<font color='blue'><big>Лёгкий Режим</big><br>Без ограничений по респавну, 0.5 урон.</big></font>"
+		config.disable_fov = TRUE
+		config.no_respawn_delays = TRUE
+		map.gamemode = "Easy"
+		global_damage_modifier = 0.5
+		return
 	else if (vote.voted_gamemode == "Normal")
-		world << "<font color='green'><big>Normal Mode</big><br>No respawn delays.</big></font>"
+		world << "<font color='green'><big>Нормальный Режим</big><br>Без ограничений по респавну.</big></font>"
 		config.disable_fov = TRUE
 		config.no_respawn_delays = TRUE
 		map.gamemode = "Normal"
 		global_damage_modifier = 1
 		return
 	else if (vote.voted_gamemode == "Competitive")
-		world << "<font color='yellow'><big>Competitive Mode</big><br>Respawn delay enabled, increased damage.</big></font>"
+		world << "<font color='yellow'><big>Соревновательный Режим</big><br>1.25 урон, время по респавну.</big></font>"
 		config.disable_fov = TRUE
 		config.no_respawn_delays = FALSE
 		map.gamemode = "Competitive"
 		global_damage_modifier = 1.15
 		return
 	else if (vote.voted_gamemode == "Hardcore")
-		world << "<font color='red'><big>HARDCORE Mode</big><br>No respawns, increased damage. Field of View enabled. Awards active.</big></font>"
+		world << "<font color='red'><big>ХАРДКОРНЫЙ режим</big><br>Респавн отключён, 1.50 урон, Ограничение на Обзор включён, включены медали.</big></font>"
 		config.disable_fov = FALSE
 		config.no_respawn_delays = FALSE
 		map.gamemode = "Hardcore"
 		global_damage_modifier = 1.30
+		return
+		//Really Life - damage modifer 3.0, no medals (in future, im lazy)//
+	else if (vote.voted_gamemode == "RealLive")
+		world << "<font color='white'><big>Режим реальной жизни</big><br>Респавн отключён, 3 урон, Ограничение на Обзор включён, медали в процессе кодинга.</big></font>"
+		config.disable_fov = FALSE
+		config.no_respawn_delays = FALSE
+		map.gamemode = "RealLive"
+		global_damage_modifier = 3
 		return
 	/// CAPITOL MODES //
 	else if (vote.voted_gamemode == "Siege")
