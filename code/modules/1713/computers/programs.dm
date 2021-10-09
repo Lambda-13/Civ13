@@ -37,7 +37,7 @@
 /datum/program/proc/do_html(mob/living/human/user)
 	var/fullpage = {"
 			<!DOCTYPE html>
-			<html>
+			<meta charset="utf-8">
 			<head>[computer_browser_style]<title>[name]</title></head>
 			<body>
 			<center>[mainmenu]</center>
