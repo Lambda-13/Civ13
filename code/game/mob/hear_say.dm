@@ -152,7 +152,7 @@
 		track = /*"[speaker_name] */"([ghost_follow_link(speaker, src)])"
 
 	if (dd_hasprefix(message, " "))
-		message = copytext_char(message, 2)
+		message = copytext(message, 2)
 
 	if (findtext(message,";10-") || findtext(message,"; 10-"))
 		message = ten_code(message, speaker)
@@ -227,7 +227,7 @@
 		track = /*"[speaker_name] */"([ghost_follow_link(speaker, src)])"
 
 	if (dd_hasprefix(message, " "))
-		message = copytext_char(message, 2)
+		message = copytext(message, 2)
 
 	if ((sdisabilities & DEAF) || ear_deaf || find_trait("Deaf"))
 		if (prob(20))
@@ -340,10 +340,10 @@
 		var/list/messages = splittext(message, " ")
 		var/R = rand(1, messages.len)
 		var/heardword = messages[R]
-		if (copytext_char(heardword,1, TRUE) in punctuation)
-			heardword = copytext_char(heardword,2)
-		if (copytext_char(heardword,-1) in punctuation)
-			heardword = copytext_char(heardword,1,length_char(heardword))
+		if (copytext(heardword,1, TRUE) in punctuation)
+			heardword = copytext(heardword,2)
+		if (copytext(heardword,-1) in punctuation)
+			heardword = copytext(heardword,1,length_char(heardword))
 		heard = "<span class = 'game_say'>...You hear something about...[heardword]</span>"
 
 	else
