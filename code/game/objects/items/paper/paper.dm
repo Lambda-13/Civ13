@@ -142,10 +142,10 @@
 
 /obj/item/weapon/paper/proc/show_content(var/mob/user, var/forceshow=0)
 	if (!(istype(user, /mob/living/human) || isghost(user) && !forceshow))
-		user << browse("<meta charset="utf-8"><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[stars(info)][stamps]</BODY></HTML>", "window=[name]")
+		user << browse("<meta charset='utf-8'><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[stars(info)][stamps]</BODY></HTML>", "window=[name]")
 		onclose(user, "[name]")
 	else
-		user << browse("<meta charset="utf-8"><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[info][stamps]</BODY></HTML>", "window=[name]")
+		user << browse("<meta charset='utf-8'><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[info][stamps]</BODY></HTML>", "window=[name]")
 		onclose(user, "[name]")
 
 /obj/item/weapon/paper/verb/rename()
@@ -422,7 +422,7 @@
 		playsound(src,'sound/effects/pen.ogg',40,1)
 		update_space(t)
 
-		usr << browse("<meta charset="utf-8"><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[info_links][stamps]</BODY></HTML>", "window=[name]") // Update the window
+		usr << browse("<meta charset='utf-8'><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[info_links][stamps]</BODY></HTML>", "window=[name]") // Update the window
 
 		update_icon()
 
@@ -480,7 +480,7 @@
 		if ( istype(RP) && RP.mode == 2 )
 			RP.RenamePaper(user,src)
 		else*/
-		user << browse("<meta charset="utf-8"><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[info_links][stamps]</BODY></HTML>", "window=[name]")
+		user << browse("<meta charset='utf-8'><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[info_links][stamps]</BODY></HTML>", "window=[name]")
 		return
 
 	else if ((istype(P, /obj/item/weapon/stamp) && !( istype(P, /obj/item/weapon/stamp/mail))))

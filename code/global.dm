@@ -59,7 +59,7 @@ var/max_explosion_range = 14
 
 // "convenient" (shitcode) way to make normal windows look like nanoUI, since BYOND won't load stylesheets normally - Kachnov
 var/common_browser_style = {"
-<meta charset="UTF-8">
+<meta charset='utf-8'>
 <style>
 body
 {
@@ -377,7 +377,7 @@ div.notice
 "}
 //green on black
 var/computer_browser_style = {"
-<meta charset="UTF-8">
+<meta charset='utf-8'>
 <style>
 body
 {
