@@ -17,8 +17,8 @@ var/list/radio_prefixes = list(";", ":b", ":l", ":r", ":t", ":f",
 	var/prefix = ""
 	for (var/rp in radio_prefixes)
 		if (dd_hasprefix(message, rp))
-			prefix = copytext(message, 1, length(rp)+1)
-			message = copytext(message, length(rp)+1, length(message)+1)
+			prefix = copytext_char(message, 1, length_char(rp)+1)
+			message = copytext_char(message, length_char(rp)+1, length_char(message)+1)
 
 	var/list/returns[3]
 	var/speech_problem_flag = FALSE
@@ -64,9 +64,9 @@ var/list/radio_prefixes = list(";", ":b", ":l", ":r", ":t", ":f",
 			return say_dead(message)
 		return
 
-	switch(copytext(message,1,2))
-		if ("*") return emote(copytext(message,2))
-		if ("^") return custom_emote(1, copytext(message,2))
+	switch(copytext_char(message,1,2))
+		if ("*") return emote(copytext_char(message,2))
+		if ("^") return custom_emote(1, copytext_char(message,2))
 
 	message = trim_left(message)
 
@@ -75,7 +75,7 @@ var/list/radio_prefixes = list(";", ":b", ":l", ":r", ":t", ":f",
 		speaking = parse_language(message)
 
 	if (speaking)
-		message = copytext(message,2+length(speaking.key))
+		message = copytext_char(message,2+length_char(speaking.key))
 	else
 		speaking = get_default_language()
 
