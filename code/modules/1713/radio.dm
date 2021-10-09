@@ -248,7 +248,7 @@ var/global/FREQP = rand(81,100)
 			m << browse({"
 
 			<br>
-			<meta charset="utf-8">
+			<meta charset='utf-8'>
 
 			<head>
 			[common_browser_style]
@@ -279,7 +279,7 @@ var/global/FREQP = rand(81,100)
 				m << browse({"
 
 				<br>
-				<meta charset="utf-8">
+				<meta charset='utf-8'>
 
 				<head>
 				[common_browser_style]
@@ -310,7 +310,7 @@ var/global/FREQP = rand(81,100)
 				m << browse({"
 
 				<br>
-				<meta charset="utf-8">
+				<meta charset='utf-8'>
 
 				<head>
 				[common_browser_style]
@@ -340,7 +340,7 @@ var/global/FREQP = rand(81,100)
 				m << browse({"
 
 				<br>
-				<meta charset="utf-8">
+				<meta charset='utf-8'>
 
 				<head>
 				[common_browser_style]
@@ -610,7 +610,7 @@ var/global/FREQP = rand(81,100)
 		m << browse({"
 
 		<br>
-		<meta charset="utf-8">
+		<meta charset='utf-8'>
 
 		<head>
 		[common_browser_style]
