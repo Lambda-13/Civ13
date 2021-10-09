@@ -264,7 +264,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 			if (C.holder.rights & R_ADMIN)
 				admin = TRUE
 		voting |= C
-		. = "<html><head><title>Voting Panel</title></head><body>"
+		. = "<meta charset="utf-8"><head><title>Voting Panel</title></head><body>"
 		if (mode)
 			if (question)	. += "<h2>Vote: '[question]'</h2>"
 			else			. += "<h2>Vote: [capitalize(mode)]</h2>"

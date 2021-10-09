@@ -15,7 +15,7 @@
 /obj/structure/computer/proc/do_html(mob/user)
 	var/os = {"
 			<!DOCTYPE html>
-			<html>
+			<meta charset="utf-8">
 			<head>[computer_browser_style]<title>[operatingsystem]</title></head>
 			<body>
 			<center>[mainmenu]</center>
