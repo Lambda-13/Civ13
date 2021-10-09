@@ -264,7 +264,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 			if (C.holder.rights & R_ADMIN)
 				admin = TRUE
 		voting |= C
-		. = "<meta charset='utf-8'><head><title>Voting Panel</title></head><body>"
+		. = "<meta charset='utf-8'><head><title>Панель Голосований</title></head><body>"
 		if (mode)
 			if (question)	. += "<h2>Vote: '[question]'</h2>"
 			else			. += "<h2>Vote: [capitalize(mode)]</h2>"
@@ -289,22 +289,22 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 			if (admin && mode != "map")
 				. += "(<a href='?src=\ref[src];vote=cancel'>Cancel Vote</a>) "
 		else
-			. += "<h2>Start a vote:</h2><hr><ul><li>"
+			. += "<h2>Начать голосование:</h2><hr><ul><li>"
 			//restart
 			if (admin || config.allow_vote_restart)
-				. += "<a href='?src=\ref[src];vote=restart'>Restart</a>"
+				. += "<a href='?src=\ref[src];vote=restart'>Рестарт</a>"
 			else
-				. += "<font color='grey'>Restart (Disallowed)</font>"
+				. += "<font color='grey'>Рестарт</font>"
 			. += "</li><li>"
 			if (admin)
 				. += "\t(<a href='?src=\ref[src];vote=toggle_restart'>[config.allow_vote_restart?"Allowed":"Disallowed"]</a>)"
 				. += "</li><li>"
-				. += "<a href='?src=\ref[src];vote=gamemode'>Gamemode</a></li>"
+				. += "<a href='?src=\ref[src];vote=gamemode'>Игровой Режим</a></li>"
 			//custom
 			if (admin)
-				. += "<li><a href='?src=\ref[src];vote=custom'>Custom</a></li>"
+				. += "<li><a href='?src=\ref[src];vote=custom'>Своё</a></li>"
 			. += "</ul><hr>"
-		. += "<a href='?src=\ref[src];vote=close' style='position:absolute;right:50px'>Close</a></body></html>"
+		. += "<a href='?src=\ref[src];vote=close' style='position:absolute;right:50px'>Закрыть</a></body></html>"
 
 		return .
 
@@ -331,7 +331,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 						usr << "You can't start restart votes if you are not playing."
 						return FALSE
 					if ((map.nomads || map.is_RP) && clients.len < 3 && ((world.time-round_start_time)>108000) && !usr.client.holder)
-						usr << "You can't start restart votes if the server population is lower than 3 and the round has been going for over 3 hour."
+						usr << "Вы не можете начать повторное голосование, если на сервере меньше 3 игроков и раунд длится более 3 часов."
 						return FALSE
 					initiate_vote("restart",usr.key)
 			if ("custom")
