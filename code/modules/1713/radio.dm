@@ -238,11 +238,11 @@ var/global/FREQP = rand(81,100)
 	return
 
 /obj/structure/radio/proc/do_html(var/mob/m)
-	var/style = "Radio Receiver/Transmitter"
+	var/style = "Радио"
 	if (receiver && !transmitter)
-		style = "Radio Receiver"
+		style = "Радиоприёмник"
 	if (!receiver && transmitter)
-		style = "Radio Transmitter"
+		style = "Радиопередатчик"
 	if (m)
 		if (check_power() == FALSE && powerneeded > 0)
 			m << browse({"
@@ -266,7 +266,7 @@ var/global/FREQP = rand(81,100)
 
 			<center>
 			<font size=3><b>[style]</b></font><br><br>
-			<b><font size=2 color=#8b0000>POWER OFF</a><br><br>
+			<b><font size=2 color=#8b0000>НЕТ ПИТАНИЯ</a><br><br>
 			</center>
 			</font></b><br>
 			</body>
@@ -298,9 +298,9 @@ var/global/FREQP = rand(81,100)
 				<center>
 				<font size=3><b>[style]</b></font><br><br>
 				</center>
-				<b><font size=2>Frequency: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
-				Transmitter: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
-				Receiver: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
+				<b><font size=2>Частота: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
+				Передатчик: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
+				Приемник: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
 				</font></b><br>
 				</body>
 				</html>
@@ -329,8 +329,8 @@ var/global/FREQP = rand(81,100)
 				<center>
 				<font size=3><b>[style]</b></font><br><br>
 				</center>
-				<b><font size=2>Frequency: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
-				Receiver: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
+				<b><font size=2>Частота: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
+				Приемник: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
 				</font></b><br>
 				</body>
 				</html>
@@ -359,8 +359,8 @@ var/global/FREQP = rand(81,100)
 				<center>
 				<font size=3><b>[style]</b></font><br><br>
 				</center>
-				<b><font size=2>Frequency: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
-				Transmitter: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
+				<b><font size=2>Частота: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
+				Передатчик: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
 				</font></b><br>
 				</body>
 				</html>
@@ -629,9 +629,9 @@ var/global/FREQP = rand(81,100)
 		<center>
 		<font size=3><b>[style]</b></font><br><br>
 		</center>
-		<b><font size=2>Frequency: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
-		Transmitter: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
-		Receiver: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
+		<b><font size=2>Частота: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
+		Передатчик: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
+		Приемник: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
 		</font></b><br>
 		</body>
 		</html>
