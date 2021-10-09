@@ -4,8 +4,6 @@
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/civ13/civ13.svg?style=flat)
 ![GitHub repo size](https://img.shields.io/github/repo-size/civ13/civ13.svg?style=flat)
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdYmVjKDCc1qVoV8EvdkQvj28Tso2Lk_qFTGVpP-Nk3dxFTLA/viewform?embedded=true" width="850" height="200" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
-
 ## WHAT IS THIS?
 ## ЧТО ЭТО ТАКОЕ?
 
