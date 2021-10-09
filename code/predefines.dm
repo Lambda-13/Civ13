@@ -237,6 +237,8 @@
 #define NORMAL		 0
 #define COMPETITIVE	 1
 #define HARDCORE	 2
+#define Easy		 3
+#define RealLive	 4
 
 #define GAS_O2  (1 << 0)
 #define GAS_N2  (1 << 1)
