@@ -30,7 +30,7 @@ https://civ13.com/
 https://trello.com/b/DW0RQAEX
 (Для русских опять же возможно всё будет в гитхабе)
 
-(EN)
+## (EN)
 ## Playing the game
 You will need a windows machine or a virtual machine running it from another OS.
 
@@ -55,7 +55,7 @@ You will need a windows machine or a virtual machine running it from another OS.
 4. You're all set! Run the **launch.py** file inside the **scripts/** folder. Use ***python3 launch.py***.
 
 
-(RU)
+## (RU)
 ## Как начать играть
 Вам понадобится машина с Windows или виртуальная машина, на которой она будет запущена ОС.
 
