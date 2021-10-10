@@ -694,8 +694,8 @@
 					if ("RealLive")
 						gmd = "<font color='white'>Настоящий</font>"
 				stat("Карта:", map.title)
-				stat("Сложность:", gmd)
-				stat("Эпоха:", map.age)
+				stat("Режим:", gmd)
+				stat("Год:", map.age)
 				stat("Сезон:", get_season())
 				stat("Ветер:", map.winddesc)
 //				stat("Weather:", get_weather())

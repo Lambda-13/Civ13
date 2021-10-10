@@ -270,15 +270,17 @@ var/datum/quickBan_handler/quickBan_handler = null
 
 	switch (duration_in_days)
 		if (0 to 0.99) // count in hours
-			fields["expire_info"] = "Expires in [duration_in_days*24] hour(s)"
+			fields["expire_info"] = "время бана [duration_in_days*24] часа/часов"
 		if (0.99 to 6.99) // count in days
-			fields["expire_info"] = "Expires in [duration_in_days] day(s)"
+			fields["expire_info"] = "время бана [duration_in_days] дня/дней"
 		if (6.99 to 29.99) // count in weeks
-			fields["expire_info"] = "Expires in [duration_in_days/7] week(s)"
+			fields["expire_info"] = "время бана [duration_in_days/7] неделя/недель"
 		if (29.99 to 364.99) // count in months
-			fields["expire_info"] = "Expires in [duration_in_days/30] month(s)"
-		if (364.99 to INFINITY) // count in years
-			fields["expire_info"] = "Expires in [duration_in_days/365] year(s)"
+			fields["expire_info"] = "время бана [duration_in_days/30] месяц/месяцев"
+		if (364.99 to 1023.99) // count in years
+			fields["expire_info"] = "время бана [duration_in_days/365] год/лет"
+		if (1024 to INFINITY) // perma
+			fields["expire_info"] = "время бана не ограничено"
 
 	fields["ban_date"] = replacetext(time2text(world.realtime, "DDD MMM DD hh:mm:ss YYYY"), ":", ".")
 
@@ -361,12 +363,12 @@ var/datum/quickBan_handler/quickBan_handler = null
 		if (fields["type_specific_info"])
 			for (var/client/C in clients)
 				if (C.ckey == banckey)
-					C << "<span class = 'userdanger'>You have been [lowertext(fields["type"])]-banned ([fields["type_specific_info"]]). Reason: '[fields["reason"]]'. This ban [lowertext(expire_info)]."
+					C << "<span class = 'userdanger'>Вы получили бан типа [lowertext(fields["type"])] ([fields["type_specific_info"]]). Причиныч: '[fields["reason"]]'.[uppertext(expire_info)]."
 					break
 		else
 			for (var/client/C in clients)
 				if (C.ckey == banckey)
-					C << "<span class = 'userdanger'>You have been [fields["type"]]-banned. Reason: '[fields["reason"]]'. This ban [lowertext(expire_info)]."
+					C << "<span class = 'userdanger'>Вы получили бан типа [fields["type"]]. Причиныч: '[fields["reason"]]'.[uppertext(expire_info)]."
 					break
 
 /* checking if we're banned */
@@ -403,15 +405,15 @@ var/datum/quickBan_handler/quickBan_handler = null
 
 	if (reason)
 		if (bantype == "Server")
-			src << "<span class = 'userdanger'>You're banned. Reason: '[reason]'. This ban was assigned on [date] and [expire_info] (after assigned date)</span>"
+			src << "<span class = 'userdanger'>Вы забанены. Причиныч: '[reason]'. Бан выдан [date], [expire_info]</span>"
 			return TRUE
 		else
-			src << "<span class = 'userdanger'>You're [lowertext(bantype)]-banned. Reason: '[reason]'. This ban was assigned on [date] and [expire_info] (after assigned date)</span>"
+			src << "<span class = 'userdanger'>Вы получили бан типа [lowertext(bantype)]. Причиныч: '[reason]'. Бан выдан [date], [expire_info]</span>"
 	return FALSE
 
 /* kick us if we just got banned */
 /client/proc/quickBan_kicked(var/bantype, var/reason, var/expire_info)
-	src << "<span class = 'userdanger'>You have been given a [lowertext(bantype)]-ban. Reason: '[reason]'. [expire_info].</span>"
+	src << "<span class = 'userdanger'>Вы получили бан типа [lowertext(bantype)]. Причиныч: '[reason]', [expire_info].</span>"
 	del src
 
 /* check if we're an admin trying to quickBan another admin */
@@ -488,15 +490,17 @@ var/datum/quickBan_handler/quickBan_handler = null
 
 	switch (duration_in_days)
 		if (0 to 0.99) // count in hours
-			fields["expire_info"] = "Expires in [duration_in_days*24] hour(s)"
+			fields["expire_info"] = "время бана [duration_in_days*24] часа/часов"
 		if (0.99 to 6.99) // count in days
-			fields["expire_info"] = "Expires in [duration_in_days] day(s)"
+			fields["expire_info"] = "время бана [duration_in_days] дня/дней"
 		if (6.99 to 29.99) // count in weeks
-			fields["expire_info"] = "Expires in [duration_in_days/7] week(s)"
+			fields["expire_info"] = "время бана [duration_in_days/7] неделя/недель"
 		if (29.99 to 364.99) // count in months
-			fields["expire_info"] = "Expires in [duration_in_days/30] month(s)"
-		if (364.99 to INFINITY) // count in years
-			fields["expire_info"] = "Expires in [duration_in_days/365] year(s)"
+			fields["expire_info"] = "время бана [duration_in_days/30] месяц/месяцев"
+		if (364.99 to 1023.99) // count in years
+			fields["expire_info"] = "время бана [duration_in_days/365] год/лет"
+		if (1024 to INFINITY) // perma
+			fields["expire_info"] = "время бана не ограничено"
 
 	fields["ban_date"] = replacetext(time2text(world.realtime, "DDD MMM DD hh:mm:ss YYYY"), ":", ".")
 
