@@ -348,6 +348,9 @@
 	else if (href_list["warn"])
 		usr.client.warn(href_list["warn"])
 
+	else if (href_list["pripeklon"])
+		usr.client.pripeklon(href_list["pripeklon"])
+
 	else if (href_list["boot2"])
 		var/mob/M = locate(href_list["boot2"])
 		if (ismob(M))
