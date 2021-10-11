@@ -10,6 +10,7 @@
 /obj/effect/lobby_image/initialize()
 	if (map && map.lobby_icon_state)
 		icon_state = map.lobby_icon_state
+		dir = pick("2", "4", "6", "8")
 	else
 		var/list/known_icon_states = icon_states(icon)
 		for (var/lobby_screen in config.lobby_screens)
