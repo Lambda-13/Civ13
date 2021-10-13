@@ -39,7 +39,7 @@
 		process_awards()
 	if (transforming)
 		return
-	if (werewolf + gorillaman + orc + ant + lizard + wolfman + crab > 1)
+	if (werewolf + gorillaman + orc + ant + lizard + wolfman + crab + skeletman + zombieman > 1)
 		werewolf = 0
 		gorillaman = 0
 		orc = 0
@@ -47,6 +47,8 @@
 		lizard = 0
 		wolfman = 0
 		crab = 0
+		skeletman = 0
+		zombieman = 0
 		handle_animalistic("Default")
 
 	if (werewolf)
@@ -63,7 +65,11 @@
 		handle_animalistic("Wolf")
 	else if (crab)
 		handle_animalistic("Crab")
-	else if (!gorillaman && !werewolf && !orc && !ant && !lizard && !wolfman && !crab && body_build.name != "Default")
+	else if (skeletman)
+		handle_animalistic("Skelet")
+	else if (zombieman)
+		handle_animalistic("Zombie")
+	else if (!gorillaman && !werewolf && !orc && !ant && !lizard && !skeletman && !zombieman && !wolfman && !crab && body_build.name != "Default")
 		handle_animalistic("Default")
 //	if (prone)
 //		lying = 1
@@ -160,6 +166,12 @@
 		if (crab)
 			food_m *= 0.8
 			water_m *= 2.5
+		if (skeletman)
+			food_m *= 0
+			water_m *= 0
+		if (zombieman)
+			food_m *= 0.666
+			water_m *= 0
 		if (gorillaman)
 			water_m *= 0.2
 		if (istype(buckled, /obj/structure/cross))
