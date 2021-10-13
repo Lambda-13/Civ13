@@ -1,20 +1,18 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
+name: 'Нововведения'
+about: 'Что нужно добавить'
+enname: 'Feature request'
+enabout: 'What to add'
 
 ---
+**Что добавить**
+Что добавить и куда добавить в цивилизации 13
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+**Спрайты/скриншоты**
+Материал для воплощения
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+**Зачем**
+Рассказать зачем это нужно тут
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
-
-**Additional context**
-Add any other context or screenshots about the feature request here.
+**Дополнительно**
+Я не знаю как описать этот пункт так что держите Йес-мена https://user-images.githubusercontent.com/36476150/137187807-39e6d7fe-ed72-4273-85b0-9a3eb1353e52.png
