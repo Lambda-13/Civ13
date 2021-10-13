@@ -116,6 +116,9 @@ proc/admin_notice(var/message, var/rights)
 				<A href='?src=\ref[src];simplemake=wolfman;mob=\ref[M]'>Werewolf</A> |
 				<A href='?src=\ref[src];simplemake=ant;mob=\ref[M]'>Ant</A> |
 				<A href='?src=\ref[src];simplemake=orc;mob=\ref[M]'>Orc</A> |
+				<A href='?src=\ref[src];simplemake=skeletman;mob=\ref[M]'>Skelet</A> |
+				<A href='?src=\ref[src];simplemake=zombieman;mob=\ref[M]'>Zombie</A> |
+				
 				<br>"}
 	body += {"<br><br>
 			<b>Other actions:</b>

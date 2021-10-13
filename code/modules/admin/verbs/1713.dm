@@ -68,6 +68,10 @@
 			map.crab -= conf
 		if (conf in map.wolfman)
 			map.wolfman -= conf
+		if (conf in map.skeletman)
+			map.skeletman -= conf
+		if (conf in map.zombieman)
+			map.zombieman -= conf
 	else if (choice == "Orc")
 		map.orc += conf
 		if (conf in map.human)
@@ -82,6 +86,10 @@
 			map.crab -= conf
 		if (conf in map.wolfman)
 			map.wolfman -= conf
+		if (conf in map.skeletman)
+			map.skeletman -= conf
+		if (conf in map.zombieman)
+			map.zombieman -= conf
 	else if (choice == "Gorilla")
 		map.gorilla += conf
 		if (conf in map.orc)
@@ -96,6 +104,10 @@
 			map.crab -= conf
 		if (conf in map.wolfman)
 			map.wolfman -= conf
+		if (conf in map.skeletman)
+			map.skeletman -= conf
+		if (conf in map.zombieman)
+			map.zombieman -= conf
 	else if (choice == "Ant")
 		map.ant += conf
 		if (conf in map.orc)
@@ -110,6 +122,10 @@
 			map.crab -= conf
 		if (conf in map.wolfman)
 			map.wolfman -= conf
+		if (conf in map.skeletman)
+			map.skeletman -= conf
+		if (conf in map.zombieman)
+			map.zombieman -= conf
 	else if (choice == "Lizard")
 		map.lizard += conf
 		if (conf in map.orc)
@@ -124,6 +140,10 @@
 			map.crab -= conf
 		if (conf in map.wolfman)
 			map.wolfman -= conf
+		if (conf in map.skeletman)
+			map.skeletman -= conf
+		if (conf in map.zombieman)
+			map.zombieman -= conf
 	else if (choice == "Wolfman")
 		map.wolfman += conf
 		if (conf in map.orc)
@@ -140,8 +160,50 @@
 			map.crab -= conf
 		if (conf in map.wolfman)
 			map.wolfman -= conf
+		if (conf in map.skeletman)
+			map.skeletman -= conf
+		if (conf in map.zombieman)
+			map.zombieman -= conf
 	else if (choice == "Crab")
 		map.crab += conf
+		if (conf in map.orc)
+			map.orc -= conf
+		if (conf in map.human)
+			map.human -= conf
+		if (conf in map.gorilla)
+			map.gorilla -= conf
+		if (conf in map.ant)
+			map.ant -= conf
+		if (conf in map.lizard)
+			map.lizard -= conf
+		if (conf in map.wolfman)
+			map.wolfman -= conf
+		if (conf in map.skeletman)
+			map.skeletman -= conf
+		if (conf in map.zombieman)
+			map.zombieman -= conf
+	else if (choice == "skeletman")
+		map.skeletman += conf
+		if (conf in map.crab)
+			map.crab -= conf
+		if (conf in map.orc)
+			map.orc -= conf
+		if (conf in map.human)
+			map.human -= conf
+		if (conf in map.gorilla)
+			map.gorilla -= conf
+		if (conf in map.ant)
+			map.ant -= conf
+		if (conf in map.lizard)
+			map.lizard -= conf
+		if (conf in map.wolfman)
+			map.wolfman -= conf
+		if (conf in map.zombieman)
+			map.zombieman -= conf
+	else if (choice == "Zombie")
+		map.zombieman += conf
+		if (conf in map.crab)
+			map.crab -= conf
 		if (conf in map.orc)
 			map.orc -= conf
 		if (conf in map.human)
