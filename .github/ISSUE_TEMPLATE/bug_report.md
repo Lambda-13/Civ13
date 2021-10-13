@@ -1,38 +1,35 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
-
+имя: [Имя бага]
+подробности: [Ну я начал играть и вот так билд сломался]
+как вызвать: [Запустить буонд]
+теги: [буонд]
+от себя: [почините быстрее]
 ---
+<!-- НАЧАЛО КОММЕНТА
+Всё что в скобочках [] вот сюда и пиши свой текст
+КОНЕЦ КОММЕНТА -->
+**Описание**
+[Я запустил буонд а он крашнулся]
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**Как воспроизвести**
+Шаги:
+1. Делаем '...'
+2. Жмём '....'
+3. Ожидаем '....'
+4. Ну и вот ошибка <!-- и дальше если шагов больше -->
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+**Примерная работа бага**
+[Вот такое окно выскакивает скрин внизу]
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**Скриншоты**
+[![image](https://user-images.githubusercontent.com/36476150/137185840-85f7e078-3a9b-43e4-85df-f2f86c6c3570.png)
+]
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+**Характеристики (удалить/не заполнять если баг не связан с буондом):**
+ - OS: [Виндовс 10 х64 и далее]
+ - Скорость интернета [100мб/с определил через https://www.speedtest.net]
+ - Версия BYOND [я глянул версию в ![image](https://user-images.githubusercontent.com/36476150/137185073-4a0a7569-2eee-4bae-8501-f7e44eaadd80.png)
+]
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
-
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
-
-**Additional context**
-Add any other context about the problem here.
+**Дополнительно**
+[]
