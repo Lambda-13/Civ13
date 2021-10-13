@@ -14,6 +14,12 @@ RECIPE: /material/leather/,gunpowder pouch,/obj/item/weapon/reagent_containers/f
 RECIPE: /material/leather/,bandolier,/obj/item/clothing/accessory/storage/webbing,9,70,0,1,storage,0,54,0,8,null
 RECIPE: /material/leather/,sling,/obj/item/weapon/gun/projectile/bow/sling,3,60,0,1,none,0,0,0,8,null
 
+RECIPE: /material/leather/,sword sheath,/obj/item/clothing/accessory/storage/sheath,3,80,0,1,weapon accessories,0,39,0,2,null
+RECIPE: /material/leather/,longer sword sheath,/obj/item/clothing/accessory/storage/sheath/longer,3,80,0,1,weapon accessories,0,39,0,2,null
+RECIPE: /material/leather/,longsword sheath,/obj/item/clothing/accessory/storage/sheath/longsword,4,80,0,1,weapon accessories,0,39,0,2,null
+RECIPE: /material/leather/,katana sheath,/obj/item/clothing/accessory/storage/sheath/katana,3,80,0,1,weapon accessories,0,39,0,2,null
+RECIPE: /material/leather/,daisho sheath,/obj/item/clothing/accessory/storage/sheath/daisho,6,80,0,1,weapon accessories,0,39,0,2,null
+
 RECIPE: /material/bearpelt/brown/,furcap,/obj/item/clothing/head/furcap,2,100,0,1,none,0,0,89,8,null
 RECIPE: /material/bearpelt/brown/,furhat,/obj/item/clothing/head/furhat,2,100,0,1,none,0,0,89,8,null
 RECIPE: /material/bearpelt/brown/,fur coat,/obj/item/clothing/suit/storage/coat/fur/brown,6,150,0,1,none,0,0,0,8,null
@@ -183,6 +189,7 @@ RECIPE: /material/wood/,wood crate,/obj/structure/closet/crate/empty,15,50,1,1,f
 RECIPE: /material/wood/,practice dummy,/obj/structure/practice_dummy,17,120,1,1,furniture,18,0,0,8,null
 RECIPE: /material/wood/,practice target,/obj/structure/practice_dummy/target,18,120,1,1,furniture,18,0,0,8,null
 RECIPE: /material/wood/,coffin,/obj/structure/closet/coffin,13,50,1,1,furniture,41,0,0,8,null
+RECIPE: /material/wood/,large barrel,/obj/structure/reagent_dispensers/largebarrel,16,100,1,1,furniture,19,0,0,8,null
 RECIPE: /material/wood/,small cross,/obj/structure/religious/woodcross1,7,50,1,1,entertainment & other,47,0,0,8,null
 RECIPE: /material/wood/,sandals,/obj/item/clothing/shoes/sandal,4,40,0,1,entertainment & other,0,0,0,8,null
 RECIPE: /material/wood/,cutting board,/obj/structure/cutting_board,7,50,0,1,kitchen,20,0,0,8,null
@@ -196,6 +203,9 @@ RECIPE: /material/wood/,table,/obj/structure/table/wood,4,50,1,1,furniture,0,0,0
 RECIPE: /material/wood/,chair,/obj/structure/bed/chair/wood,4,50,1,1,furniture,14,0,0,8,null
 RECIPE: /material/wood/,wood chest,/obj/structure/closet/crate/chest,7,75,1,1,furniture,14,0,0,8,null
 RECIPE: /material/wood/,wooden rifle rack,/obj/structure/vending/craftable/rifles/wood,8,80,1,1,furniture,0,75,0,8,null
+RECIPE: /material/wood/,tiki torch,/obj/item/flashlight/tiki_torch,5,60,0,1,kitchen,0,0,0,8,null
+RECIPE: /material/wood/,wood pipe,/obj/item/clothing/mask/smokable/pipe,2,100,0,1,kitchen,19,0,0,8,null
+RECIPE: /material/wood/,barrel,/obj/item/weapon/reagent_containers/glass/barrel/empty,5,75,1,1,kitchen,19,0,0,8,null
 
 RECIPE: /material/rags/,bandages,/obj/item/stack/medical/bruise_pack/bint,2,30,0,1,none,0,0,0,8,null
 RECIPE: /material/rags/,garrote,/obj/item/garrote,14,120,0,1,none,0,43,0,8,null

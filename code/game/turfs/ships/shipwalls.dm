@@ -13,6 +13,7 @@
 			if (dir == SOUTH && ispartial)
 				layer = 4.5
 				update_icon()
+
 /obj/structure/barricade/ship/dismantle()
 	new/obj/effect/decal/cleanable/debris(loc)
 	if(prob(50))
@@ -60,9 +61,7 @@
 				visible_message("<span class = 'warning'>[mover] hits the [src]!</span>")
 				if (istype(mover, /obj/item/projectile))
 					var/obj/item/projectile/B = mover
-					if(B.atype == "cannonball")
-
-					else if (B.atype == "chainshot")
+					if (B.atype == "chainshot")
 						if (ispartial)
 							return TRUE
 						else
@@ -98,6 +97,8 @@
 					if (dir != EAST)
 						return TRUE
 
+/obj/structure/barricade/ship/New(var/newloc, var/material_name)
+	return
 /obj/structure/barricade/ship/get_material()
 	return material
 
@@ -114,7 +115,6 @@
 	icon = 'icons/turf/boat.dmi'
 	icon_state = "boat1_a"
 	opacity = FALSE
-
 /obj/structure/barricade/ship/wall2
 	name = "wall"
 	desc = "A wooden ship wall."
@@ -128,6 +128,7 @@
 	icon_state = "boat2_doorway"
 	density = FALSE
 	opacity = FALSE
+
 
 /obj/structure/barricade/ship/blue
 	name = "wall"
@@ -247,6 +248,13 @@
 	icon = 'icons/turf/boat_b.dmi'
 	icon_state = "boat_b19"
 
+/obj/structure/barricade/ship/blue/b20
+	name = "wall"
+	desc = "A wooden ship wall."
+	icon = 'icons/turf/boat_b.dmi'
+	icon_state = "boat_b20"
+	opacity = TRUE
+
 /obj/structure/barricade/ship/blue/bport0
 	name = "wall"
 	desc = "A wooden ship wall."
@@ -259,6 +267,70 @@
 /obj/structure/barricade/ship/blue/bport0/south/New()
 	..()
 	dir = SOUTH
+
+/obj/structure/barricade/ship/blue/bport9
+	name = "wall"
+	desc = "A wooden ship wall."
+	icon = 'icons/turf/boat_b.dmi'
+	icon_state = "boat_b_port9"
+	protection_chance = 40
+	opacity = FALSE
+	ispartial = TRUE
+
+/obj/structure/barricade/ship/blue/bport5
+	name = "wall"
+	desc = "A wooden ship wall."
+	icon = 'icons/turf/boat_b.dmi'
+	icon_state = "boat_b_port5"
+	protection_chance = 40
+	opacity = FALSE
+	ispartial = TRUE
+
+/obj/structure/barricade/ship/blue/bport5
+	name = "wall"
+	desc = "A wooden ship wall."
+	icon = 'icons/turf/boat_b.dmi'
+	icon_state = "boat_b_port5"
+	protection_chance = 40
+	opacity = FALSE
+	ispartial = TRUE
+
+/obj/structure/barricade/ship/blue/bport_north
+	name = "wall"
+	desc = "A wooden ship wall."
+	icon = 'icons/turf/boat_b.dmi'
+	icon_state = "boat_b_port_1"
+	protection_chance = 40
+	opacity = FALSE
+	ispartial = TRUE
+
+/obj/structure/barricade/ship/blue/bport_10
+	name = "wall"
+	desc = "A wooden ship wall."
+	icon = 'icons/turf/boat_b.dmi'
+	icon_state = "boat_b_port_10"
+	protection_chance = 40
+	opacity = FALSE
+	ispartial = TRUE
+
+/obj/structure/barricade/ship/blue/bport_6
+	name = "wall"
+	desc = "A wooden ship wall."
+	icon = 'icons/turf/boat_b.dmi'
+	icon_state = "boat_b_port_6"
+	protection_chance = 40
+	opacity = FALSE
+	ispartial = TRUE
+
+/obj/structure/barricade/ship/blue/bport_6/corner
+	icon_state = "boat_b_port_6-2"
+/obj/structure/barricade/ship/blue/bport_10/corner
+	icon_state = "boat_b_port_10-2"
+/obj/structure/barricade/ship/blue/bport5/corner
+	icon_state = "boat_b_port5-2"
+/obj/structure/barricade/ship/blue/bport9/corner
+	icon_state = "boat_b_port9-2"
+
 /obj/structure/barricade/ship/blue/bport1
 	name = "holed wall"
 	desc = "A thin wood ship wall, with a lower part to fire through."
@@ -267,7 +339,7 @@
 	protection_chance = 25
 	opacity = FALSE
 	ispartial = TRUE
-	
+
 /obj/structure/barricade/ship/blue/bport3
 	name = "crenelated wall"
 	desc = "A thin wood ship wall, with a lower part to fire through."
@@ -277,7 +349,6 @@
 	opacity = FALSE
 	density = FALSE
 	ispartial = TRUE
-
 /obj/structure/barricade/ship/blue/bport3/south/New()
 	..()
 	dir = SOUTH
@@ -288,6 +359,7 @@
 	icon = 'icons/turf/boat_b.dmi'
 	icon_state = "boat_b_west"
 	opacity = FALSE
+	dir = NORTH
 
 /obj/structure/barricade/ship/blue/bwest2
 	name = "wall"
@@ -393,13 +465,14 @@
 	protection_chance = 40
 	opacity = FALSE
 	ispartial = TRUE
-	dir = NORTH
+	dir = SOUTH
 /obj/structure/barricade/ship/wood/port0/north/New()
 	..()
 	dir = NORTH
 /obj/structure/barricade/ship/wood/port0/south/New()
 	..()
 	dir = SOUTH
+
 /obj/structure/barricade/ship/wood/portl1
 	name = "wall"
 	desc = "A thin wood ship wall."
@@ -428,7 +501,6 @@
 	protection_chance = 40
 	opacity = FALSE
 	ispartial = TRUE
-	dir = WEST
 
 /obj/structure/barricade/ship/wood/port1
 	name = "holed wall"
@@ -446,13 +518,14 @@
 	protection_chance = 25
 	density = FALSE
 	opacity = FALSE
-
 /obj/structure/barricade/ship/wood/port2/north/New()
 	..()
 	dir = NORTH
 /obj/structure/barricade/ship/wood/port2/south/New()
 	..()
 	dir = SOUTH
+
+
 /obj/structure/barricade/ship/aport0
 	name = "closed cannon port"
 	desc = "A port used to fire cannons out of. This one is closed."
@@ -511,7 +584,6 @@
 				protection_chance = 60
 				ispartial = TRUE
 				update_icon()
-
 /obj/structure/barricade/ship/aport0/north
 	icon_state = "boat1_port0_up"
 	update_icon()
@@ -573,6 +645,46 @@
 	protection_chance = 45
 	ispartial = TRUE
 
+/obj/structure/barricade/ship/ex_act(severity)
+	switch(severity)
+		if (1.0)
+			visible_message("<span class='danger'>\The [src] is blown apart!</span>")
+			for(var/obj/structure/barricade/ship/mast/large/L in range(3,src))
+				L.sailhealth -= 5
+				L.rigginghealth -= 5
+				if(L.rigginghealth<0)
+					L.rigginghealth = 0
+				if(L.sailhealth<0)
+					L.sailhealth = 0
+			dismantle()
+			return
+		if (2.0)
+			health -= (200 + round(maxhealth * 0.30))
+			if (health <= 0)
+				visible_message("<span class='danger'>\The [src] is blown apart!</span>")
+				for(var/obj/structure/barricade/ship/mast/large/L in range(3,src))
+					L.sailhealth -= 2
+					L.rigginghealth -= 2
+					if(L.rigginghealth<0)
+						L.rigginghealth = 0
+					if(L.sailhealth<0)
+						L.sailhealth = 0
+				dismantle()
+			return
+		if (3.0)
+			health -= (100 + round(maxhealth * 0.10))
+			if (health <= 0)
+				visible_message("<span class='danger'>\The [src] is blown apart!</span>")
+				for(var/obj/structure/barricade/ship/mast/large/L in range(3,src))
+					L.sailhealth -= 1
+					L.rigginghealth -= 1
+					if(L.rigginghealth<0)
+						L.rigginghealth = 0
+					if(L.sailhealth<0)
+						L.sailhealth = 0
+				dismantle()
+			return
+
 /obj/structure/barricade/ship/mast
 	name = "mast"
 	desc = "A wooden ship mast."
@@ -595,7 +707,7 @@
 	var/rigginghealth = 100
 	var/sailstat = 100
 	var/owner = "ship"
-	
+
 	New()
 		..()
 		mlay = image(icon='icons/obj/vehicles/mast_vertical.dmi',icon_state="mast_overlay", pixel_x = -32, pixel_y = -192, layer=10)
@@ -640,6 +752,9 @@
 						if(M.amount >= 1)
 							M.amount--
 							H << "You repair one of the holes."
+							sailhealth+=2
+							if (sailhealth > 100)
+								sailhealth = 100
 
 			else if (istype(I,/obj/item/stack/material/rope))
 				if (rigginghealth < 100)
@@ -648,5 +763,35 @@
 						if(M.amount >= 1)
 							M.amount--
 							H << "You fix one of the ropes."
+							rigginghealth+=2
+							if (rigginghealth > 100)
+								rigginghealth = 100
 		else
 			..()
+
+	ex_act(severity)
+		switch(severity)
+			if (1.0)
+				sailhealth -= 10
+				rigginghealth -= 10
+				if(rigginghealth<0)
+					rigginghealth = 0
+				if(sailhealth<0)
+					sailhealth = 0
+				return
+			if (2.0)
+				sailhealth -= 6
+				rigginghealth -= 6
+				if(rigginghealth<0)
+					rigginghealth = 0
+				if(sailhealth<0)
+					sailhealth = 0
+				return
+			if (3.0)
+				sailhealth -= 3
+				rigginghealth -= 3
+				if(rigginghealth<0)
+					rigginghealth = 0
+				if(sailhealth<0)
+					sailhealth = 0
+				return

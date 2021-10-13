@@ -1,6 +1,7 @@
 
 /mob/living/simple_animal/hostile/human
 	var/corpse = null
+	var/weapon = null
 	var/idle_counter = 0
 
 	var/ranged = FALSE
@@ -27,7 +28,16 @@
 		"enemy_sighted" = list(),
 		"grenade" = list(),
 	)
-
+/mob/living/simple_animal/hostile/human/death()
+	..()
+	if(corpse)
+		new corpse (src.loc)
+	if(weapon)
+		new weapon (src.loc)
+	if(gun)
+		gun.forceMove(src.loc)
+	qdel(src)
+	return
 /mob/living/simple_animal/hostile/human/Life()
 
 	..()
@@ -220,6 +230,8 @@
 		if (get_dist(src, target_mob) <= 1)	//Attacking
 			AttackingTarget()
 			return TRUE
+		else
+			MoveToTarget()
 
 /mob/living/simple_animal/hostile/human/MoveToTarget()
 	if (!target_mob || !SA_attackable(target_mob))
