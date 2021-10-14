@@ -26,14 +26,14 @@ var/list/radio_prefixes = list(";", ":b", ":l", ":r", ":t", ":f",
 	if (slurring)
 		message = slur(message)
 		verb = pick("slobbers","slurs")
-		speech_problem_flag = FALSE
+		speech_problem_flag = TRUE
 	if (stuttering)
 		message = stutter(message)
 		verb = pick("stammers","stutters")
-		speech_problem_flag = FALSE
+		speech_problem_flag = TRUE
 	if (lisp)
 		message = lisp(message, lisp)
-		speech_problem_flag = FALSE
+		speech_problem_flag = TRUE
 
 	returns[1] = prefix + message
 	returns[2] = verb
