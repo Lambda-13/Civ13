@@ -270,17 +270,17 @@ var/datum/quickBan_handler/quickBan_handler = null
 
 	switch (duration_in_days)
 		if (0 to 0.99) // count in hours
-			fields["expire_info"] = "время бана [duration_in_days*24] часа/часов"
+			fields["expire_info"] = "время бана [duration_in_days*24] hour"
 		if (0.99 to 6.99) // count in days
-			fields["expire_info"] = "время бана [duration_in_days] дня/дней"
+			fields["expire_info"] = "время бана [duration_in_days] day"
 		if (6.99 to 29.99) // count in weeks
-			fields["expire_info"] = "время бана [duration_in_days/7] неделя/недель"
+			fields["expire_info"] = "время бана [duration_in_days/7] week"
 		if (29.99 to 364.99) // count in months
-			fields["expire_info"] = "время бана [duration_in_days/30] месяц/месяцев"
+			fields["expire_info"] = "время бана [duration_in_days/30] month"
 		if (364.99 to 1023.99) // count in years
-			fields["expire_info"] = "время бана [duration_in_days/365] год/лет"
+			fields["expire_info"] = "время бана [duration_in_days/365] year"
 		if (1024 to INFINITY) // perma
-			fields["expire_info"] = "время бана не ограничено"
+			fields["expire_info"] = "permanent"
 
 	fields["ban_date"] = replacetext(time2text(world.realtime, "DDD MMM DD hh:mm:ss YYYY"), ":", ".")
 
@@ -490,17 +490,17 @@ var/datum/quickBan_handler/quickBan_handler = null
 
 	switch (duration_in_days)
 		if (0 to 0.99) // count in hours
-			fields["expire_info"] = "время бана [duration_in_days*24] часа/часов"
+			fields["expire_info"] = "время бана [duration_in_days*24] hour"
 		if (0.99 to 6.99) // count in days
-			fields["expire_info"] = "время бана [duration_in_days] дня/дней"
+			fields["expire_info"] = "время бана [duration_in_days] day"
 		if (6.99 to 29.99) // count in weeks
-			fields["expire_info"] = "время бана [duration_in_days/7] неделя/недель"
+			fields["expire_info"] = "время бана [duration_in_days/7] week"
 		if (29.99 to 364.99) // count in months
-			fields["expire_info"] = "время бана [duration_in_days/30] месяц/месяцев"
+			fields["expire_info"] = "время бана [duration_in_days/30] month"
 		if (364.99 to 1023.99) // count in years
-			fields["expire_info"] = "время бана [duration_in_days/365] год/лет"
+			fields["expire_info"] = "время бана [duration_in_days/365] year"
 		if (1024 to INFINITY) // perma
-			fields["expire_info"] = "время бана не ограничено"
+			fields["expire_info"] = "permanent"
 
 	fields["ban_date"] = replacetext(time2text(world.realtime, "DDD MMM DD hh:mm:ss YYYY"), ":", ".")
 
