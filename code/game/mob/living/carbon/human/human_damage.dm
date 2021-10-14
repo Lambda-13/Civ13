@@ -214,7 +214,7 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 	if (picked.take_damage(brute,burn,sharp,edge))
 		UpdateDamageIcon()
 	updatehealth()
-	speech_problem_flag = TRUE
+	speech_problem_flag = FALSE
 	instadeath_check()
 
 //Heal MANY external organs, in random order
@@ -235,7 +235,7 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 
 		parts -= picked
 	updatehealth()
-	speech_problem_flag = TRUE
+	speech_problem_flag = FALSE
 	if (update)	UpdateDamageIcon()
 
 // damage MANY external organs, in random order
