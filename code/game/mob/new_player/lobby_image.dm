@@ -6,6 +6,7 @@
 	icon = 'icons/_LOBBY.dmi'
 	icon_state = "civ13"
 	screen_loc = "WEST,SOUTH"
+	dir = 8
 	var/list/stored_img = list()
 /obj/effect/lobby_image/initialize()
 	dir = pick("2", "4", "6", "8")
@@ -22,8 +23,14 @@
 
 		if (config.lobby_screens.len)
 			icon_state = pick(config.lobby_screens)
+			dir = pick("2", "4", "6", "8")
+			update_icon()
+			update_icon_proc()
 		else
 			icon_state = known_icon_states[1]
+			dir = pick("2", "4", "6", "8")
+			update_icon()
+			update_icon_proc()
 
 /obj/effect/lobby_image/New()
 	..()
