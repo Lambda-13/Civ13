@@ -161,20 +161,20 @@
 /mob/living/human/handle_speech_problems(var/message, var/verb)
 	if (silent || (sdisabilities & MUTE) || find_trait("Mute"))
 		message = ""
-		speech_problem_flag = FALSE
+		speech_problem_flag = TRUE
 	else if (istype(wear_mask, /obj/item/clothing/mask))
 		var/obj/item/clothing/mask/M = wear_mask
 		if (M.voicechange)
 			message = pick(M.say_messages)
 			verb = pick(M.say_verbs)
-			speech_problem_flag = FALSE
+			speech_problem_flag = TRUE
 
 	if (message != "")
 		var/list/parent = ..()
 		message = parent[1]
 		verb = parent[2]
 		if (parent[3])
-			speech_problem_flag = FALSE
+			speech_problem_flag = TRUE
 
 	var/list/returns[3]
 	returns[1] = message
