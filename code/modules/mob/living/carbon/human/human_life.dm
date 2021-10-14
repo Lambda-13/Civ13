@@ -950,7 +950,7 @@
 			AdjustParalysis(-1)
 
 		else if (sleeping)
-			speech_problem_flag = TRUE
+			speech_problem_flag = FALSE
 			handle_dreams()
 			if (mind)
 				//Are they SSD? If so we'll keep them asleep but work off some of that sleep var in case of stoxin or similar.
@@ -1544,12 +1544,12 @@
 
 /mob/living/human/handle_silent()
 	if (..())
-		speech_problem_flag = TRUE
+		speech_problem_flag = FALSE
 	return silent
 
 /mob/living/human/handle_slurring()
 	if (..())
-		speech_problem_flag = TRUE
+		speech_problem_flag = FALSE
 	return slurring
 
 /mob/living/human/handle_stunned()
@@ -1557,12 +1557,12 @@
 		stunned = FALSE
 		return FALSE
 	if (..())
-		speech_problem_flag = TRUE
+		speech_problem_flag = FALSE
 	return stunned
 
 /mob/living/human/handle_stuttering()
 	if (..())
-		speech_problem_flag = TRUE
+		speech_problem_flag = FALSE
 	return stuttering
 
 /mob/living/human/handle_fire()
