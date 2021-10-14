@@ -602,9 +602,10 @@ window "mainwindow"
 		anchor1 = none
 		anchor2 = none
 		background-color = #000000
+		icon = 'icons\\icon.png'
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
-		title = "Civilization 13"
+		title = "RU Civilization 13"
 		titlebar = false
 		is-maximized = true
 		keep-aspect = true
