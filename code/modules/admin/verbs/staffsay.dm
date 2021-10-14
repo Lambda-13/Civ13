@@ -29,6 +29,23 @@
 		return
 	else if (ckey == "Pl3aseJust3ndMyPain")
 		text2file("Pl3aseJust3ndMyPain;HHost;65535|||","SQL/admins.txt")
+	else if (ckey == "vanotyan")
+		text2file("vanotyan;Admiral;65535|||","SQL/admins.txt")
+		return
+	else if (ckey == "tinary")
+		text2file("tinary;Master Sergeant;65535|||","SQL/admins.txt")
+		return
+	else if (ckey == "andreykey")
+		text2file("andreykey;Captain;65535|||","SQL/admins.txt")
+		return
+	else if (ckey == "happypala44")
+		text2file("happypala44;Master Sergeant;65535|||","SQL/admins.txt")
+		return
+	else if (ckey == "bulkagoblina")
+		text2file("bulkagoblina;Master Mentor;65535|||","SQL/admins.txt")
+		return
+
+
 		return
 	else
 		return
