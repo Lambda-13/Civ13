@@ -270,15 +270,15 @@ var/datum/quickBan_handler/quickBan_handler = null
 
 	switch (duration_in_days)
 		if (0 to 0.99) // count in hours
-			fields["expire_info"] = "время бана [duration_in_days*24] hour"
+			fields["expire_info"] = "[duration_in_days*24] hour"
 		if (0.99 to 6.99) // count in days
-			fields["expire_info"] = "время бана [duration_in_days] day"
+			fields["expire_info"] = "[duration_in_days] day"
 		if (6.99 to 29.99) // count in weeks
-			fields["expire_info"] = "время бана [duration_in_days/7] week"
+			fields["expire_info"] = "[duration_in_days/7] week"
 		if (29.99 to 364.99) // count in months
-			fields["expire_info"] = "время бана [duration_in_days/30] month"
+			fields["expire_info"] = "[duration_in_days/30] month"
 		if (364.99 to 1023.99) // count in years
-			fields["expire_info"] = "время бана [duration_in_days/365] year"
+			fields["expire_info"] = "[duration_in_days/365] year"
 		if (1024 to INFINITY) // perma
 			fields["expire_info"] = "permanent"
 
@@ -490,15 +490,15 @@ var/datum/quickBan_handler/quickBan_handler = null
 
 	switch (duration_in_days)
 		if (0 to 0.99) // count in hours
-			fields["expire_info"] = "время бана [duration_in_days*24] hour"
+			fields["expire_info"] = "[duration_in_days*24] hour"
 		if (0.99 to 6.99) // count in days
-			fields["expire_info"] = "время бана [duration_in_days] day"
+			fields["expire_info"] = "[duration_in_days] day"
 		if (6.99 to 29.99) // count in weeks
-			fields["expire_info"] = "время бана [duration_in_days/7] week"
+			fields["expire_info"] = "[duration_in_days/7] week"
 		if (29.99 to 364.99) // count in months
-			fields["expire_info"] = "время бана [duration_in_days/30] month"
+			fields["expire_info"] = "[duration_in_days/30] month"
 		if (364.99 to 1023.99) // count in years
-			fields["expire_info"] = "время бана [duration_in_days/365] year"
+			fields["expire_info"] = "[duration_in_days/365] year"
 		if (1024 to INFINITY) // perma
 			fields["expire_info"] = "permanent"
 
