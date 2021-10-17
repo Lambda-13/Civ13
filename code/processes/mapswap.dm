@@ -577,7 +577,7 @@
 		return
 		//Really Life - damage modifer 3.0, no medals (in future, im lazy)//
 	else if (vote.voted_gamemode == "RealLive")
-		world << "<font color='white'><big>Режим реальной жизни</big><br>Респавн отключён, 3 урон, Ограничение на Обзор включён, медали в процессе кодинга.</big></font>"
+		world << "<font color='white'><big>Режим реальной жизни</big><br>Респавн отключён, 3 урон, Ограничение на Обзор включён, время по респавну.</big></font>"
 		config.disable_fov = FALSE
 		config.no_respawn_delays = FALSE
 		map.gamemode = "RealLive"
