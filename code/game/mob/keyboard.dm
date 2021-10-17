@@ -1,6 +1,6 @@
 /mob/verb/on_press_spacebar()
-
-	set category = null
+	set name = "Look into distance"
+	set category = "IC"
 
 	if (ishuman(src) && !src.stat)
 		var/mob/living/human/H = src
