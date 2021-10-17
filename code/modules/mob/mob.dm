@@ -322,6 +322,18 @@
 /mob/verb/secondary_action()
 	set name = "Activate Secondary Object"
 	set category = "IC"
+	set src = usr
+	if (hand)
+		var/obj/item/W = l_hand
+		if (W)
+			W.secondary_attack_self(src)
+			update_inv_l_hand()
+	else
+		var/obj/item/W = r_hand
+		if (W)
+			W.secondary_attack_self(src)
+			update_inv_r_hand()
+	return
 /*
 /mob/verb/dump_source()
 
