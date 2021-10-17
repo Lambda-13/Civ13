@@ -238,7 +238,7 @@
 
 /mob/verb/mode()
 	set name = "Activate Held Object"
-	set category = null
+	set category = "IC"
 	set src = usr
 	if (ishuman(src))
 		var/mob/living/human/H = src
@@ -318,6 +318,10 @@
 			update_inv_r_hand()
 	return
 
+
+/mob/verb/secondary_action()
+	set name = "Activate Secondary Object"
+	set category = "IC"
 /*
 /mob/verb/dump_source()
 
