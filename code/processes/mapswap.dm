@@ -17,8 +17,8 @@
 		//"Cold War Era (1949-1984)" = 0,
 		//"Modern Era (1985-2020)" = 0,
 		"Modern Fire Arms (1949-2021)" = 0,
-		"HRP TDM (Gulag, AOTD, Occupation)" = 10,
-		"Civilization 13 (Nomads)" = 0,
+		"HRP TDM (Gulag, AOTD, Occupation)" = 25,
+		"Civilization 13 (Nomads)" = 25,
 		"Civilization 13 (Colony & Pioneers)" = 0,
 		//"Civilization 13 (Prison Camps)" = 15,
 		"Civilization 13 (Others)" = 0,
@@ -46,20 +46,20 @@
 				"Early Fire Arms (1650-1930)" = 0,
 				"World War II (1931-1948)" = 0,
 				"Modern Fire Arms (1949-2021)" = 0,
-				"HRP TDM (Gulag, AOTD, Occupation)" = 10,
+				"HRP TDM (Gulag, AOTD, Occupation)" = 25,
 //				"Chad Mode" = 0,
-				"Battle Royale" = 6,
+				"Battle Royale" = 666,
 			)
 		else if (config.allowedgamemodes == "RP")
 			epochs = list(
 				//"The Art of the Deal" = 10,
-				"Civilization 13 (Nomads)" = 0,
+				"Civilization 13 (Nomads)" = 25,
 				"Civilization 13 (Colony & Pioneers)" = 0,
 				//"Civilization 13 (Prison Camps)" = 15,
 				"Civilization 13 (Others)" = 0,)
 		else if (config.allowedgamemodes == "PERSISTENCE")
 			epochs = list(
-				"Civilization 13 (Nomads)" = 0,)
+				"Civilization 13 (Nomads)" = 25,)
 		else if (config.allowedgamemodes == "BR")
 			epochs = list(
 				"Battle Royale" = 6,)
@@ -188,10 +188,10 @@
 			maps = list(
 //				MAP_FOOTBALL = 8,
 				MAP_GULAG13 = 0,
-				MAP_THE_ART_OF_THE_DEAL = 20,
+				MAP_THE_ART_OF_THE_DEAL = 25,
 //				MAP_ABASHIRI = 5,
 //				MAP_RIVER_KWAI = 0,
-				MAP_OCCUPATION = 10,
+				MAP_OCCUPATION = 25,
 			)
 		else if (epoch == "Civilization 13 (Nomads)")
 			maps = list(
