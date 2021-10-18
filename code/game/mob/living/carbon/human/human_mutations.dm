@@ -71,6 +71,20 @@
 				src << "<span> You notice dark fur spreading across your body!</span>"
 			togglerace("gorillaman")
 			radiation -= radiation/4 //Reduce radiation because you ain't resistant.
+		else if (prob(10))
+			if (prob(50))
+				src << "<span> My skin flaking!</span>"
+			else
+				src << "<span> I feel empty inside me!</span>"
+			togglerace("skeletman")
+			radiation -= radiation/4 //Reduce radiation because you ain't resistant.
+		else if (prob(10))
+			if (prob(50))
+				src << "<span> Brains...</span>"
+			else
+				src << "<span> Meat...</span>"
+			togglerace("zombieman")
+			radiation -= radiation/4 //Reduce radiation because you ain't resistant.
 	if(radiation >= 350) //Corpse gotta be pretty bad tbh.
 		if(stat == DEAD) //if dead.
 			if (prob(30)) //decent chance.
