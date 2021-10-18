@@ -86,7 +86,7 @@ var/datum/quickBan_handler/quickBan_handler = null
 					result3 += list(result2)
 		result = result3
 
-	var/html = "<center><big>List of Quick Bans</big></center>"
+	var/html = "<meta charset='utf-8'><center><big>List of Quick Bans</big></center>"
 	var/list/possibilities = list()
 	if (islist(result) && !isemptylist(result))
 		for (var/list/v in result)
