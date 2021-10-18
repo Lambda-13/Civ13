@@ -53,7 +53,7 @@
 	var/conf = WWinput(src, "Which faction do you wish to change?","Species","Cancel",choicelist)
 	if (conf == "Cancel")
 		return
-	var/choice = WWinput(src, "Which species to turn them into?","Species","Human", list("Human","Orc","Gorilla","Ant","Lizard","Wolfman","Crab"))
+	var/choice = WWinput(src, "Which species to turn them into?","Species","Human", list("Human","Orc","Gorilla","Ant","Lizard","Wolfman","Crab","Skelet","Zombie"))
 	if (choice == "Human")
 		map.human += conf
 		if (conf in map.orc)
