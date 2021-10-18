@@ -1022,7 +1022,7 @@ var/list/atom_types = null
 
 	if (!check_rights(R_SERVER))	return
 
-	message_admins("[key_name(usr)] manually reloaded admins, whitelists and approved lists.")
+	message_admins("[key_name(usr)] manually reloaded admins, whitelists, donaters and approved lists.")
 
 	load_admins(1)
 
@@ -1041,6 +1041,14 @@ var/list/atom_types = null
 			if (findtext(i, "="))
 				var/list/current = splittext(i, "=")
 				whitelist_list += current[1]
+
+	var/F6 = file("SQL/donatelist.txt")
+	if (fexists(F6))
+		var/list/donate_temp = file2list(F6,"\n")
+		for (var/i in donate_temp)
+			if (findtext(i, "="))
+				var/list/current = splittext(i, "=")
+				donate_list += current[1]
 
 /client/proc/reload_bans()
 	set name = "Update Bans"
