@@ -55,8 +55,8 @@
 	return
 
 /obj/structure/telegraph/attack_hand(var/mob/user as mob)
-	var/message = input(usr, "Write a word. Up to 10 characters, no spaces, symbols or numbers.") as text
-	message = sanitize(message, 10)
+	var/message = input(usr, "Пишите слова. 100 символов (50 русских), без пробелов, символов и цифр.") as text
+	message = sanitize(message, 100)
 	message = convertmsg(message)
 	if (message && message != "")
 		var/stripmsg = message
