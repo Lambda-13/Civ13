@@ -414,6 +414,7 @@
 #define CAN_JOIN		  16384 // Species is selectable in chargen.
 #define IS_RESTRICTED	 32768 // Is not a core/normally playable species. (castes, mutantraces)
 #define REGENERATES_LIMBS 65536 // Attempts to regenerate unamputated limbs.
+#define IS_DONATE		 131072 // Donate players
 
 //Flags for zone sleeping
 #define ZONE_ACTIVE   TRUE
