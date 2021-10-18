@@ -486,6 +486,7 @@
 #include "code\game\objects\map_metadata\rizal_stadium.dm"
 #include "code\game\objects\map_metadata\road_to_dak_to.dm"
 #include "code\game\objects\map_metadata\robusta.dm"
+#include "code\game\objects\map_metadata\ruvsus.dm"
 #include "code\game\objects\map_metadata\sammirhayeed.dm"
 #include "code\game\objects\map_metadata\santo_tomas.dm"
 #include "code\game\objects\map_metadata\save_awards.dm"
@@ -705,6 +706,7 @@
 #include "code\modules\1713\jobs\portuguese.dm"
 #include "code\modules\1713\jobs\prison.dm"
 #include "code\modules\1713\jobs\russian.dm"
+#include "code\modules\1713\jobs\ruvsus.dm"
 #include "code\modules\1713\jobs\samurai.dm"
 #include "code\modules\1713\jobs\spanish.dm"
 #include "code\modules\1713\jobs\superiors.dm"
@@ -1009,5 +1011,5 @@
 #include "code\processes\lighting\sources.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "maps\special\voyage.dmm"
+#include "maps\1969\yeltsin.dmm"
 // END_INCLUDE
