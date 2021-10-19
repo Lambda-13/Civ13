@@ -141,5 +141,5 @@ for pid in pids:
 	except IOError:
 		continue
 
-os.system('sudo python3 {}{}/script/whnext.py'.format(mdir,cdir))
+os.system('sudo python3 {}{}script/whnext.py'.format(mdir,cdir))
 print("Done!")
