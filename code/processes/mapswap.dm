@@ -22,7 +22,7 @@
 		"Civilization 13 (Colony & Pioneers)" = 0,
 		//"Civilization 13 (Prison Camps)" = 15,
 		"Civilization 13 (Others)" = 0,
-		"Battle Royale" = 0,
+		"Battle Royale" = 10,
 	)
 	var/ready = TRUE
 	var/admin_triggered = FALSE
@@ -48,7 +48,7 @@
 				"Modern Fire Arms (1949-2021)" = 0,
 				"HRP TDM (Gulag, AOTD, Occupation)" = 25,
 //				"Chad Mode" = 0,
-				"Battle Royale" = 666,
+				"Battle Royale" = 10,
 			)
 		else if (config.allowedgamemodes == "RP")
 			epochs = list(
@@ -62,7 +62,7 @@
 				"Civilization 13 (Nomads)" = 25,)
 		else if (config.allowedgamemodes == "BR")
 			epochs = list(
-				"Battle Royale" = 6,)
+				"Battle Royale" = 10,)
 		ready = FALSE
 		vote.initiate_vote("epoch", "EpochSwap Process", TRUE, list(src, "swap"))
 
