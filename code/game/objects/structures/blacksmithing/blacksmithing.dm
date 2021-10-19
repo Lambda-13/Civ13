@@ -564,7 +564,7 @@
 						if (choice2 == "Cancel")
 							return
 						var/list/parsed_choice2 = splittext(choice2," - ")
-						if (anvil_recipes[parsed_choice2[1]])
+						if (anvil_recipes[parsed_choice2[1]]) // Иногда срёт переполнением буфера, найти почему
 							if (ML.current_material == "bronze")
 								mat = anvil_recipes[parsed_choice2[1]][7]
 							if (ML.current_material == "copper")
