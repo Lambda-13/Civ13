@@ -15,7 +15,3 @@ scripts/killciv13.py
 scripts/killsudos.py
 scripts/clear_oggs.py
 scripts/token.txt
-scripts/whopen.py
-scripts/whnext.py
-scripts/whend.py
-scripts/whkill.py
