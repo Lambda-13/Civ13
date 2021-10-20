@@ -210,6 +210,7 @@
 //				MAP_NOMADS_ISLAND = 0,
 				MAP_NOMADS_KARAFUTO = 0,
 				MAP_NOMADS_EUROPE = 10,
+				MAP_NOMADS_FLY = 0,
 			)
 		else if (epoch == "Civilization 13 (Colony & Pioneers)")
 			maps = list(
