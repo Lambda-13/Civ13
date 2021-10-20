@@ -1111,8 +1111,8 @@ var/list/atom_types = null
 		var/options = list("manual input")
 		var/t_options = flist("maps/zones/[loct]/")
 		for(var/i in t_options)
-			if(findtext(i,"/"))
-				options += replacetext(i, "/", "")
+			if(findtext(i,"dmm"))
+				options += replacetext(i, ".dmm", "")
 		var/nam = WWinput(usr, "Which map to load?","Load Map","manual input",options)
 		if (nam == "manual input")
 			nam = input(usr, "which map?","Manual Input","") as text
@@ -1122,7 +1122,7 @@ var/list/atom_types = null
 			S.update_icon()
 		nmap.inzone = TRUE
 		nmap.ship_anchored = TRUE
-		for(var/obj/structure/voyage/anchor_capstan/VAC)
+		for(var/obj/structure/voyage/anchor_capstan/VAC in world)
 			VAC.update_icon()
 		world << "<font size=4 color='yellow'>The ship arrives at the destination.</font>"
 		if (do_clear)

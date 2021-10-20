@@ -22,11 +22,13 @@
 	is_singlefaction = TRUE
 	is_RP = TRUE
 	has_hunger = TRUE
+	respawn_delay = 1800 //3 minutes
 
 	var/longitude = 71 //71 to 77 W
 	var/latitude = 21 //21 to 27 N
 	var/list/mapgen = list()
 	var/list/islands = list()
+	var/list/forts = list()
 	var/list/sea = list()
 	var/list/ships = list()
 	var/navmoving = FALSE //if the ship is moving
@@ -35,14 +37,47 @@
 	var/navspeed = 0
 	var/inzone = FALSE //if the ship is currently in an event zone
 	var/ship_anchored = TRUE
+
+	var/roundend_msg = "The round has ended!"
+
+/obj/map_metadata/voyage/proc/get_sink()
+	var/t_level = 0
+	for(var/obj/effect/flooding/F in get_area_all_atoms(/area/caribbean/pirates/ship/voyage/lower))
+		t_level += F.flood_level*3
+	for(var/obj/effect/flooding/F in get_area_all_atoms(/area/caribbean/pirates/ship/voyage/lower/storage/kitchen))
+		t_level += F.flood_level*3
+	for(var/obj/effect/flooding/F in get_area_all_atoms(/area/caribbean/pirates/ship/voyage/lower/storage))
+		t_level += F.flood_level*3
+	for(var/obj/effect/flooding/F in get_area_all_atoms(/area/caribbean/pirates/ship/voyage/lower/storage/magazine))
+		t_level += F.flood_level*3
+	return t_level
+
+/obj/map_metadata/voyage/proc/check_roundend_conditions()
+	//sinking
+	if (get_sink() >= 100)
+		roundend_msg = "The ship has sank due to flooding in the lower decks!<br><font color='red'>You have lost!</font>"
+		map.next_win = world.time - 100
+		return
+	//everyone dead
+	if(processes.ticker.playtime_elapsed >= 6000) //10 mins
+		var/found = FALSE
+		for(var/mob/living/human/H in world)
+			if (H.stat != DEAD)
+				found = TRUE
+		if (!found)
+			roundend_msg = "The whole crew has succumbed!<br><font color='red'>You have lost!</font>"
+			map.next_win = world.time - 100
+			return
+
 /obj/map_metadata/voyage/proc/nav()
+	check_roundend_conditions()
 	if (navmoving && !ship_anchored)
 		if (!inzone)
 			navspeed = calc_speed()
 			navprogress += navspeed
 			if (navprogress >= 100)
 				navprogress = 0
-				if (navdirection == "island" || findtext(navdirection,"ship"))
+				if (navdirection == "island" || findtext(navdirection,"ship" || navdirection == "island fort"))
 					enter_event()
 				else
 					switch(navdirection)
@@ -51,37 +86,30 @@
 								latitude++
 								check_ships()
 							else
-								navmoving = FALSE
-								for(var/obj/effect/sailing_effect/S in world)
-									S.icon_state = "sailing_effect_stopped"
-									S.update_icon()
+								for(var/obj/structure/voyage/anchor_capstan/AC in world)
+									AC.lower_anchor()
+
 						if ("South")
 							if(latitude > 21)
 								latitude--
 								check_ships()
 							else
-								navmoving = FALSE
-								for(var/obj/effect/sailing_effect/S in world)
-									S.icon_state = "sailing_effect_stopped"
-									S.update_icon()
+								for(var/obj/structure/voyage/anchor_capstan/AC in world)
+									AC.lower_anchor()
 						if ("East")
 							if(longitude < 77)
 								longitude++
 								check_ships()
 							else
-								navmoving = FALSE
-								for(var/obj/effect/sailing_effect/S in world)
-									S.icon_state = "sailing_effect_stopped"
-									S.update_icon()
+								for(var/obj/structure/voyage/anchor_capstan/AC in world)
+									AC.lower_anchor()
 						if ("West")
 							if(longitude > 71)
 								longitude--
 								check_ships()
 							else
-								navmoving = FALSE
-								for(var/obj/effect/sailing_effect/S in world)
-									S.icon_state = "sailing_effect_stopped"
-									S.update_icon()
+								for(var/obj/structure/voyage/anchor_capstan/AC in world)
+									AC.lower_anchor()
 	spawn(600)
 		nav()
 //checks for ships when the player ship arrives in new coordinate
@@ -98,7 +126,7 @@
 			load_map(mapgen["[latitude],[longitude]"][3])
 			return
 
-		
+
 //0 means random for numerical values
 /obj/map_metadata/voyage/proc/gen_ship(sfaction = "random", ssize = 0, slat = 0, slon = 0)
 	if (sfaction == "random" || !(sfaction in list("pirates","merchant","spanish","british","undead")))
@@ -122,8 +150,12 @@
 	var/snum = 0
 	for(var/obj/structure/barricade/ship/mast/large/S in world)
 		if (S.owner == "ship")
-			spd += (S.sailstat+S.sailhealth+S.rigginghealth)/300
-			snum++
+			if (S.mast_is_upgraded == TRUE)
+				spd += (S.sailstat+S.sailhealth+S.rigginghealth)/150
+				snum++
+			else
+				spd += (S.sailstat+S.sailhealth+S.rigginghealth)/300
+				snum++
 	if (spd != 0 && snum != 0)
 		spd/=snum //divide by number of masts
 	spd*=33 //how much % of progress per minute for each spd unit, ex: 2 masts in full condition = 1*33 = 33, 3 mins to change tiles
@@ -141,8 +173,10 @@
 		if (prob(50))
 			load_map(pick("island1","island2","piratetown","cursedisland"),"north")
 		else
-			load_map(pick("island1","island2"),"south")
+			load_map(pick("island1","island2","piratetown"),"south")
 		return
+	else if (navdirection == "island fort")
+		load_map(pick("island_fortress1","island_fortress2"),"south")
 	else
 		load_map(mapgen["[latitude],[longitude]"][3])
 	return
@@ -158,16 +192,23 @@
 	for(var/obj/structure/grapplehook/G in world)
 		G.undeploy()
 	clear_map()
-	//convert looted autofire cannons to normal cannons
+	//convert looted autofire cannons to normal cannons and looted grappling hooks to normal hooks
 	for(var/obj/structure/cannon/modern/tank/voyage/autofire/C in world)
 		new/obj/structure/cannon/modern/tank/voyage(C.loc)
 		qdel(C)
+	for(var/obj/structure/grapplehook/auto/D in world)
+		new/obj/structure/grapplehook(D.loc)
+		qdel(D)
+
 	for(var/list/L in ships)
 		if (L[3] == latitude && L[4] == longitude)
 			ships -= L
 	for(var/list/L1 in islands)
 		if (L1[2] == latitude && L1[3] == longitude)
 			L1[4] = world.time + 18000
+	for(var/list/L2 in forts)
+		if (L2[2] == latitude && L2[3] == longitude)
+			L2[4] = world.time + 18000
 	return
 
 /obj/map_metadata/voyage/proc/clear_map()
@@ -207,6 +248,16 @@
 		new/area/caribbean/sea/bottom(T3)
 		for (var/atom/movable/lighting_overlay/LO in T3)
 			LO.update_overlay()
+
+/obj/map_metadata/voyage/update_win_condition()
+	if (world.time >= next_win && next_win != -1)
+		if (win_condition_spam_check)
+			return FALSE
+		ticker.finished = TRUE
+		world << "<font size=4>[roundend_msg]</font>"
+		win_condition_spam_check = TRUE
+		return FALSE
+
 ////////////////////////////////////////////////////////////////
 //////////////////LOADING AND SAVING PARTIAL MAPS//////////////
 /obj/map_metadata/voyage/proc/load_map(mapname = "ship1", location = "random")
@@ -214,8 +265,16 @@
 		location = pick("south","north")
 	var/y_offset = 0 //for north maps
 	if (location == "north")
-		y_offset = 50
-	var/partpath = "maps/zones/[location]/[mapname]"
+		y_offset = 51
+	var/dmm_file = "maps/zones/[location]/[mapname].dmm"
+	if(!isfile(file(dmm_file)))
+		var/newName_p1 = splittext(mapname,"_")
+		var/newName = newName_p1[1]
+		dmm_file = "maps/zones/[location]/[newName].dmm"
+	var/dmm_text = file2text(dmm_file)
+	var/dmm_suite/suite = new()
+	suite.read_map(dmm_text, 1, y_offset, 1)
+	/*
 	world.log << "Importing [partpath]..."
 	var/F = file("[partpath]/turfs.txt")
 	if (fexists(F))
@@ -238,7 +297,8 @@
 			var/list/impareas2 = splittext(i, ";")
 			if (impareas2.len && impareas2[1] == "AREA")
 				var/resultp = text2path(impareas2[5])
-				new resultp(locate(text2num(impareas2[2]),text2num(impareas2[3])+y_offset,text2num(impareas2[4])))
+				if(resultp)
+					new resultp(locate(text2num(impareas2[2]),text2num(impareas2[3])+y_offset,text2num(impareas2[4])))
 
 	var/F2 = file("[partpath]/mobs.txt")
 	if (fexists(F2))
@@ -281,6 +341,7 @@
 										tmpobj.vars[tempvars[1]] = tempvars[2]
 	world.log << "Imported all objects."
 	world.log << "Finished all imports."
+	*/
 ///////////////////////////////////////////////////////////////////
 /obj/map_metadata/voyage/proc/list2text_assoc(var/atom/A, nx = -1, ny = -1, nz = -1)
 	. = list()
@@ -385,8 +446,12 @@
 		for(var/lat = 21, lat <= 27, lat++)
 			mapgen["[lat],[lon]"] = list(lat, lon, "sea")
 			if (prob(25))
-				mapgen["[lat],[lon]"][3] = "island"
-				islands += list(list(pick("island1","island2","island3","island4","island5"),lat, lon, 0))
+				if (prob(15))
+					mapgen["[lat],[lon]"][3] = "fort"
+					forts += list(list(pick("island_fortress1","island_fortress2"),lat, lon, 0))
+				else
+					mapgen["[lat],[lon]"][3] = "island"
+					islands += list(list(pick("island1","island2","island3","island4","island5"),lat, lon, 0))
 			else
 				sea += list(list("sea",lat,lon))
 	gen_ship(sfaction = "pirates", ssize = 1, slat = 0, slon = 0)
@@ -397,6 +462,7 @@
 	gen_ship(sfaction = "pirates", ssize = 2, slat = 0, slon = 0)
 	gen_ship(sfaction = "spanish", ssize = 3, slat = 0, slon = 0)
 	gen_ship(sfaction = "spanish", ssize = 5, slat = 0, slon = 0)
+	gen_ship(sfaction = "spanish", ssize = 6, slat = 0, slon = 0)
 	spawn(100)
 		load_new_recipes()
 /obj/map_metadata/voyage/cross_message()
@@ -453,6 +519,10 @@
 					if (L[2] == nmap.latitude && L[3] == nmap.longitude && world.time <= L[4])
 						WWalert(H, "You've visited this island too recently!", "Island")
 						return
+				for(var/list/L2 in nmap.forts)
+					if (L2[2] == nmap.latitude && L2[3] == nmap.longitude && world.time <= L2[4])
+						WWalert(H, "You've visited this island fort too recently!", "Fort")
+						return
 			if (newdir != nmap.navdirection)
 				if (do_after(H, 50, src))
 					nmap.navdirection = newdir
@@ -474,8 +544,9 @@
 		..()
 		spawn(30)
 			img = image(icon = 'icons/minimaps.dmi', icon_state = "voyage")
-			update_icon()
-	update_icon()
+			get_updated_img()
+	proc/get_updated_img()
+		img.overlays.Cut()
 		if(map.ID == MAP_VOYAGE)
 			var/obj/map_metadata/voyage/nmap = map
 			for(var/list/L in nmap.islands)
@@ -483,6 +554,11 @@
 				newisland.pixel_x = 49+((L[3]-71)*69)
 				newisland.pixel_y = 81+((L[2]-21)*68)
 				img.overlays+=newisland
+			for(var/list/L in nmap.forts)
+				var/image/newfort = image(icon='icons/minimap_effects.dmi', icon_state=L[1],layer=src.layer+1)
+				newfort.pixel_x = 49+((L[3]-71)*69)
+				newfort.pixel_y = 81+((L[2]-21)*68)
+				img.overlays+=newfort
 			for(var/list/L in nmap.ships)
 				var/image/newship = image(icon='icons/minimap_effects.dmi', icon_state="ship[L[1]]",layer=src.layer+1.1)
 				newship.pixel_x = 49+((L[4]-71)*69)
@@ -521,7 +597,12 @@
 		var/t_text = "<style>table, th, td {border: 1px solid black;}</style><table><tr><th>Name</th><th>Job</th></tr>"
 		for(var/mob/living/human/HM in world)
 			if (HM.stat != DEAD)
-				t_text += "<tr><td>[HM.name]</td><td>[HM.original_job_title]</td></tr>"
+				var/t_title = HM.original_job_title
+				if (t_title == "Pirate")
+					t_title = "Sailor"
+				else
+					t_title = replacetext(HM.original_job_title,"Pirate ","")
+				t_text += "<tr><td>[HM.name]</td><td>[t_title]</td></tr>"
 		t_text += "</table>"
 		return t_text
 
@@ -644,8 +725,10 @@
 		if (nmap)
 			H << "The ship is currently at <b>[nmap.latitude]</b>°N, <b>[nmap.longitude]</b>°W."
 			H << "The ship is heading to the <b>[nmap.navdirection]</b>, progress: <b>[nmap.navprogress]%</b>"
+			H << "Sinking progress: <b>[nmap.get_sink()]%</b>"
 			if(nmap.ship_anchored)
 				H << "The ship is <font color='red'><b>anchored</b></font>."
+
 /obj/structure/voyage/shipbell
 	name = "ship's bell"
 	desc = "Used to relay signals to the crew."
@@ -711,10 +794,29 @@
 		if(anchored)
 			overlays += anchor
 
-	attack_hand(mob/user)
+	proc/raise_anchor()
 		if(map.ID == MAP_VOYAGE)
 			var/obj/map_metadata/voyage/nmap = map
-			if (nmap.inzone)
+			world << "<font size=3 color='yellow'>The ship starts moving.</font>"
+			nmap.ship_anchored = FALSE
+			nmap.navmoving = TRUE
+			for(var/obj/effect/sailing_effect/S in world)
+				S.icon_state = "sailing_effect"
+				S.update_icon()
+			update_icon()
+	proc/lower_anchor()
+		if(map.ID == MAP_VOYAGE)
+			var/obj/map_metadata/voyage/nmap = map
+			nmap.ship_anchored = TRUE
+			nmap.navmoving = FALSE
+			for(var/obj/effect/sailing_effect/S in world)
+				S.icon_state = "sailing_effect_stopped"
+				S.update_icon()
+			update_icon()
+	attack_hand(mob/user)
+		if(map.ID == MAP_VOYAGE && ishuman(user))
+			var/obj/map_metadata/voyage/nmap = map
+			if (nmap.inzone == 1)
 				if (nmap.ship_anchored)
 					var/resp = WWinput(user, "You are currently in an event, are you sure you want to raise the anchor and leave? It will take two minutes.","Anchor","No",list("Yes","No"))
 					if (resp == "No")
@@ -724,44 +826,22 @@
 						spawn(600)
 							world << "<font size=4 color='yellow'>The ship is leaving, ALL crew outside must return within <b>1</b> minute or be left behind!</font>"
 						spawn(1200)
-							nmap.ship_anchored = FALSE
-							nmap.navmoving = TRUE
-							for(var/obj/effect/sailing_effect/S in world)
-								S.icon_state = "sailing_effect"
-								S.update_icon()
-							update_icon()
+							raise_anchor()
 							nmap.abandon_event()
 				else
 					user << "You start [nmap.ship_anchored ? "raising" : "lowering"] the anchor..."
 					if (do_after(user, 60, src))
 						user << "You lower the anchor."
-						nmap.ship_anchored = TRUE
-						nmap.navmoving = FALSE
-						for(var/obj/effect/sailing_effect/S in world)
-							S.icon_state = "sailing_effect_stopped"
-							S.update_icon()
-						update_icon()
-
+						lower_anchor()
 			else
 				user << "You start [nmap.ship_anchored ? "raising" : "lowering"] the anchor..."
 				if (do_after(user, 60, src))
 					if (nmap.ship_anchored)
 						user << "You raise the anchor."
-						world << "<font size=3 color='yellow'>The ship starts moving.</font>"
-						nmap.ship_anchored = FALSE
-						nmap.navmoving = TRUE
-						for(var/obj/effect/sailing_effect/S in world)
-							S.icon_state = "sailing_effect"
-							S.update_icon()
-						update_icon()
+						raise_anchor()
 					else
 						user << "You lower the anchor."
-						nmap.ship_anchored = TRUE
-						nmap.navmoving = FALSE
-						for(var/obj/effect/sailing_effect/S in world)
-							S.icon_state = "sailing_effect_stopped"
-							S.update_icon()
-						update_icon()
+						lower_anchor()
 
 /obj/structure/voyage/ropeladder/thin
 	icon_state = "ropeladder_thin"
@@ -792,3 +872,49 @@
 	layer = 4
 	density = FALSE
 	anchored = TRUE
+
+/obj/effect/flooding
+	name = "flooded floor"
+	desc = "The water seems to be about 50cm deep."
+	icon = 'icons/misc/beach.dmi'
+	icon_state = "flood_overlay1"
+	layer = 2
+	density = FALSE
+	anchored = TRUE
+	var/flood_level = 1
+
+	New()
+		..()
+		spawn(30)
+			var/found = FALSE
+			for(var/obj/covers/CV in loc)
+				found = TRUE
+				break
+			if (found)
+				for(var/obj/effect/flooding/FLD in loc)
+					if (src != FLD)
+						flood_level = min(3,flood_level+FLD.flood_level)
+						qdel(FLD)
+						update_icon()
+			else
+				qdel(src)
+
+	update_icon()
+		icon_state = "flood_overlay[flood_level]"
+		desc = "The water seems to be about [flood_level*50]cm deep."
+
+	attackby(obj/item/I, mob/living/human/user)
+		if(istype(I, /obj/item/weapon/reagent_containers/glass))
+			if (I.reagents.get_free_space() >= 50)
+				user << "You start filling \the [I]..."
+				if (do_after(user,40,src))
+					if (I.reagents.get_free_space() >= 50)
+						I.reagents.add_reagent("sodiumchloride", 8)
+						I.reagents.add_reagent("water", 42)
+						user << "You fill \the [I]."
+						playsound(loc, 'sound/effects/watersplash.ogg', 100, TRUE)
+						flood_level--
+						if (flood_level <= 0)
+							qdel(src)
+			else
+				user << "<span class='warning'>There is not enough free capacity in \the [I] to fill it.</span>"
