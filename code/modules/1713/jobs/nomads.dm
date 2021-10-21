@@ -306,7 +306,7 @@
 
 /mob/living/human/proc/give_languages()
 	if (map && map.civilizations)
-		if (map.ID == MAP_NOMADS_CONTINENTAL || map.ID == MAP_NOMADS_FLY)
+		if (map.ID == MAP_NOMADS_CONTINENTAL)
 			spawn(5)
 				var/area/mob_area = get_area(src)
 				switch (mob_area.climate)
@@ -750,7 +750,7 @@
 					real_name = name
 					give_clothes()
 		spawn(10)
-			if (map.ID == MAP_NOMADS_CONTINENTAL || MAP_NOMADS_PANGEA || MAP_NOMADS_FLY)
+			if (map.ID == MAP_NOMADS_CONTINENTAL || MAP_NOMADS_PANGEA)
 				if (!isemptylist(whitelist_list) && config.use_job_whitelist && !client.prefs.be_random_name)
 					var/found = FALSE
 					for (var/i in whitelist_list)

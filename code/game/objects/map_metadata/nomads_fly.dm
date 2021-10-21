@@ -2,11 +2,10 @@
 	ID = MAP_NOMADS_FLY
 	title = "Nomads (Skyblock)"
 	lobby_icon_state = "civ13"
+	no_winner ="The round is proceeding normally."
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
 	respawn_delay = 6000 // 10 minutes!
 	has_hunger = TRUE
-	no_winner = "The round is proceeding normally."
-
 	faction_organization = list(
 		CIVILIAN,)
 
@@ -29,32 +28,23 @@
 	gamemode = "Classic (Stone Age Start)"
 	var/list/arealist_r = list()
 	var/list/arealist_g = list()
-/obj/map_metadata/nomads_continental/New()
+/obj/map_metadata/nomads_fly/New()
 	..()
-	spawn(2500)
-		for (var/i = 1, i <= 65, i++)
-			var/turf/areaspawn = safepick(get_area_turfs(/area/caribbean/sea/sea))
-			new/obj/structure/fish(areaspawn)
-	spawn(2500)
-		for (var/i = 1, i <= 30, i++)
-			var/turf/areaspawn = safepick(get_area_turfs(/area/caribbean/nomads/forest/Jungle/river))
-			new/obj/structure/piranha(areaspawn)
 	spawn(18000)
 		seasons()
 
-/obj/map_metadata/nomads_continental/faction2_can_cross_blocks()
-	return (ordinal_age >= 2)
+/obj/map_metadata/nomads_fly/faction2_can_cross_blocks()
+	return (processes.ticker.playtime_elapsed >= 0 || admin_ended_all_grace_periods)
 
-/obj/map_metadata/nomads_continental/faction1_can_cross_blocks()
-	return (ordinal_age >= 2)
+/obj/map_metadata/nomads_fly/faction1_can_cross_blocks()
+	return (processes.ticker.playtime_elapsed >= 0 || admin_ended_all_grace_periods)
 
-/obj/map_metadata/nomads_continental/cross_message(faction)
-	if (faction == CIVILIAN)
-		return "<big><b>As the world technological level advances, new shipbuilding techniques make us at last be able to navigate the oceans, which are absent.</b></big>"
+/obj/map_metadata/nomads_fly/cross_message(faction)
+	return ""
 
-
-/obj/map_metadata/nomads_continental/job_enabled_specialcheck(var/datum/job/J)
+/obj/map_metadata/nomads_fly/job_enabled_specialcheck(var/datum/job/J)
 	if (J.is_nomad == TRUE)
 		. = TRUE
 	else
 		. = FALSE
+
