@@ -110,6 +110,7 @@ var/list/admin_verbs_fun = list(
 	/datum/admins/proc/fantasy_races,
 	/datum/admins/proc/zombiemechanic,
 	/client/proc/nuke,
+	/client/proc/fakenuke,
 	/client/proc/make_sound,
 	/client/proc/editappear,
 	/client/proc/show_custom_roundstart_tip,
@@ -219,6 +220,7 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/cmd_admin_crush_self,
 	/client/proc/drop_bomb,
 	/client/proc/nuke,
+	/client/proc/fakenuke,
 	/datum/admins/proc/get_world_values,
 	/datum/admins/proc/set_world_radiation,
 	/datum/admins/proc/set_world_pollution,
@@ -915,6 +917,8 @@ var/global/list/global_colour_matrix = null
 	set name = "Nuke the Map"
 	set desc = "Spawns a large explosion and turns the whole map into a wasteland."
 
+	message_admins("ВНИМАНИЕ: [key] готовится взорвать нюку.")
+	log_game("ВНИМАНИЕ: [key] отовится взорвать нюку.")
 	var/conf_1 = input("Are you absolutely positively sure you want to NUKE THE WHOLE MAP? This is irreversible!") in list ("Yes", "No")
 	if (conf_1 == "No")
 		return
@@ -946,6 +950,35 @@ var/global/list/global_colour_matrix = null
 		message_admins("[key] nuked the map at ([epicenter.x],[epicenter.y],[epicenter.z]) in area [epicenter.loc.name].")
 		log_game("[key] nuked the map at ([epicenter.x],[epicenter.y],[epicenter.z]) in area [epicenter.loc.name].")
 
+/client/proc/fakenuke()
+	set category = "Fun"
+	set name = "Fake Nuke the Map"
+	set desc = "Fake nuke bomb. No fallout."
+
+	message_admins("ВНИМАНИЕ: [key] готовится взорвать ФЕЙКОВУЮ нюку.")
+	log_game("ВНИМАНИЕ: [key] отовится взорвать ФЕЙКОВУЮ нюку.")
+	var/conf_1 = input("Ты уверен что хочешь это сделать? Ржака конечно будет но ты подумай") in list ("Yes", "No")
+	if (conf_1 == "No")
+		return
+
+	var/conf_2 = input("Реально? Игроки будут оскорблять тебя") in list ("Yes", "No")
+	if (conf_2 == "No")
+		return
+	var/warning = input("Ставим таймер 30 секунд?") in list ("Yes", "No")
+
+	var/warningtimer = 5
+	if (warning == "Yes")
+		world << "<font size=3 color='red'><center>ATTENTION<br>A nuclear missile is incoming! Take cover!</center></font>"
+		var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+		for (var/mob/M in player_list)
+			M.client << warning_sound
+		warningtimer = 330
+	spawn(warningtimer)
+		world << "<font size=3 color='red'>A nuclear explosion has happened! <br><i>(Game might freeze/lag for a while while processing, please wait)</i></font>"
+		message_admins("[key] взорвал ЛОЖНУЮ нюку.")
+		log_game("[key] взорвал ЛОЖНУЮ нюку.")
+		sleep(4)
+		world << 'sound/weapons/Explosives/Dynamite.ogg'
 
 ///////////////////////GC STUFF////////////////////////////////
 
