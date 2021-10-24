@@ -1,7 +1,7 @@
 	////////////
 	//SECURITY//
 	////////////
-#define UPLOAD_LIMIT		10000000	//Restricts client uploads to the server to 100MB //Boosted this thing. What's the worst that can happen?
+#define UPLOAD_LIMIT		100000000	//Restricts client uploads to the server to 1000MB //Boosted this thing. What's the worst that can happen?
 #define ABSOLUTE_MIN_CLIENT_VERSION 512
 #define REAL_MIN_CLIENT_VERSION 513
 #define PLAYERCAP 200
