@@ -317,6 +317,8 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 				usr << browse(null, "window=vote")
 				return
 			if ("cancel")
+				log_admin("[key_name(usr)] отменяет воут.")
+				message_admins("<span class = 'notice'>[key_name_admin(usr)] отменяет воут.</span>", TRUE)
 				if (usr.client.holder)
 					reset()
 			if ("toggle_restart")
