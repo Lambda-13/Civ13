@@ -583,6 +583,20 @@ proc/admin_notice(var/message, var/rights)
 		log_admin("[key_name(usr)] has changed the research modifier to [map.autoresearch_mult].")
 		return
 
+/datum/admins/proc/set_custom_gamemode()
+	set category = "Special"
+	set desc="Set Custom Gamemode this map."
+	set name="Set Custom Gamemode"
+	if ((!map.civilizations && !map.nomads) || map.ID == MAP_TRIBES || map.ID == MAP_FOUR_KINGDOMS || map.ID == MAP_THREE_TRIBES)
+		if (WWinput(usr, "Вы уверены в своём выборе? Этот параметр не рекомендуется менять если вы не в режиме цивилизации/номандов", "Изучение", "Continue", list("Continue", "Stop")) == "Continue")
+			var/customgamemode =input("Пиши какой гейммод:", "Кастомный гейммод", "Secret")
+			if (customgamemode == null)
+				return
+			map.gamemode = customgamemode
+			world << "<big><b>Custom gamemode set to '[map.gamemode]'</b></big>"
+			log_admin("[key_name(usr)] has changed gamemode name to [map.gamemode].")
+	return
+
 /datum/admins/proc/set_custom_research()
 	set category = "Special"
 	set desc="Changes the research."
