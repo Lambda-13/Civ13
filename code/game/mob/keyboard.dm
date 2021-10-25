@@ -7,3 +7,7 @@
 		H.look_into_distance(src)
 		return
 	return FALSE
+
+/*/mob/verb/on_press_spacebar/button()
+	set name = "Look into distance"
+	set category = "IC"*/

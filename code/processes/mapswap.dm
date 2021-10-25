@@ -17,12 +17,12 @@
 		//"Cold War Era (1949-1984)" = 0,
 		//"Modern Era (1985-2020)" = 0,
 		"Modern Fire Arms (1949-2021)" = 0,
-		"HRP TDM (Gulag, AOTD, Occupation)" = 10,
-		"Civilization 13 (Nomads)" = 0,
+		"HRP TDM (Gulag, AOTD, Occupation)" = 25,
+		"Civilization 13 (Nomads)" = 25,
 		"Civilization 13 (Colony & Pioneers)" = 0,
 		//"Civilization 13 (Prison Camps)" = 15,
 		"Civilization 13 (Others)" = 0,
-		"Battle Royale" = 0,
+		"Battle Royale" = 10,
 	)
 	var/ready = TRUE
 	var/admin_triggered = FALSE
@@ -46,23 +46,23 @@
 				"Early Fire Arms (1650-1930)" = 0,
 				"World War II (1931-1948)" = 0,
 				"Modern Fire Arms (1949-2021)" = 0,
-				"HRP TDM (Gulag, AOTD, Occupation)" = 10,
+				"HRP TDM (Gulag, AOTD, Occupation)" = 25,
 //				"Chad Mode" = 0,
-				"Battle Royale" = 6,
+				"Battle Royale" = 10,
 			)
 		else if (config.allowedgamemodes == "RP")
 			epochs = list(
 				//"The Art of the Deal" = 10,
-				"Civilization 13 (Nomads)" = 0,
+				"Civilization 13 (Nomads)" = 25,
 				"Civilization 13 (Colony & Pioneers)" = 0,
 				//"Civilization 13 (Prison Camps)" = 15,
 				"Civilization 13 (Others)" = 0,)
 		else if (config.allowedgamemodes == "PERSISTENCE")
 			epochs = list(
-				"Civilization 13 (Nomads)" = 0,)
+				"Civilization 13 (Nomads)" = 25,)
 		else if (config.allowedgamemodes == "BR")
 			epochs = list(
-				"Battle Royale" = 6,)
+				"Battle Royale" = 10,)
 		ready = FALSE
 		vote.initiate_vote("epoch", "EpochSwap Process", TRUE, list(src, "swap"))
 
@@ -188,10 +188,10 @@
 			maps = list(
 //				MAP_FOOTBALL = 8,
 				MAP_GULAG13 = 0,
-				MAP_THE_ART_OF_THE_DEAL = 20,
+				MAP_THE_ART_OF_THE_DEAL = 25,
 //				MAP_ABASHIRI = 5,
 //				MAP_RIVER_KWAI = 0,
-				MAP_OCCUPATION = 10,
+				MAP_OCCUPATION = 25,
 			)
 		else if (epoch == "Civilization 13 (Nomads)")
 			maps = list(
@@ -210,6 +210,7 @@
 //				MAP_NOMADS_ISLAND = 0,
 				MAP_NOMADS_KARAFUTO = 0,
 				MAP_NOMADS_EUROPE = 10,
+				MAP_NOMADS_FLY = 228, //Not work, 400x400x3, please fix ~~sanecman
 			)
 		else if (epoch == "Civilization 13 (Colony & Pioneers)")
 			maps = list(
@@ -546,26 +547,42 @@
 		map.civf_research = list(customresearch,customresearch,customresearch,null)
 		return
 	/// TDM MODES ///
+		//Easy Mode - damage mod 0.5, no delay, no fov, no medals//
+	else if (vote.voted_gamemode == "Easy")
+		world << "<font color='blue'><big>Лёгкий Режим</big><br>Без ограничений по респавну, 0.5 урон.</big></font>"
+		config.disable_fov = TRUE
+		config.no_respawn_delays = TRUE
+		map.gamemode = "Easy"
+		global_damage_modifier = 0.5
+		return
 	else if (vote.voted_gamemode == "Normal")
-		world << "<font color='green'><big>Normal Mode</big><br>No respawn delays.</big></font>"
+		world << "<font color='green'><big>Нормальный Режим</big><br>Без ограничений по респавну.</big></font>"
 		config.disable_fov = TRUE
 		config.no_respawn_delays = TRUE
 		map.gamemode = "Normal"
 		global_damage_modifier = 1
 		return
 	else if (vote.voted_gamemode == "Competitive")
-		world << "<font color='yellow'><big>Competitive Mode</big><br>Respawn delay enabled, increased damage.</big></font>"
+		world << "<font color='yellow'><big>Соревновательный Режим</big><br>1.25 урон, время по респавну.</big></font>"
 		config.disable_fov = TRUE
 		config.no_respawn_delays = FALSE
 		map.gamemode = "Competitive"
 		global_damage_modifier = 1.15
 		return
 	else if (vote.voted_gamemode == "Hardcore")
-		world << "<font color='red'><big>HARDCORE Mode</big><br>No respawns, increased damage. Field of View enabled. Awards active.</big></font>"
+		world << "<font color='red'><big>ХАРДКОРНЫЙ режим</big><br>Респавн отключён, 1.50 урон, Ограничение на Обзор включён, включены медали.</big></font>"
 		config.disable_fov = FALSE
 		config.no_respawn_delays = FALSE
 		map.gamemode = "Hardcore"
 		global_damage_modifier = 1.30
+		return
+		//Really Life - damage modifer 3.0, no medals (in future, im lazy)//
+	else if (vote.voted_gamemode == "RealLive")
+		world << "<font color='white'><big>Режим реальной жизни</big><br>Респавн отключён, 3 урон, Ограничение на Обзор включён, время по респавну.</big></font>"
+		config.disable_fov = FALSE
+		config.no_respawn_delays = FALSE
+		map.gamemode = "RealLive"
+		global_damage_modifier = 3
 		return
 	/// CAPITOL MODES //
 	else if (vote.voted_gamemode == "Siege")

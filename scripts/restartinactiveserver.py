@@ -22,7 +22,7 @@ for pid in pids:
         # due to BUGS we need to make sure the file we use as a reference is newer than the other
         # todo: add test server support
         may_restart_server = []
-        may_restart_server.append("1714")
+        may_restart_server.append("55555")
 
         if len(may_restart_server) == 0:
             may_restart_server.append("notathing")
@@ -46,3 +46,13 @@ for pid in pids:
                             print("Restarted main server on port {}.".format(port))
     except IOError:
         continue
+
+handle = open(os.path.join(currdir, "token.txt"))
+token = handle.read()
+print("Запускаем...")
+handle.close()
+
+from discord import Webhook, RequestsWebhookAdapter
+
+webhook = Webhook.from_url(token, adapter=RequestsWebhookAdapter())
+webhook.send("<@&896361299057983519> сервер перезапущен из-за лагов")

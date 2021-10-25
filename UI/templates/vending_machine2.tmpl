@@ -4,12 +4,13 @@
 -->
 <h1><center>{{:data.company}}</center></h1>
 {{if data.mode == 0}} <!-- Listing -->
+<meta charset='utf-8'>
 <h2>Money</h2>
 <div class='item'>
 	<div class='itemLabel'>Money deposited (silver coins):</div> 
 	<div class='itemContent'>{{:helper.link(data.moneyin + ' sc', 'eject', {'remove_money' : 1})}}</div>
 </div>
-<h2>Items available</h2>
+<h2>Доступные вещи</h2>
 <div class='item'>
 	{{for data.products}}
 	<div class='item'>
@@ -28,7 +29,7 @@
 		</div>
 	</div>
 	{{empty}}
-	No items available!
+	No Доступные вещи!
 	{{/for}}
 </div>
 {{else data.mode == 1}} <!-- Payment screen -->
