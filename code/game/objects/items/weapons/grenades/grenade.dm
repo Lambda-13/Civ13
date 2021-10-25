@@ -42,8 +42,8 @@
 		return
 
 	if (user)
-		message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) primed \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
-		log_game("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) primed \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
+		message_admins("<h4><span class = 'warning'>!!!</span> [user.name] ([user.ckey]) активировал \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
+		log_game("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) активировал \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 		firer = user
 	icon_state = initial(icon_state) + "_active"
 	active = TRUE
