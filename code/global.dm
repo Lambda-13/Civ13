@@ -13,7 +13,7 @@ var/diary			   = null
 var/attack_log		  = null
 var/href_logfile		= null
 var/customserver_name   = null
-var/game_version		= "Civilization 13"
+var/game_version		= "Russian Civilization 13"
 var/changelog_hash	  = ""
 
 
@@ -65,7 +65,7 @@ body
 {
 	padding: 0;
 	margin: 0;
-	background-color: #271a0c;
+	background-color: #1f2025;
 	font-size: 16px;
 	color: #ffffff;
 	line-height: 170%;
@@ -73,7 +73,7 @@ body
 
 hr
 {
-	background-color: #271a0c;
+	background-color: #1f2025;
 	height: 1px;
 }
 

@@ -9,7 +9,7 @@ MASTER_DIRECTORY /home/1713
 ALLOWED_GAMEMODES ALL
 
 ## The main content of your hub message
-#HUB_BODY From the Stone Age to the Industrial Age
+#HUB_BODY Как станция, только без космоса
 
 ## Use a link to a banner on your hub message? Comment out if not
 HUB_BANNER_URL https://i.imgur.com/napac0L.png
