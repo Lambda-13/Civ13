@@ -12,6 +12,7 @@
 	var/active = FALSE
 	var/det_time = 50
 	var/loadable = TRUE
+	var/armsound = 'sound/weapons/armbomb.ogg'
 	flammable = TRUE
 	value = 5
 	var/explosion_sound = 'sound/weapons/Explosives/HEGrenade.ogg'
@@ -41,11 +42,12 @@
 		return
 
 	if (user)
-		msg_admin_attack("[user.name] ([user.ckey]) primed \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+		message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) primed \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
+		log_game("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) primed \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 		firer = user
 	icon_state = initial(icon_state) + "_active"
 	active = TRUE
-	playsound(loc, 'sound/weapons/armbomb.ogg', 75, TRUE, -3)
+	playsound(loc, armsound, 75, TRUE, -3)
 
 	spawn(det_time)
 		visible_message("<span class = 'warning'>\The [src] goes off!</span>")
@@ -203,7 +205,7 @@
 
 	icon_state = "dynamite3"
 	active = TRUE
-	playsound(loc, 'sound/weapons/armbomb.ogg', 75, TRUE, -3)
+	playsound(loc, armsound, 75, TRUE, -3)
 	update_icon()
 	spawn(det_time)
 		visible_message("<span class = 'warning'>\The [src] goes off!</span>")
@@ -543,7 +545,7 @@
 	if (user && user.faction_text == ARAB)
 		user.emote("charge")
 	active = TRUE
-	playsound(loc, 'sound/weapons/armbomb.ogg', 75, TRUE, -3)
+	playsound(loc, armsound, 75, TRUE, -3)
 
 	spawn(det_time)
 		visible_message("<span class = 'warning'>\The [src] goes off!</span>")
@@ -609,7 +611,7 @@
 	if (user && user.faction_text == JAPANESE)
 		user.emote("charge")
 	active = TRUE
-	playsound(loc, 'sound/weapons/armbomb.ogg', 75, TRUE, -3)
+	playsound(loc, armsound, 75, TRUE, -3)
 
 	spawn(det_time)
 		visible_message("<span class = 'warning'>\The [src] goes off!</span>")
