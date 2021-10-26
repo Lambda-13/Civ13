@@ -100,7 +100,7 @@
 		return TOPIC_REFRESH
 
 	else if (href_list["select_cursor"])
-		var/cursor_new = WWinput(usr, "Choose Cursor Style:", "Mouse Cursor", "Default", list("Default","Red Crosshair","Green Crosshair","White Crosshair"))
+		var/cursor_new = WWinput(usr, "Choose Cursor Style:", "Mouse Cursor", "Default", list("Default","Red Crosshair","Green Crosshair","White Crosshair","Stalker"))
 		if (cursor_new == "Default")
 			pref.cursor = null
 		else if (cursor_new == "Red Crosshair")
