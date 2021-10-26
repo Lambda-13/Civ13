@@ -923,26 +923,36 @@ var/global/list/global_colour_matrix = null
 	message_admins("ВНИМАНИЕ: [key] готовится взорвать нюку.")
 	log_game("ВНИМАНИЕ: [key] отовится взорвать нюку.")
 	var/conf_1 = input("Are you absolutely positively sure you want to NUKE THE WHOLE MAP? This is irreversible!") in list ("Yes", "No")
+	message_admins("ВНИМАНИЕ: [key] не взрывает нюку.")
+	log_game("ВНИМАНИЕ: [key] не взрывает нюку.")
 	if (conf_1 == "No")
 		return
 
 	var/conf_2 = input("Seriously? THIS WILL LAG THE GAME FOR A WHILE!") in list ("Yes", "No")
 	if (conf_2 == "No")
+		message_admins("ВНИМАНИЕ: [key] не взрывает нюку.")
+		log_game("ВНИМАНИЕ: [key] не взрывает нюку.")
 		return
 	var/warning = input("Do you want to give a 30 second warning before the nuke hits?") in list ("Yes", "No")
 
 	if (!mob || !mob.loc)
 		src << "<span class = 'warning'>You can't create a radiation emission here.</span>"
+		message_admins("ВНИМАНИЕ: [key] не взрывает нюку так как он в лобби.")
+		log_game("ВНИМАНИЕ: [key] не взрывает нюку так как он в лобби.")
 		return
 
 	if (!processes.explosion || !processes.explosion.fires_at_gamestates.Find(ticker.current_state))
 		src << "<span class = 'warning'>You can't create a radiation emission now.</span>"
+		message_admins("ВНИМАНИЕ: [key] не взрывает нюку - процесс занят.")
+		log_game("ВНИМАНИЕ: [key] не взрывает нюку - процесс занят.")
 		return
 
 	var/turf/epicenter = mob.loc
 	var/warningtimer = 5
 	if (warning == "Yes")
 		world << "<font size=3 color='red'><center>ATTENTION<br>A nuclear missile is incoming! Take cover!</center></font>"
+		message_admins("ВНИМАНИЕ: [key] активирует 30 секунд до взрыва нюки.")
+		log_game("ВНИМАНИЕ: [key] активирует 30 секунд до взрыва нюки.")
 		var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
 		for (var/mob/M in player_list)
 			M.client << warning_sound
@@ -959,18 +969,24 @@ var/global/list/global_colour_matrix = null
 	set desc = "Fake nuke bomb. No fallout."
 
 	message_admins("ВНИМАНИЕ: [key] готовится взорвать ФЕЙКОВУЮ нюку.")
-	log_game("ВНИМАНИЕ: [key] отовится взорвать ФЕЙКОВУЮ нюку.")
+	log_game("ВНИМАНИЕ: [key] готовится взорвать ФЕЙКОВУЮ нюку.")
 	var/conf_1 = input("Ты уверен что хочешь это сделать? Ржака конечно будет но ты подумай") in list ("Yes", "No")
 	if (conf_1 == "No")
+		message_admins("ВНИМАНИЕ: [key] не взрывает ФЕЙКОВУЮ нюку.")
+		log_game("ВНИМАНИЕ: [key] не взрывает ФЕЙКОВУЮ нюку.")
 		return
 
 	var/conf_2 = input("Реально? Игроки будут оскорблять тебя") in list ("Yes", "No")
 	if (conf_2 == "No")
+		message_admins("ВНИМАНИЕ: [key] не взрывает ФЕЙКОВУЮ нюку.")
+		log_game("ВНИМАНИЕ: [key] не взрывает ФЕЙКОВУЮ нюку.")
 		return
 	var/warning = input("Ставим таймер 30 секунд?") in list ("Yes", "No")
 
 	var/warningtimer = 5
 	if (warning == "Yes")
+		message_admins("ВНИМАНИЕ: [key] активирует 30 секунд до взрыва ФЕЙКОВОЙ нюки.")
+		log_game("ВНИМАНИЕ: [key] активирует 30 секунд до взрыва ФЕЙКОВОЙ нюки.")
 		world << "<font size=3 color='red'><center>ATTENTION<br>A nuclear missile is incoming! Take cover!</center></font>"
 		var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
 		for (var/mob/M in player_list)
