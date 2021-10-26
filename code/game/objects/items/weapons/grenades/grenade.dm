@@ -42,7 +42,7 @@
 		return
 
 	if (user)
-		message_admins("<h4><span class = 'warning'>!!!</span> [user.name] ([user.ckey]) активировал \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
+		message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) активировал \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 		log_game("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) активировал \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 		firer = user
 	icon_state = initial(icon_state) + "_active"
@@ -434,12 +434,12 @@
 	if (secondary_action)
 		var/inp = WWinput(user, "Are you sure you wan't to place a booby trap here?", "Booby Trapping", "No", list("Yes","No"))
 		if (inp == "Yes")
-			message_admins("<h4><span class = 'warning'>!!!</span> [user.name] ([user.ckey]) минирует тайл под собой \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
+			message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) минирует тайл под собой \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 			log_game("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) минирует тайл под собой \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 			user << "Placing the booby trap..."
 			if (do_after(user, 100, src))
 				if (src)
-					message_admins("<h4><span class = 'warning'>!!!</span> [user.name] ([user.ckey]) заминировал тайл под собой с помощью \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
+					message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) заминировал тайл под собой с помощью \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 					log_game("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) заминировал тайл под собой с помощью \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 					user << "You successfully place the booby trap here using \the [src]."
 					var/obj/item/mine/boobytrap/BT = new /obj/item/mine/boobytrap(get_turf(user))
