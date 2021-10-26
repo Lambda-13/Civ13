@@ -923,9 +923,9 @@ var/global/list/global_colour_matrix = null
 	message_admins("ВНИМАНИЕ: [key] готовится взорвать нюку.")
 	log_game("ВНИМАНИЕ: [key] отовится взорвать нюку.")
 	var/conf_1 = input("Are you absolutely positively sure you want to NUKE THE WHOLE MAP? This is irreversible!") in list ("Yes", "No")
-	message_admins("ВНИМАНИЕ: [key] не взрывает нюку.")
-	log_game("ВНИМАНИЕ: [key] не взрывает нюку.")
 	if (conf_1 == "No")
+		message_admins("ВНИМАНИЕ: [key] не взрывает нюку.")
+		log_game("ВНИМАНИЕ: [key] не взрывает нюку.")
 		return
 
 	var/conf_2 = input("Seriously? THIS WILL LAG THE GAME FOR A WHILE!") in list ("Yes", "No")
