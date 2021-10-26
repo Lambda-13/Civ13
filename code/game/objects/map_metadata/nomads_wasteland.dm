@@ -127,3 +127,12 @@
 /obj/map_metadata/nomads_wasteland/two/proc/zombies(var/start = TRUE)
 	for(var/obj/effect/spawner/mobspawner/zombies/special/S in world)
 		S.activated = start
+
+/obj/map_metadata/nomads_wasteland/two/ru
+	ID = MAP_NOMADS_WASTELAND_RU
+	title = "Wasteland RU"
+	gamemode = "Russian Wasteland"
+	nonukes = TRUE
+	is_zombie = TRUE
+	mission_start_message = "<big>Миру давно пришёл конец, сможете ли вы построить новую цивилизацию на остатках прошлых лет?</big><br><b>Вики https://civ13.github.io/civ13-wiki/Civilizations_and_Nomads</b>"
+	ambience = list('sound/ambience/desert.ogg')
