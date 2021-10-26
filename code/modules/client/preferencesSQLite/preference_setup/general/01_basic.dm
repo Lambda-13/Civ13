@@ -29,6 +29,9 @@
 
 	else if (pref.cursor == 'icons/effects/green_cursors.dmi')
 		currcursor = "Green Crosshair"
+
+	else if (pref.cursor == 'icons/russian/effects/stalker_cursors.dmi')
+		currcursor = "Stalker"
 	else
 		currcursor = "Default"
 	. += "<b>Cursor Style: </b><a href='?src=\ref[src];select_cursor=1'><b>[currcursor]</b></A><br><br>"
@@ -106,6 +109,8 @@
 			pref.cursor = 'icons/effects/white_cursors.dmi'
 		else if (cursor_new == "Green Crosshair")
 			pref.cursor = 'icons/effects/green_cursors.dmi'
+		else if (cursor_new == "Stalker")
+			pref.cursor = 'icons/russian/effects/stalker_cursors.dmi'
 		else
 			pref.cursor = null
 		pref.save_preferences()
