@@ -46,7 +46,7 @@
 	else if (choice == "Green Crosshair")
 		mouse_pointer_icon = 'icons/effects/green_cursors.dmi'
 	else if (choice == "Stalker")
-		mouse_pointer_icon = 'icons/russian/effects/green_cursors.dmi'
+		mouse_pointer_icon = 'icons/russian/effects/stalker_cursors.dmi'
 	else
 		mouse_pointer_icon = initial(mouse_pointer_icon)
 	prefs.cursor = mouse_pointer_icon
