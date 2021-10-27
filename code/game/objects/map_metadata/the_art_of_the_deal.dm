@@ -113,11 +113,11 @@
 		E.sender = "[lowertext(pick(first_names_male))][rand(1,99)]@monkeysoft.ug"
 		E.receiver = i
 		E.message = pick(
-			"Hey man, send [needed], really need it. Is [pay] ok? Will be expecting.<br>kudos from [uppertext(E.sender[1])].",
-			"Hope you guys are ok. Need [needed]. ASAP. Will pay [pay]$ for all of it. Yours trully",
-			"Hey, need a delivery of [needed] for [pay], thanks.",
-			"I heard you can get your hands on something i need. I'll pay you [pay]. Send me [needed].<br>Thanks",
-			"Send [needed]. Pay is [pay]$. Discretion as always.<br>-[uppertext(E.sender[1])]",
+			"Хей чел, мне надо бы [needed] и срочняк. Я заплачу [pay] баксов, согласен?<br>kudos from [uppertext(E.sender[1])].",
+			"Пчел, надо [needed]. АСАП. Плачу [pay]$. Твой знакомый.",
+			"Я заказал [needed] за [pay] бачей, жду доставки.",
+			"Тебе нужны деньги а мне нужен товар. Плачу [pay] за [needed].<br>Спасибо",
+			"Отправь [needed]. Плачу [pay]$. Без лишних слов.<br>-[uppertext(E.sender[1])]",
 			)
 		E.date = roundduration2text()
 		E.read = FALSE
