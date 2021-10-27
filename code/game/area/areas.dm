@@ -55,7 +55,7 @@
 	var/artillery_integrity = 100
 
 /area/New()
-	icon = 'icons/effects/weather.dmi'
+	icon = 'icons/russian/effects/weather.dmi'
 	icon_state = ""
 	layer = 10
 	uid = ++global_uid
