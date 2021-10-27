@@ -32,6 +32,10 @@
 
 	else if (pref.cursor == 'icons/russian/effects/stalker_cursors.dmi')
 		currcursor = "Stalker"
+
+	else if (pref.cursor == 'icons/russian/effects/lifeweb_cursors.dmi')
+		currcursor = "Lifeweb"
+
 	else
 		currcursor = "Default"
 	. += "<b>Cursor Style: </b><a href='?src=\ref[src];select_cursor=1'><b>[currcursor]</b></A><br><br>"
@@ -100,7 +104,7 @@
 		return TOPIC_REFRESH
 
 	else if (href_list["select_cursor"])
-		var/cursor_new = WWinput(usr, "Choose Cursor Style:", "Mouse Cursor", "Default", list("Default","Red Crosshair","Green Crosshair","White Crosshair","Stalker"))
+		var/cursor_new = WWinput(usr, "Choose Cursor Style:", "Mouse Cursor", "Default", list("Default","Red Crosshair","Green Crosshair","White Crosshair","Stalker","Lifeweb"))
 		if (cursor_new == "Default")
 			pref.cursor = null
 		else if (cursor_new == "Red Crosshair")
@@ -111,6 +115,8 @@
 			pref.cursor = 'icons/effects/green_cursors.dmi'
 		else if (cursor_new == "Stalker")
 			pref.cursor = 'icons/russian/effects/stalker_cursors.dmi'
+		else if (cursor_new == "Lifeweb")
+			pref.cursor = 'icons/russian/effects/lifeweb_cursors.dmi'
 		else
 			pref.cursor = null
 		pref.save_preferences()
