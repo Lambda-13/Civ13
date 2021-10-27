@@ -99,7 +99,7 @@
 					mainmenu += "&nbsp;<a href='?src=\ref[src];program=[i]'>[P.name]</a>"
 					if (i % 3 == 0) // 3 items per line
 						mainmenu += "<br>"
-		mainbody = "System initialized."
+		mainbody = "Система загружена."
 
 	else if (operatingsystem == "unga OS")
 		mainmenu = "<i><h1><img src='uos.png'></img></h1></i>"
