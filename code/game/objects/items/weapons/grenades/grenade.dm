@@ -253,6 +253,17 @@
 	spawn (5)
 		qdel(src)
 
+/obj/item/weapon/grenade/modern/fart
+	name = "FT bomb"
+	desc = "RYSSKAYA RAZRABOTKA OC'KA."
+	icon_state = "mills"
+	explosion_size = 0
+	fragment_type = /obj/item/projectile/bullet/pellet/poo
+	num_fragments = 30  //total number of fragments produced by the grenade
+	det_time = 70
+	throw_range = 7
+	explosion_sound = 'sound/weapons/Explosives/FTGrenade.ogg'
+
 /obj/item/weapon/grenade/modern/mills
 	name = "mills bomb no. 5"
 	desc = "A British early XXth century grenade."
