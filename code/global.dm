@@ -1,6 +1,8 @@
 //#define TESTING
 #if DM_VERSION < 512
-#warn This compiler is out of date. You may experience issues with projectile animations.
+#warn Внимание, ваша версия ниже 512, анимации прожектайлов не будут видны.
+#if DM_VERSION < 513
+#warn Внимание, ваша персия ниже 513, общение будет затруднено из-за различия кодировок.
 #endif
 
 var/bearcave_ticking = FALSE
