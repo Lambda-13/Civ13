@@ -3,6 +3,7 @@
 	"NewStyle",
 	"LiteWebStyle",
 	"FoFStyle",
+	"TGStyle"
 	)
 
 /client/verb/change_ui()
