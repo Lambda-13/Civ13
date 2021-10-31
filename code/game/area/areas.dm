@@ -32,7 +32,7 @@
 	var/list/ambience = list()
 	var/list/forced_ambience = list()
 	var/turf/base_turf //The base turf type of the area, which can be used to override the z-level's base turf
-	var/sound_env = FOREST
+	var/sound_env = ALLEY
 
 	var/location = AREA_OUTSIDE
 
