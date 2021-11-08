@@ -8,7 +8,7 @@
 "ah" = (/obj/structure/wild/rock,/turf/floor/beach/sand/desert,/area/caribbean/desert)
 "ai" = (/turf/floor/beach/sand,/area/caribbean/desert)
 "aj" = (/obj/structure/wild/palm,/turf/floor/beach/sand/desert,/area/caribbean/desert)
-"ak" = (/obj/covers/road,/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/obj/item/weapon/gun/projectile/automatic/stationary/modern/browning,/turf/floor/dirt,/area/caribbean/desert)
+"ak" = (/obj/structure/vehicleparts/movement/tracks/reversed{icon_state = "tracks_end"; dir = 1},/obj/structure/engine/internal/gasoline{enginesize = 12000},/obj/structure/vehicleparts/frame/panzeriv/rb,/turf/floor/plating/road,/area/caribbean/desert)
 "al" = (/obj/structure/window/barrier/sandbag,/obj/item/flashlight/flare/nighttime,/obj/structure/sign/traffic/central{icon_state = "centralline"; dir = 4},/turf/floor/plating/road,/area/caribbean/desert)
 "am" = (/obj/structure/wild/palm,/turf/floor/grass,/area/caribbean/desert)
 "an" = (/obj/structure/window/barrier/sandbag,/obj/structure/sign/traffic/central{icon_state = "centralline"; dir = 8},/turf/floor/plating/road,/area/caribbean/desert)
@@ -75,8 +75,8 @@
 "bw" = (/obj/structure/barricade/tires,/turf/floor/dirt/dust,/area/caribbean/desert)
 "bx" = (/obj/structure/wild/tree/live_tree,/turf/floor/dirt,/area/caribbean/desert)
 "by" = (/obj/covers/roads/dirt,/turf/floor/grass,/area/caribbean/desert)
-"bz" = (/obj/covers/road,/obj/item/ammo_magazine/browning,/turf/floor/dirt,/area/caribbean/desert)
-"bA" = (/obj/structure/vehicleparts/frame/car/rb{noroof = 1},/turf/floor/plating/road,/area/caribbean/desert)
+"bz" = (/obj/structure/lamp/lamp_small/tank/red{icon_state = "bulb"; dir = 1},/obj/structure/vehicleparts/frame/panzeriv/back,/obj/structure/bed/roller,/turf/floor/plating/road,/area/caribbean/desert)
+"bA" = (/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueledgasoline,/obj/structure/vehicleparts/movement/tracks/reversed{icon_state = "tracks_end"; dir = 1},/obj/structure/vehicleparts/frame/panzeriv/lb,/turf/floor/plating/road,/area/caribbean/desert)
 "bB" = (/obj/structure/wild/jungle/medpine,/turf/floor/grass,/area/caribbean/desert)
 "bC" = (/obj/structure/vending/usa_equipment_modern,/turf/floor/dirt/dust,/area/caribbean/british{name = "American Base"})
 "bD" = (/obj/structure/props/sofa,/turf/floor/plating/concrete,/area/caribbean/desert/buildings{name = "Buildings"})
@@ -154,10 +154,10 @@
 "cX" = (/obj/covers/sandstone_wall,/turf/floor/dirt/dust,/area/caribbean/desert/buildings{name = "Buildings"})
 "cY" = (/obj/structure/window/barrier{icon_state = "dirt_wall"; dir = 1},/turf/floor/beach/sand/desert,/area/caribbean/desert)
 "cZ" = (/obj/item/weapon/trafficcone{icon_state = "cone1"; dir = 4},/turf/floor/plating/road,/area/caribbean/desert)
-"da" = (/obj/structure/sign/traffic/central{icon_state = "centralline"; dir = 1},/obj/structure/window/barrier/sandbag,/turf/floor/plating/road,/area/caribbean/desert)
+"da" = (/obj/effect/autoassembler,/obj/structure/vehicleparts/frame/panzeriv/right/door,/turf/floor/plating/road,/area/caribbean/desert)
 "db" = (/obj/item/weapon/barrier/sandbag,/obj/item/weapon/barrier/sandbag,/obj/item/weapon/barrier/sandbag,/obj/item/weapon/barrier/sandbag,/obj/item/weapon/barrier/sandbag,/obj/item/weapon/barrier/sandbag,/obj/item/weapon/barrier/sandbag,/obj/item/weapon/barrier/sandbag,/obj/item/weapon/barrier/sandbag,/obj/item/weapon/barrier/sandbag,/obj/item/weapon/barrier/sandbag,/obj/item/weapon/barrier/sandbag,/obj/item/weapon/barrier/sandbag,/obj/item/weapon/barrier/sandbag,/obj/structure/closet/crate/empty,/turf/floor/dirt/dust,/area/caribbean/no_mans_land/invisible_wall/desert)
 "dc" = (/turf/floor/plating/road,/area/caribbean/no_mans_land/invisible_wall/desert)
-"dd" = (/obj/structure/barricade/car,/obj/effect/decal/cleanable/blood/oil,/turf/floor/plating/road,/area/caribbean/desert)
+"dd" = (/obj/structure/vehicleparts/frame/panzeriv,/turf/floor/plating/road,/area/caribbean/desert)
 "de" = (/obj/structure/barricade/car,/turf/floor/dirt/dust,/area/caribbean/desert)
 "df" = (/obj/structure/wild/burnedbush,/turf/floor/beach/sand/desert,/area/caribbean/no_mans_land/invisible_wall/desert)
 "dg" = (/obj/structure/sign/traffic/zebracrossing{icon_state = "zebra"; dir = 4},/turf/floor/plating/road,/area/caribbean/desert)
@@ -171,7 +171,7 @@
 "do" = (/obj/structure/window/barrier/jersey{icon_state = "jerseybarrier1"; dir = 4},/turf/floor/plating/road,/area/caribbean/desert)
 "dp" = (/obj/structure/sign/traffic/central{icon_state = "centralline"; dir = 4},/obj/item/weapon/trafficcone{icon_state = "cone1"; dir = 4},/turf/floor/plating/road,/area/caribbean/desert)
 "dq" = (/obj/structure/sign/traffic/central{icon_state = "centralline"; dir = 4},/obj/item/weapon/trafficcone{icon_state = "cone1"; dir = 1},/turf/floor/plating/road,/area/caribbean/desert)
-"dr" = (/obj/structure/vehicleparts/frame/car/right,/obj/structure/vehicleparts/movement,/obj/covers/road,/obj/covers/road,/turf/floor/grass,/area/caribbean/desert)
+"dr" = (/obj/structure/vehicleparts/frame/car/right,/obj/structure/vehicleparts/movement,/obj/covers/road,/obj/covers/road,/turf/floor/plating/road,/area/caribbean/desert)
 "ds" = (/obj/structure/props/junk,/turf/floor/plating/road,/area/caribbean/desert)
 "dt" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 8},/turf/floor/plating/road,/area/caribbean/desert)
 "du" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 8},/turf/floor/plating/road,/area/caribbean/desert)
@@ -576,31 +576,42 @@
 "ld" = (/obj/effect/landmark{name = "JoinLateRNCap"},/turf/floor/dirt/dust,/area/caribbean/british{name = "American Base"})
 "le" = (/obj/effect/landmark{name = "JoinLateRNCap"},/turf/floor/beach/sand/desert,/area/caribbean/british{name = "American Base"})
 "lf" = (/obj/effect/autoassembler,/turf/floor/plating/road,/area/caribbean/desert)
-"lg" = (/obj/structure/vehicleparts/frame/car/rb{noroof = 1},/obj/structure/bed/chair/office/dark,/obj/structure/vehicleparts/movement,/obj/item/ammo_magazine/browning,/obj/item/ammo_magazine/browning,/obj/item/ammo_magazine/browning,/obj/item/ammo_magazine/browning,/obj/item/ammo_magazine/browning,/obj/item/ammo_magazine/browning,/turf/floor/plating/road,/area/caribbean/desert)
-"lh" = (/obj/structure/vehicleparts/frame/car/lb{noroof = 1},/obj/structure/bed/chair/office/dark,/obj/structure/vehicleparts/movement/reversed{icon_state = "wheel_t_dark"; dir = 1},/turf/floor/plating/road,/area/caribbean/desert)
-"li" = (/obj/structure/vehicleparts/frame/car/rb{noroof = 1},/obj/structure/bed/chair/office/dark,/obj/structure/vehicleparts/movement,/turf/floor/plating/road,/area/caribbean/desert)
-"lj" = (/obj/structure/bed/chair/office/dark,/obj/structure/vehicleparts/frame/car/rf/truck{noroof = 1},/obj/item/weapon/gun/projectile/automatic/stationary/modern/browning,/turf/floor/plating/road,/area/caribbean/desert)
-"lk" = (/obj/structure/bed/chair/drivers,/obj/structure/vehicleparts/axis/car{color = "#7f0000"; name = "Car"},/obj/structure/vehicleparts/frame/car/lf/truck{noroof = 1},/obj/covers/road,/obj/structure/sign/traffic/central{icon_state = "centralline"; dir = 4},/turf/floor/dirt,/area/caribbean/desert)
-"ll" = (/obj/structure/bed/chair/office/dark,/obj/structure/vehicleparts/frame/car/rf/truck{noroof = 1},/turf/floor/plating/road,/area/caribbean/desert)
-"lm" = (/obj/structure/bed/chair/drivers,/obj/structure/vehicleparts/axis/car{color = "#007f00"; name = "Truck"},/obj/structure/vehicleparts/frame/car/lf/truck{noroof = 0},/obj/covers/road,/obj/covers/road,/turf/floor/grass,/area/caribbean/desert)
-"ln" = (/obj/item/weapon/reagent_containers/glass/barrel/fueltank/smalltank/fueledgasoline,/obj/structure/vehicleparts/frame/car/rf,/obj/structure/vehicleparts/movement,/turf/floor/plating/road,/area/caribbean/desert)
-"lo" = (/obj/structure/engine/internal/gasoline{enginesize = 7000},/obj/structure/vehicleparts/frame/car/lf,/obj/structure/vehicleparts/movement/reversed{icon_state = "wheel_t_dark"; dir = 1},/turf/floor/plating/road,/area/caribbean/desert)
+"lg" = (/obj/structure/vehicleparts/frame/car/left,/obj/structure/vehicleparts/movement{icon_state = "wheel_t_dark"; dir = 1},/obj/covers/road,/obj/covers/road,/obj/structure/closet/crate/ww2,/obj/item/weapon/gun/launcher/rocket/rpg7,/obj/item/ammo_casing/rocket/og7v,/obj/item/ammo_casing/rocket/og7v,/obj/item/ammo_casing/rocket/og7v,/obj/item/ammo_casing/rocket/og7v,/obj/item/ammo_casing/rocket/og7v,/obj/item/ammo_casing/rocket/og7v,/obj/item/ammo_casing/rocket/og7v,/obj/item/ammo_casing/rocket/og7v,/turf/floor/plating/road,/area/caribbean/desert)
+"lh" = (/obj/structure/vehicleparts/movement/reversed,/obj/structure/bed/chair/office/dark,/obj/item/weapon/gun/projectile/automatic/stationary/modern/browning{icon_state = "browning"; dir = 1},/obj/item/ammo_magazine/browning,/obj/item/ammo_magazine/browning,/obj/structure/vehicleparts/frame/car/rb/armored,/turf/floor/plating/road,/area/caribbean/desert)
+"li" = (/obj/structure/vehicleparts/frame/panzeriv/left/door,/obj/item/weapon/radio/faction1,/turf/floor/plating/road,/area/caribbean/desert)
+"lj" = (/obj/structure/vehicleparts/frame/car/right,/obj/covers/road,/obj/covers/road,/turf/floor/plating/road,/area/caribbean/desert)
+"lk" = (/obj/structure/vehicleparts/frame/panzeriv/right,/turf/floor/plating/road,/area/caribbean/desert)
+"ll" = (/obj/structure/vehicleparts/frame/panzeriv/left,/turf/floor/plating/road,/area/caribbean/desert)
+"lm" = (/obj/structure/bed/chair/office/dark,/obj/structure/vehicleparts/frame/car/rf/truck{noroof = 0},/obj/covers/road,/obj/covers/road,/obj/item/weapon/reagent_containers/glass/barrel/jerrycan/gasoline,/turf/floor/plating/road,/area/caribbean/desert)
+"ln" = (/obj/structure/vehicleparts/movement/reversed,/obj/structure/bed/chair/office/dark,/obj/structure/vehicleparts/frame/car/lb/armored,/obj/item/weapon/reagent_containers/glass/barrel/jerrycan/gasoline,/turf/floor/plating/road,/area/caribbean/desert)
+"lo" = (/obj/structure/bed/chair/office/dark,/obj/item/weapon/storage/toolbox/mechanical,/obj/structure/vehicleparts/frame/car/rf/truck/armored,/turf/floor/plating/road,/area/caribbean/desert)
 "lp" = (/obj/effect/autoassembler,/turf/floor/dirt/dust,/area/caribbean/desert)
-"lq" = (/obj/structure/vehicleparts/frame/car/rb{noroof = 1},/obj/structure/bed/chair/office/dark,/obj/structure/vehicleparts/movement,/obj/item/ammo_magazine/pkm,/obj/item/ammo_magazine/pkm,/obj/item/ammo_magazine/pkm,/turf/floor/plating/road,/area/caribbean/desert)
-"lr" = (/obj/structure/bed/chair/office/dark,/obj/structure/vehicleparts/frame/car/rf/truck{noroof = 1},/obj/item/weapon/gun/projectile/automatic/stationary/modern/pkm,/turf/floor/plating/road,/area/caribbean/desert)
-"ls" = (/obj/structure/sign/traffic/central{icon_state = "centralline"; dir = 8},/turf/floor/dirt/dust,/area/caribbean/desert)
-"lt" = (/obj/structure/vehicleparts/frame/car/left,/obj/structure/vehicleparts/movement{icon_state = "wheel_t_dark"; dir = 1},/obj/covers/road,/obj/covers/road,/turf/floor/grass,/area/caribbean/desert)
-"lu" = (/obj/structure/vehicleparts/frame/car/right,/obj/covers/road,/obj/covers/road,/obj/structure/vehicleparts/movement,/turf/floor/grass,/area/caribbean/desert)
-"lv" = (/obj/structure/vehicleparts/frame/car/left,/obj/covers/road,/obj/covers/road,/obj/structure/vehicleparts/movement,/turf/floor/grass,/area/caribbean/desert)
-"lw" = (/obj/structure/bed/chair/office/dark,/obj/structure/vehicleparts/frame/car/rf/truck{noroof = 0},/obj/covers/road,/obj/covers/road,/turf/floor/grass,/area/caribbean/desert)
-"lx" = (/obj/item/weapon/reagent_containers/glass/barrel/fueltank/smalltank/fueledgasoline,/obj/structure/vehicleparts/frame/car/rf,/obj/structure/vehicleparts/movement,/obj/covers/road,/obj/covers/road,/turf/floor/grass,/area/caribbean/desert)
-"ly" = (/obj/structure/engine/internal/gasoline{enginesize = 7000},/obj/structure/vehicleparts/frame/car/lf,/obj/structure/vehicleparts/movement/reversed{icon_state = "wheel_t_dark"; dir = 1},/obj/covers/road,/obj/covers/road,/turf/floor/grass,/area/caribbean/desert)
+"lq" = (/obj/structure/bed/chair/drivers,/obj/structure/vehicleparts/axis/car{color = "#293822"; name = "GMC M35 Truck"},/obj/structure/vehicleparts/frame/car/lf/truck/armored,/turf/floor/plating/road,/area/caribbean/desert)
+"lr" = (/obj/item/weapon/reagent_containers/glass/barrel/fueltank/smalltank/fueledgasoline,/obj/structure/vehicleparts/movement,/obj/structure/vehicleparts/frame/car/rf/armored,/turf/floor/plating/road,/area/caribbean/desert)
+"ls" = (/obj/structure/bed/chair/drivers,/obj/structure/vehicleparts/axis/car{color = "#007f00"; name = "Truck"},/obj/structure/vehicleparts/frame/car/lf/truck{noroof = 0},/obj/covers/road,/obj/covers/road,/turf/floor/plating/road,/area/caribbean/desert)
+"lt" = (/obj/structure/engine/internal/gasoline{enginesize = 7000},/obj/structure/vehicleparts/movement/reversed{icon_state = "wheel_t_dark"; dir = 1},/obj/structure/vehicleparts/frame/car/lf/armored,/turf/floor/plating/road,/area/caribbean/desert)
+"lu" = (/obj/structure/bed/chair/office/light{name = "machinegunner's seat"},/obj/structure/vehicleparts/movement/tracks,/obj/structure/vehicleparts/frame/panzeriv/rf,/obj/item/weapon/gun/projectile/automatic/stationary/modern/browning,/obj/item/ammo_magazine/browning,/obj/item/ammo_magazine/browning,/obj/item/ammo_magazine/browning,/obj/item/ammo_magazine/browning,/obj/item/ammo_magazine/browning,/obj/item/ammo_magazine/browning,/obj/item/ammo_magazine/browning,/obj/item/ammo_magazine/browning,/turf/floor/plating/road,/area/caribbean/desert)
+"lv" = (/obj/item/weapon/reagent_containers/glass/barrel/fueltank/smalltank/fueledgasoline,/obj/structure/vehicleparts/frame/car/rf,/obj/structure/vehicleparts/movement,/obj/covers/road,/obj/covers/road,/turf/floor/plating/road,/area/caribbean/desert)
+"lw" = (/obj/structure/engine/internal/gasoline{enginesize = 7000},/obj/structure/vehicleparts/frame/car/lf,/obj/structure/vehicleparts/movement/reversed{icon_state = "wheel_t_dark"; dir = 1},/obj/covers/road,/obj/covers/road,/turf/floor/plating/road,/area/caribbean/desert)
+"lx" = (/obj/structure/vehicleparts/movement/reversed,/obj/structure/bed/chair/office/dark,/obj/structure/vehicleparts/frame/car/rb/armored,/obj/item/weapon/gun/projectile/automatic/stationary/modern/pkm,/obj/item/ammo_magazine/pkm,/obj/item/ammo_magazine/pkm,/obj/item/ammo_magazine/pkm,/obj/item/ammo_magazine/pkm,/turf/floor/plating/road,/area/caribbean/desert)
+"ly" = (/obj/structure/lamp/lamp_small/tank/red,/obj/structure/vehicleparts/axis/heavy/panzeriv,/obj/structure/vehicleparts/frame/panzeriv/front,/obj/item/weapon/storage/toolbox/emergency,/turf/floor/plating/road,/area/caribbean/desert)
+"lz" = (/obj/structure/bed/chair/drivers/tank,/obj/structure/vehicleparts/movement/tracks,/obj/structure/vehicleparts/frame/panzeriv/lf,/turf/floor/plating/road,/area/caribbean/desert)
+"lA" = (/obj/structure/barricade/hescobastion,/turf/floor/grass,/area/caribbean/desert)
+"lB" = (/obj/structure/barricade/hescobastion,/turf/floor/dirt,/area/caribbean/desert)
+"lC" = (/obj/structure/barricade/hescobastion,/obj/structure/barricade/hescobastion,/turf/floor/plating/cobblestone/vertical,/area/caribbean/desert)
+"lD" = (/obj/structure/vehicleparts/frame/car/left,/obj/covers/road,/obj/covers/road,/obj/item/weapon/reagent_containers/glass/barrel/modern/gasoline{name = "gasoline barrel"},/turf/floor/plating/road,/area/caribbean/desert)
+"lE" = (/obj/structure/sign/traffic/central,/obj/item/weapon/reagent_containers/glass/barrel/modern/gasoline{name = "gasoline barrel"},/turf/floor/plating/road,/area/caribbean/desert)
+"lF" = (/obj/item/weapon/reagent_containers/glass/barrel/modern/gasoline{name = "gasoline barrel"},/turf/floor/plating/road,/area/caribbean/desert)
+"lG" = (/obj/structure/sign/traffic/central{icon_state = "centralline"; dir = 1},/obj/item/weapon/reagent_containers/glass/barrel/modern/gasoline{name = "gasoline barrel"},/turf/floor/plating/road,/area/caribbean/desert)
+"lH" = (/obj/structure/vehicleparts/movement/reversed,/obj/structure/vehicleparts/frame/car/lb/armored,/obj/structure/closet/crate/ww2,/obj/item/weapon/gun/launcher/rocket/rpg7,/obj/item/weapon/gun/launcher/rocket/rpg7,/obj/item/ammo_casing/rocket/pg7v,/obj/item/ammo_casing/rocket/pg7v,/obj/item/ammo_casing/rocket/pg7v,/obj/item/ammo_casing/rocket/pg7v,/obj/item/ammo_casing/rocket/og7v,/obj/item/ammo_casing/rocket/og7v,/obj/item/ammo_casing/rocket/og7v,/obj/item/ammo_casing/rocket/og7v,/obj/item/ammo_casing/rocket/og7v,/obj/item/ammo_casing/rocket/og7v,/obj/item/ammo_casing/rocket/og7v,/obj/item/ammo_casing/rocket/og7v,/obj/item/ammo_casing/rocket/og7v,/turf/floor/plating/road,/area/caribbean/desert)
+"lI" = (/obj/structure/bed/chair/office/dark,/obj/item/weapon/storage/toolbox/mechanical,/obj/structure/vehicleparts/frame/car/rf/truck/armored,/obj/item/weapon/reagent_containers/glass/barrel/jerrycan/gasoline,/turf/floor/plating/road,/area/caribbean/desert)
+"lO" = (/obj/structure/barricade/antitank,/turf/floor/plating/cobblestone/vertical,/area/caribbean/desert)
 
 (1,1,1) = {"
 frfsfsfsfsfsftafaaaaafabababababababababafafabababababdDacbjdidvdwdvdvdwdxdydzdCdCdEdCdCdGdGdGdGdGdHacababababaecaaeadaXabababababababababab
-fxfyadfyfyadfzafaaaaaffrfsfsftafaffufvaDfufvfwfvafaiabeUacbjdIdIdIdIdKdIdNdIdIdCdCdQdCdCdGdGdXeddGdGacabdDababbecabeaeadabajababababeUababai
+fxfyadfyfyadfzafaaaaaffrfsfsftafaffufvaDfufvfwfvafaiabeUacbjdIdIdIdIdKdIdNdIdIdCdCdQdCdCdGdGdGeddGdGacabdDababbecabeaeadabajababababeUababai
 fBadadadbfadfzaZaaaaaffxfyadfzaffuaDaDaDfAaDaDfuaDababdDacbjeeefdIdIdIdIdNdIeKdIdIbjdCdCdGdGdGdGdGdGacajamabadaecaaeadaXadababaiaiababaiageU
-fxadfyadadfyfzafaaaaaffBadadfzafaDaDfCaDcrfDaDfvaDabababacbjkfdIdIdIdKkgkhdIdIkidIdIdIbjdGdGdXeddGdGacdDabababbeaecaaeadadabamababaAabababab
+fxadfyadadfyfzafaaaaaffBadadfzafaDaDfCaDcrfDaDfvaDabababacbjkfdIdIdIdKkgkhdIdIkidIdIdIbjdGdGdGeddGdGacdDabababbeaecaaeadadabamababaAabababab
 fHfyadfyfyadfzafaaaaaffFadfyfzaDfCaEaDcrfGaDaDfvaDababdDacbjkfkjdIdIdIdIdIdIdIdIbCbCbCdIdGdGdGdGdGdGaceUababadadaecaaeaeaXababababababaAabai
 fxfyadfyfyadfzafaaaaaffHfyadfzaDfCfCcsfDaDfCaDfCaDaAababacbjbjdIdIcFcSdIdIeKldledIbjkldIdGdGdXeddGdGacabdOababadbecacaaeadaYababababahahabab
 fBadadbfadadfzafaaaaaffBadbffzaDcrfIaDfDaDhafJcraDababdDacbjklbjdIbjdIdQklkmknkneKdQbjbjdGdGdGdGdGdHacabababajabaeaecaaeaXadabababababababab
@@ -609,13 +620,13 @@ fHfyadfyfyadfzafaaaaaffxfybRfMaDaDfuaDcraDfCfufuaDafafdDacackpacacacacacacacacac
 fBadbfadadbffzafaaaaaWfOfsfsfPaDaDbSaDaDaDaDaDaDafafafafafdWafafdWabababdWabababdDabaffjasaaaJaKaaaaababdYababababadaeaecaaeadaXabajafababab
 fxadadadadadfzafaaaaafafababeUabababajabagababafabababafabafdWafafafdWafafafdWafafafdWafaaaaaaaaaaaaafabafafajabababaXaeaeaeaeadabababababaf
 fxfybRfyfybRfMafaaaaafabafababajafababeUababababajabaAabababajaAababajabababafajababafafaaaaalanayayeaafafafafafafabafaeaeaeaeafafafafafafaf
-fOfsfsfsfsfsfPaZaaaacfafabababababababaAabajabababababajabababeUeUabagabaAabababajabajabaaaaakazazazdUababababafafafafaeaeaeafafafafafabafab
-abababababababafaaaaafababagabajababajababaCababajababababaHabeUabababajabahaheUaZababfjaaaabzaabAbAfjeUabafabababaXaeaeaeaeafabababababafab
-esfpabesesafesfpaaaafpababesfqesesesfpesesbgbXbXbXcQbXbXbXdBesesfpesfpesesabesabfpesfpaGlflglhlflilhaGababeUabababaXaeaecacaaeadadababababab
-afafafafafafafaZaaaaeneoeoeqbEafcfafafafafenenenencfeneoeoengfafbEafafafksktktkuksafafafaaljlkaalllmbEababaAababababaXaeaecacaaeaXababadabab
-aaaaaIaJaKaaaaaaaaaaaakvkvaaaaaaaaaaaaaaaaaIaJaKayayayjPjPaaaaaaaaaaaaaaaajPjPaaaaaaaIaJaKlnloaalnloafafabababababababaXaeaecaaeaeababababab
-aJaKaIaaaaaaaLaaaaaaaaaaaaaaaMaaaaaaaaaJaKaIaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaJaKaIaaaaaaaaaaaaaaafafabafeUabajababaXaeaecacabeadabajabab
-afafafafafaGafafcfaTaTafafafaaaacmafafaVafafafafafafafafafafafafaaaacmafafafafafbEafafcjaaddaaaaaaaaafafabababagabababadaXaeaecaaeadadaXabad
+fOfsfsfsfsfsfPaZaaaacfafabababababababaAabajabababababajabababeUeUabagabaAabababajabajabaaaaazazazazdUababababafafafafaeaeaeafafafafafabafab
+abababababababafaaaaafababagabajababajababaCababajababababaHabeUabababajabahaheUaZababfjaaaaaalflhlnfjeUabafabababaXaeaeaeaeafabababababafab
+esfpabesesafesfpaaaafpababesfqesesesfpesesbgbXbXbXcQbXbXbXdBesesfpesfpesesabesabfpesfpaGaaaaaaaalolqaGababeUabababaXaeaecacaaeadadababababab
+afafafafafafafaZaaaaeneoeoeqbEafcfafafafafenenenencfeneoeoengfafbEafafafksktktkuksafafafakbzbAaalrltbEababaAababababaXaeaecacaaeaXababadabab
+aaaaaIaJaKaaaaaaaaaaaakvkvaaaaaaaaaaaaaaaaaIaJaKayayayjPjPaaaaaaaaaaaaaaaajPjPaaaaaaaIaJdaddliaaaaaaafafabababababababaXaeaecaaeaeababababab
+aJaKaIaaaaaaaLaaaaaaaaaaaaaaaMaaaaaaaaaJaKaIaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaJaKaIaalkddllaaaaaaafafabafeUabajababaXaeaecacabeadabajabab
+afafafafafaGafafcfaTaTafafafaaaacmafafaVafafafafafafafafafafafafaaaacmafafafafafbEafafcjlulylzaaaaaaafafabababagabababadaXaeaecaaeadadaXabad
 cEfgaffogdajeOfggegegefgeOaGaaaaaGkwkxkykxkwkwkxkykwkwkxkykxkwaGaaaaaGababafafababafafaGaNaNaNaNaNaNaGafababababaAababababaeaecacaaeaeaXabab
 cEgxcEafafafeObMbMhTbMbMeOafaaaaafkwkzkzkAkwkBkCkzkDkwkEkzkAkwafaaaaafabababbkabafbkabafaNaNaNaNaNaNfWcQeUababageUababcQkFabaeaecacaaeadadab
 cEbMhTcEafafeOeOeOeOeOcCeOafaOaaafkxkzkzkGkwkzkzkGkHkwkzkzkIkxafaOaaafafblblbnfEblbnblbwaaaaaaaOaOaPkJcQcQcQcQcQcQcQcQcQdkabadaeaecacaaeaeab
@@ -628,31 +639,31 @@ cEcEcEcCcEcEafafeOeOcChdeOafaaaaafkwkwkxkwkwkxkwkwkxkwkwkxkwkwafaaaafWafblblbnbl
 aZcfafafafaGafafafafaWbEaWaGaaaaaGgjafafafaVafaWafbEafafafafafaGaaaagkafafafafafafafafafaaaaaJbpcrcrctcEcHiJbMbMiJcHhecEafafabaDababahadaeca
 aaaaaaaaaaaaaaaIaJaKaaaaaaaaaabsaabtaaaaaaaaaaaaaaaaaaaIaJaKaaaaaaaaaaaaaaaaaaaaaaaaaIaJaKaaaJbuaDaDaDbncIbMcJcJcJbMbMbnafababababadabaXaeca
 aaaaaaaaaaaJaKaIaaaaaaaMaaaaaaaaaaaaaaaaaaaaaaaaaaaJaKaIaaaaaaaaaaaaaaaaaaaaaaaaaJaKaIaaaaaaaJaKdmaDafcCbMbMcIbMcKbMbMcCafaDabaDaDajababaeca
-afafafafafafaZafafafaVaaaaafafafgmaZaWafafafdeaffQafafafbEafafaGafafaGafbEafbEbEafafafcmaaaMaJaKbqdmafbncIbMcHbMcHbMbMbnafehcNcNcNaDaEadaeae
+afafafafafafaZafafafaVaaaaafafafgmaZaWafafafdeaffQafafafbEafafaGafafaGafbEafbEbEafafafcmaaaaaJaKbqdmafbncIbMcHbMcHbMbMbnafehcNcNcNaDaEadaeae
 afapapapapapapapaqapafaaaaaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaaaaaaaaaaaaaGcEbMhghhhghhbMhgcEafcQcQcQcQafaDaXaeae
 afaparatarauapavatapafaOaaaBaDaDfyadfyadadadaDbRadadadbxbyadadaDadfyadadadbRadaDfyadaDaBaaaaaJaKaaaaafcEbncEcEcLcLbncLcEafcQafafcQaDbdbeaeca
 afaqatatatataqatataqafaQaaaBaDaXadadadadbOadadadamadbRadbyadadbOadadfybdadadadadaXadadaBaaaaaaaaaaaaafafafafafafafafafafafcQafafcQbdaXaecaae
 afapapapaqapapatatapafaUaUaBadadaEadbRadadbBadfyadadadaXbybBadbFbFbIbFadamadbRamadbJaDaBaaaaaJaKaaaaafcXcPeCcPcPcPcPeCcPcPafafafaDaDadaecaca
-afawatatatatapaxaxapggaaaOaBadaXbRadadamadbRadadadadbJadbyadbKcQcQcQcQivadaXbOadadbRadaBasaaaaaaaaaaafcPeQeRiYeShIcPjiaFcPafababaDadaXaeaeca
-afapbabbbcbhapcbccapifihaQaBfyadadfybFbFbFbFbFbIbUbylclcbWaDbKcQkXkYcQbZbFbFbFadadadadcuaoaoaJaKaaaaafeteveveveveveteveveCababafaDadaXaecaca
-afapapapapapapapapapiTjnjnjCjKjCjCjLcQcQcQcQcQcQcQckadaDadadamadaXbKcQclcQcQcQcpadfyaDcvaaaaaaaaasaodWcPevevhHevevcPeveTcPababaDadaeaecaaeca
+afawatatatatapaxaxapggaaaOaBadaXbRadadamadbRadadadadbJadbyadbKcQcQcQcQivadaXbOadadbRlAlOaaaaaaaaaaaaafcPeQeRiYeShIcPjiaFcPafababaDadaXaeaeca
+afapbabbbcbhapcbccapifihaQaBfyadadfybFbFbFbFbFbIbUbylclcbWaDbKcQkXkYcQbZbFbFbFadadlAlAcuaaaaaJaKaaaaafeteveveveveveteveveCababafaDadaXaecaca
+afapapapapapapapapapiTjnjnjCjKjCjCjLcQcQcQcQcQcQcQckadaDadadamadaXbKcQclcQcQcQcpadfylBcvaaaaaaaaasaodWcPevevhHevevcPeveTcPababaDadaeaecaaeca
 afafafafafafafafafafafaajOjPjOcococicQkZkZkZkZkZcQckbBadadaXadadbBadkZlakZlbcQivadadaDaBaaaaaJcwaoaodJcPeWidcxcyevcPeveXcPabafabaDadaebeaeca
-ababababababababaDabafaaaaaaaaaaaaaBaDcsadamadbxadbyadadfyadadbRadadadadadcMadbBadadadaBaaaaaaaaaaaaafcPcPeCcPcPcPcPeCcPcPafafafaDaDaebeaeca
+ababababababababaDabafaaaaaaaaaaaaaBaDcsadamadbxadbyadadfyadadbRadadadadadcMadbBadadadaBaaaaaaaaaaaadJcPcPeCcPcPcPcPeCcPcPafafafaDaDaebeaeca
 abababaDabaDabaDabaDafafafafafaaaaaBaDfDaDaDfDaDadegadbOadadaDamadaDbxaDadaDaXaXaDfDaDaBaaaaaJaKaaaaafafafafafafafafafafafafehcNcNadaeaecaca
-ababababfvfvfudmdjfufvfwfvadafaaaaaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBbiaaaaaabibibYbYcOcObncOcObncPcPbncOcQcQcQcRaXaXcaae
+ababababfvfvfudmdjfufvfwfvadafaaaaaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBculCcuaaaaaaaabibibYbYcOcObncOcObncPcPbncOcQcQcQcRaXaXcaae
 ababemdUdUdUaDabaDfAaDdjfuaDafaaaaafaDaDcEcLbncEbncLcLgdcEcLbncEbncLcLgdcEcLbncEbncLcLceaaaaaJaKaabVafafhyiJcHbMiJcHbMiJcHcPafafcQcUadaecaae
-ajabdkabaDaDaDfAaDcrfDaDfvaDafaaaaafababcEhicHhjcHbMcGabcEhkcHbMcHhlcGabcEbMhmhkcHhkcGafaaaMaaaaaaaaafafcVhnhobMhnhpbMhohncPabafcQcRadaecaad
+ajabdkabaDaDaDfAaDcrfDaDfvaDafaaaaafababcEhicHhjcHbMcGabcEhkcHbMcHhlcGabcEbMhmhkcHhkcGafaaaaaaaaaaaaafafcVhnhobMhnhpbMhohncPabafcQcRadaecaad
 abaAababeUcrfIaDfDfGaDaDfveUafaaaaafafabcEiLhihqhihicGeUcEiMhqhkhkbMcGaAcEiNiOhkbMhkhwafaaaaaJaKebaaafbEhyhrhpbMhshobMhthucPabafcQcWadbecaae
 abaAeUfuabfuhafCfLaDfCfufCabafaaaaafababcEbMbMbMbMhlcEabcEhkhjbMhqhkcEhfcEhkbMbMhjhkcEafaaaaaaaaaMaaafafcVbMcJbMbMcJbMbMcJcPafafcQcRadaecaca
 czczczcAczczcBcAcAcAcTczczdbcAdcdccAdfczcEcEcGcCcEcEcGeccEcEhvcChwcEcGczcEcEcGcCcEcEcGeidcdcejekdcdceicAcXcCbncOcObncPcPbncPczcAelfbfeffffff
 cAcAeicAcAfVcAcAcAcAcAeigacAgbdcdccAcAcAcAeifVcAcAcAcAgbcAcAcAcAeicAcAcAcAfVcAcAcAcAgadcdcdcdcdcdcdcdcgccAcAcAcAdbcAeicAcAcAczcAfbfbghffffff
 dcdcdcdcdcdcdcdcdcglglejekdcdcdcdcdcdcdcdcdcdcgndcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcglglejekdcdcejekdcdcdcdcdcdcglglejekdcdcdccAczczczgogpfeffff
 dcgqdcgqdcgtgqgqdcglglejgugvdcgwdcgqdcgqdcgqdcgqdcgqdcgqdcgqdcgydcgqdcgqdcgqgqdcglglejgugqdcgBgOdcgqdcgqgqdcglglejgudcgqdcgqdccAcAfbfbfefffe
-dcgRdcgRdcgRgRhxekglgldchFijdcijikgRdcgRdcgRdcgRdcgRdcgRgngRdcgRdcgRdcgRdcgRhxekglgldcjMjMjNjQjRjNgRdcgRhxekglgldcgRdcgRdcgRdccAcAfbfbfefffe
+dcgRdcgRdcgRgRhxekglgldchFijdcijikgRdcgRdcgRdcgRdcgRdcgRdcgRdcgRdcgRdcgRdcgRhxekglgldcjMjMjNjQjRjNgRdcgRhxekglgldcgRdcgRdcgRdccAcAfbfbfefffe
 dcdcdcdcdcdcdcejekglgljSjTdcjTdcjTjUdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcejekglgldcdcdcdcejekdcdcdcdcejekglgldcdcdcdcdcdcdccAczczgofeffff
 cAfVeicAcAjVcAgacAcAcAeicAdcdcgccAcAcAcAjWeicAjVcAfVcAjXjUgccAcAeicAcAcAcAfVgacAcAcAgcjYdcdcjZjZcAcAcAcAcAcAcAcAdcdccAcAcAcAcAcAczkagofefffe
 czcXcPetcPhyczcXcPetcPcPkbkcdckdcGcEbnhzcEcEcEbncEcGcAdcdccAcPhAcPcPcPetcXcAcXcPeucXcXjZkedceigeeCgegegegeeCgeeidcdceicXcPfRcPcPczkafegofffe
-abcPiPeveycPajcPhCeviPcPafaaaaewcEhDbMhEcEbDbGbMbLcEafasasafcPexiQcPeyiQcPafeziReBiSezcjaQaaafgedMepdMevdTevgeafaaaaafeCdMdTdMeCajadaecacaae
+abcPiPeveycPajcPhCeviPcPafaaaaewcEhDbMhEcEbDbGbMbLcEafaaaaafcPexiQcPeyiQcPafeziReBiSezcjaQaaafgedMepdMevdTevgeafaaaaafeCdMdTdMeCajadaecacaae
 abeCeveveveCajeCeveveveCafaaaaafcGbMbMbMcEbMbMbMiUcGafaaaaafhyevevcPeveveCafcXeDeBeEcXafaUaUafetevevevevdMevetafaaaMafcPhGevdMcPabaXaecacaad
 abcPevevevcPabcPhHevhIcPafaaaaafcCbMbMbMcCbMgLgLbMcCafaaaaafhJeFeveGeveHcXafcXeBeBeBcXbEaaaOcjgedMevdMevdMevgeafaaaaafetevevdMcPabadaecacaae
 abcPhKeveWcPabcPhLevhMcPafaOaMafcGhNbMiUcEgQhOhOiUcGafaaaaafcXeIevcPeJiVcXafezeLeBeDezafaaaQafgeeverdMeverevgeafaaaaafeCdMdMdMeCabaXaeaecaca
@@ -661,30 +672,30 @@ afaWafaWafafafhPaWafafaWaWaUaUafafafaWafcEcEcEbncEcGafaQaaafafafafafafafafafafaf
 aWabafababababafafaAabbNafaaaObEcXcPcPcPafafafafafafafaUaUafafaAeNeUafgegefggegefggegeafaaaaaaaaaaaaaaaaaadgaaaadldnaadgaaaaaaafababcQePadca
 afcXcPcPeCcPcPcPafafababaGaaaQaGhyeQeRfScPcPcPeCcPcPafaaaOafafaZaAhQafgeiWhOgehSbMiXgebwaaaaaaaaaaaaaaaaaadgaaaaaaaaaadgaaaaaaafabajcQcWaeca
 aWcPeQeReviYeScPaTafabeUafaaaaafcPeveviZjacPhKevjbcPafaaaQbEafeUaAafaffgbMgLgehVbMbMgeafafafafcqaOaOcqafafafafafbEafaGaaaaaGgrdVgsabcQcWadca
-afeteveveveveveCaVafababbEaaaaafetevevgFgFetevevevetafaMaaafafaWaAaAbEgebMbMgegecCgegegefggegebEaQaQafgAgAgAfggAgAgAafaaaaafababababcQcWaeae
+afeteveveveveveCaVafababbEaaaaafetevevgFgFetevevevetafaaaaafafaWaAaAbEgebMbMgegecCgegegefggegebEaQaQafgAgAgAfggAgAgAafaaaaafababababcQcWaeae
 afcPeWeveXeveTcPafafabafdeaaaaafcPeWevevevcPeveveXcPafbvboafafeUeUeUafgebMbMhWhebMjcgebMbMgLgeafaUaUafgAjdhXhYgWjegAafaaaaafafabababcQeYadae
-afcPcPcPeCcPcPcPbEafababafaaaaafcPcPeCcPcPcPcPeCcPhJdJaaaadJafaAafaAaffggxbMbMbMbMbMcCbMfcimfgaGaaaaaGfggxbMbMbMbMfgafaaaaafabafajabcQcQePaX
-afafaGafafafafafafafafaGcmcocogCafaGafafafbEafafgmaGafaaaadJaGafaffofogegegegecCgegegegefggegeggbiaaggflgAgAcCgAgAgAgSaaaagSgSababafafcQeZad
-aaaaaaaaaaaaaaaIaJaKaaaaaaaaaadoaaaaaaaaaaaLaaaadoaaaaaaaadJafafbEafgmafafafaGafafbEafcqafafafafaaaaafgAhbjgbMibbLgAbEaaaaafafabababgTcQeZaX
-aaaaaaaMaaaJaKdgaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadpaKaIaaaaaaaaaMaaaaaaaJaKaIaaaaaaaaaaaMaaafcCgEgEbMbMbMcCafaaaaafafafafgTgUcQeZad
-eaafaGafafafafafeaafafaGafafafgmafaGafbNbobvcnafgmaGafaaaadqaKdgaaaadoaaaOaaaaaaaJaKaIaaaaaaaaaaebaaafgAgAgAfggAgAgAafaaaaaaaaaaafafafcQcYfa
-dVcGcEbncGbncGcGdVcXcPcPetcPeCcPcPeCcPeaaaayeaeOeOgZeOafaaaaaGafafafgmaGaQaaaGafafafafcqgVbEafafafafafabababababababaGaaaaaGggaaaahcafafafab
-aWcEgXbMhTbMjhcGafcPeQeRevicevjieyidcPdVaOazdVeOjjieeOafaaaaafcXfReucXafaUaUafdJdJdJdJdJafafcXcXeucXafcXcPcPeCcPcPcPafaOaagSafaahRhRafababab
-abcGgxbMbMbMgEcGafcPevevevevevevevgFeCafdaayafeObMiUeOafaaaadJezeAeBezafaaaOafafbEafafafafafezfdeBezafcPeQjkeviYeScPafaQaaafafaaebiKaVafabab
-abcGcGcGcCcGcGcGcfcPcPcPeCcPcPcPetcPcPafaUaUaffgbMbMfgafdrltafcXeDeBcXafaaaQaaaaaaaaaaaaaaafcXeBjlcXafeteveveveveveCafaUaUafafaaafhRafababad
-afafbEafafafafafafafafafafafcPjfevhIcPafaaaOcfgebMgxgelplulvafcXeBjlcXafaaaaaaaaaaaadsaaaaafezeDeBezafcPeWeveXjfeTcPafaaaOafafaaiKaaafabbkbk
-gDfkfkfkigfmfmfnfmfmgDdVafdVcPiievhKcPlplqlhafcCbMbMcCaflwlmafezeLeBezafaaaaaGafadadaGayayafcPcPcPcPaGcPcPcPeCcPcPcPafaaaQafafebafafhRadabaX
-fkgGgGgHfkgIgJgKgJgJfkafaGafeCeveveveCaflrlkafgebMiUgeaflxlyafcPcPcPcPafaaaaafaDambfafdtazafafafafafafafafbwafafbEafaGaaaaaGafaaafabahahaXad
-fkgKgKgKfkgMgNgKfTixgDbEafafcPeveviQcPlslnloaGfggLgLfgaZaaaOaGafafafbEaGaaaaafamadaDafduaaafafafboaaaadgaaaaaaaaaaaaaaaaaaaaaaaaaVabcdaXadae
-fkiygKgKizgKgKgKgKiBfmafafaVcPileveXcPafaaaaafeOcgimeOafaaaQaaaadAaaaadoaaaaafadaDamcjaaaaafafafaaaaaadgaaaaaaaabsaaaaaaaaaaaaaaafaYadadaeae
-fkgGgKiCfkiDgKgKgKjmfmafafafcPcPetcPcPafaMaaeaeOeOeOeOafaMaaaadAaaaaaaaaaaaabEaEbfafafaaaaafafafaabqafafafeaafafafeaafafafafafafafaXadaeaeae
+afcPcPcPeCcPcPcPbEafababafaaaaafcPcPeCcPcPcPcPeCcPhJdJaaaaaadJaAafaAaffggxbMbMbMbMbMcCbMfcimfgaGaaaaaGfggxbMbMbMbMfgafaaaaafabafajabcQcQePaX
+afafaGafafafafafafafafaGcmcocogCafaGafafafbEafafgmaGafaaaaaadJafaffofogegegegecCgegegegefggegeggbiaaggflgAgAcCgAgAgAgSaaaagSgSababafafcQeZad
+aaaaaaaaaaaaaaaIaJaKaaaaaaaaaadoaaaaaaaaaaaLaaaaaaaaaaaaaaaadJafbEafgmafafafaGafafbEafcqafafafafaaaaafgAhbjgbMibbLgAbEaaaaafafabababgTcQeZaX
+aaaaaaaMaaaJaKdgaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadpaKaIaaaaaaaaaaaaaaaaaJaKaIaaaaaaaaaaaMaaafcCgEgEbMbMbMcCafaaaaafafafafgTgUcQeZad
+eaafaGafafafafafeaafafaGafafafgmafaGafbNbobvcnafgmaGafaaaadqaKdgaaaaaaaaaaaaaaaaaJaKaIaaaaaaaaaaebaaafgAgAgAfggAgAgAafaaaaaaaaaaafafafcQcYfa
+dVcGcEbncGbncGcGdVcXcPcPetcPeCcPcPeCcPeaaaaaeaeOeOgZeOafaaaaaGafafafgmaGaQaaaGafafafafcqgVbEafafafafafabababababababaGaaaaaGggaaaahcafafafab
+aWcEgXbMhTbMjhcGafcPeQeRevicevjieyidcPdVaaaadVeOjjieeOafaaaaafcXfReucXafaUaUafdJdJdJdJdJafafcXcXeucXafcXcPcPeCcPcPcPafaOaagSafaahRhRafababab
+abcGgxbMbMbMgEcGafcPevevevevevevevgFeCafaQaaafeObMiUeOafaaaadJezeAeBezafaaaOafafbEafafafafafezfdeBezafcPeQjkeviYeScPafaQaaafafaaebiKaVafabab
+abcGcGcGcCcGcGcGcfcPcPcPeCcPcPcPetcPcPafaUaUaffgbMbMfgafdrlghRcXeDeBcXafaaaQaaaaaaaaaaaaaaafcXeBjlcXafeteveveveveveCafaUaUafafaaafhRafababad
+afafbEafafafafafafafafafafafcPjfevhIcPafaaaOcfgebMgxgelpljlDhRcXeBjlcXafaaaaaaaaaaaadsaaaaafezeDeBezafcPeWeveXjfeTcPafaaaOafafaaiKaaafabbkbk
+gDfkfkfkigfmfmfnfmfmgDdVafdVcPiievhKcPafaaaaafcCbMbMcCaflmlshRezeLeBezafaaaaaGafadadaGayayafcPcPcPcPaGcPcPcPeCcPcPcPafaaaQafafebafafhRadabaX
+fkgGgGgHfkgIgJgKgJgJfkafaGafeCeveveveCafaaaaafgebMiUgeaflvlwafcPcPcPcPafaaaaafaDambfafdtazafafafafafafafafbwafafbEafaGaaaaaGafaaafabahahaXad
+fkgKgKgKfkgMgNgKfTixgDbEafafcPeveviQcPafaaaaaGfggLgLfgaZaaaOaGafafafbEaGaaaaafamadaDafduaaafafafboaaaadgaaaaaaaaaaaaaaaaaaaaaaaaaVabcdaXadae
+fkiygKgKizgKgKgKgKiBfmafafaVcPileveXcPafaaaaafeOcgimeOafaaaQaaaaaaaaaaaaaaaaafadaDamcjaaaaafafafaaaaaadgaaaaaaaabsaaaaaaaaaaaaaaafaYadadaeae
+fkgGgKiCfkiDgKgKgKjmfmafafafcPcPetcPcPafaaaaeaeOeOeOeOafaaaaaaaaaaaaaaaaaaaabEaEbfafafaaaaafafafaabqafafafeaafafafeaafafafafafafafaXadaeaeae
 fkfkizfkfkfUjogKgNixgDaffWafafafaffWfXafaaaaafgmafafafafafafafaffWafafgmaaaaafbffhbdafaaaaafafafaaaaafgAinioincCinioingAabafahababaXaeaecaca
-fkiygKgKfkgKgKgKgKgKfkafeObneOeObneOeObEaaaafYfZafeOeObneOcCeObneOafaGgmaaaaafaDbRaEafaaaaafafafaaaaeainipbMjqbMjrbMirinabababaYadbeaecacaca
-fkjpgKjvfkfkfkizfkfkfkafeOishTbMgxjseOafaaaaafafafeOjsbMitbMiujteOaDafafaaaabEbfbdafafaaaaaaafaaaaaaafcCbMbMbMbMbMbMbMioivadadadadaecacacaca
-fkjvgKjvfkgKjxgKjxgKgDafeOeOgWbMbMbMcCafaaaaafafafbnbMbMbMbMbMgEbnaDaDafaaaaafadaEfiafaUaUaUafaUaNaNdViniwbMiwbMiwbMiwinadaeadadaecacacacaae
+fkiygKgKfkgKgKgKgKgKfkafeObneOeObneOeOlplxlHfYfZafeOeObneOcCeObneOafaGgmaaaaafaDbRaEafaaaaafafafaaaaeainipbMjqbMjrbMirinabababaYadbeaecacaca
+fkjpgKjvfkfkfkizfkfkfkafeOishTbMgxjseOaflIlqafafafeOjsbMitbMiujteOaDafafaaaabEbfbdafafaaaaaaafaaaaaaafcCbMbMbMbMbMbMbMioivadadadadaecacacaca
+fkjvgKjvfkgKjxgKjxgKgDafeOeOgWbMbMbMcCaflrltafafafbnbMbMbMbMbMgEbnaDaDafaaaaafadaEfiafaUaUaUafaUaNaNdViniwbMiwbMiwbMiwinadaeadadaecacacacaae
 fkjDgKgKizgKiDgKjEgKjFeaafeOgWbMbMgLeOaGaaaaaGeOeOeOeVeVeVcCeVeVeOeOkkafaOaaaGaEbfbRaGaUaNaNafaUaNaUaGgAiwbMiwjuiwbMiwgAadaeaeaecacacacaaeae
-fkjDgKgKfkgKjGjHjIgKizafafcCbMbMgQcgbnafaOaaafeOhYjwhYeVhVbMeVgxgQhbeOafaQaaafafbfbfafaaaMaJdLaKaaaaiAgAinioingAinioingAaeaecacacacacaaeaead
-fkjJgKgKfkgKgKgKgKgKjFdVafeOhVbMgQcgeOafaQaaafcCbMbMbMcCbMbMcCbMgQcgbnafaUaUafabafbEafaaaaaJdPaKaaaaafabaidUadadaXiEaeaeaecacacacaaeaeaeadaX
+fkjDgKgKfkgKjGjHjIgKizafafcCbMbMgQcgbnhRlElFafeOhYjwhYeVhVbMeVgxgQhbeOafaQaaafafbfbfafaaaMaJdLaKaaaaiAgAinioingAinioingAaeaecacacacacaaeaead
+fkjJgKgKfkgKgKgKgKgKjFdVafeOhVbMgQcgeOhRlGaaafcCbMbMbMcCbMbMcCbMgQcgbnafaUaUafabafbEafaaaaaJdPaKaaaaafabaidUadadaXiEaeaeaecacacacaaeaeaeadaX
 gDfkfkfkgDjFizjFgDfkgDafbEeOeOeObneOeOafaUaUafeVeVcCeVeVbMbMeVisbMbMeVafaaaOafahafabafaaaaaaaQaaaMaaafabaYadaeaeaeaecacacacacacaaeaeaeaeaead
 afafaffXaGfXaffWafafafafafafafaGaffWfXafaaaOaWbnbMbMbMeVgLgLeVbMbMbMcCafaaaQafhfabafafaaaaaJdLaKaaaaafabaXadaecacacacaaecaaeaeaeaeaeadaXadad
 aaaabqduaaazaaazaaaaaaaIaJaKaaaaaaaaaaaaaaaQaWeVhNjyiFeVjzjAeVhYjBiGeOafaLaaafafhfabafaaaaaaaaaaaaaaafabaXaecacaaeaeaeadaeaeaebeaXaXaXabaiab
