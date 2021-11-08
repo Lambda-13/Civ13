@@ -14,7 +14,7 @@
 ## Donater донатер
 
 Mentor +MENTOR
-Donater +FUN
+Donater
 Coder +MENTOR
 Master Mentor +MENTOR +MOD +TRIALADMIN +REJUV
 Head Coder +MENTOR +MOD +TRIALADMIN +REJUV +SERVER
