@@ -26,6 +26,9 @@
 		playsound(loc, 'sound/items/Ratchet.ogg', 100, TRUE)
 		user << (anchored ? "<span class='notice'r>You unfasten \the [src] from the floor.</span>" : "<span class='notice'>You secure \the [src] to the floor.</span>")
 		anchored = !anchored
+	if (H.getStatCoeff("strength") < 1.5)
+		user << "Your strength is less, you don't have the to use this."
+		return
 	if (H.getStatCoeff("crafting") < 2.4)
 		user << "Your crafting skill is less than 2.4, you don't have the to use this."
 		return
