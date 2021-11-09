@@ -843,3 +843,73 @@ mob/living/human/corpse/russian_soviet_tanker
 		invisibility = 0
 		spawn (50) // must be here or they won't spawn, it seems - Kachnov
 			death()
+
+/mob/living/human/corpse/skelet
+	icon = 'icons/russian/mob/human.dmi'
+	icon_state = "corpse_map_state"
+	
+
+/mob/living/human/corpse/skelet/New()
+	..()
+	add_language("Skelet Tongue",TRUE)
+	icon_state = "skeletman"
+	var/spawntime = 0
+	invisibility = 101
+	if (!job_master)
+		spawntime = 5
+	spawn (spawntime)
+		if (!job_master)
+			qdel(src)
+			return
+//		job_master.EquipRank(src, "Pirate")
+		dir = pick(NORTH,SOUTH,EAST,WEST)
+		adjustFireLoss(rand(1000,10000))
+		name = species.get_random_english_name(gender)
+		invisibility = 0
+		skeletman = 1
+		spawn (50)
+			icon = 'icons/mob/human.dmi'
+			body_build = pick(get_body_build(gender,"Skelet"))
+			prev_tone = s_tone
+			s_tone = null
+			update_hair()
+			change_facial_hair()
+			force_update_limbs()
+			update_body(1,1)
+			icon = 'icons/mob/human.dmi'
+			regenerate_icons()
+			death()
+
+/mob/living/human/corpse/skelet/bandit
+
+/mob/living/human/corpse/skelet/bandit/New()
+	..()
+	add_language("Skelet Tongue",TRUE)
+	icon_state = "skeletman"
+	var/spawntime = 0
+	invisibility = 101
+	if (!job_master)
+		spawntime = 5
+	spawn (spawntime)
+		if (!job_master)
+			qdel(src)
+			return
+		job_master.EquipRank(src, "Bandit")
+		dir = pick(NORTH,SOUTH,EAST,WEST)
+		adjustFireLoss(rand(1000,10000))
+		name = species.get_random_english_name(gender)
+		invisibility = 0
+		skeletman = 1
+		spawn (50)
+			icon = 'icons/mob/human.dmi'
+			body_build = pick(get_body_build(gender,"Skelet"))
+			prev_tone = s_tone
+			s_tone = null
+			update_hair()
+			change_facial_hair()
+			force_update_limbs()
+			update_body(1,1)
+			icon = 'icons/mob/human.dmi'
+			regenerate_icons()
+			death()
+
