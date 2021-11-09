@@ -913,3 +913,135 @@ mob/living/human/corpse/russian_soviet_tanker
 			regenerate_icons()
 			death()
 
+/mob/living/human/corpse/skelet/fbi
+
+/mob/living/human/corpse/skelet/fbi/New()
+	..()
+	add_language("Skelet Tongue",TRUE)
+	icon_state = "skeletman"
+	var/spawntime = 0
+	invisibility = 101
+	if (!job_master)
+		spawntime = 5
+	spawn (spawntime)
+		if (!job_master)
+			qdel(src)
+			return
+		job_master.EquipRank(src, "FBI officer")
+		dir = pick(NORTH,SOUTH,EAST,WEST)
+		adjustFireLoss(rand(1000,10000))
+		name = species.get_random_english_name(gender)
+		invisibility = 0
+		skeletman = 1
+		spawn (50)
+			icon = 'icons/mob/human.dmi'
+			body_build = pick(get_body_build(gender,"Skelet"))
+			prev_tone = s_tone
+			s_tone = null
+			update_hair()
+			change_facial_hair()
+			force_update_limbs()
+			update_body(1,1)
+			icon = 'icons/mob/human.dmi'
+			regenerate_icons()
+			death()
+
+/mob/living/human/corpse/skelet/rifleman
+
+/mob/living/human/corpse/skelet/rifleman/New()
+	..()
+	add_language("Skelet Tongue",TRUE)
+	icon_state = "skeletman"
+	var/spawntime = 0
+	invisibility = 101
+	if (!job_master)
+		spawntime = 5
+	spawn (spawntime)
+		if (!job_master)
+			qdel(src)
+			return
+		job_master.EquipRank(src, "USA Rifleman")
+		dir = pick(NORTH,SOUTH,EAST,WEST)
+		adjustFireLoss(rand(1000,10000))
+		name = species.get_random_english_name(gender)
+		invisibility = 0
+		skeletman = 1
+		spawn (50)
+			icon = 'icons/mob/human.dmi'
+			body_build = pick(get_body_build(gender,"Skelet"))
+			prev_tone = s_tone
+			s_tone = null
+			update_hair()
+			change_facial_hair()
+			force_update_limbs()
+			update_body(1,1)
+			icon = 'icons/mob/human.dmi'
+			regenerate_icons()
+			death()
+
+/mob/living/human/corpse/skelet/prolatariate
+
+/mob/living/human/corpse/skelet/prolatariate/New()
+	..()
+	add_language("Skelet Tongue",TRUE)
+	icon_state = "skeletman"
+	var/spawntime = 0
+	invisibility = 101
+	if (!job_master)
+		spawntime = 5
+	spawn (spawntime)
+		if (!job_master)
+			qdel(src)
+			return
+		job_master.EquipRank(src, "Prolatariate")
+		dir = pick(NORTH,SOUTH,EAST,WEST)
+		adjustFireLoss(rand(1000,10000))
+		name = species.get_random_english_name(gender)
+		invisibility = 0
+		skeletman = 1
+		spawn (50)
+			icon = 'icons/mob/human.dmi'
+			body_build = pick(get_body_build(gender,"Skelet"))
+			prev_tone = s_tone
+			s_tone = null
+			update_hair()
+			change_facial_hair()
+			force_update_limbs()
+			update_body(1,1)
+			icon = 'icons/mob/human.dmi'
+			regenerate_icons()
+			death()
+
+/mob/living/human/corpse/skelet/spetznaz
+
+/mob/living/human/corpse/skelet/spetznaz/New()
+	..()
+	add_language("Skelet Tongue",TRUE)
+	icon_state = "skeletman"
+	var/spawntime = 0
+	invisibility = 101
+	if (!job_master)
+		spawntime = 5
+	spawn (spawntime)
+		if (!job_master)
+			qdel(src)
+			return
+		job_master.EquipRank(src, "Spetznaz")
+		dir = pick(NORTH,SOUTH,EAST,WEST)
+		adjustFireLoss(rand(1000,10000))
+		name = species.get_random_english_name(gender)
+		invisibility = 0
+		skeletman = 1
+		spawn (50)
+			icon = 'icons/mob/human.dmi'
+			body_build = pick(get_body_build(gender,"Skelet"))
+			prev_tone = s_tone
+			s_tone = null
+			update_hair()
+			change_facial_hair()
+			force_update_limbs()
+			update_body(1,1)
+			icon = 'icons/mob/human.dmi'
+			regenerate_icons()
+			death()
+
