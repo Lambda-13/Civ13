@@ -144,7 +144,8 @@
 /obj/map_metadata/nomads_scarlet_plague
 	ID = MAP_NOMADS_WASTELAND_SCARLET_PLAGUE
 	title = "Scarlet Plague (Nomads)"
-	lobby_icon_state = "scarlet_plague"
+//	lobby_icon_state = "scarlet_plague"
+	lobby_icon_state = "civ13"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
 	respawn_delay = 6000 // 10 minutes!
 	has_hunger = TRUE
