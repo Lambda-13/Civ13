@@ -69,7 +69,7 @@
 		handle_animalistic("Skelet")
 	else if (zombieman)
 		handle_animalistic("Zombie")
-	else if (!gorillaman && !werewolf && !orc && !ant && !lizard && !skeletman && !zombieman && !wolfman && !crab && body_build.name != "Default")
+	else if (!gorillaman && !werewolf && !orc && !ant && !lizard && !wolfman && !crab && !skeletman && !zombieman && body_build.name != "Default")
 		handle_animalistic("Default")
 //	if (prone)
 //		lying = 1
