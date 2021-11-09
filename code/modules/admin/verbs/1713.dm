@@ -216,6 +216,8 @@
 			map.lizard -= conf
 		if (conf in map.wolfman)
 			map.wolfman -= conf
+		if (conf in map.skeletman)
+			map.skeletman -= conf
 	message_admins("[key_name(src)] changed the [conf] to [choice].")
 	log_admin("[key_name(src)] changed the [conf] to [choice].")
 	return
