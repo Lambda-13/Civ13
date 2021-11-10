@@ -157,35 +157,25 @@
 	roundend_condition_sides = list(
 		list(CIVILIAN) = /area/caribbean/british
 		)
-	age = "End Of The World"
+	age = "3021 A.D."
 	civilizations = TRUE
 	var/tribes_nr = 1
 	faction_distribution_coeffs = list(CIVILIAN = 1)
 //	battle_name = "the civilizations"
 	battle_name = "Fallen Future"
-	mission_start_message = "<big>Мир поглотила чума, что уничтожила цивилизацию и превратила расцветающий мир в руины...</b> <br> <i>Карта основана на книге Джека Лондона ''Алая чума'' а так-же была вдохновлена играми 'Cataclysm: Dark Days Ahead', 'Fallout' и прочими.</i>"
+	mission_start_message = "<big>Мир поглотила чума, что уничтожила цивилизацию и превратила расцветающий мир в руины...</b>"
 	ambience = list(
 		'sound/ambience/scarlet_plague/desert.ogg',
 		'sound/ambience/scarlet_plague/ambigen19.ogg',
-		'sound/ambience/scarlet_plague/desert.ogg',
 		'sound/ambience/scarlet_plague/ambigen22.ogg',
-		'sound/ambience/scarlet_plague/desert.ogg',
 		'sound/ambience/scarlet_plague/ambigen23.ogg',
-		'sound/ambience/scarlet_plague/desert.ogg',
-		'sound/ambience/scarlet_plague/ambigen24.ogg',
-		'sound/ambience/scarlet_plague/desert.ogg',
+		'sound/ambience/scarlet_plague/ambigen24.ogg',,
 		'sound/ambience/scarlet_plague/ambigen3.ogg',
-		'sound/ambience/scarlet_plague/desert.ogg',
 		'sound/ambience/scarlet_plague/ambigen4.ogg',
-		'sound/ambience/scarlet_plague/desert.ogg',
 		'sound/ambience/scarlet_plague/ambigen5.ogg',
-		'sound/ambience/scarlet_plague/desert.ogg',
-		'sound/ambience/scarlet_plague/Cave4.ogg',
-		'sound/ambience/scarlet_plague/desert.ogg',
+		'sound/ambience/scarlet_plague/Cave4.ogg',,
 		'sound/ambience/scarlet_plague/caves3.ogg',
-		'sound/ambience/scarlet_plague/desert.ogg',
 		'sound/ambience/scarlet_plague/cave_ambient2.ogg',
-		'sound/ambience/scarlet_plague/desert.ogg',
 		)
 	faction1 = CIVILIAN
 	availablefactions = list("Nomad")
