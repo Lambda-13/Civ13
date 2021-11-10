@@ -847,7 +847,7 @@ mob/living/human/corpse/russian_soviet_tanker
 /mob/living/human/corpse/skelet
 	icon = 'icons/russian/mob/human.dmi'
 	icon_state = "corpse_map_state"
-	
+	start_to_rot = 0
 
 /mob/living/human/corpse/skelet/New()
 	..()
