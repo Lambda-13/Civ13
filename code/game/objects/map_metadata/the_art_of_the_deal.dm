@@ -129,10 +129,10 @@
 /obj/map_metadata/art_of_the_deal/job_enabled_specialcheck(var/datum/job/J)
 	if (J.is_deal)
 		. = TRUE
-		if (clients.len <= 15)
+		if (clients.len <= 1)
 			if (J.title == "Paramedic" || J.title == "Legitimate Business")
 				. = FALSE
-		if (clients.len <= 25)
+		if (clients.len <= 2)
 			if (J.title == "Mechanic" || J.title == "Homeless Man")
 				. = FALSE
 	else
