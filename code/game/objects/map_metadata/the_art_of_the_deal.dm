@@ -130,10 +130,13 @@
 	if (J.is_deal)
 		. = TRUE
 		if (clients.len <= 1)
-			if (J.title == "Paramedic" || J.title == "Legitimate Business")
+			if (J.title == "Citizen")// || J.title == "Driver")
 				. = FALSE
-		if (clients.len <= 2)
-			if (J.title == "Mechanic" || J.title == "Homeless Man")
+		if (clients.len <= 5)
+			if (J.title == "Paramedic" || J.title == "Mechanic" || J.title == "Fire Response")
+				. = FALSE
+		if (clients.len <= 10)
+			if (J.title == "Legitimate Business" || J.title == "Homeless Man")
 				. = FALSE
 	else
 		. = FALSE
