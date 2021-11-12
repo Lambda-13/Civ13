@@ -3,7 +3,7 @@
 
 	var/list/epochs = list(
 		//"Stone Age (?-3000 B.C.)" = 0,
-		"Chad Mode" = 0,
+		"Chad Mode" = 15,
 		"Pre-Firearms (3000 B.C-1650 A.D.)" = 0,
 		//"Bronze Age (3000 B.C.-400 A.D.)" = 0,
 		//"Dark Ages (400-700)" = 0,
@@ -18,8 +18,8 @@
 		//"Modern Era (1985-2020)" = 0,
 		"Modern Fire Arms (1949-2021)" = 0,
 		"HRP TDM (Gulag, AOTD, Occupation)" = 15,
-		"Civilization 13 (Nomads)" = 20,
-		"Civilization 13 (Colony & Pioneers)" = 0,
+		"Civilization 13 (Nomads)" = 15,
+		"Civilization 13 (Colony & Pioneers)" = 15,
 		//"Civilization 13 (Prison Camps)" = 15,
 		"Civilization 13 (Others)" = 0,
 		"Battle Royale" = 10,
@@ -53,16 +53,16 @@
 		else if (config.allowedgamemodes == "RP")
 			epochs = list(
 				//"The Art of the Deal" = 10,
-				"Civilization 13 (Nomads)" = 20,
-				"Civilization 13 (Colony & Pioneers)" = 0,
+				"Civilization 13 (Nomads)" = 5,
+				"Civilization 13 (Colony & Pioneers)" = 5,
 				//"Civilization 13 (Prison Camps)" = 15,
 				"Civilization 13 (Others)" = 0,)
 		else if (config.allowedgamemodes == "PERSISTENCE")
 			epochs = list(
-				"Civilization 13 (Nomads)" = 20,)
+				"Civilization 13 (Nomads)" = 5,)
 		else if (config.allowedgamemodes == "BR")
 			epochs = list(
-				"Battle Royale" = 10,)
+				"Battle Royale" = 0,)
 		ready = FALSE
 		vote.initiate_vote("epoch", "EpochSwap Process", TRUE, list(src, "swap"))
 
@@ -218,20 +218,20 @@
 		else if (epoch == "Civilization 13 (Colony & Pioneers)")
 			maps = list(
 				MAP_COLONY = 0,
-				MAP_JUNGLE_COLONY = 4,
+				MAP_JUNGLE_COLONY = 5,
 				MAP_PIONEERS = 5,
-				MAP_PIONEERS_WASTELAND_2 = 0,
+				MAP_PIONEERS_WASTELAND_2 = 10,
 				MAP_BOHEMIA = 10,
-				MAP_FOUR_COLONIES = 20,
+				MAP_FOUR_COLONIES = 15,
 			)
 		else if (epoch == "Civilization 13 (Others)")
 			maps = list(
-				MAP_TRIBES = 12,
+				MAP_TRIBES = 15,
 				MAP_HUNT = 0,
 				MAP_LITTLE_CREEK = 10,
-				MAP_THE_ART_OF_THE_DEAL = 10,
+				MAP_THE_ART_OF_THE_DEAL = 6,
 				MAP_FOUR_KINGDOMS = 0,
-				MAP_GULAG13 = 0,
+				MAP_GULAG13 = 10,
 //				MAP_ABASHIRI = 6,
 //				MAP_RIVER_KWAI = 0,
 				MAP_OCCUPATION = 10,
