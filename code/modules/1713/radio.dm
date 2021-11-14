@@ -699,6 +699,29 @@ var/global/FREQP = rand(81,100)
 	nothrow = FALSE
 	icon_override = 'icons/mob/pouch.dmi'
 
+/obj/item/weapon/radio/walkietalkie/New()
+	..()
+	if (map && map.ordinal_age >= 6)
+		icon_state = "portable_radio"
+	..()
+	if (map && map.ordinal_age >= 7)
+		icon_state = "portable_radio4"
+	..()
+	if (map && map.ordinal_age >= 8)
+		icon_state = "portable_radio2"
+
+/obj/item/weapon/radio/walkietalkie/update_icon()
+	..()
+	if (map && map.ordinal_age >= 6)
+		icon_state = "portable_radio"
+	..()
+	if (map && map.ordinal_age >= 7)
+		icon_state = "portable_radio4"
+	..()
+	if (map && map.ordinal_age >= 8)
+		icon_state = "portable_radio2"
+
+
 /obj/item/weapon/radio/walkietalkie/faction1/New()
 	..()
 	freq = FREQ1
