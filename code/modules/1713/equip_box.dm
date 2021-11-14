@@ -10,7 +10,7 @@
 	options["Glock 17 - pistol"] = list(/obj/item/weapon/gun/projectile/pistol/glock17,/obj/item/ammo_magazine/glock17,/obj/item/ammo_magazine/glock17,/obj/item/ammo_magazine/glock17)
 	options["Peace maker - Pistol"] = list(/obj/item/weapon/gun/projectile/revolver/frontier,/obj/item/ammo_magazine/c44,/obj/item/ammo_magazine/c44,/obj/item/ammo_magazine/c44)
 	options["Beretta m9 - revolver"] = list(/obj/item/weapon/gun/projectile/pistol/m9beretta,/obj/item/ammo_magazine/m9beretta,/obj/item/ammo_magazine/m9beretta,/obj/item/ammo_magazine/m9beretta)
-	options["TT-30ll - pistol"] = list(/obj/item/weapon/gun/projectile/pistol/tt30ll,/obj/item/projectile/bullet/pistol/rubber,/obj/item/projectile/bullet/pistol/rubber,/obj/item/projectile/bullet/pistol/rubber)
+	options["TT-30ll - pistol"] = list(/obj/item/weapon/gun/projectile/pistol/tt30ll,/obj/item/ammo_magazine/tt30ll,/obj/item/ammo_magazine/tt30ll)
 	var/choice = input(user,"What type of equipment?") as null|anything in options
 	if(src && choice)
 		var/list/things_to_spawn = options[choice]
