@@ -364,11 +364,13 @@ var/datum/quickBan_handler/quickBan_handler = null
 			for (var/client/C in clients)
 				if (C.ckey == banckey)
 					C << "<span class = 'userdanger'>Вы получили бан типа [lowertext(fields["type"])] ([fields["type_specific_info"]]). Причиныч: '[fields["reason"]]'.[uppertext(expire_info)]."
+					C << 'sound/effects/ban.ogg'
 					break
 		else
 			for (var/client/C in clients)
 				if (C.ckey == banckey)
 					C << "<span class = 'userdanger'>Вы получили бан типа [fields["type"]]. Причиныч: '[fields["reason"]]'.[uppertext(expire_info)]."
+					C << 'sound/effects/ban.ogg'
 					break
 
 /* checking if we're banned */
