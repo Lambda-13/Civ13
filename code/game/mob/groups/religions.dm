@@ -322,7 +322,7 @@
 
 obj/structure/altar
 	name = "religious altar"
-	icon = 'icons/obj/cross.dmi'
+	icon = 'icons/russian/obj/cross.dmi'
 	icon_state = "wood_altar"
 	desc = "A religious altar."
 	var/religion = "none"
