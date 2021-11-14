@@ -124,7 +124,7 @@
 					usr.forceMove(locate(1,1,1))
 					usr << "Ты перенесён в безопасное место"
 					usr << "Что-бы встать и появиться на прежнем месте нажми Wake Up во вкладке IC"
-					usr << << 'sound/effects/special_toggle.ogg'
+					usr << 'sound/effects/special_toggle.ogg'
 					message_admins("[key] уснул на кровати и был перенесён в сейф зону")
 					log_game("[key] уснул на кровати и был перенесён в сейф зону")
 					return
@@ -143,7 +143,7 @@
 			usr.forceMove(locate(lastx,lasty,lastz))
 			usr << "Ты появился на прежнем месте"
 			usr << "В случае обнаружения грифа на месте появления прошу отрепортить админам в дискорд"
-			usr << << 'sound/effects/special_toggle.ogg'
+			usr << 'sound/effects/special_toggle.ogg'
 			message_admins("[key] проснулся и был вернут обратно на место сна")
 			log_game("[key] проснулся и был вернут обратно на место сна")
 			if (buckled)
