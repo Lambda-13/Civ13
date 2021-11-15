@@ -8,8 +8,9 @@
 
 	for (var/client/C in clients)
 		if (C.ckey == pripeklon_ckey)
+			var/pripeklon_key = key
 			C << 'sound/effects/pripeklon.ogg'
-			world << "<big><big><big><font color='red'><b>[uppertext(pripeklon_ckey)]</b>:<b> Моя жопа <big><b>ГОРИТ!!!</b></big></font></big></big></big>"
+			world << "<span class='ooc'><span class='everyone'>OOC: <EM>[pripeklon_key]:</EM> <span class='message'>Моя жопа <b>ГОРИТ!!!</b></span></span>"
 			message_admins("[key_name_admin(src)] butthurt [key_name_admin(C)] ass.")
 			return
 	message_admins("[key_name_admin(src)] has butthurt [pripeklon_ckey] ass.")
