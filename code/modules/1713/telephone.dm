@@ -3,7 +3,7 @@
 /obj/item/weapon/telephone
 	name = "telephone"
 	desc = "Used to communicate with other telephones. No number."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/russian/obj/device.dmi'
 	icon_state = "telephone"
 	flammable = FALSE
 	density = FALSE
@@ -244,7 +244,7 @@ var/list/global/phone_numbers = list()
 /obj/item/weapon/telephone/mobile
 	name = "cellphone"
 	desc = "Used to communicate with other telephones. No number."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/russian/obj/device.dmi'
 	icon_state = "cellphone"
 	force = WEAPON_FORCE_WEAK+3
 	throwforce = WEAPON_FORCE_WEAK
@@ -366,7 +366,7 @@ var/list/global/phone_numbers = list()
 /obj/item/weapon/telephone/mobile/police
 	name = "911 terminal"
 	desc = "Emergency calls will be received here."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/russian/obj/device.dmi'
 	icon_state = "police_intercom"
 	phonenumber = 911
 	anchored = TRUE
