@@ -3,7 +3,7 @@
 	throwforce = 20
 	fire_sound = 'sound/weapons/guns/fire/smg.ogg'
 	silencer_fire_sound = 'sound/weapons/guns/fire/Gyrza-SD.ogg'
-	icon = 'icons/obj/guns/automatic.dmi'
+	icon = 'icons/russian/obj/guns/automatic.dmi'
 	var/base_icon = "smg"
 	// more accuracy than MGs, less than everything else
 	load_method = MAGAZINE

@@ -705,7 +705,7 @@ var/global/FREQP = rand(81,100)
 		icon_state = "portable_radio"
 	..()
 	if (map && map.ordinal_age >= 7)
-		icon_state = "portable_radio4"
+		icon_state = pick("portable_radio4","portable_radio")
 	..()
 	if (map && map.ordinal_age >= 8)
 		icon_state = "portable_radio2"
@@ -716,7 +716,7 @@ var/global/FREQP = rand(81,100)
 		icon_state = "portable_radio"
 	..()
 	if (map && map.ordinal_age >= 7)
-		icon_state = "portable_radio4"
+		icon_state = pick("portable_radio4","portable_radio")
 	..()
 	if (map && map.ordinal_age >= 8)
 		icon_state = "portable_radio2"

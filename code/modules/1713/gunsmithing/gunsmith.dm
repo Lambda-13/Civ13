@@ -496,7 +496,7 @@
 					possible_list += "negev"
 					possible_list += "m60"
 			if ("Open-Bolt (small)")
-				current_gun.override_icon = 'icons/obj/guns/automatic.dmi'
+				current_gun.override_icon = 'icons/russian/obj/guns/automatic.dmi'
 				possible_list = list("Cancel", "pps", "ppsh", "mp40", "greasegun", "tommygun", "thompson", "avtomat")
 				if (map.ordinal_age >= 8)
 					possible_list += "victor"
