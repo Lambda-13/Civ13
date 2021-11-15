@@ -794,6 +794,8 @@ var/global/list/global_colour_matrix = null
 	if (conf_1 == "No")
 		return
 	else
+		message_admins("ВНИМАНИЕ: [key] включает паник бункер.")
+		log_game("ВНИМАНИЕ: [key] включает паник бункер.")
 		config.useapprovedlist = TRUE
 
 /client/proc/disable_approved_only()
@@ -811,6 +813,8 @@ var/global/list/global_colour_matrix = null
 	if (conf_1 == "No")
 		return
 	else
+		message_admins("ВНИМАНИЕ: [key] отключает паник бункер.")
+		log_game("ВНИМАНИЕ: [key] отключает паник бункер.")
 		config.useapprovedlist = FALSE
 
 /client/proc/enable_whitelist()
