@@ -573,19 +573,20 @@
 		global_damage_modifier = 1.15
 		return
 	else if (vote.voted_gamemode == "Hardcore")
-		world << "<font color='red'><big>ХАРДКОРНЫЙ режим</big><br>Респавн отключён, 1.50 урон, Ограничение на Обзор включён, включены медали.</big></font>"
+		world << "<font color='red'><big>ХАРДКОРНЫЙ режим</big><br>Респавн отключён, 1.50 урон, ограничение на обзор включён, включены медали.</big></font>"
 		config.disable_fov = FALSE
 		config.no_respawn_delays = FALSE
 		map.gamemode = "Hardcore"
 		global_damage_modifier = 1.30
 		return
-		//Really Life - damage modifer 3.0, no medals (in future, im lazy)//
+		//Really Life - damage modifer 3.0, no hud, medals//
 	else if (vote.voted_gamemode == "RealLive")
-		world << "<font color='white'><big>Режим реальной жизни</big><br>Респавн отключён, 3 урон, Ограничение на Обзор включён, время по респавну.</big></font>"
+		world << "<font color='white'><big>Режим реальной жизни</big><br>Худ отключён, трёхкратный урон, ограничение на обзор включён, респавн отключён, включены медали.</big></font>"
 		config.disable_fov = FALSE
 		config.no_respawn_delays = FALSE
 		map.gamemode = "RealLive"
 		global_damage_modifier = 3
+		map.disablehud = TRUE
 		return
 	/// CAPITOL MODES //
 	else if (vote.voted_gamemode == "Siege")
