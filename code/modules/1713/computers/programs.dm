@@ -174,10 +174,10 @@
 		mainbody = "<center><h1>Игра окончена</h1></center>"
 		mainbody += "Твоя компания померла на станции или вблизи неё.<br><b>А стоило ли жить?</b>."
 		if(!settlers.len)
-			mainbody += "<br>Остатки вашей комманды нашёл мимо проходящий член экипажа. Он был удивлён."
+			mainbody += "<br>Остатки вашей командды нашёл мимо проходящий член экипажа. Он был удивлён."
 		else
 			if(food <= 0)
-				mainbody += "<br>У вашей комманды закончилась еда и вы померли нахуй лол)"
+				mainbody += "<br>У вашей командды закончилась еда и вы померли нахуй лол)"
 			if(fuel <= 0)
 				mainbody += "<br>У вас закончилась вода и вы медленно умираете от обезвоживания."
 
@@ -308,6 +308,7 @@
 
 			if(settlers.len == 0 || alive == 0)
 				usr << "The last crewmember [sheriff], shot themselves, GAME OVER!"
+				usr << 'sound/effects/gameover.ogg'
 				gameStatus = ORION_STATUS_GAMEOVER
 				event = null
 
@@ -453,7 +454,7 @@
 					food += oldfood
 					fuel += oldfuel
 					eventdat += "<br>Я нашёл в ящиках челика что прилетел сюда путешевствуя по космосу."
-					eventdat += "<br>[rescued] теперь в нашей комманде!"
+					eventdat += "<br>[rescued] теперь в нашей командде!"
 					eventdat += "<br>А да мы ещё [oldfood] <b>еды</b> и [oldfuel] <b>воды</b> забрали с собой."
 				if(15 to 35)
 					var/lfood = rand(4,7)
@@ -522,7 +523,7 @@
 			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Закрыть</a></P>"
 
 		if(ORION_TRAIL_BLACKHOLE)
-			eventdat += "Я наступил куда-то и нашу комманду телепортировало в какой-то отель."
+			eventdat += "Я наступил куда-то и нашу командду телепортировало в какой-то отель."
 			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];holedeath=1'>Идти дальше?</a></P>"
 			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Закрыть</a></P>"
 			settlers = list()
@@ -530,7 +531,7 @@
 		if(ORION_TRAIL_LING)
 			eventdat += "Сообщают о генокрадах среди экипажа."
 			if(settlers.len <= 2)
-				eventdat += "<br>Но смотря на нашу комманду генокрады вряд-ли будут среди нас."
+				eventdat += "<br>Но смотря на нашу командду генокрады вряд-ли будут среди нас."
 				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];eventclose=1'>Идти дальше</a></P>"
 				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Закрыть</a></P>"
 				if(prob(10)) // "likely", I didn't say it was guaranteed!
