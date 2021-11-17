@@ -31,7 +31,7 @@ var/global/soldiers[17]
 
 /datum/faction
 	// redefine these since they don't exist in /datum
-	var/icon = 'icons/mob/hud_1713.dmi'
+	var/icon = 'icons/russian/mob/hud_1713.dmi'
 	var/icon_state = ""
 	var/mob/living/human/holder = null
 	var/title = "Something that shouldn't exist"
