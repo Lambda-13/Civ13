@@ -751,6 +751,7 @@
 	description = "Отправляйте и получайте электронные письма с помощью последней версии почтового клиента MonkeySoft!"
 	compatible_os = list("unga OS 94","unga OS")
 	does_checks = TRUE
+	var/gotmailsound = 'sound/machines/computer/mail.ogg'
 	tmp_comp_vars = list(
 		"mail_rec" = "Recipient",
 		"mail_snd" = "Sender",
@@ -781,8 +782,8 @@
 				if (istype(map.emails[tmp_comp_vars["mail_snd"]][i], /datum/email))
 					var/datum/email/em =  map.emails[tmp_comp_vars["mail_snd"]][i]
 					if (!em.read)
-						playsound(origin.loc,'sound/machines/computer/mail.ogg',60)
-						origin.visible_message("<big><font color='yellow'>\icon[getFlatIcon(origin)]You've got mail!</font></big>")
+						playsound(origin.loc,gotmailsound,60)
+						origin.visible_message("<big><font color='yellow'>\icon[getFlatIcon(origin)]У вас новое сообщение!</font></big>")
 						return
 	return
 /datum/program/monkeysoftmail/reset_tmp_vars()
@@ -1073,13 +1074,13 @@
 				var/accmoney = map.marketplaceaccounts[u_account]
 				if (map.marketplaceaccounts[u_account])
 					if (accmoney <= 0)
-						mainbody += "<b>Your account is empty!</b>"
+						mainbody += "<b>Твой аккаунт пустой!</b>"
 						map.marketplaceaccounts[u_account] = 0
 					else
 						mainbody += "You have [accmoney/4] dollars in your account.<br>"
 						mainbody += "<a href='?src=\ref[src];deepnet=5'>Withdraw</a>"
 				else
-					mainbody += "<b>Your account is empty!</b>"
+					mainbody += "<b>Твой аккаунт пустой!</b>"
 			if ("5") //withdraw
 				var/accmoney = map.marketplaceaccounts[u_account]
 				if (accmoney > 0)
@@ -1623,13 +1624,13 @@
 				var/accmoney = map.marketplaceaccounts[user.civilization]
 				if (map.marketplaceaccounts[user.civilization])
 					if (accmoney <= 0)
-						mainbody += "<b>Your account is empty!</b>"
+						mainbody += "<b>Твой аккаунт пустой!</b>"
 						map.marketplaceaccounts[user.civilization] = 0
 					else
 						mainbody += "You have [accmoney/4] dollars in your company's account.<br>"
 						mainbody += "<a href='?src=\ref[src];nile=5'>Withdraw</a>"
 				else
-					mainbody += "<b>Your account is empty!</b>"
+					mainbody += "<b>Твой аккаунт пустой!</b>"
 			if ("5") //withdraw
 				var/accmoney = map.marketplaceaccounts[user.civilization]
 				if (accmoney > 0)
@@ -1833,14 +1834,14 @@
 				if (map.marketplaceaccounts[user.name])
 					if (accmoney <= 0)
 						mainbody += "<a href='?src=\ref[src];bank=5'>Withdraw</a>&nbsp;<a href='?src=\ref[src];bank=6'>Deposit</a><br>"
-						mainbody += "<b>Your account is empty!</b>"
+						mainbody += "<b>Твой аккаунт пустой!</b>"
 						map.marketplaceaccounts[user.name] = 0
 					else
 						mainbody += "<a href='?src=\ref[src];bank=5'>Withdraw</a>&nbsp;<a href='?src=\ref[src];bank=6'>Deposit</a><br>"
 						mainbody += "You have [accmoney/4] dollars in your bank account.<br>"
 				else
 					mainbody += "<a href='?src=\ref[src];bank=5'>Withdraw</a>&nbsp;<a href='?src=\ref[src];bank=6'>Deposit</a><br>"
-					mainbody += "<b>Your account is empty!</b>"
+					mainbody += "<b>Твой аккаунт пустой!</b>"
 			if ("5") //withdraw
 				var/accmoney = map.marketplaceaccounts[user.name]
 				if (accmoney > 0)
