@@ -1419,7 +1419,7 @@
 			hud_list[FACTION_TO_ENEMIES] = holder
 
 			var/image/holder2 = hud_list[BASE_FACTION]
-			holder2.icon = 'icons/mob/hud_1713.dmi'
+			holder2.icon = 'icons/russian/mob/hud_1713.dmi'
 			holder2.plane = HUD_PLANE
 			switch (original_job.base_type_flag())
 				if (PIRATES)
@@ -1518,6 +1518,8 @@
 						holder2.icon_state = "civ6"
 					else if (original_job_title == "Nomad")
 						holder2.icon_state = ""
+					else if (original_job.is_upa && map.ordinal_age >= 7)
+						holder2.icon_state = "upa2_basic"
 					else if (original_job.is_upa && map.ID != MAP_OCCUPATION)
 						holder2.icon_state = "upa_basic"
 //					else if (original_job_title == "Outlaw")
