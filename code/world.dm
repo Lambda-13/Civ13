@@ -234,7 +234,7 @@ var/world_topic_spam_protect_time = world.timeofday
 	spawn (150)
 
 		var/sleeptime = 0
-		world << "<span class = 'danger'>Rebooting!</span> <span class='notice'>Click here to rejoin (It may take a minute or two): <b>byond://[world.internet_address]:[port]</b></span>"
+		world << "<span class = 'danger'>Ребут!</span> <span class='notice'>Нажми сюда что бы переподключиться (обычно нужно если не произошёл автоконнект): <b>byond://[world.internet_address]:[port]</b></span>"
 
 		sleep(sleeptime) // I think this is needed so C << link() doesn't fail
 		if (processScheduler) // just in case
