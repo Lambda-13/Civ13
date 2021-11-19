@@ -526,7 +526,7 @@
 /obj/structure/emergency_lights
 	name = "emergency lights control"
 	desc = "controls the emergency lights and the wailing siren."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/russian/obj/device.dmi'
 	icon_state = "modern_intercom"
 	anchored = TRUE
 	opacity = FALSE

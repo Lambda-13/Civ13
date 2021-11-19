@@ -234,6 +234,8 @@
 			if (prob(33) && T.on)
 				onfire = TRUE
 				visible_message("<span class='danger'>\The [src] catches fire!</span>")
+				message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) поджёг \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
+				log_game("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) поджёг \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 				start_fire()
 		if (istype(W, /obj/item/stack))
 			var/obj/item/stack/S = W

@@ -39,7 +39,7 @@
 		process_awards()
 	if (transforming)
 		return
-	if (werewolf + gorillaman + orc + ant + lizard + wolfman + crab > 1)
+	if (werewolf + gorillaman + orc + ant + lizard + wolfman + crab + skeletman + zombieman > 1)
 		werewolf = 0
 		gorillaman = 0
 		orc = 0
@@ -47,6 +47,8 @@
 		lizard = 0
 		wolfman = 0
 		crab = 0
+		skeletman = 0
+		zombieman = 0
 		handle_animalistic("Default")
 
 	if (werewolf)
@@ -63,7 +65,11 @@
 		handle_animalistic("Wolf")
 	else if (crab)
 		handle_animalistic("Crab")
-	else if (!gorillaman && !werewolf && !orc && !ant && !lizard && !wolfman && !crab && body_build.name != "Default")
+	else if (skeletman)
+		handle_animalistic("Skelet")
+	else if (zombieman)
+		handle_animalistic("Zombie")
+	else if (!gorillaman && !werewolf && !orc && !ant && !lizard && !wolfman && !crab && !skeletman && !zombieman && body_build.name != "Default")
 		handle_animalistic("Default")
 //	if (prone)
 //		lying = 1
@@ -152,7 +158,7 @@
 		var/water_m = 1
 		var/food_m = 1
 		if (find_trait("Gigantism"))
-			food_m *= 1.2
+			food_m *= 2
 		else if (find_trait("Dwarfism"))
 			food_m *= 0.8
 		if (orc)
@@ -160,6 +166,12 @@
 		if (crab)
 			food_m *= 0.8
 			water_m *= 2.5
+		if (skeletman)
+			food_m *= 0
+			water_m *= 0
+		if (zombieman)
+			food_m *= 0.666
+			water_m *= 0
 		if (gorillaman)
 			water_m *= 0.2
 		if (istype(buckled, /obj/structure/cross))
@@ -1385,6 +1397,12 @@
 			if (getBruteLoss() >= 150)
 				death()
 /mob/living/human/proc/handle_hud_list()
+	if (map.disablehud == TRUE)
+		hud_list[BASE_FACTION].icon_state = ""
+		hud_list[BASE_FACTION].overlays.Cut()
+		hud_list[FACTION_TO_ENEMIES].icon_state = ""
+		hud_list[FACTION_TO_ENEMIES].overlays.Cut()
+
 	if (stat == DEAD)
 		hud_list[BASE_FACTION].icon_state = ""
 		hud_list[BASE_FACTION].overlays.Cut()
@@ -1401,7 +1419,7 @@
 			hud_list[FACTION_TO_ENEMIES] = holder
 
 			var/image/holder2 = hud_list[BASE_FACTION]
-			holder2.icon = 'icons/mob/hud_1713.dmi'
+			holder2.icon = 'icons/russian/mob/hud_1713.dmi'
 			holder2.plane = HUD_PLANE
 			switch (original_job.base_type_flag())
 				if (PIRATES)
@@ -1500,6 +1518,8 @@
 						holder2.icon_state = "civ6"
 					else if (original_job_title == "Nomad")
 						holder2.icon_state = ""
+					else if (original_job.is_upa && map.ordinal_age >= 7)
+						holder2.icon_state = "upa2_basic"
 					else if (original_job.is_upa && map.ID != MAP_OCCUPATION)
 						holder2.icon_state = "upa_basic"
 //					else if (original_job_title == "Outlaw")
@@ -1594,6 +1614,8 @@
 		return
 
 /mob/living/human/proc/do_rotting()
+	if (istype(src, /mob/living/human/corpse/skelet))
+		return
 	if (map && !map.is_zombie && !istype(src, /mob/living/human/corpse))
 		return
 	spawn(600)

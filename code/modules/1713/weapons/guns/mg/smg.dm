@@ -3,7 +3,7 @@
 	throwforce = 20
 	fire_sound = 'sound/weapons/guns/fire/smg.ogg'
 	silencer_fire_sound = 'sound/weapons/guns/fire/Gyrza-SD.ogg'
-	icon = 'icons/obj/guns/automatic.dmi'
+	icon = 'icons/russian/obj/guns/automatic.dmi'
 	var/base_icon = "smg"
 	// more accuracy than MGs, less than everything else
 	load_method = MAGAZINE
@@ -664,6 +664,7 @@
 /obj/item/weapon/gun/projectile/submachinegun/m16/commando
 	name = "XM177E2"
 	desc = "A carbine version of the AR-15/M16, chambered in 5.56x45mm."
+	icon = 'icons/russian/obj/guns/assault_rifles.dmi'
 	icon_state = "m4"
 	item_state = "m4"
 	base_icon = "m4"

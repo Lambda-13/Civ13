@@ -18,7 +18,7 @@
 /obj/structure/religious/totem
 	name = "stone totem"
 	desc = "A stone statue, representing a spirit animal of this tribe."
-	icon = 'icons/obj/cross.dmi'
+	icon = 'icons/russian/obj/cross.dmi'
 	icon_state = "goose"
 	density = TRUE
 	anchored = TRUE
@@ -478,7 +478,7 @@ obj/structure/religious/monument
 /obj/structure/religious/animal_statue
 	name = "statue"
 	desc = "A stone statue."
-	icon = 'icons/obj/cross.dmi'
+	icon = 'icons/russian/obj/cross.dmi'
 	icon_state = "goose"
 	density = TRUE
 	anchored = TRUE

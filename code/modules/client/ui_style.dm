@@ -3,6 +3,7 @@
 	"NewStyle",
 	"LiteWebStyle",
 	"FoFStyle",
+	"TGStyle"
 	)
 
 /client/verb/change_ui()
@@ -36,7 +37,7 @@
 	set desc = "Configure your mouse cursor."
 //	set hidden = TRUE
 
-	var/choice = WWinput(usr, "Which style?", "Mouse Cursor", "Default", list("Default","Red Crosshair","Green Crosshair","White Crosshair"))
+	var/choice = WWinput(usr, "Which style?", "Mouse Cursor", "Default", list("Default","Red Crosshair","Green Crosshair","White Crosshair","Stalker","Lifeweb"))
 	if (choice == "Default")
 		mouse_pointer_icon = initial(mouse_pointer_icon)
 	else if (choice == "Red Crosshair")
@@ -45,6 +46,10 @@
 		mouse_pointer_icon = 'icons/effects/white_cursors.dmi'
 	else if (choice == "Green Crosshair")
 		mouse_pointer_icon = 'icons/effects/green_cursors.dmi'
+	else if (choice == "Stalker")
+		mouse_pointer_icon = 'icons/russian/effects/stalker_cursors.dmi'
+	else if (choice == "Lifeweb")
+		mouse_pointer_icon = 'icons/russian/effects/lifeweb_cursors.dmi'
 	else
 		mouse_pointer_icon = initial(mouse_pointer_icon)
 	prefs.cursor = mouse_pointer_icon

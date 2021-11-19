@@ -106,18 +106,18 @@
 		var/pay = nr*rand(500,1100)
 		var/list/tlist = list(list(tloc[2],tloc[3],comps,nr,pay,i)) //x,y,product,amount,payment,faction
 		delivery_orders += tlist
-		var/needed = "[nr] [comps]s at the [tloc[4]] [tloc[1]] postbox ([tloc[2]],[tloc[3]])"
+		var/needed = "[nr] [comps] которые надо положить в [tloc[4]] [tloc[1]] postbox по координатам [tloc[2]],[tloc[3]]"
 		var/datum/email/E = new/datum/email
 		pay/=4 //convert to dollars
 		E.subject = pick("New Order","Delivery Requested","Need Some More","Ordering","URGENT: Order")
 		E.sender = "[lowertext(pick(first_names_male))][rand(1,99)]@monkeysoft.ug"
 		E.receiver = i
 		E.message = pick(
-			"Hey man, send [needed], really need it. Is [pay] ok? Will be expecting.<br>kudos from [uppertext(E.sender[1])].",
-			"Hope you guys are ok. Need [needed]. ASAP. Will pay [pay]$ for all of it. Yours trully",
-			"Hey, need a delivery of [needed] for [pay], thanks.",
-			"I heard you can get your hands on something i need. I'll pay you [pay]. Send me [needed].<br>Thanks",
-			"Send [needed]. Pay is [pay]$. Discretion as always.<br>-[uppertext(E.sender[1])]",
+			"Хей чел, мне надо бы [needed] и срочняк. Я заплачу [pay] баксов, согласен?<br>kudos from [uppertext(E.sender[1])].",
+			"Пчел, надо [needed]. АСАП. Плачу [pay]$. Твой знакомый.",
+			"Я заказал [needed] за [pay] бачей, жду доставки.",
+			"Тебе нужны деньги а мне нужен товар. Плачу [pay] за [needed].<br>Спасибо",
+			"Отправь [needed]. Плачу [pay]$. Без лишних слов.<br>-[uppertext(E.sender[1])]",
 			)
 		E.date = roundduration2text()
 		E.read = FALSE
@@ -129,11 +129,14 @@
 /obj/map_metadata/art_of_the_deal/job_enabled_specialcheck(var/datum/job/J)
 	if (J.is_deal)
 		. = TRUE
-		if (clients.len <= 15)
-			if (J.title == "Paramedic" || J.title == "Legitimate Business")
+		if (clients.len <= 1)
+			if (J.title == "Citizen")// || J.title == "Driver")
 				. = FALSE
-		if (clients.len <= 25)
-			if (J.title == "Mechanic" || J.title == "Homeless Man")
+		if (clients.len <= 5)
+			if (J.title == "Paramedic" || J.title == "Mechanic" || J.title == "Fire Response")
+				. = FALSE
+		if (clients.len <= 10)
+			if (J.title == "Legitimate Business" || J.title == "Homeless Man")
 				. = FALSE
 	else
 		. = FALSE
