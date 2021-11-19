@@ -269,7 +269,7 @@
 		processes.python.execute("mapswap.py", list(winner))
 		done = TRUE
 		sleep(300)
-		world << "<span class = 'danger'>Меняем карту!</span> <span class='notice'>Нажми сюда что бы переподключиться: <b>byond://[world.internet_address]:[port]</b></span>"
+		world << "<span class = 'danger'>Меняем карту!</span> <span class='notice'>Нажми сюда что бы переподключиться: <b>byond://[world.internet_address]:55555</b></span>"
 
 
 /process/gamemode
