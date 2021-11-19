@@ -8,6 +8,25 @@
 		return
 	return FALSE
 
-/*/mob/verb/on_press_spacebar/button()
-	set name = "Look into distance"
-	set category = "IC"*/
+/client/verb/attack_direction()
+	set name = "attack-direction"
+	set hidden = TRUE
+
+	if (!mob)
+		return
+
+	if (!istype(mob,/mob/living))
+		return
+
+	var/mob/living/current_mob = mob
+	if (!current_mob || current_mob.stat != CONSCIOUS)
+		return
+	var/turf/T = get_step(mob, mob.dir)
+	var/mob/living/target = null
+	for(var/mob/living/L in T)
+		if(L.stat != DEAD)
+			target = L
+			break
+	if(target)
+		mob.ClickOn(target)
+	return
