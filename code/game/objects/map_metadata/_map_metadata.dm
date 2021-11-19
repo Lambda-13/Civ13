@@ -239,6 +239,12 @@ var/civmax_research = list(230,230,230)
 	var/ar_to_close_string = "None"
 	var/ar_to_close_timeleft = 0
 
+	var/nonukes = TRUE
+	var/alarm_sound = sound('sound/misc/Alarm3.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+	var/announce_sound = sound('sound/misc/DetonatingAlphaWarheads.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+	var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+	var/nuke_timer=30*86400 //30 дней
+
 /obj/map_metadata/New()
 	..()
 	map = src
@@ -1103,3 +1109,34 @@ var/civmax_research = list(230,230,230)
 		if (map.globalmarketplace[i][7]==0 && map.globalmarketplace[i][5]=="bank" && map.globalmarketplace[i][2] && map.globalmarketplace[i][1]==tfaction)
 			if (istype(map.globalmarketplace[i][2],/mob/living/human))
 				map.marketplaceaccounts[map.globalmarketplace[i][2].name] += value/2.5
+
+
+//Перенос нюки с вастеланда
+/obj/map_metadata/proc/nuke_proc()
+	var/vx = rand(25,world.maxx-25)
+	var/vy = rand(25,world.maxy-25)
+	var/turf/epicenter = get_turf(locate(vx,vy,2))
+	if (!nonukes)
+		spawn(nuke_timer)
+			world << "<font size=3 color='red'>Do you feel unkind.</font>"
+		spawn(330)
+			for (var/mob/M in player_list)
+				M.client << alarm_sound
+		spawn(44)
+			for (var/mob/M in player_list)
+				M.client << announce_sound
+			world << "<font size=3 color='red'><center>Automatic Air Raid<br>We're detonating the Alpha Warhead in T-Minus ninety seconds. All personnel are advised to board the nearest helicopter or enter the nearest blast shelter immediately.</center></font>"
+		spawn(660)
+		world << "<font size=3 color='red'><center>ATTENTION<br>A nuclear missile is incoming! Take cover!</center></font>"
+		for (var/mob/M in player_list)
+			M.client << warning_sound
+		spawn(330)
+			world << "<font size=3 color='red'>A nuclear explosion has happened! <br><i>(Game might freeze/lag for a while while processing, please wait)</i></font>"
+			nuke_map(epicenter, 200, 180, 0)
+			message_admins("Automatic nuke deployed at ([epicenter.x],[epicenter.y],[epicenter.z]) in area [epicenter.loc.name].")
+			log_game("Automatic nuke deployed at ([epicenter.x],[epicenter.y],[epicenter.z]) in area [epicenter.loc.name].")
+			return
+	else
+		spawn(600)
+			nuke_proc(nuke_timer)
+	return

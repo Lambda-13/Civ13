@@ -39,7 +39,8 @@
 	age6_done = TRUE
 	age7_done = TRUE
 	age8_done = TRUE
-	var/nonukes = FALSE
+	nonukes = FALSE
+	nuke_timer = 72000
 /obj/map_metadata/nomads_wasteland/New()
 	..()
 	spawn(18000)
@@ -57,25 +58,6 @@
 /obj/map_metadata/nomads_wasteland/cross_message(faction)
 	return ""
 
-/obj/map_metadata/nomads_wasteland/proc/nuke_proc(var/timer=72000)
-	if (processes.ticker.playtime_elapsed > timer && !nonukes)
-		var/vx = rand(25,world.maxx-25)
-		var/vy = rand(25,world.maxy-25)
-		var/turf/epicenter = get_turf(locate(vx,vy,2))
-		world << "<font size=3 color='red'><center>ATTENTION<br>A nuclear missile is incoming! Take cover!</center></font>"
-		var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
-		for (var/mob/M in player_list)
-			M.client << warning_sound
-		spawn(330)
-			world << "<font size=3 color='red'>A nuclear explosion has happened! <br><i>(Game might freeze/lag for a while while processing, please wait)</i></font>"
-			nuke_map(epicenter, 200, 180, 0)
-			message_admins("Automatic nuke deployed at ([epicenter.x],[epicenter.y],[epicenter.z]) in area [epicenter.loc.name].")
-			log_game("Automatic nuke deployed at ([epicenter.x],[epicenter.y],[epicenter.z]) in area [epicenter.loc.name].")
-			return
-	else
-		spawn(600)
-			nuke_proc(timer)
-	return
 /obj/map_metadata/nomads_wasteland/proc/supplydrop_proc()
 	if (world_radiation >= 280 && !nonukes)
 		var/droptype = pick("supplies","food","weapons","medicine")
