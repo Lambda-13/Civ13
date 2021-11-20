@@ -1115,7 +1115,7 @@ var/civmax_research = list(230,230,230)
 	var/vx = rand(25,world.maxx-25)
 	var/vy = rand(25,world.maxy-25)
 	var/turf/epicenter = get_turf(locate(vx,vy,2))
-	if (processes.ticker.playtime_elapsed > nuke_timer)
+	if (round((roundduration2text_in_ticks % 36000) / 600) > nuke_timer)
 		spawn(nuke_timer)
 			world << "<font size=3 color='red'>Do you feel unkind.</font>"
 		spawn(330)
@@ -1130,8 +1130,6 @@ var/civmax_research = list(230,230,230)
 		for (var/mob/M in player_list)
 			M.client << warning_sound
 		spawn(330)
-			var/theend = 9999999999999999
-			nuke_timer == theend
 			world << "<font size=3 color='red'>A nuclear explosion has happened! <br><i>(Game might freeze/lag for a while while processing, please wait)</i></font>"
 			nuke_map(epicenter, 200, 180, 0)
 			message_admins("Automatic nuke deployed at ([epicenter.x],[epicenter.y],[epicenter.z]) in area [epicenter.loc.name].")

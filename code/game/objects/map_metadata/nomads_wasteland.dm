@@ -39,13 +39,13 @@
 	age6_done = TRUE
 	age7_done = TRUE
 	age8_done = TRUE
-	nuke_timer = 72000
+	nuke_timer = 160
 /obj/map_metadata/nomads_wasteland/New()
 	..()
 	spawn(18000)
 		seasons()
 		var/randtimer = rand(72000,108000)
-		if (nuke_timer = 72000)
+		if (nuke_timer == 160)
 			nuke_proc(randtimer)
 			supplydrop_proc()
 /obj/map_metadata/nomads_wasteland/faction2_can_cross_blocks()
