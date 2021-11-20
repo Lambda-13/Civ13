@@ -439,11 +439,11 @@ var/global/redirect_all_players = null
 		var/job_flag = actual_job.base_type_flag()
 
 		if (!config.enter_allowed)
-			WWalert(usr,"There is an administrative lock on entering the game!", "Error")
+			WWalert(usr,"Админ запретил заходить в раунд.", "Error")
 			return
 
 		if (map && map.has_occupied_base(job_flag) && map.ID != MAP_CAPITOL_HILL && map.ID != MAP_CAMP && map.ID != MAP_HILL_203 && map.ID != MAP_CALOOCAN && map.ID != MAP_YELTSIN)
-			WWalert(usr,"The enemy is currently occupying your base! You can't be deployed right now.", "Error")
+			WWalert(usr,"Враги оккупировали эту базу! Придётся выбрать что-то другое.", "Error")
 			return
 //prevent boss spawns if there are enemies in the building
 		if (map && map.ID == MAP_CAPITOL_HILL)
@@ -460,12 +460,12 @@ var/global/redirect_all_players = null
 			if (actual_job && actual_job.title == "Yama Wakagashira")
 				for(var/mob/living/human/HM in get_area_turfs(/area/caribbean/houses/nml_two))
 					if (HM.original_job.is_ichi)
-						WWalert(usr,"The enemy is currently occupying your base! You can't be deployed as an underboss right now.", "Error")
+						WWalert(usr,"Враги оккупировали эту базу! Придётся выбрать что-то другое.", "Error")
 						return
 			if (actual_job.title == "Ichi Wakagashira")
 				for(var/mob/living/human/HM in get_area_turfs(/area/caribbean/houses/nml_one))
 					if (HM.original_job.is_yama)
-						WWalert(usr,"The enemy is currently occupying your base! You can't be deployed as an underboss right now.", "Error")
+						WWalert(usr,"Враги оккупировали эту базу! Придётся выбрать что-то другое.", "Error")
 						return
 		/area/caribbean/houses/nml_one
 /* "Old" whitelisting proccess
@@ -483,11 +483,11 @@ var/global/redirect_all_players = null
 				if (temp_ckey == client.ckey)
 					found = TRUE
 			if (!found)
-				WWalert(usr,"You need to be whitelisted to play this job. Apply in the Discord.","Error")
+				WWalert(usr,"Тебя нету в вайтлисте.","Error")
 				return
 
 		if (actual_job.is_officer)
-			if ((input(src, "This is an officer position. Are you sure you want to join in as a [actual_job.title]?") in list("Yes", "No")) == "No")
+			if ((input(src, "Это главенствующая позиция, ты уверен что хочешь взять [actual_job.title]?") in list("Yes", "No")) == "No")
 				return
 
 		if (actual_job.spawn_delay)
@@ -534,11 +534,11 @@ var/global/redirect_all_players = null
 		return FALSE
 	if (!ticker || ticker.current_state != GAME_STATE_PLAYING)
 		if (!nomsg)
-			WWalert(usr,"The round is either not ready, or has already finished.","Error")
+			WWalert(usr,"Раунд закончился или ещё не начался.","Error")
 			if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.civilizations == TRUE || map.ID == MAP_FOUR_KINGDOMS)
 				abandon_mob()
 				spawn(10)
-					WWalert(usr,"The round is either not ready, or has already finished.", "Error")
+					WWalert(usr,"Раунд закончился или ещё не начался.", "Error")
 		return FALSE
 	if (!config.enter_allowed)
 		if (!nomsg)
