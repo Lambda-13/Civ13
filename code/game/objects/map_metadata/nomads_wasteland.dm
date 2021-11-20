@@ -39,14 +39,13 @@
 	age6_done = TRUE
 	age7_done = TRUE
 	age8_done = TRUE
-	nonukes = FALSE
 	nuke_timer = 72000
 /obj/map_metadata/nomads_wasteland/New()
 	..()
 	spawn(18000)
 		seasons()
 		var/randtimer = rand(72000,108000)
-		if (!nonukes)
+		if (nuke_timer = 72000)
 			nuke_proc(randtimer)
 			supplydrop_proc()
 /obj/map_metadata/nomads_wasteland/faction2_can_cross_blocks()
@@ -59,7 +58,7 @@
 	return ""
 
 /obj/map_metadata/nomads_wasteland/proc/supplydrop_proc()
-	if (world_radiation >= 280 && !nonukes)
+	if (world_radiation >= 280)
 		var/droptype = pick("supplies","food","weapons","medicine")
 		var/turf/locationt = pick(supplydrop_turfs)
 		switch(droptype)
@@ -100,7 +99,7 @@
 	ID = MAP_NOMADS_WASTELAND_2
 	title = "Wasteland II"
 	gamemode = "Wasteland"
-	nonukes = TRUE
+	nuke_timer=30*86400 //30 дней
 	is_zombie = TRUE
 	mission_start_message = "<big>Something has gone terribly wrong. Monsters roam the world, and society has fallen. Can you survive?</big><br><b>Wiki Guide: https://civ13.github.io/civ13-wiki/Civilizations_and_Nomads</b>"
 	ambience = list('sound/ambience/desert.ogg')
@@ -114,7 +113,7 @@
 	ID = MAP_NOMADS_WASTELAND_RU
 	title = "Wasteland RU"
 	gamemode = "Russian Wasteland"
-	nonukes = TRUE
+	nuke_timer=30*86400 //30 дней
 	is_zombie = TRUE
 	mission_start_message = "<big>Миру давно пришёл конец, сможете ли вы построить новую цивилизацию на остатках прошлых лет?</big><br><b>Вики https://civ13.github.io/civ13-wiki/Civilizations_and_Nomads</b>"
 	ambience = list('sound/ambience/desert.ogg')
