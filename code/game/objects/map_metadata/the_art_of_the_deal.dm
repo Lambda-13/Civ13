@@ -497,7 +497,7 @@
 		arn = rand(1000,9999)
 		icon_state = "police_record"
 		spawn(10)
-			info = "<center>POLICE DEPARTMENT<hr><large><b>Arrest Warrant No. [arn]</b></large><hr><br>Police forces are hereby authorized and directed to detain <b>[tgt]</b>, working for <b><i>[tgtcmp]</i></b>, for the following reasons:<br><br><i>- [reason]</i><br><br>They will disregard any claims of immunity or privilege by the Suspect or agents acting on the Suspect's behalf. Police forces shall bring <b>[tgt]</b> forthwith to the Police Station.<br><br><small><center><i>Form Model 13-B</i><center></small><hr>"
+			info = "<meta charset='utf-8'><center>POLICE DEPARTMENT<hr><large><b>Arrest Warrant No. [arn]</b></large><hr><br>Police forces are hereby authorized and directed to detain <b>[tgt]</b>, working for <b><i>[tgtcmp]</i></b>, for the following reasons:<br><br><i>- [reason]</i><br><br>They will disregard any claims of immunity or privilege by the Suspect or agents acting on the Suspect's behalf. Police forces shall bring <b>[tgt]</b> forthwith to the Police Station.<br><br><small><center><i>Form Model 13-B</i><center></small><hr>"
 		spawn(100)
 			if (spawntimer)
 				spawn(spawntimer)
@@ -513,7 +513,7 @@
 		arn = rand(100,999)
 		icon_state = "police_warrant"
 		spawn(10)
-			info = "<center>POLICE DEPARTMENT<hr><large><b>Search Warrant No. [arn]</b></large><hr><br>Police forces are hereby authorized and directed to search all and every property owned by <b>[cmp]</b>. They will disregard any claims of immunity or privilege by the Suspect or agents acting on the Suspect's behalf.<br><br><small><center><i>Form Model 13-C1</i></center></small><hr>"
+			info = "<meta charset='utf-8'><center>POLICE DEPARTMENT<hr><large><b>Search Warrant No. [arn]</b></large><hr><br>Police forces are hereby authorized and directed to search all and every property owned by <b>[cmp]</b>. They will disregard any claims of immunity or privilege by the Suspect or agents acting on the Suspect's behalf.<br><br><small><center><i>Form Model 13-C1</i></center></small><hr>"
 //////////////////SCREEN HELPERS////////////////////////////
 /obj/screen/areashow_aod
 	maptext = "<center><font color='yellow'>Unknown Area</font></center>"

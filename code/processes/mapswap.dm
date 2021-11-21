@@ -56,7 +56,8 @@
 				"Civilization 13 (Nomads)" = 5,
 				"Civilization 13 (Colony & Pioneers)" = 5,
 				//"Civilization 13 (Prison Camps)" = 15,
-				"Civilization 13 (Others)" = 0,)
+				"Civilization 13 (Others)" = 0,
+				"HRP TDM (Gulag, AOTD, Occupation)" = 5,)
 		else if (config.allowedgamemodes == "PERSISTENCE")
 			epochs = list(
 				"Civilization 13 (Nomads)" = 5,)
@@ -189,7 +190,7 @@
 			maps = list(
 //				MAP_FOOTBALL = 8,
 				MAP_GULAG13 = 0,
-				MAP_THE_ART_OF_THE_DEAL = 15,
+				MAP_THE_ART_OF_THE_DEAL = 6,
 //				MAP_ABASHIRI = 5,
 //				MAP_RIVER_KWAI = 0,
 				MAP_OCCUPATION = 15,
