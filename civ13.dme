@@ -506,7 +506,6 @@
 #include "code\game\objects\map_metadata\wake_island.dm"
 #include "code\game\objects\map_metadata\yeltsin.dm"
 #include "code\game\objects\map_metadata\ypres.dm"
-#include "code\game\objects\map_metadata\ru.dm"
 #include "code\game\objects\structures\appliances.dm"
 #include "code\game\objects\structures\barricades.dm"
 #include "code\game\objects\structures\bedsheet_bin.dm"
@@ -716,7 +715,6 @@
 #include "code\modules\1713\jobs\wildwest.dm"
 #include "code\modules\1713\jobs\yakuza.dm"
 #include "code\modules\1713\jobs\yeltsin.dm"
-#include "code\modules\1713\jobs\ru.dm"
 #include "code\modules\1713\machinery\cables.dm"
 #include "code\modules\1713\machinery\cables_types.dm"
 #include "code\modules\1713\machinery\vehicles.dm"
@@ -1014,5 +1012,5 @@
 #include "code\processes\lighting\sources.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "maps\special\civilizations.dmm"
+#include "maps\1873\nationsrp.dmm"
 // END_INCLUDE
