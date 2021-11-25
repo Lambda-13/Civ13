@@ -24,9 +24,9 @@
 		var/new_eyes = "Black"
 		var/choices = WWinput(src, "Добро пожаловать в Удивительное Время! В данном режиме на выбор доступны несколько рас. Кастомизация даёт возможность выбрать вам расу, рандомизация же выбирает рандомно вам расу.","Character Customization","Randomize",list(/*"Biome Appropriate",*/"Randomize","Customize"))
 		if (choices == "Customize")
-			var/choice_race = WWinput(src, "Выбери расу","Character Customization","Randomize",list("Randomize","Human","Ant","Lizard","Crustacean","Orc","Gorilla","Wolf","Skelet"))
+			var/choice_race = WWinput(src, "Выбери расу","Character Customization","Randomize",list("Randomize","Human","Ant","Lizard","Crustacean","Orc","Gorilla","Wolf"))
 			if (choice_race == "Randomize")
-				choice_race = pick("Human","Ant","Lizard","Crustacean","Orc","Gorilla","Wolf","Skelet")
+				choice_race = pick("Human","Ant","Lizard","Crustacean","Orc","Gorilla","Wolf")
 			switch(choice_race)
 
 				if ("Gorilla")
@@ -86,16 +86,6 @@
 					for (var/datum/language/crab/A in languages)
 						default_language = A
 					name = species.get_random_crab_name(gender)
-					real_name = name
-					give_clothes()
-
-				if ("Skelet")
-					skeletman = 1
-					religion = "Bonetrousle"
-					add_language("Skelet Tongue",TRUE)
-					for (var/datum/language/skelet/A in languages)
-						default_language = A
-					name = species.get_random_english_name(gender)
 					real_name = name
 					give_clothes()
 
