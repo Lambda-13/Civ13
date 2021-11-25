@@ -989,8 +989,12 @@ var/global/redirect_all_players = null
 					dat[v] = replacetext(dat[v], "&&[key]&&", "")
 					replaced_faction_title = TRUE
 
+	if (!any_available_jobs && !ticker)
+		WWalert(usr,"Игра загружается",":)")
+		return
+
 	if (!any_available_jobs)
-		WWalert(usr,"All roles are disabled by autobalance!","Error")
+		WWalert(usr,"Все профессии были отключены из-за автобаланса",":*")
 		return
 
 	var/data = ""
