@@ -1,7 +1,7 @@
 /obj/item/flashlight
 	name = "flashlight"
 	desc = "A hand-held emergency light."
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'icons/russian/obj/lighting.dmi'
 	icon_state = "flashlight_off"
 	var/off_state = "flashlight_off"
 	var/on_state = "flashlight_on"

@@ -3,7 +3,7 @@
 /obj/structure/lamp
 	name = "small lamp post"
 	desc = "A small lamp post, good for outdoor illumination."
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'icons/russian/obj/lighting.dmi'
 	icon_state = "lamppost_small"
 	var/base_icon = "lamppost_small"
 	anchored = TRUE
@@ -167,7 +167,7 @@
 
 /obj/item/lightbulb
 	name = "lightbulb"
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'icons/russian/obj/lighting.dmi'
 	icon_state = "lbulb"
 	anchored = FALSE
 	density = FALSE
