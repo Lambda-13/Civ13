@@ -1654,7 +1654,8 @@
 /datum/program/elektra/do_html(mob/living/human/user)
 	if (mainmenu == "---")
 		mainmenu = "<h2><font color='yellow'>E</font><font color='orange'>-LEKTRA</font> STORE</h2><br>"
-		mainmenu += "<b>We sell all the chemicals needed for advanced tech production.</i></b><br>"
+		mainmenu += "<b>Доставляем хим кристалы для разработки чипов!</i></b><br>"
+		mainmenu += "<b>Теперь на Русском языке!</i></b><br>"
 		mainmenu += "<a href='?src=\ref[src];elektra=2'>Buy</a><br>"
 	..()
 
