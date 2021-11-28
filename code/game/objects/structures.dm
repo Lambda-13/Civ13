@@ -1,5 +1,5 @@
 /obj/structure
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	w_class = 10
 
 	var/climbable = FALSE

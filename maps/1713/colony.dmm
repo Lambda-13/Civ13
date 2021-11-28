@@ -145,7 +145,7 @@
 "cO" = (/mob/living/simple_animal/mouse/white,/turf/floor/grass,/area/caribbean/nomads/forest)
 "cP" = (/obj/structure/sink/well,/obj/covers/cobblestone,/obj/effect/landmark/npctarget,/obj/effect/landmark/npctarget/faction/all,/turf/floor/grass,/area/caribbean/nomads/forest)
 "cQ" = (/mob/living/simple_animal/bisonbull,/turf/floor/grass,/area/caribbean/nomads/forest)
-"cR" = (/obj/structure/window/classic,/obj/covers/wood,/obj/structure/barricade/steel,/obj/structure/grille/ironfence{desc = "Iron bars."; icon = 'icons/obj/structures.dmi'; icon_state = "bars"; name = "iron bars"},/obj/structure/curtain/open/black,/turf/floor/dirt,/area/caribbean/roofed)
+"cR" = (/obj/structure/window/classic,/obj/covers/wood,/obj/structure/barricade/steel,/obj/structure/grille/ironfence{desc = "Iron bars."; icon = 'icons/russian/obj/structures.dmi'; icon_state = "bars"; name = "iron bars"},/obj/structure/curtain/open/black,/turf/floor/dirt,/area/caribbean/roofed)
 "cS" = (/obj/covers/brick_wall,/obj/covers/cobblestone,/obj/item/flashlight/lantern/on/anchored,/turf/floor/dirt,/area/caribbean/roofed)
 "cT" = (/obj/structure/religious/animal_statue{icon_state = "bear"},/obj/roof/thatch,/turf/floor/dirt/dust,/area/caribbean/nomads/forest)
 "cU" = (/obj/effect/landmark{icon_state = "x3"; name = "JoinLateIND"},/obj/covers/roads/dirt,/turf/floor/grass,/area/caribbean/nomads/forest)

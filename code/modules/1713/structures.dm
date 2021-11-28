@@ -1,7 +1,7 @@
 /obj/structure/barricade/wood_pole
 	name = "wood pole"
 	desc = "A simple wood pole. You can attach stuff to it."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "wood_pole_good"
 	health = 50
 	maxhealth = 50
@@ -17,7 +17,7 @@
 	..()
 	name = "wood pole"
 	desc = "A simple wood pole. You can attach stuff to it."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "wood_pole_good"
 
 /obj/structure/grille/fence
@@ -112,7 +112,7 @@
 /obj/structure/grille/logfence
 	name = "palisade"
 	desc = "A wooden palisade."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "palisade"
 	health = 32
 	opacity = TRUE
@@ -138,7 +138,7 @@
 /obj/structure/wallclock
 	name = "standing clock"
 	desc = "A classic standing clock."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "wall_clock"
 	flammable = TRUE
 	not_movable = FALSE
@@ -231,7 +231,7 @@
 /obj/structure/potted_plant
 	name = "potted plant"
 	desc = "A potted plant."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "potted_plant"
 	flammable = TRUE
 	not_movable = FALSE
@@ -470,7 +470,7 @@
 /obj/structure/wallframe
 	name = "wall frame"
 	desc = "A wooden wall frame, add something like paper, bamboo bundles or wood to it.."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "wall_frame"
 	flammable = TRUE
 	not_movable = FALSE
@@ -587,7 +587,7 @@
 /obj/structure/wallframe/bamboo
 	name = "bamboo wall frame"
 	desc = "A bamboo wall frame, add something like paper, bamboo bundles or wood to it."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "wall_frame_bamboo"
 
 /obj/structure/wallframe/bamboo/attackby(obj/item/W as obj, var/mob/living/human/H)

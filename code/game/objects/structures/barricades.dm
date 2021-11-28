@@ -1,7 +1,7 @@
 /obj/structure/barricade
 	name = "wood structure"
 	desc = "A wooden frame."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "barricade"
 	anchored = TRUE
 
@@ -426,7 +426,7 @@
 /obj/structure/barricade/debris
 	name = "debris"
 	desc = "A wall of rubble and debris."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "debris1"
 	material = "stone"
 	health = 300

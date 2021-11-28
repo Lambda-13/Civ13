@@ -634,7 +634,7 @@ obj/structure/religious/monument
 /obj/structure/religious/impaledskull
 	name = "impaled skull"
 	desc = "A skull on a spike."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "impaledskull"
 
 /obj/structure/religious/tribalmask

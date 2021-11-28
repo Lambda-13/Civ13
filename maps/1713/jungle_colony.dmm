@@ -284,7 +284,7 @@
 "fy" = (/turf/floor/grass/jungle,/area/caribbean/roofed)
 "fz" = (/obj/covers/wood,/obj/structure/simple_door/key_door/civ/hall{name = "Bank Area"},/turf/floor/grass/jungle,/area/caribbean/roofed)
 "fA" = (/obj/covers/wood,/obj/structure/table/wood,/obj/covers/jail/steeljail,/turf/floor/grass/jungle,/area/caribbean/roofed)
-"fB" = (/obj/covers/wood,/obj/structure/table/wood,/obj/covers/jail/steeljail{icon = 'icons/obj/structures.dmi'; icon_state = "bars_bank"},/turf/floor/grass/jungle,/area/caribbean/roofed)
+"fB" = (/obj/covers/wood,/obj/structure/table/wood,/obj/covers/jail/steeljail{icon = 'icons/russian/obj/structures.dmi'; icon_state = "bars_bank"},/turf/floor/grass/jungle,/area/caribbean/roofed)
 "fC" = (/obj/covers/roads/cobble,/obj/structure/barricade/stone_h,/turf/floor/grass/jungle,/area/caribbean/nomads/forest/Jungle)
 "fD" = (/obj/covers/roads/cobble,/obj/structure/barricade/stone_h/crenelated,/turf/floor/grass/jungle,/area/caribbean/nomads/forest/Jungle)
 "fE" = (/obj/structure/wild/smallbush,/turf/floor/grass/jungle,/area/caribbean/roofed)

@@ -6,7 +6,7 @@
 /obj/structure/gladiator_ledger
 	name = "gladiatorial ledger"
 	desc = "A board showing the victories of all gladiators."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "nboard00"
 	density = FALSE
 	anchored = TRUE
@@ -135,7 +135,7 @@
 /obj/structure/gladiator_control
 	name = "gladiator combat organizer"
 	desc = "A board showing the planned combats of the season."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "nboard05"
 	density = FALSE
 	anchored = TRUE

@@ -177,7 +177,7 @@
 "dU" = (/obj/covers/brick_wall,/turf/floor/dirt/underground,/area/caribbean/void/caves{base_turf = /turf/floor/dirt; name = "The Caves"})
 "dV" = (/obj/covers/cobblestone,/obj/structure/table/wood,/obj/item/weapon/pen,/obj/item/weapon/paper,/obj/structure/closet/cabinet/ceiling,/turf/floor/plating/cobblestone/dark,/area/caribbean/void/caves{base_turf = /turf/floor/dirt; name = "The Caves"})
 "ec" = (/obj/covers/cobblestone,/obj/structure/table/wood,/turf/floor/plating/cobblestone/dark,/area/caribbean/void/caves{base_turf = /turf/floor/dirt; name = "The Caves"})
-"eg" = (/obj/covers/wood,/obj/structure/table/wood,/obj/covers/jail/steeljail{icon = 'icons/obj/structures.dmi'; icon_state = "bars_bank"},/turf/floor/grass/jungle,/area/caribbean/roofed)
+"eg" = (/obj/covers/wood,/obj/structure/table/wood,/obj/covers/jail/steeljail{icon = 'icons/russian/obj/structures.dmi'; icon_state = "bars_bank"},/turf/floor/grass/jungle,/area/caribbean/roofed)
 "ei" = (/obj/covers/cobblestone,/obj/structure/table/wood,/obj/item/weapon/paper_bin,/turf/floor/plating/cobblestone/dark,/area/caribbean/void/caves{base_turf = /turf/floor/dirt; name = "The Caves"})
 "ej" = (/obj/structure/wild/rock,/obj/structure/wild/tallgrass,/turf/floor/grass,/area/caribbean/nomads/forest)
 "ek" = (/obj/covers/wood,/turf/floor/grass/jungle,/area/caribbean/roofed)

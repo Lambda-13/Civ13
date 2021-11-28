@@ -1,7 +1,7 @@
 /obj/structure/stockmarket
 	name = "stock market"
 	desc = "Use this to buy, sell and check company shares. You can also manage your companies here."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "supplybook"
 	density = TRUE
 	anchored = TRUE

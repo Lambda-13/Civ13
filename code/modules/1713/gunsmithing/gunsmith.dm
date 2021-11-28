@@ -1,7 +1,7 @@
 /obj/structure/gunbench
 	name = "gunsmithing bench"
 	desc = "A large wooden workbench. The gunsmith's main work tool. It has 0 steel and 0 wood on it."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "gunbench1"
 	density = TRUE
 	anchored = TRUE
