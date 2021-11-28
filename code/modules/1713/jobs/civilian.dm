@@ -2423,6 +2423,7 @@
 	H.equip_to_slot_or_del(new /obj/item/weapon/map(H), slot_r_store)
 	H.equip_to_slot_or_del(new /obj/item/stack/medical/advanced/ointment(H), slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/modern2(H), slot_wear_mask)
+	H.equip_to_slot_or_del(new /obj/item/weapon/key/civ/mechanic(H), slot_r_hand)
 	H.equip_to_slot_or_del(new /obj/item/weapon/radio/walkietalkie/factionpolice(H), slot_wear_id)
 	H.equip_to_slot_or_del(new /obj/item/clothing/gloves/thick/leather(H), slot_gloves)
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots(H), slot_shoes)
@@ -2447,8 +2448,8 @@
 	title = "Legitimate Business"
 	selection_color = "#6f4e37"
 	spawn_location = "JoinLateCivI"
-	min_positions = 3
-	max_positions = 15
+	min_positions = 1
+	max_positions = 5
 	whitelisted = TRUE
 	can_be_female = TRUE
 
@@ -2457,6 +2458,7 @@
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/modern2(H), slot_w_uniform)
 	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/onehundy(H), slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/telephone/mobile(H), slot_r_store)
+	H.equip_to_slot_or_del(new /obj/item/weapon/key/civ/hall(H), slot_l_hand)
 	H.add_note("Role", "You are a legitimate business person. Find a business to invest in or start your own.")
 
 
@@ -2485,7 +2487,7 @@
 			var/obj/item/clothing/accessory/suspenders/dark/ysuspenders = new /obj/item/clothing/accessory/suspenders/dark(null)
 			uniform.attackby(ysuspenders, H)
 
-	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/ten(H), slot_r_hand)
+	H.equip_to_slot_or_del(new /obj/item/bisinessbox(H), slot_r_hand)
 
 //hats
 	var/randhat = pick(1,2,3)
@@ -2510,7 +2512,7 @@
 /datum/job/civilian/businessman/citizen
 	title = "Citizen"
 	selection_color = "#404040"
-	spawn_location = "JoinLateCivI"
+	spawn_location = "JoinLateCivDef"
 	min_positions = 15
 	max_positions = 150
 	whitelisted = TRUE
@@ -2528,39 +2530,24 @@
 	if (H.gender == "male")
 		var/randcloth = rand(1,5)
 		if (randcloth == 1)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/civ1(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/modern1(H), slot_w_uniform)
 		else if (randcloth == 2)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/civ2(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/modern2(H), slot_w_uniform)
 		else if (randcloth == 3)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/civ3(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/modern4(H), slot_w_uniform)
 		else if (randcloth == 4)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/civ5(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/modern4(H), slot_w_uniform)
 		else if (randcloth == 5)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/civ6(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/modern7(H), slot_w_uniform)
 
-	//head
-		var/randhead = rand(1,5)
-		if (randhead == 1)
-			H.equip_to_slot_or_del(new /obj/item/clothing/head/blue_beret(H), slot_head)
-		else if (randhead == 2)
-			H.equip_to_slot_or_del(new /obj/item/clothing/head/red_beret(H), slot_head)
-		else if (randhead== 3)
-			H.equip_to_slot_or_del(new /obj/item/clothing/head/strawhat(H), slot_head)
-		else if (randhead == 4)
-			H.equip_to_slot_or_del(new /obj/item/clothing/head/tarred_hat(H), slot_head)
-		else if (randhead == 5)
-			H.equip_to_slot_or_del(new /obj/item/clothing/head/tricorne_black(H), slot_head)
 	else
 		var/randcloth = rand(1,3)
 		if (randcloth == 1)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/civf1(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/modern8(H), slot_w_uniform)
 		else if (randcloth == 2)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/civf2(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/expensive(H), slot_w_uniform)
 		else if (randcloth == 3)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/civf3(H), slot_w_uniform)
-
-	//head
-		H.equip_to_slot_or_del(new /obj/item/clothing/head/kerchief(H), slot_head)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/tradwife(H), slot_w_uniform)
 
 	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/ten(H), slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/telephone/mobile(H), slot_r_store)
