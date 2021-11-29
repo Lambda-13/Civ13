@@ -269,6 +269,7 @@ var/civmax_research = list(230,230,230)
 		wind()
 	spawn(2000)
 		religious_timer()
+		tip_process()
 
 	if (nomads || civilizations || ID==MAP_COLONY || ID==MAP_FOUR_COLONIES || ID==MAP_PIONEERS)
 		var/amt_to_create = (world.maxx*world.maxy)/5000
@@ -366,6 +367,20 @@ var/civmax_research = list(230,230,230)
 		pollutionmeter = 0
 	spawn(9000) //every 15 mins
 		pollution()
+
+/obj/map_metadata/proc/tip_process()
+	var/list/tips = file2list("config/tips.txt")
+	show_tip(tips)
+	spawn(6000) //every 10 mins
+		tip_process()
+
+/obj/map_metadata/proc/show_tip(var/list/tips)
+	if (tips.len)
+		for(var/client/C in clients)
+			if(C.is_preference_enabled(/datum/client_preference/show_tips))
+				world << "<font color='#5194BB'>---</font>"
+				world << "<font color='#5194BB'><b>Tip:</b> [pick(tips)]</font>"
+				world << "<font color='#5194BB'>---</font>"
 
 /obj/map_metadata/proc/set_ordinal_age()
 	if (age == "5000 B.C.")
@@ -714,6 +729,8 @@ var/civmax_research = list(230,230,230)
 		ARAB = 0,
 		JAPANESE = 0,
 		RUSSIAN = 0,
+		CHECHEN = 0,
+		FINNISH = 0,
 		GERMAN = 0,
 		AMERICAN = 0,
 		VIETNAMESE = 0,
@@ -819,6 +836,10 @@ var/civmax_research = list(230,230,230)
 			return "Japanese"
 		if (RUSSIAN)
 			return "Russian"
+		if (CHECHEN)
+			return "Chechen"
+		if (FINNISH)
+			return "Finnish"
 		if (AMERICAN)
 			return "American"
 		if (VIETNAMESE)
@@ -855,6 +876,10 @@ var/civmax_research = list(230,230,230)
 			return "Japanese Empire"
 		if (RUSSIAN)
 			return "Russian Empire"
+		if (CHECHEN)
+			return "Chechen Republic of Ichkeria"
+		if (FINNISH)
+			return "Republic of Finland"
 		if (GERMAN)
 			return "German Empire"
 		if (AMERICAN)
