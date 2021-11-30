@@ -673,6 +673,8 @@ var/filipino_forceEnabled = FALSE
 	var/msg16 = "Vietnamese: [alive_vietnamese.len] живо, [heavily_injured_vietnamese.len] сильно ранено или без сознания, [dead_vietnamese.len] откинулось. Коэффицент смертности: [mortality_vietnamese]%"
 	var/msg17 = "Chinese: [alive_chinese.len] живо, [heavily_injured_chinese.len] сильно ранено или без сознания, [dead_chinese.len] откинулось. Коэффицент смертности: [mortality_chinese]%"
 	var/msg18 = "Filipino: [alive_filipino.len] живо, [heavily_injured_filipino.len] сильно ранено или без сознания, [dead_filipino.len] откинулось. Коэффицент смертности: [mortality_filipino]%"
+	var/msg19 = "Chechen: [alive_chechen.len] alive, [heavily_injured_chechen.len] heavily injured or unconscious, [dead_chechen.len] deceased. Mortality rate: [mortality_chechen]%"
+	var/msg20 = "Finnish: [alive_finnish.len] alive, [heavily_injured_finnish.len] heavily injured or unconscious, [dead_finnish.len] deceased. Mortality rate: [mortality_finnish]%"
 
 	var/msg_npcs = "NPCs: [faction1_npcs] американцев живо, [faction2_npcs] японцев живо."
 //End Russian Status Report//
