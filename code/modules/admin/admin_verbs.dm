@@ -956,6 +956,14 @@ var/global/list/global_colour_matrix = null
 	var/turf/epicenter = mob.loc
 	var/warningtimer = 5
 	if (warning == "Yes")
+		spawn(330)
+			for (var/mob/M in player_list)
+				M.client << sound('sound/misc/Alarm3.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+		spawn(44)
+			for (var/mob/M in player_list)
+				M.client << sound('sound/misc/DetonatingAlphaWarheads.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+			world << "<font size=3 color='red'><center>Automatic Air Raid<br>We're detonating the Alpha Warhead in T-Minus ninety seconds. All personnel are advised to board the nearest helicopter or enter the nearest blast shelter immediately.</center></font>"
+		spawn(660)
 		world << "<font size=3 color='red'><center>ATTENTION<br>A nuclear missile is incoming! Take cover!</center></font>"
 		message_admins("ВНИМАНИЕ: [key] активирует 30 секунд до взрыва нюки.")
 		log_game("ВНИМАНИЕ: [key] активирует 30 секунд до взрыва нюки.")
@@ -993,6 +1001,14 @@ var/global/list/global_colour_matrix = null
 	if (warning == "Yes")
 		message_admins("ВНИМАНИЕ: [key] активирует 30 секунд до взрыва ФЕЙКОВОЙ нюки.")
 		log_game("ВНИМАНИЕ: [key] активирует 30 секунд до взрыва ФЕЙКОВОЙ нюки.")
+		spawn(330)
+			for (var/mob/M in player_list)
+				M.client << sound('sound/misc/Alarm3.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+		spawn(44)
+			for (var/mob/M in player_list)
+				M.client << sound('sound/misc/DetonatingAlphaWarheads.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+			world << "<font size=3 color='red'><center>Automatic Air Raid<br>We're detonating the Alpha Warhead in T-Minus ninety seconds. All personnel are advised to board the nearest helicopter or enter the nearest blast shelter immediately.</center></font>"
+		spawn(660)
 		world << "<font size=3 color='red'><center>ATTENTION<br>A nuclear missile is incoming! Take cover!</center></font>"
 		var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
 		for (var/mob/M in player_list)
