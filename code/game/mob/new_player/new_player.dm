@@ -629,7 +629,7 @@ var/global/redirect_all_players = null
 		WWalert(usr,"You must be under 18 to play this role.","Error")
 		return FALSE
 
-	if (map.ordinal_age == 2 && !map.civilizations && !istype(job, /datum/job/civilian) && map.ID != MAP_BOHEMIA)
+	if (map.ordinal_age == 2 && !map.civilizations && !istype(job, /datum/job/civilian) && map.ID != MAP_BOHEMIA && map.ID != MAP_BOHEMIARU)
 		if (client.prefs.gender == FEMALE)
 			WWalert(usr,"You must be male to play as this faction.","Error")
 			return FALSE
