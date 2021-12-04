@@ -23,6 +23,7 @@
 		//"Civilization 13 (Prison Camps)" = 15,
 		"Civilization 13 (Others)" = 0,
 		"Battle Royale" = 10,
+		"New Russian Map Pack" = 0,
 	)
 	var/ready = TRUE
 	var/admin_triggered = FALSE
@@ -228,6 +229,7 @@
 				MAP_PIONEERS = 5,
 				MAP_PIONEERS_WASTELAND_2 = 10,
 				MAP_BOHEMIA = 10,
+				MAP_BOHEMIARU = 5,
 				MAP_FOUR_COLONIES = 15,
 			)
 		else if (epoch == "Civilization 13 (Others)")
@@ -247,6 +249,13 @@
 				MAP_BATTLEROYALE_MEDIEVAL = 0,
 				MAP_BATTLEROYALE_IMPERIAL = 0,
 				MAP_BATTLEROYALE_MODERN = 0,)
+		else if (epoch == "New Russian Map Pack")
+			maps = list(
+				MAP_LOBBY = 0,
+				MAP_BOHEMIARU = 5,
+				MAP_NOMADS_WASTELAND_RU = 5,
+				MAP_NOMADS_FLY = 228, //Not work, 400x400x3, please fix ~~sanecman
+				MAP_NOMADS_WASTELAND_SCARLET_PLAGUE = 5,)
 		spawn(10)
 			vote.initiate_vote("map", "MapSwap Process", TRUE, list(src, "swap"))
 			return
