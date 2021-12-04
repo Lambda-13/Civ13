@@ -14,6 +14,8 @@
 	update_icon_proc()
 	if (map && map.lobby_icon_state)
 		icon_state = map.lobby_icon_state
+	if (map && map.lobby_icon)
+		icon = map.lobby_icon
 	else
 		var/list/known_icon_states = icon_states(icon)
 		for (var/lobby_screen in config.lobby_screens)
