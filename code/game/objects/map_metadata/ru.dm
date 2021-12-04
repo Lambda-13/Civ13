@@ -1,4 +1,5 @@
 //Тут метаданные русских карт//
+
 /obj/map_metadata/lobby
 	ID = MAP_LOBBY
 	title = "Home"
@@ -16,28 +17,17 @@
 		list(CIVILIAN) = /area/caribbean/british
 		)
 	age = "10/17/1997"
-	civilizations = TRUE
+	ordinal_age = 7
 	faction_distribution_coeffs = list(CIVILIAN = 1)
-	battle_name = "PvE"
+	battle_name = "PvPvE"
 	mission_start_message = "<big>10/17/1997</big><br>The Earth is hungry. Its heart throbs and demands cleansing. <b>The Earth is also thirsty.</b>"
 	ambience = list('sound/ambience/desert.ogg')
 	faction1 = CIVILIAN
-	availablefactions = list("Nomad")
 	songs = list(
 		"Untitled 2:1" = 'sound/music/untitled_2.ogg',)
-	research_active = TRUE
-	nomads = TRUE
 	gamemode = "Postal - Nomads"
-	ordinal_age = 8
-	default_research = 230
-	research_active = FALSE
-	age1_done = TRUE
-	age2_done = TRUE
-	age3_done = TRUE
-	age4_done = TRUE
-	age5_done = TRUE
-	age6_done = TRUE
-	age7_done = TRUE
+	is_RP = TRUE
+
 /obj/map_metadata/lobby/New()
 	..()
 	spawn(18000)
@@ -57,4 +47,3 @@
 		. = TRUE
 	else
 		. = FALSE
-

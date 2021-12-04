@@ -2569,7 +2569,7 @@
 	rank_abbreviation = ""
 	can_be_female = TRUE
 	whitelisted = FALSE
-	spawn_location = "JoinLateCivLobby"
+	spawn_location = "JoinLateCiv"
 	selection_color = "#6e4f37"
 	is_lobby = TRUE
 	can_be_female = TRUE
