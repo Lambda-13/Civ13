@@ -2562,3 +2562,40 @@
 	H.setStat("medical", STAT_NORMAL)
 	spawn(50)
 		H.client.screen += new/obj/screen/areashow_aod("Area Location","8,14", H, null, "")
+
+/datum/job/civilian/lobby
+	title = "Postal Dude"
+	en_meaning = "You"
+	rank_abbreviation = ""
+	can_be_female = TRUE
+	whitelisted = FALSE
+	spawn_location = "JoinLateCivLobby"
+	selection_color = "#6e4f37"
+	is_lobby = TRUE
+	can_be_female = TRUE
+	min_positions = 9999
+	max_positions = 9999
+
+/datum/job/civilian/lobby/equip(var/mob/living/human/H)
+	if (!H)	return FALSE
+	H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses(H), slot_eyes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/ww2/us_shirtless(H), slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/coat/ww2/fancycoat(H), slot_wear_suit)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/weapon/radio/walkietalkie(H), slot_wear_id)
+	H.add_note("Role", "You are a You.")
+	H.setStat("strength", STAT_MAX)
+	H.setStat("crafting", STAT_MAX)
+	H.setStat("rifle", STAT_MAX)
+	H.setStat("dexterity", STAT_MAX)
+	H.setStat("swords", STAT_MAX)
+	H.setStat("pistol", STAT_MAX)
+	H.setStat("bows", STAT_MAX)
+	H.setStat("medical", STAT_MAX)
+	H.setStat("philosophy", STAT_MAX)
+	H.setStat("machinegun", STAT_MAX)
+	H.setStat("farming", STAT_MAX)
+	H.setStat("stamina", STAT_MAX)
+	H.setStat("throwing", STAT_MAX)
+
+	return TRUE

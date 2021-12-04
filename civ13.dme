@@ -490,6 +490,7 @@
 #include "code\game\objects\map_metadata\rizal_stadium.dm"
 #include "code\game\objects\map_metadata\road_to_dak_to.dm"
 #include "code\game\objects\map_metadata\robusta.dm"
+#include "code\game\objects\map_metadata\ru.dm"
 #include "code\game\objects\map_metadata\rusretreat.dm"
 #include "code\game\objects\map_metadata\sammirhayeed.dm"
 #include "code\game\objects\map_metadata\santo_tomas.dm"
