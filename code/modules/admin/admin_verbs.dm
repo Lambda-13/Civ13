@@ -1007,7 +1007,6 @@ var/global/list/global_colour_matrix = null
 	var/alarm_sound = sound('sound/misc/Alarm3.ogg', repeat = FALSE, wait = TRUE, channel = 777)
 	var/announce_sound = sound('sound/misc/DetonatingAlphaWarheads.ogg', repeat = FALSE, wait = TRUE, channel = 777)
 	var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
-	if (conf_2 == "Yes")
 	message_admins("ВНИМАНИЕ: [key] активирует 90 секунд до взрыва нюки.")
 	log_game("ВНИМАНИЕ: [key] активирует 90 секунд до взрыва нюки.")
 	for (var/mob/M in player_list)
