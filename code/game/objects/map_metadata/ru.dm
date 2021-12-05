@@ -26,6 +26,8 @@
 	songs = list(
 		"Untitled 2:1" = 'sound/music/untitled_2.ogg',)
 	gamemode = "Postal - Nomads"
+	is_singlefaction = TRUE
+	force_mapgen = TRUE
 	is_RP = TRUE
 
 /obj/map_metadata/lobby/New()
