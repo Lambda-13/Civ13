@@ -262,35 +262,36 @@ var/world_topic_spam_protect_time = world.timeofday
 	var/s = ""
 
 	if (config.open_hub_discord_in_new_window)
-		s += "<center><a href=\"[config.discordurl]\" target=\"_blank\"><b>[customserver_name()]</b></a></center><br>"
+		s += "<meta charset='utf-8'><center><a href=\"[config.discordurl]\" target=\"_blank\"><b>[customserver_name()]</b></a></center><br>"
 	else
-		s += "<center><a href=\"[config.discordurl]\"><b>[customserver_name()]</b></a></center><br>"
+		s += "<meta charset='utf-8'><center><a href=\"[config.discordurl]\"><b>[customserver_name()]</b></a></center><br>"
 
 	if (config.hub_banner_url)
-		s += "<img src=\"https://i.imgur.com/napac0L.png\"><br>"
+		s += "<meta charset='utf-8'><img src=\"https://i.imgur.com/napac0L.png\"><br>"
 	if (map)
-		s += "<b>Map:</b> [map.title] ([roundduration2text()])<br>"
+		s += "<meta charset='utf-8'><b>Карта:</b> [map.title] ([roundduration2text()])<br>"
 
 	// we can't execute code in config settings, so this is a workaround.
 	config.hub_body = replacetext(config.hub_body, "ROUNDTIME", capitalize(lowertext(roundduration2text())))
 	if (map)
-		s += "<b>Gamemode:</b> [map.gamemode]"
+		s += "<meta charset='utf-8'><b>Режим:</b> [map.gamemode]"
 	if (config.hub_body)
 		s += config.hub_body
 
 	status = s
 
 /proc/get_packaged_server_status_data()
+	. = "<meta charset='utf-8'>"
 	. = ""
-	. += "<b>Server Status</b>: Online"
+	. += "<b>Статус</b>: Онлайн"
 	. += ";"
-	. += "<b>Address</b>: byond://[world.internet_address]:[world.port]"
+	. += "<b>Играть</b>: byond://[world.internet_address]:[world.port]"
 	. += ";"
-	. += "<b>Map</b>: [map ? map.title : "???"]"
+	. += "<b>Карта</b>: [map ? map.title : "???"]"
 	. += ";"
-	. += "<b>Gamemode</b>: [map ? map.gamemode : "???"]"
+	. += "<b>Режим</b>: [map ? map.gamemode : "???"]"
 	. += ";"
-	. += "<b>Players</b>: [clients.len]" // turns out the bot only considers itself a player sometimes? its weird. Maybe it was fixed, not sure - Kachnov
+	. += "<b>Игроков</b>: [clients.len]" // turns out the bot only considers itself a player sometimes? its weird. Maybe it was fixed, not sure - Kachnov
 	if (config.useapprovedlist)
 		. += ";"
 		. += "<b>Approved only</b>: Enabled"
