@@ -158,7 +158,7 @@
 	if (!inducedSSD)
 		return
 	else
-		sleeping = 20
+		sleeping = 30
 		spawn(600)
 			sleep_update()
 			return
