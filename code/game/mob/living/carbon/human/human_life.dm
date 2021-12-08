@@ -178,9 +178,9 @@
 			food_m *= 1.5
 			water_m *= 5
 
-		if (inducedSSD) //if sleeping in SSD mode = takes ~72 hours to starve
-			nutrition -= ((0.0025) * HUNGER_THIRST_MULTIPLIER * food_m)
-			water -= ((0.0025) * HUNGER_THIRST_MULTIPLIER * water_m)
+		if (inducedSSD) //если ты прожал слип то твоя еда и вода не будет уменьшатся
+			nutrition -= ((0) * HUNGER_THIRST_MULTIPLIER * food_m)
+			water -= ((0) * HUNGER_THIRST_MULTIPLIER * water_m)
 
 		else if (istype(buckled, /obj/structure/bed) && stat == UNCONSCIOUS && !inducedSSD) //if sleeping in a bed (buckled!) takes ~20 hours to starve
 			nutrition -= ((0.01) * HUNGER_THIRST_MULTIPLIER * food_m)
