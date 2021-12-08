@@ -1,5 +1,13 @@
 /mob/living/human/proc/handle_strip(var/slot_to_strip,var/mob/living/user)
 
+	if (inducedSSD)
+		message_admins("ВНИМАНИЕ: [user.name]([user.ckey]) пытается снять одежду с [name]([lastKnownCkey]) в сейф зоне!")
+		message_admins("ВНИМАНИЕ: Блокирую попытку снять одежду.")
+		world << "<span class = 'danger'>ВНИМАНИЕ:</span> <span class='notice'>Уёбок под сикеем <b>[user.ckey]</b> багоюзит!</span>"
+		log_game("ВНИМАНИЕ: [user.name]([user.ckey]) пытается снять одежду с [name]([lastKnownCkey]) в сейф зоне!")
+		log_game("ВНИМАНИЕ: Блокирую попытку снять одежду.")
+		return
+
 	if (!slot_to_strip || !user.IsAdvancedToolUser())
 		return
 
