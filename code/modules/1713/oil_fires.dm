@@ -127,7 +127,7 @@
 /obj/effect/fire/New()
 	..()
 	icon = 'icons/effects/effects.dmi'
-	icon_state = "burning_fire2"
+	icon_state = pick("burning_fire","burning_fire2","burning_fire3")
 	alpha = 230
 	spawn(30)
 		if (runonce == 0)

@@ -49,11 +49,6 @@
 	desc = "Yarr."
 	icon_state = "bandana"
 
-/obj/item/clothing/head/olivebandana
-	name = "olive bandana"
-	desc = "An olive bandana."
-	icon_state = "bandana_olive"
-	item_state = "bandana_olive"
 
 //stylish bs12 hats
 

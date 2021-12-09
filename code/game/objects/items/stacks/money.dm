@@ -270,7 +270,7 @@
 /obj/structure/oil_deposits
 	name = "oil deposit"
 	desc = "This deposit doesn't have a owner yet."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "nboard_oil"
 	anchored = TRUE
 	opacity = FALSE

@@ -226,3 +226,7 @@ var/no_loop_arab = FALSE
 	else
 		return ""
 
+/obj/map_metadata/arab_town_2/arab_town_ru
+	ID = MAP_ARAB_TOWN_RU
+	title = "Arab Town Russian Edition"
+	respawn_delay = 0

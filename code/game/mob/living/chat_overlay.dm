@@ -25,7 +25,7 @@
 		target = null
 	return ..()
 
-/obj/chat_text/New(var/mob/origin_loc, var/desired_text, var/mob/target_mob)
+/obj/chat_text/New(var/atom/desired_loc, var/mob/origin_loc, var/desired_text, var/mob/target_mob)
 	..()
 	loc = null
 	if(isliving(origin_loc) && origin_loc.client && target_mob && target_mob.client)
@@ -34,9 +34,9 @@
 		if (!owner)
 			return
 		for (var/obj/chat_text/CT in owner.stored_chat_text)
-			if (CT.target == target)
-				target.seen_chat_text -= CT
-				target.images -= CT.message
+			if (CT.target)
+				CT.target.seen_chat_text -= CT
+				CT.target.images -= CT.message
 			owner.stored_chat_text -= CT
 			qdel(CT)
 		owner.stored_chat_text += src
@@ -61,41 +61,28 @@
 
 	else
 		qdel(src)
-	spawn(60)
-		animate(src,alpha=0,time=10)
-		sleep(10)
-		if(src)
-			if (target)
-				target.seen_chat_text -= src
-				target.images -= message
-			if (owner)
-				owner.stored_chat_text -= src
-			src.Destroy()
+
 	return FALSE
-
-//TTS stuff
-
 var/global/sound_tts_num = 0
 
 /mob/proc/play_tts(message,var/mob/living/human/speaker)
 	if (!message || message == "" || !client || !speaker)
 		return
-	message = replacetext(message, "&#39", "'")
-	var/voice = "ap --setf duration_stretch=0.8"
+	var/voice = "Matthew"
 	if (!speaker.original_job)
 		return
 	if (gender == MALE)
-		voice = "ap --setf duration_stretch=0.8"
+		voice = speaker.original_job.male_tts_voice
 	else
-		voice = "slt --setf duration_stretch=0.8"
+		voice = speaker.original_job.female_tts_voice
 	sound_tts_num+=1
 	var/genUID = sound_tts_num
 	if (world.system_type != UNIX)
-		shell("./tts/mimic -t \"[message]\" -voice [voice] -o [genUID].wav")
+		shell("python3 tts/amazontts.py \"[message]\" [voice] [genUID]")
 	else
-		shell("mimic -t \"[message]\" -voice [voice] -o [genUID].wav")
+		shell("sudo python3 tts/amazontts.py \"[message]\" [voice] [genUID]")
 	spawn(2)
-		var/fpath = "[genUID].wav"
+		var/fpath = "[genUID].mp3"
 		if (fexists(fpath))
 			if (client)
 				src.playsound_local(loc,fpath,100)

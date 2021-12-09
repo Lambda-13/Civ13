@@ -4,7 +4,7 @@
 /mob/living/human/var/crouching = FALSE
 
 /obj/structure/window/barrier
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	name = "dirt wall"
 	icon_state = "dirt_wall"
 	layer = MOB_LAYER + 2 //just above mobs

@@ -5,7 +5,7 @@ Parts of code courtesy of Super3222
 
 /obj/item/weapon/attachment/scope
 	name = "generic scope"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/russian/obj/device.dmi'
 	icon_state = "telescope1"
 	zoomdevicename = null
 	var/zoom_amt = 3
