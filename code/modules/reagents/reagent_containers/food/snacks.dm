@@ -90,6 +90,10 @@
 					if (!non_vegetarian)
 						user << "<span class='warning'>You are a carnivore! You can't eat this!</span>"
 						return
+				else if (H.skeletman)
+					if (!non_vegetarian || non_vegetarian)
+						user << "<span class='warning'>I don't need food! I am not alive!</span>"
+						return
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //puts a limit on how fast people can eat/drink things
 			if (fullness <= 50)
 				C << "<span class='danger'>You hungrily chew out a piece of [src] and gobble it!</span>"
@@ -114,6 +118,10 @@
 				else if (H.wolfman || H.crab)
 					if (!non_vegetarian)
 						user << "<span class='warning'>[H] is a carnivore! They can't eat this!</span>"
+						return
+				else if (H.skeletman)
+					if (non_vegetarian || !non_vegetarian)
+						user << "<span class='warning'>[H] is a eat! You not alive!</span>"
 						return
 			if (fullness <= 580)
 				user.visible_message("<span class='danger'>[user] attempts to feed [M] [src].</span>")

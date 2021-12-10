@@ -788,4 +788,13 @@ obj/structure/closet/crate/airdrops/medicine
 	icon_opened = "wood_crate_opened"
 	icon_closed = "wood_crate"
 	paths = list(/obj/item/ammo_casing/arrow/stone = 20)
+
+/obj/structure/closet/crate/shitspawn
+	name = "shitspawn crate"
+	icon_state = "wood_crate"
+	icon_opened = "wood_crate_opened"
+	icon_closed = "wood_crate"
+	paths = list(/obj/item/ammo_magazine/chemdart/mag/shitspawn = 1,
+				/obj/item/weapon/reagent_containers/glass/bottle/shitspawn = 1,
+				/obj/item/weapon/gun/projectile/dartgun/mag = 1)
 #undef DYNAMIC_AMT

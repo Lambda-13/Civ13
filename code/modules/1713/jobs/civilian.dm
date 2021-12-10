@@ -2403,7 +2403,7 @@
 	H.setStat("pistol", STAT_NORMAL)
 	H.setStat("bows", STAT_NORMAL)
 	H.setStat("medical", STAT_VERY_HIGH)
-/*
+
 /datum/job/civilian/fireperson
 	title = "Fire Response"
 	en_meaning = ""
@@ -2423,6 +2423,7 @@
 	H.equip_to_slot_or_del(new /obj/item/weapon/map(H), slot_r_store)
 	H.equip_to_slot_or_del(new /obj/item/stack/medical/advanced/ointment(H), slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/modern2(H), slot_wear_mask)
+	H.equip_to_slot_or_del(new /obj/item/weapon/key/civ/mechanic(H), slot_r_hand)
 	H.equip_to_slot_or_del(new /obj/item/weapon/radio/walkietalkie/factionpolice(H), slot_wear_id)
 	H.equip_to_slot_or_del(new /obj/item/clothing/gloves/thick/leather(H), slot_gloves)
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots(H), slot_shoes)
@@ -2442,13 +2443,13 @@
 	H.setStat("medical", STAT_HIGH)
 	spawn(50)
 		H.client.screen += new/obj/screen/areashow_aod("Area Location","8,14", H, null, "")
-*/
+
 /datum/job/civilian/businessman/legitimate
 	title = "Legitimate Business"
 	selection_color = "#6f4e37"
 	spawn_location = "JoinLateCivI"
-	min_positions = 3
-	max_positions = 15
+	min_positions = 1
+	max_positions = 5
 	whitelisted = TRUE
 	can_be_female = TRUE
 
@@ -2457,6 +2458,7 @@
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/modern2(H), slot_w_uniform)
 	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/onehundy(H), slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/telephone/mobile(H), slot_r_store)
+	H.equip_to_slot_or_del(new /obj/item/weapon/key/civ/hall(H), slot_l_hand)
 	H.add_note("Role", "You are a legitimate business person. Find a business to invest in or start your own.")
 
 
@@ -2485,7 +2487,7 @@
 			var/obj/item/clothing/accessory/suspenders/dark/ysuspenders = new /obj/item/clothing/accessory/suspenders/dark(null)
 			uniform.attackby(ysuspenders, H)
 
-	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/ten(H), slot_r_hand)
+	H.equip_to_slot_or_del(new /obj/item/bisinessbox(H), slot_r_hand)
 
 //hats
 	var/randhat = pick(1,2,3)
@@ -2506,3 +2508,94 @@
 	H.setStat("medical", STAT_NORMAL)
 	spawn(50)
 		H.client.screen += new/obj/screen/areashow_aod("Area Location","8,14", H, null, "")
+
+/datum/job/civilian/businessman/citizen
+	title = "Citizen"
+	selection_color = "#404040"
+	spawn_location = "JoinLateCivDef"
+	min_positions = 15
+	max_positions = 150
+	whitelisted = TRUE
+	can_be_female = TRUE
+
+/datum/job/civilian/businessman/citizen/equip(var/mob/living/human/H)
+	if (!H)	return FALSE
+	H.add_note("Role", "You are an ordinary citizen.")
+
+//shoes
+	if (prob(30))
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/blackboots1(H), slot_shoes)
+	else
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(H), slot_shoes)
+	if (H.gender == "male")
+		var/randcloth = rand(1,5)
+		if (randcloth == 1)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/modern1(H), slot_w_uniform)
+		else if (randcloth == 2)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/modern2(H), slot_w_uniform)
+		else if (randcloth == 3)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/modern4(H), slot_w_uniform)
+		else if (randcloth == 4)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/modern4(H), slot_w_uniform)
+		else if (randcloth == 5)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/modern7(H), slot_w_uniform)
+
+	else
+		var/randcloth = rand(1,3)
+		if (randcloth == 1)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/modern8(H), slot_w_uniform)
+		else if (randcloth == 2)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/expensive(H), slot_w_uniform)
+		else if (randcloth == 3)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/tradwife(H), slot_w_uniform)
+
+	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/ten(H), slot_l_store)
+	H.equip_to_slot_or_del(new /obj/item/weapon/telephone/mobile(H), slot_r_store)
+
+	H.setStat("strength", STAT_NORMAL)
+	H.setStat("crafting", STAT_NORMAL)
+	H.setStat("rifle", STAT_NORMAL)
+	H.setStat("dexterity", STAT_NORMAL)
+	H.setStat("swords", STAT_NORMAL)
+	H.setStat("pistol", STAT_NORMAL)
+	H.setStat("bows", STAT_NORMAL)
+	H.setStat("medical", STAT_NORMAL)
+	spawn(50)
+		H.client.screen += new/obj/screen/areashow_aod("Area Location","8,14", H, null, "")
+
+/datum/job/civilian/lobby
+	title = "Postal Dude"
+	en_meaning = "You"
+	rank_abbreviation = ""
+	can_be_female = TRUE
+	whitelisted = FALSE
+	spawn_location = "JoinLateCiv"
+	selection_color = "#6e4f37"
+	is_lobby = TRUE
+	can_be_female = TRUE
+	min_positions = 9999
+	max_positions = 9999
+
+/datum/job/civilian/lobby/equip(var/mob/living/human/H)
+	if (!H)	return FALSE
+	H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses(H), slot_eyes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/ww2/us_shirtless(H), slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/coat/ww2/fancycoat(H), slot_wear_suit)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/weapon/radio/walkietalkie(H), slot_wear_id)
+	H.add_note("Role", "You are a You.")
+	H.setStat("strength", STAT_MAX)
+	H.setStat("crafting", STAT_MAX)
+	H.setStat("rifle", STAT_MAX)
+	H.setStat("dexterity", STAT_MAX)
+	H.setStat("swords", STAT_MAX)
+	H.setStat("pistol", STAT_MAX)
+	H.setStat("bows", STAT_MAX)
+	H.setStat("medical", STAT_MAX)
+	H.setStat("philosophy", STAT_MAX)
+	H.setStat("machinegun", STAT_MAX)
+	H.setStat("farming", STAT_MAX)
+	H.setStat("stamina", STAT_MAX)
+	H.setStat("throwing", STAT_MAX)
+
+	return TRUE

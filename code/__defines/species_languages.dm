@@ -9,3 +9,4 @@
 #define NO_TALK_MSG  128 // Do not show the "\The [speaker] talks into \the [radio]" message
 #define NO_STUTTER   256 // No stuttering, slurring, or other speech problems
 #define COMMON_VERBS 512
+#define DONATE      1024 // Language is available if the speaker is vip donate.
