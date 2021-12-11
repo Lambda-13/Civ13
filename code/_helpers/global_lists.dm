@@ -152,7 +152,8 @@ var/list/hair_colors = list(
 	"Blond" = "#E5C8A8",
 	"Dirty Blond" = "#B89778",
 	"Light Grey" = "#d3d3d3",
-	"Grey" = "#808080"
+	"Grey" = "#808080",
+	"Pink" = "#ff00ff",
 )
 // new eye colors
 var/list/eye_colors = list(
@@ -161,6 +162,7 @@ var/list/eye_colors = list(
 	"Brown" = "#542A0E",
 	"Green" = "#4B7248",
 	"Blue" = "#5EA4E7",
+	"Red" = "#ff0000",
 )
 
 var/global/list/global_mutations  = list() // List of hidden mutation things.
