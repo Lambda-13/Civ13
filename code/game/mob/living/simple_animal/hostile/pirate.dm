@@ -67,10 +67,10 @@
 
 	New()
 		..()
-		messages["injured"] = list("!!I am injured!","!!I'm hit!!")
-		messages["backup"] = list("!!Over here!", "!!Come here!!")
-		messages["enemy_sighted"] = list("!!I see one!", "!!HEY YOU!!")
-		messages["grenade"] = list("!!GRENADE!")
+		messages["injured"] = list("!!Черти, попали!","!!Я ранен!!")
+		messages["backup"] = list("!!За мной давай!", "!!Иди помогать!!")
+		messages["enemy_sighted"] = list("!!Вижу крысу!", "!!НУ ПРИВЕТ!!")
+		messages["grenade"] = list("!!БОМБА!")
 		if (prob(65))
 			gun = new/obj/item/weapon/gun/projectile/flintlock/musketoon(src)
 		else

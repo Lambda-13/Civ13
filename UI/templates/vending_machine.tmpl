@@ -4,7 +4,8 @@
 -->
 
 {{if data.mode == 0}} <!-- Listing -->
-<h2>Items available</h2>
+<meta charset='utf-8'>
+<h2>Доступные вещи</h2>
 <div class='item'>
 	{{for data.products}}
 	<div class='item'>
@@ -23,7 +24,7 @@
 		</div>
 	</div>
 	{{empty}}
-	No items available!
+	No Доступные вещи!
 	{{/for}}
 </div>
 {{if data.coin}}

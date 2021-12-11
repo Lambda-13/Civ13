@@ -667,7 +667,7 @@
 /obj/covers/vault
 	name = "vault wall"
 	desc = "A very strong wall of concrete."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "vault"
 	passable = TRUE
 	not_movable = TRUE
@@ -687,7 +687,7 @@
 /obj/covers/slate
 	name = "slatestone wall"
 	desc = "A slate wall."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "slate"
 	passable = TRUE
 	not_movable = TRUE

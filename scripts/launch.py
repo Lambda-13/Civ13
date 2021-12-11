@@ -47,4 +47,15 @@ t2 = time.time() - t1
 print("Finished updating all directories in {} seconds".format(t2))
 
 print("Started server on port {}.".format(port))
+
 os.system("sudo DreamDaemon {}{}civ13.dmb {} -trusted -logself -webclient &".format(mdir, cdir, port))
+
+handle = open(os.path.join(currdir, "token.txt"))
+token = handle.read()
+print("Запускаем...")
+handle.close()
+
+from discord import Webhook, RequestsWebhookAdapter
+
+webhook = Webhook.from_url(token, adapter=RequestsWebhookAdapter())
+webhook.send("<@&896361299057983519> запустились, ссылка <byond://195.140.146.121:55555/>")

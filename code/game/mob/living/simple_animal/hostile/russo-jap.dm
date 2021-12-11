@@ -97,10 +97,10 @@
 		..()
 		faction2_npcs++
 		grenades = rand(1,2)
-		messages["injured"] = list("!!I am injured!","!!AAARGH!")
-		messages["backup"] =list( "!!I need backup!","!!Cover me!")
-		messages["enemy_sighted"] = list("!!Found an american dog!","!!Enemy spotted!")
-		messages["grenade"] = list("!!GRENADE!!!", "!!Grenade, run!!")
+		messages["injured"] = list("!!Я ранен!","!!БЛЯ!")
+		messages["backup"] =list( "!!Нужна поддержка!","!!Нужно подкрепление!")
+		messages["enemy_sighted"] = list("!!Вижу уродов!","!!Враг обнаружен!")
+		messages["grenade"] = list("!!ГРАНАТА!!!", "!!Граната, отбегаем!!")
 
 		gun = new/obj/item/weapon/gun/projectile/boltaction/arisaka99/bayonet(src)
 		icon_state = "ww2_jap_ranged[rand(1,4)]"
@@ -192,10 +192,10 @@
 		..()
 		faction1_npcs++
 		grenades = rand(1,2)
-		messages["injured"] = list("!!I am injured!","!!AAARGH!")
-		messages["backup"] =list( "!!I need backup!","!!Cover me!")
-		messages["enemy_sighted"] = list("!!Jap!!","!!Enemy spotted!")
-		messages["grenade"] = list("!!GRENADE!!!", "!!Grenade, run!!")
+		messages["injured"] = list("!!Я ранен!","!!БЛЯДЬ!")
+		messages["backup"] =list( "!!Прикрой меня!","!!За мной!")
+		messages["enemy_sighted"] = list("!!Узкоглазый!!","!!Вижу противника!")
+		messages["grenade"] = list("!!ГРАНАТА!!!", "!!Граната, бежим!!")
 		gun = new/obj/item/weapon/gun/projectile/semiautomatic/m1garand(src)
 
 /mob/living/simple_animal/hostile/human/ww2_american/death()

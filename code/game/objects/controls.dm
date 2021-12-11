@@ -1,7 +1,7 @@
 /obj/structure/gatecontrol
 	name = "gate control"
 	desc = "Controls nearby gates."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "gate_control"
 	anchored = TRUE
 	var/open = FALSE
@@ -14,7 +14,7 @@
 /obj/structure/gatecontrol/blastcontrol
 	name = "blast door control"
 	desc = "Controls nearby blastdoors."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "blast_control"
 	anchored = TRUE
 	open = FALSE

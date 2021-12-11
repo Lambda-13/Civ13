@@ -342,7 +342,7 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 /obj/structure/camp_exportbook
 	name = "camp exports"
 	desc = "Use this to export products from the camp and gain points for the guards."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "supplybook2"
 	density = TRUE
 	anchored = TRUE
