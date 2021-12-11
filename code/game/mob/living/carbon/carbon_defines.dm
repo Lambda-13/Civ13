@@ -31,9 +31,9 @@
 	var/obj/item/weapon/tank/internal = null//Human/Monkey
 
 	// hunger
-	var/nutrition = 800.0
-	var/max_nutrition = 800.0
+	var/nutrition = 400.0
+	var/max_nutrition = 400.0
 
 	// thirst
-	var/water = 700.0
-	var/max_water = 700.0
+	var/water = 350.0
+	var/max_water = 350.0
