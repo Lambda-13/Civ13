@@ -153,7 +153,7 @@ var/list/hair_colors = list(
 	"Dirty Blond" = "#B89778",
 	"Light Grey" = "#d3d3d3",
 	"Grey" = "#808080",
-	"Pink" = "#ff00ff",
+//	"Pink" = "#ff00ff",
 )
 // new eye colors
 var/list/eye_colors = list(
