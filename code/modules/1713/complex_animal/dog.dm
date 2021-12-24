@@ -47,7 +47,7 @@
 
 	var/atom/walking_to = null
 
-	var/race = "corgi"
+	var/race = "samoyed"
 
 	maxHealth = 55
 	health = 55

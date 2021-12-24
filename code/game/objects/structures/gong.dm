@@ -1,6 +1,6 @@
 /obj/structure/gong
 	name = "gong"
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "gong"
 	anchored = TRUE
 	density = TRUE

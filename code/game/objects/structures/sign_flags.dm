@@ -1,6 +1,6 @@
 /obj/structure/sign/flag
 	var/ripped = FALSE
-	icon = 'icons/obj/decals.dmi'
+	icon = 'icons/russian/obj/decals.dmi'
 	flammable = TRUE
 /obj/structure/sign/flag/attack_hand(mob/user as mob)
 	if (!ripped)
@@ -69,18 +69,8 @@
 
 /obj/structure/sign/flag/jihad4
 	name = "\improper green islamic banner"
-	desc = "A green banner with the shadada."
+	desc = "A greeb banner with the shadada."
 	icon_state = "jihad4"
-
-/obj/structure/sign/flag/chechen
-	name = "\improper chechen flag"
-	desc = "The Chechen Separatist flag."
-	icon_state = "flag_chechen"
-
-/obj/structure/sign/flag/ireland
-	name = "\improper irish flag"
-	desc = "The Irish Republic flag."
-	icon_state = "flag_ireland"
 
 /obj/structure/sign/clock
 	name = "\improper clock"
@@ -302,20 +292,25 @@
 	desc = "The flag of the Philippines. Flipped for wartime."
 	icon_state = "flag_fp_war"
 
-/obj/structure/sign/flag/pirate
-	name = "Pirate flag"
-	desc = "The black pirate flag, with a skull in the middle."
-	icon_state = "pirate"
-
-/obj/structure/sign/flag/firstcav
-	name = "1st Cavalry Division flag"
-	desc = "Flag of the United States Army 1st Cavalry Division."
-	icon_state = "flag_1stcav"
-
 /obj/structure/sign/flag/custom
 	name = "flag"
 	desc = "A flag."
 	icon_state = "f_white"
+
+/obj/structure/sign/flag/scp
+	name = "SCP flag"
+	desc = "The flag of the SCP."
+	icon_state = "flag_scp"
+
+/obj/structure/sign/flag/goc
+	name = "GOC flag"
+	desc = "The flag of the Global Occult Coalition."
+	icon_state = "flag_goc"
+
+/obj/structure/sign/flag/serpent
+	name = "Serpent's Hand flag"
+	desc = "The flag of the Serpent's Hand."
+	icon_state = "flag_serpent"
 
 /obj/structure/sign/logo/red
 	name = "Rednikov Industries Logo"

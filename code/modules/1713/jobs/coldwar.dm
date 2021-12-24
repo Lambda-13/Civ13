@@ -212,8 +212,12 @@
 
 	H.equip_to_slot_or_del(new /obj/item/weapon/radio/faction2(H), slot_back)
 	var/obj/item/clothing/under/uniform = H.w_uniform
-	var/obj/item/clothing/accessory/holster/hip/holsterh = new /obj/item/clothing/accessory/holster/hip(null)
-	uniform.attackby(holsterh, H)
+	if (prob(40))
+		var/obj/item/clothing/accessory/storage/webbing/nlfchestrig = new /obj/item/clothing/accessory/storage/webbing/nlfchestrig(null)
+		uniform.attackby(nlfchestrig, H)
+	else if (prob(60))
+		var/obj/item/clothing/accessory/storage/webbing/nlfsmallpouches = new /obj/item/clothing/accessory/storage/webbing/nlfsmallpouches(null)
+		uniform.attackby(nlfsmallpouches, H)
 	var/pickscarf = rand(1,2)
 	if (pickscarf == 1)
 		var/obj/item/clothing/accessory/armband/khan_ran/black = new /obj/item/clothing/accessory/armband/khan_ran/black(null)
@@ -368,26 +372,13 @@
 	else
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni(H), slot_w_uniform)
 //head
-	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/ushelmet/camo/lt(H), slot_head)
+	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/ushelmet/lt(H), slot_head)
 	H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses(H), slot_eyes)
 
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/greasegun(H), slot_belt)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/m1911(H), slot_l_hand)
-	H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight(H), slot_wear_id)
 	var/obj/item/clothing/under/uniform = H.w_uniform
-	var/obj/item/clothing/accessory/holster/hip/holsterh = new /obj/item/clothing/accessory/holster/hip(null)
-	uniform.attackby(holsterh, H)
 	var/obj/item/clothing/accessory/armband/yellow_scarf/yscarf = new /obj/item/clothing/accessory/armband/yellow_scarf(null)
 	uniform.attackby(yscarf, H)
-
-	if (prob(60))
-		H.f_style = pick("Shaved","Selleck Mustache")
-	else
-		H.f_style = pick("Selleck Mustache","Van Dyke Mustache","Elvis Sideburns","Goatee")
-
-	H.s_tone = rand(-40,-20)
-	H.h_style = pick("Bald","Short Hair","Buzzcut","Crewcut","Combover","Skinhead","Balding Hair","Flat Top","Mulder","Gelled Back","CIA","Joestar","Slick","Fade","Average Joe","Undercut")
-
 	give_random_name(H)
 	H.add_note("Role", "You are a <b>[title]</b>. You are in charge of the whole platoon. Organize your troops accordingly!")
 	H.setStat("strength", STAT_NORMAL)
@@ -405,7 +396,7 @@
 	title = "USA Sergeant"
 	rank_abbreviation = "Sgt."
 
-	spawn_location = "JoinLateRNSL"
+	spawn_location = "JoinLateRNCap"
 
 	is_coldwar = TRUE
 	is_squad_leader = TRUE
@@ -426,24 +417,15 @@
 	else
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni(H), slot_w_uniform)
 //head
-	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/ushelmet/camo/accessory(H), slot_head)
+	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/ushelmet/sgt(H), slot_head)
 //back
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/m16(H), slot_shoulder)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/m1911(H), slot_l_hand)
-	H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight(H), slot_wear_id)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/m1911(H), slot_belt)
+
 	H.equip_to_slot_or_del(new /obj/item/weapon/attachment/bayonet/military(H), slot_l_store)
 	var/obj/item/clothing/under/uniform = H.w_uniform
 	var/obj/item/clothing/accessory/holster/hip/holsterh = new /obj/item/clothing/accessory/holster/hip(null)
 	uniform.attackby(holsterh, H)
-
-	if (prob(60))
-		H.f_style = pick("Shaved","Selleck Mustache")
-	else
-		H.f_style = pick("Selleck Mustache","Van Dyke Mustache","Elvis Sideburns","Goatee")
-
-	H.s_tone = rand(-40,-20)
-	H.h_style = pick("Bald","Short Hair","Buzzcut","Crewcut","Combover","Skinhead","Balding Hair","Flat Top","Mulder","Gelled Back","CIA","Joestar","Slick","Fade","Average Joe","Undercut")
-
 	give_random_name(H)
 	H.add_note("Role", "You are a <b>[title]</b>, lead a squad against the Vietcong!")
 	H.setStat("strength", STAT_NORMAL)
@@ -482,21 +464,11 @@
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/commando_bandana(H), slot_head)
 //back
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/m16/commando(H), slot_shoulder)
-	H.equip_to_slot_or_del(new /obj/item/weapon/attachment/bayonet/military(H), slot_l_hand)
+
 	H.equip_to_slot_or_del(new /obj/item/garrote(H), slot_l_store)
-	H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight(H), slot_wear_id)
 	var/obj/item/clothing/under/uniform = H.w_uniform
 	var/obj/item/clothing/accessory/storage/webbing/light/lw = new /obj/item/clothing/accessory/storage/webbing/light(null)
 	uniform.attackby(lw, H)
-
-	if (prob(60))
-		H.f_style = pick("Shaved","Selleck Mustache")
-	else
-		H.f_style = pick("Selleck Mustache","Van Dyke Mustache","Elvis Sideburns","Goatee")
-
-	H.s_tone = rand(-40,-20)
-	H.h_style = pick("Bald","Short Hair","Buzzcut","Crewcut","Combover","Skinhead","Balding Hair","Flat Top","Mulder","Gelled Back","CIA","Joestar","Slick","Fade","Average Joe","Undercut")
-
 	give_random_name(H)
 	H.add_note("Role", "You are a <b>[title]</b>, a member of the Special Forces tasked with commando operations behind enemy lines. Coordinate with the Army and defeat the Viet Cong!")
 	H.add_note("Special Forces", "As a member of the special forces, you are able to check coordinates like Officers. You are also able to crawl down Viet Cong tunnels, but be careful!")
@@ -512,10 +484,10 @@
 	return TRUE
 
 /datum/job/american/american_medic
-	title = "USA Corpsman"
+	title = "USA Field Medic"
 	rank_abbreviation = "Cpl."
 
-	spawn_location = "JoinLateRNMed"
+	spawn_location = "JoinLateRN"
 
 	is_medic = TRUE
 	is_coldwar = TRUE
@@ -529,16 +501,10 @@
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/blackboots1(H), slot_shoes)
 
 //clothes
-	var/randuni4 = rand(1,4)
-	switch(randuni4)
-		if (1)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni(H), slot_w_uniform)
-		if (2)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni(H), slot_w_uniform)
-		if (3)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni2(H), slot_w_uniform)
-		if (4)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni3(H), slot_w_uniform)
+	if (prob(50))
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni(H), slot_w_uniform)
+	else
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni(H), slot_w_uniform)
 
 //head
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/ww2/us_medic(H), slot_head)
@@ -546,21 +512,11 @@
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/adv(H), slot_back)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/combat(H), slot_belt)
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/m1911(H), slot_l_hand)
-	H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight(H), slot_wear_id)
 	var/obj/item/clothing/under/uniform = H.w_uniform
-	var/obj/item/clothing/accessory/custom/armband/medicalarm = new /obj/item/clothing/accessory/armband/redcross(null)
-	uniform.attackby(medicalarm, H)
+	var/obj/item/clothing/accessory/custom/armband/white = new /obj/item/clothing/accessory/custom/armband(null)
+	uniform.attackby(white, H)
 	var/obj/item/clothing/accessory/holster/hip/holsterh = new /obj/item/clothing/accessory/holster/hip(null)
 	uniform.attackby(holsterh, H)
-
-	if (prob(60))
-		H.f_style = pick("Shaved","Selleck Mustache")
-	else
-		H.f_style = pick("Selleck Mustache","Van Dyke Mustache","Elvis Sideburns","Goatee")
-
-	H.s_tone = rand(-40,-20)
-	H.h_style = pick("Bald","Short Hair","Buzzcut","Crewcut","Combover","Skinhead","Balding Hair","Flat Top","Mulder","Gelled Back","CIA","Joestar","Slick","Fade","Average Joe","Undercut")
-
 	give_random_name(H)
 	H.add_note("Role", "You are a <b>[title]</b>. Keep your fellow soldiers healthy!")
 	H.setStat("strength", STAT_NORMAL)
@@ -593,34 +549,19 @@
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/blackboots1(H), slot_shoes)
 
 //clothes
-	var/randuni4 = rand(1,4)
-	switch(randuni4)
-		if (1)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni(H), slot_w_uniform)
-		if (2)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni(H), slot_w_uniform)
-		if (3)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni2(H), slot_w_uniform)
-		if (4)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni3(H), slot_w_uniform)
+	if (prob(50))
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni(H), slot_w_uniform)
+	else
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni(H), slot_w_uniform)
 //head
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/ushelmet/camo/accessory(H), slot_head)
 
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/greasegun(H), slot_belt)
 	H.equip_to_slot_or_del(new /obj/item/weapon/radio/faction1(H), slot_back)
-	H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight(H), slot_wear_id)
 
 	var/obj/item/clothing/under/uniform = H.w_uniform
 	var/obj/item/clothing/accessory/armor/coldwar/flakjacket/fj = new /obj/item/clothing/accessory/armor/coldwar/flakjacket(null)
 	uniform.attackby(fj, H)
-
-	if (prob(60))
-		H.f_style = pick("Shaved","Selleck Mustache")
-	else
-		H.f_style = pick("Selleck Mustache","Van Dyke Mustache","Elvis Sideburns","Goatee")
-
-	H.s_tone = rand(-40,-20)
-	H.h_style = pick("Bald","Short Hair","Buzzcut","Crewcut","Combover","Skinhead","Balding Hair","Flat Top","Mulder","Gelled Back","CIA","Joestar","Slick","Fade","Average Joe","Undercut")
 
 	give_random_name(H)
 	H.add_note("Role", "You are a <b>[title]</b>, in charge of your squad communications. Keep the line open between the <b>Squad Leader</b> and HQ!")
@@ -654,14 +595,10 @@
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/blackboots1(H), slot_shoes)
 
 //clothes
-	var/randuni3 = rand(1,3)
-	switch(randuni3)
-		if (1)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni(H), slot_w_uniform)
-		if (2)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni(H), slot_w_uniform)
-		if (3)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni2(H), slot_w_uniform)
+	if (prob(50))
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni(H), slot_w_uniform)
+	else
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni(H), slot_w_uniform)
 	var/obj/item/clothing/under/uniform = H.w_uniform
 	var/obj/item/clothing/accessory/storage/webbing/us_vest/fullwebbing = new /obj/item/clothing/accessory/storage/webbing/us_vest(null)
 	uniform.attackby(fullwebbing, H)
@@ -669,17 +606,8 @@
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/ushelmet/camo/accessory(H), slot_head)
 //back
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/m14/sniper(H), slot_shoulder)
-	H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight(H), slot_wear_id)
+
 	H.equip_to_slot_or_del(new /obj/item/weapon/attachment/bayonet/military(H), slot_l_store)
-
-	if (prob(60))
-		H.f_style = pick("Shaved","Selleck Mustache")
-	else
-		H.f_style = pick("Selleck Mustache","Van Dyke Mustache","Elvis Sideburns","Goatee")
-
-	H.s_tone = rand(-40,-20)
-	H.h_style = pick("Bald","Short Hair","Buzzcut","Crewcut","Combover","Skinhead","Balding Hair","Flat Top","Mulder","Gelled Back","CIA","Joestar","Slick","Fade","Average Joe","Undercut")
-
 	give_random_name(H)
 	H.add_note("Role", "You are a <b>[title]</b>, fighting against the Vietcong!")
 	H.setStat("strength", STAT_NORMAL)
@@ -695,7 +623,7 @@
 
 /datum/job/american/american_lmg
 	title = "USA Automatic Rifleman"
-	rank_abbreviation = "Pfc."
+	rank_abbreviation = "Spc."
 
 	spawn_location = "JoinLateRN"
 
@@ -711,35 +639,16 @@
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/blackboots1(H), slot_shoes)
 
 //clothes
-	var/randuni2 = rand(1,4)
-	switch(randuni2)
-		if (1)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni(H), slot_w_uniform)
-		if (2)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_greentrousers(H), slot_w_uniform)
-		if (3)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni2(H), slot_w_uniform)
-		if (4)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni3(H), slot_w_uniform)
+	if (prob(50))
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni2(H), slot_w_uniform)
+	else
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_greentrousers(H), slot_w_uniform)
 //head
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/ushelmet/camo/accessory(H), slot_head)
 //back
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/m60(H), slot_shoulder)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/m60(H), slot_l_hand)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/largepouches/green/m60(H), slot_belt)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/m1911(H), slot_l_hand)
-	H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight(H), slot_wear_id)
-
-	if (prob(78))
-		H.f_style = pick("Shaved","Selleck Mustache")
-	else
-		H.f_style = pick("Van Dyke Mustache","Elvis Sideburns","Goatee")
-
-	if (prob(25))
-		H.s_tone = rand(-210,-160)
-		H.h_style = pick("Bald","Short Hair","Buzzcut","Crewcut","Afro","Mohawk","Skinhead","Flat Top","Balding Hair","Mulder","Slick","Fade","Average Joe","Undercut","Joestar")
-	else
-		H.s_tone = rand(-40,-20)
-		H.h_style = pick("Bald","Short Hair","Buzzcut","Crewcut","Combover","Skinhead","Balding Hair","Flat Top","Mulder","Gelled Back","CIA","Joestar","Slick","Fade","Average Joe","Undercut")
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/m1911(H), slot_l_store)
 
 	var/obj/item/clothing/under/uniform = H.w_uniform
 	var/obj/item/clothing/accessory/armor/coldwar/flakjacket/fj = new /obj/item/clothing/accessory/armor/coldwar/flakjacket(null)
@@ -759,7 +668,6 @@
 	H.setStat("medical", STAT_MEDIUM_LOW)
 	H.setStat("machinegun", STAT_MEDIUM_HIGH)
 	return TRUE
-
 /datum/job/american/american_soldier
 	title = "USA Rifleman"
 	rank_abbreviation = "Pvt."
@@ -778,18 +686,13 @@
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/blackboots1(H), slot_shoes)
 
 //clothes
-	var/randuni = rand(1,5)
-	switch(randuni)
-		if (1)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni(H), slot_w_uniform)
-		if (2)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni(H), slot_w_uniform)
-		if (3)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_greentrousers(H), slot_w_uniform)
-		if (4)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni2(H), slot_w_uniform)
-		if (5)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni3(H), slot_w_uniform)
+	var/pick = pick(1,2,3)
+	if (pick == 1)
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni(H), slot_w_uniform)
+	else if (pick == 2)
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni(H), slot_w_uniform)
+	else
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_greentrousers(H), slot_w_uniform)
 
 	var/obj/item/clothing/under/uniform = H.w_uniform
 	var/obj/item/clothing/accessory/armor/coldwar/flakjacket/fj = new /obj/item/clothing/accessory/armor/coldwar/flakjacket(null)
@@ -801,20 +704,6 @@
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/m16(H), slot_shoulder)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/green(H), slot_belt)
 	H.equip_to_slot_or_del(new /obj/item/weapon/attachment/bayonet/military(H), slot_l_store)
-	H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight(H), slot_wear_id)
-
-	if (prob(78))
-		H.f_style = pick("Shaved","Selleck Mustache")
-	else
-		H.f_style = pick("Van Dyke Mustache","Elvis Sideburns","Goatee")
-
-	if (prob(25))
-		H.s_tone = rand(-200,-160)
-		H.h_style = pick("Bald","Short Hair","Buzzcut","Crewcut","Afro","Mohawk","Skinhead","Flat Top","Balding Hair","Mulder","Slick","Fade","Average Joe","Undercut","Joestar")
-	else
-		H.s_tone = rand(-40,-20)
-		H.h_style = pick("Bald","Short Hair","Buzzcut","Crewcut","Combover","Skinhead","Balding Hair","Flat Top","Mulder","Gelled Back","CIA","Joestar","Slick","Fade","Average Joe","Undercut")
-
 	give_random_name(H)
 	H.add_note("Role", "You are a <b>[title]</b>, a basic grunt. Follow orders and defeat the enemy!")
 	H.setStat("strength", STAT_NORMAL)
@@ -894,9 +783,6 @@
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/adv(H), slot_back)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/combat/modern(H), slot_belt)
 	H.equip_to_slot_or_del(new /obj/item/weapon/radio/walkietalkie/faction1(H), slot_wear_id)
-	var/obj/item/clothing/under/uniform = H.w_uniform
-	var/obj/item/clothing/accessory/holster/hip/holsterh = new /obj/item/clothing/accessory/holster/hip(null)
-	uniform.attackby(holsterh, H)
 
 	H.add_note("Role", "You are a <b>[title]</b>, a trained doctor of the Special Operation Forces team tasked with the rescue of the hostages. You should stay in the base and keep your teammates and prioners alive!")
 	H.setStat("strength", STAT_MEDIUM_HIGH)
@@ -1204,8 +1090,12 @@
 		H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/tt30(H), slot_l_hand)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/medical/full_vc(H), slot_belt)
 	var/obj/item/clothing/under/uniform = H.w_uniform
-	var/obj/item/clothing/accessory/holster/hip/holsterh = new /obj/item/clothing/accessory/holster/hip(null)
-	uniform.attackby(holsterh, H)
+	if (prob(70))
+		var/obj/item/clothing/accessory/storage/webbing/nlfchestrig = new /obj/item/clothing/accessory/storage/webbing/nlfchestrig(null)
+		uniform.attackby(nlfchestrig, H)
+	else
+		var/obj/item/clothing/accessory/storage/webbing/nlfsmallpouches = new /obj/item/clothing/accessory/storage/webbing/nlfsmallpouches(null)
+		uniform.attackby(nlfsmallpouches, H)
 	var/pickscarf = rand(1,2)
 	if (pickscarf == 1)
 		var/obj/item/clothing/accessory/armband/khan_ran/black = new /obj/item/clothing/accessory/armband/khan_ran/black(null)
@@ -1213,6 +1103,8 @@
 	else if (pickscarf == 2)
 		var/obj/item/clothing/accessory/armband/khan_ran/blue = new /obj/item/clothing/accessory/armband/khan_ran/blue(null)
 		uniform.attackby(blue, H)
+	var/obj/item/clothing/accessory/holster/hip/holsterh = new /obj/item/clothing/accessory/holster/hip(null)
+	uniform.attackby(holsterh, H)
 	give_random_name(H)
 	H.s_tone = rand(-32,-24)
 	if (H.f_style != "Shaved" && H.f_style != "Short Facial Hair" && H.f_style != "Goatee")
@@ -1263,8 +1155,12 @@
 
 	H.equip_to_slot_or_del(new /obj/item/weapon/radio/faction2(H), slot_back)
 	var/obj/item/clothing/under/uniform = H.w_uniform
-	var/obj/item/clothing/accessory/holster/hip/holsterh = new /obj/item/clothing/accessory/holster/hip(null)
-	uniform.attackby(holsterh, H)
+	if (prob(70))
+		var/obj/item/clothing/accessory/storage/webbing/nlfchestrig = new /obj/item/clothing/accessory/storage/webbing/nlfchestrig(null)
+		uniform.attackby(nlfchestrig, H)
+	else
+		var/obj/item/clothing/accessory/storage/webbing/nlfsmallpouches = new /obj/item/clothing/accessory/storage/webbing/nlfsmallpouches(null)
+		uniform.attackby(nlfsmallpouches, H)
 	var/pickscarf = rand(1,2)
 	if (pickscarf == 1)
 		var/obj/item/clothing/accessory/armband/khan_ran/black = new /obj/item/clothing/accessory/armband/khan_ran/black(null)

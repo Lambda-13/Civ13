@@ -199,9 +199,11 @@ var/global/datum/controller/occupations/job_master
 		if (H.faction_text == map.faction1)
 			if (map.faction1_squad_leaders[H.squad])
 				HSL = map.faction1_squad_leaders[H.squad]
+				world.log << "found"
 		else if (H.faction_text == map.faction2)
 			if (map.faction2_squad_leaders[H.squad])
 				HSL = map.faction2_squad_leaders[H.squad]
+				world.log << "found"
 		if (HSL && HSL.stat == CONSCIOUS)
 			world.log << "[HSL]"
 			var/found = FALSE
@@ -210,23 +212,7 @@ var/global/datum/controller/occupations/job_master
 					found = TRUE
 					continue
 			if (!found)
-				var/turf/spawnloc = get_turf(HSL)
-				if (HSL.dir == NORTH && get_turf(locate(HSL.x, HSL.y-1, HSL.z)))
-					spawnloc = get_turf(locate(HSL.x, HSL.y-1, HSL.z))
-				else if (HSL.dir == EAST && get_turf(locate(HSL.x-1, HSL.y, HSL.z)))
-					spawnloc = get_turf(locate(HSL.x-1, HSL.y, HSL.z))
-				else if (HSL.dir == SOUTH && get_turf(locate(HSL.x, HSL.y+1, HSL.z)))
-					spawnloc = get_turf(locate(HSL.x, HSL.y+1, HSL.z))
-				else if (HSL.dir == WEST && get_turf(locate(HSL.x+1, HSL.y, HSL.z)))
-					spawnloc = get_turf(locate(HSL.x+1, HSL.y, HSL.z))
-				if (spawnloc.density)
-					spawnloc = get_turf(HSL)
-				else
-					for(var/obj/O in spawnloc)
-						if (O.density)
-							spawnloc = get_turf(HSL)
-							break
-				H.forceMove(spawnloc)
+				H.forceMove(get_turf(HSL))
 				HSL << "<big><font color='green'>[H] has arrived at your squad.</font></big>"
 				// make sure we have the right ambience for our new location
 				spawn (1)
@@ -412,6 +398,10 @@ var/global/datum/controller/occupations/job_master
 			H.wolfman = 1
 		if (map && H && (H.faction_text in map.crab))
 			H.crab = 1
+		if (map && H && (H.faction_text in map.skeletman))
+			H.skeletman = 1
+		if (map && H && (H.faction_text in map.zombieman))
+			H.zombieman = 1
 		var/spawn_location = H.original_job.spawn_location
 		H.job_spawn_location = spawn_location
 

@@ -5,7 +5,6 @@
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall)
 	respawn_delay = 1200
 	no_winner ="The capitol is under German control."
-	no_hardcore = TRUE
 	faction_organization = list(
 		GERMAN,
 		RUSSIAN)

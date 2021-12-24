@@ -4,7 +4,6 @@
 	lobby_icon_state = "ww1"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall,/area/caribbean/no_mans_land/invisible_wall/one,/area/caribbean/no_mans_land/invisible_wall/two)
 	respawn_delay = 0
-	no_hardcore = TRUE
 
 	faction_organization = list(
 		JAPANESE,
@@ -38,7 +37,7 @@
 		else
 			. = TRUE
 	if (istype(J, /datum/job/russian))
-		if (J.is_ww2 || J.is_rcw || (J.is_prison || J.is_yeltsin || J.is_rusretreat || J.is_modernday))
+		if (J.is_ww2 || J.is_rcw || (J.is_prison || J.is_yeltsin))
 			. = FALSE
 		else
 			. = TRUE

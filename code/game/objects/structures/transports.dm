@@ -974,13 +974,10 @@
 	else
 		..()
 
-/obj/structure/vehicle/motorcycle/do_color(_color = null)
-	var/tempcolor = customcolor
-	if (_color != null)
-		tempcolor = _color
-	if (tempcolor)
+/obj/structure/vehicle/motorcycle/do_color()
+	if (customcolor)
 		var/image/colorov = image("icon" = icon, "icon_state" = "[icon_state]_mask1")
-		colorov.color = tempcolor
+		colorov.color = customcolor
 		overlays += colorov
 
 /obj/structure/vehicle/carriage

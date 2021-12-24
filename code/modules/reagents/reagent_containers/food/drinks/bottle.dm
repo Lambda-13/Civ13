@@ -647,7 +647,6 @@
 	center_of_mass = list("x"=16, "y"=10)
 	value = 20
 	volume = 5
-	slot_flags = SLOT_BELT|SLOT_POCKET
 /obj/item/weapon/reagent_containers/food/drinks/bottle/small/healing/update_icon()
 	if (reagents.reagent_list.len)
 		icon_state = "[initial(icon_state)]"
@@ -686,7 +685,6 @@
 	desc = "A bottle of a extreme healing chemical."
 	icon_state = "health_vigor"
 	value = 60
-	slot_flags = SLOT_BELT
 	New()
 		..()
 		reagents.add_reagent("vigor", 5)
@@ -697,56 +695,10 @@
 	desc = "A bottle of a extreme healing chemical."
 	icon_state = "health_vigor"
 	value = 200
-	slot_flags = SLOT_BELT
 	New()
 		..()
 		reagents.add_reagent("draught", 5)
 		icon_state = "health_vigor"
-
-/////////////////stamina/////////////////
-/obj/item/weapon/reagent_containers/food/drinks/bottle/small/stamina
-	name = "stamina potion"
-	desc = "A bottle of a stamina chemical."
-	icon_state = "stamina_minor"
-	item_state = "beer"
-	flags = OPENCONTAINER
-	center_of_mass = list("x"=16, "y"=10)
-	value = 20
-	volume = 5
-	slot_flags = SLOT_BELT|SLOT_POCKET
-/obj/item/weapon/reagent_containers/food/drinks/bottle/small/stamina/update_icon()
-	if (reagents.reagent_list.len)
-		icon_state = "[initial(icon_state)]"
-	else
-		icon_state = "[initial(icon_state)]"
-
-/obj/item/weapon/reagent_containers/food/drinks/bottle/small/stamina/minor
-	name = "minor stamina potion"
-	desc = "A bottle of a stamina chemical."
-	icon_state = "stamina_minor"
-	New()
-		..()
-		reagents.add_reagent("minor_stamina", 5)
-		icon_state = "stamina_minor"
-
-/obj/item/weapon/reagent_containers/food/drinks/bottle/small/stamina/plentiful
-	name = "plentiful stamina potion"
-	desc = "A bottle of a stamina chemical."
-	icon_state = "stamina_plentiful"
-	New()
-		..()
-		reagents.add_reagent("plentiful_stamina", 5)
-		icon_state = "stamina_plentiful"
-
-/obj/item/weapon/reagent_containers/food/drinks/bottle/small/stamina/vigorous
-	name = "vigorous stamina potion"
-	desc = "A bottle of a stamina chemical."
-	icon_state = "stamina_vigor"
-	slot_flags = SLOT_BELT
-	New()
-		..()
-		reagents.add_reagent("stamina_vigor", 5)
-		icon_state = "stamina_vigor"
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////

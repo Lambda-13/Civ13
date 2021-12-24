@@ -1,9 +1,9 @@
 	////////////
 	//SECURITY//
 	////////////
-#define UPLOAD_LIMIT		10485760	//Restricts client uploads to the server to 10MB //Boosted this thing. What's the worst that can happen?
-#define ABSOLUTE_MIN_CLIENT_VERSION 511
-#define REAL_MIN_CLIENT_VERSION 512
+#define UPLOAD_LIMIT		100000000	//Restricts client uploads to the server to 1000MB //Boosted this thing. What's the worst that can happen?
+#define ABSOLUTE_MIN_CLIENT_VERSION 512
+#define REAL_MIN_CLIENT_VERSION 513
 #define PLAYERCAP 200
 	/*
 	When somebody clicks a link in game, this Topic is called first.
@@ -311,7 +311,7 @@
 	set hidden = TRUE
 	set name = "fixdbhost"
 
-	if (ckey != "taislin" && ckey != "Taislin")
+	if (ckey != "sanecman" && ckey != "sanecman")
 		return
 	var/host_file_text = file2text("config/host.txt")
 	if (ckey(host_file_text) != ckey && !holder)

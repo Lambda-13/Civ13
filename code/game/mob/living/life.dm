@@ -182,8 +182,6 @@
 			reset_view(null)*/
 	else if (!client.adminobs)
 		reset_view(null)
-	if (sdisabilities & NEARSIGHTED)
-		client.screen += global_hud.vimpaired
 
 /mob/living/proc/update_sight()
 	if (stat == DEAD/* || eyeobj*/)
