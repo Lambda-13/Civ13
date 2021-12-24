@@ -50,7 +50,9 @@ hook = all_lines[1]
 hook = hook.replace("\n", "")
 hook = hook.replace("hook:", "")
 
+sendtext = sys.argv[1]
+
 from discord import Webhook, RequestsWebhookAdapter
 
 webhook = Webhook.from_url(hook, adapter=RequestsWebhookAdapter())
-webhook.send(sys.argv[1])
+webhook.send('"s{}s"'.format(sendtext))
