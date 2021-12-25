@@ -299,8 +299,8 @@ var/global/FREQP = rand(81,100)
 				<font size=3><b>[style]</b></font><br><br>
 				</center>
 				<b><font size=2>Частота: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
-				Передатчик: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
-				Приемник: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
+				Микрофон: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
+				Динамик: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
 				</font></b><br>
 				</body>
 				</html>
@@ -330,7 +330,7 @@ var/global/FREQP = rand(81,100)
 				<font size=3><b>[style]</b></font><br><br>
 				</center>
 				<b><font size=2>Частота: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
-				Приемник: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
+				Динамик: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
 				</font></b><br>
 				</body>
 				</html>
@@ -360,7 +360,7 @@ var/global/FREQP = rand(81,100)
 				<font size=3><b>[style]</b></font><br><br>
 				</center>
 				<b><font size=2>Частота: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
-				Передатчик: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
+				Микрофон: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
 				</font></b><br>
 				</body>
 				</html>
@@ -630,8 +630,8 @@ var/global/FREQP = rand(81,100)
 		<font size=3><b>[style]</b></font><br><br>
 		</center>
 		<b><font size=2>Частота: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
-		Передатчик: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
-		Приемник: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
+		Микрофон: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
+		Динамик: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
 		</font></b><br>
 		</body>
 		</html>
