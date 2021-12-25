@@ -1,7 +1,7 @@
 //#define TESTING
-#if DM_VERSION < 512
-#warn Внимание, ваша версия ниже 512, анимации прожектайлов не будут видны.
-#endif
+//#if DM_VERSION < 512
+//#warn Внимание, ваша версия ниже 512, анимации прожектайлов не будут видны.
+//#endif
 
 var/bearcave_ticking = FALSE
 var/wolfcave_ticking = FALSE
