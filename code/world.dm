@@ -234,6 +234,7 @@ var/world_topic_spam_protect_time = world.timeofday
 	spawn (150)
 
 		var/sleeptime = 0
+		world << "<span class = 'danger'>Внимание!</span> <span class='notice'>Если ребут происходит не по причине админов - запускается повторно текущая карта, ибо выбраная сломана</span>"
 		world << "<span class = 'danger'>Ребут!</span> <span class='notice'>Нажми сюда что бы переподключиться (обычно нужно если не произошёл автоконнект): <b>byond://[world.internet_address]:[port]</b></span>"
 
 		sleep(sleeptime) // I think this is needed so C << link() doesn't fail
