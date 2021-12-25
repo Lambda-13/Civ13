@@ -1,15 +1,12 @@
 
 /obj/item/weapon/gun/projectile/automatic
-	gtype = "mg"
-	icon = 'icons/obj/guns/mgs.dmi'
 	force = 15
 	throwforce = 30
 	var/base_icon = "automatic"
-	equiptimer = 28
+	equiptimer = 22
 	load_delay = 12
 	gun_safety = TRUE
-	slowdown = 0.5
-
+	slowdown = 0.4
 	// not accurate at all
 	accuracy_list = list(
 
@@ -43,11 +40,11 @@
 
 		// large body parts: chest, groin
 		"large" = list(
-			SHORT_RANGE_STILL = 70,
-			SHORT_RANGE_MOVING = 61,
+			SHORT_RANGE_STILL = 60,
+			SHORT_RANGE_MOVING = 51,
 
-			MEDIUM_RANGE_STILL = 51,
-			MEDIUM_RANGE_MOVING = 42,
+			MEDIUM_RANGE_STILL = 45,
+			MEDIUM_RANGE_MOVING = 36,
 
 			LONG_RANGE_STILL = 30,
 			LONG_RANGE_MOVING = 27,
@@ -107,7 +104,6 @@
 
 	force = 20
 	throwforce = 30
-	slot_flags = SLOT_SHOULDER
 
 /obj/item/weapon/gun/projectile/automatic/type99
 	name = "Type 99 Light Machinegun"
@@ -124,7 +120,6 @@
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	slowdown = 0.2
 	has_telescopic = TRUE
-	slot_flags = SLOT_SHOULDER
 
 /obj/item/weapon/gun/projectile/automatic/dp28
 	name = "DP-28"
@@ -136,7 +131,6 @@
 	fire_sound = 'sound/weapons/guns/fire/DP28.ogg'
 	magazine_type = /obj/item/ammo_magazine/dp
 	good_mags = list(/obj/item/ammo_magazine/dp)
-	slot_flags = SLOT_SHOULDER
 	weight = 9.12
 	force = 20
 	throwforce = 30
@@ -147,7 +141,6 @@
 	icon_state = "bar"
 	item_state = "bar"
 	base_icon = "bar"
-	slot_flags = SLOT_SHOULDER
 	caliber = "a3006_weak"
 	fire_sound = 'sound/weapons/guns/fire/M1918A2.ogg'
 	magazine_type = /obj/item/ammo_magazine/bar
@@ -220,9 +213,8 @@
 		user << "<span class='warning'>You need to open the cover to unload [src].</span>"
 		return
 	..()
-
-///////////////////////////////////////////////////////////////////////////
 /obj/item/weapon/gun/projectile/automatic/m60
+///////////////////////////////////////////////////////////////////////////
 	name = "M60"
 	desc = "An american machinegun chambered in 7.62x51mm NATO rounds. Heavy and handles like a pig."
 	icon_state = "m60"
@@ -232,11 +224,10 @@
 	fire_sound = 'sound/weapons/guns/fire/M60.ogg'
 	magazine_type = /obj/item/ammo_magazine/b762
 	good_mags = list(/obj/item/ammo_magazine/b762)
-	slot_flags = SLOT_SHOULDER
 	weight = 10.5
 	firemodes = list(
 		list(name="full auto",	burst=1, burst_delay=1.3, move_delay=8, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.5), recoil = 0),)
-	slot_flags = SLOT_SHOULDER
+	slot_flags = 0
 	force = 20
 	nothrow = TRUE
 	throwforce = 30
@@ -254,11 +245,10 @@
 	fire_sound = 'sound/weapons/guns/fire/Minimi.ogg'
 	magazine_type = /obj/item/ammo_magazine/m249
 	good_mags = list(/obj/item/ammo_magazine/m249)
-	slot_flags = SLOT_SHOULDER
 	weight = 10
 	firemodes = list(
 		list(name="full auto",	burst=1, burst_delay=1.1, move_delay=7, dispersion = list(0.6, 1, 1.2, 1.3, 1.3), recoil = 0),)
-	slot_flags = SLOT_SHOULDER
+	slot_flags = 0
 	force = 20
 	nothrow = TRUE
 	throwforce = 30
@@ -292,9 +282,8 @@
 	weight = 7.5
 	firemodes = list(
 		list(name="full auto",	burst=1, burst_delay=1.3, move_delay=7, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.6), recoil = 0),)
-	slot_flags = SLOT_SHOULDER
+	slot_flags = 0
 	force = 20
-	slot_flags = SLOT_SHOULDER
 	nothrow = TRUE
 	throwforce = 30
 	equiptimer = 25
@@ -310,11 +299,10 @@
 	caliber = "a556x45"
 	magazine_type = /obj/item/ammo_magazine/negev
 	good_mags = list(/obj/item/ammo_magazine/negev)
-	slot_flags = SLOT_SHOULDER
 	weight = 8
 	firemodes = list(
 		list(name="full auto",	burst=1, burst_delay=0.9, move_delay=7, dispersion = list(0.6, 1, 1.2, 1.3, 1.3), recoil = 0),)
-	slot_flags = SLOT_SHOULDER
+	slot_flags = 0
 	force = 20
 	nothrow = TRUE
 	throwforce = 30

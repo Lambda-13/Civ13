@@ -121,14 +121,14 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 			for (var/key in current_votes)
 				if (choices[current_votes[key]] == newwinner)
 					round_voters += key // Keep track of who voted for the winning round.
-			text += "<b>Vote Result: <span class = 'ping'>[newwinner]</span></b><br>"
-			text += "<b>The vote has ended. </b>"
+			text += "<b>Результат: <span class = 'ping'>[newwinner]</span></b><br>"
+			text += "<b>Голосование окончено. </b>"
 			if (callback)
 				if (callback.len == 2)
 					call(callback[1], callback[2])(newwinner)
 				callback = null
 		else
-			text += "<b>Vote Result: <span class = 'ping'>No</span> - Not enough YES votes (59% is needed)</b>"
+			text += "<b>Результат: <span class = 'ping'>Нет</span> - Недостаточно голосов за YES (59% необходимо)</b>"
 		log_vote(text)
 		world << "<font color='purple'>[text]</font>"
 		return .
@@ -225,12 +225,9 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 					if (map.ID == MAP_CAPITOL_HILL || map.ID == MAP_YELTSIN)
 						options = list("Protect the VIP", "Siege",/* "Area Capture",*/ "Kills")
 						if (!default)
-							default = "Siege"
+							default = "Siege"	
 					else if (!map.is_RP && !map.nomads && !map.civilizations)
-						if(map.no_hardcore)
-							options = list("Normal", "Competitive")
-						else
-							options = list("Normal", "Competitive", "Hardcore")
+						options = list("Easy", "Normal", "Competitive", "Hardcore", "RealLive")
 						if (!default)
 							default = "Normal"
 					else if (map.nomads || map.civilizations)
@@ -267,12 +264,12 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 			if (C.holder.rights & R_ADMIN)
 				admin = TRUE
 		voting |= C
-		. = "<html><head><title>Voting Panel</title></head><body>"
+		. = "<meta charset='utf-8'><head><title>Панель Голосований</title></head><body>"
 		if (mode)
-			if (question)	. += "<h2>Vote: '[question]'</h2>"
-			else			. += "<h2>Vote: [capitalize(mode)]</h2>"
-			. += "Time Left: [time_remaining] s<hr>"
-			. += "<table width = '100%'><tr><td align = 'center'><b>Choices</b></td><td align = 'center'><b>Votes</b></td>"
+			if (question)	. += "<h2>Голосование: '[question]'</h2>"
+			else			. += "<h2>Голосование: [capitalize(mode)]</h2>"
+			. += "Осталось: [time_remaining] секунд<hr>"
+			. += "<table width = '100%'><tr><td align = 'center'><b>Выбор</b></td><td align = 'center'><b>Голоса</b></td>"
 			for (var/i = 1, i <= choices.len, i++)
 				var/votes = choices[choices[i]]
 				if (!votes)	votes = 0
@@ -290,24 +287,24 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 
 			. += "</table><hr>"
 			if (admin && mode != "map")
-				. += "(<a href='?src=\ref[src];vote=cancel'>Cancel Vote</a>) "
+				. += "(<a href='?src=\ref[src];vote=cancel'>Отменить Голосование</a>) "
 		else
-			. += "<h2>Start a vote:</h2><hr><ul><li>"
+			. += "<h2>Начать голосование:</h2><hr><ul><li>"
 			//restart
 			if (admin || config.allow_vote_restart)
-				. += "<a href='?src=\ref[src];vote=restart'>Restart</a>"
+				. += "<a href='?src=\ref[src];vote=restart'>Рестарт</a>"
 			else
-				. += "<font color='grey'>Restart (Disallowed)</font>"
+				. += "<font color='grey'>Рестарт</font>"
 			. += "</li><li>"
 			if (admin)
 				. += "\t(<a href='?src=\ref[src];vote=toggle_restart'>[config.allow_vote_restart?"Allowed":"Disallowed"]</a>)"
 				. += "</li><li>"
-				. += "<a href='?src=\ref[src];vote=gamemode'>Gamemode</a></li>"
+				. += "<a href='?src=\ref[src];vote=gamemode'>Игровой Режим</a></li>"
 			//custom
 			if (admin)
-				. += "<li><a href='?src=\ref[src];vote=custom'>Custom</a></li>"
+				. += "<li><a href='?src=\ref[src];vote=custom'>Своё</a></li>"
 			. += "</ul><hr>"
-		. += "<a href='?src=\ref[src];vote=close' style='position:absolute;right:50px'>Close</a></body></html>"
+		. += "<a href='?src=\ref[src];vote=close' style='position:absolute;right:50px'>Закрыть</a></body></html>"
 
 		return .
 
@@ -320,6 +317,8 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 				usr << browse(null, "window=vote")
 				return
 			if ("cancel")
+				log_admin("[key_name(usr)] отменяет воут.")
+				message_admins("<span class = 'notice'>[key_name_admin(usr)] отменяет воут.</span>", TRUE)
 				if (usr.client.holder)
 					reset()
 			if ("toggle_restart")
@@ -330,11 +329,14 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 					config.allow_vote_mode = !config.allow_vote_mode
 			if ("restart")
 				if (config.allow_vote_restart || usr.client.holder)
+					if (round((roundduration2text_in_ticks % 36000) / 600) < 30) //30 минут
+						usr << "Раунд активен менее 30 минут, увы"
+						return FALSE
 					if (config.vote_no_dead && usr.stat == DEAD && !usr.client.holder)
 						usr << "You can't start restart votes if you are not playing."
 						return FALSE
 					if ((map.nomads || map.is_RP) && clients.len < 5 && ((world.time-round_start_time)>108000) && !usr.client.holder)
-						usr << "You can't start restart votes if the server population is lower than 5 and the round has been going for over 3 hour."
+						usr << "Вы не можете начать повторное голосование, если на сервере меньше 3 игроков и раунд длится более 3 часов."
 						return FALSE
 					initiate_vote("restart",usr.key)
 			if ("custom")

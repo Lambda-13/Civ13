@@ -3,7 +3,7 @@
 	ID = MAP_GULAG13
 	title = "GULAG 13"
 	no_winner ="The round is proceeding normally."
-	lobby_icon_state = "gulag"
+	lobby_icon_state = "camp"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/tundra)
 	respawn_delay = 3600
 	has_hunger = TRUE
@@ -25,7 +25,7 @@
 	faction2 = CIVILIAN
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET, WEATHER_EXTREME)
 	songs = list(
-		"Red Army Choir - Slavery and Suffering:1" = 'sound/music/slavery_and_suffering.ogg')
+		"The Great Escape:1" = 'sound/music/the_great_escape.ogg')
 	gamemode = "Prison Simulation"
 	var/list/points = list(
 		list("Guards",0,0),
@@ -342,7 +342,7 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 /obj/structure/camp_exportbook
 	name = "camp exports"
 	desc = "Use this to export products from the camp and gain points for the guards."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "supplybook2"
 	density = TRUE
 	anchored = TRUE

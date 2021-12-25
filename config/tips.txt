@@ -1,21 +1,19 @@
-Drag yourself to a ladder to look up or down.
-Over hunting can lead to extinction. Consider taking up Animal Husbandry to ensure a long lasting supply of food and leather for your civilization.
-Cannibalism is a feature, but eating other people might make you valid.
-You can build locked doors in the same way as regular doors. You have to have a key in one hand and metal/wood in the other (active) hand.
-You can use rope to build nooses, rope handcuffs, and leashes.
-Everyone dies eventually; don't get too salty about it.
-If you are a sharpshooter, aim for the head. Otherwise, aim for the chest to kill and the feet to cripple.
-Use Z when wielding a sword or knife to switch between Stab, Slash, or Bash. Bash has a higher chance of knockout, but does less damage. Slash will easily make your enemy bleed. Stabbing gives an higher probability of internal bleeding.
-You can switch between Parry mode and Dodge mode in the HUD. Parry takes your skill with the weapon and the weapon's stats into account, and will increase your skill. Dodge takes dexterity into account and will increase it.
-Weather and season changes can threaten your civilization's survival. Be sure to have a shelter stocked vital supplies like food and water to survive the storms to come.
-Water hole went dry? Fill up your cups with cow or goat milk or make sap wine from extracting it from a palm tree with a knife.
-In tdm its a good idea to strip dead enemies/comrades and tear up their uniforms to make bandages. To do this, press c while holding clothing and itll tear into rags, then just craft the rags into bandages.
-A fast way to train medical is to perform surgeries on a fresh corpse. Butchering animals also works.
-If you are bleeding you can use the grab intent, aim at the injured body part, and then click on yourself to apply pressure and stop the bleeding.
-Entrenching tool fits in your backpack slot and is always worth taking in TDM.
-When using an lmg, it is best to prone for the most effective accuracy, take cover behind incomplete sandbags so you can still fire while behind cover (sandbags must be incomplete).
-Use the numpad to quickly change your aim between body parts.
-You can disarm mines and tripmines by clicking on a trap with barehands or a wirecutter. Be wary that, while success gives grenade/mine, failure on ap mines/tripmines yields a deadly result to you and everyone near you, enemy included. It is much easier to spot tripmine than normal one.
-Butchering an animal with GRAB intent active will output pelts instead of leather.
-Use an empty hand with grab intent on a water source to drink from it.
-Tools and melee weapons only take durability damage from attacking people and animals, actions like throwing, using for intended purpose (tools only), and breaking stuff (other than targets) does not damage it in any way.
+Перетащите свою куклу на лестницу, чтобы посмотреть вверх или вниз.
+Чрезмерная охота может привести к исчезновению животных. Подумайте о том, чтобы заняться животноводством, чтобы обеспечить вашей цивилизации постоянный запас продуктов питания и кожи.
+Каннибализм может и поможет вам выжить, но поедание других людей может сделать делает вас со стороны ебланом.
+Вы можете строить запертые двери так же, как и обычные двери. У вас должен быть ключ в одной руке и то из чего вы будете делать дверь в другой (активной) руке.
+Вы можете использовать веревку для изготовления петель, веревочных наручников и поводков.
+Все рано или поздно умирают; Не расстраивайтесь.
+Если вы снайпер, цельтесь в голову. В противном случае цельтесь в грудь, чтобы убить, и ноги, чтобы искалечить.
+Используйте Z (Page Down) при использовании меча или ножа для переключения между видами ударов. Удары будут расписаны позже.
+Вы можете переключаться между режимами парирования и уклонения в HUD. Парирование позволяет отражать атаки используя ваше мастерство владения оружием. Уклонение работает от вашего навыка ловкости.
+Смена погоды и сезона может угрожать выживанию вашей цивилизации. Убедитесь, что у вас есть жизненно важные запасы, такие как еда и вода, чтобы пережить грядущие смены сезонов.
+Вода испарилась? Наполните чашки коровьим или козьим молоком или сделайте сок из пальмового дерева ножом.
+В ТДМ неплохо раздевать мертвых врагов/товарищей и рвать их форму, чтобы сделать бинты. Для этого нажмите С, удерживая одежду, и она разорвется на лохмотья, затем просто сделайте из тряпок бинты.
+Быстрый способ обучить врача - это сделать операцию на свежем трупе. Разделка животных тоже работает.
+Если у вас кровотечение, вы можете переключиться на граб, нацелиться на травмированную часть тела, а затем нажать на себя, чтобы зажать рану.
+Инструмент для копания помещается в слот вашего рюкзака, и его всегда стоит брать с собой в TDM.
+При использовании пулемета лучше всего быть в положении лежа для наиболее эффективной точности, укрыться за неполными мешками с песком, чтобы вы все еще могли стрелять, находясь за укрытием (мешки с песком должны быть неполными).
+Используйте цифровую клавиатуру, чтобы быстро менять прицеливание между частями тела.
+Если у вас проблемы с хоткеями, попробуйте сделать следующее: Закройте игру, переключите раскладку, откройте игру не меняя раскладки, после чего нажмите на игровое окно и любую букву. Дальше можете переключиться обратно на другую раскладку - при рестарте хоткеи будут меняться.
+Что бы сделать копье, добудьте сначала кремний нажав грабом по камню, затем нажмите грабом на дерево и на ветку с листьями грабом, после чего нажимаете кремнием на палку и делаете себе копье.

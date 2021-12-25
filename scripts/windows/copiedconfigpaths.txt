@@ -6,3 +6,4 @@ scripts/copiedfolderpaths.txt
 scripts/copyconfigfiles.py
 scripts/launch.py
 scripts/mapswap.py
+scripts/clear_oggs.py

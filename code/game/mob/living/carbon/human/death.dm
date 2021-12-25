@@ -63,7 +63,7 @@
 	else if (map && map.ID == MAP_ABASHIRI && client)
 		var/obj/map_metadata/abashiri/GD = map
 		if (original_job && istype(original_job, /datum/job/civilian/abashiri))
-			var/mob/living/human/H = src
+			var/mob/living/human/H = client
 			for(var/i in GD.points)
 				if (i[1]==H.nationality)
 					i[3]-=50
@@ -280,6 +280,9 @@
 	if (client)
 		if (map.gamemode == "Hardcore")
 			client.next_normal_respawn = world.realtime+999999
+		if (map.gamemode == "RealLive")
+			client.next_normal_respawn = world.realtime+999999
+			client << pick('sound/effects/gameover.ogg')
 		else
 			client.next_normal_respawn = world.realtime + (map ? map.respawn_delay : 3000)
 			client << RESPAWN_MESSAGE

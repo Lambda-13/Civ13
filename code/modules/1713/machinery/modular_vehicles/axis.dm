@@ -126,12 +126,6 @@ var/global/list/tank_names_usa = list("Charlie", "Alpha", "Foxtrot", "Tango", "E
 			for (var/obj/item/mine/boobytrap/MAT in T)
 				if (MAT.anchored)
 					qdel(MAT)
-			for (var/obj/item/mine/ap/MAT in T)
-				if (MAT.anchored)
-					qdel(MAT)
-			for (var/obj/item/mine/ap/MAT in T)
-				if (MAT.anchored)
-					qdel(MAT)
 			var/turf/TT = get_turf(get_step(T, dir))
 			if (reverse)
 				TT = get_turf(get_step(T,OPPOSITE_DIR(dir)))
@@ -298,13 +292,8 @@ var/global/list/tank_names_usa = list("Charlie", "Alpha", "Foxtrot", "Tango", "E
 				else
 					qdel(MAT)
 					visible_message("<span class='warning'>\the [src] crushes \the [MAT]!</span>","<span class='warning'>You crush \the [MAT]!</span>")
-			if (istype(M, /obj/item/mine/boobytrap))
+			else if (istype(M, /obj/item/mine/boobytrap))
 				var/obj/item/mine/boobytrap/BAT = M
-				if (BAT.anchored)
-					qdel(BAT)
-					visible_message("<span class='warning'>\the [src] crushes \the [BAT]!</span>","<span class='warning'>You crush \the [BAT]!</span>")
-			if (istype(M, /obj/item/mine/ap))
-				var/obj/item/mine/ap/BAT = M
 				if (BAT.anchored)
 					qdel(BAT)
 					visible_message("<span class='warning'>\the [src] crushes \the [BAT]!</span>","<span class='warning'>You crush \the [BAT]!</span>")

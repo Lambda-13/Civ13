@@ -80,8 +80,6 @@
 		return
 
 /obj/structure/engine/internal/turn_on(var/mob/user = null)
-	if (on)
-		return
 	if (broken)
 		user << "\The [src] is broken, you can't turn it on!"
 		return
