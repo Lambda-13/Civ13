@@ -583,7 +583,7 @@
 	sharp = TRUE
 	edge = TRUE
 	desc = "A 5 meter long spear, used by phalanx soldiers."
-	slot_flags = SLOT_SHOULDER
+//	slot_flags = SLOT_SHOULDER
 	icon_state = "sarissa"
 	item_state = "sarissa"
 	worn_state = "sarissa"
