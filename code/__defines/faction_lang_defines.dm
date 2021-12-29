@@ -53,8 +53,6 @@
 	if (constant == CIVILIAN)
 		if (map.ID == "TSARITSYN")
 			return "Red Army"
-		if (map.ID == "YELTSIN")
-			return "Militia"
 		else
 			return "Colonists"
 
@@ -81,22 +79,16 @@
 		return "Japanese Empire"
 
 	if (constant == RUSSIAN)
-		if (map.ID == "YELTSIN")
-			return "Russian Army"
-		if (map.ID == "RUSRETREAT")
-			return "Russian Federal Forces"
-		else if (age >= 6)
+		if (age >= 6)
 			return "Soviet Union"
-		if (map.ID == "TSARITSYN")
-			return "White Army"
 		else
-			return "Russian Empire"
+			if (map.ID == "TSARITSYN")
+				return "White Army"
+			else
+				return "Russian Empire"
 
 	if (constant == ROMAN)
-		if (map.ID == "WHITERUN")
-			return "Imperial Army"
-		else
-			return "Roman Republic"
+		return "Roman Republic"
 
 	if (constant == CHECHEN)
 		return "Chechen Republic of Ichkeria"

@@ -266,7 +266,7 @@
 		else if (mob_area.climate == "desert")
 			if (map.ordinal_age == 0)
 				equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(src), slot_shoes)
-			w_uniform = null
+//			w_uniform = null
 			equip_to_slot_or_del(new /obj/item/clothing/suit/arabic_robe(src), slot_wear_suit)
 			update_inv_w_uniform(1)
 		if (mob_area.climate == "savanna" || mob_area.climate == "jungle" || mob_area.climate == "desert")
@@ -589,6 +589,17 @@
 							real_name = name
 							add_note("Known Languages", "Ainu")
 							return
+		else if (map.ID == MAP_CIVILIZATIONS)
+			spawn(5)
+				if (original_job_title == "Civilization A Citizen")
+					civilization = "West Kingdom"
+					give_clothes()
+					return
+				else if (original_job_title == "Civilization B Citizen")
+					ant = 1
+					civilization = "East Kingdom"
+					give_clothes()
+					return
 		else if (map && (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.is_fantrace))
 			spawn(5)
 				if (original_job_title == "Orc tribesman")

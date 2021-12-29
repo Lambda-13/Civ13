@@ -27,7 +27,6 @@
 
 /datum/job/british/captain/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sailorboots1(H), slot_shoes)
 //clothes
@@ -69,7 +68,6 @@
 
 /datum/job/british/qm/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sailorboots1(H), slot_shoes)
 //clothes
@@ -111,7 +109,6 @@
 
 /datum/job/british/boatswain/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sailorboots1(H), slot_shoes)
 //clothes
@@ -152,7 +149,6 @@
 
 /datum/job/british/midshipman/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sailorboots1(H), slot_shoes)
 //clothes
@@ -188,7 +184,6 @@
 
 /datum/job/british/surgeon/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sailorboots1(H), slot_shoes)
 //clothes
@@ -226,7 +221,6 @@
 
 /datum/job/british/carpenter/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sailorboots2(H), slot_shoes)
 
@@ -274,7 +268,6 @@
 
 /datum/job/british/cook/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sailorboots2(H), slot_shoes)
 
@@ -323,7 +316,6 @@
 
 /datum/job/british/seaman/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sailorboots2(H), slot_shoes)
 
@@ -382,7 +374,6 @@
 
 /datum/job/british/army_commander/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/soldiershoes(H), slot_shoes)
 
@@ -425,7 +416,6 @@
 
 /datum/job/british/army_officer/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/soldiershoes(H), slot_shoes)
 
@@ -466,7 +456,6 @@
 
 /datum/job/british/field_medic/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/soldiershoes(H), slot_shoes)
 //clothes
@@ -505,7 +494,6 @@
 
 /datum/job/british/soldier/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/soldiershoes(H), slot_shoes)
 
@@ -548,7 +536,6 @@
 
 /datum/job/british/chasseur/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/soldiershoes(H), slot_shoes)
 
@@ -594,7 +581,6 @@
 
 /datum/job/british/ww1captain/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/blackboots1(H), slot_shoes)
 //clothes
@@ -642,7 +628,6 @@
 
 /datum/job/british/ww1lieutenant/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/blackboots1(H), slot_shoes)
 //clothes
@@ -689,7 +674,6 @@
 
 /datum/job/british/ww1second_lieutenant/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/blackboots1(H), slot_shoes)
 //clothes
@@ -734,7 +718,6 @@
 
 /datum/job/british/ww1sergeant/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(H), slot_shoes)
 //clothes
@@ -779,7 +762,6 @@
 
 /datum/job/british/ww1doctor/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(H), slot_shoes)
 //clothes
@@ -823,7 +805,6 @@
 
 /datum/job/british/ww1shocktroop/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(H), slot_shoes)
 
@@ -833,7 +814,7 @@
 //head
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/ww/mk1brodieag(H), slot_head)
 //back
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver/webley4(H), slot_l_hand)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/boltaction/p14enfield(H), slot_shoulder)
 	H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/british(H), slot_belt)
 	var/obj/item/clothing/under/uniform = H.w_uniform
 	var/obj/item/clothing/accessory/armor/modern/british/newplate = new /obj/item/clothing/accessory/armor/modern/british(null)
@@ -866,7 +847,6 @@
 
 /datum/job/british/ww1infantry/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(H), slot_shoes)
 
@@ -915,7 +895,6 @@
 
 /datum/job/british/ww2lieutenant_pow/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/blackboots1(H), slot_shoes)
 //clothes
@@ -953,7 +932,6 @@
 
 /datum/job/british/ww2sergeant_pow/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(H), slot_shoes)
 //clothes
@@ -990,7 +968,6 @@
 
 /datum/job/british/ww2pow/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(H), slot_shoes)
 
@@ -1035,7 +1012,6 @@
 
 /datum/job/british/ww2doctor_pow/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	give_random_name(H)
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(H), slot_shoes)
 //clothes

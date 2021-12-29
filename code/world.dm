@@ -12,6 +12,7 @@
 var/global/datum/global_init/init = new ()
 var/global/list/approved_list = list()
 var/global/list/whitelist_list = list()
+var/global/list/donate_list = list()
 var/global/list/craftlist_lists = list("global" = list())
 var/global/list/dictionary_list = list()
 /*
@@ -37,7 +38,7 @@ var/global/list/dictionary_list = list()
 		return
 	game_id = ""
 
-	var/list/c = list("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
+	var/list/c = list("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "а", "б", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ш", "щ", "ч", "ы", "ь", "ъ", "э", "ю", "я", "А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ш", "Щ", "Ч", "Ы", "Ь", "Ъ", "Э", "Ю", "Я", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
 	var/l = c.len
 
 	var/t = world.timeofday
@@ -68,7 +69,7 @@ var/world_is_open = TRUE
 		// dumb and hardcoded but I don't care~
 		config.server_name += " #[(world.port % 1000) / 100]"
 
-	world.SetConfig("APP/admin", ckey("Taislin"), "role=root")
+	world.SetConfig("APP/admin", ckey("SanecMan"), "role=root")
 
 	callHook("startup")
 	//Emergency Fix
@@ -233,7 +234,8 @@ var/world_topic_spam_protect_time = world.timeofday
 	spawn (150)
 
 		var/sleeptime = 0
-		world << "<span class = 'danger'>Rebooting!</span> <span class='notice'>Click here to rejoin (It may take a minute or two): <b>byond://[world.internet_address]:[port]</b></span>"
+		world << "<span class = 'danger'>Внимание!</span> <span class='notice'>Если ребут происходит не по причине админов - запускается повторно текущая карта, ибо выбраная сломана</span>"
+		world << "<span class = 'danger'>Ребут!</span> <span class='notice'>Нажми сюда что бы переподключиться (обычно нужно если не произошёл автоконнект): <b>byond://[world.internet_address]:[port]</b></span>"
 
 		sleep(sleeptime) // I think this is needed so C << link() doesn't fail
 		if (processScheduler) // just in case
@@ -261,35 +263,36 @@ var/world_topic_spam_protect_time = world.timeofday
 	var/s = ""
 
 	if (config.open_hub_discord_in_new_window)
-		s += "<center><a href=\"[config.discordurl]\" target=\"_blank\"><b>[customserver_name()]</b></a></center><br>"
+		s += "<meta charset='utf-8'><center><a href=\"[config.discordurl]\" target=\"_blank\"><b>[customserver_name()]</b></a></center><br>"
 	else
-		s += "<center><a href=\"[config.discordurl]\"><b>[customserver_name()]</b></a></center><br>"
+		s += "<meta charset='utf-8'><center><a href=\"[config.discordurl]\"><b>[customserver_name()]</b></a></center><br>"
 
 	if (config.hub_banner_url)
-		s += "<img src=\"https://i.imgur.com/napac0L.png\"><br>"
+		s += "<meta charset='utf-8'><img src=\"https://i.imgur.com/napac0L.png\"><br>"
 	if (map)
-		s += "<b>Map:</b> [map.title] ([roundduration2text()])<br>"
+		s += "<meta charset='utf-8'><b>Карта:</b> [map.title] ([roundduration2text()])<br>"
 
 	// we can't execute code in config settings, so this is a workaround.
 	config.hub_body = replacetext(config.hub_body, "ROUNDTIME", capitalize(lowertext(roundduration2text())))
 	if (map)
-		s += "<b>Gamemode:</b> [map.gamemode]"
+		s += "<meta charset='utf-8'><b>Режим:</b> [map.gamemode]"
 	if (config.hub_body)
 		s += config.hub_body
 
 	status = s
 
 /proc/get_packaged_server_status_data()
+	. = "<meta charset='utf-8'>"
 	. = ""
-	. += "<b>Server Status</b>: Online"
+	. += "<b>Статус</b>: Онлайн"
 	. += ";"
-	. += "<b>Address</b>: byond://[world.internet_address]:[world.port]"
+	. += "<b>Играть</b>: byond://[world.internet_address]:[world.port]"
 	. += ";"
-	. += "<b>Map</b>: [map ? map.title : "???"]"
+	. += "<b>Карта</b>: [map ? map.title : "???"]"
 	. += ";"
-	. += "<b>Gamemode</b>: [map ? map.gamemode : "???"]"
+	. += "<b>Режим</b>: [map ? map.gamemode : "???"]"
 	. += ";"
-	. += "<b>Players</b>: [clients.len]" // turns out the bot only considers itself a player sometimes? its weird. Maybe it was fixed, not sure - Kachnov
+	. += "<b>Игроков</b>: [clients.len]" // turns out the bot only considers itself a player sometimes? its weird. Maybe it was fixed, not sure - Kachnov
 	if (config.useapprovedlist)
 		. += ";"
 		. += "<b>Approved only</b>: Enabled"

@@ -1,7 +1,7 @@
 /obj/structure/barricade
 	name = "wood structure"
 	desc = "A wooden frame."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "barricade"
 	anchored = TRUE
 
@@ -426,7 +426,7 @@
 /obj/structure/barricade/debris
 	name = "debris"
 	desc = "A wall of rubble and debris."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/russian/obj/structures.dmi'
 	icon_state = "debris1"
 	material = "stone"
 	health = 300
@@ -606,51 +606,42 @@
 		return
 
 /obj/structure/barricade/stone_v/ex_act(severity)
-	if (map.ID != "WHITERUN")
-		switch(severity)
-			if (1.0)
-				health -= 150
-			if (2.0)
-				health -= 100
-			if (3.0)
-				health -= 50
-		if (health <= 0)
-			visible_message("<span class='danger'>\The [src] is blown apart!</span>")
-			qdel(src)
-			return
-	else
+	switch(severity)
+		if (1.0)
+			health -= 150
+		if (2.0)
+			health -= 100
+		if (3.0)
+			health -= 50
+	if (health <= 0)
+		visible_message("<span class='danger'>\The [src] is blown apart!</span>")
+		qdel(src)
 		return
 
 /obj/structure/barricade/stone_h/crenelated/ex_act(severity)
-	if (map.ID != "WHITERUN")
-		switch(severity)
-			if (1.0)
-				health -= 150
-			if (2.0)
-				health -= 100
-			if (3.0)
-				health -= 50
-		if (health <= 0)
-			visible_message("<span class='danger'>\The [src] is blown apart!</span>")
-			qdel(src)
-			return
-	else
+	switch(severity)
+		if (1.0)
+			health -= 150
+		if (2.0)
+			health -= 100
+		if (3.0)
+			health -= 50
+	if (health <= 0)
+		visible_message("<span class='danger'>\The [src] is blown apart!</span>")
+		qdel(src)
 		return
 
 /obj/structure/barricade/stone_v/crenelated/ex_act(severity)
-	if (map.ID != "WHITERUN")
-		switch(severity)
-			if (1.0)
-				health -= 150
-			if (2.0)
-				health -= 100
-			if (3.0)
-				health -= 50
-		if (health <= 0)
-			visible_message("<span class='danger'>\The [src] is blown apart!</span>")
-			qdel(src)
-			return
-	else
+	switch(severity)
+		if (1.0)
+			health -= 150
+		if (2.0)
+			health -= 100
+		if (3.0)
+			health -= 50
+	if (health <= 0)
+		visible_message("<span class='danger'>\The [src] is blown apart!</span>")
+		qdel(src)
 		return
 
 
@@ -694,19 +685,16 @@
 	maxhealth = 2709
 
 /obj/structure/barricade/jap_h/ex_act(severity)
-	if (map.ID != "WHITERUN")
-		switch(severity)
-			if (1.0)
-				health -= 150
-			if (2.0)
-				health -= 100
-			if (3.0)
-				health -= 50
-		if (health <= 0)
-			visible_message("<span class='danger'>\The [src] is blown apart!</span>")
-			qdel(src)
-			return
-	else
+	switch(severity)
+		if (1.0)
+			health -= 150
+		if (2.0)
+			health -= 100
+		if (3.0)
+			health -= 50
+	if (health <= 0)
+		visible_message("<span class='danger'>\The [src] is blown apart!</span>")
+		qdel(src)
 		return
 
 /obj/structure/barricade/jap_h_l
@@ -749,19 +737,16 @@
 	maxhealth = 2709
 
 /obj/structure/barricade/jap_h_l/ex_act(severity)
-	if (map.ID != "WHITERUN")
-		switch(severity)
-			if (1.0)
-				health -= 150
-			if (2.0)
-				health -= 100
-			if (3.0)
-				health -= 50
-		if (health <= 0)
-			visible_message("<span class='danger'>\The [src] is blown apart!</span>")
-			qdel(src)
-			return
-	else
+	switch(severity)
+		if (1.0)
+			health -= 150
+		if (2.0)
+			health -= 100
+		if (3.0)
+			health -= 50
+	if (health <= 0)
+		visible_message("<span class='danger'>\The [src] is blown apart!</span>")
+		qdel(src)
 		return
 
 /obj/structure/barricade/jap_h_r
@@ -804,19 +789,16 @@
 	maxhealth = 2709
 
 /obj/structure/barricade/jap_h_r/ex_act(severity)
-	if (map.ID != "WHITERUN")
-		switch(severity)
-			if (1.0)
-				health -= 150
-			if (2.0)
-				health -= 100
-			if (3.0)
-				health -= 50
-		if (health <= 0)
-			visible_message("<span class='danger'>\The [src] is blown apart!</span>")
-			qdel(src)
-			return
-	else
+	switch(severity)
+		if (1.0)
+			health -= 150
+		if (2.0)
+			health -= 100
+		if (3.0)
+			health -= 50
+	if (health <= 0)
+		visible_message("<span class='danger'>\The [src] is blown apart!</span>")
+		qdel(src)
 		return
 
 /obj/structure/barricade/jap_v
@@ -859,19 +841,16 @@
 	maxhealth = 2709
 
 /obj/structure/barricade/jap_v/ex_act(severity)
-	if (map.ID != "WHITERUN")
-		switch(severity)
-			if (1.0)
-				health -= 150
-			if (2.0)
-				health -= 100
-			if (3.0)
-				health -= 50
-		if (health <= 0)
-			visible_message("<span class='danger'>\The [src] is blown apart!</span>")
-			qdel(src)
-			return
-	else
+	switch(severity)
+		if (1.0)
+			health -= 150
+		if (2.0)
+			health -= 100
+		if (3.0)
+			health -= 50
+	if (health <= 0)
+		visible_message("<span class='danger'>\The [src] is blown apart!</span>")
+		qdel(src)
 		return
 
 /obj/structure/barricade/jap_v_t
@@ -914,19 +893,16 @@
 	maxhealth = 2709
 
 /obj/structure/barricade/jap_v_t/ex_act(severity)
-	if (map.ID != "WHITERUN")
-		switch(severity)
-			if (1.0)
-				health -= 150
-			if (2.0)
-				health -= 100
-			if (3.0)
-				health -= 50
-		if (health <= 0)
-			visible_message("<span class='danger'>\The [src] is blown apart!</span>")
-			qdel(src)
-			return
-	else
+	switch(severity)
+		if (1.0)
+			health -= 150
+		if (2.0)
+			health -= 100
+		if (3.0)
+			health -= 50
+	if (health <= 0)
+		visible_message("<span class='danger'>\The [src] is blown apart!</span>")
+		qdel(src)
 		return
 
 /obj/structure/barricade/jap_v_b
@@ -969,19 +945,16 @@
 	maxhealth = 2709
 
 /obj/structure/barricade/jap_v_b/ex_act(severity)
-	if (map.ID != "WHITERUN")
-		switch(severity)
-			if (1.0)
-				health -= 150
-			if (2.0)
-				health -= 100
-			if (3.0)
-				health -= 50
-		if (health <= 0)
-			visible_message("<span class='danger'>\The [src] is blown apart!</span>")
-			qdel(src)
-			return
-	else
+	switch(severity)
+		if (1.0)
+			health -= 150
+		if (2.0)
+			health -= 100
+		if (3.0)
+			health -= 50
+	if (health <= 0)
+		visible_message("<span class='danger'>\The [src] is blown apart!</span>")
+		qdel(src)
 		return
 
 /obj/structure/barricade/tires
@@ -1096,19 +1069,16 @@
 	check_relatives(0,1)
 	..()
 /obj/structure/barricade/jap/ex_act(severity)
-	if (map.ID != "WHITERUN")
-		switch(severity)
-			if (1.0)
-				health -= 150
-			if (2.0)
-				health -= 100
-			if (3.0)
-				health -= 50
-		if (health <= 0)
-			visible_message("<span class='danger'>\The [src] is blown apart!</span>")
-			qdel(src)
-			return
-	else
+	switch(severity)
+		if (1.0)
+			health -= 150
+		if (2.0)
+			health -= 100
+		if (3.0)
+			health -= 50
+	if (health <= 0)
+		visible_message("<span class='danger'>\The [src] is blown apart!</span>")
+		qdel(src)
 		return
 /obj/structure/barricade/jap/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/weapon/siegeladder))

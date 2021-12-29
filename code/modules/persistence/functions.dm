@@ -164,15 +164,15 @@ map_storage
 //////////////////////////////////////////
 
 /datum/controller/gameticker/proc/savemap()
-	var/watch = start_watch()
-	to_chat(world, "<FONT color='yellow'><B>SAVING THE MAP! THIS USUALLY TAKES UNDER A MINUTE</B></FONT>")
-	sleep(5)
+//	var/watch = start_watch()
+	to_chat(world, "<FONT color='yellow'><B>Мир должен был сохраниться но прок отключён из-за лагов</B></FONT>")
+/*	sleep(5)
 	map_storage.Save_World()
-	log_startup_progress("	Saved the map in [stop_watch(watch)]s.")
+	log_startup_progress("	Saved the map in [stop_watch(watch)]s.")*/
 	return 1
 
 /datum/controller/gameticker/proc/loadmap()
-	var/watch = start_watch()
+/*	var/watch = start_watch()
 	var/started = 0
 	log_startup_progress("Starting map load...")
 	sleep(1)
@@ -180,5 +180,5 @@ map_storage
 	sleep(1)
 	map_storage.Load_World()
 	if(started)
-		log_startup_progress("	Loaded the map in [stop_watch(watch)]s.")
+		log_startup_progress("	Loaded the map in [stop_watch(watch)]s.")*/
 	return 1
