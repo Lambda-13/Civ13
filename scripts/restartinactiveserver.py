@@ -33,8 +33,8 @@ for pid in pids:
 
                 # main server logic: for some reason I could get a valid string/int for port so we're just using "in"
 
-                # 1714-1 is the active server; restart 1714-1
-                if "1714" in name and may_restart_server[0] == port:
+                # 55555 is the active server; restart 55555-1
+                if "55555" in name and may_restart_server[0] == port:
                     if os.path.isfile("{}{}serverdata.txt".format(mdir, cdir)):
                         process = psutil.Process(int(pid))
                         if process is not None:
@@ -55,4 +55,5 @@ handle.close()
 from discord import Webhook, RequestsWebhookAdapter
 
 webhook = Webhook.from_url(token, adapter=RequestsWebhookAdapter())
-webhook.send("<@&896361299057983519> сервер перезапущен из-за лагов")
+webhook.send("Аварийный рестарт")
+webhook.send("<byond://cm13.ru:{}/".format(port))

@@ -151,4 +151,4 @@ handle.close()
 from discord import Webhook, RequestsWebhookAdapter
 
 webhook = Webhook.from_url(token, adapter=RequestsWebhookAdapter())
-webhook.send("<@&896361299057983519> сменили карту на {}".format(mapname))
+webhook.send("Сменили карту на {}. Ссылка: <byond://cm13.ru:{}/>.".format(mapname,port))

@@ -29,4 +29,4 @@ handle.close()
 from discord import Webhook, RequestsWebhookAdapter
 
 webhook = Webhook.from_url(token, adapter=RequestsWebhookAdapter())
-webhook.send("<@&896361299057983519> сервер отключён")
+webhook.send("Сервер отключён.")
