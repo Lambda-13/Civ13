@@ -1538,7 +1538,7 @@
 						holder2.icon_state = "ru_basic"
 					else if (map.ordinal_age == 6 || map.ordinal_age == 7)
 						holder2.icon_state = "sov_basic"
-					else
+					if (map.ID == MAP_YELTSIN || map.ID == MAP_RUSRETREAT || map.ID == MAP_FACTORY)
 						holder2.icon_state = "ru_basic"
 				if (GERMAN)
 					if (map.ordinal_age <= 1)
@@ -1581,6 +1581,10 @@
 						holder2.icon_state = "upa2_basic"
 					else if (original_job.is_upa && map.ID != MAP_OCCUPATION)
 						holder2.icon_state = "upa_basic"
+					else if (map.ID == MAP_WHITERUN)
+						holder2.icon_state = "stormcloak"
+					else if (map.ID == MAP_FACTORY)
+						holder2.icon_state = "ukr_basic"
 //					else if (original_job_title == "Outlaw")
 //						holder2.icon_state = "civ1"
 //					else if (original_job_title == "Sheriff" || original_job_title == "Deputy" )

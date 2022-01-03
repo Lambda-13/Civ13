@@ -25,7 +25,10 @@
 		target = null
 	return ..()
 
-/obj/chat_text/New(var/atom/desired_loc, var/mob/origin_loc, var/desired_text, var/mob/target_mob)
+/image/var/target = null
+/image/var/owner = null
+
+/obj/chat_text/New(var/mob/origin_loc, var/desired_text, var/mob/target_mob)
 	..()
 	loc = null
 	if(isliving(origin_loc) && origin_loc.client && target_mob && target_mob.client)
@@ -41,7 +44,13 @@
 			qdel(CT)
 		owner.stored_chat_text += src
 
+		for (var/image/CT in target.images)
+			if(CT.plane == CHAT_PLANE && CT.owner == owner)
+				animate(CT,pixel_y = CT.pixel_y + 11,time = 1)
+
 		message = image(loc = origin_loc)
+		message.target = target
+		message.owner = owner
 		message.plane = CHAT_PLANE
 		message.maptext_width = TILE_SIZE*7
 		message.maptext_x = (maptext_width * -0.5)-TILE_SIZE*2.5
@@ -71,8 +80,8 @@ var/global/sound_tts_num = 0
 	var/voice = "Matthew"
 	if (!speaker.original_job)
 		return
-	if (gender == MALE)
-		voice = speaker.original_job.male_tts_voice
+	if (speaker.gender == MALE)
+		voice = "ap --setf duration_stretch=0.9 --setf int_f0_target_mean=[speaker.voice_pitch]"
 	else
 		voice = speaker.original_job.female_tts_voice
 	sound_tts_num+=1

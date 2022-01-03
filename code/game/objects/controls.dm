@@ -282,6 +282,22 @@
 			return
 	else
 		..()
+
+/obj/structure/gatecontrol/whiterun
+	name = "gate control"
+	desc = "Controls nearby gates."
+	icon = 'icons/obj/structures.dmi'
+	icon_state = "gate_control"
+	anchored = TRUE
+	open = FALSE
+	cooldown = 0
+	distance = 6
+	density = TRUE
+	not_movable = TRUE
+	not_disassemblable = TRUE
+	bound_width = 64
+	bound_height = 64
+
 /obj/structure/gate/whiterun/r
 	icon_state = "whiterun2"
 /obj/structure/gate/whiterun/l

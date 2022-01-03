@@ -323,9 +323,55 @@
 		list(name="semi auto",	burst=1, burst_delay=0.8, recoil=0, move_delay=2, dispersion = list(0.3, 0.4, 0.5, 0.6, 0.7)),
 		list(name="full auto",	burst=1, burst_delay=1.3, recoil=0, move_delay=4, dispersion = list(1.2, 1.2, 1.3, 1.4, 1.8)),
 		)
+	stat = "rifle"
 	effectiveness_mod = 1
 	sel_mode = 1
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
+	accuracy_list = list(
+
+		// small body parts: head, hand, feet
+		"small" = list(
+			SHORT_RANGE_STILL = 60,
+			SHORT_RANGE_MOVING = 50,
+
+			MEDIUM_RANGE_STILL = 50,
+			MEDIUM_RANGE_MOVING = 40,
+
+			LONG_RANGE_STILL = 30,
+			LONG_RANGE_MOVING = 15,
+
+			VERY_LONG_RANGE_STILL = 10,
+			VERY_LONG_RANGE_MOVING = 5),
+
+		// medium body parts: limbs
+		"medium" = list(
+			SHORT_RANGE_STILL = 82,
+			SHORT_RANGE_MOVING = 72,
+
+			MEDIUM_RANGE_STILL = 64,
+			MEDIUM_RANGE_MOVING = 55,
+
+			LONG_RANGE_STILL = 44,
+			LONG_RANGE_MOVING = 31,
+
+			VERY_LONG_RANGE_STILL = 10,
+			VERY_LONG_RANGE_MOVING = 5),
+
+		// large body parts: chest, groin
+		"large" = list(
+			SHORT_RANGE_STILL = 91,
+			SHORT_RANGE_MOVING = 81,
+
+			MEDIUM_RANGE_STILL = 76,
+			MEDIUM_RANGE_MOVING = 67,
+
+			LONG_RANGE_STILL = 55,
+			LONG_RANGE_MOVING = 43,
+
+			VERY_LONG_RANGE_STILL = 36,
+			VERY_LONG_RANGE_MOVING = 23),
+	)
+
 
 /obj/item/weapon/gun/projectile/submachinegun/ak47/akms
 	name = "AKMS"
@@ -393,6 +439,7 @@
 	weight = 3.07
 	equiptimer = 15
 	slot_flags = SLOT_SHOULDER
+	stat = "rifle"
 	firemodes = list(
 		list(name="semi auto",	burst=1, burst_delay=0.7, recoil=0, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
 		list(name="full auto",	burst=1, burst_delay=1.2, recoil=0, move_delay=4, dispersion = list(1.1, 1.2, 1.3, 1.3, 1.5)),
@@ -400,6 +447,50 @@
 	effectiveness_mod = 1.07
 	sel_mode = 1
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
+	accuracy_list = list(
+
+		// small body parts: head, hand, feet
+		"small" = list(
+			SHORT_RANGE_STILL = 60,
+			SHORT_RANGE_MOVING = 50,
+
+			MEDIUM_RANGE_STILL = 50,
+			MEDIUM_RANGE_MOVING = 40,
+
+			LONG_RANGE_STILL = 30,
+			LONG_RANGE_MOVING = 15,
+
+			VERY_LONG_RANGE_STILL = 10,
+			VERY_LONG_RANGE_MOVING = 5),
+
+		// medium body parts: limbs
+		"medium" = list(
+			SHORT_RANGE_STILL = 82,
+			SHORT_RANGE_MOVING = 72,
+
+			MEDIUM_RANGE_STILL = 64,
+			MEDIUM_RANGE_MOVING = 55,
+
+			LONG_RANGE_STILL = 44,
+			LONG_RANGE_MOVING = 31,
+
+			VERY_LONG_RANGE_STILL = 10,
+			VERY_LONG_RANGE_MOVING = 5),
+
+		// large body parts: chest, groin
+		"large" = list(
+			SHORT_RANGE_STILL = 91,
+			SHORT_RANGE_MOVING = 81,
+
+			MEDIUM_RANGE_STILL = 76,
+			MEDIUM_RANGE_MOVING = 67,
+
+			LONG_RANGE_STILL = 55,
+			LONG_RANGE_MOVING = 43,
+
+			VERY_LONG_RANGE_STILL = 36,
+			VERY_LONG_RANGE_MOVING = 23),
+	)
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74
 	name = "AKS-74"
@@ -604,6 +695,73 @@
 		set_stock()
 		update_icon()
 
+
+/obj/item/weapon/gun/projectile/submachinegun/ak74m
+	name = "AK-74M"
+	desc = "Russian assault rifle, chambered in 5.45x39mm."
+	icon = 'icons/obj/guns/assault_rifles.dmi'
+	icon_state = "ak74m"
+	item_state = "ak74m"
+	base_icon = "ak74m"
+	caliber = "a545x39"
+	fire_sound = 'sound/weapons/guns/fire/AK74.ogg'
+	magazine_type = /obj/item/ammo_magazine/ak74/ak74m
+	good_mags = list(/obj/item/ammo_magazine/ak74/ak74m, /obj/item/ammo_magazine/ak74)
+	weight = 3.07
+	equiptimer = 15
+	slot_flags = SLOT_SHOULDER
+	firemodes = list(
+		list(name="semi auto",	burst=1, burst_delay=0.7, recoil=0, move_delay=2, dispersion = list(0.1, 0.2, 0.15, 0.2, 0.1)),
+		list(name="full auto",	burst=1, burst_delay=1.2, recoil=0, move_delay=4, dispersion = list(1.1, 1.15, 1.2, 1.15, 1.1)),
+		)
+	effectiveness_mod = 1.08
+	sel_mode = 1
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
+	stat = "rifle"
+	accuracy_list = list(
+
+		// small body parts: head, hand, feet
+		"small" = list(
+			SHORT_RANGE_STILL = 60,
+			SHORT_RANGE_MOVING = 50,
+
+			MEDIUM_RANGE_STILL = 50,
+			MEDIUM_RANGE_MOVING = 40,
+
+			LONG_RANGE_STILL = 30,
+			LONG_RANGE_MOVING = 15,
+
+			VERY_LONG_RANGE_STILL = 10,
+			VERY_LONG_RANGE_MOVING = 5),
+
+		// medium body parts: limbs
+		"medium" = list(
+			SHORT_RANGE_STILL = 82,
+			SHORT_RANGE_MOVING = 72,
+
+			MEDIUM_RANGE_STILL = 64,
+			MEDIUM_RANGE_MOVING = 55,
+
+			LONG_RANGE_STILL = 44,
+			LONG_RANGE_MOVING = 31,
+
+			VERY_LONG_RANGE_STILL = 10,
+			VERY_LONG_RANGE_MOVING = 5),
+
+		// large body parts: chest, groin
+		"large" = list(
+			SHORT_RANGE_STILL = 91,
+			SHORT_RANGE_MOVING = 81,
+
+			MEDIUM_RANGE_STILL = 76,
+			MEDIUM_RANGE_MOVING = 67,
+
+			LONG_RANGE_STILL = 55,
+			LONG_RANGE_MOVING = 43,
+
+			VERY_LONG_RANGE_STILL = 36,
+			VERY_LONG_RANGE_MOVING = 23),
+	)
 /obj/item/weapon/gun/projectile/submachinegun/m16
 	name = "M16A1"
 	desc = "An American assault rifle, chambered in 5.56x45mm."
@@ -625,7 +783,50 @@
 	effectiveness_mod = 1.07
 	sel_mode = 1
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
+	accuracy_list = list(
 
+		// small body parts: head, hand, feet
+		"small" = list(
+			SHORT_RANGE_STILL = 60,
+			SHORT_RANGE_MOVING = 50,
+
+			MEDIUM_RANGE_STILL = 50,
+			MEDIUM_RANGE_MOVING = 40,
+
+			LONG_RANGE_STILL = 30,
+			LONG_RANGE_MOVING = 15,
+
+			VERY_LONG_RANGE_STILL = 10,
+			VERY_LONG_RANGE_MOVING = 5),
+
+		// medium body parts: limbs
+		"medium" = list(
+			SHORT_RANGE_STILL = 82,
+			SHORT_RANGE_MOVING = 72,
+
+			MEDIUM_RANGE_STILL = 64,
+			MEDIUM_RANGE_MOVING = 55,
+
+			LONG_RANGE_STILL = 44,
+			LONG_RANGE_MOVING = 31,
+
+			VERY_LONG_RANGE_STILL = 10,
+			VERY_LONG_RANGE_MOVING = 5),
+
+		// large body parts: chest, groin
+		"large" = list(
+			SHORT_RANGE_STILL = 91,
+			SHORT_RANGE_MOVING = 81,
+
+			MEDIUM_RANGE_STILL = 76,
+			MEDIUM_RANGE_MOVING = 67,
+
+			LONG_RANGE_STILL = 55,
+			LONG_RANGE_MOVING = 43,
+
+			VERY_LONG_RANGE_STILL = 36,
+			VERY_LONG_RANGE_MOVING = 23),
+	)
 /obj/item/weapon/gun/projectile/submachinegun/m16/ar15
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_ADV_SCOPE|ATTACH_UNDER
 	name = "AR-15"
@@ -660,7 +861,50 @@
 	effectiveness_mod = 1.12
 	sel_mode = 1
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
+	accuracy_list = list(
 
+		// small body parts: head, hand, feet
+		"small" = list(
+			SHORT_RANGE_STILL = 60,
+			SHORT_RANGE_MOVING = 50,
+
+			MEDIUM_RANGE_STILL = 50,
+			MEDIUM_RANGE_MOVING = 40,
+
+			LONG_RANGE_STILL = 30,
+			LONG_RANGE_MOVING = 15,
+
+			VERY_LONG_RANGE_STILL = 10,
+			VERY_LONG_RANGE_MOVING = 5),
+
+		// medium body parts: limbs
+		"medium" = list(
+			SHORT_RANGE_STILL = 82,
+			SHORT_RANGE_MOVING = 72,
+
+			MEDIUM_RANGE_STILL = 64,
+			MEDIUM_RANGE_MOVING = 55,
+
+			LONG_RANGE_STILL = 44,
+			LONG_RANGE_MOVING = 31,
+
+			VERY_LONG_RANGE_STILL = 10,
+			VERY_LONG_RANGE_MOVING = 5),
+
+		// large body parts: chest, groin
+		"large" = list(
+			SHORT_RANGE_STILL = 91,
+			SHORT_RANGE_MOVING = 81,
+
+			MEDIUM_RANGE_STILL = 76,
+			MEDIUM_RANGE_MOVING = 67,
+
+			LONG_RANGE_STILL = 55,
+			LONG_RANGE_MOVING = 43,
+
+			VERY_LONG_RANGE_STILL = 36,
+			VERY_LONG_RANGE_MOVING = 23),
+	)
 /obj/item/weapon/gun/projectile/submachinegun/m16/commando
 	name = "XM177E2"
 	desc = "A carbine version of the AR-15/M16, chambered in 5.56x45mm."
@@ -764,6 +1008,53 @@
 		)
 	effectiveness_mod = 1.07
 	sel_mode = 1
+	accuracy_list = list(
+
+		// small body parts: head, hand, feet
+		"small" = list(
+			SHORT_RANGE_STILL = 63,
+			SHORT_RANGE_MOVING = 38,
+
+			MEDIUM_RANGE_STILL = 53,
+			MEDIUM_RANGE_MOVING = 32,
+
+			LONG_RANGE_STILL = 43,
+			LONG_RANGE_MOVING = 25,
+
+			VERY_LONG_RANGE_STILL = 33,
+			VERY_LONG_RANGE_MOVING = 18),
+
+		// medium body parts: limbs
+		"medium" = list(
+			SHORT_RANGE_STILL = 78,
+			SHORT_RANGE_MOVING = 51,
+
+			MEDIUM_RANGE_STILL = 68,
+			MEDIUM_RANGE_MOVING = 45,
+
+			LONG_RANGE_STILL = 58,
+			LONG_RANGE_MOVING = 38,
+
+			VERY_LONG_RANGE_STILL = 48,
+			VERY_LONG_RANGE_MOVING = 32),
+
+		// large body parts: chest, groin
+		"large" = list(
+			SHORT_RANGE_STILL = 83,
+			SHORT_RANGE_MOVING = 55,
+
+			MEDIUM_RANGE_STILL = 73,
+			MEDIUM_RANGE_MOVING = 48,
+
+			LONG_RANGE_STILL = 63,
+			LONG_RANGE_MOVING = 42,
+
+			VERY_LONG_RANGE_STILL = 53,
+			VERY_LONG_RANGE_MOVING = 35),
+	)
+
+	accuracy_increase_mod = 2.00
+	accuracy_decrease_mod = 6.00
 
 /obj/item/weapon/gun/projectile/submachinegun/m14/sniper/New()
 	..()
@@ -791,7 +1082,50 @@
 		)
 	effectiveness_mod = 1.07
 	sel_mode = 1
+	accuracy_list = list(
 
+		// small body parts: head, hand, feet
+		"small" = list(
+			SHORT_RANGE_STILL = 60,
+			SHORT_RANGE_MOVING = 50,
+
+			MEDIUM_RANGE_STILL = 50,
+			MEDIUM_RANGE_MOVING = 40,
+
+			LONG_RANGE_STILL = 30,
+			LONG_RANGE_MOVING = 15,
+
+			VERY_LONG_RANGE_STILL = 10,
+			VERY_LONG_RANGE_MOVING = 5),
+
+		// medium body parts: limbs
+		"medium" = list(
+			SHORT_RANGE_STILL = 82,
+			SHORT_RANGE_MOVING = 72,
+
+			MEDIUM_RANGE_STILL = 64,
+			MEDIUM_RANGE_MOVING = 55,
+
+			LONG_RANGE_STILL = 44,
+			LONG_RANGE_MOVING = 31,
+
+			VERY_LONG_RANGE_STILL = 10,
+			VERY_LONG_RANGE_MOVING = 5),
+
+		// large body parts: chest, groin
+		"large" = list(
+			SHORT_RANGE_STILL = 91,
+			SHORT_RANGE_MOVING = 81,
+
+			MEDIUM_RANGE_STILL = 76,
+			MEDIUM_RANGE_MOVING = 67,
+
+			LONG_RANGE_STILL = 55,
+			LONG_RANGE_MOVING = 43,
+
+			VERY_LONG_RANGE_STILL = 36,
+			VERY_LONG_RANGE_MOVING = 23),
+	)
 /obj/item/weapon/gun/projectile/submachinegun/scarl
 	name = "FN SCAR-L"
 	desc = "A belgian assault rifle, chambered in 5.56x45mm."
@@ -815,7 +1149,50 @@
 	effectiveness_mod = 1.08
 	sel_mode = 1
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_ADV_SCOPE|ATTACH_UNDER
+	accuracy_list = list(
 
+		// small body parts: head, hand, feet
+		"small" = list(
+			SHORT_RANGE_STILL = 60,
+			SHORT_RANGE_MOVING = 50,
+
+			MEDIUM_RANGE_STILL = 50,
+			MEDIUM_RANGE_MOVING = 40,
+
+			LONG_RANGE_STILL = 30,
+			LONG_RANGE_MOVING = 15,
+
+			VERY_LONG_RANGE_STILL = 10,
+			VERY_LONG_RANGE_MOVING = 5),
+
+		// medium body parts: limbs
+		"medium" = list(
+			SHORT_RANGE_STILL = 82,
+			SHORT_RANGE_MOVING = 72,
+
+			MEDIUM_RANGE_STILL = 64,
+			MEDIUM_RANGE_MOVING = 55,
+
+			LONG_RANGE_STILL = 44,
+			LONG_RANGE_MOVING = 31,
+
+			VERY_LONG_RANGE_STILL = 10,
+			VERY_LONG_RANGE_MOVING = 5),
+
+		// large body parts: chest, groin
+		"large" = list(
+			SHORT_RANGE_STILL = 91,
+			SHORT_RANGE_MOVING = 81,
+
+			MEDIUM_RANGE_STILL = 76,
+			MEDIUM_RANGE_MOVING = 67,
+
+			LONG_RANGE_STILL = 55,
+			LONG_RANGE_MOVING = 43,
+
+			VERY_LONG_RANGE_STILL = 36,
+			VERY_LONG_RANGE_MOVING = 23),
+	)
 /obj/item/weapon/gun/projectile/submachinegun/scarh
 	name = "FN SCAR-H"
 	icon_state = "scarh"
@@ -840,7 +1217,50 @@
 	effectiveness_mod = 1.06
 	sel_mode = 1
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_ADV_SCOPE|ATTACH_UNDER
+	accuracy_list = list(
 
+		// small body parts: head, hand, feet
+		"small" = list(
+			SHORT_RANGE_STILL = 60,
+			SHORT_RANGE_MOVING = 50,
+
+			MEDIUM_RANGE_STILL = 50,
+			MEDIUM_RANGE_MOVING = 40,
+
+			LONG_RANGE_STILL = 30,
+			LONG_RANGE_MOVING = 15,
+
+			VERY_LONG_RANGE_STILL = 10,
+			VERY_LONG_RANGE_MOVING = 5),
+
+		// medium body parts: limbs
+		"medium" = list(
+			SHORT_RANGE_STILL = 82,
+			SHORT_RANGE_MOVING = 72,
+
+			MEDIUM_RANGE_STILL = 64,
+			MEDIUM_RANGE_MOVING = 55,
+
+			LONG_RANGE_STILL = 44,
+			LONG_RANGE_MOVING = 31,
+
+			VERY_LONG_RANGE_STILL = 10,
+			VERY_LONG_RANGE_MOVING = 5),
+
+		// large body parts: chest, groin
+		"large" = list(
+			SHORT_RANGE_STILL = 91,
+			SHORT_RANGE_MOVING = 81,
+
+			MEDIUM_RANGE_STILL = 76,
+			MEDIUM_RANGE_MOVING = 67,
+
+			LONG_RANGE_STILL = 55,
+			LONG_RANGE_MOVING = 43,
+
+			VERY_LONG_RANGE_STILL = 36,
+			VERY_LONG_RANGE_MOVING = 23),
+	)
 /obj/item/weapon/gun/projectile/submachinegun/ar12
 	name = "AR-12"
 	icon_state = "ar12"
@@ -864,7 +1284,50 @@
 	effectiveness_mod = 1.60
 	sel_mode = 1
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_ADV_SCOPE|ATTACH_UNDER
+	accuracy_list = list(
 
+		// small body parts: head, hand, feet
+		"small" = list(
+			SHORT_RANGE_STILL = 60,
+			SHORT_RANGE_MOVING = 50,
+
+			MEDIUM_RANGE_STILL = 50,
+			MEDIUM_RANGE_MOVING = 40,
+
+			LONG_RANGE_STILL = 30,
+			LONG_RANGE_MOVING = 15,
+
+			VERY_LONG_RANGE_STILL = 10,
+			VERY_LONG_RANGE_MOVING = 5),
+
+		// medium body parts: limbs
+		"medium" = list(
+			SHORT_RANGE_STILL = 82,
+			SHORT_RANGE_MOVING = 72,
+
+			MEDIUM_RANGE_STILL = 64,
+			MEDIUM_RANGE_MOVING = 55,
+
+			LONG_RANGE_STILL = 44,
+			LONG_RANGE_MOVING = 31,
+
+			VERY_LONG_RANGE_STILL = 10,
+			VERY_LONG_RANGE_MOVING = 5),
+
+		// large body parts: chest, groin
+		"large" = list(
+			SHORT_RANGE_STILL = 91,
+			SHORT_RANGE_MOVING = 81,
+
+			MEDIUM_RANGE_STILL = 76,
+			MEDIUM_RANGE_MOVING = 67,
+
+			LONG_RANGE_STILL = 55,
+			LONG_RANGE_MOVING = 43,
+
+			VERY_LONG_RANGE_STILL = 36,
+			VERY_LONG_RANGE_MOVING = 23),
+	)
 /obj/item/weapon/gun/projectile/submachinegun/hk417
 	name = "HK417"
 	desc = "A Modern German battle rifle, chambered in 7.62x51mm."
@@ -887,7 +1350,50 @@
 		)
 	effectiveness_mod = 1.08
 	sel_mode = 1
+	accuracy_list = list(
 
+		// small body parts: head, hand, feet
+		"small" = list(
+			SHORT_RANGE_STILL = 60,
+			SHORT_RANGE_MOVING = 50,
+
+			MEDIUM_RANGE_STILL = 50,
+			MEDIUM_RANGE_MOVING = 40,
+
+			LONG_RANGE_STILL = 30,
+			LONG_RANGE_MOVING = 15,
+
+			VERY_LONG_RANGE_STILL = 10,
+			VERY_LONG_RANGE_MOVING = 5),
+
+		// medium body parts: limbs
+		"medium" = list(
+			SHORT_RANGE_STILL = 82,
+			SHORT_RANGE_MOVING = 72,
+
+			MEDIUM_RANGE_STILL = 64,
+			MEDIUM_RANGE_MOVING = 55,
+
+			LONG_RANGE_STILL = 44,
+			LONG_RANGE_MOVING = 31,
+
+			VERY_LONG_RANGE_STILL = 10,
+			VERY_LONG_RANGE_MOVING = 5),
+
+		// large body parts: chest, groin
+		"large" = list(
+			SHORT_RANGE_STILL = 91,
+			SHORT_RANGE_MOVING = 81,
+
+			MEDIUM_RANGE_STILL = 76,
+			MEDIUM_RANGE_MOVING = 67,
+
+			LONG_RANGE_STILL = 55,
+			LONG_RANGE_MOVING = 43,
+
+			VERY_LONG_RANGE_STILL = 36,
+			VERY_LONG_RANGE_MOVING = 23),
+	)
 /obj/item/weapon/gun/projectile/submachinegun/p90
 	name = "P90"
 	desc = "A compact, rapid-fire defensive weapon, chambered in 5.7x28mm."

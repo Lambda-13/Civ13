@@ -706,6 +706,48 @@
 	new /obj/item/ammo_magazine/ak74(src)
 	new /obj/item/stack/medical/bruise_pack/gauze(src)
 
+/obj/item/weapon/storage/belt/smallpouches/green/sov_74_alt
+/obj/item/weapon/storage/belt/smallpouches/green/sov_74_alt/New()
+	..()
+	new /obj/item/weapon/grenade/modern/custom(src)
+	new /obj/item/ammo_magazine/ak74(src)
+	new /obj/item/ammo_magazine/ak74(src)
+	new /obj/item/stack/medical/bruise_pack/gauze(src)
+
+/obj/item/weapon/storage/belt/smallpouches/green/sov_74m
+/obj/item/weapon/storage/belt/smallpouches/green/sov_74m/New()
+	..()
+	new /obj/item/ammo_magazine/ak74/ak74m(src)
+	new /obj/item/ammo_magazine/ak74/ak74m(src)
+	new /obj/item/ammo_magazine/ak74/ak74m(src)
+	new /obj/item/stack/medical/bruise_pack/gauze(src)
+
+/obj/item/weapon/storage/belt/smallpouches/green/sov_svd
+/obj/item/weapon/storage/belt/smallpouches/green/sov_svd/New()
+	..()
+	new /obj/item/weapon/grenade/smokebomb(src)
+	new /obj/item/ammo_magazine/svd(src)
+	new /obj/item/ammo_magazine/svd(src)
+	new /obj/item/stack/medical/bruise_pack/gauze(src)
+
+/obj/item/weapon/storage/belt/smallpouches/green/sov_vintorez
+/obj/item/weapon/storage/belt/smallpouches/green/sov_vintorez/New()
+	..()
+	new /obj/item/weapon/grenade/smokebomb(src)
+	new /obj/item/ammo_magazine/vintorez(src)
+	new /obj/item/ammo_magazine/vintorez(src)
+	new /obj/item/stack/medical/bruise_pack/gauze(src)
+
+/obj/item/weapon/storage/belt/smallpouches/green/sov_saiga
+/obj/item/weapon/storage/belt/smallpouches/green/sov_saiga/New()
+	storage_slots = 5
+	..()
+	new /obj/item/weapon/grenade/modern/custom(src)
+	new /obj/item/ammo_magazine/saiga12(src)
+	new /obj/item/ammo_magazine/saiga12(src)
+	new /obj/item/ammo_magazine/saiga12(src)
+	new /obj/item/stack/medical/bruise_pack/gauze(src)
+
 /obj/item/weapon/storage/belt/smallpouches/green/sov_swat
 /obj/item/weapon/storage/belt/smallpouches/green/sov_swat/New()
 	storage_slots = 6
