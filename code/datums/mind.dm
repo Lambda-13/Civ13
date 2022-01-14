@@ -63,6 +63,9 @@
 	//put this here for easier tracking ingame
 	var/datum/money_account/initial_account
 
+	var/datum/martial_art/martial_art
+	var/static/datum/martial_art/default_martial_art = new/datum/martial_art
+
 /datum/mind/New(var/_key)
 	key = _key
 	..()
@@ -125,7 +128,7 @@
 
 	var/memory_stylized = {"
 	<br>
-	<meta charset='utf-8'>
+	<html>
 	<head>
 	[common_browser_style]
 	</head>

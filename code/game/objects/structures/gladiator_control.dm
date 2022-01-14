@@ -6,7 +6,7 @@
 /obj/structure/gladiator_ledger
 	name = "gladiatorial ledger"
 	desc = "A board showing the victories of all gladiators."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "nboard00"
 	density = FALSE
 	anchored = TRUE
@@ -22,7 +22,7 @@
 		var/obj/map_metadata/gladiators/GD = map
 		if (istype(user, /mob/living/human))
 			var/mob/living/human/H = user
-			if (H.original_job_title == "Imperator" && timer <= world.time && H.client.ckey == "sanecman")
+			if (H.original_job_title == "Imperator" && timer <= world.time && H.client.ckey == "taislin")
 				var/list/vlist = list("Cancel")
 				for(var/mob/living/human/GLAD in world)
 					var/area/A = get_area(GLAD)
@@ -68,7 +68,7 @@
 		toplist = list()
 		if (!GD.gladiator_stats.len)
 			return
-		var/body = "<meta charset='utf-8'><head><title>GLADIATORIAL LEDGER</title></head><b>GLADIATORIAL LEDGER</b><br><br>"
+		var/body = "<html><head><title>GLADIATORIAL LEDGER</title></head><b>GLADIATORIAL LEDGER</b><br><br>"
 		switch(showing)
 			if ("Characters")
 				body += "<b>Characters</b> | <a href='?src=\ref[src];players=1'>Players</a><br><hr><br>"
@@ -135,7 +135,7 @@
 /obj/structure/gladiator_control
 	name = "gladiator combat organizer"
 	desc = "A board showing the planned combats of the season."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "nboard05"
 	density = FALSE
 	anchored = TRUE

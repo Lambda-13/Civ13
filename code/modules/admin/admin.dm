@@ -41,7 +41,7 @@ proc/admin_notice(var/message, var/rights)
 		usr << "Error: you are not an admin!"
 		return
 
-	var/body = "<meta charset='utf-8'>[common_browser_style]<head><title>Options for [M.key]</title></head>"
+	var/body = "<html>[common_browser_style]<head><title>Options for [M.key]</title></head>"
 	body += "<body>Options panel for <b>[M]</b>"
 	if (M.client)
 		body += " played by <b>[M.client]</b> "
@@ -62,7 +62,6 @@ proc/admin_notice(var/message, var/rights)
 		<b>Mob type</b> = [M.type]<br><br>
 		<A href='?src=\ref[src];boot2=\ref[M]'>Kick</A> |
 		<A href='?_src_=holder;warn=[M.ckey]'>Warn</A> |
-		<A href='?_src_=holder;pripeklon=[M.ckey]'>Butthurt</A> |
 		<A href='?src=\ref[src];notes=show;mob=\ref[M]'>Notes</A>
 	"}
 
@@ -116,9 +115,6 @@ proc/admin_notice(var/message, var/rights)
 				<A href='?src=\ref[src];simplemake=wolfman;mob=\ref[M]'>Werewolf</A> |
 				<A href='?src=\ref[src];simplemake=ant;mob=\ref[M]'>Ant</A> |
 				<A href='?src=\ref[src];simplemake=orc;mob=\ref[M]'>Orc</A> |
-				<A href='?src=\ref[src];simplemake=skeletman;mob=\ref[M]'>Skelet</A> |
-				<A href='?src=\ref[src];simplemake=zombieman;mob=\ref[M]'>Zombie</A> |
-				
 				<br>"}
 	body += {"<br><br>
 			<b>Other actions:</b>
@@ -220,7 +216,7 @@ proc/admin_notice(var/message, var/rights)
 	if (!istype(src,/datum/admins))
 		usr << "Error: you are not an admin!"
 		return
-	var/dat = "<meta charset='utf-8'>[common_browser_style]<head><title>Info on [key]</title></head>"
+	var/dat = "<html>[common_browser_style]<head><title>Info on [key]</title></head>"
 	dat += "<body>"
 
 	var/p_age = "unknown"
@@ -514,17 +510,8 @@ proc/admin_notice(var/message, var/rights)
 	set desc="Activates or Deactivates research."
 	set name="Toggle Research"
 	if ((!map.civilizations && !map.nomads) || map.ID == MAP_TRIBES || map.ID == MAP_FOUR_KINGDOMS || map.ID == MAP_THREE_TRIBES)
-		if (WWinput(usr, "Вы уверены в своём выборе? Этот параметр не рекомендуется менять если вы не в режиме цивилизации/номандов", "Изучение", "Continue", list("Continue", "Stop")) == "Continue")
-			if (!(map.research_active))
-				map.research_active = TRUE
-				world << "<big>Research has been <b>activated.</b></big>"
-				log_admin("[key_name(usr)] has activated the Research.")
-				return
-			else
-				map.research_active = FALSE
-				world << "<big>Research has been <b>deactivated.</b></big>"
-				log_admin("[key_name(usr)] has deactivated the Research.")
-				return
+		usr << "<font color='red'>Error: This is only available on Civ/Nomads modes.</font>"
+		return
 	if (!(map.research_active))
 		map.research_active = TRUE
 		world << "<big>Research has been <b>activated.</b></big>"
@@ -555,18 +542,7 @@ proc/admin_notice(var/message, var/rights)
 	set desc="Changes research speed in Auto-Research mode."
 	set name="Set Research Speed"
 	if (!map.civilizations && !map.nomads)
-		if (WWinput(usr, "Вы уверены в своём выборе? Этот параметр не рекомендуется менять если вы не в режиме цивилизации/номандов", "Изучение", "Continue", list("Continue", "Stop")) == "Continue")
-			var/customresearchsp = input("How many Research Points to increase per minute?", "Auto-Research Multiplier") as num|null
-			if (customresearchsp == null)
-				return
-			if (customresearchsp < 0)
-				customresearchsp = 0
-			if (customresearchsp > 230)
-				customresearchsp = 230
-			map.autoresearch_mult = customresearchsp
-			world << "<big>Research increase per minute has been changed to <b>[map.autoresearch_mult]</b></big>"
-			log_admin("[key_name(usr)] has changed the research modifier to [map.autoresearch_mult].")
-			return
+		usr << "<font color='red'>Error: This is only available on Civ/Nomads modes.</font>"
 	if (!(map.autoresearch))
 		usr << "<font color='red'>Error: This is only available within the Auto-Research Gamemode.</font>"
 		return
@@ -583,43 +559,13 @@ proc/admin_notice(var/message, var/rights)
 		log_admin("[key_name(usr)] has changed the research modifier to [map.autoresearch_mult].")
 		return
 
-/datum/admins/proc/set_custom_gamemode()
-	set category = "Special"
-	set desc="Set Custom Gamemode this map."
-	set name="Set Custom Gamemode"
-	if (WWinput(usr, "Вы уверены в своём выборе? Этот параметр не рекомендуется менять если вы не в режиме цивилизации/номандов", "Изучение", "Continue", list("Continue", "Stop")) == "Continue")
-		var/customgamemode =input("Пиши какой гейммод:", "Кастомный гейммод", "Secret")
-		if (customgamemode == null)
-			return
-		map.gamemode = customgamemode
-		world << "<big><b>Custom gamemode set to '[map.gamemode]'</b></big>"
-		log_admin("[key_name(usr)] has changed gamemode name to [map.gamemode].")
-	return
-
 /datum/admins/proc/set_custom_research()
 	set category = "Special"
 	set desc="Changes the research."
 	set name="Set Custom Research"
 	if (!map.civilizations && !map.nomads && map.ID != MAP_TRIBES && map.ID != MAP_FOUR_KINGDOMS && map.ID != MAP_THREE_TRIBES)
-		if (WWinput(usr, "Вы уверены в своём выборе? Этот параметр не рекомендуется менять если вы не в режиме цивилизации/номандов", "Изучение", "Continue", list("Continue", "Stop")) == "Continue")
-			var/customresearch = input("What do you want the research to be?", "Custom Research") as num|null
-			if (customresearch == null)
-				return
-			if (customresearch <= 0)
-				customresearch = 0
-			if (customresearch >= 280)
-				customresearch = 280
-
-			map.default_research = customresearch
-			map.civa_research = list(customresearch,customresearch,customresearch,null)
-			map.civb_research = list(customresearch,customresearch,customresearch,null)
-			map.civc_research = list(customresearch,customresearch,customresearch,null)
-			map.civd_research = list(customresearch,customresearch,customresearch,null)
-			map.cive_research = list(customresearch,customresearch,customresearch,null)
-			map.civf_research = list(customresearch,customresearch,customresearch,null)
-			world << "<big>The research has been set to  <b>[customresearch]</b>.</big>"
-			log_admin("[key_name(usr)] set the research to [customresearch].")
-			return
+		usr << "<font color='red'>Error: This is only available on Civ/Nomads modes.</font>"
+		return
 	else
 		var/customresearch = input("What do you want the research to be?", "Custom Research") as num|null
 		if (customresearch == null)
@@ -644,108 +590,8 @@ proc/admin_notice(var/message, var/rights)
 	set desc="Changes the starting age."
 	set name="Set Custom Age"
 	if (!map.civilizations && !map.nomads && map.ID != MAP_TRIBES && map.ID != MAP_THREE_TRIBES && map.ID != MAP_FOUR_KINGDOMS)
-		if (WWinput(usr, "Вы уверены в своём выборе? Этот параметр не рекомендуется менять если вы не в режиме цивилизации/номандов", "Изучение", "Continue", list("Continue", "Stop")) == "Continue")
-			var/customage = WWinput(src, "Choose the starting age:", "Starting Age", "5000 B.C.", list("5000 B.C.", "313 B.C.", "1013", "1713", "1873", "1903","1943","1969","2013", "Cancel"))
-			if (customage == "Cancel")
-				return
-			else if (customage == "5000 B.C.")
-				map.ordinal_age = 0
-				map.age = "5000 B.C."
-				world << "<big>The Epoch has been changed to <b>[map.age]</b>.</big>"
-				log_admin("[key_name(usr)] changed the map's epoch to [map.age].")
-				return
-			else if (customage == "313 B.C.")
-				map.ordinal_age = 1
-				map.age = "313 B.C."
-				map.age1_done = TRUE
-				map.default_research = 35
-				world << "<big>The Epoch has been changed to <b>[map.age]</b>.</big>"
-				log_admin("[key_name(usr)] changed the map's epoch to [map.age].")
-				return
-			else if (customage == "1013")
-				map.ordinal_age = 2
-				map.age = "1013"
-				map.age1_done = TRUE
-				map.age2_done = TRUE
-				map.default_research = 50
-				world << "<big>The Epoch has been changed to <b>[map.age]</b>.</big>"
-				log_admin("[key_name(usr)] changed the map's epoch to [map.age].")
-				return
-			else if (customage == "1713")
-				map.ordinal_age = 3
-				map.age = "1713"
-				map.age1_done = TRUE
-				map.age2_done = TRUE
-				map.age3_done = TRUE
-				map.default_research = 90
-				world << "<big>The Epoch has been changed to <b>[map.age]</b></big>"
-				log_admin("[key_name(usr)] changed the map's epoch to [map.age].")
-				return
-			else if (customage == "1873")
-				map.ordinal_age = 4
-				map.age = "1873"
-				map.age1_done = TRUE
-				map.age2_done = TRUE
-				map.age3_done = TRUE
-				map.age4_done = TRUE
-				map.default_research = 105
-				world << "<big>The Epoch has been changed to <b>[map.age]</b></big>"
-				log_admin("[key_name(usr)] changed the map's epoch to [map.age].")
-				return
-			else if (customage == "1903")
-				map.ordinal_age = 5
-				map.age = "1903"
-				map.age1_done = TRUE
-				map.age2_done = TRUE
-				map.age3_done = TRUE
-				map.age4_done = TRUE
-				map.age5_done = TRUE
-				map.default_research = 135
-				world << "<big>The Epoch has been changed to <b>[map.age]</b></big>"
-				log_admin("[key_name(usr)] changed the map's epoch to [map.age].")
-				return
-			else if (customage == "1943")
-				map.ordinal_age = 6
-				map.age = "1943"
-				map.age1_done = TRUE
-				map.age2_done = TRUE
-				map.age3_done = TRUE
-				map.age4_done = TRUE
-				map.age5_done = TRUE
-				map.age6_done = TRUE
-				map.default_research = 152
-				world << "<big>The Epoch has been changed to <b>[map.age]</b></big>"
-				log_admin("[key_name(usr)] changed the map's epoch to [map.age].")
-				return
-			else if (customage == "1969")
-				map.ordinal_age = 7
-				map.age = "1969"
-				map.age1_done = TRUE
-				map.age2_done = TRUE
-				map.age3_done = TRUE
-				map.age4_done = TRUE
-				map.age5_done = TRUE
-				map.age6_done = TRUE
-				map.age7_done = TRUE
-				map.default_research = 185
-				world << "<big>The Epoch has been changed to <b>[map.age]</b></big>"
-				log_admin("[key_name(usr)] changed the map's epoch to [map.age].")
-				return
-			else if (customage == "2013")
-				map.ordinal_age = 8
-				map.age = "2013"
-				map.age1_done = TRUE
-				map.age2_done = TRUE
-				map.age3_done = TRUE
-				map.age4_done = TRUE
-				map.age5_done = TRUE
-				map.age6_done = TRUE
-				map.age7_done = TRUE
-				map.age8_done = TRUE
-				map.default_research = 230
-				world << "<big>The Epoch has been changed to <b>[map.age]</b></big>"
-				log_admin("[key_name(usr)] changed the map's epoch to [map.age].")
-				return
+		usr << "<font color='red'>Error: This is only available on Civ/Nomads modes.</font>"
+		return
 	else
 		var/customage = WWinput(src, "Choose the starting age:", "Starting Age", "5000 B.C.", list("5000 B.C.", "313 B.C.", "1013", "1713", "1873", "1903","1943","1969","2013", "Cancel"))
 		if (customage == "Cancel")
@@ -1172,7 +1018,7 @@ var/list/atom_types = null
 
 	if (!check_rights(R_SERVER))	return
 
-	message_admins("[key_name(usr)] manually reloaded admins, whitelists, donaters and approved lists.")
+	message_admins("[key_name(usr)] manually reloaded admins, whitelists and approved lists.")
 
 	load_admins(1)
 
@@ -1191,14 +1037,6 @@ var/list/atom_types = null
 			if (findtext(i, "="))
 				var/list/current = splittext(i, "=")
 				whitelist_list += current[1]
-
-	var/F6 = file("SQL/donatelist.txt")
-	if (fexists(F6))
-		var/list/donate_temp = file2list(F6,"\n")
-		for (var/i in donate_temp)
-			if (findtext(i, "="))
-				var/list/current = splittext(i, "=")
-				donate_list += current[1]
 
 /client/proc/reload_bans()
 	set name = "Update Bans"

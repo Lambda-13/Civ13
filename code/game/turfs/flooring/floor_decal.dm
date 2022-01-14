@@ -613,17 +613,17 @@ var/list/floor_decals = list()
 
 /obj/effect/floor_decal/dirtwall
 	name = "dirt wall"
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "dirt_wall"
 
 /obj/effect/floor_decal/dirtwall/inc66
 	name = "dirt wall"
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "dirt_wall_66%"
 
 /obj/effect/floor_decal/dirtwall/inc33
 	name = "dirt wall"
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "dirt_wall_33%"
 
 /* Carpet Floor Decal*/

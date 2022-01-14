@@ -137,6 +137,7 @@
 			visible_message("<div class='notice'>[M] starts getting on \the [src]...</div>","<div class='notice'>You start going on \the [src]...</div>")
 			if (do_after(M, 40, src))
 				visible_message("<div class='notice'>[M] sucessfully climbs into \the [src].</div>","<div class='notice'>You sucessfully climb into \the [src].</div>")
+				M.plane = GAME_PLANE
 				M.forceMove(get_turf(src))
 				if (!driver)
 					if (wheeled)
@@ -540,6 +541,7 @@
 			visible_message("<div class='notice'>[M] starts getting on \the [src]...</div>","<div class='notice'>You start going on \the [src]...</div>")
 			if (do_after(M, 40, src))
 				visible_message("<div class='notice'>[M] sucessfully climbs into \the [src].</div>","<div class='notice'>You sucessfully climb into \the [src].</div>")
+				M.plane = GAME_PLANE
 				M.forceMove(get_turf(src))
 				if (!driver)
 					if (wheeled)
@@ -974,10 +976,13 @@
 	else
 		..()
 
-/obj/structure/vehicle/motorcycle/do_color()
-	if (customcolor)
+/obj/structure/vehicle/motorcycle/do_color(_color = null)
+	var/tempcolor = customcolor
+	if (_color != null)
+		tempcolor = _color
+	if (tempcolor)
 		var/image/colorov = image("icon" = icon, "icon_state" = "[icon_state]_mask1")
-		colorov.color = customcolor
+		colorov.color = tempcolor
 		overlays += colorov
 
 /obj/structure/vehicle/carriage
@@ -1120,6 +1125,7 @@
 		var/mob/living/human/M = A
 		if(!(M in ontop) && M.driver == FALSE)
 			if (do_after(M, 40, src))
+				M.plane = GAME_PLANE
 				visible_message("<div class='notice'>[M] starts getting on \the driver seat of the [src]...</div>")
 				if (wheeled)
 					if (M.put_in_active_hand(dwheel) == FALSE)

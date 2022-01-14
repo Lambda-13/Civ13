@@ -513,11 +513,6 @@
 				B.piglet = TRUE
 			visible_message("A piglet has been born!")
 
-/mob/living/simple_animal/pig_gilt/vanotyan
-	name = "VanoTyan"
-	desc = "Жирный панк из Хабаровска"
-	speak = list("СААААААНЯ!","БЛЯДЬ КАК ЖЕ Я СМАЧНО ХОЧУ ТРАХНУТЬ САНЬКОМЕНА!")
-
 /mob/living/simple_animal/boar_boar
 	name = "boar"
 	desc = "A small Wooly Mammal, with a stocky Body, Long snout and small eyes they are a member of the Suidae Family."

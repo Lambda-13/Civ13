@@ -187,16 +187,25 @@
 /mob/proc/show_inv(mob/user as mob)
 	return
 
-/atom/verb/Interact()
+/*atom/verb/Interact()
 	set name = "Interact"
 	set category = "IC"
-	set src in view(1)
 
+	set src in view(1)
 	var/mob/user = usr
 	if(src in range(1,usr))
 		user.ClickOn(src)
 	else
-		src.examine(user)
+		src.examine(user)*/
+
+/mob/verb/interact(atom/A as mob|obj|turf in view(1))
+	set name = "Interact"
+	set category = "IC"
+	if (ishuman(src))
+		if(A in range(1,src))
+			src.ClickOn(A)
+		else
+			A.examine(src)
 
 //mob verbs are faster than object verbs. See http://www.byond.com/forum/?post=1326139&page=2#comment8198716 for why this isn't atom/verb/examine()
 /mob/verb/examinate(atom/A as mob|obj|turf in view())
@@ -249,7 +258,7 @@
 
 /mob/verb/mode()
 	set name = "Activate Held Object"
-	set category = "IC"
+	set category = null
 	set src = usr
 	if (ishuman(src))
 		var/mob/living/human/H = src
@@ -329,22 +338,6 @@
 			update_inv_r_hand()
 	return
 
-
-/mob/verb/secondary_action()
-	set name = "Activate Secondary Object"
-	set category = "IC"
-	set src = usr
-	if (hand)
-		var/obj/item/W = l_hand
-		if (W)
-			W.secondary_attack_self(src)
-			update_inv_l_hand()
-	else
-		var/obj/item/W = r_hand
-		if (W)
-			W.secondary_attack_self(src)
-			update_inv_r_hand()
-	return
 /*
 /mob/verb/dump_source()
 
@@ -546,7 +539,7 @@
 
 	if (href_list["flavor_more"])
 		if (src in view(usr))
-			usr << browse(text("<meta charset='utf-8'><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", name, replacetext(flavor_text, "\n", "<BR>")), text("window=[];size=500x200", name))
+			usr << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", name, replacetext(flavor_text, "\n", "<BR>")), text("window=[];size=500x200", name))
 			onclose(usr, "[name]")
 	if (href_list["flavor_change"])
 		update_flavor_text()
@@ -685,8 +678,8 @@
 			stat("")
 			stat(stat_header("Server"))
 			stat("")
-			stat("Игроков Онлайн (Играет, Наблюдает, Лобби):", "[clients.len] ([human_clients_mob_list.len], [clients.len-human_clients_mob_list.len-new_player_mob_list.len], [new_player_mob_list.len])")
-			stat("Длительность Раунда:", roundduration2text_days())
+			stat("Players Online (Playing, Observing, Lobby):", "[clients.len] ([human_clients_mob_list.len], [clients.len-human_clients_mob_list.len-new_player_mob_list.len], [new_player_mob_list.len])")
+			stat("Round Duration:", roundduration2text_days())
 
 			if (map && !map.civilizations)
 				var/grace_period_string = ""
@@ -702,32 +695,28 @@
 							grace_period_string += "[faction_const2name(faction,map.ordinal_age)] may not cross"
 					else
 						if (map.last_crossing_block_status[faction])
-							grace_period_string += "Подготовка завершена."
+							grace_period_string += "The grace wall has been removed."
 						else
-							grace_period_string += "Подготовка в процессе."
+							grace_period_string += "The grace wall is in effect."
 
-				stat("Подготовка к атаке:", grace_period_string)
-				stat("Конец раунда через:", map.current_stat_message())
+				stat("Grace Period Status:", grace_period_string)
+				stat("Round End Condition:", map.current_stat_message())
 			if (map)
 				var/gmd = map.gamemode
 				switch(map.gamemode)
-					if ("Easy")
-						gmd = "<font color='blue'>Лёгкий</font>"	
 					if ("Normal")
-						gmd = "<font color='green'>Нормальный</font>"
+						gmd = "<font color='green'>Normal</font>"
 					if ("Competitive")
-						gmd = "<font color='yellow'>Соревновательный</font>"
+						gmd = "<font color='yellow'>Competitive</font>"
 					if ("Hardcore")
-						gmd = "<font color='red'>Хардкор</font>"
-					if ("RealLive")
-						gmd = "<font color='white'>Настоящий</font>"
-				stat("Карта:", map.title)
-				stat("Режим:", gmd)
-				stat("Год:", map.age)
-				stat("Сезон:", get_season())
-				stat("Ветер:", map.winddesc)
+						gmd = "<font color='red'>Hardcore</font>"
+				stat("Map:", map.title)
+				stat("Mode:", gmd)
+				stat("Epoch:", map.age)
+				stat("Season:", get_season())
+				stat("Wind:", map.winddesc)
 //				stat("Weather:", get_weather())
-				stat("Дневное время:", time_of_day)
+				stat("Time of Day:", time_of_day)
 
 
 			// give the client some information about how the server is running

@@ -54,7 +54,6 @@
 	var/newnamere = list("Followers of the Hive Mother" = list(null,"Knowledge",0, "Star","#67A7CE","#0C1EA7","Monks")) //ants
 	var/newnamerf = list("Moon Worshippers" = list(null,"Combat",0, "Moon","#848484","#FFFFFF","Priests")) //wolves
 	var/newnamerg = list("Cthulhu" = list(null,"Production",0, "Sun","#ADFF2F","#000000","Cultists")) //crustaceans
-//	var/newnamerh = list("Bonetrousle" = list(null,"Production",0, "Sun","#e5e6e3","#000000","Priests")) //skelet
 	custom_religions += newnamera
 	custom_religions += newnamerb
 	custom_religions += newnamerc
@@ -62,7 +61,6 @@
 	custom_religions += newnamere
 	custom_religions += newnamerf
 	custom_religions += newnamerg
-//	custom_religions += newnamerh
 	spawn(1)
 		civilians_forceEnabled = TRUE
 

@@ -38,7 +38,7 @@ AWARDS:
 					map.scores["Western Army"] += 1
 					awards["service"]=0
 
-	if (map.gamemode == "Hardcore" || map.gamemode == "RealLive")
+	if (map.gamemode == "Hardcore")
 		if (map.ordinal_age>=5)
 			awards["service"]++
 			if (awards["service"]>=1200 && client && !("long service medal" in awarded))

@@ -397,7 +397,7 @@ var/global/processScheduler/processScheduler
 		p.statProcess()
 
 /processScheduler/proc/htmlProcesses()
-	. = "<meta charset='utf-8'><body>"
+	. = "<html><body>"
 	if (!isRunning)
 		. += "<p><big>Processes: Scheduler not running</big></p>"
 		return

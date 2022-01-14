@@ -46,7 +46,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/MRE/generic/german
 	name = "German MRE: Sauerkraut"
 	desc = "A pickled cabbage MRE."
-	nutriment_desc = list("pickled cabbage" = 1, "canned meat" = 1)
+	nutriment_desc = list("pickled cabbage" = 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/MRE/generic/british
 	name = "British MRE: Canned Meat"

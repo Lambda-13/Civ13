@@ -4,7 +4,7 @@
 /obj/structure/window/barrier/snowwall
 	name = "snow barricade"
 	icon_state = "snow_wall"
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	layer = MOB_LAYER + 0.01 //just above mobs
 	anchored = TRUE
 	climbable = TRUE

@@ -9,7 +9,7 @@
 
 /obj/structure/piano
 	name = "Piano"
-	icon = 'icons/russian/obj/musician.dmi'
+	icon = 'icons/obj/musician.dmi'
 	icon_state = "piano"
 	anchored = TRUE
 	density = TRUE

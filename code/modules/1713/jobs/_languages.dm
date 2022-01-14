@@ -105,8 +105,8 @@
 	female_tts_voice = "Tatyana"
 
 /datum/job/arab/civilian/chechen
-	default_language = "Ukrainian"
-	additional_languages = list("Russian" = 75)
+	default_language = "Chechen"
+	additional_languages = list("Russian" = 70)
 	male_tts_voice = "Jacek" //polish
 	female_tts_voice = "Maja" //polish
 
@@ -166,6 +166,18 @@
 /datum/job/npc
 	default_language = "English"
 
+/datum/job/civilian/skyrim
+	default_language = "Old Norse"
+	additional_languages = list("Latin" = 20)
+	male_tts_voice = "Brian"
+	female_tts_voice = "Amy"
+
+/datum/job/roman/skyrim/imperial
+	default_language = "Old Norse"
+	additional_languages = list("Latin" = 100)
+	male_tts_voice = "Brian"
+	female_tts_voice = "Amy"
+
 /datum/job/update_character(var/mob/living/human/H)
 	. = ..()
 
@@ -205,9 +217,14 @@
 					H.default_language = RR
 					break
 			else
-				for (var/datum/language/english/E in H.languages)
-					H.default_language = E
-					break
+				if (map.ID == MAP_WHITERUN)
+					for (var/datum/language/oldnorse/N in H.languages)
+						H.default_language = N
+						break
+				else
+					for (var/datum/language/english/E in H.languages)
+						H.default_language = E
+						break
 		if (SPANISH)
 			for (var/datum/language/spanish/S in H.languages)
 				H.default_language = S

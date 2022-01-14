@@ -25,11 +25,10 @@
 	faction2 = CIVILIAN
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET, WEATHER_EXTREME)
 	songs = list(
-		"The Great Escape:1" = 'sound/music/the_great_escape.ogg')
+		"Red Army Choir - Slavery and Suffering:1" = 'sound/music/slavery_and_suffering.ogg')
 	gamemode = "Prison Simulation"
 	var/list/points = list(
 		list("Guards",0,0),
-		list("Vory",0,0),
 		list("German",0,0),
 		list("Polish",0,0),
 		list("Ukrainian",0,0),
@@ -342,7 +341,7 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 /obj/structure/camp_exportbook
 	name = "camp exports"
 	desc = "Use this to export products from the camp and gain points for the guards."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "supplybook2"
 	density = TRUE
 	anchored = TRUE

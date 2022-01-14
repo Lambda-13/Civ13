@@ -19,7 +19,7 @@
 			m << browse({"
 
 			<br>
-			<meta charset='utf-8'>
+			<html>
 
 			<head>
 			[common_browser_style]
@@ -53,7 +53,7 @@
 			m << browse({"
 
 			<br>
-			<meta charset='utf-8'>
+			<html>
 
 			<head>
 			[common_browser_style]
@@ -85,7 +85,7 @@
 			m << browse({"
 
 			<br>
-			<meta charset='utf-8'>
+			<html>
 
 			<head>
 			[common_browser_style]
@@ -119,7 +119,7 @@
 			m << browse({"
 
 			<br>
-			<meta charset='utf-8'>
+			<html>
 
 			<head>
 			[common_browser_style]
@@ -368,7 +368,7 @@
 		return FALSE
 	for(var/obj/effect/pseudovehicle/O in ship.components)
 		for(var/obj/structure/vehicleparts/frame/VP in O.loc)
-			if (VP.axis != ship)
+			if (!VP.axis.ship)
 				if (mob)
 					mob << "<span class='warning'>You can't turn, something is in the way!</span>"
 				return FALSE

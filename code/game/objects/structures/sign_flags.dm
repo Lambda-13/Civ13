@@ -1,6 +1,6 @@
 /obj/structure/sign/flag
 	var/ripped = FALSE
-	icon = 'icons/russian/obj/decals.dmi'
+	icon = 'icons/obj/decals.dmi'
 	flammable = TRUE
 /obj/structure/sign/flag/attack_hand(mob/user as mob)
 	if (!ripped)
@@ -69,8 +69,18 @@
 
 /obj/structure/sign/flag/jihad4
 	name = "\improper green islamic banner"
-	desc = "A greeb banner with the shadada."
+	desc = "A green banner with the shadada."
 	icon_state = "jihad4"
+
+/obj/structure/sign/flag/chechen
+	name = "\improper chechen flag"
+	desc = "The Chechen Separatist flag."
+	icon_state = "flag_chechen"
+
+/obj/structure/sign/flag/ireland
+	name = "\improper irish flag"
+	desc = "The Irish Republic flag."
+	icon_state = "flag_ireland"
 
 /obj/structure/sign/clock
 	name = "\improper clock"
@@ -221,7 +231,10 @@
 	name = "German Empire flag"
 	desc = "A horizontal tricolour flag of the German Empire."
 	icon_state = "flag_germany"
-
+/obj/structure/sign/flag/german/modern
+	name = "German flag"
+	desc = "A horizontal tricolour flag of the German Republic."
+	icon_state = "flag_germany_republic"
 /obj/structure/sign/flag/uk
 	name = "United Kingdom flag"
 	desc = "A flag of the United Kingdom."
@@ -236,6 +249,36 @@
 	name = "Ukrainian flag"
 	desc = "A flag of Ukraine."
 	icon_state = "ukraine"
+
+/obj/structure/sign/flag/ukraine/upa
+	name = "flag of the UPA"
+	desc = "The flag of the Ukrainian Insurgent Army called UPA."
+	icon_state ="flag_ukraine_upa"
+
+/obj/structure/sign/flag/poland
+	name = "Polish flag"
+	desc = "A flag of Poland."
+	icon_state = "flag_poland"
+
+/obj/structure/sign/flag/ukraine/azov
+	name = "flag of the Azov regiment"
+	desc = "The flag of the infamous Azov regiment of the Ukrainian National Guard."
+	icon_state ="flag_ukraine_azov"
+
+/obj/structure/sign/flag/ukraine/rightsector
+	name = "flag of the Right Sector"
+	desc = "The flag of the Ukrainian far-right paramilitary movement."
+	icon_state ="flag_ukraine_rightsector"
+
+/obj/structure/sign/flag/ukraine/dnr
+	name = "flag of the Donetsk People's Republic"
+	desc = "The flag of the self-proclaimed state of the Donetsk People's Republic"
+	icon_state = "flag_ukraine_dnr"
+
+/obj/structure/sign/flag/ukraine/lnr
+	name = "flag of the Luhansk People's Republic"
+	desc = "The flag of the self-proclaimed state of the Luhansk People's Republic"
+	icon_state = "flag_ukraine_lnr"
 
 /obj/structure/sign/flag/vietnam
 	name = "North Vietnam flag"
@@ -292,25 +335,25 @@
 	desc = "The flag of the Philippines. Flipped for wartime."
 	icon_state = "flag_fp_war"
 
+/obj/structure/sign/flag/pirate
+	name = "Pirate flag"
+	desc = "The black pirate flag, with a skull in the middle."
+	icon_state = "pirate"
+
+/obj/structure/sign/flag/firstcav
+	name = "1st Cavalry Division flag"
+	desc = "Flag of the United States Army 1st Cavalry Division."
+	icon_state = "flag_1stcav"
+
+/obj/structure/sign/flag/cuba
+	name = "Cubanlag"
+	desc = "The Cuban flag."
+	icon_state = "flag_cuba"
+
 /obj/structure/sign/flag/custom
 	name = "flag"
 	desc = "A flag."
 	icon_state = "f_white"
-
-/obj/structure/sign/flag/scp
-	name = "SCP flag"
-	desc = "The flag of the SCP."
-	icon_state = "flag_scp"
-
-/obj/structure/sign/flag/goc
-	name = "GOC flag"
-	desc = "The flag of the Global Occult Coalition."
-	icon_state = "flag_goc"
-
-/obj/structure/sign/flag/serpent
-	name = "Serpent's Hand flag"
-	desc = "The flag of the Serpent's Hand."
-	icon_state = "flag_serpent"
 
 /obj/structure/sign/logo/red
 	name = "Rednikov Industries Logo"

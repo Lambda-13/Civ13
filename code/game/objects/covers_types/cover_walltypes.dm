@@ -667,7 +667,7 @@
 /obj/covers/vault
 	name = "vault wall"
 	desc = "A very strong wall of concrete."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "vault"
 	passable = TRUE
 	not_movable = TRUE
@@ -687,7 +687,7 @@
 /obj/covers/slate
 	name = "slatestone wall"
 	desc = "A slate wall."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "slate"
 	passable = TRUE
 	not_movable = TRUE
@@ -701,6 +701,25 @@
 	flammable = FALSE
 	explosion_resistance = 10
 	material = "Stone"
+	hardness = 100
+
+/obj/covers/sovietwall
+	name = "Soviet tiles wall"
+	desc = "A cheap tiled wall."
+	icon = 'icons/turf/walls.dmi'
+	icon_state = "sovietwall_one"
+	passable = TRUE
+	not_movable = TRUE
+	density = TRUE
+	opacity = TRUE
+	amount = 0
+	layer = 3
+	health = 300
+	wood = FALSE
+	wall = TRUE
+	flammable = FALSE
+	explosion_resistance = 40
+	material = "Clay"
 	hardness = 100
 
 /obj/covers/wood_wall/aztec

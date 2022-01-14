@@ -100,7 +100,7 @@
 /obj/structure/tent
 	name = "canopy"
 	desc = "A portable cloth canopy, assembled here."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "tent_o"
 	layer = 5
 	anchored = TRUE

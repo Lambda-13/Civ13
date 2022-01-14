@@ -39,7 +39,7 @@
 "aM" = (/obj/item/weapon/material/kitchen/utensil/knife/bone,/turf/floor/plating/stone_old,/area/caribbean/tribes/caves)
 "aN" = (/obj/effect/decal/cleanable/blood/splatter,/obj/effect/decal/cleanable/cobweb2,/turf/floor/dirt,/area/caribbean/tribes/caves)
 "aO" = (/obj/structure/simple_door/stone,/turf/floor/dirt,/area/caribbean/tribes/caves)
-"aP" = (/obj/effect/decal/cleanable/cobweb2{dir = 1; icon_state = "cobweb2"},/turf/floor/plating/stone_old,/area/caribbean/tribes/caves)
+"aP" = (/obj/effect/decal/cleanable/cobweb2{icon_state = "cobweb2"; dir = 1},/turf/floor/plating/stone_old,/area/caribbean/tribes/caves)
 "aQ" = (/obj/effect/decal/cleanable/blood,/turf/floor/plating/stone_old,/area/caribbean/tribes/caves)
 "aR" = (/turf/floor/dirt/dust,/area/caribbean/no_mans_land/invisible_wall/inside)
 "aS" = (/obj/effect/decal/cleanable/dirt,/obj/effect/spawner/mobspawner{max_number = 12; name = "skeleton spawner, >20"; scalable = 1; scalable_multiplyer = 2},/turf/floor/plating/stone_old,/area/caribbean/tribes/caves)
@@ -47,7 +47,7 @@
 "aU" = (/obj/effect/decal/cleanable/cobweb2,/turf/floor/dirt,/area/caribbean/tribes/caves)
 "aV" = (/obj/effect/decal/cleanable/blood/drip,/turf/floor/dirt,/area/caribbean/tribes/caves)
 "aW" = (/obj/effect/spawner/mobspawner{max_number = 10; name = "skeleton spawner, >10"; scalable = 1},/turf/floor/dirt,/area/caribbean/island)
-"aX" = (/obj/effect/decal/cleanable/cobweb2{dir = 1; icon_state = "cobweb2"},/turf/floor/dirt,/area/caribbean/tribes/caves)
+"aX" = (/obj/effect/decal/cleanable/cobweb2{icon_state = "cobweb2"; dir = 1},/turf/floor/dirt,/area/caribbean/tribes/caves)
 "aY" = (/obj/structure/religious/totem{icon_state = "bear"},/turf/floor/plating/stone_old,/area/caribbean/tribes/caves)
 "aZ" = (/obj/effect/decal/cleanable/dirt,/obj/structure/religious/totem{icon_state = "bear"},/turf/floor/dirt,/area/caribbean/tribes/caves)
 "ba" = (/obj/structure/wild/burnedtree,/turf/floor/dirt/underground{name = "rocks"},/area/caribbean/island)
@@ -61,8 +61,8 @@
 "bi" = (/obj/effect/spawner/mobspawner{max_number = 10},/turf/floor/plating/stone_old,/area/caribbean/tribes/caves)
 "bj" = (/obj/structure/religious/totem{icon_state = "bear"},/turf/floor/dirt,/area/caribbean/tribes/caves)
 "bk" = (/obj/item/clothing/mask/skullmask,/turf/floor/plating/stone_old,/area/caribbean/tribes/caves)
-"bl" = (/obj/effect/decal/cleanable/cobweb2{dir = 4; icon_state = "cobweb2"},/turf/floor/plating/stone_old,/area/caribbean/tribes/caves)
-"bm" = (/obj/effect/decal/cleanable/cobweb2{dir = 4; icon_state = "cobweb2"},/turf/floor/dirt,/area/caribbean/tribes/caves)
+"bl" = (/obj/effect/decal/cleanable/cobweb2{icon_state = "cobweb2"; dir = 4},/turf/floor/plating/stone_old,/area/caribbean/tribes/caves)
+"bm" = (/obj/effect/decal/cleanable/cobweb2{icon_state = "cobweb2"; dir = 4},/turf/floor/dirt,/area/caribbean/tribes/caves)
 "bn" = (/obj/item/clothing/suit/storage/jacket/bonearmor,/turf/floor/plating/stone_old,/area/caribbean/tribes/caves)
 "bo" = (/obj/structure/religious/totem{icon_state = "turkey"},/turf/floor/plating/stone_old,/area/caribbean/tribes/caves)
 "bp" = (/obj/effect/decal/cleanable/dirt,/turf/wall/old_stone,/area/caribbean/tribes/caves)
@@ -73,11 +73,11 @@
 "bu" = (/obj/effect/decal/cleanable/dirt,/obj/item/stack/material/bone,/turf/floor/dirt,/area/caribbean/tribes/caves)
 "bv" = (/obj/structure/wild/burnedbush,/obj/structure/religious/impaledskull,/turf/floor/dirt,/area/caribbean/no_mans_land/invisible_wall/inside)
 "bw" = (/obj/structure/sink/puddle,/turf/floor/beach/sand,/area/caribbean/british/land/outside)
-"bx" = (/obj/structure/window/barrier/rock{dir = 1; icon_state = "rock_barricade"},/turf/floor/beach/sand,/area/caribbean/british/land/outside)
-"by" = (/obj/structure/window/barrier/rock{dir = 1; icon_state = "rock_barricade"},/obj/structure/closet/crate/rations/meat,/turf/floor/beach/sand,/area/caribbean/british/land/outside)
-"bz" = (/obj/structure/window/barrier/rock{dir = 1; icon_state = "rock_barricade"},/obj/structure/closet/crate/rations/vegetables,/turf/floor/beach/sand,/area/caribbean/british/land/outside)
+"bx" = (/obj/structure/window/barrier/rock{icon_state = "rock_barricade"; dir = 1},/turf/floor/beach/sand,/area/caribbean/british/land/outside)
+"by" = (/obj/structure/window/barrier/rock{icon_state = "rock_barricade"; dir = 1},/obj/structure/closet/crate/rations/meat,/turf/floor/beach/sand,/area/caribbean/british/land/outside)
+"bz" = (/obj/structure/window/barrier/rock{icon_state = "rock_barricade"; dir = 1},/obj/structure/closet/crate/rations/vegetables,/turf/floor/beach/sand,/area/caribbean/british/land/outside)
 "bA" = (/obj/item/flashlight/lantern/on/anchored,/turf/floor/beach/sand,/area/caribbean/british/land/outside)
-"bB" = (/obj/structure/barricade/vertical,/obj/structure/window/barrier/rock{dir = 4; icon_state = "rock_barricade"},/turf/floor/beach/sand,/area/caribbean/british/land/outside)
+"bB" = (/obj/structure/barricade/vertical,/obj/structure/window/barrier/rock{icon_state = "rock_barricade"; dir = 4},/turf/floor/beach/sand,/area/caribbean/british/land/outside)
 "bC" = (/obj/item/weapon/reagent_containers/glass/bucket,/turf/floor/beach/sand,/area/caribbean/british/land/outside)
 "bD" = (/obj/structure/pot,/turf/floor/beach/sand,/area/caribbean/british/land/outside)
 "bE" = (/obj/structure/cannon{dir = 4; icon = 'icons/obj/cannon_h.dmi'},/turf/floor/beach/sand,/area/caribbean/british/land/outside)
@@ -133,7 +133,7 @@
 "cE" = (/obj/effect/landmark{name = "JoinLateRNCarpenter"},/turf/floor/wood,/area/caribbean/british/ship{base_turf = /turf/floor/beach/sand})
 "cF" = (/obj/effect/landmark{name = "JoinLateRN"},/turf/floor/wood,/area/caribbean/british/ship{base_turf = /turf/floor/beach/sand})
 "cG" = (/turf/floor/wood,/area/caribbean/british/ship{base_turf = /turf/floor/beach/sand})
-"cI" = (/obj/structure/multiz/stairs_wood{dir = 4; icon_state = "wood2_stairs"},/turf/floor/wood,/area/caribbean/british/ship{base_turf = /turf/floor/beach/sand})
+"cI" = (/obj/structure/multiz/stairs_wood{icon_state = "wood2_stairs"; dir = 4},/turf/floor/wood,/area/caribbean/british/ship{base_turf = /turf/floor/beach/sand})
 "cJ" = (/obj/item/violin,/turf/floor/wood,/area/caribbean/british/ship{base_turf = /turf/floor/beach/sand})
 "cK" = (/obj/item/flashlight/lantern/on/anchored,/turf/floor/wood,/area/caribbean/british/ship{base_turf = /turf/floor/beach/sand})
 "cL" = (/obj/covers/repairedfloor,/turf/floor/wood_broken,/area/caribbean/british/ship{base_turf = /turf/floor/beach/sand})
@@ -165,7 +165,7 @@
 "dl" = (/obj/item/weapon/hammer,/turf/floor/beach/sand,/area/caribbean/british/land/outside)
 "dm" = (/obj/item/weapon/wrench,/turf/floor/beach/sand,/area/caribbean/british/land/outside)
 "dn" = (/obj/structure/barricade/horizontal,/obj/structure/barricade/vertical,/turf/floor/beach/sand,/area/caribbean/british/land/outside)
-"do" = (/obj/structure/barricade/vertical,/obj/structure/barricade/horizontal,/obj/structure/window/barrier/rock{dir = 4; icon_state = "rock_barricade"},/turf/floor/beach/sand,/area/caribbean/british/land/outside)
+"do" = (/obj/structure/barricade/vertical,/obj/structure/barricade/horizontal,/obj/structure/window/barrier/rock{icon_state = "rock_barricade"; dir = 4},/turf/floor/beach/sand,/area/caribbean/british/land/outside)
 "dp" = (/obj/structure/religious/impaledskull,/turf/floor/dirt/dust,/area/caribbean/island)
 "dq" = (/obj/structure/wild/burnedbush,/obj/structure/religious/impaledskull,/turf/floor/dirt,/area/caribbean/island)
 "dr" = (/obj/structure/closet/crate/muskets,/turf/floor/beach/sand,/area/caribbean/british/land/outside)
@@ -180,17 +180,17 @@
 "dA" = (/obj/structure/religious/totem{icon_state = "mouse"},/turf/floor/plating/stone_old,/area/caribbean/tribes/caves)
 "dB" = (/obj/structure/flag/british,/turf/floor/beach/sand,/area/caribbean/british/land/outside)
 "dC" = (/obj/structure/barricade/vertical,/turf/floor/beach/sand,/area/caribbean/british/land/outside)
-"dD" = (/obj/effect/decal/cleanable/cobweb{dir = 4; icon_state = "cobweb1"},/turf/floor/dirt,/area/caribbean/tribes/caves)
+"dD" = (/obj/effect/decal/cleanable/cobweb{icon_state = "cobweb1"; dir = 4},/turf/floor/dirt,/area/caribbean/tribes/caves)
 "dE" = (/obj/structure/religious/remains,/turf/floor/plating/stone_old,/area/caribbean/tribes/caves)
-"dF" = (/obj/effect/decal/cleanable/cobweb2{dir = 8; icon_state = "cobweb2"},/turf/floor/dirt,/area/caribbean/tribes/caves)
-"dG" = (/obj/structure/window/barrier/rock{dir = 4; icon_state = "rock_barricade"},/turf/floor/beach/sand,/area/caribbean/british/land/outside)
-"dH" = (/obj/structure/window/barrier/rock,/obj/structure/window/barrier/rock{dir = 8; icon_state = "rock_barricade"},/turf/floor/beach/sand,/area/caribbean/british/land/outside)
+"dF" = (/obj/effect/decal/cleanable/cobweb2{icon_state = "cobweb2"; dir = 8},/turf/floor/dirt,/area/caribbean/tribes/caves)
+"dG" = (/obj/structure/window/barrier/rock{icon_state = "rock_barricade"; dir = 4},/turf/floor/beach/sand,/area/caribbean/british/land/outside)
+"dH" = (/obj/structure/window/barrier/rock,/obj/structure/window/barrier/rock{icon_state = "rock_barricade"; dir = 8},/turf/floor/beach/sand,/area/caribbean/british/land/outside)
 "dI" = (/obj/structure/window/barrier/rock,/turf/floor/beach/sand,/area/caribbean/british/land/outside)
-"dJ" = (/obj/structure/window/barrier/rock,/obj/structure/window/barrier/rock{dir = 4; icon_state = "rock_barricade"},/turf/floor/beach/sand,/area/caribbean/british/land/outside)
+"dJ" = (/obj/structure/window/barrier/rock,/obj/structure/window/barrier/rock{icon_state = "rock_barricade"; dir = 4},/turf/floor/beach/sand,/area/caribbean/british/land/outside)
 "dK" = (/obj/item/clothing/suit/storage/jacket/bonearmor,/turf/floor/dirt,/area/caribbean/tribes/caves)
 "dL" = (/obj/structure/religious/totem{icon_state = "monkey"},/turf/floor/plating/stone_old,/area/caribbean/tribes/caves)
 "dM" = (/obj/structure/religious/totem,/turf/floor/plating/stone_old,/area/caribbean/tribes/caves)
-"dN" = (/obj/effect/decal/cleanable/cobweb2{dir = 8; icon_state = "cobweb2"},/obj/item/stack/material/bone,/turf/floor/plating/stone_old,/area/caribbean/tribes/caves)
+"dN" = (/obj/effect/decal/cleanable/cobweb2{icon_state = "cobweb2"; dir = 8},/obj/item/stack/material/bone,/turf/floor/plating/stone_old,/area/caribbean/tribes/caves)
 "dO" = (/obj/structure/table/wood,/obj/item/weapon/storage/firstaid/adv,/turf/floor/beach/sand,/area/caribbean/british/land/outside)
 "dP" = (/obj/structure/table/wood,/obj/item/weapon/storage/firstaid/surgery,/turf/floor/beach/sand,/area/caribbean/british/land/outside)
 "dQ" = (/obj/structure/bed{material = "wood"},/turf/floor/beach/sand,/area/caribbean/british/land/outside)
@@ -332,7 +332,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazazazaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBakbqaH
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazazazaBaBaBaBaCaBaBaBaBaBaBaBaBaBaBaBaBaHaHaHaHaHaHaHeJaHaHayaHaHaHaHaHaHaHaHaHagagacacacacacacacacacacacacacacacacacehehehehehehehehaJaJdeaJaJdeaJdeaJaJaFaJbdaJaFaGaG
 aaaaaaaaaaaaaaaaaaaabrbrbraaaaaaazazazaBaBaBaCaCaBaBaBaCaCaBaBaBaBaBaHaHadaHaHaHaHaHaHaHaHaHakaHaoaHagaHaHaHaHaHaHafaAaAacekacacacekekacacacacacacacacehaJbkdeaJaJbsehaJaJaJaJbbaKbfaKaKaJaFaJaJesaFaGaG
 aaaaaaaaaaaaaaaabrbrbrbrbrbrbregegegfLfMaBaBaCfMfMfMfNaCaBaBaBaBaBaBaHaHaHaHapaeaHagaHaHadaHakaHafaHaeaHaHadaHaHaHafafafaHaHagagagagagagagagagagagacacehdeaJbtbtaJaJehdedwaJdeaJaJaJaJbuaKaFaJaJaJaFaGaG
-aaaaaaaaaaaaaabrbrbrbrbJbrbrbrbrbrbJbJbwbxbybzbJbJbAbBaBaBaBaBaBaBaBaHaHaHaiaHaHaHaHagaHadaHakaHaHaHaHaHaHaHaHadadaHaHaHaHaHagaeaHagaHaHaHaHaHaHaHekacehaJaJcCaJdeaJemaJaJaJaFaFaFaFaFaOaFaFdedzdeaFaGaG
+aaaaaaaaaaaaaabrbrbrbrbJbreobrbreobJbJbwbxbybzbJfQbAbBaBaBaBaBaBaBaBaHaHaHaiaHaHaHaHagaHadaHakaHaHaHaHaHaHaHaHadadaHaHaHaHaHagaeaHagaHaHaHaHaHaHaHekacehaJaJcCaJdeaJemaJaJaJaFaFaFaFaFaOaFaFdedzdeaFaGaG
 aaaaaaaaaaaaaabrbJbJbJbJePbrbrbJbJbJbJbCbDbJbJbJbJbEdCaBaBaBaBaBaBaBaBbGadaHaHaoaHagaHagaHaHaHakaHaeamaHeJaHaHadadaHadaHaHaHaHaeaeaeaHaHaHagaHaHaHacacehdeaJbtbtbHdeehdeaJdeaFaGaGaFblaJaJaFaJaKaJaFaGaG
 aaaaaaaaaaaaaaeLbrbJbMbJdQdQbJbKdOdPbJbMbNbJbJbYbJbPbBaBaBaBaBaBaBaBaBbGadaHaHaHadajaHagaHaHaHaHaHaeaeaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaiaHaHaHaHaHagacacehaJdeaJdeaJaJehaJaJaJaFaGaGaFbQaJbQaFaJaKdeaFaGaG
 aaaaaaeNaaaabrbreOfbbMbJdQdQbJbJbSbJbJbMbJdmbJbYbJbUbVbWbVaBaBaBaBaBaBbGbGaHakakaHaHaHagagaHadakakaeaeaHaHaHaHaeaeaHaHaHaHaHaHaHaHaHaHaHaHaHaHagagacacehehehehehehehehdeaJaJaJaGaGaFdedeaJaFdeaJfAaFaGaG
@@ -352,8 +352,8 @@ aaaaaaaaaaaaaaaaaaaabrbrbJbJbJbJbJbJbJdtbJbJbJbJbJdCaCaBaBaBaBaHaHaHaHaHaHaHaHaf
 aaaaaaaaaaaaaaaaaaaabrbrbrfffgfhbJbJbJdxdsbJbJbJbPdCaBaBaBaBaBaBaBaHaBaHaHaHaHaHaHaHagagagaHaeaHaHaHaHaHaHaHaHaHaHaHaHaHaEaEabbFehaJaJaJdefpdeaFaFaFaFaFaFaFaFaFaFaFaJaFaFaFaFaGaGaJdeaJaJaFaKaJaJaFaGaG
 aaaaaaaaaaaaaaaaaaaabrbrbrfifjfzbJbJbJbJdBbJbJbJbJdCaCaCaBaBaBaBaBaHaBaHadaHadaHaHaHaHaHadaiaHaHaHaHafaHaHaHaHaHaHeJaHaHaHaHekaRehdDaJfmaJaJeEaFaGaGaGaGaGaGaGaGaGaGaGaGaGaGaGaGaGaFaJdzaJaFaJaJdEaFaGaG
 aaaaaaaaaaaaaaaaaaaaaabrbrbrbJbJbJbJbJbJbJbJbJbJbEdCaBaBaBaBaBaBaBaBaBaHadaHaHaHaHaHagagagaHaHaHaHaHaHaHaHaHaHafaHaHaHaHaHaHekekehaFaFaFaFaFaFaFaGagagagagagagaGaGaGaGaGaGaGaGaGaGaFdeaJdeaFdeaJdFaFaGaG
-aaaaaaaaaaaaaaaaaaaaaaaabrbrbJbJbJbAbJbJbJbJbJbJbJdCaCaBaBaBaBaBaBaBaBaBaHaHaHadadaHagagagaHaHadaHaHeJaHaHaHaHaeaHaHaHaeaHaHekekekekekaRekekekekacekekacacacacacacacacacacacacacacaFaJaJdeaFeheiemeheheh
-aaaaaaaaaaaaaaaaaaaaaaaaegegbWfObWbWbWbWbWbJbJdGbWdnaCaBaBaBaBaBaBaBaHaHaHadadadaHaHaHaHaHaHaHaHaHagaHaHaHfkaHaeaHaHaHaHaHaHekekekekekekbIekekekacekekekacacacacacacacacacacacacacaFdeaJdeaFehaJaJdebseh
+aaaaaaaaaaaaaaaaaaaaaaaabreobJbJbJbAbJfQbJbJbJbJbJdCaCaBaBaBaBaBaBaBaBaBaHaHaHadadaHagagagaHaHadaHaHeJaHaHaHaHaeaHaHaHaeaHaHekekekekekaRekekekekacekekacacacacacacacacacacacacacacaFaJaJdeaFeheiemeheheh
+aaaaaaaaaaaaaaaaaaaaaaaaegegbWfObWbWbWbWbWbJfQdGbWdnaCaBaBaBaBaBaBaBaHaHaHadadadaHaHaHaHaHaHaHaHaHagaHaHaHfkaHaeaHaHaHaHaHaHekekekekekekbIekekekacekekekacacacacacacacacacacacacacaFdeaJdeaFehaJaJdebseh
 aaaaaaaaaaaaaaaaaaaaaaazazazaBaBaBaBaBaBaBdHdIdJaBaBaBaBaBaBaBaBaHaBaHaHaHaHadaHaHaHaoaHaiaHaHaHaHagaHaHaHaHaHadaHaHaHadadadadaHaHaHaHaHaHaHaHaHaHaHagagagagagagagagagaGaGaGaGacacaFdeaJaJaFehdeaJaJbkeh
 aaaaaaaaaaaaaaaaaaaaaaazazazazaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaHaHafaHaHaHaHaHaHadaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHadadadadaHaHaHaHaeaHaHaHaHaHaHagagaHaHaHagagagagagaGaGaGacacaFaJdeaJaFehdLaKaKdLeh
 aaaaaaaaaaaaaaaaaaaaaaaaazazazaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaHaHaHaHaHadahaHaHaHaHaHaHaeaHaHaHaHaHaHadaHaHaHaHaHaeaHadadaHaHaHaHadaHaHaHaHaHaHaHaHaHaHagagagaHagagagaGacacaFdeaJaJaFehdLaJcCdLeh

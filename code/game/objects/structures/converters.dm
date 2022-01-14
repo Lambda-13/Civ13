@@ -1,7 +1,7 @@
 /obj/structure/converter
 	name = "philosophers stone"
 	desc = "DONT USE THIS!!! (Lead to Gold)"
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "wood_pole1"
 	var/idlesprite = "wood_pole1" //Icon when not full.
 	var/activesprite = "impaledskull" //Icon when full.
@@ -73,7 +73,7 @@
 /obj/structure/converter/tanning
 	name = "tanning rack"
 	desc = "Turns hide into leather"
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "drying_rack_empty"
 	idlesprite = "drying_rack_empty"
 	activesprite = "drying_rack_full"
@@ -88,7 +88,7 @@
 /obj/structure/converter/retting_trough
 	name = "retting trough"
 	desc = "Soaks fiberous plants over time into retted fabric. Requires at least two seperate hemp or flax at a time."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "retting_trough"
 	idlesprite = "retting_trough"
 	activesprite = "retting_trough_full"
@@ -104,7 +104,7 @@
 /obj/structure/converter/acid_bath
 	name = "industrial acidic bath"
 	desc = "Soaks man-made fibres over time into usuable material. It would not be big or deep enough to fit say... a human body inside."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "kevlar_trough"
 	idlesprite = "kevlar_trough"
 	activesprite = "kevlar_trough_full"

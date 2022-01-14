@@ -5,7 +5,7 @@
 	author = "Victoria Ponsonby"
 	title = "Chef Recipes"
 
-	dat = {"<meta charset='utf-8'>
+	dat = {"<html>
 				<head>
 				<style>
 				h1 {font-size: 18px; margin: 15px FALSEpx 5px;}
@@ -64,7 +64,7 @@
 	author = "Sir John Rose"
 	title = "Barman Recipes"
 
-	dat = {"<meta charset='utf-8'>
+	dat = {"<html>
 				<head>
 				<style>
 				h1 {font-size: 18px; margin: 15px FALSEpx 5px;}

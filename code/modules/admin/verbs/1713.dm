@@ -154,39 +154,6 @@
 			map.lizard -= conf
 		if (conf in map.wolfman)
 			map.wolfman -= conf
-	else if (choice == "skeletman")
-		map.skeletman += conf
-		if (conf in map.crab)
-			map.crab -= conf
-		if (conf in map.orc)
-			map.orc -= conf
-		if (conf in map.human)
-			map.human -= conf
-		if (conf in map.gorilla)
-			map.gorilla -= conf
-		if (conf in map.ant)
-			map.ant -= conf
-		if (conf in map.lizard)
-			map.lizard -= conf
-		if (conf in map.wolfman)
-			map.wolfman -= conf
-	else if (choice == "Zombie")
-		map.zombieman += conf
-		if (conf in map.crab)
-			map.crab -= conf
-		if (conf in map.orc)
-			map.orc -= conf
-		if (conf in map.human)
-			map.human -= conf
-		if (conf in map.gorilla)
-			map.gorilla -= conf
-		if (conf in map.ant)
-			map.ant -= conf
-		if (conf in map.lizard)
-			map.lizard -= conf
-		if (conf in map.wolfman)
-			map.wolfman -= conf
-
 	message_admins("[key_name(src)] changed the [conf] to [choice].")
 	log_admin("[key_name(src)] changed the [conf] to [choice].")
 	return
@@ -629,7 +596,7 @@ var/filipino_forceEnabled = FALSE
 	var/mortality_vietnamese = round(mortality_coefficient_vietnamese*100)
 	var/mortality_chinese = round(mortality_coefficient_chinese*100)
 	var/mortality_filipino = round(mortality_coefficient_filipino*100)
-/*
+
 	var/msg1 = "British: [alive_british.len] alive, [heavily_injured_british.len] heavily injured or unconscious, [dead_british.len] deceased. Mortality rate: [mortality_british]%"
 	var/msg2 = "Pirates: [alive_pirates.len] alive, [heavily_injured_pirates.len] heavily injured or unconscious, [dead_pirates.len] deceased. Mortality rate: [mortality_pirates]%"
 	var/msg3 = "Civilians: [alive_civilians.len] alive, [heavily_injured_civilians.len] heavily injured or unconscious, [dead_civilians.len] deceased. Mortality rate: [mortality_civilian]%"
@@ -652,32 +619,6 @@ var/filipino_forceEnabled = FALSE
 	var/msg20 = "Finnish: [alive_finnish.len] alive, [heavily_injured_finnish.len] heavily injured or unconscious, [dead_finnish.len] deceased. Mortality rate: [mortality_finnish]%"
 
 	var/msg_npcs = "NPCs: [faction1_npcs] americans alive, [faction2_npcs] japanese alive."
-*/
-
-//Start Russian Status Report//
-	var/msg1 = "British: [alive_british.len] живо, [heavily_injured_british.len] сильно ранено или без сознания, [dead_british.len] откинулось. Коэффицент смертности: [mortality_british]%"
-	var/msg2 = "Pirates: [alive_pirates.len] живо, [heavily_injured_pirates.len] сильно ранено или без сознания, [dead_pirates.len] откинулось. Коэффицент смертности: [mortality_pirates]%"
-	var/msg3 = "Civilians: [alive_civilians.len] живо, [heavily_injured_civilians.len] сильно ранено или без сознания, [dead_civilians.len] откинулось. Коэффицент смертности: [mortality_civilian]%"
-	var/msg4 = "Spanish: [alive_spanish.len] живо, [heavily_injured_spanish.len] сильно ранено или без сознания, [dead_spanish.len] откинулось. Коэффицент смертности: [mortality_spanish]%"
-	var/msg5 = "Portuguese: [alive_portuguese.len] живо, [heavily_injured_portuguese.len] сильно ранено или без сознания, [dead_portuguese.len] откинулось. Коэффицент смертности: [mortality_portuguese]%"
-	var/msg6 = "French: [alive_french.len] живо, [heavily_injured_french.len] сильно ранено или без сознания, [dead_french.len] откинулось. Коэффицент смертности: [mortality_french]%"
-	var/msg8 = "Dutch: [alive_dutch.len] живо, [heavily_injured_dutch.len] сильно ранено или без сознания, [dead_dutch.len] откинулось. Коэффицент смертности: [mortality_dutch]%"
-	var/msg7 = "Natives: [alive_indians.len] живо, [heavily_injured_indians.len] сильно ранено или без сознания, [dead_indians.len] откинулось. Коэффицент смертности: [mortality_indians]%"
-	var/msg9 = "Romans: [alive_roman.len] живо, [heavily_injured_roman.len] сильно ранено или без сознания, [dead_roman.len] откинулось. Коэффицент смертности: [mortality_roman]%"
-	var/msg10 = "Greeks: [alive_greek.len] живо, [heavily_injured_greek.len] сильно ранено или без сознания, [dead_greek.len] откинулось. Коэффицент смертности: [mortality_greek]%"
-	var/msg11 = "Arabs: [alive_arab.len] живо, [heavily_injured_arab.len] сильно ранено или без сознания, [dead_arab.len] откинулось. Коэффицент смертности: [mortality_arab]%"
-	var/msg12 = "Japanese: [alive_japanese.len] живо, [heavily_injured_japanese.len] сильно ранено или без сознания, [dead_japanese.len] откинулось. Коэффицент смертности: [mortality_japanese]%"
-	var/msg13 = "Russian: [alive_russian.len] живо, [heavily_injured_russian.len] сильно ранено или без сознания, [dead_russian.len] откинулось. Коэффицент смертности: [mortality_russian]%"
-	var/msg14 = "German: [alive_german.len] живо, [heavily_injured_german.len] сильно ранено или без сознания, [dead_german.len] откинулось. Коэффицент смертности: [mortality_german]%"
-	var/msg15 = "American: [alive_american.len] живо, [heavily_injured_american.len] сильно ранено или без сознания, [dead_american.len] откинулось. Коэффицент смертности: [mortality_american]%"
-	var/msg16 = "Vietnamese: [alive_vietnamese.len] живо, [heavily_injured_vietnamese.len] сильно ранено или без сознания, [dead_vietnamese.len] откинулось. Коэффицент смертности: [mortality_vietnamese]%"
-	var/msg17 = "Chinese: [alive_chinese.len] живо, [heavily_injured_chinese.len] сильно ранено или без сознания, [dead_chinese.len] откинулось. Коэффицент смертности: [mortality_chinese]%"
-	var/msg18 = "Filipino: [alive_filipino.len] живо, [heavily_injured_filipino.len] сильно ранено или без сознания, [dead_filipino.len] откинулось. Коэффицент смертности: [mortality_filipino]%"
-	var/msg19 = "Chechen: [alive_chechen.len] alive, [heavily_injured_chechen.len] heavily injured or unconscious, [dead_chechen.len] deceased. Mortality rate: [mortality_chechen]%"
-	var/msg20 = "Finnish: [alive_finnish.len] alive, [heavily_injured_finnish.len] heavily injured or unconscious, [dead_finnish.len] deceased. Mortality rate: [mortality_finnish]%"
-
-	var/msg_npcs = "NPCs: [faction1_npcs] американцев живо, [faction2_npcs] японцев живо."
-//End Russian Status Report//
 
 	var/msg_companies= ""
 	var/relpc = ""

@@ -3,7 +3,7 @@
 	desc = "To announce the arrival of the king!"
 	icon_state = "trombone"
 	item_state = "trombone"
-	icon = 'icons/russian/obj/musician.dmi'
+	icon = 'icons/obj/musician.dmi'
 	force = WEAPON_FORCE_WEAK
 	var/datum/song/song
 	var/playing = FALSE

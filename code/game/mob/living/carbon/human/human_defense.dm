@@ -58,12 +58,6 @@ bullet_act
 					else if (lizard)
 						var/obj/item/stack/material/pelt/lizardpelt/HP = new/obj/item/stack/material/pelt/lizardpelt(get_turf(src))
 						HP.amount = 3
-					else if (skeletman)
-						var/obj/item/stack/material/pelt/lizardpelt/HP = new/obj/item/stack/material/pelt/lizardpelt(get_turf(src))	//WIP LAMBDA13
-						HP.amount = 3
-					else if (zombieman)
-						var/obj/item/stack/material/pelt/lizardpelt/HP = new/obj/item/stack/material/pelt/lizardpelt(get_turf(src)) //WIP LAMBDA13
-						HP.amount = 3
 					else
 						var/obj/item/stack/material/pelt/humanpelt/HP = new/obj/item/stack/material/pelt/humanpelt(get_turf(src))
 						HP.amount = 3

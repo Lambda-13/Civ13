@@ -11,7 +11,7 @@
 /obj/structure/repair
 	name = "repair bench"
 	desc = "Repair your gear!."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "gunbench1"
 	density = TRUE
 	anchored = TRUE

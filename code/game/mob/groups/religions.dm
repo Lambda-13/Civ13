@@ -322,7 +322,7 @@
 
 obj/structure/altar
 	name = "religious altar"
-	icon = 'icons/russian/obj/cross.dmi'
+	icon = 'icons/obj/cross.dmi'
 	icon_state = "wood_altar"
 	desc = "A religious altar."
 	var/religion = "none"
@@ -549,7 +549,7 @@ obj/structure/altar/iron
 	set category = "Faction"
 	if (map && map.civilizations)
 
-		var/body = "<meta charset='utf-8'><head><title>Religion List</title></head><b>RELIGION LIST</b><br><br>"
+		var/body = "<html><head><title>Religion List</title></head><b>RELIGION LIST</b><br><br>"
 		for (var/rel in map.custom_religions)
 			body += "<b>[rel]</b>: [map.custom_religions[rel][3]] points.</br>"
 		body += {"<br>

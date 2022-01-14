@@ -126,7 +126,7 @@
 	desc = "A device used to detect radiation."
 	w_class = 2.0
 	slot_flags = SLOT_BELT|SLOT_ID|SLOT_POCKET
-	icon = 'icons/russian/obj/device.dmi'
+	icon = 'icons/obj/device.dmi'
 	icon_state = "geiger_off"
 	item_state = "multitool"
 	flammable = TRUE

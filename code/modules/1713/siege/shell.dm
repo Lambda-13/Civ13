@@ -254,7 +254,7 @@
 
 ////////////////////////////////////////////////////////
 /obj/structure/shellrack
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	name = "shell rack"
 	icon_state = "shellrack0"
 	w_class = 10.0

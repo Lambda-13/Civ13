@@ -3,7 +3,7 @@
 	throwforce = 20
 	fire_sound = 'sound/weapons/guns/fire/smg.ogg'
 	silencer_fire_sound = 'sound/weapons/guns/fire/Gyrza-SD.ogg'
-	icon = 'icons/russian/obj/guns/automatic.dmi'
+	icon = 'icons/obj/guns/automatic.dmi'
 	var/base_icon = "smg"
 	// more accuracy than MGs, less than everything else
 	load_method = MAGAZINE
@@ -154,6 +154,7 @@
 	force = 15
 	throwforce = 30
 	weight = 3.4
+	fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
 	firemodes = list(
 		list(name="semi auto",    burst=1, burst_delay=0.7, recoil=0, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
 		list(name="full auto",    burst=1, burst_delay=1.2, recoil=0, move_delay=4, dispersion = list(1.1, 1.2, 1.3, 1.3, 1.5)),
@@ -161,6 +162,33 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/spas/secondary_attack_self(mob/living/human/user)
 	switch_firemodes(user)
+
+/obj/item/weapon/gun/projectile/submachinegun/saiga12
+	name = "Saiga-12K"
+	icon_state = "saiga12"
+	item_state = "saiga12"
+	base_icon = "saiga12"
+	desc = "A 12 gauge semi-automatic, gas-operated combat shotgun used by Russian Armed Forces."
+	magazine_type = /obj/item/ammo_magazine/saiga12
+	weight = 3.5
+	equiptimer = 11
+	effectiveness_mod = 1.46
+	caliber = "12gauge"
+	slot_flags = SLOT_SHOULDER
+	handle_casings = EJECT_CASINGS
+	load_method = MAGAZINE
+	good_mags = list(/obj/item/ammo_magazine/saiga12)
+	recoil = 1
+	force = 15
+	throwforce = 30
+	weight = 3.4
+	fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
+	firemodes = list(
+		list(name="semi auto",    burst=1, burst_delay=0.7, recoil=0, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
+		)
+
+	sel_mode = 1
+	gun_type = GUN_TYPE_RIFLE
 
 /obj/item/weapon/gun/projectile/submachinegun/mp40
 	name = "MP40"
@@ -565,7 +593,6 @@
 	effectiveness_mod = 1.02
 	damage_modifier = 0.95
 	equiptimer = 12
-	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/aks74u/update_icon()
 	if (folded)
@@ -629,7 +656,7 @@
 	effectiveness_mod = 1.02
 	damage_modifier = 0.95
 	equiptimer = 12
-	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_ADV_SCOPE|ATTACH_UNDER
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_ADV_SCOPE|ATTACH_UNDER|ATTACH_BARREL|ATTACH_ADV_SCOPE
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/aks74u/aks74uso/update_icon()
 	if (folded)
@@ -908,7 +935,6 @@
 /obj/item/weapon/gun/projectile/submachinegun/m16/commando
 	name = "XM177E2"
 	desc = "A carbine version of the AR-15/M16, chambered in 5.56x45mm."
-	icon = 'icons/russian/obj/guns/assault_rifles.dmi'
 	icon_state = "m4"
 	item_state = "m4"
 	base_icon = "m4"
@@ -1462,9 +1488,9 @@
 	name = "VZ-58"
 	desc = "Czechoslovakian assault rifle chambered in 7.62x39mm."
 	icon = 'icons/obj/guns/assault_rifles.dmi'
-	icon_state = "az58"
+	icon_state = "vz58"
 	item_state = "vz58"
-	base_icon = "az58"
+	base_icon = "vz58"
 	caliber = "a762x39"
 	fire_sound = 'sound/weapons/guns/fire/AKM.ogg'
 	reload_sound = 'sound/weapons/guns/interact/AKReload.ogg'
@@ -1481,3 +1507,19 @@
 	effectiveness_mod = 1.20
 	sel_mode = 1
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
+
+/obj/item/weapon/gun/projectile/submachinegun/vz58/white
+	name = "White VZ-58"
+	desc = "Czechoslovakian assault rifle chambered in 7.62x39mm. This model has a birch stock and handguard."
+	icon = 'icons/obj/guns/assault_rifles.dmi'
+	icon_state = "white_vz58"
+	item_state = "white_vz58"
+	base_icon = "white_vz58"
+
+/obj/item/weapon/gun/projectile/submachinegun/vz58/black
+	name = "Black VZ-58"
+	desc = "Czechoslovakian assault rifle chambered in 7.62x39mm. This model has a black stock and handguard."
+	icon = 'icons/obj/guns/assault_rifles.dmi'
+	icon_state = "black_vz58"
+	item_state = "black_vz58"
+	base_icon = "black_vz58"

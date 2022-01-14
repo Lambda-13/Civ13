@@ -11,7 +11,7 @@
 	set category = "OOC"
 	set name = "Open Wiki"
 	if (mob)
-		var/htmlfile = "<!DOCTYPE html><meta charset='utf-8'><HEAD><TITLE>Civ13 Wiki</TITLE><META http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"></HEAD> \
+		var/htmlfile = "<!DOCTYPE html><HTML><HEAD><TITLE>Civ13 Wiki</TITLE><META http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"></HEAD> \
 		<BODY><iframe src=\"http://civ13.com/wiki/index.php\" style=\"position: absolute; height: 97%; width: 97%; border: none\"></iframe></BODY></HTML>"
 		src << browse(htmlfile,"window=wiki;size=820x650")
 
@@ -257,6 +257,24 @@
 	msg = "[msg_prefix][msg]"
 	if (!msg)	return
 
+	if (!holder)
+		if (!config.ooc_allowed)
+			src << "<span class='danger'>OOC is globally muted.</span>"
+			return
+		if (!config.dooc_allowed && (mob.stat == DEAD))
+			usr << "<span class='danger'>OOC for dead mobs has been turned off.</span>"
+			return
+		if (prefs.muted & MUTE_OOC)
+			src << "<span class='danger'>You cannot use OOC (muted).</span>"
+			return
+		if (handle_spam_prevention(msg,MUTE_OOC))
+			return
+		if (findtext(msg, "byond://"))
+			src << "<b>Advertising other servers is not allowed.</b>"
+			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]")
+			message_admins("[key_name_admin(src)] has attempted to advertise in OOC: [msg]")
+			return
+
 	/* mentioning clients with @key or @ckey */
 	for (var/client/C in clients)
 		if (C.pingability)
@@ -297,24 +315,6 @@
 			if (C.holder && C.holder.rights & R_PERMISSIONS)
 				winset(C, "mainwindow", "flash=2;")
 				C << sound('sound/machines/ping.ogg')
-
-	if (!holder)
-		if (!config.ooc_allowed)
-			src << "<span class='danger'>OOC is globally muted.</span>"
-			return
-		if (!config.dooc_allowed && (mob.stat == DEAD))
-			usr << "<span class='danger'>OOC for dead mobs has been turned off.</span>"
-			return
-		if (prefs.muted & MUTE_OOC)
-			src << "<span class='danger'>You cannot use OOC (muted).</span>"
-			return
-		if (handle_spam_prevention(msg,MUTE_OOC))
-			return
-		if (findtext(msg, "byond://"))
-			src << "<b>Advertising other servers is not allowed.</b>"
-			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]")
-			message_admins("[key_name_admin(src)] has attempted to advertise in OOC: [msg]")
-			return
 
 	log_ooc("[mob.name]/[key] : [msg]")
 	discord_log("[mob.name]/[key]:","[msg]")

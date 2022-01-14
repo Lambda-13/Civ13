@@ -1,7 +1,7 @@
 /obj/structure/gunbench
 	name = "gunsmithing bench"
 	desc = "A large wooden workbench. The gunsmith's main work tool. It has 0 steel and 0 wood on it."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "gunbench1"
 	density = TRUE
 	anchored = TRUE
@@ -200,14 +200,14 @@
 	var/found = FALSE
 	if (istype(user.l_hand, /obj/item/stack/money))
 		var/obj/item/stack/money/M = user.l_hand
-		if (M.value*M.amount >= 5)
+		if (M.value*M.amount >= 20)
 			found = TRUE
 	else if (istype(user.r_hand, /obj/item/stack/money))
 		var/obj/item/stack/money/M = user.r_hand
-		if (M.value*M.amount >= 5)
+		if (M.value*M.amount >= 20)
 			found = TRUE
 	if (!found)
-		user << "You don't have enough money to make a new blueprint! You need 10 gold or equivalent in one of your hands."
+		user << "You don't have enough money to make a new blueprint! You need 50 gold or equivalent in one of your hands."
 		return FALSE
 ////////////////STOCK///////////////////////////////
 	var/list/display = list("Cancel")
@@ -496,7 +496,7 @@
 					possible_list += "negev"
 					possible_list += "m60"
 			if ("Open-Bolt (small)")
-				current_gun.override_icon = 'icons/russian/obj/guns/automatic.dmi'
+				current_gun.override_icon = 'icons/obj/guns/automatic.dmi'
 				possible_list = list("Cancel", "pps", "ppsh", "mp40", "greasegun", "tommygun", "thompson", "avtomat")
 				if (map.ordinal_age >= 8)
 					possible_list += "victor"
@@ -506,10 +506,10 @@
 				possible_list = list("Cancel", "revolver", "t26revolver", "nagant", "panther", "detective", "detective_leopard", "detective_gold", "goldrevolver", "mateba", "peacemaker", "colt1877", "dragoon", "coltnewpolice", "enfield02", "smithwesson32", "graysonfito", "magnum58", "webley4", "m1892")
 			if ("Semi-Auto (small)")
 				current_gun.override_icon = 'icons/obj/guns/pistols.dmi'
-				possible_list = list("Cancel", "p220", "nambu", "mauser", "luger", "borchardt", "colt", "m9beretta", "tanm9", "black1911","tt30", "waltherp38", "jericho941", "glock17", "coltpockethammerles", "tarusg3", "mp443", "chinese_ms14", "chinese_plastic", "pl14", "sig250")
+				possible_list = list("Cancel", "p220", "nambu", "mauser", "luger", "borchardt", "colt", "m9beretta", "tanm9", "black1911","tt30","makarov", "waltherp38", "jericho941", "glock17", "coltpockethammerles", "tarusg3", "mp443", "chinese_ms14", "chinese_plastic", "pl14", "sig250")
 			if ("Dual Selective Fire")
 				current_gun.override_icon = 'icons/obj/guns/assault_rifles.dmi'
-				possible_list = list("Cancel", "stg", "g3", "ar12", "ak47", "ak74", "aks74", "akms", "ak74m", "az58", "whiteaz58", "blackaz58", "chinese_assault_rifle")
+				possible_list = list("Cancel", "stg", "g3", "ar12", "ak47", "ak74", "aks74", "akms", "ak74m", "vz58", "whitevz58", "blackvz58", "chinese_assault_rifle")
 			if ("Triple Selective Fire")
 				current_gun.override_icon = 'icons/obj/guns/assault_rifles.dmi'
 				possible_list = list("Cancel", "m16","m16a2","m16a4","m4", "m4mws", "hk417", "scarl", "scarh", "ar15", "mk18", "mk18tan", "sigsauer")
@@ -534,14 +534,14 @@
 		var/foundm = FALSE
 		if (istype(user.l_hand, /obj/item/stack/money))
 			var/obj/item/stack/money/M = user.l_hand
-			if (M.value*M.amount >= 50)
+			if (M.value*M.amount >= 200)
 				foundm = TRUE
-				M.amount -= 50/M.value
+				M.amount -= 200/M.value
 		else if (istype(user.r_hand, /obj/item/stack/money))
 			var/obj/item/stack/money/M = user.r_hand
-			if (M.value*M.amount >= 50)
+			if (M.value*M.amount >= 200)
 				foundm = TRUE
-				M.amount -= 50/M.value
+				M.amount -= 200/M.value
 		if (foundm)
 			var/obj/item/blueprint/gun/newgunbp = new/obj/item/blueprint/gun(loc)
 			newgunbp.name = "[current_gun.name] blueprint"

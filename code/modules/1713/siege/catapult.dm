@@ -260,7 +260,7 @@
 		m << browse({"
 
 		<br>
-		<meta charset='utf-8'>
+		<html>
 
 		<head>
 		[common_browser_style]

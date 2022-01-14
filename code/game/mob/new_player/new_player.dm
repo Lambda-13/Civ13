@@ -40,8 +40,12 @@ var/global/redirect_all_players = null
 				C << link(redirect_all_players)
 	spawn(20)
 		if (map && map.ID == MAP_THE_ART_OF_THE_DEAL)
-			var/htmlfile = "<!DOCTYPE html><meta charset='utf-8'><HEAD><TITLE>Wiki Guide</TITLE><META http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"></HEAD> \
-			<BODY><iframe src=\"https://tsivilizatsiya-13.fandom.com/ru/wiki/Цивилизация_13_Вики\"  style=\"position: absolute; height: 97%; width: 97%; border: none\"></iframe></BODY></HTML>"
+			var/htmlfile = "<!DOCTYPE html><HTML><HEAD><TITLE>Wiki Guide</TITLE><META http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"></HEAD> \
+			<BODY><iframe src=\"https://civ13.github.io/civ13-wiki/The_Art_of_the_Deal\"  style=\"position: absolute; height: 97%; width: 97%; border: none\"></iframe></BODY></HTML>"
+			src << browse(htmlfile,"window=wiki;size=820x650")
+		if (map && map.ID == MAP_GULAG13)
+			var/htmlfile = "<!DOCTYPE html><HTML><HEAD><TITLE>Wiki Guide</TITLE><META http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"></HEAD> \
+			<BODY><iframe src=\"https://civ13.github.io/civ13-wiki/Gulag_13\"  style=\"position: absolute; height: 97%; width: 97%; border: none\"></iframe></BODY></HTML>"
 			src << browse(htmlfile,"window=wiki;size=820x650")
 
 /mob/new_player/Destroy()
@@ -96,7 +100,7 @@ var/global/redirect_all_players = null
 
 	var/output_stylized = {"
 	<br>
-	<meta charset='utf-8'>
+	<html>
 	<head>
 	[common_browser_style]
 	</head>
@@ -425,7 +429,9 @@ var/global/redirect_all_players = null
 		return TRUE
 
 	if (href_list["SelectedJob"])
-
+		if(href_list["SelectedJob"] == "Company Member")
+			AttemptLateSpawn(href_list["SelectedJob"])
+			return
 		var/datum/job/actual_job = null
 
 		for (var/datum/job/j in job_master.occupations)
@@ -439,11 +445,11 @@ var/global/redirect_all_players = null
 		var/job_flag = actual_job.base_type_flag()
 
 		if (!config.enter_allowed)
-			WWalert(usr,"Админ запретил заходить в раунд.", "Error")
+			WWalert(usr,"There is an administrative lock on entering the game!", "Error")
 			return
 
 		if (map && map.has_occupied_base(job_flag) && map.ID != MAP_CAPITOL_HILL && map.ID != MAP_CAMP && map.ID != MAP_HILL_203 && map.ID != MAP_CALOOCAN && map.ID != MAP_YELTSIN)
-			WWalert(usr,"Враги оккупировали эту базу! Придётся выбрать что-то другое.", "Error")
+			WWalert(usr,"The enemy is currently occupying your base! You can't be deployed right now.", "Error")
 			return
 //prevent boss spawns if there are enemies in the building
 		if (map && map.ID == MAP_CAPITOL_HILL)
@@ -453,28 +459,21 @@ var/global/redirect_all_players = null
 				return
 		if (map && map.ID == MAP_YELTSIN)
 			var/obj/map_metadata/yeltsin/CP = map
-			if (CP.gamemode == "Protect the VIP" && isemptylist(CP.HVT_list) && (actual_job && actual_job.title != "Soviet HVT"))
+			if (CP.gamemode == "Protect the VIP" && isemptylist(CP.HVT_list) && (actual_job && actual_job.title != "Soviet Supreme Chairman"))
 				WWalert(usr,"Someone needs to spawn as the HVT first!", "Error")
 				return
 		if (map && map.ID == MAP_ALLEYWAY)
 			if (actual_job && actual_job.title == "Yama Wakagashira")
 				for(var/mob/living/human/HM in get_area_turfs(/area/caribbean/houses/nml_two))
 					if (HM.original_job.is_ichi)
-						WWalert(usr,"Враги оккупировали эту базу! Придётся выбрать что-то другое.", "Error")
+						WWalert(usr,"The enemy is currently occupying your base! You can't be deployed as an underboss right now.", "Error")
 						return
 			if (actual_job.title == "Ichi Wakagashira")
 				for(var/mob/living/human/HM in get_area_turfs(/area/caribbean/houses/nml_one))
 					if (HM.original_job.is_yama)
-						WWalert(usr,"Враги оккупировали эту базу! Придётся выбрать что-то другое.", "Error")
+						WWalert(usr,"The enemy is currently occupying your base! You can't be deployed as an underboss right now.", "Error")
 						return
-		/area/caribbean/houses/nml_one
-/* "Old" whitelisting proccess
-		if (actual_job.whitelisted)
-			if (!actual_job.validate(client))
-				WWalert(usr,"You need to be whitelisted to play this job. Apply in the Discord.","Error")
-				return
-*/
-		if (actual_job.whitelisted && !isemptylist(whitelist_list) && config.use_job_whitelist)
+		if (actual_job.whitelisted && !isemptylist(whitelist_list) && config.use_job_whitelist && clients.len > 12)
 			var/found = FALSE
 			for (var/i in whitelist_list)
 				var/temp_ckey = lowertext(i)
@@ -483,11 +482,15 @@ var/global/redirect_all_players = null
 				if (temp_ckey == client.ckey)
 					found = TRUE
 			if (!found)
-				WWalert(usr,"Тебя нету в вайтлисте.","Error")
+				WWalert(usr,"You need to be whitelisted to play this job. Apply in the Discord.","Error")
 				return
 
 		if (actual_job.is_officer)
-			if ((input(src, "Это главенствующая позиция, ты уверен что хочешь взять [actual_job.title]?") in list("Yes", "No")) == "No")
+			if ((input(src, "This is an officer position. You're expected to coordinate your team's actions instead of engaging in direct combat. Are you sure you want to join in as a [actual_job.title]?") in list("Yes", "No")) == "No")
+				return
+
+		if (actual_job.is_squad_leader)
+			if ((input(src, "This is a squad leader position. You're expected to coordinate your squad actions and accomplish orders given by your superiors. If you die, your squad members won't be able to spawn on you anymore. Are you sure you want to join in as a [actual_job.title]?") in list("Yes", "No")) == "No")
 				return
 
 		if (actual_job.spawn_delay)
@@ -534,11 +537,11 @@ var/global/redirect_all_players = null
 		return FALSE
 	if (!ticker || ticker.current_state != GAME_STATE_PLAYING)
 		if (!nomsg)
-			WWalert(usr,"Раунд закончился или ещё не начался.","Error")
+			WWalert(usr,"The round is either not ready, or has already finished.","Error")
 			if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.civilizations == TRUE || map.ID == MAP_FOUR_KINGDOMS)
 				abandon_mob()
 				spawn(10)
-					WWalert(usr,"Раунд закончился или ещё не начался.", "Error")
+					WWalert(usr,"The round is either not ready, or has already finished.", "Error")
 		return FALSE
 	if (!config.enter_allowed)
 		if (!nomsg)
@@ -557,6 +560,44 @@ var/global/redirect_all_players = null
 					WWalert(usr,"You're banned from this role!", "Error")
 
 		return FALSE
+
+	if (rank == "Company Member")
+		var/y_nr = processes.job_data.get_active_positions_name("Goldstein Solutions")
+		var/g_nr = processes.job_data.get_active_positions_name("Kogama Kraftsmen")
+		var/r_nr = processes.job_data.get_active_positions_name("Rednikov Industries")
+		var/b_nr = processes.job_data.get_active_positions_name("Giovanni Blu Stocks")
+		var/list/posslist = list("Goldstein Solutions", "Kogama Kraftsmen", "Rednikov Industries", "Giovanni Blu Stocks")
+		if (r_nr > y_nr && r_nr > b_nr && r_nr > g_nr)
+			posslist -= "Rednikov Industries"
+		if (b_nr > y_nr && b_nr > r_nr && b_nr > g_nr)
+			posslist -= "Giovanni Blu Stocks"
+		if (g_nr > y_nr && g_nr > b_nr && g_nr > r_nr)
+			posslist -= "Kogama Kraftsmen"
+		if (y_nr > r_nr && y_nr > b_nr && y_nr > g_nr)
+			posslist -= "Goldstein Solutions"
+		if (isemptylist(posslist))
+			rank = pick("Goldstein Solutions", "Kogama Kraftsmen", "Rednikov Industries", "Giovanni Blu Stocks")
+		else
+			rank = pick(posslist)
+		spawning = TRUE
+		close_spawn_windows()
+		job_master.AssignRole(src, rank, TRUE)
+		var/mob/living/character = create_character(job2mobtype(rank))	//creates the human and transfers vars and mind
+		if (!character)
+			return FALSE
+
+		character = job_master.EquipRank(character, rank, TRUE)					//equips the human
+		job_master.relocate(character)
+
+		if (character.buckled && istype(character.buckled, /obj/structure/bed/chair/wheelchair))
+			character.buckled.loc = character.loc
+			character.buckled.set_dir(character.dir)
+
+		if (character.mind)
+			ticker.minds += character.mind
+		character.lastarea = get_area(loc)
+		qdel(src)
+		return TRUE
 	if (!IsJobAvailable(rank))
 		if (!nomsg)
 			WWalert(src, "'[rank]' has already been taken by someone else.", "Error")
@@ -629,32 +670,10 @@ var/global/redirect_all_players = null
 		WWalert(usr,"You must be under 18 to play this role.","Error")
 		return FALSE
 
-	if (map.ordinal_age == 2 && !map.civilizations && !istype(job, /datum/job/civilian) && map.ID != MAP_BOHEMIA && map.ID != MAP_BOHEMIARU)
+	if (map.ordinal_age == 2 && !map.civilizations && !istype(job, /datum/job/civilian) && map.ID != MAP_BOHEMIA)
 		if (client.prefs.gender == FEMALE)
 			WWalert(usr,"You must be male to play as this faction.","Error")
 			return FALSE
-	if (job.is_deal)
-		var/y_nr = processes.job_data.get_active_positions_name("Goldstein Solutions")
-		var/g_nr = processes.job_data.get_active_positions_name("Kogama Kraftsmen")
-		var/r_nr = processes.job_data.get_active_positions_name("Rednikov Industries")
-		var/b_nr = processes.job_data.get_active_positions_name("Giovanni Blu Stocks")
-
-		if (istype(job, /datum/job/civilian/businessman/red))
-			if (r_nr > y_nr || r_nr > b_nr || r_nr > g_nr)
-				WWalert(usr,"Too many people playing as this role.","Error")
-				return FALSE
-		else if(istype(job, /datum/job/civilian/businessman/blue))
-			if (b_nr > y_nr || b_nr > r_nr || b_nr > g_nr)
-				WWalert(usr,"Too many people playing as this role.","Error")
-				return FALSE
-		else if(istype(job, /datum/job/civilian/businessman/green))
-			if (g_nr > y_nr || g_nr > b_nr || g_nr > r_nr)
-				WWalert(usr,"Too many people playing as this role.","Error")
-				return FALSE
-		else if(istype(job, /datum/job/civilian/businessman/yellow))
-			if (y_nr > r_nr || y_nr > b_nr || y_nr > g_nr)
-				WWalert(usr,"Too many people playing as this role.","Error")
-				return FALSE
 	if (job.is_yakuza)
 		var/yy_nr = processes.job_data.get_active_positions_name("Yamaguchi-Gumi Kaiin")
 		var/yi_nr = processes.job_data.get_active_positions_name("Ichiwa-Kai Kaiin")
@@ -688,11 +707,6 @@ var/global/redirect_all_players = null
 				WWalert(usr,"Too many people playing as Eastern: [yi_nr] Western, [yy_nr] Eastern","Error")
 				return FALSE
 
-
-//		else if(istype(job, /datum/job/civilian/policeofficer))
-//			if (job.current_positions > r_nr || job.current_positions > b_nr && job.current_positions > g_nr && job.current_positions > y_nr)
-//				WWalert(usr,"Too many people playing as this role.","Error")
-//				return FALSE
 	spawning = TRUE
 	close_spawn_windows()
 	job_master.AssignRole(src, rank, TRUE)
@@ -863,7 +877,6 @@ var/global/redirect_all_players = null
 		)
 
 	var/prev_side = FALSE
-
 	for (var/datum/job/job in job_master.faction_organized_occupations)
 
 		if (job.faction != "Human")
@@ -959,7 +972,6 @@ var/global/redirect_all_players = null
 
 			var/extra_span = "<b>"
 			var/end_extra_span = "</b><br>"
-
 			if (job.is_officer && !job.is_commander)
 				extra_span = "<b><font size=2>"
 				end_extra_span = "</font></b><br>"
@@ -975,8 +987,8 @@ var/global/redirect_all_players = null
 				if (job_is_available)
 					dat += "&[job.base_type_flag()]&[extra_span]<a style=\"background-color:[job.selection_color];\" href='byond://?src=\ref[src];SelectedJob=[job.title]'>[job.title] ([job.en_meaning]) ([job.current_positions]/[job.total_positions]) (Active: [active])</a>[end_extra_span]"
 					++available_jobs_per_side[job.base_type_flag()]
-
-
+	if(map && map.ID == MAP_THE_ART_OF_THE_DEAL)
+		dat += "&[CIVILIAN]&<b><a style=\"background-color:#777777;\" href='byond://?src=\ref[src];SelectedJob=Company Member'>Company Member (Random) </b><br>"
 	dat += "</center>"
 
 	// shitcode to hide jobs that aren't available
@@ -989,7 +1001,7 @@ var/global/redirect_all_players = null
 				if (findtext(dat[v], "&[key]&") && !findtext(dat[v], "&&[key]&&"))
 					dat[v] = null
 				else if (!replaced_faction_title && findtext(dat[v], "&&[key]&&"))
-					dat[v] = "[replacetext(dat[v], "&&[key]&&", "")] (<span style = 'color:red'>АВТОБАЛАНС</span>)"
+					dat[v] = "[replacetext(dat[v], "&&[key]&&", "")] (<span style = 'color:red'>FACTION DISABLED BY AUTOBALANCE</span>)"
 					replaced_faction_title = TRUE
 		else
 			any_available_jobs = TRUE
@@ -1001,12 +1013,8 @@ var/global/redirect_all_players = null
 					dat[v] = replacetext(dat[v], "&&[key]&&", "")
 					replaced_faction_title = TRUE
 
-	if (!any_available_jobs && !ticker)
-		WWalert(usr,"Игра загружается",":)")
-		return
-
 	if (!any_available_jobs)
-		WWalert(usr,"Все профессии были отключены из-за автобаланса",":*")
+		WWalert(usr,"All roles are disabled by autobalance!","Error")
 		return
 
 	var/data = ""
@@ -1019,7 +1027,7 @@ var/global/redirect_all_players = null
 	//<link rel='stylesheet' type='text/css' href='html/browser/common.css'>
 	data = {"
 		<br>
-		<meta charset='utf-8'>
+		<html>
 		<head>
 		[common_browser_style]
 		</head>

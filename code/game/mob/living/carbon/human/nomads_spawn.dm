@@ -10,7 +10,6 @@
 		var/newnamere = list("Followers of the Hive Mother" = list(null,"Knowledge",0, "Star","#67A7CE","#0C1EA7","Monks")) //ants
 		var/newnamerf = list("Moon Worshippers" = list(null,"Combat",0, "Moon","#848484","#FFFFFF","Priests")) //wolves
 		var/newnamerg = list("Cthulhu" = list(null,"Production",0, "Sun","#ADFF2F","#000000","Cultists")) //crustaceans
-		var/newnamerh = list("Bonetrousle" = list(null,"Production",0, "Sun","#e5e6e3","#000000","Priests")) //skelet
 		map.custom_religions += newnamera
 		map.custom_religions += newnamerb
 		map.custom_religions += newnamerc
@@ -18,13 +17,12 @@
 		map.custom_religions += newnamere
 		map.custom_religions += newnamerf
 		map.custom_religions += newnamerg
-		map.custom_religions += newnamerh
 		var/area/mob_area = get_area(src)
 		var/new_hair = "Black"
 		var/new_eyes = "Black"
-		var/choices = WWinput(src, "Добро пожаловать в Удивительное Время! В данном режиме на выбор доступны несколько рас. Кастомизация даёт возможность выбрать вам расу, рандомизация же выбирает рандомно вам расу.","Character Customization","Randomize",list(/*"Biome Appropriate",*/"Randomize","Customize"))
+		var/choices = WWinput(src, "Welcome to the Forgotten Time! As your new life starts you can choose if you want to customize your character. Do you want to?","Character Customization","Randomize",list(/*"Biome Appropriate",*/"Randomize","Customize"))
 		if (choices == "Customize")
-			var/choice_race = WWinput(src, "Выбери расу","Character Customization","Randomize",list("Randomize","Human","Ant","Lizard","Crustacean","Orc","Gorilla","Wolf"))
+			var/choice_race = WWinput(src, "Which race do you want to be?","Character Customization","Randomize",list("Randomize","Human","Ant","Lizard","Crustacean","Orc","Gorilla","Wolf"))
 			if (choice_race == "Randomize")
 				choice_race = pick("Human","Ant","Lizard","Crustacean","Orc","Gorilla","Wolf")
 			switch(choice_race)
@@ -567,7 +565,7 @@
 		b_eyes = hex2num(copytext(hex_eyes, 6, 8))
 		change_eye_color(r_eyes, g_eyes, b_eyes)
 
-	else if (map && (map.ID == MAP_NOMADS_CONTINENTAL || map.ID == MAP_NOMADS_PANGEA || map.ID == MAP_NOMADS_FLY))
+	else if (map && (map.ID == MAP_NOMADS_CONTINENTAL || map.ID == MAP_NOMADS_PANGEA))
 		var/new_hair = "Black"
 		var/new_eyes = "Black"
 		var/list/possible_h_list = list("Black")

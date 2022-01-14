@@ -580,7 +580,7 @@
 	desc = "A alcohol distiller. Turns any alcoholic drink into pure ethanol."
 	density = FALSE
 	anchored = FALSE
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "distillery"
 	not_movable = FALSE
 	not_disassemblable = TRUE

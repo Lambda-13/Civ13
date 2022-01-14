@@ -111,23 +111,6 @@
 /datum/body_build/werewolf/female
 	gender 			= FEMALE
 
-/datum/body_build/skeletman
-	name 			= "Skelet"
-	index 			= "_skeletman"
-	nohair = TRUE
-	nofacialhair = TRUE
-
-/datum/body_build/skeletman/female
-	gender			= "female"
-
-/datum/body_build/zombieman
-	name 			= "Zombie"
-	index 			= "_zombieman"
-	nohair = TRUE
-	nofacialhair = TRUE
-
-/datum/body_build/zombieman/female
-	gender			= "female"
 
 /datum/body_build/ant
 	name			= "Ant"

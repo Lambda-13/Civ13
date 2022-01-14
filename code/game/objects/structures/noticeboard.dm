@@ -1,7 +1,7 @@
 /obj/structure/noticeboard
 	name = "notice board"
 	desc = "A board for pinning important notices upon."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "nboard00"
 	density = FALSE
 	anchored = TRUE
@@ -31,7 +31,8 @@
 			user << "<span class='notice'>You pin the paper to the noticeboard.</span>"
 		else
 			user << "<span class='notice'>You reach to pin your paper to the board but hesitate. You are certain your paper will not be seen among the many others already attached.</span>"
-
+	else
+		..()
 /obj/structure/noticeboard/attack_hand(var/mob/user)
 	examine(user)
 
@@ -79,7 +80,7 @@
 	if (href_list["read"])
 		var/obj/item/weapon/paper/P = locate(href_list["read"])
 		if ((P && P.loc == src))
-			usr << browse("<meta charset='utf-8'><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY><TT>[P.info]</TT></BODY></HTML>", "window=[P.name]")
+			usr << browse("<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY><TT>[P.info]</TT></BODY></HTML>", "window=[P.name]")
 			onclose(usr, "[P.name]")
 	return
 ////////////////////////////////////////////////////////////////////////////////

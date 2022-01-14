@@ -121,7 +121,7 @@
 
 		var/orig_client = M.client
 		var/delmob = FALSE
-		if (href_list["simplemake"] != "gorilla" && href_list["simplemake"] != "werewolf" && href_list["simplemake"] != "default" && href_list["simplemake"] != "orc"&& href_list["simplemake"] != "lizard" && href_list["simplemake"] != "ant" && href_list["simplemake"] != "crab" && href_list["simplemake"] != "wolfman" && href_list["simplemake"] != "skeletman" && href_list["simplemake"] != "zombieman")
+		if (href_list["simplemake"] != "gorilla" && href_list["simplemake"] != "werewolf" && href_list["simplemake"] != "default" && href_list["simplemake"] != "orc"&& href_list["simplemake"] != "lizard" && href_list["simplemake"] != "ant" && href_list["simplemake"] != "crab" && href_list["simplemake"] != "wolfman")
 			switch(WWinput(usr, "Delete old mob?", "Delete Mob", "Yes", list("Yes","No","Cancel")))
 				if ("Cancel")	return
 				if ("Yes")		delmob = TRUE
@@ -158,8 +158,6 @@
 					HM.lizard = 0
 					HM.wolfman = 0
 					HM.crab = 0
-					HM.skeletman = 0
-					HM.zombieman = 0
 					HM.body_build = get_body_build(M.gender,"Default")
 					HM.update_hair()
 					HM.change_facial_hair()
@@ -179,40 +177,6 @@
 					HM.lizard = 0
 					HM.wolfman = 0
 					HM.crab = 0
-					HM.skeletman = 0
-					HM.zombieman = 0
-			if ("skeletman")
-				var/mob/living/human/HM = M
-				if (!ishuman(M))
-					usr << "This can only be used on instances of type /mob/living/human"
-					return
-				else
-					HM.gorillaman = 0
-					HM.werewolf = 0
-					HM.orc = 0
-					HM.ant= 0
-					HM.lizard = 0
-					HM.wolfman = 0
-					HM.crab = 0
-					HM.skeletman = 1
-					HM.zombieman = 0
-			if ("zombieman")
-				var/mob/living/human/HM = M
-				if (!ishuman(M))
-					usr << "This can only be used on instances of type /mob/living/human"
-					return
-				else
-					HM.gorillaman = 0
-					HM.werewolf = 0
-					HM.orc = 0
-					HM.ant= 0
-					HM.lizard = 0
-					HM.wolfman = 0
-					HM.crab = 0
-					HM.skeletman = 0
-					HM.zombieman = 0
-					HM.skeletman = 0
-					HM.zombieman = 1
 			if ("werewolf")
 				var/mob/living/human/HM = M
 				if (!ishuman(M))
@@ -226,8 +190,6 @@
 					HM.lizard = 0
 					HM.wolfman = 0
 					HM.crab = 0
-					HM.skeletman = 0
-					HM.zombieman = 0
 			if ("orc")
 				var/mob/living/human/HM = M
 				if (!ishuman(M))
@@ -241,8 +203,6 @@
 					HM.lizard = 0
 					HM.wolfman = 0
 					HM.crab = 0
-					HM.skeletman = 0
-					HM.zombieman = 0
 			if ("ant")
 				var/mob/living/human/HM = M
 				if (!ishuman(M))
@@ -256,8 +216,6 @@
 					HM.lizard = 0
 					HM.wolfman = 0
 					HM.crab = 0
-					HM.skeletman = 0
-					HM.zombieman = 0
 			if ("lizard")
 				var/mob/living/human/HM = M
 				if (!ishuman(M))
@@ -271,8 +229,6 @@
 					HM.orc = 0
 					HM.wolfman = 0
 					HM.crab = 0
-					HM.skeletman = 0
-					HM.zombieman = 0
 			if ("crab")
 				var/mob/living/human/HM = M
 				if (!ishuman(M))
@@ -299,8 +255,6 @@
 					HM.orc = 0
 					HM.wolfman = 1
 					HM.crab = 0
-					HM.skeletman = 0
-					HM.zombieman = 0
 		if (New)
 			if (New.type == /mob/living/human)
 				var/mob/living/human/H = New
@@ -355,7 +309,7 @@
 										H.name = H.species.get_random_russian_name(H.gender)
 										H.real_name = H.name
 									if ("Chechen")
-										H.name = H.species.get_random_arab_name(H.gender)
+										H.name = H.species.get_random_chechen_name(H.gender)
 										H.real_name = H.name
 									if ("Finnish")
 										H.name = H.species.get_random_oldnorse_name(H.gender)
@@ -400,9 +354,6 @@
 	else if (href_list["warn"])
 		usr.client.warn(href_list["warn"])
 
-	else if (href_list["pripeklon"])
-		usr.client.pripeklon(href_list["pripeklon"])
-
 	else if (href_list["boot2"])
 		var/mob/M = locate(href_list["boot2"])
 		if (ismob(M))
@@ -410,11 +361,11 @@
 				return
 			var/reason = sanitize(input("Please enter reason"))
 			if (!reason)
-				M << "<span class = 'userdanger'>Вы были кикнуты с сервера</span>"
+				M << "<span class = 'userdanger'>You have been kicked from the server.</span>"
 			else
-				M << "<span class = 'userdanger'>Вы были кикнуты с сервера по причине ([reason])</span>"
-			log_admin("[key_name(usr)] kicked [key_name(M)].")
-			message_admins("<span class = 'notice'>[key_name_admin(usr)] кикнул [key_name_admin(M)].</span>", TRUE)
+				M << "<span class = 'userdanger'>You have been kicked from the server. ([reason])</span>"
+			log_admin("[key_name(usr)] booted [key_name(M)].")
+			message_admins("<span class = 'notice'>[key_name_admin(usr)] booted [key_name_admin(M)].</span>", TRUE)
 			//M.client = null
 			qdel(M.client)
 

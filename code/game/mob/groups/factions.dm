@@ -263,7 +263,7 @@
 			return
 		else
 			U = choice2
-			var/list/optlist = list("Cancel","Sailor","Carpenter","Nurse","Cannonier","Cook","Marine","Sargeant","Navigator","Deputy Boatswain","Deputy Quartermaster")
+			var/list/optlist = list("Cancel","Sailor","Swabber","Carpenter","Nurse","Cannonier","Cook","Marine","Sergeant","Navigator","Deputy Boatswain","Deputy Quartermaster")
 			var/inp = WWinput(usr, "Choose a job to give:","Job Assignment","Cancel",optlist)
 			if (inp == "Cancel" || !inp)
 				return
@@ -517,7 +517,7 @@
 				if (relf == H.civilization && H.stat != DEAD)
 					map.facl[relf] += 1
 
-		var/body = "<meta charset='utf-8'><head><title>Faction List</title></head><b>FACTION LIST</b><br><br>"
+		var/body = "<html><head><title>Faction List</title></head><b>FACTION LIST</b><br><br>"
 		for (var/relf in map.facl)
 			if (map.facl[relf] > 0)
 				body += "<b>[relf]</b>: [map.facl[relf]] members.</br>"

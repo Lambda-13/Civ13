@@ -86,7 +86,6 @@ var/global/list/all_languages[0]
 var/global/list/language_keys[0]					// Table of say codes for all languages
 var/global/list/whitelisted_species = list("Human") // Species that require a whitelist check.
 var/global/list/playable_species = list("Human")	// A list of ALL playable species, whitelisted, latejoin or otherwise.
-var/global/list/donate_species = list("Human")	// A list of ALL playable species, donate, latejoin or otherwise.
 
 //Preferences stuff
 	//Bodybuilds
@@ -110,6 +109,9 @@ var/global/list/supplydrop_turfs = list()
 // for mass deletion
 var/global/list/bullet_casings = list()
 var/global/list/blood = list()
+
+// magic
+var/list/all_spells = list()
 
 // Strings which corraspond to bodypart covering flags, useful for outputting what something covers.
 var/global/list/string_part_flags = list(
@@ -152,8 +154,7 @@ var/list/hair_colors = list(
 	"Blond" = "#E5C8A8",
 	"Dirty Blond" = "#B89778",
 	"Light Grey" = "#d3d3d3",
-	"Grey" = "#808080",
-//	"Pink" = "#ff00ff",
+	"Grey" = "#808080"
 )
 // new eye colors
 var/list/eye_colors = list(
@@ -162,7 +163,6 @@ var/list/eye_colors = list(
 	"Brown" = "#542A0E",
 	"Green" = "#4B7248",
 	"Blue" = "#5EA4E7",
-	"Red" = "#ff0000",
 )
 
 var/global/list/global_mutations  = list() // List of hidden mutation things.
@@ -240,6 +240,12 @@ var/list/reverse_dir = list( // reverse_dir[dir] = reverse of dir
 		var/datum/job/J = new T
 		joblist[J.title] = J
 
+	//Magic.
+	paths = typesof(/datum/spell)-/datum/spell
+	for (var/T in paths)
+		var/datum/spell/S = new T
+		all_spells += S
+
 	//Languages and species.
 	paths = typesof(/datum/language)-/datum/language
 	for (var/T in paths)
@@ -262,8 +268,6 @@ var/list/reverse_dir = list( // reverse_dir[dir] = reverse of dir
 		if (!(S.spawn_flags & IS_RESTRICTED))
 			playable_species += S.name
 		if (S.spawn_flags & IS_WHITELISTED)
-			whitelisted_species += S.name
-		if (S.spawn_flags & IS_DONATE) //Донатер может без вл играть, но будет иметь только имя своё
 			whitelisted_species += S.name
 
 	paths = typesof(/datum/hud) - /datum/hud

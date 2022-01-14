@@ -35,9 +35,9 @@
 		if (mind)
 			mind.name = real_name
 
-	hud_list[BASE_FACTION]	  = image('icons/russian/mob/hud_1713.dmi', src, "")
-	hud_list[FACTION_TO_ENEMIES]	  = image('icons/russian/mob/hud_1713.dmi', src, "")
-	hud_list[SQUAD_FACTION]	  = image('icons/russian/mob/hud_1713.dmi', src, "")
+	hud_list[BASE_FACTION]	  = image('icons/mob/hud_1713.dmi', src, "")
+	hud_list[FACTION_TO_ENEMIES]	  = image('icons/mob/hud_1713.dmi', src, "")
+	hud_list[SQUAD_FACTION]	  = image('icons/mob/hud_1713.dmi', src, "")
 	human_mob_list |= src
 
 	..()
@@ -58,13 +58,13 @@
 	make_blood()
 	if (map)
 		if (map.civilizations == TRUE)
-			nutrition = rand(max_nutrition * 0.75, max_nutrition * 0.85) // Больше половины
-			water = round(rand(max_water * 0.75, max_water * 0.85)) // Больше половины
+			nutrition = rand(max_nutrition * 0.45, max_nutrition * 0.55) // 180 to 220
+			water = round(rand(max_water * 0.45, max_water * 0.55)) // 157 to 192
 		if (map.ID == MAP_GULAG13)
 			spawn(10)
 				if (istype(original_job, /datum/job/civilian/prisoner))
-					nutrition = max_nutrition*0.5
-					water = max_water*0.5
+					nutrition = max_nutrition*0.1
+					water = max_water*0.2
 				else
 					nutrition = max_nutrition
 					water = max_water

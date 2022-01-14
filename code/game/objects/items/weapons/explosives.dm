@@ -56,7 +56,6 @@
 
 		target.overlays += image_overlay
 		user << "Bomb has been planted. Timer counting down from [timer]."
-		user << 'sound/effects/bombplant.ogg'
 		spawn(timer*10)
 			explode(get_turf(target))
 

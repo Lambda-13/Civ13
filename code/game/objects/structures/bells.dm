@@ -1,7 +1,7 @@
 obj/structure/bell_stand
 	name = "bell stand"
 	desc = "Fire! Fire!"
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "bell_stand"
 	anchored = TRUE
 	density = TRUE

@@ -793,7 +793,7 @@
 		else if (mob.original_job_title == "Tuy Phai")
 			t_movement_speed_multiplier /= 1.25
 		if (mob.find_trait("Gigantism"))
-			t_movement_speed_multiplier *= 0.5
+			t_movement_speed_multiplier *= 1.25
 		if (move_delay > world.time)
 			move_delay -= world.time
 		if (istype(src, /mob/living/human))

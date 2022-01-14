@@ -37,7 +37,7 @@
 /datum/program/proc/do_html(mob/living/human/user)
 	var/fullpage = {"
 			<!DOCTYPE html>
-			<meta charset='utf-8'>
+			<html>
 			<head>[computer_browser_style]<title>[name]</title></head>
 			<body>
 			<center>[mainmenu]</center>
@@ -73,18 +73,18 @@
 #define ORION_TRAIL_WINTURN		9
 
 //Orion Trail Events
-#define ORION_TRAIL_RAIDERS		"Щиткурити"
-#define ORION_TRAIL_FLUX		"Аномалия"
-#define ORION_TRAIL_ILLNESS		"Вирус"
-#define ORION_TRAIL_BREAKDOWN	"Ебать чё"
-#define ORION_TRAIL_LING		"Генокрад"
-#define ORION_TRAIL_LING_ATTACK "Засада метагея-генокрада"
-#define ORION_TRAIL_MALFUNCTION	"Массовые галлюцинации"
-#define ORION_TRAIL_COLLISION	"Чё"
-#define ORION_TRAIL_SPACEPORT	"Карго"
-#define ORION_TRAIL_BLACKHOLE	"Космос"
-#define ORION_TRAIL_OLDSHIP		"Теха"
-#define ORION_TRAIL_SEARCH		"Исследование техов"
+#define ORION_TRAIL_RAIDERS		"Raiders"
+#define ORION_TRAIL_FLUX		"Interstellar Flux"
+#define ORION_TRAIL_ILLNESS		"Illness"
+#define ORION_TRAIL_BREAKDOWN	"Breakdown"
+#define ORION_TRAIL_LING		"Changelings?"
+#define ORION_TRAIL_LING_ATTACK "Changeling Ambush"
+#define ORION_TRAIL_MALFUNCTION	"Malfunction"
+#define ORION_TRAIL_COLLISION	"Collision"
+#define ORION_TRAIL_SPACEPORT	"Spaceport"
+#define ORION_TRAIL_BLACKHOLE	"BlackHole"
+#define ORION_TRAIL_OLDSHIP		"Old Ship"
+#define ORION_TRAIL_SEARCH		"Old Ship Search"
 
 #define ORION_STATUS_START		1
 #define ORION_STATUS_NORMAL		2
@@ -92,8 +92,8 @@
 #define ORION_STATUS_MARKET		4
 
 /datum/program/orion_trail
-	name = "Space Station 13"
-	description = "Исследуй станцию вместе с кооп-друзьяшками"
+	name = "The Orion Trail"
+	description = "Learn how our descendants will get to Orion, and have fun in the process!"
 	var/busy = FALSE //prevent clickspam that allowed people to ~speedrun~ the game.
 	var/engine = 0
 	var/hull = 0
@@ -128,17 +128,17 @@
 
 /datum/program/orion_trail/proc/Reset()
 	// Sets up the main trail
-	stops = list("Прибытие","Западный Корридор","Восточный Корридор","Повреждённый Отсек","СБ","Дормы","Космос","Отбытие","ЦК")
+	stops = list("Pluto","Asteroid Belt","Proxima Centauri","Dead Space","Rigel Prime","Tau Ceti Beta","Black Hole","Space Outpost Beta-9","Orion Prime")
 	stopblurbs = list(
-		"Прибытие является для многих началом... новой жизни? Да хуй его знает.",
-		"Западное крыло в котором находится карго, ассистентская, иногда пробегают сбшники и прочие личности, который могут легко дать тебе пизды.",
-		"Восточное крыло является наиболее опасным из-за РнД и ебанутых учёных, хохлов-ботаников, медиков, повара, бармена и так дальше до бесконечности. Зато тут можно найти в баре народ для путешествий а так-же купить еды и воды.",
-		"Тут был недавно взрыв, не думаю что тут безопасно находиться. Зато тут куча вещей должно было остаться. Наверное.",
-		"А вот и СБшная - место где находится дохуища оружия, где тебя могут пустить по кругу за графити на полу.",
-		"Дормы со временем пока я путешествовал стали похожи на мини-государство. Думаю тут можно отдохнуть или сделать ещё прочие дела.",
-		"Воу-воу-воу, ямы оказались в космосе из-за аномалии или нашего дебилизма. Шутка в том что у меня есть выбор из прыжка в портал или ходьбы до отбытия на своих ногах.",
-		"Я в отбытии, ну может не только я. Шаттл прилетел, нужно продолжать идти, вокруг меня содомия и пиздец.",
-		"Ямы долетели до ЦК и пережили данную смену, ура-ура."
+		"Pluto, long since occupied with long-range sensors and scanners, stands ready to, and indeed continues to probe the far reaches of the galaxy.",
+		"At the edge of the Sol system lies a treacherous asteroid belt. Many have been crushed by stray asteroids and misguided judgement.",
+		"The nearest star system to Sol, in ages past it stood as a reminder of the boundaries of sub-light travel, now a low-population sanctuary for adventurers and traders.",
+		"This region of space is particularly devoid of matter. Such low-density pockets are known to exist, but the vastness of it is astounding.",
+		"Rigel Prime, the center of the Rigel system, burns hot, basking its planetary bodies in warmth and radiation.",
+		"Tau Ceti Beta has recently become a waypoint for colonists headed towards Orion. There are many ships and makeshift stations in the vicinity.",
+		"Sensors indicate that a black hole's gravitational field is affecting the region of space we were headed through. We could stay of course, but risk of being overcome by its gravity, or we could change course to go around, which will take longer.",
+		"You have come into range of the first man-made structure in this region of space. It has been constructed not by travellers from Sol, but by colonists from Orion. It stands as a monument to the colonists' success.",
+		"You have made it to Orion! Congratulations! Your crew is one of the few to start a new foothold for mankind!"
 		)
 
 /datum/program/orion_trail/proc/newgame()
@@ -171,17 +171,17 @@
 		event = null
 	mainbody = ""
 	if(gameStatus == ORION_STATUS_GAMEOVER)
-		mainbody = "<center><h1>Игра окончена</h1></center>"
-		mainbody += "Твоя компания померла на станции или вблизи неё.<br><b>А стоило ли жить?</b>."
+		mainbody = "<center><h1>Game Over</h1></center>"
+		mainbody += "Like many before you, your crew never made it to Orion, lost to space... <br><b>Forever</b>."
 		if(!settlers.len)
-			mainbody += "<br>Остатки вашей командды нашёл мимо проходящий член экипажа. Он был удивлён."
+			mainbody += "<br>Your entire crew died, and your ship joins the fleet of ghost-ships littering the galaxy."
 		else
 			if(food <= 0)
-				mainbody += "<br>У вашей командды закончилась еда и вы померли нахуй лол)"
+				mainbody += "<br>You ran out of food and starved."
 			if(fuel <= 0)
-				mainbody += "<br>У вас закончилась вода и вы медленно умираете от обезвоживания."
+				mainbody += "<br>You ran out of fuel, and drift, slowly, into a star."
 
-		mainbody += "<P ALIGN=Right><a href='?src=\ref[src];menu=1'>Респавн</a></P>"
+		mainbody += "<P ALIGN=Right><a href='?src=\ref[src];menu=1'>May They Rest In Peace</a></P>"
 
 	else if(event)
 		mainbody = "[eventdat]"
@@ -194,20 +194,20 @@
 			subtext = stopblurbs[turns]
 		mainbody = "<center><h1>[title]</h1></center>"
 		mainbody += "[subtext]"
-		mainbody += "<h3><b>Компания:</b></h3>"
+		mainbody += "<h3><b>Crew:</b></h3>"
 		mainbody += english_list(settlers)
-		mainbody += "<br><b>Еда: </b>[food] | <b>Вода: </b>[fuel]"
-		mainbody += "<br><b>Медикаменты: </b>[engine] | <b>Ткань: </b>[hull] | <b>Свет: </b>[electronics]"
+		mainbody += "<br><b>Food: </b>[food] | <b>Fuel: </b>[fuel]"
+		mainbody += "<br><b>Engine Parts: </b>[engine] | <b>Hull Panels: </b>[hull] | <b>Electronics: </b>[electronics]"
 		if(turns == 7)
-			mainbody += "<P ALIGN=Right><a href='?src=\ref[src];pastblack=1'>В портал</a> <a href='?src=\ref[src];blackhole=1'>Пешком дойду</a></P>"
+			mainbody += "<P ALIGN=Right><a href='?src=\ref[src];pastblack=1'>Go Around</a> <a href='?src=\ref[src];blackhole=1'>Continue</a></P>"
 		else
-			mainbody += "<P ALIGN=Right><a href='?src=\ref[src];continue=1'>Идти дальше</a></P>"
-		mainbody += "<P ALIGN=Right><a href='?src=\ref[src];killcrew=1'>Убить своего</a></P>"
-		mainbody += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Закрыть игру</a></P>"
+			mainbody += "<P ALIGN=Right><a href='?src=\ref[src];continue=1'>Continue</a></P>"
+		mainbody += "<P ALIGN=Right><a href='?src=\ref[src];killcrew=1'>Kill a Crewmember</a></P>"
+		mainbody += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Close</a></P>"
 	else
-		mainbody = "<center><h2>Космическая Станция 13</h2></center>"
-		mainbody += "<br><center><h3>Поиграйте за ассистента который путешевствует по станции!</h3></center><br><br>"
-		mainbody += "<center><b><a href='?src=\ref[src];newgame=1'>Войти</a></b></center>"
+		mainbody = "<center><h2>The Orion Trail</h2></center>"
+		mainbody += "<br><center><h3>Experience the journey of your descendants!</h3></center><br><br>"
+		mainbody += "<center><b><a href='?src=\ref[src];newgame=1'>New Game</a></b></center>"
 	..()
 
 /datum/program/orion_trail/Topic(href, href_list, hsrc)
@@ -308,7 +308,6 @@
 
 			if(settlers.len == 0 || alive == 0)
 				usr << "The last crewmember [sheriff], shot themselves, GAME OVER!"
-				usr << 'sound/effects/gameover.ogg'
 				gameStatus = ORION_STATUS_GAMEOVER
 				event = null
 
@@ -326,7 +325,7 @@
 		if(gameStatus == ORION_STATUS_MARKET)
 			if(!spaceport_raided && food >= 10 && fuel >= 10)
 				var/bought = add_crewmember()
-				last_spaceport_action = "Я нанял челика в баре. Ну привет [bought]!"
+				last_spaceport_action = "You hired [bought] as a new crewmember."
 				fuel -= 10
 				food -= 10
 				event()
@@ -336,7 +335,7 @@
 		if(gameStatus == ORION_STATUS_MARKET)
 			if(!spaceport_raided && settlers.len > 1)
 				var/sold = remove_crewmember()
-				last_spaceport_action = "Я продал своего из компашки повару. Прощай [sold]!"
+				last_spaceport_action = "You sold your crewmember, [sold]!"
 				fuel += 7
 				food += 7
 				event()
@@ -360,12 +359,12 @@
 				if(prob(success))
 					FU = rand(5,15)
 					FO = rand(5,15)
-					last_spaceport_action = "Наша компашка зарейдила это крыло спиздив [FO] еды и [FU] воды! (+[FU]FU,+[FO]FO)"
+					last_spaceport_action = "You successfully raided the spaceport! You gained [FU] Fuel and [FO] Food! (+[FU]FU,+[FO]FO)"
 					xp_gained += 10
 				else
 					FU = rand(-5,-15)
 					FO = rand(-5,-15)
-					last_spaceport_action = "Нам дали пизды  [FU*-1] Fuel and [FO*-1] Food in your scramble to escape!"
+					last_spaceport_action = "You failed to raid the spaceport! You lost [FU*-1] Fuel and [FO*-1] Food in your scramble to escape! ([FU]FU,[FO]FO)"
 
 					//your chance of lose a crewmember is 1/2 your chance of success
 					//this makes higher % failures hurt more, don't get cocky space cowboy!
@@ -384,13 +383,13 @@
 				switch(text2num(href_list["buyparts"]))
 					if(1) //Engine Parts
 						engine++
-						last_spaceport_action = "Купить медикаменты"
+						last_spaceport_action = "Bought Engine Parts"
 					if(2) //Hull Plates
 						hull++
-						last_spaceport_action = "Купить ткань"
+						last_spaceport_action = "Bought Hull Plates"
 					if(3) //Spare Electronics
 						electronics++
-						last_spaceport_action = "Купить фонарик"
+						last_spaceport_action = "Bought Spare Electronics"
 				fuel -= 5 //they all cost 5
 				event()
 
@@ -402,13 +401,13 @@
 						if(fuel > 5)
 							fuel -= 5
 							food += 5
-							last_spaceport_action = "Воду за еду"
+							last_spaceport_action = "Traded Fuel for Food"
 							event()
 					if(2) //Food
 						if(food > 5)
 							fuel += 5
 							food -= 5
-							last_spaceport_action = "Еду за воду"
+							last_spaceport_action = "Traded Food for Fuel"
 							event()
 	busy = FALSE
 	sleep(0.5)
@@ -418,31 +417,31 @@
 	canContinueEvent = 0
 	switch(event)
 		if(ORION_TRAIL_RAIDERS)
-			eventdat += "СБшники пришли пиздить нас!"
+			eventdat += "Raiders have come aboard your ship!"
 			if(prob(50))
 				var/sfood = rand(1,10)
 				var/sfuel = rand(1,10)
 				food -= sfood
 				fuel -= sfuel
-				eventdat += "<br>Они забрали [sfood] <b>еду</b> и [sfuel] <b>воду</b>. Вот пидорасы."
+				eventdat += "<br>They have stolen [sfood] <b>Food</b> and [sfuel] <b>Fuel</b>."
 			else if(prob(10))
 				var/deadname = remove_crewmember()
-				eventdat += "<br>Блядь [deadname] ты еблан нахуй ты полез на них ёбаный долбоёб сука."
+				eventdat += "<br>[deadname] tried to fight back, but was killed."
 			else
-				eventdat += "<br>В итоге они получили пизды в ответ."
-			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];eventclose=1'>Ну чё идём дальше</a></P>"
-			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Закрыть</a></P>"
+				eventdat += "<br>Fortunately, you fended them off without any trouble."
+			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];eventclose=1'>Continue</a></P>"
+			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Close</a></P>"
 			canContinueEvent = 1
 
 		if(ORION_TRAIL_FLUX)
-			eventdat += "Пиздец! <br>Гравитационный двигатель отключился и теперь нужно думать что делать дальше."
-			eventdat += "<br>Если мы переждём в техах то сможем уберечься от возможной угрозы но если будем продолжать наше путешествие по станции то мы сэкономим еду и воду."
-			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];slow=1'>Переждать в техах</a> <a href='?src=\ref[src];keepspeed=1'>Идти дальше</a></P>"
-			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Закрыть игру</a></P>"
+			eventdat += "This region of space is highly turbulent. <br>If we go slowly we may avoid more damage, but if we keep our speed we won't waste supplies."
+			eventdat += "<br>What will you do?"
+			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];slow=1'>Slow Down</a> <a href='?src=\ref[src];keepspeed=1'>Continue</a></P>"
+			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Close</a></P>"
 
 		if(ORION_TRAIL_OLDSHIP)
-			eventdat += "<br>Странное судно пристыковалось к станции. Судя по всему там никого нет но стоит ли туда заходить? Там видно несколько ящиков."
-			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];search=1'>Да стоит</a><a href='?src=\ref[src];eventclose=1'>Пройти мимо</a></P><P ALIGN=Right><a href='?src=\ref[src];close=1'>Закрыть</a></P>"
+			eventdat += "<br>Your crew spots an old ship floating through space. It might have some supplies, but then again it looks rather unsafe."
+			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];search=1'>Search it</a><a href='?src=\ref[src];eventclose=1'>Leave it</a></P><P ALIGN=Right><a href='?src=\ref[src];close=1'>Close</a></P>"
 			canContinueEvent = 1
 
 		if(ORION_TRAIL_SEARCH)
@@ -453,87 +452,81 @@
 					var/oldfuel = rand(4,10)
 					food += oldfood
 					fuel += oldfuel
-					eventdat += "<br>Я нашёл в ящиках челика что прилетел сюда путешевствуя по космосу."
-					eventdat += "<br>[rescued] теперь в нашей командде!"
-					eventdat += "<br>А да мы ещё [oldfood] <b>еды</b> и [oldfuel] <b>воды</b> забрали с собой."
+					eventdat += "<br>As you look through it you find some supplies and a living person!"
+					eventdat += "<br>[rescued] was rescued from the abandoned ship!"
+					eventdat += "<br>You found [oldfood] <b>Food</b> and [oldfuel] <b>Fuel</b>."
 				if(15 to 35)
-					var/lfood = rand(4,7)
 					var/lfuel = rand(4,7)
 					var/deadname = remove_crewmember()
-					food -= lfood
 					fuel -= lfuel
-					eventdat += "<br>[deadname] пошёл внутрь корабля первым но вдруг судно взяло и улетело вместе с [lfood] <b>едой</b> и [lfuel] <b>водой</b>. Блядь."
+					eventdat += "<br>[deadname] was lost deep in the wreckage, and your own vessel lost [lfuel] <b>Fuel</b> maneuvering to the the abandoned ship."
 				if(35 to 65)
 					var/oldfood = rand(5,11)
 					food += oldfood
 					engine++
-					eventdat += "<br>Внутри оказалось [oldfood] <b>еды</b> и ещё немного различных вещей."
+					eventdat += "<br>You found [oldfood] <b>Food</b> and some parts amongst the wreck."
 				else
-					eventdat += "<br>Внутри оказалось пусто, в ящиках пусто и вообще тут нихуя нету."
-			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];eventclose=1'>Идти дальше</a></P>"
-			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Закрыть</a></P>"
+					eventdat += "<br>As you look through the wreck you cannot find much of use."
+			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];eventclose=1'>Continue</a></P>"
+			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Close</a></P>"
 			canContinueEvent = 1
 
 		if(ORION_TRAIL_ILLNESS)
-			eventdat += "Отказ жопы"
-			var/afood = rand(0,1)
-			var/afuel = rand(0,1)
-			food += afood
-			fuel += afuel
+			eventdat += "A deadly illness has been contracted!"
 			var/deadname = remove_crewmember()
-			eventdat += "<br>[deadname] умер обосравшись и обоссавшись"
-			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];eventclose=1'>Идти дальше ахуевая</a></P>"
-			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Закрыть</a></P>"
+			eventdat += "<br>[deadname] was killed by the disease."
+			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];eventclose=1'>Continue</a></P>"
+			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Close</a></P>"
 			canContinueEvent = 1
 
 		if(ORION_TRAIL_BREAKDOWN)
-			eventdat += "Блядь один из нас наебнулся сильно и теперь не может идти"
-			eventdat += "<br>Мы можем использовать медикаменты или подождать пока этот хуйло поспит 3 часа что бы отрегенить."
+			eventdat += "Oh no! The engine has broken down!"
+			eventdat += "<br>You can repair it with an engine part, or you can make repairs for 3 days."
 			if(engine >= 1)
-				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];useengine=1'>Залатать челика</a><a href='?src=\ref[src];wait=1'>Подождать</a></P>"
+				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];useengine=1'>Use Part</a><a href='?src=\ref[src];wait=1'>Wait</a></P>"
 			else
-				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];wait=1'>Ждать</a></P>"
-			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Закрыть</a></P>"
+				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];wait=1'>Wait</a></P>"
+			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Close</a></P>"
 
 		if(ORION_TRAIL_MALFUNCTION)
-			eventdat += "Наша одежда исчезла с нихуя и теперь мы голые"
-			eventdat += "<br>Я могу сшить одежду из ткани для всех или же мы будем искать хоть что-то около 3 часов."
+			eventdat += "The ship's systems are malfunctioning!"
+			eventdat += "<br>You can replace the broken electronics with spares, or you can spend 3 days troubleshooting the AI."
 			if(electronics >= 1)
-				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];useelec=1'>Сшить одежду</a><a href='?src=\ref[src];wait=1'>Искать</a></P>"
+				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];useelec=1'>Use Part</a><a href='?src=\ref[src];wait=1'>Wait</a></P>"
 			else
-				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];wait=1'>Искать</a></P>"
-			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Закрыть</a></P>"
+				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];wait=1'>Wait</a></P>"
+			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Close</a></P>"
 
 		if(ORION_TRAIL_COLLISION)
-			eventdat += "Неожиданно по всей станции отключился свет."
+			eventdat += "Something hit us! Looks like there's some hull damage."
 			if(prob(25))
 				var/sfood = rand(5,15)
 				var/sfuel = rand(5,15)
 				food -= sfood
 				fuel -= sfuel
-				eventdat += "<br>В темноте мы потеряли [sfood] <b>еды</b> и [sfuel] <b>воды</b>."
+				eventdat += "<br>[sfood] <b>Food</b> and [sfuel] <b>Fuel</b> was vented out into space."
 			if(prob(10))
 				var/deadname = remove_crewmember()
-				eventdat += "<br>[deadname] сказал что починит всё и убежал."
-			eventdat += "<br>Можно сделать фонарик или же ждать 3 часа до починки света."
+				eventdat += "<br>[deadname] was killed by rapid depressurization."
+			eventdat += "<br>You can repair the damage with hull plates, or you can spend the next 3 days welding scrap together."
 			if(hull >= 1)
-				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];usehull=1'>Сделать фонарик</a><a href='?src=\ref[src];wait=1'>Ждать</a></P>"
+				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];usehull=1'>Use Part</a><a href='?src=\ref[src];wait=1'>Wait</a></P>"
 			else
-				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];wait=1'>Ждать</a></P>"
-			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Закрыть</a></P>"
+				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];wait=1'>Wait</a></P>"
+			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Close</a></P>"
 
 		if(ORION_TRAIL_BLACKHOLE)
-			eventdat += "Я наступил куда-то и нашу командду телепортировало в какой-то отель."
-			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];holedeath=1'>Идти дальше?</a></P>"
-			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Закрыть</a></P>"
+			eventdat += "You were swept away into the black hole."
+			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];holedeath=1'>Oh...</a></P>"
+			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Close</a></P>"
 			settlers = list()
 
 		if(ORION_TRAIL_LING)
-			eventdat += "Сообщают о генокрадах среди экипажа."
+			eventdat += "Strange reports warn of changelings infiltrating crews on trips to Orion..."
 			if(settlers.len <= 2)
-				eventdat += "<br>Но смотря на нашу командду генокрады вряд-ли будут среди нас."
-				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];eventclose=1'>Идти дальше</a></P>"
-				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Закрыть</a></P>"
+				eventdat += "<br>Your crew's chance of reaching Orion is so slim the changelings likely avoided your ship..."
+				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];eventclose=1'>Continue</a></P>"
+				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Close</a></P>"
 				if(prob(10)) // "likely", I didn't say it was guaranteed!
 					lings_aboard = min(++lings_aboard,2)
 			else
@@ -543,26 +536,26 @@
 				else if(prob(70))
 					lings_aboard = min(++lings_aboard,2)
 
-				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];killcrew=1'>Убить своего</a></P>"
-				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];eventclose=1'>Продолжить путешествие</a></P>"
-				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Закрыть</a></P>"
+				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];killcrew=1'>Kill a Crewmember</a></P>"
+				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];eventclose=1'>Risk it</a></P>"
+				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Close</a></P>"
 			canContinueEvent = 1
 
 		if(ORION_TRAIL_LING_ATTACK)
 			if(lings_aboard <= 0) //shouldn't trigger, but hey.
-				eventdat += "На нас прыгнул генокрад а потом такой ебать а это санекмен насрал говнокодом."
-				eventdat += "<br>И ты схватил баг."
+				eventdat += "Haha, fooled you, there are no changelings on board!"
+				eventdat += "<br>(You should report this to a coder :S)"
 			else
 				var/ling1 = remove_crewmember()
 				var/ling2 = ""
 				if(lings_aboard >= 2)
 					ling2 = remove_crewmember()
 
-				eventdat += "Неожиданно мы замечаем как некоторые из нашей компании нападают на нас!"
+				eventdat += "Changelings among your crew suddenly burst from hiding and attack!"
 				if(ling2)
-					eventdat += "<br>[ling1] становится мясной тушей а [ling2]'s превращает свою руку в клинок!"
+					eventdat += "<br>[ling1] and [ling2]'s arms twist and contort into grotesque blades!"
 				else
-					eventdat += "<br>[ling1]'s превращает свою руку в клинок!"
+					eventdat += "<br>[ling1]'s arm twists and contorts into a grotesque blade!"
 
 				var/chance2attack = alive*20
 				if(prob(chance2attack))
@@ -574,44 +567,46 @@
 						"[ling2 ? pick(ling1, ling2) : ling1] decapitates [deadguy] in a single cleaving arc!")
 						eventdat += "<br>[murder_text]"
 					else
-						eventdat += "<br><br><b>Я даю пизды[ling2 ? "s":""] и тот сьёбывает от нас! И Я ТАКОЙ РЕЗНЯЯЯЯЯЯЯЯЯ НАХУЙ!!!!!!!!</b>"
+						eventdat += "<br><br><b>You valiantly fight off the changeling[ling2 ? "s":""]!</b>"
 						if(ling2)
 							food += 30
 							lings_aboard = max(0,lings_aboard-2)
 						else
 							food += 15
 							lings_aboard = max(0,--lings_aboard)
-						eventdat += "<br><i>Ну еда из генокрада конечно хуйня но всё же.</i>\
-						<br>Я разделал[ling2 ? "s" : ""] на<b>[ling2 ? "30" : "15"]</b> мяса!"
+						eventdat += "<br><i>Well, it's perfectly good food...</i>\
+						<br>You cut the changeling[ling2 ? "s" : ""] into meat, gaining <b>[ling2 ? "30" : "15"]</b> Food!"
 				else
-					eventdat += "<br><br>Я даю пизды[ling2 ? "s":""] <br>[ling2 ? "" : "es"] уползает в вентиляцию."
+					eventdat += "<br><br>[pick("Sensing unfavorable odds", "After a failed attack", "Suddenly breaking nerve")], \
+					the changeling[ling2 ? "s":""] vanish[ling2 ? "" : "es"] into space through the airlocks! You're safe... for now."
 					if(ling2)
 						lings_aboard = max(0,lings_aboard-2)
 					else
 						lings_aboard = max(0,--lings_aboard)
 
-			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];eventclose=1'>Продолжаем идти дальше</a></P>"
-			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Закрыть</a></P>"
+			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];eventclose=1'>Continue</a></P>"
+			eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Close</a></P>"
 			canContinueEvent = 1
 
 
 		if(ORION_TRAIL_SPACEPORT)
 			gameStatus = ORION_STATUS_MARKET
 			if(spaceport_raided)
-				eventdat += "Карго закрыто потому что кто-то напал на них с оружием."
+				eventdat += "The spaceport is on high alert! You've been barred from docking by the local authorities after your failed raid."
 				if(last_spaceport_action)
-					eventdat += "<br><b>Последнее что успел сделать карго</b> [last_spaceport_action]"
-				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];leave_spaceport=1'>Идти дальше</a></P>"
-				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Закрыть</a></P>"
+					eventdat += "<br><b>Last Spaceport Action:</b> [last_spaceport_action]"
+				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];leave_spaceport=1'>Depart Spaceport</a></P>"
+				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];close=1'>Close</a></P>"
 			else
-				eventdat += "Наша компания не заметила как пришла в карго. Удивительно что вместо денег завхоз требует обмен ресурсами."
-				eventdat += "<br>FO = Еда WT - Вода "
+				eventdat += "Your jump into the sector yields a spaceport - a lucky find!"
+				eventdat += "<br>This spaceport is home to travellers who failed to reach Orion, but managed to find a different home..."
+				eventdat += "<br>Trading terms: FU = Fuel, FO = Food"
 				if(last_spaceport_action)
-					eventdat += "<br><b>Последнее что было это</b> [last_spaceport_action]"
-				eventdat += "<h3><b>Компания:</b></h3>"
+					eventdat += "<br><b>Last action:</b> [last_spaceport_action]"
+				eventdat += "<h3><b>Crew:</b></h3>"
 				eventdat += english_list(settlers)
-				eventdat += "<br><b>Еда: </b>[food] | <b>Вода: </b>[fuel]"
-				eventdat += "<br><b>Медикаменты: </b>[engine] | <b>Ткань: </b>[hull] | <b>Свет: </b>[electronics]"
+				eventdat += "<br><b>Food: </b>[food] | <b>Fuel: </b>[fuel]"
+				eventdat += "<br><b>Engine Parts: </b>[engine] | <b>Hull Panels: </b>[hull] | <b>Electronics: </b>[electronics]"
 
 
 				//If your crew is pathetic you can get freebies (provided you haven't already gotten one from this port)
@@ -628,64 +623,64 @@
 						add_crewmember()
 						freecrew++
 
-					eventdat += "<br>Завхоз увидел что у вас мало еды и воды, так что теперь вы не помрёте с голоду или от жажды."
+					eventdat += "<br>The traders of the spaceport take pity on you, and generously give you some free supplies! (+[FU]FU, +[FO]FO)"
 					if(freecrew)
-						eventdat += "<br>Один из карговцев присоединяется к вам!"
+						eventdat += "<br>You also gain a new crewmember!"
 
 					fuel += FU
 					food += FO
 
 				//CREW INTERACTIONS
-				eventdat += "<P ALIGN=Right>Управление компанией:</P>"
+				eventdat += "<P ALIGN=Right>Crew Management:</P>"
 
 				//Buy crew
 				if(food >= 10 && fuel >= 10)
-					eventdat += "<P ALIGN=Right><a href='?src=\ref[src];buycrew=1'>Обменять 10 еды и воды на члена компании</a></P>"
+					eventdat += "<P ALIGN=Right><a href='?src=\ref[src];buycrew=1'>Hire a New Crewmember (-10FU, -10FO)</a></P>"
 				else
-					eventdat += "<P ALIGN=Right>В карго только завхоз - ещё одного члена компании я не смогу добавить к нам</P>"
+					eventdat += "<P ALIGN=Right>You cannot afford a new crewmember.</P>"
 
 				//Sell crew
 				if(settlers.len > 1)
-					eventdat += "<P ALIGN=Right><a href='?src=\ref[src];sellcrew=1'>Отправить за 7 еды и воды работать из компании</a></P>"
+					eventdat += "<P ALIGN=Right><a href='?src=\ref[src];sellcrew=1'>Sell Crew for Fuel and Food (+7FU, +7FO)</a></P>"
 				else
-					eventdat += "<P ALIGN=Right>Я один в компании - отправить некого работать</P>"
+					eventdat += "<P ALIGN=Right>You have no other crew to sell.</P>"
 
 				//BUY/SELL STUFF
-				eventdat += "<P ALIGN=Right>Детали:</P>"
+				eventdat += "<P ALIGN=Right>Spare Parts:</P>"
 
 				//Engine parts
 				if(fuel > 5)
-					eventdat += "<P ALIGN=Right><a href='?src=\ref[src];buyparts=1'>Купить медикаментов за 5 воды</a></P>"
+					eventdat += "<P ALIGN=Right><a href='?src=\ref[src];buyparts=1'>Buy Engine Parts (-5FU)</a></P>"
 				else
-					eventdat += "<P ALIGN=Right>Медикаменты закончились</a>"
+					eventdat += "<P ALIGN=Right>You cannot afford engine parts.</a>"
 
 				//Hull plates
 				if(fuel > 5)
-					eventdat += "<P ALIGN=Right><a href='?src=\ref[src];buyparts=2'>Купить ткань за 5 воды</a></P>"
+					eventdat += "<P ALIGN=Right><a href='?src=\ref[src];buyparts=2'>Buy Hull Plates (-5FU)</a></P>"
 				else
-					eventdat += "<P ALIGN=Right>Ткань закончилась</a>"
+					eventdat += "<P ALIGN=Right>You cannot afford hull plates.</a>"
 
 				//Electronics
 				if(fuel > 5)
-					eventdat += "<P ALIGN=Right><a href='?src=\ref[src];buyparts=3'>Купить запчасти для фонарика за 5 воды</a></P>"
+					eventdat += "<P ALIGN=Right><a href='?src=\ref[src];buyparts=3'>Buy Spare Electronics (-5FU)</a></P>"
 				else
-					eventdat += "<P ALIGN=Right>Детали закончились</a>"
+					eventdat += "<P ALIGN=Right>You cannot afford spare electronics.</a>"
 
 				//Trade
 				if(fuel > 5)
-					eventdat += "<P ALIGN=Right><a href='?src=\ref[src];trade=1'>Воду за еду</a></P>"
+					eventdat += "<P ALIGN=Right><a href='?src=\ref[src];trade=1'>Trade Fuel for Food (-5FU,+5FO)</a></P>"
 				else
 					eventdat += "<P ALIGN=Right>You don't have 5FU to trade.</P"
 
 				if(food > 5)
-					eventdat += "<P ALIGN=Right><a href='?src=\ref[src];trade=2'>Еду за воду</a></P>"
+					eventdat += "<P ALIGN=Right><a href='?src=\ref[src];trade=2'>Trade Food for Fuel (+5FU,-5FO)</a></P>"
 				else
 					eventdat += "<P ALIGN=Right>You don't have 5FO to trade.</P"
 
 				//Raid the spaceport
-				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];raid_spaceport=1'>!! Напасть !!</a></P>"
+				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];raid_spaceport=1'>!! Raid Spaceport !!</a></P>"
 
-				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];leave_spaceport=1'>Идти дальше</a></P>"
+				eventdat += "<P ALIGN=Right><a href='?src=\ref[src];leave_spaceport=1'>Depart Spaceport</a></P>"
 
 
 //Add Random/Specific crewmember
@@ -748,10 +743,9 @@
 /////////////////////////////////////////////////////////////
 /datum/program/monkeysoftmail
 	name = "MonkeySoft E-Mail Client"
-	description = "Отправляйте и получайте электронные письма с помощью последней версии почтового клиента MonkeySoft!"
+	description = "Send and Receive emails using the latest MonkeySoft Mail Client!"
 	compatible_os = list("unga OS 94","unga OS")
 	does_checks = TRUE
-	var/gotmailsound = 'sound/machines/computer/mail.ogg'
 	tmp_comp_vars = list(
 		"mail_rec" = "Recipient",
 		"mail_snd" = "Sender",
@@ -782,8 +776,8 @@
 				if (istype(map.emails[tmp_comp_vars["mail_snd"]][i], /datum/email))
 					var/datum/email/em =  map.emails[tmp_comp_vars["mail_snd"]][i]
 					if (!em.read)
-						playsound(origin.loc,gotmailsound,60)
-						origin.visible_message("<big><font color='yellow'>\icon[getFlatIcon(origin)]У вас новое сообщение!</font></big>")
+						playsound(origin.loc,'sound/machines/computer/mail.ogg',60)
+						origin.visible_message("<big><font color='yellow'>\icon[getFlatIcon(origin)]You've got mail!</font></big>")
 						return
 	return
 /datum/program/monkeysoftmail/reset_tmp_vars()
@@ -920,8 +914,8 @@
 /datum/program/deepnet/do_html(mob/living/human/user)
 	if (mainmenu == "---")
 		mainmenu = "<h2>D.E.E.P.N.E.T.</h2><br>"
-		mainmenu += "<b>Доставка занимает максимум 2 минуты!</i></b><br>"
-		mainmenu += "<a href='?src=\ref[src];deepnet=2'>Купить</a>&nbsp;<a href='?src=\ref[src];deepnet=3'>Продать</a>&nbsp;<a href='?src=\ref[src];deepnet=4'>Аккаунт</a><br>"
+		mainmenu += "<b>All deliveries in a maximum of 2 minutes!</i></b><br>"
+		mainmenu += "<a href='?src=\ref[src];deepnet=2'>Buy</a>&nbsp;<a href='?src=\ref[src];deepnet=3'>Sell</a>&nbsp;<a href='?src=\ref[src];deepnet=4'>Account</a><br>"
 	..()
 
 /datum/program/deepnet/Topic(href, href_list, hsrc)
@@ -929,8 +923,6 @@
 	mainbody = ""
 	var/u_account = user.civilization
 	if (user.original_job_title == "Legitimate Business")
-		u_account = user.name
-	if (user.original_job_title == "Citizen")
 		u_account = user.name
 	if (href_list["deepnet"])
 		if (findtext(href_list["deepnet"],"b"))
@@ -1074,13 +1066,13 @@
 				var/accmoney = map.marketplaceaccounts[u_account]
 				if (map.marketplaceaccounts[u_account])
 					if (accmoney <= 0)
-						mainbody += "<b>Твой аккаунт пустой!</b>"
+						mainbody += "<b>Your account is empty!</b>"
 						map.marketplaceaccounts[u_account] = 0
 					else
 						mainbody += "You have [accmoney/4] dollars in your account.<br>"
 						mainbody += "<a href='?src=\ref[src];deepnet=5'>Withdraw</a>"
 				else
-					mainbody += "<b>Твой аккаунт пустой!</b>"
+					mainbody += "<b>Your account is empty!</b>"
 			if ("5") //withdraw
 				var/accmoney = map.marketplaceaccounts[u_account]
 				if (accmoney > 0)
@@ -1101,24 +1093,61 @@
 	compatible_os = list("unga OS 94","unga OS")
 
 /datum/program/cartrader/do_html(mob/living/human/user)
-	if (mainmenu == "---")
-		var/list/choice = list("Yamasaki M125 motorcycle (160)","ASNO Piccolino (400)","ASNO Quattroporte (500)","Yamasaki Kazoku (600)","SMC Wyoming (700)","SMC Falcon (750)","Ubermacht Erstenklasse (800)","Yamasaki Shinobu 5000 (900)")
-		mainmenu = "<h2>CARTRADER NETWORK</h2><br>"
+	var/list/choice = list("Yamasaki M125 motorcycle (160)","ASNO Piccolino (400)","ASNO Quattroporte (500)","Yamasaki Kazoku (600)","SMC Wyoming (700)","SMC Falcon (750)","Ubermacht Erstenklasse (800)","Yamasaki Shinobu 5000 (900)")
+	mainmenu = "<h2>CARTRADER NETWORK</h2><br>"
+	if(mainbody == "---")
+		mainbody = ""
 		for (var/i in choice)
 			mainbody += "<a href='?src=\ref[src];cartrader=[i]'>[i]</a><br>"
 	..()
 
 /datum/program/cartrader/Topic(href, href_list, hsrc)
 	..()
-	mainbody = ""
 	if (href_list["carlist"])
 		var/list/choice = list("Yamasaki M125 motorcycle (160)","ASNO Piccolino (400)","ASNO Quattroporte (500)","Yamasaki Kazoku (600)","SMC Wyoming (700)","SMC Falcon (750)","Ubermacht Erstenklasse (800)","Yamasaki Shinobu 5000 (900)")
+		mainbody = ""
 		for (var/i in choice)
 			mainbody += "<a href='?src=\ref[src];cartrader=[i]'>[i]</a><br>"
 		sleep(0.5)
 		do_html(user)
 	if (href_list["cartrader"])
 		var/found = FALSE
+		for(var/turf/T in get_area_turfs(/area/caribbean/supply))
+			for (var/obj/structure/ST in T)
+				found = TRUE
+				break
+			for (var/mob/living/human/HT in T)
+				found = TRUE
+				break
+		if (found)
+			mainbody = "<h2>CARTRADER NETWORK</h2><br><font color='yellow'>Clear the arrival area first.</font><br><a href='?src=\ref[src];carlist=1'>Return to List</a><br>"
+			sleep(0.5)
+			do_html(user)
+			return
+		var/c_cost = splittext(href_list["cartrader"],"(")[2]
+		c_cost = replacetext(c_cost,")","")
+		c_cost = text2num(c_cost)
+
+		var/obj/effects/premadevehicles/PV
+		var/chosencolor = WWinput(user,"Which color do you want?","Car Purchase","Black",list("Black","Red","Blue","Green","Yellow","Dark Grey","Light Grey","White"))
+		var/basecolor = chosencolor
+		switch(chosencolor)
+			if ("Black")
+				chosencolor = "#181717"
+			if ("Light Grey")
+				chosencolor = "#919191"
+			if ("Dark Grey")
+				chosencolor = "#616161"
+			if ("White")
+				chosencolor = "#FFFFFF"
+			if ("Green")
+				chosencolor = "#007F00"
+			if ("Red")
+				chosencolor = "#7F0000"
+			if ("Yellow")
+				chosencolor = "#b8b537"
+			if ("Blue")
+				chosencolor = "#00007F"
 		for(var/turf/T in get_area_turfs(/area/caribbean/supply))
 			if (found)
 				break
@@ -1133,118 +1162,68 @@
 			sleep(0.5)
 			do_html(user)
 			return
-		var/c_cost = splittext(href_list["cartrader"],"(")[2]
-		c_cost = replacetext(href_list["cartrader"],"(","")
-		c_cost = text2num(href_list["cartrader"])
-		if (href_list["cartrader"] == "Yamasaki M125 motorcycle (160)")
-			if (istype(user.get_active_hand(),/obj/item/stack/money) || istype(user.get_inactive_hand(),/obj/item/stack/money))
-				var/obj/item/stack/money/D
-				if (istype(user.get_active_hand(),/obj/item/stack/money))
-					D = user.get_active_hand()
-				else if (istype(user.get_inactive_hand(),/obj/item/stack/money))
-					D = user.get_inactive_hand()
-				if (D && D.value*D.amount >= c_cost*4)
-					D.amount-=c_cost/5
-				else
-					mainbody = "<h2>CARTRADER NETWORK</h2><br><font color='yellow'>Not enough money!</font><br><a href='?src=\ref[src];carlist=1'>Return to List</a><br>"
-					sleep(0.5)
-					do_html(user)
-					return
+		if (istype(user.get_active_hand(),/obj/item/stack/money) || istype(user.get_inactive_hand(),/obj/item/stack/money))
+			var/obj/item/stack/money/D
+			if (istype(user.get_active_hand(),/obj/item/stack/money))
+				D = user.get_active_hand()
+			else if (istype(user.get_inactive_hand(),/obj/item/stack/money))
+				D = user.get_inactive_hand()
 			else
 				mainbody = "<h2>CARTRADER NETWORK</h2><br><font color='yellow'>Not enough money!</font><br><a href='?src=\ref[src];carlist=1'>Return to List</a><br>"
 				sleep(0.5)
 				do_html(user)
 				return
-			new /obj/structure/vehicle/motorcycle/m125/full(locate(origin.x+4,origin.y-1,origin.z))
-			new /obj/item/clothing/head/helmet/motorcycle(locate(origin.x+4,origin.y-1,origin.z))
-			return
+			if (D && D.amount*5 >= c_cost)
+				D.amount-=c_cost/5
+			else
+				mainbody = "<h2>CARTRADER NETWORK</h2><br><font color='yellow'>Not enough money!</font><br><a href='?src=\ref[src];carlist=1'>Return to List</a><br>"
+				sleep(0.5)
+				do_html(user)
+				return
 		else
-			var/obj/effects/premadevehicles/PV
-			var/chosencolor = WWinput(user,"Which color do you want?","Car Purchase","Black",list("Black","Red","Blue","Green","Yellow","Dark Grey","Light Grey","White"))
-			var/basecolor = chosencolor
-			switch(chosencolor)
-				if ("Black")
-					chosencolor = "#181717"
-				if ("Light Grey")
-					chosencolor = "#919191"
-				if ("Dark Grey")
-					chosencolor = "#616161"
-				if ("White")
-					chosencolor = "#FFFFFF"
-				if ("Green")
-					chosencolor = "#007F00"
-				if ("Red")
-					chosencolor = "#7F0000"
-				if ("Yellow")
-					chosencolor = "#b8b537"
-				if ("Blue")
-					chosencolor = "#00007F"
-			for(var/turf/T in get_area_turfs(/area/caribbean/supply))
-				if (found)
-					break
-				for (var/obj/structure/ST in T)
-					found = TRUE
-					break
-				for (var/mob/living/human/HT in T)
-					found = TRUE
-					break
-			if (found)
-				mainbody = "<h2>CARTRADER NETWORK</h2><br><font color='yellow'>Clear the arrival area first.</font><br><a href='?src=\ref[src];carlist=1'>Return to List</a><br>"
-				sleep(0.5)
-				do_html(user)
-				return
-			if (istype(user.get_active_hand(),/obj/item/stack/money) || istype(user.get_inactive_hand(),/obj/item/stack/money))
-				var/obj/item/stack/money/D
-				if (istype(user.get_active_hand(),/obj/item/stack/money))
-					D = user.get_active_hand()
-				else if (istype(user.get_inactive_hand(),/obj/item/stack/money))
-					D = user.get_inactive_hand()
-				if (D && D.value*D.amount >= c_cost*4)
-					D.amount-=c_cost/5
-				else
-					mainbody = "<h2>CARTRADER NETWORK</h2><br><font color='yellow'>Not enough money!</font><br><a href='?src=\ref[src];carlist=1'>Return to List</a><br>"
-					sleep(0.5)
-					do_html(user)
-					return
-			else
-				mainbody = "<h2>CARTRADER NETWORK</h2><br><font color='yellow'>Not enough money!</font><br><a href='?src=\ref[src];carlist=1'>Return to List</a><br>"
-				sleep(0.5)
-				do_html(user)
-				return
-			if (href_list["cartrader"] == "ASNO Quattroporte (500)")
-				PV = new /obj/effects/premadevehicles/asno/quattroporte(locate(origin.x+3,origin.y-3,origin.z))
-				spawn(5)
-					map.vehicle_registations += list(list("[PV.reg_number]",user.civilization, "ASNO Quattroporte", basecolor))
+			mainbody = "<h2>CARTRADER NETWORK</h2><br><font color='yellow'>Not enough money!</font><br><a href='?src=\ref[src];carlist=1'>Return to List</a><br>"
+			sleep(0.5)
+			do_html(user)
+			return
 
-			else if (href_list["cartrader"] == "ASNO Piccolino (400)")
-				PV = new /obj/effects/premadevehicles/asno/piccolino(locate(origin.x+3,origin.y-3,origin.z))
-				spawn(5)
-					map.vehicle_registations += list(list("[PV.reg_number]",user.civilization, "ASNO Piccolino", basecolor))
+		if (href_list["cartrader"] == "Yamasaki M125 motorcycle (160)")
+			var/obj/structure/vehicle/motorcycle/m125/full/N = new /obj/structure/vehicle/motorcycle/m125/full(locate(origin.x+4,origin.y-1,origin.z))
+			N.do_color(basecolor)
+			new /obj/item/clothing/head/helmet/motorcycle(locate(origin.x+4,origin.y-1,origin.z))
+		else if (href_list["cartrader"] == "ASNO Quattroporte (500)")
+			PV = new /obj/effects/premadevehicles/asno/quattroporte(locate(origin.x+3,origin.y-3,origin.z))
+			spawn(5)
+				map.vehicle_registations += list(list("[PV.reg_number]",user.civilization, "ASNO Quattroporte", basecolor))
 
-			else if (href_list["cartrader"] == "Ubermacht Erstenklasse (800)")
-				PV = new /obj/effects/premadevehicles/ubermacht/erstenklasse(locate(origin.x+3,origin.y-3,origin.z))
-				spawn(5)
-					map.vehicle_registations += list(list("[PV.reg_number]",user.civilization, "Ubermacht Erstenklasse", basecolor))
+		else if (href_list["cartrader"] == "ASNO Piccolino (400)")
+			PV = new /obj/effects/premadevehicles/asno/piccolino(locate(origin.x+3,origin.y-3,origin.z))
+			spawn(5)
+				map.vehicle_registations += list(list("[PV.reg_number]",user.civilization, "ASNO Piccolino", basecolor))
 
-			else if (href_list["cartrader"] == "SMC Falcon (750)")
-				PV = new /obj/effects/premadevehicles/smc/falcon(locate(origin.x+3,origin.y-3,origin.z))
-				spawn(5)
-					map.vehicle_registations += list(list("[PV.reg_number]",user.civilization, "SMC Falcon", basecolor))
+		else if (href_list["cartrader"] == "Ubermacht Erstenklasse (800)")
+			PV = new /obj/effects/premadevehicles/ubermacht/erstenklasse(locate(origin.x+3,origin.y-3,origin.z))
+			spawn(5)
+				map.vehicle_registations += list(list("[PV.reg_number]",user.civilization, "Ubermacht Erstenklasse", basecolor))
 
-			else if (href_list["cartrader"] == "Yamasaki Kazoku (600)")
-				PV = new /obj/effects/premadevehicles/yamasaki/kazoku(locate(origin.x+3,origin.y-3,origin.z))
-				spawn(5)
-					map.vehicle_registations += list(list("[PV.reg_number]",user.civilization, "Yamasaki Kazoku", basecolor))
+		else if (href_list["cartrader"] == "SMC Falcon (750)")
+			PV = new /obj/effects/premadevehicles/smc/falcon(locate(origin.x+3,origin.y-3,origin.z))
+			spawn(5)
+				map.vehicle_registations += list(list("[PV.reg_number]",user.civilization, "SMC Falcon", basecolor))
 
-			else if (href_list["cartrader"] == "Yamasaki Shinobu 5000 (900)")
-				PV = new /obj/effects/premadevehicles/yamasaki/shinobu(locate(origin.x+3,origin.y-3,origin.z))
-				spawn(5)
-					map.vehicle_registations += list(list("[PV.reg_number]",user.civilization, "Yamasaki Shinobu 5000", basecolor))
-			else if  (href_list["cartrader"] == "SMC Wyoming (700)")
-				PV = new /obj/effects/premadevehicles/smc/wyoming(locate(origin.x+3,origin.y-3,origin.z))
-				spawn(5)
-					map.vehicle_registations += list(list("[PV.reg_number]",user.civilization, "SMC Wyoming", basecolor))
+		else if (href_list["cartrader"] == "Yamasaki Kazoku (600)")
+			PV = new /obj/effects/premadevehicles/yamasaki/kazoku(locate(origin.x+3,origin.y-3,origin.z))
+			spawn(5)
+				map.vehicle_registations += list(list("[PV.reg_number]",user.civilization, "Yamasaki Kazoku", basecolor))
 
+		else if (href_list["cartrader"] == "Yamasaki Shinobu 5000 (900)")
+			PV = new /obj/effects/premadevehicles/yamasaki/shinobu(locate(origin.x+3,origin.y-3,origin.z))
+			spawn(5)
+				map.vehicle_registations += list(list("[PV.reg_number]",user.civilization, "Yamasaki Shinobu 5000", basecolor))
+		else if  (href_list["cartrader"] == "SMC Wyoming (700)")
+			PV = new /obj/effects/premadevehicles/smc/wyoming(locate(origin.x+3,origin.y-3,origin.z))
+			spawn(5)
+				map.vehicle_registations += list(list("[PV.reg_number]",user.civilization, "SMC Wyoming", basecolor))
+		if (PV)
 			PV.custom_color = chosencolor
 			PV.doorcode = rand(1000,9999)
 			PV.new_number()
@@ -1322,7 +1301,7 @@
 		else if  (user.civilization in map.warrants)
 			mainbody += "<font color='red'>All the members of your company have had their gun permits revoked and the issue of new ones forbidden for murdering police officers.</font>"
 			sleep(0.5)
-			do_html(user)
+			do_html(user) 
 			return
 		else if  (user.real_name in map.warrants)
 			mainbody += "<font color='red'>You have, or had, a warrant in your name, so your request was <b>denied</b>.</font>"
@@ -1624,13 +1603,13 @@
 				var/accmoney = map.marketplaceaccounts[user.civilization]
 				if (map.marketplaceaccounts[user.civilization])
 					if (accmoney <= 0)
-						mainbody += "<b>Твой аккаунт пустой!</b>"
+						mainbody += "<b>Your account is empty!</b>"
 						map.marketplaceaccounts[user.civilization] = 0
 					else
 						mainbody += "You have [accmoney/4] dollars in your company's account.<br>"
 						mainbody += "<a href='?src=\ref[src];nile=5'>Withdraw</a>"
 				else
-					mainbody += "<b>Твой аккаунт пустой!</b>"
+					mainbody += "<b>Your account is empty!</b>"
 			if ("5") //withdraw
 				var/accmoney = map.marketplaceaccounts[user.civilization]
 				if (accmoney > 0)
@@ -1654,104 +1633,73 @@
 /datum/program/elektra/do_html(mob/living/human/user)
 	if (mainmenu == "---")
 		mainmenu = "<h2><font color='yellow'>E</font><font color='orange'>-LEKTRA</font> STORE</h2><br>"
-		mainmenu += "<b>Доставляем хим кристалы для разработки чипов!</i></b><br>"
-		mainmenu += "<b>Теперь на Русском языке!</i></b><br>"
+		mainmenu += "<b>We sell all the chemicals needed for advanced tech production.</i></b><br>"
 		mainmenu += "<a href='?src=\ref[src];elektra=2'>Buy</a><br>"
 	..()
 
 /datum/program/elektra/Topic(href, href_list, hsrc)
 	..()
 	mainbody = ""
-	switch(href_list["elektra"])
-		if ("3")
-			if (!istype(user.l_hand, /obj/item/stack/money) && !istype(user.r_hand, /obj/item/stack/money))
-				mainbody = "<b>You need to have money in one of your hands!</b>"
+	if (findtext(href_list["elektra"],"B"))
+		var/selectedprec = splittext(href_list["elektra"],"-")[2]
+		var/chosenprec = map.precursor_stocks[selectedprec]
+		var/forsale
+		if (!istype(user.l_hand, /obj/item/stack/money) && !istype(user.r_hand, /obj/item/stack/money))
+			mainbody = "<b>You need to have money in one of your hands!</b>"
+			sleep(0.5)
+			do_html(user)
+			return
+		else
+			switch(selectedprec)
+				if ("indigon crystals")
+					forsale = /obj/item/stack/precursor/blue
+				if ("crimsonite crystals")
+					forsale = /obj/item/stack/precursor/red
+				if ("verdine crystals")
+					forsale = /obj/item/stack/precursor/green
+				if ("galdonium crystals")
+					forsale = /obj/item/stack/precursor/yellow
+			var/obj/item/stack/money/mstack = null
+			if (istype(user.l_hand, /obj/item/stack/money))
+				mstack = user.l_hand
+			else
+				mstack = user.r_hand
+			if (mstack.value*mstack.amount >= chosenprec[2])
+				mstack.amount -= (chosenprec[2]/mstack.value)
+				if (mstack.amount<= 0)
+					qdel(mstack)
+				if (!forsale)
+					mainbody = "Authentication Error!"
+					sleep(0.5)
+					do_html(user)
+				var/obj/item/stack/precursor/PR = new forsale(null)
+				if (PR)
+					PR.forceMove(get_turf(origin))
+				mainbody = "You fulfill the order."
+				chosenprec[2] = min(360,round(chosenprec[2]*1.1))
+				chosenprec[1] -= 1
 				sleep(0.5)
 				do_html(user)
 				return
 			else
-				var/chosenprec
-				switch(map.assign_precursors[user.civilization])
-					if ("indigon crystals")
-						chosenprec = map.precursor_stocks["indigon crystals"]
-					if ("crimsonite crystals")
-						chosenprec = map.precursor_stocks["crimsonite crystals"]
-					if ("verdine crystals")
-						chosenprec = map.precursor_stocks["verdine crystals"]
-					if ("galdonium crystals")
-						chosenprec = map.precursor_stocks["galdonium crystals"]
-				var/forsale
-				switch(map.assign_precursors[user.civilization])
-					if ("indigon crystals")
-						forsale = /obj/item/stack/precursor/blue
-					if ("crimsonite crystals")
-						forsale = /obj/item/stack/precursor/red
-					if ("verdine crystals")
-						forsale = /obj/item/stack/precursor/green
-					if ("galdonium crystals")
-						forsale = /obj/item/stack/precursor/yellow
-				var/obj/item/stack/money/mstack = null
-				if (istype(user.l_hand, /obj/item/stack/money))
-					mstack = user.l_hand
-				else
-					mstack = user.r_hand
-				if (mstack.value*mstack.amount >= chosenprec[2])
-					mstack.amount -= (chosenprec[2]/mstack.value)
-					if (mstack.amount<= 0)
-						qdel(mstack)
-					if (!forsale)
-						mainbody = "Authentication Error!"
-						sleep(0.5)
-						do_html(user)
-					var/obj/item/stack/precursor/PR = new forsale(null)
-					if (PR)
-						PR.forceMove(get_turf(origin))
-					mainbody = "You fulfill the order."
-					chosenprec[2] = min(360,round(chosenprec[2]*1.1))
-					chosenprec[1] -= 1
-					sleep(0.5)
-					do_html(user)
-					return
-				else
-					mainbody = "<b>Not enough money!</b>"
-					sleep(0.5)
-					do_html(user)
-					return
+				mainbody = "<b>Not enough money!</b>"
+				sleep(0.5)
+				do_html(user)
+				return
 
-		if ("2") //buy
-			var/forsale
-			switch(user.civilization)
-				if ("Rednikov Industries")
-					forsale = map.assign_precursors["Rednikov Industries"]
-				if ("Giovanni Blu Stocks")
-					forsale = map.assign_precursors["Giovanni Blu Stocks"]
-				if ("Kogama Kraftsmen")
-					forsale = map.assign_precursors["Kogama Kraftsmen"]
-				if ("Goldstein Solutions")
-					forsale = map.assign_precursors["Goldstein Solutions"]
-
-			if (forsale)
-				var/cost
-				var/available
-				switch(map.assign_precursors[user.civilization])
-					if ("indigon crystals")
-						cost = map.precursor_stocks["indigon crystals"][2]
-						available = map.precursor_stocks["indigon crystals"][1]
-					if ("crimsonite crystals")
-						cost = map.precursor_stocks["crimsonite crystals"][2]
-						available = map.precursor_stocks["crimsonite crystals"][1]
-					if ("verdine crystals")
-						cost = map.precursor_stocks["verdine crystals"][2]
-						available = map.precursor_stocks["verdine crystals"][1]
-					if ("galdonium crystals")
-						cost = map.precursor_stocks["galdonium crystals"][2]
-						available = map.precursor_stocks["galdonium crystals"][1]
+	if (href_list["elektra"] == "2") //buy
+		var/forsale_opt = map.assign_precursors[user.civilization]
+		mainbody = ""
+		if (forsale_opt)
+			for(var/i in map.assign_precursors[user.civilization])
+				var/cost = map.precursor_stocks[i][2]
+				var/available = map.precursor_stocks[i][1]
 				if (available>0)
-					mainbody = "<a href='?src=\ref[src];elektra=3'>[forsale], [cost/4] dollars ([available] available)</a><br>"
-				else
-					mainbody = "<b>We are currently out of stock. Please visit soon!</b>"
-			else
+					mainbody += "<a href='?src=\ref[src];elektra=B-[i]'>[i], [cost/4] dollars ([available] available)</a><br>"
+			if (mainbody == "")
 				mainbody = "<b>We are currently out of stock. Please visit soon!</b>"
+		else
+			mainbody = "<b>We are currently out of stock. Please visit soon!</b>"
 
 	sleep(0.5)
 	do_html(user)
@@ -1835,14 +1783,14 @@
 				if (map.marketplaceaccounts[user.name])
 					if (accmoney <= 0)
 						mainbody += "<a href='?src=\ref[src];bank=5'>Withdraw</a>&nbsp;<a href='?src=\ref[src];bank=6'>Deposit</a><br>"
-						mainbody += "<b>Твой аккаунт пустой!</b>"
+						mainbody += "<b>Your account is empty!</b>"
 						map.marketplaceaccounts[user.name] = 0
 					else
 						mainbody += "<a href='?src=\ref[src];bank=5'>Withdraw</a>&nbsp;<a href='?src=\ref[src];bank=6'>Deposit</a><br>"
 						mainbody += "You have [accmoney/4] dollars in your bank account.<br>"
 				else
 					mainbody += "<a href='?src=\ref[src];bank=5'>Withdraw</a>&nbsp;<a href='?src=\ref[src];bank=6'>Deposit</a><br>"
-					mainbody += "<b>Твой аккаунт пустой!</b>"
+					mainbody += "<b>Your account is empty!</b>"
 			if ("5") //withdraw
 				var/accmoney = map.marketplaceaccounts[user.name]
 				if (accmoney > 0)

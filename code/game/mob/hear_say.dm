@@ -99,13 +99,16 @@
 				H.add_note("Known Languages", "[language.name]")
 				H << "<span class = 'notice'>You've learned how to speak <b>[language.name]</b> from hearing it so much.</span>"
 
-/mob/proc/on_hear_say(var/message, var/mob/speaker = null,var/message2 = "")
+/mob/proc/on_hear_say(var/message, var/mob/speaker = null, var/message2 = "")
 	src << message
 	if (speaker && message2 != "")
 		if (client && speaker.client && (speaker in view(7,src) || speaker == src))
 
 			if (client.is_preference_enabled(/datum/client_preference/show_chat_overlays))
-				client.seen_chat_text += new/obj/chat_text(null,speaker,message2,src)
+				var/obj/chat_text/CT = new/obj/chat_text(speaker,message2,src)
+				client.seen_chat_text += CT
+				if(speaker.client)
+					speaker.client.stored_chat_text += CT
 
 			if (config.tts_on && ishuman(src) && client.is_preference_enabled(/datum/client_preference/play_chat_tts))
 				play_tts(message2,speaker)
@@ -118,6 +121,7 @@
 	if (!destination && origin)
 		destination = origin
 	message = capitalize(message)
+	message = replacetext(message, "&#39", "'")
 
 	if (sleeping || stat==1) //If unconscious or sleeping
 		hear_sleep(message)
@@ -153,10 +157,8 @@
 
 	if (dd_hasprefix(message, " "))
 		message = copytext(message, 2)
-
-	if (findtext(message,";10-") || findtext(message,"; 10-"))
+	if (findtext(message,"10-") || findtext(message," 10-"))
 		message = ten_code(message, speaker)
-	message = replacetext(message,";","")
 	if ((sdisabilities & DEAF) || ear_deaf || find_trait("Deaf"))
 		if (prob(20))
 			src << "<span class='warning'>You feel the radio vibrate but can hear nothing from it!</span>"
@@ -169,17 +171,17 @@
 				if (RD)
 					full_message = "<font size = [fontsize] color=#FFAE19><b>[destination.name], <i>[RD.freq] kHz</i>:</font></b><font size = [fontsize]> <b>[speaker.real_name]</b> <span class = 'small_message'>([language.name])</span> \"[message]\"</font>"
 					if (track)
-						full_message = "<font size = [fontsize] color=#FFAE19><b>[destination.name], <i>[RD.freq] kHz</i>:</font></b><font size = [fontsize]> <b>[speaker.real_name]</b> ([track]) <span class = 'small_message'>([language.name])</span> \"[message]\"</font>"
+						full_message = "<font size = [fontsize] color=#FFAE19><b>[destination.name], <i>[RD.freq] kHz</i>:</font></b><font size = [fontsize]> <b>[speaker.real_name]</b> [track] <span class = 'small_message'>([language.name])</span> \"[message]\"</font>"
 			else
 				var/obj/item/weapon/radio/RD = destination
 				if (RD)
 					full_message = "<font size = [fontsize] color=#FFAE19><b>[destination.name], <i>[RD.freq] kHz</i>:</font></b><font size = [fontsize]> <b>[speaker.real_name]</b> <span class = 'small_message'>([language.name])</span> \"[message]\"</font>"
 					if (track)
-						full_message = "<font size = [fontsize] color=#FFAE19><b>[destination.name], <i>[RD.freq] kHz</i>:</font></b><font size = [fontsize]> <b>[speaker.real_name]</b> ([track]) <span class = 'small_message'>([language.name])</span> \"[message]\"</font>"
+						full_message = "<font size = [fontsize] color=#FFAE19><b>[destination.name], <i>[RD.freq] kHz</i>:</font></b><font size = [fontsize]> <b>[speaker.real_name]</b> [track] <span class = 'small_message'>([language.name])</span> \"[message]\"</font>"
 		else
 			full_message = "<font size = [fontsize] color=#FFAE19><b>Radio:</font></b><font size = [fontsize]> <b>[speaker.real_name]</b> <span class = 'small_message'>([language.name])</span> \"[message]\"</font>"
 			if (track)
-				full_message = "<font size = [fontsize] color=#FFAE19><b>Radio:</font></b><font size = [fontsize]> <b>[speaker.real_name]</b> ([track]) <span class = 'small_message'>([language.name])</span> \"[message]\"</font>"
+				full_message = "<font size = [fontsize] color=#FFAE19><b>Radio:</font></b><font size = [fontsize]> <b>[speaker.real_name]</b> [track] <span class = 'small_message'>([language.name])</span> \"[message]\"</font>"
 
 
 		on_hear_obj(destination, full_message)
@@ -241,7 +243,7 @@
 				break
 		var/full_message = "<font size = [fontsize] color=#FFAE19><b>[contactname]([destination.phonenumber]):</font></b><font size = [fontsize]> <span class = 'small_message'>([language.name])</span> \"[message]\"</font>"
 		if (track)
-			full_message = "<font size = [fontsize] color=#FFAE19><b>[contactname]([destination.phonenumber]):</font></b><font size = [fontsize]> ([track]) <span class = 'small_message'>([language.name])</span> \"[message]\"</font>"
+			full_message = "<font size = [fontsize] color=#FFAE19><b>[contactname]([destination.phonenumber]):</font></b><font size = [fontsize]> [track] <span class = 'small_message'>([language.name])</span> \"[message]\"</font>"
 		on_hear_obj(destination, full_message)
 
 /mob/proc/hear_voicepipe(var/message, var/datum/language/language=null, var/mob/speaker = null, var/obj/structure/voyage/voicepipe/destination=null, var/obj/structure/voyage/voicepipe/origin=null)
@@ -302,11 +304,11 @@
 			if (RD)
 				full_message = "<font size = [fontsize] color=#FFAE19><b>[destination.vp_reference]:</font></b><font size = [fontsize]> <b>[speaker.real_name]</b> <span class = 'small_message'>([language.name])</span> \"[message]\"</font>"
 				if (track)
-					full_message = "<font size = [fontsize] color=#FFAE19><b>[destination.vp_reference]:</font></b><font size = [fontsize]> <b>[speaker.real_name]</b> ([track]) <span class = 'small_message'>([language.name])</span> \"[message]\"</font>"
+					full_message = "<font size = [fontsize] color=#FFAE19><b>[destination.vp_reference]:</font></b><font size = [fontsize]> <b>[speaker.real_name]</b> [track] <span class = 'small_message'>([language.name])</span> \"[message]\"</font>"
 		else
 			full_message = "<font size = [fontsize] color=#FFAE19><b>Voicepipe:</font></b><font size = [fontsize]> <b>[speaker.real_name]</b> <span class = 'small_message'>([language.name])</span> \"[message]\"</font>"
 			if (track)
-				full_message = "<font size = [fontsize] color=#FFAE19><b>Voicepipe:</font></b><font size = [fontsize]> <b>[speaker.real_name]</b> ([track]) <span class = 'small_message'>([language.name])</span> \"[message]\"</font>"
+				full_message = "<font size = [fontsize] color=#FFAE19><b>Voicepipe:</font></b><font size = [fontsize]> <b>[speaker.real_name]</b> [track] <span class = 'small_message'>([language.name])</span> \"[message]\"</font>"
 
 
 		on_hear_obj(destination, full_message)
@@ -343,7 +345,7 @@
 		if (copytext(heardword,1, TRUE) in punctuation)
 			heardword = copytext(heardword,2)
 		if (copytext(heardword,-1) in punctuation)
-			heardword = copytext(heardword,1,length_char(heardword))
+			heardword = copytext(heardword,1,length(heardword))
 		heard = "<span class = 'game_say'>...You hear something about...[heardword]</span>"
 
 	else

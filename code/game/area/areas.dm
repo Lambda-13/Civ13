@@ -32,7 +32,7 @@
 	var/list/ambience = list()
 	var/list/forced_ambience = list()
 	var/turf/base_turf //The base turf type of the area, which can be used to override the z-level's base turf
-	var/sound_env = ALLEY
+	var/sound_env = FOREST
 
 	var/location = AREA_OUTSIDE
 
@@ -55,7 +55,7 @@
 	var/artillery_integrity = 100
 
 /area/New()
-	icon = 'icons/russian/effects/weather.dmi'
+	icon = 'icons/effects/weather.dmi'
 	icon_state = ""
 	layer = 10
 	uid = ++global_uid

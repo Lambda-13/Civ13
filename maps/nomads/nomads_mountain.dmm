@@ -25,7 +25,7 @@
 "y" = (/obj/covers/steelplating,/obj/structure/filingcabinet/filingcabinet,/turf/floor/dirt,/area/caribbean/void/caves/level8)
 "z" = (/obj/covers/steelplating,/obj/effect/floor_decal/industrial/warning{icon_state = "warning"; dir = 4},/turf/floor/dirt,/area/caribbean/void/caves/level8)
 "A" = (/obj/effect/floor_decal/industrial/warning{icon_state = "warning"; dir = 8},/turf/floor/dirt/dust,/area/caribbean/void/caves/level8)
-"B" = (/obj/covers/steelplating,/obj/structure/table/modern/retable,/obj/structure/grille/ironfence{desc = "Iron bars."; icon = 'icons/russian/obj/structures.dmi'; icon_state = "bars_bank"; name = "iron bars"},/turf/floor/dirt,/area/caribbean/void/caves/level8)
+"B" = (/obj/covers/steelplating,/obj/structure/table/modern/retable,/obj/structure/grille/ironfence{desc = "Iron bars."; icon = 'icons/obj/structures.dmi'; icon_state = "bars_bank"; name = "iron bars"},/turf/floor/dirt,/area/caribbean/void/caves/level8)
 "C" = (/obj/covers/steelplating,/obj/structure/table/modern/retable,/obj/structure/grille,/obj/structure/window/classic/metal,/turf/floor/dirt,/area/caribbean/void/caves/level8)
 "D" = (/obj/covers/steelplating,/obj/structure/table/modern/retable,/turf/floor/dirt,/area/caribbean/void/caves/level8)
 "E" = (/obj/covers/steelplating,/obj/structure/bed/chair/office/light{icon_state = "officechair_white"; dir = 4},/turf/floor/dirt,/area/caribbean/void/caves/level8)

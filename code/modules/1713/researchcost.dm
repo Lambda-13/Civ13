@@ -3,7 +3,7 @@
 /obj/structure/researchdesk
 	name = "research desk"
 	desc = "Use this study several items and increase your research levels."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "researchdesk"
 	var/money = 0
 	var/marketval = 0
@@ -92,7 +92,7 @@
 /obj/structure/researchdesk/chad
 	name = "Altar of Chad."
 	desc = "Grab live or dead people and sacrifice them."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "altar_of_chad"
 	money = 0
 	marketval = 0

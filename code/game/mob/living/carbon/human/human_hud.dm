@@ -187,7 +187,7 @@ the HUD updates properly! */
 				P.Client.images += perp.hud_list[FACTION_TO_ENEMIES]
 		if (map.nomads == TRUE)
 			var/image/holderf = perp.hud_list[BASE_FACTION]
-			holderf.icon = 'icons/russian/mob/hud_1713.dmi'
+			holderf.icon = 'icons/mob/hud_1713.dmi'
 			holderf.plane = HUD_PLANE
 			holderf.icon_state = ""
 			if (perp.original_job_title == "Nomad" && viewer.original_job_title == "Nomad")

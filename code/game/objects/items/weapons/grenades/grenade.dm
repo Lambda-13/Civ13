@@ -12,7 +12,6 @@
 	var/active = FALSE
 	var/det_time = 50
 	var/loadable = TRUE
-	var/armsound = 'sound/weapons/armbomb.ogg'
 	flammable = TRUE
 	value = 5
 	var/explosion_sound = 'sound/weapons/Explosives/HEGrenade.ogg'
@@ -42,12 +41,11 @@
 		return
 
 	if (user)
-		message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) активировал \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
-		log_game("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) активировал \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
+		msg_admin_attack("[user.name] ([user.ckey]) primed \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
 		firer = user
 	icon_state = initial(icon_state) + "_active"
 	active = TRUE
-	playsound(loc, armsound, 75, TRUE, -3)
+	playsound(loc, 'sound/weapons/armbomb.ogg', 75, TRUE, -3)
 
 	spawn(det_time)
 		visible_message("<span class = 'warning'>\The [src] goes off!</span>")
@@ -205,7 +203,7 @@
 
 	icon_state = "dynamite3"
 	active = TRUE
-	playsound(loc, armsound, 75, TRUE, -3)
+	playsound(loc, 'sound/weapons/armbomb.ogg', 75, TRUE, -3)
 	update_icon()
 	spawn(det_time)
 		visible_message("<span class = 'warning'>\The [src] goes off!</span>")
@@ -252,17 +250,6 @@
 
 	spawn (5)
 		qdel(src)
-
-/obj/item/weapon/grenade/modern/fart
-	name = "FT bomb"
-	desc = "RYSSKAYA RAZRABOTKA OC'KA."
-	icon_state = "mills"
-	explosion_size = 0
-	fragment_type = /obj/item/projectile/bullet/pellet/poo
-	num_fragments = 30  //total number of fragments produced by the grenade
-	det_time = 70
-	throw_range = 7
-	explosion_sound = 'sound/weapons/Explosives/FTGrenade.ogg'
 
 /obj/item/weapon/grenade/modern/mills
 	name = "mills bomb no. 5"
@@ -445,13 +432,9 @@
 	if (secondary_action)
 		var/inp = WWinput(user, "Are you sure you wan't to place a booby trap here?", "Booby Trapping", "No", list("Yes","No"))
 		if (inp == "Yes")
-			message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) минирует тайл под собой \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
-			log_game("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) минирует тайл под собой \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 			user << "Placing the booby trap..."
 			if (do_after(user, 100, src))
 				if (src)
-					message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) заминировал тайл под собой с помощью \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
-					log_game("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) заминировал тайл под собой с помощью \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 					user << "You successfully place the booby trap here using \the [src]."
 					var/obj/item/mine/boobytrap/BT = new /obj/item/mine/boobytrap(get_turf(user))
 					BT.origin = src.type
@@ -560,7 +543,7 @@
 	if (user && user.faction_text == ARAB)
 		user.emote("charge")
 	active = TRUE
-	playsound(loc, armsound, 75, TRUE, -3)
+	playsound(loc, 'sound/weapons/armbomb.ogg', 75, TRUE, -3)
 
 	spawn(det_time)
 		visible_message("<span class = 'warning'>\The [src] goes off!</span>")
@@ -626,7 +609,7 @@
 	if (user && user.faction_text == JAPANESE)
 		user.emote("charge")
 	active = TRUE
-	playsound(loc, armsound, 75, TRUE, -3)
+	playsound(loc, 'sound/weapons/armbomb.ogg', 75, TRUE, -3)
 
 	spawn(det_time)
 		visible_message("<span class = 'warning'>\The [src] goes off!</span>")

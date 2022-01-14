@@ -1,7 +1,7 @@
 /mob/living/human/proc/togglerace(targetraceinput)
 	src << "<span> You start to change....</span>"
 	spawn(4000)
-		if (src && orc+ant+crab+wolfman+lizard+gorillaman+skeletman+zombieman<=0)
+		if (src && orc+ant+crab+wolfman+lizard+gorillaman<=0)
 			switch(targetraceinput)
 				if ("orc")
 					orc = 0
@@ -15,12 +15,8 @@
 					lizard = 0
 				if ("gorillaman")
 					gorillaman = 0
-				if ("skeletman")
-					skeletman = 0
-				if ("zombieman")
-					zombieman = 0
 /mob/living/human/proc/checkrace()
-	if(!orc && !ant && !wolfman && !lizard && !gorillaman && !crab && !skeletman && !zombieman && can_mutate)
+	if(!orc && !ant && !wolfman && !lizard && !gorillaman && !crab && can_mutate)
 		return TRUE
 	else
 		return FALSE
@@ -70,20 +66,6 @@
 			else
 				src << "<span> You notice dark fur spreading across your body!</span>"
 			togglerace("gorillaman")
-			radiation -= radiation/4 //Reduce radiation because you ain't resistant.
-		else if (prob(10))
-			if (prob(50))
-				src << "<span> My skin flaking!</span>"
-			else
-				src << "<span> I feel empty inside me!</span>"
-			togglerace("skeletman")
-			radiation -= radiation/4 //Reduce radiation because you ain't resistant.
-		else if (prob(10))
-			if (prob(50))
-				src << "<span> Brains...</span>"
-			else
-				src << "<span> Meat...</span>"
-			togglerace("zombieman")
 			radiation -= radiation/4 //Reduce radiation because you ain't resistant.
 	if(radiation >= 350) //Corpse gotta be pretty bad tbh.
 		if(stat == DEAD) //if dead.

@@ -1,7 +1,7 @@
 /obj/structure/grille
 	name = "grille"
 	desc = "Flimsy wood rods, with screws to secure it to the floor."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "grille"
 	density = TRUE
 	anchored = TRUE

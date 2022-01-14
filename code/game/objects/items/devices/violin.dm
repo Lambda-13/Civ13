@@ -1,7 +1,7 @@
 /obj/item/violin
 	name = "Violin"
 	desc = "A classic violin. "
-	icon = 'icons/russian/obj/musician.dmi'
+	icon = 'icons/obj/musician.dmi'
 	icon_state = "violin"
 	item_state = "violin"
 	force = WEAPON_FORCE_PAINFUL

@@ -46,7 +46,7 @@ var/list/global_huds = list(
 /datum/global_hud/New()
 	//420erryday psychedellic colours screen overlay for when you are high
 	druggy = new /obj/screen()
-	druggy.icon = 'icons/russian/mob/screen/effects.dmi'
+	druggy.icon = 'icons/mob/screen/effects.dmi'
 	druggy.screen_loc = ui_entire_screen
 	druggy.icon_state = "druggy"
 	druggy.layer = 17
@@ -55,7 +55,7 @@ var/list/global_huds = list(
 
 	//that white blurry effect you get when you eyes are damaged
 	blurry = new /obj/screen()
-	blurry.icon = 'icons/russian/mob/screen/effects.dmi'
+	blurry.icon = 'icons/mob/screen/effects.dmi'
 	blurry.screen_loc = ui_entire_screen
 	blurry.icon_state = "[rand(1,9)] moderate"
 	blurry.layer = 17

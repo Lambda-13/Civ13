@@ -1,7 +1,7 @@
 /obj/structure/supplybook
 	name = "supply orders book"
 	desc = "Use this to request supplies to be delivered to the colony. Only merchants have access to it and only the governor can order ammunition."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "supplybook"
 	var/money = 0
 	var/marketval = 0
@@ -55,7 +55,7 @@
 /obj/structure/exportbook
 	name = "exporting book"
 	desc = "Use this to export colony products and exchange money. Only merchants and governors have access to it."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "supplybook2"
 	var/money = 0
 	var/marketval = 0

@@ -3,7 +3,7 @@
 
 	var/list/epochs = list(
 		//"Stone Age (?-3000 B.C.)" = 0,
-		"Chad Mode" = 15,
+		"Chad Mode" = 0,
 		"Pre-Firearms (3000 B.C-1650 A.D.)" = 0,
 		//"Bronze Age (3000 B.C.-400 A.D.)" = 0,
 		//"Dark Ages (400-700)" = 0,
@@ -22,8 +22,7 @@
 		"Civilization 13 (Colony & Pioneers)" = 0,
 		//"Civilization 13 (Prison Camps)" = 15,
 		"Civilization 13 (Others)" = 0,
-		"Battle Royale" = 10,
-		"New Russian Map Pack" = 0,
+		"Battle Royale" = 0,
 	)
 	var/ready = TRUE
 	var/admin_triggered = FALSE
@@ -40,7 +39,8 @@
 /process/epochswap/fire()
 	// no SCHECK here
 	if (is_ready())
-		map.save_awards()
+		spawn(20)
+			map.save_awards()
 		if(map.ID == MAP_VOYAGE)
 			var/obj/map_metadata/voyage/nmap = map
 			nmap.show_stats()
@@ -52,22 +52,21 @@
 				"Modern Fire Arms (1949-2021)" = 0,
 				"HRP TDM (Gulag, Voyage, Occupation, etc)" = 10,
 //				"Chad Mode" = 0,
-				"Battle Royale" = 10,
+				"Battle Royale" = 6,
 			)
 		else if (config.allowedgamemodes == "RP")
 			epochs = list(
 				//"The Art of the Deal" = 10,
-				"Civilization 13 (Nomads)" = 5,
-				"Civilization 13 (Colony & Pioneers)" = 5,
+				"Civilization 13 (Nomads)" = 0,
+				"Civilization 13 (Colony & Pioneers)" = 0,
 				//"Civilization 13 (Prison Camps)" = 15,
-				"Civilization 13 (Others)" = 0,
-				"HRP TDM (Gulag, AOTD, Occupation)" = 5,)
+				"Civilization 13 (Others)" = 0,)
 		else if (config.allowedgamemodes == "PERSISTENCE")
 			epochs = list(
-				"Civilization 13 (Nomads)" = 5,)
+				"Civilization 13 (Nomads)" = 0,)
 		else if (config.allowedgamemodes == "BR")
 			epochs = list(
-				"Battle Royale" = 0,)
+				"Battle Royale" = 6,)
 		ready = FALSE
 		vote.initiate_vote("epoch", "EpochSwap Process", TRUE, list(src, "swap"))
 
@@ -120,7 +119,6 @@
 				MAP_HOSTAGES = 0,
 				MAP_ARAB_TOWN = 0,
 				MAP_ARAB_TOWN_2 = 0,
-				MAP_ARAB_TOWN_RU = 0,
 				MAP_YELTSIN = 6,
 				MAP_ALLEYWAY = 0,
 				MAP_COMPOUND = 6,
@@ -166,7 +164,7 @@
 				MAP_NAVAL = 0,
 		//		MAP_ISLAND = 0,
 				MAP_CURSED_ISLAND = 0,
-		//		MAP_SUPPLY_RAID = 0,
+				MAP_SUPPLY_RAID = 0,
 				MAP_RECIFE = 10,
 				MAP_FIELDS = 10,
 				MAP_ROBUSTA = 15,
@@ -203,7 +201,10 @@
 				MAP_ABASHIRI = 6,
 				MAP_VOYAGE = 6,
 //				MAP_RIVER_KWAI = 0,
-				MAP_OCCUPATION = 15,
+				MAP_LITTLE_CREEK = 10,
+				MAP_OCCUPATION = 10,
+				MAP_THE_ART_OF_THE_DEAL = 20,
+
 			)
 		else if (epoch == "Civilization 13 (Nomads)")
 			maps = list(
@@ -217,33 +218,29 @@
 				MAP_NOMADS_PANGEA = 10,
 				MAP_NOMADS_WASTELAND = 0,
 				MAP_NOMADS_WASTELAND_2 = 0,
-				MAP_NOMADS_WASTELAND_RU = 0,
-				MAP_NOMADS_WASTELAND_SCARLET_PLAGUE = 0,
 				MAP_NOMADS_NEW_WORLD = 5,
 				MAP_NOMADS_MEDITERRANEAN = 0,
 //				MAP_NOMADS_ISLAND = 0,
 				MAP_NOMADS_KARAFUTO = 0,
 				MAP_NOMADS_EUROPE = 10,
-				MAP_NOMADS_FLY = 228, //Not work, 400x400x3, please fix ~~sanecman
 			)
 		else if (epoch == "Civilization 13 (Colony & Pioneers)")
 			maps = list(
 				MAP_COLONY = 0,
-				MAP_JUNGLE_COLONY = 5,
+				MAP_JUNGLE_COLONY = 4,
 				MAP_PIONEERS = 5,
-				MAP_PIONEERS_WASTELAND_2 = 10,
+				MAP_PIONEERS_WASTELAND_2 = 0,
 				MAP_BOHEMIA = 10,
-				MAP_BOHEMIARU = 5,
-				MAP_FOUR_COLONIES = 15,
+				MAP_FOUR_COLONIES = 20,
 			)
 		else if (epoch == "Civilization 13 (Others)")
 			maps = list(
-				MAP_TRIBES = 15,
+				MAP_TRIBES = 12,
 				MAP_HUNT = 0,
 				MAP_LITTLE_CREEK = 10,
-				MAP_THE_ART_OF_THE_DEAL = 6,
+				MAP_THE_ART_OF_THE_DEAL = 10,
 				MAP_FOUR_KINGDOMS = 0,
-				MAP_GULAG13 = 10,
+				MAP_GULAG13 = 0,
 //				MAP_ABASHIRI = 6,
 //				MAP_RIVER_KWAI = 0,
 				MAP_OCCUPATION = 10,
@@ -252,14 +249,8 @@
 			maps = list(
 				MAP_BATTLEROYALE_MEDIEVAL = 0,
 				MAP_BATTLEROYALE_IMPERIAL = 0,
+				MAP_BATTLEROYALE_WILDWEST = 0,
 				MAP_BATTLEROYALE_MODERN = 0,)
-		else if (epoch == "New Russian Map Pack")
-			maps = list(
-				MAP_LOBBY = 0,
-				MAP_BOHEMIARU = 5,
-				MAP_NOMADS_WASTELAND_RU = 5,
-				MAP_NOMADS_FLY = 228, //Not work, 400x400x3, please fix ~~sanecman
-				MAP_NOMADS_WASTELAND_SCARLET_PLAGUE = 5,)
 		spawn(10)
 			vote.initiate_vote("map", "MapSwap Process", TRUE, list(src, "swap"))
 			return
@@ -287,11 +278,6 @@
 	if (!done)
 		processes.python.execute("mapswap.py", list(winner))
 		done = TRUE
-		sleep(300)
-		world << "<span class = 'danger'>Меняем карту!</span> <span class='notice'>Нажми сюда что бы переподключиться (обычно нажимают если не сработало переподключение): <b>byond://[world.internet_address]:[world.port]</b></span>"
-	if (config.discordurl)
-		world << "<span class='notice'>Наш дискорд: <b>[config.discordurl]</b></span>"
-
 
 /process/gamemode
 	var/ready = TRUE
@@ -574,43 +560,26 @@
 		map.civf_research = list(customresearch,customresearch,customresearch,null)
 		return
 	/// TDM MODES ///
-		//Easy Mode - damage mod 0.5, no delay, no fov, no medals//
-	else if (vote.voted_gamemode == "Easy")
-		world << "<font color='blue'><big>Лёгкий Режим</big><br>Без ограничений по респавну, 0.5 урон.</big></font>"
-		config.disable_fov = TRUE
-		config.no_respawn_delays = TRUE
-		map.gamemode = "Easy"
-		global_damage_modifier = 0.5
-		return
 	else if (vote.voted_gamemode == "Normal")
-		world << "<font color='green'><big>Нормальный Режим</big><br>Без ограничений по респавну.</big></font>"
+		world << "<font color='green'><big>Normal Mode</big><br>No respawn delays.</big></font>"
 		config.disable_fov = TRUE
 		config.no_respawn_delays = TRUE
 		map.gamemode = "Normal"
 		global_damage_modifier = 1
 		return
 	else if (vote.voted_gamemode == "Competitive")
-		world << "<font color='yellow'><big>Соревновательный Режим</big><br>1.25 урон, время по респавну.</big></font>"
+		world << "<font color='yellow'><big>Competitive Mode</big><br>Respawn delay enabled, increased damage.</big></font>"
 		config.disable_fov = TRUE
 		config.no_respawn_delays = FALSE
 		map.gamemode = "Competitive"
 		global_damage_modifier = 1.15
 		return
 	else if (vote.voted_gamemode == "Hardcore")
-		world << "<font color='red'><big>ХАРДКОРНЫЙ режим</big><br>Респавн отключён, 1.50 урон, ограничение на обзор включён, включены медали.</big></font>"
+		world << "<font color='red'><big>HARDCORE Mode</big><br>No respawns, increased damage. Field of View enabled. Awards active.</big></font>"
 		config.disable_fov = FALSE
 		config.no_respawn_delays = FALSE
 		map.gamemode = "Hardcore"
 		global_damage_modifier = 1.30
-		return
-		//Really Life - damage modifer 3.0, no hud, medals//
-	else if (vote.voted_gamemode == "RealLive")
-		world << "<font color='white'><big>Режим реальной жизни</big><br>Худ отключён, трёхкратный урон, ограничение на обзор включён, респавн отключён, включены медали.</big></font>"
-		config.disable_fov = FALSE
-		config.no_respawn_delays = FALSE
-		map.gamemode = "RealLive"
-		global_damage_modifier = 3
-		map.disablehud = TRUE
 		return
 	/// CAPITOL MODES //
 	else if (vote.voted_gamemode == "Siege")

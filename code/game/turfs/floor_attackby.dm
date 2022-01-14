@@ -1121,7 +1121,7 @@
 			mineral.amount *= 2
 		if (H)
 			H << "<span class='danger'>You found some <font color=[get_material_by_name("sandstone").icon_colour]><b>sandstone</font> rocks</b>!</span>"
-	if(prob(20) && (map.ID != MAP_NOMADS_PANGEA || map.ID != MAP_NOMADS_CONTINENTAL || map.ID != MAP_NOMADS_FLY || map.ID != MAP_NOMADS_NEW_WORLD && map.ID != MAP_NOMADS_MEDITERRANEAN && map.ID != MAP_GULAG13 && map.ID != MAP_RIVER_KWAI) && map.ordinal_age >=1)
+	if(prob(20) && (map.ID != MAP_NOMADS_PANGEA || map.ID != MAP_NOMADS_CONTINENTAL || map.ID != MAP_NOMADS_NEW_WORLD && map.ID != MAP_NOMADS_MEDITERRANEAN && map.ID != MAP_GULAG13 && map.ID != MAP_RIVER_KWAI) && map.ordinal_age >=1)
 		var/obj/item/stack/material/marble/mineral = new/obj/item/stack/material/marble(src)
 		mineral.amount = rand(8,12)
 		if (istype(get_area(src), /area/caribbean/void/caves/special))
@@ -1139,7 +1139,7 @@
 			mineral.amount *= 2
 		if (H)
 			H << "<span class='danger'>You found some <font color=#060606><b>obsidian</font> rocks</b>!</span>"
-	else if(prob(20) && (map.ID == MAP_NOMADS_PANGEA || map.ID == MAP_NOMADS_CONTINENTAL || map.ID == MAP_NOMADS_FLY || map.ID == MAP_NOMADS_NEW_WORLD && map.ID == MAP_NOMADS_MEDITERRANEAN) && area_above && area_above.climate == "temperate" || area_above && area_above.climate == "semiarid" && map.ordinal_age >=1)
+	else if(prob(20) && (map.ID == MAP_NOMADS_PANGEA || map.ID == MAP_NOMADS_CONTINENTAL || map.ID == MAP_NOMADS_NEW_WORLD && map.ID == MAP_NOMADS_MEDITERRANEAN) && area_above && area_above.climate == "temperate" || area_above && area_above.climate == "semiarid" && map.ordinal_age >=1)
 		var/obj/item/stack/material/marble/mineral = new/obj/item/stack/material/marble(src)
 		mineral.amount = rand(8,12)
 		if (istype(get_area(src), /area/caribbean/void/caves/special))

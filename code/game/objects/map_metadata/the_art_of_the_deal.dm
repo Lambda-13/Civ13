@@ -35,26 +35,28 @@
 	required_players = 6
 	var/list/delivery_locations = list()
 	var/list/delivery_orders = list()
+	var/maxpoints = 2500
+	availablefactions = list("Goldstein Solutions", "Kogama Kraftsmen", "Rednikov Industries", "Giovanni Blu Stocks")
 
-/obj/map_metadata/proc/assign_precursors()
-	var/list/possibilities1 = list("verdine crystals","indigon crystals","galdonium crystals")
-	var/list/picked = list()
-	assign_precursors["Rednikov Industries"] = pick(possibilities1)
-	picked += assign_precursors["Rednikov Industries"]
-	possibilities1 = list("crimsonite crystals","verdine crystals","galdonium crystals")
-	possibilities1 -= picked
-	assign_precursors["Giovanni Blu Stocks"] = pick(possibilities1)
-	picked += assign_precursors["Giovanni Blu Stocks"]
-	possibilities1 = list("crimsonite crystals","indigon crystals","galdonium crystals")
-	possibilities1 -= picked
-	if ("galdonium crystals" in possibilities1)
-		assign_precursors["Kogama Kraftsmen"] = "galdonium crystals"
-	else
-		assign_precursors["Kogama Kraftsmen"] = pick(possibilities1)
-	picked += assign_precursors["Kogama Kraftsmen"]
-	possibilities1 = list("crimsonite crystals","indigon crystals","verdine crystals")
-	possibilities1 -= picked
-	assign_precursors["Goldstein Solutions"] = pick(possibilities1)
+
+/obj/map_metadata/art_of_the_deal/update_win_condition()
+	if (win_condition_spam_check)
+		return FALSE
+	for(var/obj/structure/closet/safe/SF in world)
+		if (SF.faction)
+			var/list/tlist = list(SF.faction,0)
+			for(var/obj/item/I in SF)
+				if (istype(I, /obj/item/stack/money))
+					var/obj/item/stack/money/M = I
+					tlist[2]+=M.amount*M.value/4
+			tlist[2] += scores[SF.faction]
+			if (tlist[2] >= maxpoints)
+				var/message = "[tlist[1]] has reached a valuation over [maxpoints] and won!"
+				world << "<font size = 4><span class = 'notice'>[message]</span></font>"
+				score()
+				win_condition_spam_check = TRUE
+				ticker.finished = TRUE
+				return TRUE
 
 /obj/map_metadata/art_of_the_deal/New()
 	..()
@@ -76,7 +78,6 @@
 		spawn_disks(TRUE)
 	spawn(100)
 		refill_marketplace(TRUE)
-		assign_precursors()
 	spawn(150)
 		assign_delivery_zones()
 		send_buy_orders()
@@ -106,18 +107,18 @@
 		var/pay = nr*rand(500,1100)
 		var/list/tlist = list(list(tloc[2],tloc[3],comps,nr,pay,i)) //x,y,product,amount,payment,faction
 		delivery_orders += tlist
-		var/needed = "[nr] [comps] которые надо положить в [tloc[4]] [tloc[1]] postbox по координатам [tloc[2]],[tloc[3]]"
+		var/needed = "[nr] [comps]s at the [tloc[4]] [tloc[1]] postbox ([tloc[2]],[tloc[3]])"
 		var/datum/email/E = new/datum/email
 		pay/=4 //convert to dollars
 		E.subject = pick("New Order","Delivery Requested","Need Some More","Ordering","URGENT: Order")
 		E.sender = "[lowertext(pick(first_names_male))][rand(1,99)]@monkeysoft.ug"
 		E.receiver = i
 		E.message = pick(
-			"Хей чел, мне надо бы [needed] и срочняк. Я заплачу [pay] баксов, согласен?<br>kudos from [uppertext(E.sender[1])].",
-			"Пчел, надо [needed]. АСАП. Плачу [pay]$. Твой знакомый.",
-			"Я заказал [needed] за [pay] бачей, жду доставки.",
-			"Тебе нужны деньги а мне нужен товар. Плачу [pay] за [needed].<br>Спасибо",
-			"Отправь [needed]. Плачу [pay]$. Без лишних слов.<br>-[uppertext(E.sender[1])]",
+			"Hey man, send [needed], really need it. Is [pay] ok? Will be expecting.<br>kudos from [uppertext(E.sender[1])].",
+			"Hope you guys are ok. Need [needed]. ASAP. Will pay [pay]$ for all of it. Yours trully",
+			"Hey, need a delivery of [needed] for [pay], thanks.",
+			"I heard you can get your hands on something i need. I'll pay you [pay]. Send me [needed].<br>Thanks",
+			"Send [needed]. Pay is [pay]$. Discretion as always.<br>-[uppertext(E.sender[1])]",
 			)
 		E.date = roundduration2text()
 		E.read = FALSE
@@ -129,14 +130,14 @@
 /obj/map_metadata/art_of_the_deal/job_enabled_specialcheck(var/datum/job/J)
 	if (J.is_deal)
 		. = TRUE
-		if (clients.len <= 1)
-			if (J.title == "Citizen")// || J.title == "Driver")
+		if (istype(J, /datum/job/civilian/businessman) && !istype(J, /datum/job/civilian/businessman/legitimate))
+			if(!findtext(J.title, "CEO"))
 				. = FALSE
-		if (clients.len <= 5)
-			if (J.title == "Paramedic" || J.title == "Mechanic" || J.title == "Fire Response")
+		if (clients.len <= 15)
+			if (J.title == "Paramedic" || J.title == "Legitimate Business")
 				. = FALSE
-		if (clients.len <= 10)
-			if (J.title == "Legitimate Business" || J.title == "Homeless Man")
+		if (clients.len <= 25)
+			if (J.title == "Mechanic" || J.title == "Homeless Man")
 				. = FALSE
 	else
 		. = FALSE
@@ -497,7 +498,7 @@
 		arn = rand(1000,9999)
 		icon_state = "police_record"
 		spawn(10)
-			info = "<meta charset='utf-8'><center>POLICE DEPARTMENT<hr><large><b>Arrest Warrant No. [arn]</b></large><hr><br>Police forces are hereby authorized and directed to detain <b>[tgt]</b>, working for <b><i>[tgtcmp]</i></b>, for the following reasons:<br><br><i>- [reason]</i><br><br>They will disregard any claims of immunity or privilege by the Suspect or agents acting on the Suspect's behalf. Police forces shall bring <b>[tgt]</b> forthwith to the Police Station.<br><br><small><center><i>Form Model 13-B</i><center></small><hr>"
+			info = "<center>POLICE DEPARTMENT<hr><large><b>Arrest Warrant No. [arn]</b></large><hr><br>Police forces are hereby authorized and directed to detain <b>[tgt]</b>, working for <b><i>[tgtcmp]</i></b>, for the following reasons:<br><br><i>- [reason]</i><br><br>They will disregard any claims of immunity or privilege by the Suspect or agents acting on the Suspect's behalf. Police forces shall bring <b>[tgt]</b> forthwith to the Police Station.<br><br><small><center><i>Form Model 13-B</i><center></small><hr>"
 		spawn(100)
 			if (spawntimer)
 				spawn(spawntimer)
@@ -513,7 +514,7 @@
 		arn = rand(100,999)
 		icon_state = "police_warrant"
 		spawn(10)
-			info = "<meta charset='utf-8'><center>POLICE DEPARTMENT<hr><large><b>Search Warrant No. [arn]</b></large><hr><br>Police forces are hereby authorized and directed to search all and every property owned by <b>[cmp]</b>. They will disregard any claims of immunity or privilege by the Suspect or agents acting on the Suspect's behalf.<br><br><small><center><i>Form Model 13-C1</i></center></small><hr>"
+			info = "<center>POLICE DEPARTMENT<hr><large><b>Search Warrant No. [arn]</b></large><hr><br>Police forces are hereby authorized and directed to search all and every property owned by <b>[cmp]</b>. They will disregard any claims of immunity or privilege by the Suspect or agents acting on the Suspect's behalf.<br><br><small><center><i>Form Model 13-C1</i></center></small><hr>"
 //////////////////SCREEN HELPERS////////////////////////////
 /obj/screen/areashow_aod
 	maptext = "<center><font color='yellow'>Unknown Area</font></center>"

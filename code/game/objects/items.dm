@@ -418,7 +418,8 @@ var/list/global/slot_flags_enumeration = list(
 /obj/item/proc/mob_can_unequip(mob/M, slot, disable_warning = FALSE)
 	if (!slot) return FALSE
 	if (!M) return FALSE
-
+	if (istype(src, /obj/item/clothing/shoes/football) || istype(src, /obj/item/clothing/under/football))
+		return FALSE
 	if (!canremove)
 		return FALSE
 	if (!M.slot_is_accessible(slot, src, disable_warning? null : M))
@@ -484,7 +485,7 @@ var/list/global/slot_flags_enumeration = list(
 		user << "<span class='warning'>You cannot locate any eyes on [M]!</span>"
 		return
 
-	user.attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [M.name] ([M.ckey]) with [name] (INTENT: [uppertext(user.a_intent)])</font>"
+	user.attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [M.name] ([M.ckey],[M.stat]) with [name] (INTENT: [uppertext(user.a_intent)])</font>"
 	M.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)])</font>"
 	msg_admin_attack("[user.name] ([user.ckey]) attacked [M.name] ([M.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)") //BS12 EDIT ALG
 	if (user.tactic == "rush")

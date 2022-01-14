@@ -336,7 +336,7 @@
 /obj/structure/submitter
 	name = "Team Registration Terminal"
 	desc = "Register your team here!"
-	icon = 'icons/russian/obj/computers.dmi'
+	icon = 'icons/obj/computers.dmi'
 	icon_state = "1980_computer_on"
 	var/active = FALSE
 	density = TRUE

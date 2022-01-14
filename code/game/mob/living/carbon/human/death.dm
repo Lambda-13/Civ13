@@ -46,6 +46,9 @@
 	water_overlay = FALSE
 	update_fire(1)
 	if (stat == DEAD) return
+	if (map && map.battleroyale && alive_n_of_side(PIRATES) > 1)
+		var/obj/map_metadata/battleroyale/BR = map
+		BR.give_award(client.ckey, real_name, alive_n_of_side(PIRATES))
 	if (map && map.ID == MAP_GLADIATORS && client)
 		var/obj/map_metadata/gladiators/GD = map
 		for (var/i = 1, i <= GD.gladiator_stats.len, i++)
@@ -63,7 +66,7 @@
 	else if (map && map.ID == MAP_ABASHIRI && client)
 		var/obj/map_metadata/abashiri/GD = map
 		if (original_job && istype(original_job, /datum/job/civilian/abashiri))
-			var/mob/living/human/H = client
+			var/mob/living/human/H = src
 			for(var/i in GD.points)
 				if (i[1]==H.nationality)
 					i[3]-=50
@@ -280,9 +283,6 @@
 	if (client)
 		if (map.gamemode == "Hardcore")
 			client.next_normal_respawn = world.realtime+999999
-		if (map.gamemode == "RealLive")
-			client.next_normal_respawn = world.realtime+999999
-			client << pick('sound/effects/gameover.ogg')
 		else
 			client.next_normal_respawn = world.realtime + (map ? map.respawn_delay : 3000)
 			client << RESPAWN_MESSAGE

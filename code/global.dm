@@ -1,7 +1,7 @@
 //#define TESTING
-//#if DM_VERSION < 512
-//#warn Внимание, ваша версия ниже 512, анимации прожектайлов не будут видны.
-//#endif
+#if DM_VERSION < 512
+#warn This compiler is out of date. You may experience issues with projectile animations.
+#endif
 
 var/bearcave_ticking = FALSE
 var/wolfcave_ticking = FALSE
@@ -13,7 +13,7 @@ var/diary			   = null
 var/attack_log		  = null
 var/href_logfile		= null
 var/customserver_name   = null
-var/game_version		= "Russian Civilization 13"
+var/game_version		= "Civilization 13"
 var/changelog_hash	  = ""
 
 
@@ -28,10 +28,6 @@ var/datum/debug/debugobj
 var/join_motd = null
 
 var/datum/nanomanager/nanomanager		= new() // NanoManager, the manager for Nano UIs.
-
-//var/static/list/gvars_datum_protected_varlist = list(NAMEOF(src, gvars_datum_protected_varlist) = TRUE)
-//var/list/gvars_datum_in_built_vars = exclude_these.vars + list(NAMEOF(src, gvars_datum_protected_varlist), NAMEOF(src, gvars_datum_in_built_vars), NAMEOF(src, gvars_datum_init_order))
-var/list/gvars_datum_init_order = list()
 
 var/season = "SPRING"
 var/game_hour = 0
@@ -63,13 +59,13 @@ var/max_explosion_range = 14
 
 // "convenient" (shitcode) way to make normal windows look like nanoUI, since BYOND won't load stylesheets normally - Kachnov
 var/common_browser_style = {"
-<meta charset='utf-8'>
+<meta charset="UTF-8">
 <style>
 body
 {
 	padding: 0;
 	margin: 0;
-	background-color: #1f2025;
+	background-color: #271a0c;
 	font-size: 16px;
 	color: #ffffff;
 	line-height: 170%;
@@ -77,7 +73,7 @@ body
 
 hr
 {
-	background-color: #1f2025;
+	background-color: #271a0c;
 	height: 1px;
 }
 
@@ -381,7 +377,7 @@ div.notice
 "}
 //green on black
 var/computer_browser_style = {"
-<meta charset='utf-8'>
+<meta charset="UTF-8">
 <style>
 body
 {

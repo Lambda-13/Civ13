@@ -1,4 +1,4 @@
-/mob/proc/update_client_colour(var/time = 10) //Update the mob's client.color with an animation the specified time in length_char.
+/mob/proc/update_client_colour(var/time = 10) //Update the mob's client.color with an animation the specified time in length.
 	if(!client) //No client_colour without client. If the player logs back in they'll be back through here anyway.
 		return
 	client.colour_transition(get_screen_colour(), time = time) //Get the colour matrix we're going to transition to depending on relevance (magic glasses first, eyes second).
@@ -137,12 +137,12 @@ var/list/global/organ_rel_size = list(
 			return n
 	var/te = n
 	var/t = ""
-	n = length_char(n)
+	n = length(n)
 	var/p = null
 	p = TRUE
 	var/intag = FALSE
 	while (p <= n)
-		var/char = copytext_char(te, p, p + 1)
+		var/char = copytext(te, p, p + 1)
 		if (char == "<") //let's try to not break tags
 			intag = !intag
 		if (intag || char == " " || prob(pr))
@@ -156,26 +156,17 @@ var/list/global/organ_rel_size = list(
 
 proc/slur(phrase)
 	phrase = html_decode(phrase)
-	var/leng=length_char(phrase)
-	var/counter=length_char(phrase)
+	var/leng=length(phrase)
+	var/counter=length(phrase)
 	var/newphrase=""
 	var/newletter=""
 	while (counter>=1)
-		newletter=copytext_char(phrase,(leng-counter)+1,(leng-counter)+2)
+		newletter=copytext(phrase,(leng-counter)+1,(leng-counter)+2)
 		if (rand(1,3)==3)
 			if (lowertext(newletter)=="o")	newletter="u"
 			if (lowertext(newletter)=="s")	newletter="ch"
 			if (lowertext(newletter)=="a")	newletter="ah"
 			if (lowertext(newletter)=="c")	newletter="k"
-			if (lowertext(newletter)=="я")	newletter="йа"
-			if (lowertext(newletter)=="и")	newletter="ы"
-			if (lowertext(newletter)=="о")	newletter="йо"
-			if (lowertext(newletter)=="с")	newletter="ш"
-			if (lowertext(newletter)=="в")	newletter="ф"
-			if (lowertext(newletter)=="ф")	newletter="в"
-			if (lowertext(newletter)=="у")	newletter="ю"
-			if (lowertext(newletter)=="з")	newletter="с"
-
 		switch(rand(1,15))
 			if (1,3,5,8)	newletter="[lowertext(newletter)]"
 			if (2,4,6,15)	newletter="[uppertext(newletter)]"
@@ -189,12 +180,12 @@ proc/slur(phrase)
 /proc/stutter(n)
 	var/te = html_decode(n)
 	var/t = ""//placed before the message. Not really sure what it's for.
-	n = length_char(n)//length_char of the entire word
+	n = length(n)//length of the entire word
 	var/p = null
 	p = TRUE//1 is the start of any word
-	while (p <= n)//while P, which starts at TRUE is less or equal to N which is the length_char.
-		var/n_letter = copytext_char(te, p, p + 1)//copies text from a certain distance. In this case, only one letter at a time.
-		if (prob(80) && (ckey(n_letter) in list("b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","y","z","с","ж","з","б","ш","щ","и","р","т","м","л","ы","ф")))
+	while (p <= n)//while P, which starts at TRUE is less or equal to N which is the length.
+		var/n_letter = copytext(te, p, p + 1)//copies text from a certain distance. In this case, only one letter at a time.
+		if (prob(80) && (ckey(n_letter) in list("b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","y","z")))
 			if (prob(10))
 				n_letter = text("[n_letter]-[n_letter]-[n_letter]-[n_letter]")//replaces the current letter with this instead.
 			else
@@ -217,16 +208,14 @@ proc/slur(phrase)
 	message = prob(intensity) ? replacetext(message, "ck", "gh") : message
 	message = prob(intensity) ? replacetext(message, "c", "gh") : message
 	message = prob(intensity) ? replacetext(message, "k", "gh") : message
-	message = prob(intensity) ? replacetext(message, "р", "кх") : message
-	message = prob(intensity) ? replacetext(message, "ж", "ш") : message
 	return message
 
 proc/Gibberish(t, p)//t is the inputted message, and any value higher than 70 for p will cause letters to be replaced instead of added
 	/* Turn text into complete gibberish! */
 	var/returntext = ""
-	for (var/i = TRUE, i <= length_char(t), i++)
+	for (var/i = TRUE, i <= length(t), i++)
 
-		var/letter = copytext_char(t, i, i+1)
+		var/letter = copytext(t, i, i+1)
 		if (prob(50))
 			if (p >= 70)
 				letter = ""
@@ -247,15 +236,15 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 */
 	var/te = html_decode(n)
 	var/t = ""
-	n = length_char(n)
+	n = length(n)
 	var/p = TRUE
 	while (p <= n)
 		var/n_letter
 		var/n_mod = rand(1,4)
 		if (p+n_mod>n+1)
-			n_letter = copytext_char(te, p, n+1)
+			n_letter = copytext(te, p, n+1)
 		else
-			n_letter = copytext_char(te, p, p+n_mod)
+			n_letter = copytext(te, p, p+n_mod)
 		if (prob(50))
 			if (prob(30))
 				n_letter = text("[n_letter]-[n_letter]-[n_letter]")

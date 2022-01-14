@@ -15,7 +15,7 @@
 /obj/structure/computer/proc/do_html(mob/user)
 	var/os = {"
 			<!DOCTYPE html>
-			<meta charset='utf-8'>
+			<html>
 			<head>[computer_browser_style]<title>[operatingsystem]</title></head>
 			<body>
 			<center>[mainmenu]</center>
@@ -99,7 +99,7 @@
 					mainmenu += "&nbsp;<a href='?src=\ref[src];program=[i]'>[P.name]</a>"
 					if (i % 3 == 0) // 3 items per line
 						mainmenu += "<br>"
-		mainbody = "Система загружена."
+		mainbody = "System initialized."
 
 	else if (operatingsystem == "unga OS")
 		mainmenu = "<i><h1><img src='uos.png'></img></h1></i>"

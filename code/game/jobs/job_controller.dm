@@ -193,26 +193,43 @@ var/global/datum/controller/occupations/job_master
 	if (!H)
 		return
 
-	if (H.original_job && H.original_job.uses_squads && !H.original_job.is_squad_leader && H.squad > 0)
+	if (H.original_job && H.original_job.uses_squads)
 		var/mob/living/human/HSL = null
-		world.log << "trying"
-		if (H.faction_text == map.faction1)
+		if(H.original_job.is_squad_leader)
+			for(var/mob/living/human/HM in world)
+				if(HM.original_job.is_commander && HM.stat == CONSCIOUS && HM.faction_text == H.faction_text)
+					HSL = HM
+					break
+		else if (H.squad && H.faction_text == map.faction1)
 			if (map.faction1_squad_leaders[H.squad])
 				HSL = map.faction1_squad_leaders[H.squad]
-				world.log << "found"
-		else if (H.faction_text == map.faction2)
+		else if (H.squad && H.faction_text == map.faction2)
 			if (map.faction2_squad_leaders[H.squad])
 				HSL = map.faction2_squad_leaders[H.squad]
-				world.log << "found"
 		if (HSL && HSL.stat == CONSCIOUS)
-			world.log << "[HSL]"
 			var/found = FALSE
 			for(var/mob/living/human/EN in range(6,HSL))
 				if (EN.stat == CONSCIOUS && EN.faction_text != H.faction_text)
 					found = TRUE
 					continue
 			if (!found)
-				H.forceMove(get_turf(HSL))
+				var/turf/spawnloc = get_turf(HSL)
+				if (HSL.dir == NORTH && get_turf(locate(HSL.x, HSL.y-1, HSL.z)))
+					spawnloc = get_turf(locate(HSL.x, HSL.y-1, HSL.z))
+				else if (HSL.dir == EAST && get_turf(locate(HSL.x-1, HSL.y, HSL.z)))
+					spawnloc = get_turf(locate(HSL.x-1, HSL.y, HSL.z))
+				else if (HSL.dir == SOUTH && get_turf(locate(HSL.x, HSL.y+1, HSL.z)))
+					spawnloc = get_turf(locate(HSL.x, HSL.y+1, HSL.z))
+				else if (HSL.dir == WEST && get_turf(locate(HSL.x+1, HSL.y, HSL.z)))
+					spawnloc = get_turf(locate(HSL.x+1, HSL.y, HSL.z))
+				if (spawnloc.density)
+					spawnloc = get_turf(HSL)
+				else
+					for(var/obj/O in spawnloc)
+						if (O.density)
+							spawnloc = get_turf(HSL)
+							break
+				H.forceMove(spawnloc)
 				HSL << "<big><font color='green'>[H] has arrived at your squad.</font></big>"
 				// make sure we have the right ambience for our new location
 				spawn (1)
@@ -222,7 +239,13 @@ var/global/datum/controller/occupations/job_master
 				return
 
 	var/spawn_location = H.job_spawn_location
-
+	if(map.ID == MAP_GULAG13)
+		if(H.nationality == "German")
+			spawn_location = "JoinLateCivG"
+		else if(H.nationality == "Polish")
+			spawn_location = "JoinLateCivP"
+		else if(H.nationality == "Ukrainian")
+			spawn_location = "JoinLateCivU"
 	if (!spawn_location && H.original_job)
 		spawn_location = H.original_job.spawn_location
 	if (map.ID == MAP_TRIBES || map.ID == MAP_FOUR_KINGDOMS || map.ID == MAP_THREE_TRIBES)
@@ -398,10 +421,6 @@ var/global/datum/controller/occupations/job_master
 			H.wolfman = 1
 		if (map && H && (H.faction_text in map.crab))
 			H.crab = 1
-		if (map && H && (H.faction_text in map.skeletman))
-			H.skeletman = 1
-		if (map && H && (H.faction_text in map.zombieman))
-			H.zombieman = 1
 		var/spawn_location = H.original_job.spawn_location
 		H.job_spawn_location = spawn_location
 

@@ -431,7 +431,7 @@
 /obj/structure/closet/safe
 	name = "safe"
 	desc = "A sturdy safe, with a keyslot."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "safe"
 	icon_closed = "safe"
 	icon_opened = "safe-open"

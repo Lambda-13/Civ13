@@ -328,7 +328,7 @@
 	operatingsystem = "unga OS 94 Police Edition"
 ///////////////components/////////////////////
 /obj/item/stack/component
-	icon = 'icons/russian/obj/computers.dmi'
+	icon = 'icons/obj/computers.dmi'
 	name = "electronic component"
 	desc = "A basic electronic chip."
 	icon_state = "generic_chip"

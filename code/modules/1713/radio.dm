@@ -2,7 +2,7 @@
 /obj/structure/radio
 	name = "radio receiver"
 	desc = "Used to communicate with distant places. Set to 150kHz."
-	icon = 'icons/russian/obj/device.dmi'
+	icon = 'icons/obj/device.dmi'
 	icon_state = "radio_vintage"
 	flammable = FALSE
 	not_movable = FALSE
@@ -238,17 +238,17 @@ var/global/FREQP = rand(81,100)
 	return
 
 /obj/structure/radio/proc/do_html(var/mob/m)
-	var/style = "Радио"
+	var/style = "Radio Receiver/Transmitter"
 	if (receiver && !transmitter)
-		style = "Радиоприёмник"
+		style = "Radio Receiver"
 	if (!receiver && transmitter)
-		style = "Радиопередатчик"
+		style = "Radio Transmitter"
 	if (m)
 		if (check_power() == FALSE && powerneeded > 0)
 			m << browse({"
 
 			<br>
-			<meta charset='utf-8'>
+			<html>
 
 			<head>
 			[common_browser_style]
@@ -266,7 +266,7 @@ var/global/FREQP = rand(81,100)
 
 			<center>
 			<font size=3><b>[style]</b></font><br><br>
-			<b><font size=2 color=#8b0000>НЕТ ПИТАНИЯ</a><br><br>
+			<b><font size=2 color=#8b0000>POWER OFF</a><br><br>
 			</center>
 			</font></b><br>
 			</body>
@@ -279,7 +279,7 @@ var/global/FREQP = rand(81,100)
 				m << browse({"
 
 				<br>
-				<meta charset='utf-8'>
+				<html>
 
 				<head>
 				[common_browser_style]
@@ -298,9 +298,9 @@ var/global/FREQP = rand(81,100)
 				<center>
 				<font size=3><b>[style]</b></font><br><br>
 				</center>
-				<b><font size=2>Частота: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
-				Микрофон: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
-				Динамик: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
+				<b><font size=2>Frequency: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
+				Transmitter: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
+				Receiver: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
 				</font></b><br>
 				</body>
 				</html>
@@ -310,7 +310,7 @@ var/global/FREQP = rand(81,100)
 				m << browse({"
 
 				<br>
-				<meta charset='utf-8'>
+				<html>
 
 				<head>
 				[common_browser_style]
@@ -329,8 +329,8 @@ var/global/FREQP = rand(81,100)
 				<center>
 				<font size=3><b>[style]</b></font><br><br>
 				</center>
-				<b><font size=2>Частота: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
-				Динамик: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
+				<b><font size=2>Frequency: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
+				Receiver: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
 				</font></b><br>
 				</body>
 				</html>
@@ -340,7 +340,7 @@ var/global/FREQP = rand(81,100)
 				m << browse({"
 
 				<br>
-				<meta charset='utf-8'>
+				<html>
 
 				<head>
 				[common_browser_style]
@@ -359,8 +359,8 @@ var/global/FREQP = rand(81,100)
 				<center>
 				<font size=3><b>[style]</b></font><br><br>
 				</center>
-				<b><font size=2>Частота: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
-				Микрофон: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
+				<b><font size=2>Frequency: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
+				Transmitter: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
 				</font></b><br>
 				</body>
 				</html>
@@ -487,7 +487,7 @@ var/global/FREQP = rand(81,100)
 /obj/item/weapon/radio
 	name = "portable radio"
 	desc = "Used to communicate with distant places. Set to 150kHz."
-	icon = 'icons/russian/obj/device.dmi'
+	icon = 'icons/obj/device.dmi'
 	icon_state = "portable_radio3"
 	item_state = "portable_radio3"
 	flammable = FALSE
@@ -610,7 +610,7 @@ var/global/FREQP = rand(81,100)
 		m << browse({"
 
 		<br>
-		<meta charset='utf-8'>
+		<html>
 
 		<head>
 		[common_browser_style]
@@ -629,9 +629,9 @@ var/global/FREQP = rand(81,100)
 		<center>
 		<font size=3><b>[style]</b></font><br><br>
 		</center>
-		<b><font size=2>Частота: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
-		Микрофон: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
-		Динамик: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
+		<b><font size=2>Frequency: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
+		Transmitter: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
+		Receiver: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
 		</font></b><br>
 		</body>
 		</html>
@@ -687,7 +687,7 @@ var/global/FREQP = rand(81,100)
 /obj/item/weapon/radio/walkietalkie
 	name = "walkie-talkie radio"
 	desc = "Used to communicate with distant places. Set to 150kHz."
-	icon = 'icons/russian/obj/device.dmi'
+	icon = 'icons/obj/device.dmi'
 	icon_state = "portable_radio4"
 	item_state = "portable_radio4"
 	flammable = FALSE
@@ -698,29 +698,6 @@ var/global/FREQP = rand(81,100)
 	slot_flags = SLOT_BELT|SLOT_ID
 	nothrow = FALSE
 	icon_override = 'icons/mob/pouch.dmi'
-
-/obj/item/weapon/radio/walkietalkie/New()
-	..()
-	if (map && map.ordinal_age >= 6)
-		icon_state = "portable_radio"
-	..()
-	if (map && map.ordinal_age >= 7)
-		icon_state = pick("portable_radio4","portable_radio")
-	..()
-	if (map && map.ordinal_age >= 8)
-		icon_state = "portable_radio2"
-
-/obj/item/weapon/radio/walkietalkie/update_icon()
-	..()
-	if (map && map.ordinal_age >= 6)
-		icon_state = "portable_radio"
-	..()
-	if (map && map.ordinal_age >= 7)
-		icon_state = pick("portable_radio4","portable_radio")
-	..()
-	if (map && map.ordinal_age >= 8)
-		icon_state = "portable_radio2"
-
 
 /obj/item/weapon/radio/walkietalkie/faction1/New()
 	..()

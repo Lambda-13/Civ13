@@ -12,7 +12,6 @@ var/civmax_research = list(230,230,230)
 	var/ID = null // MUST be text, or aspects will break
 	var/no_winner = "Neither side has captured the other side's base."
 	var/title = null
-	var/lobby_icon = 'icons/_LOBBY.dmi'
 	var/lobby_icon_state = "civ13"
 	var/list/caribbean_blocking_area_types = list()
 	var/list/allow_bullets_through_blocks = list()
@@ -79,7 +78,7 @@ var/civmax_research = list(230,230,230)
 	var/admins_triggered_roundend = FALSE
 	var/admins_triggered_noroundend = FALSE
 	var/list/faction_targets = list()
-	
+
 	// win conditions 3.0 - Kachnov
 	var/datum/win_condition/win_condition = null
 	var/current_win_condition = "Neither side has captured the other side's base."
@@ -145,7 +144,6 @@ var/civmax_research = list(230,230,230)
 	var/is_zombie = FALSE
 	var/is_fantrace = FALSE
 	var/perschadplus = FALSE
-	var/disablehud = FALSE //Faction hud
 
 	//autoresearch
 	var/autoresearch = FALSE //if autoresearch is active
@@ -158,37 +156,37 @@ var/civmax_research = list(230,230,230)
 
 	var/age2_lim = 135
 	var/age2_done = 0
-	var/age2_timer = 2*36000
+	var/age2_timer = 24*36000
 	var/age2_top = 65
 
 	var/age3_lim = 230
 	var/age3_done = 0
-	var/age3_timer = 2*2*36000
+	var/age3_timer = 2*24*36000
 	var/age3_top = 95
 
 	var/age4_lim = 290
 	var/age4_done = 0
-	var/age4_timer = 2*3*36000
+	var/age4_timer = 3*24*36000
 	var/age4_top = 105
 
 	var/age5_lim = 335
 	var/age5_done = 0
-	var/age5_timer = 2*4*36000
+	var/age5_timer = 4*24*36000
 	var/age5_top = 125
 
 	var/age6_lim = 420
 	var/age6_done = 0
-	var/age6_timer = 2*5*36000
+	var/age6_timer = 5*24*36000
 	var/age6_top = 178
 
 	var/age7_lim = 540
 	var/age7_done = 0
-	var/age7_timer = 2*6*36000
+	var/age7_timer = 6*24*36000
 	var/age7_top = 195
 
 	var/age8_lim = 620
 	var/age8_done = 0
-	var/age8_timer = 2*7*36000
+	var/age8_timer = 7*24*36000
 	var/age8_top = 230
 
 	var/orespawners = 0
@@ -200,11 +198,16 @@ var/civmax_research = list(230,230,230)
 	var/list/pending_warrants = list()
 	var/list/emails = list("support@monkeysoft.ug" = list())
 
-	var/list/assign_precursors = list()
+	var/list/assign_precursors = list(
+		"Rednikov Industries" = list("verdine crystals","indigon crystals","galdonium crystals"),
+		"Giovanni Blu Stocks" = list("crimsonite crystals","verdine crystals","galdonium crystals"),
+		"Kogama Kraftsmen" = list("crimsonite crystals","indigon crystals","galdonium crystals"),
+		"Goldstein Solutions" = list("crimsonite crystals","indigon crystals","verdine crystals"),
+)
 	var/list/precursor_stocks = list(
 		"indigon crystals" = list(7,60),
 		"crimsonite crystals" = list(7,60),
-		"verdine crystals" = list(,60),
+		"verdine crystals" = list(7,60),
 		"galdonium crystals" = list(7,60),
 	)
 	var/winddirection = "East"
@@ -224,8 +227,6 @@ var/civmax_research = list(230,230,230)
 	var/list/lizard = list()
 	var/list/wolfman = list()
 	var/list/crab = list()
-	var/list/skeletman = list()
-	var/list/zombieman = list()
 
 	var/list/berryeffects = list(list("neutral","neutral","water"), list("tinto","neutral","water"), list("amar","neutral","water"), list("majo","neutral","water"), list("narco","neutral","water"), list("azul","neutral","water"), list("zelenyy","neutral","water"), list("marron","neutral","water"), list("corcairghorm","neutral","water"))
 
@@ -240,11 +241,7 @@ var/civmax_research = list(230,230,230)
 	var/ar_to_close_string = "None"
 	var/ar_to_close_timeleft = 0
 
-	var/alarm_sound = sound('sound/misc/Alarm3.ogg', repeat = FALSE, wait = TRUE, channel = 777)
-	var/announce_sound = sound('sound/misc/DetonatingAlphaWarheads.ogg', repeat = FALSE, wait = TRUE, channel = 777)
-	var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
-	var/nuke_timer=30*86400 //30 дней
-
+	var/no_hardcore = FALSE
 /obj/map_metadata/New()
 	..()
 	map = src
@@ -826,7 +823,10 @@ var/civmax_research = list(230,230,230)
 		if (DUTCH)
 			return "Dutch"
 		if (ROMAN)
-			return "Roman"
+			if(map.ID == MAP_WHITERUN)
+				return "Empire"
+			else
+				return "Roman"
 		if (GERMAN)
 			return "German"
 		if (GREEK)
@@ -868,7 +868,10 @@ var/civmax_research = list(230,230,230)
 		if (DUTCH)
 			return "Dutch Republic"
 		if (ROMAN)
-			return "Roman Republic"
+			if (map.ID == MAP_WHITERUN)
+				return "Imperial Army"
+			else
+				return "Roman Republic"
 		if (GREEK)
 			return "Greek States"
 		if (ARAB)
@@ -911,6 +914,8 @@ var/civmax_research = list(230,230,230)
 			return "Dutch"
 		if ("Roman Republic")
 			return "Roman"
+		if ("Imperial Army")
+			return "Empire"
 		if ("Greek States")
 			return "Greek"
 		if ("Arabic Caliphate")
@@ -1134,34 +1139,3 @@ var/civmax_research = list(230,230,230)
 		if (map.globalmarketplace[i][7]==0 && map.globalmarketplace[i][5]=="bank" && map.globalmarketplace[i][2] && map.globalmarketplace[i][1]==tfaction)
 			if (istype(map.globalmarketplace[i][2],/mob/living/human))
 				map.marketplaceaccounts[map.globalmarketplace[i][2].name] += value/2.5
-
-
-//Перенос нюки с вастеланда
-/obj/map_metadata/proc/nuke_proc()
-	var/vx = rand(25,world.maxx-25)
-	var/vy = rand(25,world.maxy-25)
-	var/turf/epicenter = get_turf(locate(vx,vy,2))
-	if (round((roundduration2text_in_ticks % 36000) / 600) > nuke_timer)
-		spawn(nuke_timer)
-			world << "<font size=3 color='red'>Do you feel unkind.</font>"
-		spawn(330)
-			for (var/mob/M in player_list)
-				M.client << alarm_sound
-		spawn(44)
-			for (var/mob/M in player_list)
-				M.client << announce_sound
-			world << "<font size=3 color='red'><center>Automatic Air Raid<br>We're detonating the Alpha Warhead in T-Minus ninety seconds. All personnel are advised to board the nearest helicopter or enter the nearest blast shelter immediately.</center></font>"
-		spawn(660)
-		world << "<font size=3 color='red'><center>ATTENTION<br>A nuclear missile is incoming! Take cover!</center></font>"
-		for (var/mob/M in player_list)
-			M.client << warning_sound
-		spawn(330)
-			world << "<font size=3 color='red'>A nuclear explosion has happened! <br><i>(Game might freeze/lag for a while while processing, please wait)</i></font>"
-			nuke_map(epicenter, 200, 180, 0)
-			message_admins("Automatic nuke deployed at ([epicenter.x],[epicenter.y],[epicenter.z]) in area [epicenter.loc.name].")
-			log_game("Automatic nuke deployed at ([epicenter.x],[epicenter.y],[epicenter.z]) in area [epicenter.loc.name].")
-			return
-	else
-		spawn(600)
-			nuke_proc(nuke_timer)
-	return

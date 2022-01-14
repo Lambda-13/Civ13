@@ -90,7 +90,7 @@
 /obj/item/weapon/storage/fancy/cigarettes
 	name = "cigarette packet"
 	desc = "A cigarette packet."
-	icon = 'icons/russian/obj/cigarettes.dmi'
+	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "cigpacket0"
 	item_state = "cigpacket"
 	w_class = TRUE
@@ -170,12 +170,22 @@
 	else
 		..()
 
+/obj/item/weapon/storage/fancy/cigarettes/marlboro
+	name = "Marlboro cigarette packet"
+	desc = "A Marlboro cigarette packet."
+	icon_state = "marlboro"
+
+/obj/item/weapon/storage/fancy/cigarettes/luckystrike
+	name = "Lucky Strike cigarette packet"
+	desc = "A Lucky Strike cigarette packet."
+	icon_state = "luckystrike"
+
 /obj/item/weapon/storage/fancy/cigar
 	name = "cigar case"
 	desc = "A case for holding your cigars when you are not smoking them."
 	icon_state = "cigarcase"
 	item_state = "cigarcase"
-	icon = 'icons/russian/obj/cigarettes.dmi'
+	icon = 'icons/obj/cigarettes.dmi'
 	w_class = 1
 	throwforce = WEAPON_FORCE_HARMLESS
 	slot_flags = SLOT_BELT
@@ -189,7 +199,7 @@
 	icon_state = "medalcase"
 	item_state = "medalcase"
 	icon_type = "medal"
-	icon = 'icons/russian/obj/cigarettes.dmi'
+	icon = 'icons/obj/cigarettes.dmi'
 	w_class = 1
 	throwforce = WEAPON_FORCE_HARMLESS
 	slot_flags = SLOT_BELT

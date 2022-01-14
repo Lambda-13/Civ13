@@ -193,7 +193,7 @@
 /obj/covers/slate
 	name = "slatestone wall"
 	desc = "A slate wall."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "slate"
 	passable = TRUE
 	not_movable = TRUE

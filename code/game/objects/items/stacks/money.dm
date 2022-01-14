@@ -44,15 +44,14 @@
 	desc = "A small silver coin."
 	singular_name = "real"
 	icon_state = "dollar" //Damn jerry rig
-	amount = 50
+	amount = 1
 	value = 1
 /obj/item/stack/money/real/New()
 	if (map.ordinal_age >= 4)
-		name = "Dollar Bills"
-		desc = "A/some dollar(s) of paper money."
+		name = "Dollar Bill"
+		desc = "Paper bank note valued at one dollar."
 		singular_name = "Dollar Bill"
 		icon_state = "dollar"
-		amount = 12
 		value = 4
 		novariants = FALSE
 		update_icon()
@@ -157,7 +156,7 @@
 /obj/item/stack/money/dollar/New()
 	if (map && map.ordinal_age >= 4)
 		name = "5 Dollar Bills"
-		desc = "A/some dollar(s) of paper money."
+		desc = "Paper bank note valued at five dollars."
 		singular_name = "5 Dollar Bill"
 		icon_state = "5dollar"
 		value = 20
@@ -188,9 +187,8 @@
 	value = 16
 /obj/item/stack/money/escudo/New()
 	if (map.ordinal_age >= 4) //Not being called
-		name = "20 Dollar Bills"
-		desc = "A/some dollar(s) of paper money."
-		singular_name = "20 Dollar Bill"
+		name = "20 Dollar Bill"
+		desc = "Paper bank note valued at twenty dollars."
 		icon_state = "20dollar"
 		value = 80
 		novariants = FALSE
@@ -219,8 +217,8 @@
 	value = 32
 /obj/item/stack/money/doubloon/New()
 	if (map.ordinal_age >= 4)
-		name = "50 Dollar Bills"
-		desc = "A/some dollar(s) of paper money."
+		name = "50 Dollar Bill"
+		desc = "Paper bank note valued at fifty dollars."
 		singular_name = "50 Dollar Bill"
 		icon_state = "50dollar"
 		value = 200
@@ -270,7 +268,7 @@
 /obj/structure/oil_deposits
 	name = "oil deposit"
 	desc = "This deposit doesn't have a owner yet."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "nboard_oil"
 	anchored = TRUE
 	opacity = FALSE
@@ -488,8 +486,17 @@
 	amount = 1
 	value = 5000
 
+/obj/item/stack/money/real/five
+	amount = 5
+/obj/item/stack/money/real/ten
+	amount = 10
+/obj/item/stack/money/real/fifteen
+	amount = 15
+/obj/item/stack/money/real/twenty
+	amount = 20
 /obj/item/stack/money/real/fifty
 	amount = 50
+
 /obj/item/stack/money/dollar/twenty
 	amount = 20
 /obj/item/stack/money/dollar/ten
@@ -500,3 +507,64 @@
 	amount = 10
 /obj/item/stack/money/dollar/onehundy
 	amount = 100
+/obj/item/stack/money/dollar/five
+	amount = 5
+
+/////////////////////////SKYRIM/////////////////////////////
+/obj/item/stack/money/septim
+	name = "septim"
+	desc = "A single septim coin."
+	singular_name = "septim"
+	icon_state = "septim" //Damn jerry rig
+	amount = 1
+	value = 1
+	max_amount = 500
+/obj/item/stack/money/septim/New()
+	if(amount == 2)
+		icon_state = "septim_2"
+	if(amount == 3)
+		icon_state = "septim_3"
+	if(amount == 4)
+		icon_state = "septim_4"
+	if(amount == 5)
+		icon_state = "septim_5"
+	if(amount == 6)
+		icon_state = "septim_6"
+	if(amount >= 7)
+		icon_state = "septim_7"
+	if(amount >= 10)
+		icon_state = "septim_10"
+	if(amount >= 50)
+		icon_state = "septim_50"
+	if(amount >= 100)
+		icon_state = "septim_100"
+	if(amount == 500)
+		icon_state = "septim_500"
+	if(amount > 500)
+		icon_state = "septim_500+"
+	update_icon()
+	return ..()
+/obj/item/stack/money/septim/update_icon()
+	if(amount == 2)
+		icon_state = "septim_2"
+	if(amount == 3)
+		icon_state = "septim_3"
+	if(amount == 4)
+		icon_state = "septim_4"
+	if(amount == 5)
+		icon_state = "septim_5"
+	if(amount == 6)
+		icon_state = "septim_6"
+	if(amount >= 7)
+		icon_state = "septim_7"
+	if(amount >= 10)
+		icon_state = "septim_10"
+	if(amount >= 50)
+		icon_state = "septim_50"
+	if(amount >= 100)
+		icon_state = "septim_100"
+	if(amount == 500)
+		icon_state = "septim_500"
+	if(amount > 500)
+		icon_state = "septim_500+"
+	..()

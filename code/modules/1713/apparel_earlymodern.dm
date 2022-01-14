@@ -1111,6 +1111,9 @@
 /obj/item/weapon/storage/belt/largepouches/green
 	icon_state = "largepouches_green"
 	item_state = "largepouches_green"
+/obj/item/weapon/storage/belt/largepouches/olive
+	icon_state = "largepouches_olive"
+	item_state = "largepouches_olive"
 /obj/item/weapon/storage/belt/smallpouches
 	name = "small pouches"
 	desc = "A belt with 4 small pouches, that can fit items like magazines, knives, and other small things."
@@ -1187,6 +1190,10 @@
 	new/obj/item/stack/medical/bruise_pack/bint(src)
 	new/obj/item/weapon/whistle(src)
 	new/obj/item/weapon/reagent_containers/food/drinks/flask/officer/vodka(src)
+
+/obj/item/weapon/storage/belt/smallpouches/olive
+	icon_state = "smallpouches_olive"
+	item_state = "smallpouches_olive"
 
 /obj/item/clothing/under/blue_shorts
 	name = "blue shorts"
@@ -1381,3 +1388,11 @@
 	New()
 		..()
 		hold.can_hold = list(/obj/item/ammo_magazine, /obj/item/weapon/material/knife, /obj/item/weapon/grenade, /obj/item/weapon/attachment, /obj/item/weapon/handcuffs, /obj/item/ammo_casing, /obj/item/weapon/reagent_containers/food/drinks/bottle/canteen, /obj/item/weapon/material/shovel, /obj/item/weapon/key)
+
+/obj/item/clothing/suit/storage/coat/winter_coat
+	name = "brown winter coat"
+	desc = "A thick winter coat."
+	icon_state = "winter_coat"
+	item_state = "winter_coat"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT

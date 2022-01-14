@@ -189,7 +189,7 @@
 /obj/item/weapon/watch/pocket
 	name = "pocket watch"
 	desc = "Used to check the time."
-	icon = 'icons/russian/obj/device.dmi'
+	icon = 'icons/obj/device.dmi'
 	icon_state = "pocketwatch"
 	item_state = "pocketwatch"
 	flammable = FALSE

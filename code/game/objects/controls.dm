@@ -1,7 +1,7 @@
 /obj/structure/gatecontrol
 	name = "gate control"
 	desc = "Controls nearby gates."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "gate_control"
 	anchored = TRUE
 	var/open = FALSE
@@ -14,7 +14,7 @@
 /obj/structure/gatecontrol/blastcontrol
 	name = "blast door control"
 	desc = "Controls nearby blastdoors."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "blast_control"
 	anchored = TRUE
 	open = FALSE
@@ -259,8 +259,7 @@
 	maxhealth = 1000
 	not_movable = TRUE
 	not_disassemblable = TRUE
-	bound_height = 64
-	bound_width = 64
+	layer = MOB_LAYER + 0.01
 /obj/structure/gate/whiterun/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (istype(W,/obj/item/weapon) && !istype(W,/obj/item/weapon/wrench) && !istype(W,/obj/item/weapon/hammer)) //No weapons can harm me! If not weapon and not a wrench.
 		user << "You hit the doors uselessly!"//sucker
@@ -300,6 +299,7 @@
 
 /obj/structure/gate/whiterun/r
 	icon_state = "whiterun2"
+
 /obj/structure/gate/whiterun/l
 	icon_state = "whiterun1"
 
@@ -315,3 +315,44 @@
 		visible_message("<span class='danger'>\The [src] is blown apart!</span>")
 		qdel(src)
 		return
+
+/obj/structure/gatecontrol/whiterun/attack_hand(var/mob/user as mob)
+	if (cooldown <= world.time - 60)
+		if (open)
+			visible_message("[user] closes the gates!")
+			open = FALSE
+			cooldown = world.time
+			for (var/obj/structure/gate/whiterun/r/G in range(distance,src.loc))
+				if (G.name == "whiterun gate")
+					playsound(loc, 'sound/effects/castle_gate.ogg', 100)
+					G.icon_state = "whiterun2_closing"
+					spawn(30)
+						G.icon_state = "whiterun2"
+						G.density = TRUE
+			for (var/obj/structure/gate/whiterun/l/G in range(distance,src.loc))
+				if (G.name == "whiterun gate")
+					playsound(loc, 'sound/effects/castle_gate.ogg', 100)
+					G.icon_state = "whiterun1_closing"
+					spawn(30)
+						G.icon_state = "whiterun1"
+						G.density = TRUE
+			return
+		else
+			visible_message("[user] opens the gates!")
+			open = TRUE
+			cooldown = world.time
+			for (var/obj/structure/gate/whiterun/r/G in range(distance,src.loc))
+				if (G.name == "whiterun gate")
+					playsound(loc, 'sound/effects/castle_gate.ogg', 100)
+					G.icon_state = "whiterun2_opening"
+					spawn(30)
+						G.icon_state = "whiterun2_open"
+						G.density = FALSE
+			for (var/obj/structure/gate/whiterun/l/G in range(distance,src.loc))
+				if (G.name == "whiterun gate")
+					playsound(loc, 'sound/effects/castle_gate.ogg', 100)
+					G.icon_state = "whiterun1_opening"
+					spawn(30)
+						G.icon_state = "whiterun1_open"
+						G.density = FALSE
+			return

@@ -61,9 +61,8 @@ var/list/gamemode_cache = list()
 	var/mod_job_tempban_max = 1440
 	var/ToRban = FALSE
 	var/automute_on = FALSE					//enables automuting/spam prevention
-	var/ytdl = null
 
-	var/tts_on = FALSE
+	var/tts_on = TRUE
 	var/guests_allowed = TRUE
 	var/debugparanoid = FALSE
 
@@ -436,9 +435,6 @@ var/list/gamemode_cache = list()
 
 				if ("disable_fov")
 					config.disable_fov = TRUE
-				
-				if ("ytdl")
-					config.ytdl = value
 
 				if ("redirect_all_players")
 					redirect_all_players = value

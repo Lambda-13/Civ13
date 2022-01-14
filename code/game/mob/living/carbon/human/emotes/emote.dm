@@ -366,10 +366,6 @@ var/list/vocal_emotes = list(
 							playsound(get_turf(src), "charge_LIZARD", 100)
 						else if (gorillaman == 1)
 							playsound(get_turf(src), "charge_GORILLA", 100)
-						else if (skeletman == 1)
-							playsound(get_turf(src), "charge_SKELET", 100) //WIP LAMBDA13
-						else if (zombieman == 1)
-							playsound(get_turf(src), "charge_ZOMBIEMAN", 100) //WIP LAMBDA13
 						else //If you are not a special race, check normal factions.
 							//You should never have more then two factions.
 							switch(faction_text)

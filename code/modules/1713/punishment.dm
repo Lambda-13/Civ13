@@ -368,7 +368,7 @@
 //////////////////////////////////////////////////////////////
 ////////////////////////STOCK/PILLORY///////////////////////////
 /obj/structure/pillory
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	name = "pillory"
 	desc = "a wood stock with three holes, for both hands and the head. Used to display criminals to the public."
 	icon_state = "pillory"
@@ -484,7 +484,7 @@
 ////////////////////////////EXECUTION POST///////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /obj/structure/post_execution
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	name = "execution post"
 	desc = "a wood stock with a rope to tie prisoners to in preparation for a firing squad."
 	icon_state = "post_execution"

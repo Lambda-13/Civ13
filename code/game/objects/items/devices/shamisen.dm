@@ -1,7 +1,7 @@
 /obj/item/shamisen
 	name = "Shamisen"
 	desc = "A japanese shamisen. "
-	icon = 'icons/russian/obj/musician.dmi'
+	icon = 'icons/obj/musician.dmi'
 	icon_state = "shamisen"
 	item_state = "shamisen"
 	force = WEAPON_FORCE_PAINFUL

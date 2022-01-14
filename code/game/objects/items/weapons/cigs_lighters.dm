@@ -28,7 +28,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/weapon/flame/match
 	name = "match"
 	desc = "A simple match stick, used for lighting fine smokables."
-	icon = 'icons/russian/obj/cigarettes.dmi'
+	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "match_unlit"
 	var/burnt = FALSE
 	var/smoketime = 5

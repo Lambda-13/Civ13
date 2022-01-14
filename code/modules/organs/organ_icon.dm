@@ -80,7 +80,7 @@ var/global/list/limb_icon_cache = list()
 /*	if (!gendered_icon)
 		gender = null
 	else */
-	if (!owner.ant && !owner.wolfman && !owner.orc && !owner.crab && !owner.gorillaman && !owner.lizard && !owner.skeletman && !owner.zombieman)
+	if (!owner.ant && !owner.wolfman && !owner.orc && !owner.crab && !owner.gorillaman && !owner.lizard)
 		if (dna && dna.GetUIState(DNA_UI_GENDER))
 			gender = "_f"
 		else if (owner && owner.gender == FEMALE)

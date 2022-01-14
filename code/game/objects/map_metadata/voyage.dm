@@ -733,7 +733,7 @@
 /obj/structure/voyage/shipbell
 	name = "ship's bell"
 	desc = "Used to relay signals to the crew."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "bell_stand"
 	layer = 4
 	anchored = TRUE

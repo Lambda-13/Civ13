@@ -73,6 +73,16 @@
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
 	armor = list(melee = 12, arrow = 5, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
 
+/obj/item/clothing/suit/storage/jacket/afghanka
+	name = "afghanka coat"
+	desc = "A soviet winter jacket issued and developped in the early 80's."
+	icon_state = "rus_winter_afghanka"
+	item_state = "rus_winter_afghanka"
+	worn_state = "rus_winter_afghanka"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARM_LEFT|ARM_RIGHT
+	armor = list(melee = 12, arrow = 5, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 30)
+
 
 /* Cold War Accessories*/
 
@@ -130,43 +140,51 @@
 /* US Army Clothes*/
 
 /obj/item/clothing/under/us_uni
-	name = "olive drab uniform"
-	desc = "The standard us army uniform of the mid-20th century."
-	icon_state = "us_uni"
-	item_state = "us_uni"
-	worn_state = "us_uni"
+	name = "OG-107 uniform"
+	desc = "The standard US Army uniform of the mid-20th century."
+	icon_state = "us_uni_og107"
+	item_state = "us_uni_og107"
+	worn_state = "us_uni_og107"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 
 /obj/item/clothing/under/us_uni/us_camo
 	name = "woodland camo uniform"
-	desc = "The standard us army camo uniform the mid-20th century."
+	desc = "The standard US Army camo uniform the mid-20th century."
 	icon_state = "us_camo"
 	item_state = "us_camo"
 	worn_state = "us_camo"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 
 /obj/item/clothing/under/us_uni/us_greentrousers
-	name = "olive drab trousers"
-	desc = "The standard us army olive drab uniform trousers."
-	icon_state = "us_greentrousers"
-	item_state = "us_greentrousers"
-	worn_state = "us_greentrousers"
+	name = "OG-107 trousers"
+	desc = "The standard US Army OG-107 uniform trousers."
+	icon_state = "us_greentrousers_og107"
+	item_state = "us_greentrousers_og107"
+	worn_state = "us_greentrousers_og107"
 	body_parts_covered = LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/us_uni/us_lightuni
-	name = "olive drab uniform with rolled sleeves"
-	desc = "A rolled-sleeves version of the us army olive drab uniform."
-	icon_state = "us_uni_rolled"
-	item_state = "us_uni_rolled"
-	worn_state = "us_uni_rolled"
+	name = "OG-107 uniform with rolled sleeves"
+	desc = "A rolled-sleeves version of the US Army OG-107 uniform."
+	icon_state = "us_uni_og107_rolled"
+	item_state = "us_uni_og107_rolled"
+	worn_state = "us_uni_og107_rolled"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/us_uni/us_lightuni2
-	name = "olive drab trousers and white undershirt"
-	desc = "A light version of the us army olive drab trousers and the service white undershirt."
-	icon_state = "us_lightuni2"
-	item_state = "us_lightuni2"
-	worn_state = "us_lightuni2"
+	name = "OG-107 trousers and khaki undershirt"
+	desc = "A light version of the US Army OG-107 trousers and the service khaki undershirt."
+	icon_state = "us_og107_lightuni"
+	item_state = "us_og107_lightuni"
+	worn_state = "us_og107_lightuni"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
+/obj/item/clothing/under/us_uni/us_lightuni3
+	name = "OG-107 trousers and white undershirt"
+	desc = "A light version of the US Army OG-107 trousers and the service white untucked undershirt."
+	icon_state = "us_og107_lightuni2"
+	item_state = "us_og107_lightuni2"
+	worn_state = "us_og107_lightuni2"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/us_uni/us_tigerstripes
@@ -229,15 +247,15 @@
 
 /obj/item/clothing/head/helmet/modern/ushelmet/lt
 	name = "M1 helmet 1st LT"
-	desc = "A typical us army helmet. With lieutenant markings."
+	desc = "A typical US Army helmet. With lieutenant markings."
 	icon_state = "m1_1st_lt"
 	item_state = "m1_1st_lt"
 	worn_state = "m1_1st_lt"
 
 /obj/item/clothing/head/helmet/modern/ushelmet/camo
 	name = "M1 camo helmet"
-	desc = "A typical us army helmet. With a woodland camo cover."
-	icon_state = "ushelmet_camo"
+	desc = "A typical US Army helmet. With a Mitchell camo cover."
+	icon_state = "m1_camo_mitchell"
 	item_state = "ushelmet_camo"
 	worn_state = "ushelmet_camo"
 
@@ -260,6 +278,13 @@
 			var/chosen = pick(optlist)
 			attachments += chosen
 			optlist -= chosen
+
+/obj/item/clothing/head/helmet/modern/ushelmet/camo/lt
+	name = "M1 camo helmet"
+	desc = "A typical US Army helmet. With a Mitchell camo cover."
+	icon_state = "m1_camo_mitchell_lt"
+	item_state = "ushelmet_camo_lt"
+	worn_state = "ushelmet_camo_lt"
 
 /* Korean war Helmets */
 /obj/item/clothing/head/helmet/korean/usm1
@@ -458,6 +483,20 @@
 	item_state = "nkvd_cap"
 	worn_state = "nkvd_cap"
 
+/obj/item/clothing/head/beret_rus_vdv
+	name = "VDV beret"
+	desc = "A beret worn by the Russian Airborn Forces."
+	icon_state = "beret_rus_vdv"
+	item_state = "beret_rus_vdv"
+	body_parts_covered = HEAD
+
+/obj/item/clothing/head/beret_rus_spez
+	name = "Spetznaz beret"
+	desc = "A beret worn by the Spetznaz."
+	icon_state = "beret_rus_spez"
+	item_state = "beret_rus_spez"
+	body_parts_covered = HEAD
+
 /* Vietcong Clothes*/
 
 /obj/item/clothing/under/localnlf1
@@ -637,8 +676,8 @@
 
 /* Cold War Belts*/
 
-/obj/item/weapon/storage/belt/largepouches/green/m60
-/obj/item/weapon/storage/belt/largepouches/green/m60/New()
+/obj/item/weapon/storage/belt/largepouches/olive/m60
+/obj/item/weapon/storage/belt/largepouches/olive/m60/New()
 	..()
 	new/obj/item/ammo_magazine/b762(src)
 	new/obj/item/ammo_magazine/b762(src)
@@ -900,7 +939,7 @@
 		hold.can_hold = list(/obj/item/weapon/material/kitchen/utensil,/obj/item/weapon/key,/obj/item/ammo_casing, /obj/item/ammo_magazine, /obj/item/weapon/grenade,/obj/item/weapon/attachment,/obj/item/weapon/handcuffs,/obj/item/stack/medical/bruise_pack)
 
 /obj/item/clothing/accessory/storage/webbing/us_vest
-	name = "us army webbing"
+	name = "US Army webbing"
 	desc = "A large webbing with several small pockets."
 	icon_state = "us_vest"
 	item_state = "us_vest"
@@ -908,6 +947,17 @@
 	New()
 		..()
 		hold.can_hold = list(/obj/item/weapon/material/kitchen/utensil,/obj/item/weapon/key,/obj/item/ammo_casing, /obj/item/ammo_magazine, /obj/item/weapon/grenade,/obj/item/weapon/attachment,/obj/item/weapon/handcuffs,/obj/item/stack/medical/bruise_pack)
+
+/obj/item/clothing/accessory/storage/webbing/us_bandolier
+	name = "US Army bandolier"
+	desc = "A large cotton bandolier with several small pouches."
+	icon_state = "us_bandolier"
+	item_state = "us_badolier"
+	slots = 5
+	New()
+		..()
+		hold.can_hold = list(/obj/item/weapon/material/kitchen/utensil,/obj/item/weapon/key,/obj/item/ammo_casing, /obj/item/ammo_magazine, /obj/item/weapon/grenade,/obj/item/weapon/attachment,/obj/item/weapon/handcuffs,/obj/item/stack/medical/bruise_pack)
+
 
 /* NBC &  Hazmat Suits*/
 
@@ -1002,6 +1052,40 @@
 	siemens_coefficient = 0.6
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
+
+	/* Sovie apparel 70-80'ss*/
+
+/obj/item/clothing/under/afghanka
+	name = "afghanka uniform"
+	desc = "A standard soviet uniform developped and issued in the early 80's, still in use after the collapse of the Soviet Union."
+	icon_state = "milrus_afghanka_open"
+	item_state = "milrus_afghanka_open"
+	worn_state = "milrus_afghanka_open"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	var/adjusted = FALSE
+/obj/item/clothing/under/afghanka/verb/toggle()
+	set category = null
+	set src in usr
+	set name = "Adjust collar"
+	if (type != /obj/item/clothing/under/afghanka)
+		return
+	else
+		if(adjusted)
+			worn_state = "milrus_afghanka_open"
+			item_state = "milrus_afghanka_open"
+			icon_state = "milrus_afghanka_open"
+			item_state_slots["w_uniform"] = "milrus_afghanka_open"
+			usr << "You <b>open up</b> the collar of your uniform."
+			adjusted = FALSE
+			update_clothing_icon()
+		else if (!adjusted)
+			worn_state = "milrus_afghanka_closed"
+			item_state = "milrus_afghanka_closed"
+			icon_state = "milrus_afghanka_closed"
+			item_state_slots["w_uniform"] = "milrus_afghanka_closed"
+			usr << "You <b>close up</b> the collar of your uniform."
+			adjusted = TRUE
+			update_clothing_icon()
 
 	/* Swinging 60's*/
 

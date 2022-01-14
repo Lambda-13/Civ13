@@ -1,7 +1,7 @@
 /obj/structure/loom
 	name = "loom"
 	desc = "A loom, used to transform cotton into cloth."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "loom"
 	anchored = TRUE
 	density = TRUE
@@ -72,7 +72,7 @@
 /obj/structure/mill
 	name = "mill"
 	desc = "A small mill, used to grind cereals into flour."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "flour_mill"
 	anchored = TRUE
 	density = FALSE
@@ -127,7 +127,7 @@
 /obj/structure/mill/large
 	name = "mill"
 	desc = "A small mill, used to grind cereals into flour."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "mill_large"
 	flammable = TRUE
 	not_movable = TRUE
@@ -587,7 +587,7 @@
 /obj/structure/printingpress
 	name = "printing press"
 	desc = "Used to copy books and papers."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "printingpress0"
 	anchored = TRUE
 	density = TRUE
@@ -931,7 +931,7 @@
 /obj/structure/compost
 	name = "compost bin"
 	desc = "A wood box, used to turn trash and scraps into fertilizer."
-	icon = 'icons/russian/obj/structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "compostbin"
 	anchored = TRUE
 	density = TRUE

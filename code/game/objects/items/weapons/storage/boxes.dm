@@ -299,7 +299,7 @@
 /obj/item/weapon/matchbox
 	name = "matchbox"
 	desc = "A small box of premium matches."
-	icon = 'icons/russian/obj/cigarettes.dmi'
+	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "matchbox"
 	item_state = "zippo"
 	w_class = TRUE

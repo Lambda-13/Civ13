@@ -2,7 +2,7 @@
 	has_gravity = TRUE
 	no_air = FALSE
 	base_turf = /turf/floor/dirt //The base turf type of the area, which can be used to override the z-level's base turf
-	sound_env = ALLEY
+	sound_env = FOREST
 	icon_state = "purple1"
 	dynamic_lighting = TRUE
 	ambience = list("sound/ambience/ship1.ogg")
@@ -272,7 +272,7 @@
 	climate = "sea"
 
 /area/caribbean/island/river
-	base_turf = /turf/floor/beach/water
+	base_turf = /turf/floor/beach/water/deep
 	icon_state = "red1"
 
 /area/caribbean/island/tropical
@@ -1277,72 +1277,3 @@
 	corresponding_area_allow_subtypes = TRUE
 	name = "Fallschirmjager Plane"
 */
-
-/turf/floor/void
-	name = "void"
-	icon = 'icons/turf/wall_masks.dmi'
-	icon_state = "void"
-	interior = FALSE
-	var/stage = 0
-	var/dries = TRUE
-	var/spreads = TRUE
-	light_power = 15
-	light_color = "#ffffff"
-
-/turf/floor/void/Entered(atom/movable/O)
-	..()
-	if (istype(O, /mob/living))
-		var/mob/living/L = O
-		visible_message("<span class='danger'>\The [O] falls and burns up in the atmosphere!</span>")
-		if (ishuman(L))
-			var/mob/living/human/H = L
-			var/dam_zone = pick("body")
-			var/obj/item/organ/external/affecting = H.get_organ(dam_zone)
-			switch(stage)
-				if (0)
-					H.apply_damage(100, BURN, affecting, FALSE, sharp=0, edge=0)
-				if (1)
-					H.apply_damage(100, BURN, affecting, FALSE, sharp=0, edge=0)
-				if (2)
-					H.apply_damage(100, BURN, affecting, FALSE, sharp=0, edge=0)
-			spawn(15)
-				if (istype(H.loc, /turf/floor/lava))
-					qdel(H)
-					return
-		else
-			switch(stage)
-				if (0)
-					L.maim()
-					L.maim()
-					L.adjustFireLoss(100)
-					spawn(20)
-						qdel(L)
-					return
-				if (1)
-					if (prob(50))
-						L.maim()
-					L.adjustFireLoss(80)
-					spawn(20)
-						qdel(L)
-					return
-				if (2)
-					L.adjustFireLoss(55)
-					spawn(20)
-						qdel(L)
-					return
-	else if (istype(O, /obj/item) || istype(O, /obj/structure) || istype(O, /obj/roof) || istype(O, /obj/covers))
-		switch(stage)
-			if (0)
-				visible_message("<span class='danger'>\The [O] falls down and burns up in the atmosphere!</span>")
-				qdel(O)
-				return
-			if (1)
-				visible_message("<span class='danger'>\The [O] falls down and burns up in the atmosphere! I think that everything that is being built here flies down!</span>")
-				qdel(O)
-				return
-			if (2)
-				var/obj/OO = O
-				if (OO.flammable)
-					visible_message("<span class = 'warning'>\The [OO] disappears into void.</span>")
-					qdel(O)
-	return

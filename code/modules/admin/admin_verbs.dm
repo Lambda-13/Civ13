@@ -50,7 +50,6 @@ var/list/admin_verbs_admin = list(
 	/datum/admins/proc/get_world_values,
 	/datum/admins/proc/set_world_radiation,
 	/datum/admins/proc/set_world_pollution,
-	/datum/admins/proc/set_custom_gamemode,
 	/datum/admins/proc/PlayerNotes,
 	/datum/admins/proc/show_player_info,
 	/client/proc/free_slot,			//frees slot for chosen job,
@@ -100,8 +99,7 @@ var/list/admin_verbs_trialadmin = list(
 var/list/admin_verbs_sounds = list(
 	/client/proc/play_local_sound,
 	/client/proc/play_sound,
-	/client/proc/play_server_sound,
-	/client/proc/play_web_sound
+	/client/proc/play_server_sound
 	)
 var/list/admin_verbs_fun = list(
 	/client/proc/object_talk,
@@ -112,8 +110,6 @@ var/list/admin_verbs_fun = list(
 	/datum/admins/proc/fantasy_races,
 	/datum/admins/proc/zombiemechanic,
 	/client/proc/nuke,
-	/client/proc/nukeT90,
-	/client/proc/fakenuke,
 	/client/proc/make_sound,
 	/client/proc/editappear,
 	/client/proc/show_custom_roundstart_tip,
@@ -219,18 +215,14 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/play_local_sound,
 	/client/proc/play_sound,
 	/client/proc/play_server_sound,
-	/client/proc/play_web_sound,
 	/client/proc/object_talk,
 	/client/proc/cmd_admin_gib_self,
 	/client/proc/cmd_admin_crush_self,
 	/client/proc/drop_bomb,
 	/client/proc/nuke,
-	/client/proc/nukeT90,
-	/client/proc/fakenuke,
 	/datum/admins/proc/get_world_values,
 	/datum/admins/proc/set_world_radiation,
 	/datum/admins/proc/set_world_pollution,
-	/datum/admins/proc/set_custom_gamemode,
 	/client/proc/radiation_emission,
 	/client/proc/make_sound,
 	/client/proc/ToRban,
@@ -319,6 +311,7 @@ var/list/admin_verbs_host = list(
 		verbs += admin_verbs_default
 	//	if (holder.rights & R_BUILDMODE)		verbs += /client/proc/togglebuildmodeself
 		if (holder.rights & R_ADMIN)			verbs += admin_verbs_admin
+		if (holder.rights & R_ADMIN)			verbs += admin_verbs_magic //magic lol
 		if (holder.rights & R_FUN)			verbs += admin_verbs_fun
 		if (holder.rights & R_SERVER)		verbs += admin_verbs_server
 		if (holder.rights & R_DEBUG)
@@ -357,6 +350,7 @@ var/list/admin_verbs_host = list(
 		admin_verbs_spawn,
 		debug_verbs,
 		admin_verbs_manager,
+		admin_verbs_magic,
 		admin_verbs_host
 		)
 
@@ -798,8 +792,6 @@ var/global/list/global_colour_matrix = null
 	if (conf_1 == "No")
 		return
 	else
-		message_admins("ВНИМАНИЕ: [key] включает паник бункер.")
-		log_game("ВНИМАНИЕ: [key] включает паник бункер.")
 		config.useapprovedlist = TRUE
 
 /client/proc/disable_approved_only()
@@ -817,8 +809,6 @@ var/global/list/global_colour_matrix = null
 	if (conf_1 == "No")
 		return
 	else
-		message_admins("ВНИМАНИЕ: [key] отключает паник бункер.")
-		log_game("ВНИМАНИЕ: [key] отключает паник бункер.")
 		config.useapprovedlist = FALSE
 
 /client/proc/enable_whitelist()
@@ -928,39 +918,27 @@ var/global/list/global_colour_matrix = null
 	set name = "Nuke the Map"
 	set desc = "Spawns a large explosion and turns the whole map into a wasteland."
 
-	message_admins("ВНИМАНИЕ: [key] готовится взорвать нюку.")
-	log_game("ВНИМАНИЕ: [key] отовится взорвать нюку.")
 	var/conf_1 = input("Are you absolutely positively sure you want to NUKE THE WHOLE MAP? This is irreversible!") in list ("Yes", "No")
 	if (conf_1 == "No")
-		message_admins("ВНИМАНИЕ: [key] не взрывает нюку.")
-		log_game("ВНИМАНИЕ: [key] не взрывает нюку.")
 		return
 
 	var/conf_2 = input("Seriously? THIS WILL LAG THE GAME FOR A WHILE!") in list ("Yes", "No")
 	if (conf_2 == "No")
-		message_admins("ВНИМАНИЕ: [key] не взрывает нюку.")
-		log_game("ВНИМАНИЕ: [key] не взрывает нюку.")
 		return
-	var/warning = input("Do you want to give a 30 second warning before the nuke hits? WIP button active WIP sound") in list ("Yes", "No")
+	var/warning = input("Do you want to give a 30 second warning before the nuke hits?") in list ("Yes", "No")
 
 	if (!mob || !mob.loc)
 		src << "<span class = 'warning'>You can't create a radiation emission here.</span>"
-		message_admins("ВНИМАНИЕ: [key] не взрывает нюку так как он в лобби.")
-		log_game("ВНИМАНИЕ: [key] не взрывает нюку так как он в лобби.")
 		return
 
 	if (!processes.explosion || !processes.explosion.fires_at_gamestates.Find(ticker.current_state))
 		src << "<span class = 'warning'>You can't create a radiation emission now.</span>"
-		message_admins("ВНИМАНИЕ: [key] не взрывает нюку - процесс занят.")
-		log_game("ВНИМАНИЕ: [key] не взрывает нюку - процесс занят.")
 		return
 
 	var/turf/epicenter = mob.loc
 	var/warningtimer = 5
 	if (warning == "Yes")
 		world << "<font size=3 color='red'><center>ATTENTION<br>A nuclear missile is incoming! Take cover!</center></font>"
-		message_admins("ВНИМАНИЕ: [key] активирует 30 секунд до взрыва нюки.")
-		log_game("ВНИМАНИЕ: [key] активирует 30 секунд до взрыва нюки.")
 		var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
 		for (var/mob/M in player_list)
 			M.client << warning_sound
@@ -971,97 +949,6 @@ var/global/list/global_colour_matrix = null
 		message_admins("[key] nuked the map at ([epicenter.x],[epicenter.y],[epicenter.z]) in area [epicenter.loc.name].")
 		log_game("[key] nuked the map at ([epicenter.x],[epicenter.y],[epicenter.z]) in area [epicenter.loc.name].")
 
-/client/proc/nukeT90()
-	set category = "Special"
-	set name = "Nuke the Map (T90)"
-	set desc = "Spawns a large explosion and turns the whole map into a wasteland. Sound by SCP:CB."
-
-	message_admins("ВНИМАНИЕ: [key] готовится взорвать нюку с таймером в 90 секунд.")
-	log_game("ВНИМАНИЕ: [key] готовится взорвать нюку с таймером в 90 секунд.")
-	var/conf_1 = input("Ты реально хочешь ебануть нюку со звуком из сцп?") in list ("Yes", "No")
-	if (conf_1 == "No")
-		message_admins("ВНИМАНИЕ: [key] не взрывает нюкус таймером в 90 секунд.")
-		log_game("ВНИМАНИЕ: [key] не взрывает нюку с таймером в 90 секунд.")
-		return
-
-	var/conf_2 = input("Всё залагает, точно?") in list ("Yes", "No")
-	if (conf_2 == "No")
-		message_admins("ВНИМАНИЕ: [key] не взрывает нюку с таймером в 90 секунд.")
-		log_game("ВНИМАНИЕ: [key] не взрывает нюку с таймером в 90 секунд.")
-		return
-
-	if (!mob || !mob.loc)
-		src << "<span class = 'warning'>You can't create a radiation emission here.</span>"
-		message_admins("ВНИМАНИЕ: [key] не взрывает нюку с таймером в 90 секунд так как он в лобби.")
-		log_game("ВНИМАНИЕ: [key] не взрывает нюку с таймером в 90 секунд так как он в лобби.")
-		return
-
-	if (!processes.explosion || !processes.explosion.fires_at_gamestates.Find(ticker.current_state))
-		src << "<span class = 'warning'>You can't create a radiation emission now.</span>"
-		message_admins("ВНИМАНИЕ: [key] не взрывает нюку с таймером в 90 секунд - процесс занят.")
-		log_game("ВНИМАНИЕ: [key] не взрывает нюку с таймером в 90 секунд - процесс занят.")
-		return
-
-	var/turf/epicenter = mob.loc
-	var/warningtimer = 777
-	var/alarm_sound = sound('sound/misc/Alarm3.ogg', repeat = FALSE, wait = TRUE, channel = 777)
-	var/announce_sound = sound('sound/misc/DetonatingAlphaWarheads.ogg', repeat = FALSE, wait = TRUE, channel = 777)
-	var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
-	message_admins("ВНИМАНИЕ: [key] активирует 90 секунд до взрыва нюки.")
-	log_game("ВНИМАНИЕ: [key] активирует 90 секунд до взрыва нюки.")
-	for (var/mob/M in player_list)
-		M.client << alarm_sound
-	spawn(44)
-		for (var/mob/M in player_list)
-			M.client << announce_sound
-		world << "<font size=3 color='red'><center>Automatic Air Raid<br>We're detonating the Alpha Warhead in T-Minus ninety seconds. All personnel are advised to board the nearest helicopter or enter the nearest blast shelter immediately.</center></font>"
-	spawn(660)
-		world << "<font size=3 color='red'><center>ATTENTION<br>A nuclear missile is incoming! Take cover!</center></font>"
-		for (var/mob/M in player_list)
-			M.client << warning_sound
-		warningtimer = 777
-	spawn(warningtimer)
-		world << "<font size=3 color='red'>A nuclear explosion has happened! <br><i>(Game might freeze/lag for a while while processing, please wait)</i></font>"
-		nuke_map(epicenter, 200, 180, 0)
-		message_admins("[key] nuked the map at ([epicenter.x],[epicenter.y],[epicenter.z]) in area [epicenter.loc.name].")
-		log_game("[key] nuked the map at ([epicenter.x],[epicenter.y],[epicenter.z]) in area [epicenter.loc.name].")
-
-
-/client/proc/fakenuke()
-	set category = "Fun"
-	set name = "Fake Nuke the Map"
-	set desc = "Fake nuke bomb. No fallout."
-
-	message_admins("ВНИМАНИЕ: [key] готовится взорвать ФЕЙКОВУЮ нюку.")
-	log_game("ВНИМАНИЕ: [key] готовится взорвать ФЕЙКОВУЮ нюку.")
-	var/conf_1 = input("Ты уверен что хочешь это сделать? Ржака конечно будет но ты подумай") in list ("Yes", "No")
-	if (conf_1 == "No")
-		message_admins("ВНИМАНИЕ: [key] не взрывает ФЕЙКОВУЮ нюку.")
-		log_game("ВНИМАНИЕ: [key] не взрывает ФЕЙКОВУЮ нюку.")
-		return
-
-	var/conf_2 = input("Реально? Игроки будут оскорблять тебя") in list ("Yes", "No")
-	if (conf_2 == "No")
-		message_admins("ВНИМАНИЕ: [key] не взрывает ФЕЙКОВУЮ нюку.")
-		log_game("ВНИМАНИЕ: [key] не взрывает ФЕЙКОВУЮ нюку.")
-		return
-	var/warning = input("Ставим таймер 30 секунд?") in list ("Yes", "No")
-
-	var/warningtimer = 5
-	if (warning == "Yes")
-		message_admins("ВНИМАНИЕ: [key] активирует 30 секунд до взрыва ФЕЙКОВОЙ нюки.")
-		log_game("ВНИМАНИЕ: [key] активирует 30 секунд до взрыва ФЕЙКОВОЙ нюки.")
-		world << "<font size=3 color='red'><center>ATTENTION<br>A nuclear missile is incoming! Take cover!</center></font>"
-		var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
-		for (var/mob/M in player_list)
-			M.client << warning_sound
-		warningtimer = 330
-	spawn(warningtimer)
-		world << "<font size=3 color='red'>A nuclear explosion has happened! <br><i>(Game might freeze/lag for a while while processing, please wait)</i></font>"
-		message_admins("[key] взорвал ЛОЖНУЮ нюку.")
-		log_game("[key] взорвал ЛОЖНУЮ нюку.")
-		sleep(4)
-		world << 'sound/weapons/Explosives/Dynamite.ogg'
 
 ///////////////////////GC STUFF////////////////////////////////
 

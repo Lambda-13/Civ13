@@ -105,7 +105,7 @@
 /obj/structure/computer/
 	name = "Parent Computer"
 	desc = "A simplistic computer. This is the parent object."
-	icon = 'icons/russian/obj/computers.dmi'
+	icon = 'icons/obj/computers.dmi'
 	icon_state = "1980_computer_off"
 	var/peripherals = list()
 	var/internals = list()

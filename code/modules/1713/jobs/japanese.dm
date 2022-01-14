@@ -12,8 +12,10 @@
 	H.r_facial = hex2num(copytext(hex_hair, 2, 4))
 	H.g_facial = hex2num(copytext(hex_hair, 4, 6))
 	H.b_facial = hex2num(copytext(hex_hair, 6, 8))
-	if (H.f_style != "Shaved" && H.f_style != "Short Facial Hair" && H.f_style != "Goatee")
-		H.f_style = pick("Shaved","Short Facial Hair","Goatee")
+	if (!H.f_style == "Shaved" && H.f_style != "Short Facial Hair" && H.f_style != "Goatee" && H.f_style != "Watson Mustache")
+		H.f_style = pick("Shaved","Short Facial Hair","Goatee","Watson Mustache")
+	if(H.h_style != "Bald" && H.h_style != "Crewcut" && H.h_style != "Undercut" && H.h_style != "Short Hair" && H.h_style != "Cut Hair" && H.h_style != "Skinhead" && H.h_style != "Average Joe" && H.h_style != "Fade" && H.h_style != "Combover" && H.h_style != "Father")
+		H.h_style = pick("Bald","Crewcut","Undercut","Short Hair","Cut Hair","Skinhead","Average Joe","Fade","Combover","Father")
 /datum/job/japanese/captain
 	title = "Rikugun-Tai-i"
 	en_meaning = "Army Captain"
@@ -670,9 +672,6 @@
 
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/surgery(H), slot_l_hand)
 	H.equip_to_slot_or_del(new /obj/item/weapon/doctor_handbook(H), slot_l_store)
-	var/obj/item/clothing/under/uniform = H.w_uniform
-	var/obj/item/clothing/accessory/holster/hip/holsterh = new /obj/item/clothing/accessory/holster/hip(null)
-	uniform.attackby(holsterh, H)
 	give_random_name(H)
 	H.s_tone = rand(-32,-24)
 	if (H.f_style != "Shaved" && H.f_style != "Short Facial Hair" && H.f_style != "Goatee")
@@ -1289,7 +1288,8 @@
 	var/obj/item/clothing/under/uniform = H.w_uniform
 	var/obj/item/clothing/accessory/rank/jap_ittoheih = new /obj/item/clothing/accessory/rank/jap_ittohei(null)
 	uniform.attackby(jap_ittoheih, H)
-
+	var/obj/item/clothing/accessory/storage/sheath/baton/fullh = new /obj/item/clothing/accessory/storage/sheath/baton(null)
+	uniform.attackby(fullh, H)
 	var/obj/item/weapon/storage/belt/keychain/KC = new/obj/item/weapon/storage/belt/keychain(H)
 	var/obj/item/weapon/key/japanese/G1 = new/obj/item/weapon/key/japanese(null)
 	KC.attackby(G1,H)
@@ -1551,8 +1551,6 @@
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/surgery(H), slot_l_hand)
 	H.equip_to_slot_or_del(new /obj/item/weapon/doctor_handbook(H), slot_l_store)
 	var/obj/item/clothing/under/uniform = H.w_uniform
-	var/obj/item/clothing/accessory/holster/hip/holsterh = new /obj/item/clothing/accessory/holster/hip(null)
-	uniform.attackby(holsterh, H)
 	var/obj/item/clothing/accessory/rank/jap_2lth = new /obj/item/clothing/accessory/rank/jap_2lt(null)
 	uniform.attackby(jap_2lth, H)
 	give_random_name(H)
@@ -2058,9 +2056,6 @@
 	H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/jacket/doctor(H), slot_wear_suit)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/surgery(H), slot_l_hand)
 	H.equip_to_slot_or_del(new /obj/item/weapon/doctor_handbook(H), slot_l_store)
-	var/obj/item/clothing/under/uniform = H.w_uniform
-	var/obj/item/clothing/accessory/holster/hip/holsterh = new /obj/item/clothing/accessory/holster/hip(null)
-	uniform.attackby(holsterh, H)
 	give_random_name(H)
 	H.s_tone = rand(-32,-24)
 	if (H.f_style != "Shaved" && H.f_style != "Short Facial Hair" && H.f_style != "Goatee")

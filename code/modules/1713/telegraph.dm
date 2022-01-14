@@ -1,7 +1,7 @@
 /obj/structure/telegraph
 	name = "telegraph"
 	desc = "Used to communicate with distant places."
-	icon = 'icons/russian/obj/device.dmi'
+	icon = 'icons/obj/device.dmi'
 	icon_state = "telegraph"
 	flammable = FALSE
 	not_movable = FALSE
@@ -9,7 +9,7 @@
 	density = FALSE
 	opacity = FALSE
 	var/currmsg = ""
-	var/list/allowedlist = list("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ц","ш","щ","ч","ы","ь","ъ","э","ю","я","А","Б","В","Г","Д","Е","Ё","Ж","З","И","Й","К","Л","М","Н","О","П","Р","С","Т","У","Ф","Х","Ц","Ш","Щ","Ч","Ы","Ь","Ъ","Э","Ю","Я")
+	var/list/allowedlist = list("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
 /obj/structure/telegraph/proc/convertmsg(var/message)
 	var/output = ""
 	for (var/i=1, i<=length(message), i++)
@@ -31,9 +31,9 @@
 	set desc = "Name this telegraph."
 
 	set src in view(1)
-	var/yn = input(usr, "Назвать этот телеграф?") in list("Yes", "No")
+	var/yn = input(usr, "Name this telegraph?") in list("Yes", "No")
 	if (yn == "Yes")
-		var/_name = input(usr, "Какое имя ему дать?") as text
+		var/_name = input(usr, "What name?") as text
 		name = sanitize(_name, 20)
 	return
 
@@ -54,8 +54,8 @@
 	return
 
 /obj/structure/telegraph/attack_hand(var/mob/user as mob)
-	var/message = input(usr, "Пишите слова. 100 символов (50 русских), без пробелов, символов и цифр.") as text
-	message = sanitize(message, 100)
+	var/message = input(usr, "Write a word. Up to 10 characters, no spaces, symbols or numbers.") as text
+	message = sanitize(message, 10)
 	message = convertmsg(message)
 	if (message && message != "")
 		var/stripmsg = message
@@ -72,7 +72,7 @@
 /obj/structure/teleprinter
 	name = "teleprinter"
 	desc = "Will convert telegraph messages to paper."
-	icon = 'icons/russian/obj/device.dmi'
+	icon = 'icons/obj/device.dmi'
 	icon_state = "teleprinter0"
 	flammable = FALSE
 	not_movable = FALSE
@@ -249,7 +249,7 @@
 /obj/structure/radiorecorder
 	name = "voice recorder"
 	desc = "Used to record programs to be broadcast by radio."
-	icon = 'icons/russian/obj/device.dmi'
+	icon = 'icons/obj/device.dmi'
 	icon_state = "recorder"
 	flammable = TRUE
 	not_movable = FALSE

@@ -60,8 +60,14 @@
 /mob/living/proc/getarmor(var/def_zone, var/type)
 	return FALSE
 
-
 /mob/living/bullet_act(var/obj/item/projectile/P, var/def_zone)
+
+	var/mob/living/human/H = src
+	var/obj/item/weapon/material/sword/magic/onoff/LS
+	if ((istype(H.l_hand, /obj/item/weapon/material/sword/magic/onoff) && LS.state == "ON") || (istype(H.r_hand, /obj/item/weapon/material/sword/magic/onoff) && LS.state == "ON"))
+		qdel(P)
+		return
+
 
 	//Armor
 	var/absorb = run_armor_check(def_zone, P.check_armor, P.armor_penetration, damage_source = P)
@@ -74,7 +80,6 @@
 	var/damage = P.damage
 
 	if (ishuman(src))
-		var/mob/living/human/H = src
 		if (H.takes_less_damage)
 			damage /= H.getStatCoeff("strength")
 		var/instadeath = 0
@@ -180,7 +185,7 @@
 			var/client/assailant = M.client
 			if (assailant)
 				attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been hit with a [O], thrown by [M.name] ([assailant.ckey])</font>")
-				M.attack_log += text("\[[time_stamp()]\] <font color='red'>Hit [name] ([ckey]) with a thrown [O]</font>")
+				M.attack_log += text("\[[time_stamp()]\] <font color='red'>Hit [name] ([ckey])([stat]) with a thrown [O]</font>")
 				if (!istype(src,/mob/living/simple_animal/mouse))
 					msg_admin_attack("[name] ([ckey]) was hit by a [O], thrown by [M.name] ([assailant.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 		if (istype(O, /obj/item/weapon/snowball))

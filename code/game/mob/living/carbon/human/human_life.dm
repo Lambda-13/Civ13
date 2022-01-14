@@ -39,7 +39,7 @@
 		process_awards()
 	if (transforming)
 		return
-	if (werewolf + gorillaman + orc + ant + lizard + wolfman + crab + skeletman + zombieman > 1)
+	if (werewolf + gorillaman + orc + ant + lizard + wolfman + crab > 1)
 		werewolf = 0
 		gorillaman = 0
 		orc = 0
@@ -47,8 +47,6 @@
 		lizard = 0
 		wolfman = 0
 		crab = 0
-		skeletman = 0
-		zombieman = 0
 		handle_animalistic("Default")
 
 	if (werewolf)
@@ -65,11 +63,7 @@
 		handle_animalistic("Wolf")
 	else if (crab)
 		handle_animalistic("Crab")
-	else if (skeletman)
-		handle_animalistic("Skelet")
-	else if (zombieman)
-		handle_animalistic("Zombie")
-	else if (!gorillaman && !werewolf && !orc && !ant && !lizard && !wolfman && !crab && !skeletman && !zombieman && body_build.name != "Default")
+	else if (!gorillaman && !werewolf && !orc && !ant && !lizard && !wolfman && !crab && body_build.name != "Default")
 		handle_animalistic("Default")
 //	if (prone)
 //		lying = 1
@@ -158,7 +152,7 @@
 		var/water_m = 1
 		var/food_m = 1
 		if (find_trait("Gigantism"))
-			food_m *= 2
+			food_m *= 1.2
 		else if (find_trait("Dwarfism"))
 			food_m *= 0.8
 		if (orc)
@@ -166,21 +160,15 @@
 		if (crab)
 			food_m *= 0.8
 			water_m *= 2.5
-		if (skeletman)
-			food_m *= 0
-			water_m *= 0
-		if (zombieman)
-			food_m *= 0.666
-			water_m *= 0
 		if (gorillaman)
 			water_m *= 0.2
 		if (istype(buckled, /obj/structure/cross))
 			food_m *= 1.5
 			water_m *= 5
 
-		if (inducedSSD) //если ты прожал слип то твоя еда и вода не будет уменьшатся
-			nutrition -= ((0) * HUNGER_THIRST_MULTIPLIER * food_m)
-			water -= ((0) * HUNGER_THIRST_MULTIPLIER * water_m)
+		if (inducedSSD) //if sleeping in SSD mode = takes ~72 hours to starve
+			nutrition -= ((0.0025) * HUNGER_THIRST_MULTIPLIER * food_m)
+			water -= ((0.0025) * HUNGER_THIRST_MULTIPLIER * water_m)
 
 		else if (istype(buckled, /obj/structure/bed) && stat == UNCONSCIOUS && !inducedSSD) //if sleeping in a bed (buckled!) takes ~20 hours to starve
 			nutrition -= ((0.01) * HUNGER_THIRST_MULTIPLIER * food_m)
@@ -544,61 +532,6 @@
 				playerzombie.name = "[real_name]'s zombie"
 				strip()
 
-		else if (disease_type == "hiv")
-			mood -= 0.17
-			if (!disease_treatment)
-				disease_progression += 0.5
-			else
-				disease_progression += 1.5
-			// first 2 minutes
-			if (disease_progression == 25)
-				src << "You feel a little feverish."
-				disease_treatment = 0
-				apply_effect(10, DROWSY, FALSE)
-				bodytemperature = 311.35
-			//4 more minutes
-			if (prob(1))
-				emote("shiver")
-				apply_effect(7, DROWSY, FALSE)
-			else if (disease_progression >= 60 && disease_progression < 180 && bodytemperature < 312.15 && prob(10))
-				src << "You feel like your fever is getting worse!"
-				adjustBrainLoss(rand(2,3))
-				apply_effect(8, AGONY, FALSE)
-				apply_effect(6, DROWSY, FALSE)
-				if (prob(75))
-					spawn(200)
-						vomit()
-				emote("shiver")
-				bodytemperature = 312.15
-			else if (disease_progression >= 60 && disease_progression < 180 && bodytemperature < 313.15 && prob(1) && !disease_treatment)
-				adjustBrainLoss(rand(7,10))
-				src << "You feel your body burning up from fever!"
-				apply_effect(12, AGONY, FALSE)
-				apply_effect(7, DROWSY, FALSE)
-				spawn(200)
-					vomit()
-				emote("shiver")
-				Weaken(5)
-				bodytemperature = 313.15
-			// 2 more minutes
-			else if (disease_progression >= 180 && disease_progression < 240 && bodytemperature >= 313.15 && prob(8) && !disease_treatment)
-				src << "You feel your fever going down."
-				adjustBrainLoss(rand(4,6))
-				apply_effect(6, DROWSY, FALSE)
-				emote("shiver")
-				bodytemperature = 312.35
-			else if (disease_progression >= 180 && disease_progression < 240 && bodytemperature >= 312.15 && prob(2))
-				src << "You feel your fever going down."
-				adjustBrainLoss(rand(2,3))
-				emote("shiver")
-				bodytemperature = 310.055
-			else if (disease_progression >= 240 && prob(35))
-				disease = 0
-				disease_type = "none"
-				disease_progression = 0
-				bodytemperature = 310.055
-				src << "You feel much better now! The disease is finally gone!"
-				disease_treatment = 0
 
 	if (disease == TRUE)
 		if (disease_type in disease_immunity)
@@ -1452,12 +1385,6 @@
 			if (getBruteLoss() >= 150)
 				death()
 /mob/living/human/proc/handle_hud_list()
-	if (map.disablehud == TRUE)
-		hud_list[BASE_FACTION].icon_state = ""
-		hud_list[BASE_FACTION].overlays.Cut()
-		hud_list[FACTION_TO_ENEMIES].icon_state = ""
-		hud_list[FACTION_TO_ENEMIES].overlays.Cut()
-
 	if (stat == DEAD)
 		hud_list[BASE_FACTION].icon_state = ""
 		hud_list[BASE_FACTION].overlays.Cut()
@@ -1474,7 +1401,7 @@
 			hud_list[FACTION_TO_ENEMIES] = holder
 
 			var/image/holder2 = hud_list[BASE_FACTION]
-			holder2.icon = 'icons/russian/mob/hud_1713.dmi'
+			holder2.icon = 'icons/mob/hud_1713.dmi'
 			holder2.plane = HUD_PLANE
 			switch (original_job.base_type_flag())
 				if (PIRATES)
@@ -1517,9 +1444,12 @@
 				if (GREEK)
 					holder2.icon_state = "greek_basic"
 				if (ROMAN)
-					holder2.icon_state = "roman_basic"
+					if (map.ID == MAP_WHITERUN)
+						holder2.icon_state = "empire"
+					else
+						holder2.icon_state = "roman_basic"
 				if (CHECHEN)
-					holder2.icon_state = "pirate_basic"
+					holder2.icon_state = "chechen_basic"
 				if (FINNISH)
 					holder2.icon_state = "ger0_basic"
 				if (JAPANESE)
@@ -1536,7 +1466,7 @@
 				if (RUSSIAN)
 					if (map.ordinal_age <= 5)
 						holder2.icon_state = "ru_basic"
-					else if (map.ordinal_age == 6 || map.ordinal_age == 7)
+					else if (map.ordinal_age >= 6)
 						holder2.icon_state = "sov_basic"
 					if (map.ID == MAP_YELTSIN || map.ID == MAP_RUSRETREAT || map.ID == MAP_FACTORY)
 						holder2.icon_state = "ru_basic"
@@ -1561,7 +1491,7 @@
 				if (CHINESE)
 					holder2.icon_state = "roc_basic"
 				if (CIVILIAN)
-					if (map.ID == MAP_CAPITOL_HILL || map.ID == MAP_YELTSIN)
+					if (map.ID == MAP_CAPITOL_HILL)
 						holder2.icon_state = "civ1"
 					else if (original_job_title == "Civilization A Citizen")
 						holder2.icon_state = "civ1"
@@ -1577,23 +1507,42 @@
 						holder2.icon_state = "civ6"
 					else if (original_job_title == "Nomad")
 						holder2.icon_state = ""
-					else if (original_job.is_upa && map.ordinal_age >= 7)
-						holder2.icon_state = "upa2_basic"
 					else if (original_job.is_upa && map.ID != MAP_OCCUPATION)
 						holder2.icon_state = "upa_basic"
 					else if (map.ID == MAP_WHITERUN)
 						holder2.icon_state = "stormcloak"
 					else if (map.ID == MAP_FACTORY)
 						holder2.icon_state = "ukr_basic"
+					else if (map.ID == MAP_GULAG13)
+						if(nationality == "Polish")
+							holder2.icon_state = "pol_basic"
+						else if(nationality == "German")
+							holder2.icon_state = "ger3_basic"
+						else if(nationality == "Ukrainian")
+							holder2.icon_state = "ukr_basic"
 //					else if (original_job_title == "Outlaw")
 //						holder2.icon_state = "civ1"
 //					else if (original_job_title == "Sheriff" || original_job_title == "Deputy" )
 //						holder2.icon_state = "civ3"
 					else
 						holder2.icon_state = ""
-					if (map.ID == MAP_TSARITSYN)
+					if (map.ID == MAP_TSARITSYN || map.ID == MAP_YELTSIN)
 						holder2.icon_state = "sov_basic"
 			holder2.overlays.Cut()
+			if (faction_text == CIVILIAN && map.ID == MAP_GULAG13)
+				switch(original_job_title)
+					if ("Janitor")
+						holder2.overlays += icon(holder2.icon,"role_janitor")
+					if ("Kitchen Duty")
+						holder2.overlays += icon(holder2.icon,"role_kitchen")
+					if ("Miner")
+						holder2.overlays += icon(holder2.icon,"role_miner")
+					if ("Nurse Helper")
+						holder2.overlays += icon(holder2.icon,"role")
+					if ("Builder")
+						holder2.overlays += icon(holder2.icon,"role_builder")
+					if ("Logger")
+						holder2.overlays += icon(holder2.icon,"role_logger")
 			if (original_job.uses_squads && squad > 0)
 				if (faction_text == CIVILIAN && map.ID == MAP_OCCUPATION)
 					holder2.icon_state = ""
@@ -1677,9 +1626,7 @@
 		return
 
 /mob/living/human/proc/do_rotting()
-	if (istype(src, /mob/living/human/corpse/skelet))
-		return
-	if (map && !map.is_zombie && !istype(src, /mob/living/human/corpse))
+	if (map && istype(src, /mob/living/human/corpse))
 		return
 	spawn(600)
 		if (stat == DEAD)
