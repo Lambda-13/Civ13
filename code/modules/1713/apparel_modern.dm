@@ -962,7 +962,8 @@
 	name = "police belt"
 	desc = "A belt that can hold the standard issue gear of police officers."
 	icon_state = "gerbelt"
-	item_state = "gerbelt"
+	item_state = "security"
+	worn_state = "security"
 	storage_slots = 10
 	max_w_class = 3
 	max_storage_space = 24
@@ -1111,6 +1112,30 @@
 		icon_state = base_state
 		item_state = icon_state
 		worn_state = icon_state
+
+/obj/item/clothing/head/cap/red
+	name = "red cap"
+	desc = "A red cap."
+	icon_state = "redcap"
+	item_state = "redcap"
+	worn_state = "redcap"
+	base_state = "redcap"
+
+/obj/item/clothing/head/cap/yellow
+	name = "yellow cap"
+	desc = "A yellow cap."
+	icon_state = "yellowcap"
+	item_state = "yellowcap"
+	worn_state = "yellowcap"
+	base_state = "yellowcap"
+
+/obj/item/clothing/head/cap/blue
+	name = "blue cap"
+	desc = "A blue cap."
+	icon_state = "bluecap"
+	item_state = "bluecap"
+	worn_state = "bluecap"
+	base_state = "bluecap"
 
 /obj/item/clothing/head/cap/maga
 	name = "MAGA hat"
@@ -1307,3 +1332,20 @@
 			heat_protection = ARMS
 			cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS
 			update_clothing_icon()
+
+//african militias
+/obj/item/clothing/under/warband1
+	name = "jeans with suspenders"
+	desc = "A pair of jeans secured by suspenders."
+	icon_state = "warband1"
+	item_state = "warband1"
+	worn_state = "warband1"
+	body_parts_covered =LOWER_TORSO|LEGS
+
+/obj/item/clothing/under/warband2
+	name = "camo trousers and white sleeveless shirt"
+	desc = "A mix of woodland camoflage trousers and a white sleeveless shirt."
+	icon_state = "warband2"
+	item_state = "warband2"
+	worn_state = "warband2"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
