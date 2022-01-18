@@ -11,7 +11,7 @@
 *******/
 /obj/item/camera_film
 	name = "film cartridge"
-	icon = 'icons/russian/obj/device.dmi'
+	icon = 'icons/obj/device.dmi'
 	desc = "A camera film cartridge. Insert it into a camera to reload it."
 	icon_state = "film"
 	item_state = "film"
@@ -25,7 +25,7 @@ var/global/photo_count = 0
 
 /obj/item/weapon/photo
 	name = "photo"
-	icon = 'icons/russian/obj/device.dmi'
+	icon = 'icons/obj/device.dmi'
 	icon_state = "photo"
 	item_state = "paper"
 	w_class = 1.0

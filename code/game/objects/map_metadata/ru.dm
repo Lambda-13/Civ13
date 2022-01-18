@@ -1,6 +1,6 @@
 //Тут метаданные русских карт//
 
-/obj/map_metadata/lobby
+/*/obj/map_metadata/lobby //сломалось
 	ID = MAP_LOBBY
 	title = "Home"
 	lobby_icon = 'icons/_LOBBYHM.dmi'
@@ -48,4 +48,4 @@
 	if (J.is_lobby == TRUE)
 		. = TRUE
 	else
-		. = FALSE
+		. = FALSE*/

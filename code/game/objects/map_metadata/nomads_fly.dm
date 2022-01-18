@@ -1,4 +1,4 @@
-/obj/map_metadata/nomads_fly
+/*/obj/map_metadata/nomads_fly
 	ID = MAP_NOMADS_FLY
 	title = "Nomads (Skyblock)"
 	lobby_icon_state = "civ13"
@@ -48,3 +48,4 @@
 	else
 		. = FALSE
 
+*/

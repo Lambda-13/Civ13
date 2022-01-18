@@ -126,20 +126,20 @@
 
 /obj/map_metadata/nomads_wasteland/two/proc/zombies(var/start = TRUE)
 	for(var/obj/effect/spawner/mobspawner/zombies/special/S in world)
-		S.activated = start/obj/map_metadata/nomads_wasteland/two/ru
+
+/*/obj/map_metadata/nomads_wasteland/two/ru //чутка сломалось
 	ID = MAP_NOMADS_WASTELAND_RU
 	title = "Wasteland RU"
 	gamemode = "Russian Wasteland"
-	nuke_timer=30*86400 //30 дней
 	is_zombie = TRUE
 	mission_start_message = "<big>Миру давно пришёл конец, сможете ли вы построить новую цивилизацию на остатках прошлых лет?</big><br><b>Вики https://civ13.github.io/civ13-wiki/Civilizations_and_Nomads</b>"
-	ambience = list('sound/ambience/desert.ogg')
+	ambience = list('sound/ambience/desert.ogg')*/
 
 //Отдельная карта от вастеланда имеющая код вастеланда
 //
 //
 //
-/obj/map_metadata/nomads_scarlet_plague
+/*/obj/map_metadata/nomads_scarlet_plague //сломалось
 	ID = MAP_NOMADS_WASTELAND_SCARLET_PLAGUE
 	title = "Scarlet Plague (Nomads)"
 //	lobby_icon_state = "scarlet_plague"
@@ -213,4 +213,4 @@
 	if (J.is_nomad == TRUE)
 		. = TRUE
 	else
-		. = FALSE
+		. = FALSE*/
