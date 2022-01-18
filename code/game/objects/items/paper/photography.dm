@@ -11,7 +11,7 @@
 *******/
 /obj/item/camera_film
 	name = "film cartridge"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/russian/obj/device.dmi'
 	desc = "A camera film cartridge. Insert it into a camera to reload it."
 	icon_state = "film"
 	item_state = "film"
@@ -25,7 +25,7 @@ var/global/photo_count = 0
 
 /obj/item/weapon/photo
 	name = "photo"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/russian/obj/device.dmi'
 	icon_state = "photo"
 	item_state = "paper"
 	w_class = 1.0
@@ -77,7 +77,7 @@ var/global/photo_count = 0
 
 /obj/item/weapon/photo/proc/show(mob/user as mob)
 	send_rsc(user, img, "tmp_photo_[id].png")
-	var/output = "<html><head><title>[name]</title></head>"
+	var/output = "<meta charset='utf-8'><head><title>[name]</title></head>"
 	output += "<body style='overflow:hidden;margin:0;text-align:center'>"
 	output += "<img src='tmp_photo_[id].png' width='[64*photo_size]' style='-ms-interpolation-mode:nearest-neighbor' />"
 	output += "[scribble ? "<br>Written on the back:<br><i>[scribble]</i>" : ""]"

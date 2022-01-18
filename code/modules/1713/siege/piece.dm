@@ -476,7 +476,7 @@
 		m << browse({"
 
 		<br>
-		<html>
+		<meta charset='utf-8'>
 
 		<head>
 		[common_browser_style]

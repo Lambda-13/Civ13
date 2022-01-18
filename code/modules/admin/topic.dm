@@ -354,6 +354,9 @@
 	else if (href_list["warn"])
 		usr.client.warn(href_list["warn"])
 
+	else if (href_list["pripeklon"])
+		usr.client.pripeklon(href_list["pripeklon"])
+
 	else if (href_list["boot2"])
 		var/mob/M = locate(href_list["boot2"])
 		if (ismob(M))
@@ -361,11 +364,11 @@
 				return
 			var/reason = sanitize(input("Please enter reason"))
 			if (!reason)
-				M << "<span class = 'userdanger'>You have been kicked from the server.</span>"
+				M << "<span class = 'userdanger'>Вы были кикнуты с сервера</span>"
 			else
-				M << "<span class = 'userdanger'>You have been kicked from the server. ([reason])</span>"
-			log_admin("[key_name(usr)] booted [key_name(M)].")
-			message_admins("<span class = 'notice'>[key_name_admin(usr)] booted [key_name_admin(M)].</span>", TRUE)
+				M << "<span class = 'userdanger'>Вы были кикнуты с сервера по причине ([reason])</span>"
+			log_admin("[key_name(usr)] kicked [key_name(M)].")
+			message_admins("<span class = 'notice'>[key_name_admin(usr)] кикнул [key_name_admin(M)].</span>", TRUE)
 			//M.client = null
 			qdel(M.client)
 

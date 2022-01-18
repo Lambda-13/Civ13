@@ -38,6 +38,18 @@
 #define COLOR_PURPLE_GRAY	  "#a2819e"
 #define COLOR_SUN			  "#ec8b2f"
 
+#ifndef WINDOWS_HTTP_POST_DLL_LOCATION
+#define WINDOWS_HTTP_POST_DLL_LOCATION "lib/byhttp.dll"
+#endif
+
+#ifndef UNIX_HTTP_POST_DLL_LOCATION
+#define UNIX_HTTP_POST_DLL_LOCATION "lib/libbyhttp.so"
+#endif
+
+#ifndef HTTP_POST_DLL_LOCATION
+#define HTTP_POST_DLL_LOCATION (world.system_type == MS_WINDOWS ? WINDOWS_HTTP_POST_DLL_LOCATION : UNIX_HTTP_POST_DLL_LOCATION)
+#endif
+
 /*
 //Area flags, possibly more to come
 #define RAD_SHIELDED 1 //shielded from radiation, clearly
@@ -70,3 +82,8 @@
 //HUD element hidings flags
 #define F12_FLAG 1 // 0001
 #define TOGGLE_INVENTORY_FLAG 2 //0010
+
+//world/proc/shelleo
+#define SHELLEO_ERRORLEVEL 1
+#define SHELLEO_STDOUT 2
+#define SHELLEO_STDERR 3

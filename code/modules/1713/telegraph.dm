@@ -9,7 +9,7 @@
 	density = FALSE
 	opacity = FALSE
 	var/currmsg = ""
-	var/list/allowedlist = list("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+	var/list/allowedlist = list("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ц","ш","щ","ч","ы","ь","ъ","э","ю","я","А","Б","В","Г","Д","Е","Ё","Ж","З","И","Й","К","Л","М","Н","О","П","Р","С","Т","У","Ф","Х","Ц","Ш","Щ","Ч","Ы","Ь","Ъ","Э","Ю","Я")
 /obj/structure/telegraph/proc/convertmsg(var/message)
 	var/output = ""
 	for (var/i=1, i<=length(message), i++)
@@ -31,9 +31,9 @@
 	set desc = "Name this telegraph."
 
 	set src in view(1)
-	var/yn = input(usr, "Name this telegraph?") in list("Yes", "No")
+	var/yn = input(usr, "Назвать этот телеграф?") in list("Yes", "No")
 	if (yn == "Yes")
-		var/_name = input(usr, "What name?") as text
+		var/_name = input(usr, "Какое имя ему дать?") as text
 		name = sanitize(_name, 20)
 	return
 

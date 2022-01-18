@@ -168,6 +168,19 @@
 		reagents.add_reagent("pacid", 60)
 		update_icon()
 
+/obj/item/weapon/reagent_containers/glass/bottle/shitspawn
+	name = "Shitspawn Polytrinic Acid Bottle"
+	desc = "A small bottle. Contains a small amount of 5000 unit Polytrinic Acid"
+	icon = 'icons/obj/chemical.dmi'
+	icon_state = "bottle-4"
+	volume = 5000
+	amount_per_transfer_from_this = 5000
+	possible_transfer_amounts = list(5,10,15,25,30,60,100,120,240,360,480,1024,2048,4096)
+	New()
+		..()
+		reagents.add_reagent("pacid", 5000)
+		update_icon()
+
 /obj/item/weapon/reagent_containers/glass/bottle/adminordrazine
 	name = "Adminordrazine Bottle"
 	desc = "A small bottle. Contains the liquid essence of the gods."

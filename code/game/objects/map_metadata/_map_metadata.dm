@@ -144,6 +144,7 @@ var/civmax_research = list(230,230,230)
 	var/is_zombie = FALSE
 	var/is_fantrace = FALSE
 	var/perschadplus = FALSE
+	var/disablehud = FALSE //Faction hud
 
 	//autoresearch
 	var/autoresearch = FALSE //if autoresearch is active
@@ -156,37 +157,37 @@ var/civmax_research = list(230,230,230)
 
 	var/age2_lim = 135
 	var/age2_done = 0
-	var/age2_timer = 24*36000
+	var/age2_timer = 2*36000
 	var/age2_top = 65
 
 	var/age3_lim = 230
 	var/age3_done = 0
-	var/age3_timer = 2*24*36000
+	var/age3_timer = 2*2*36000
 	var/age3_top = 95
 
 	var/age4_lim = 290
 	var/age4_done = 0
-	var/age4_timer = 3*24*36000
+	var/age4_timer = 2*3*36000
 	var/age4_top = 105
 
 	var/age5_lim = 335
 	var/age5_done = 0
-	var/age5_timer = 4*24*36000
+	var/age5_timer = 2*4*36000
 	var/age5_top = 125
 
 	var/age6_lim = 420
 	var/age6_done = 0
-	var/age6_timer = 5*24*36000
+	var/age6_timer = 2*5*36000
 	var/age6_top = 178
 
 	var/age7_lim = 540
 	var/age7_done = 0
-	var/age7_timer = 6*24*36000
+	var/age7_timer = 2*6*36000
 	var/age7_top = 195
 
 	var/age8_lim = 620
 	var/age8_done = 0
-	var/age8_timer = 7*24*36000
+	var/age8_timer = 2*7*36000
 	var/age8_top = 230
 
 	var/orespawners = 0

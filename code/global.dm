@@ -1,7 +1,7 @@
 //#define TESTING
-#if DM_VERSION < 512
-#warn This compiler is out of date. You may experience issues with projectile animations.
-#endif
+//#if DM_VERSION < 512
+//#warn Внимание, ваша версия ниже 512, анимации прожектайлов не будут видны.
+//#endif
 
 var/bearcave_ticking = FALSE
 var/wolfcave_ticking = FALSE
@@ -13,7 +13,7 @@ var/diary			   = null
 var/attack_log		  = null
 var/href_logfile		= null
 var/customserver_name   = null
-var/game_version		= "Civilization 13"
+var/game_version		= "Russian Civilization 13"
 var/changelog_hash	  = ""
 
 
@@ -59,13 +59,13 @@ var/max_explosion_range = 14
 
 // "convenient" (shitcode) way to make normal windows look like nanoUI, since BYOND won't load stylesheets normally - Kachnov
 var/common_browser_style = {"
-<meta charset="UTF-8">
+<meta charset='utf-8'>
 <style>
 body
 {
 	padding: 0;
 	margin: 0;
-	background-color: #271a0c;
+	background-color: #1f2025;
 	font-size: 16px;
 	color: #ffffff;
 	line-height: 170%;
@@ -73,7 +73,7 @@ body
 
 hr
 {
-	background-color: #271a0c;
+	background-color: #1f2025;
 	height: 1px;
 }
 
@@ -377,7 +377,7 @@ div.notice
 "}
 //green on black
 var/computer_browser_style = {"
-<meta charset="UTF-8">
+<meta charset='utf-8'>
 <style>
 body
 {

@@ -129,6 +129,7 @@
 	var/memory_stylized = {"
 	<br>
 	<html>
+	<meta charset='utf-8'>
 	<head>
 	[common_browser_style]
 	</head>

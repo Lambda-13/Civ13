@@ -90,6 +90,19 @@
 	else
 		admin_notice("<span class='danger'>Failed to load the dictionary!</span>", R_DEBUG)
 	sleep(-1)
+
+	admin_notice("<span class='danger'>Initializing donate...</span>", R_DEBUG)
+	sleep(-1)
+	var/F6 = file("SQL/donatelist.txt")
+	if (fexists(F6))
+		var/list/donate_temp = file2list(F6,"\n")
+		for (var/i in donate_temp)
+			if (findtext(i, "="))
+				var/list/current = splittext(i, "=")
+				donate_list += current[1]
+	else
+		admin_notice("<span class='danger'>Failed to load donate!</span>", R_DEBUG)
+	sleep(-1)
 /////////////////PERSISTENCE STUFF/////////////////////
 /*	var/Fp = file("set_persistent.py")
 	if (fexists(Fp))

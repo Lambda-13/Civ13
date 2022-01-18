@@ -16,7 +16,7 @@
 	civilizations = TRUE
 	faction_distribution_coeffs = list(CIVILIAN = 1)
 	battle_name = "the kingdoms"
-	mission_start_message = "<big>Two medieval kingdoms rule this land. They have <b>24 hours</b> to fortify and build a military. Who will win?</big><br><b>Wiki Guide: http://civ13.github.io/civ13-wiki/Civilizations_and_Nomads</b>"
+	mission_start_message = "<big>Два замка развиваются для того что бы через <b>12 часов</b> начать взаимодействовать с собой.</big><br><b>Wiki Guide: http://civ13.github.io/civ13-wiki/Civilizations_and_Nomads</b>"
 	ambience = list('sound/ambience/jungle1.ogg')
 	faction1 = CIVILIAN
 	availablefactions_run = TRUE
@@ -45,13 +45,13 @@
 /obj/map_metadata/civilizations/proc/walldown()
 	for (var/turf/wall/rockwall/RW)
 		RW.ChangeTurf(/turf/floor/dirt/jungledirt)
-	world << "<font color=#CECE00><big><b>THE WALL HAS GONE DOWN!</b></big></font>"
+	world << "<font color=#CECE00><big><b>ВЕЛИКАЯ СТЕНА СПАЛА!</b></big></font>"
 	admin_ended_all_grace_periods = TRUE
 	return
 /obj/map_metadata/civilizations/proc/wallup()
 	for (var/turf/floor/dirt/jungledirt/JD)
 		JD.ChangeTurf(/turf/wall/rockwall)
-	world <<"<font color=#CECE00><big><b>THE WALL HAS GONE UP!</b></big></font>"
+	world <<"<font color=#CECE00><big><b>ВЕЛИКАЯ СТЕНА АКТИВНА!</b></big></font>"
 	admin_ended_all_grace_periods = FALSE
 	return
 
@@ -62,4 +62,4 @@
 	return (admin_ended_all_grace_periods)
 
 /obj/map_metadata/civilizations/cross_message(faction)
-	return "<big><b>THE GRACE PERIOD HAS ENDED!</b></big>"
+	return "<big><b>ВЕЛИКИЙ ПЕРИОД ОКОНЧЕН!</b></big>"

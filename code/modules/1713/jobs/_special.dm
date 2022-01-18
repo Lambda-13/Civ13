@@ -11,6 +11,7 @@
 /datum/job/var/is_deathmatch = FALSE
 /datum/job/var/blacklisted = FALSE
 /datum/job/var/whitelisted = FALSE
+/datum/job/var/donate = FALSE //Donate's role
 /datum/job/var/is_target = FALSE //for VIP modes
 /datum/job/var/rank_abbreviation = null
 /datum/job/var/is_governor = FALSE
@@ -77,6 +78,7 @@
 /datum/job/var/is_imperial = FALSE
 /datum/job/var/is_stormcloak = FALSE
 /datum/job/var/is_ukrainerussowar = FALSE
+/datum/job/var/is_lobby = FALSE
 
 /datum/job/var/can_get_coordinates = FALSE
 // new autobalance stuff - Kachnov

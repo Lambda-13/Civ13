@@ -34,6 +34,8 @@
 				health -= 15
 				if (prob(30))
 					new/obj/effect/fire(loc)
+					message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) поджёг \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
+					log_game("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) поджёг \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 					visible_message("<span class='danger'>The roof catches fire!<span>")
 			return
 	if (istype(W, /obj/item/weapon/hammer))

@@ -68,6 +68,11 @@
 	max_ammo = 5
 	multiple_sprites = TRUE
 
+/obj/item/ammo_magazine/chemdart/mag/shitspawn
+	name = "dart magazine"
+	desc = "A magazine of DOHYIA darts."
+	max_ammo = 500
+
 //IMAGINARY DARTGUN BASE
 /obj/item/weapon/gun/projectile/dartgun
 	icon = 'icons/obj/guns/dartgun.dmi'

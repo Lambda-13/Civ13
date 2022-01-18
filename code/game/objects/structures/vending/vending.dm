@@ -29,7 +29,7 @@
 	var/list/products	= list() // For each, use the following pattern:
 	var/list/prices	 = list() // Prices for each item, list(/type/path = price), items not in the list don't have a price.
 
-	// List of vending_product items available.
+	// List of vending_product Доступные вещи.
 	var/list/product_records = list()
 
 

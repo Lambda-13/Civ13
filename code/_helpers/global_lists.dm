@@ -86,6 +86,7 @@ var/global/list/all_languages[0]
 var/global/list/language_keys[0]					// Table of say codes for all languages
 var/global/list/whitelisted_species = list("Human") // Species that require a whitelist check.
 var/global/list/playable_species = list("Human")	// A list of ALL playable species, whitelisted, latejoin or otherwise.
+var/global/list/donate_species = list("Human")	// A list of ALL playable species, donate, latejoin or otherwise.
 
 //Preferences stuff
 	//Bodybuilds
@@ -268,6 +269,8 @@ var/list/reverse_dir = list( // reverse_dir[dir] = reverse of dir
 		if (!(S.spawn_flags & IS_RESTRICTED))
 			playable_species += S.name
 		if (S.spawn_flags & IS_WHITELISTED)
+			whitelisted_species += S.name
+		if (S.spawn_flags & IS_DONATE) //Донатер может без вл играть, но будет иметь только имя своё
 			whitelisted_species += S.name
 
 	paths = typesof(/datum/hud) - /datum/hud

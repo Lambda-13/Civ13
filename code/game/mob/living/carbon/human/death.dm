@@ -283,6 +283,9 @@
 	if (client)
 		if (map.gamemode == "Hardcore")
 			client.next_normal_respawn = world.realtime+999999
+		if (map.gamemode == "RealLive")
+			client.next_normal_respawn = world.realtime+999999
+			client << pick('sound/effects/gameover.ogg')
 		else
 			client.next_normal_respawn = world.realtime + (map ? map.respawn_delay : 3000)
 			client << RESPAWN_MESSAGE

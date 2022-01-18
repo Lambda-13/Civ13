@@ -108,7 +108,7 @@ var/list/preferences_datums = list()
 
 	var/dat = {"
 	<br>
-	<html>
+	<meta charset='utf-8'>
 	<head>
 	[common_browser_style]
 	</head>
