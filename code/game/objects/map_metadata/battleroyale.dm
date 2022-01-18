@@ -80,9 +80,9 @@
 						winner_name =  H.name
 						winner_ckey = H.ckey
 						give_award(winner_ckey,winner_name,1)
-						var/warning_sound = sound('sound/effects/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+						var/win_sound = sound('sound/effects/battleroyale/win.ogg', repeat = FALSE, wait = TRUE, channel = 777)
 						for (var/mob/M in player_list)
-							M.client << warning_sound
+							M.client << win_sound
 						message = "The battle is over! <b>[winner_ckey]</b> победитель в королевской битве!"
 						world << "<font size = 4 color='yellow'><span class = 'notice'>[message]</span></font>"
 						win_condition_spam_check = TRUE

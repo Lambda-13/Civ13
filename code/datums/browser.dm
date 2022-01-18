@@ -75,7 +75,7 @@
 		title_attributes = "class='uiTitle icon' style='background-image: url([title_image]);'"
 
 	return {"<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<meta charset='utf-8'>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<head>
 		[head_content]
