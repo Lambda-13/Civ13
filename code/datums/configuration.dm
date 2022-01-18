@@ -63,7 +63,7 @@ var/list/gamemode_cache = list()
 	var/automute_on = FALSE					//enables automuting/spam prevention
 	var/ytdl = null
 
-	var/tts_on = TRUE
+	var/tts_on = FALSE
 	var/guests_allowed = TRUE
 	var/debugparanoid = FALSE
 
