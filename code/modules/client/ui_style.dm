@@ -45,10 +45,10 @@
 		mouse_pointer_icon = 'icons/effects/white_cursors.dmi'
 	else if (choice == "Green Crosshair")
 		mouse_pointer_icon = 'icons/effects/green_cursors.dmi'
-	else if (choice == "Stalker")
-		mouse_pointer_icon = 'icons/russian/effects/stalker_cursors.dmi'
-	else if (choice == "Lifeweb")
-		mouse_pointer_icon = 'icons/russian/effects/lifeweb_cursors.dmi'
+//	else if (choice == "Stalker")
+//		mouse_pointer_icon = 'icons/russian/effects/stalker_cursors.dmi'
+//	else if (choice == "Lifeweb")
+//		mouse_pointer_icon = 'icons/russian/effects/lifeweb_cursors.dmi'
 	else
 		mouse_pointer_icon = initial(mouse_pointer_icon)
 	prefs.cursor = mouse_pointer_icon
