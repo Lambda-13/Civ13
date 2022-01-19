@@ -54,7 +54,7 @@
 		if (J.is_ancient == TRUE)
 			. = FALSE
 
-/obj/map_metadata/bohemia/ru
+/*/obj/map_metadata/bohemia/ru
 	ID = MAP_BOHEMIARU
 	title = "Russian Bohemia"
 	lobby_icon_state = "medieval"
@@ -66,4 +66,4 @@
 /obj/map_metadata/bohemia/ru/New()
 	..()
 	spawn(9000)
-		seasons()
+		seasons()*/
