@@ -75,7 +75,6 @@ var/list/radio_prefixes = list(";", ":b", ":l", ":r", ":t", ":f",
 		message_admins("[key_name_admin(client)] мемы в ИЦ:   [message]")
 		to_chat(src, "<B>Не мемась в ИЦ.</B>")
 		return 0
-	return 1 
 
 	if (stat)
 		if (stat == 2)
