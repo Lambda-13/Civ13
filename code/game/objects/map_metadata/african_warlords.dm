@@ -62,14 +62,13 @@ obj/map_metadata/african_warlords/job_enabled_specialcheck(var/datum/job/J)
 		if (istype(A, /area/caribbean/no_mans_land/invisible_wall/jungle/one))
 			if (H.nationality != "Redkantu")
 				return TRUE
-		if (istype(A, /area/caribbean/no_mans_land/invisible_wall/jungle/two))
+		else if (istype(A, /area/caribbean/no_mans_land/invisible_wall/jungle/two))
 			if (H.nationality != "Blugisi")
 				return TRUE
-		if (istype(A, /area/caribbean/no_mans_land/invisible_wall/jungle/three))
+		else if (istype(A, /area/caribbean/no_mans_land/invisible_wall/jungle/three))
 			if (H.nationality != "Yellowagwana")
 				return TRUE
-		else
-			return !faction1_can_cross_blocks()
+		return !faction1_can_cross_blocks()
 	return FALSE
 
 /obj/map_metadata/african_warlords/proc/points_check()
