@@ -124,10 +124,11 @@
 				MAP_ALLEYWAY = 0,
 				MAP_COMPOUND = 6,
 				MAP_ROAD_TO_DAK_TO = 0,
-				MAP_HUE = 0,
+				MAP_HUE = 15,
 				MAP_RETREAT = 6,
 				MAP_GROZNY = 6,
-				MAP_FACTORY = 0,
+				//MAP_FACTORY = 15,
+				MAP_AFRICAN_WARLORDS = 8,
 			)
 		else if (epoch == "World War II (1931-1948)")
 	// 1943 - TDM
@@ -141,12 +142,12 @@
 				MAP_RIZAL_STADIUM = 10,
 				MAP_KURSK = 10,
 				MAP_STALINGRAD = 10,
-				MAP_OMAHA = 14,
+				MAP_OMAHA = 20,
 //				MAP_IWO_JIMA = 70,
-				MAP_FOREST = 14,
+				MAP_FOREST = 20,
 				MAP_INTRAMUROS = 14,
 				MAP_WAKE_ISLAND = 14,
-				MAP_BERLIN = 14,
+				MAP_BERLIN = 20,
 				MAP_NANJING = 14,
 			)
 
