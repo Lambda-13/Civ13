@@ -323,6 +323,7 @@
 #include "code\game\objects\effects\spawners\gibspawner.dm"
 #include "code\game\objects\effects\spawners\loot.dm"
 #include "code\game\objects\items\bin.dm"
+#include "code\game\objects\items\bodybag.dm"
 #include "code\game\objects\items\cards.dm"
 #include "code\game\objects\items\clay_items.dm"
 #include "code\game\objects\items\clipboard.dm"
