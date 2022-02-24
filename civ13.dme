@@ -277,7 +277,6 @@
 #include "code\game\mob\new_player\logout.dm"
 #include "code\game\mob\new_player\new_player.dm"
 #include "code\game\mob\new_player\preferences_setup.dm"
-#include "code\game\mob\observer\helpers.dm"
 #include "code\game\mob\observer\observer.dm"
 #include "code\game\mob\observer\ghost\ghost.dm"
 #include "code\game\mob\observer\ghost\login.dm"
@@ -486,6 +485,7 @@
 #include "code\game\objects\map_metadata\nomads_wasteland.dm"
 #include "code\game\objects\map_metadata\occupation.dm"
 #include "code\game\objects\map_metadata\omaha.dm"
+#include "code\game\objects\map_metadata\pavlov_house.dm"
 #include "code\game\objects\map_metadata\pioneers.dm"
 #include "code\game\objects\map_metadata\port_arthur.dm"
 #include "code\game\objects\map_metadata\recife.dm"
@@ -1031,6 +1031,6 @@
 #include "code\processes\lighting\sources.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "maps\1013\karak.dmm"
+#include "maps\1969\african_warlords.dmm"
 // END_INCLUDE
 

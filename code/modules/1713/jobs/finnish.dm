@@ -1,5 +1,12 @@
+/datum/job/finnish
+	faction = "Human"
+
+/datum/job/finnish/give_random_name(var/mob/living/human/H)
+	H.name = H.species.get_random_finnish_name(H.gender)
+	H.real_name = H.name
+
 /datum/job/finnish/kapteeni
-	title = "kapteeni"
+	title = "Kapteeni"
 	en_meaning = "Captain"
 	rank_abbreviation = "Kap."
 
@@ -45,9 +52,9 @@
 	return TRUE
 
 /datum/job/finnish/luutnantti
-	title = " luutnantti"
+	title = " Luutnantti"
 	en_meaning = "First Lieutenant"
-	rank_abbreviation = "luut."
+	rank_abbreviation = "Luut."
 
 
 	spawn_location = "JoinLateGECap"
@@ -90,9 +97,9 @@
 	return TRUE
 
 /datum/job/finnish/vanrikki
-	title = "vänrikki"
+	title = "Vanrikki"
 	en_meaning = "Second Lieutenant"
-	rank_abbreviation = "lt."
+	rank_abbreviation = "Lt."
 
 
 	spawn_location = "JoinLateGECap"
@@ -138,12 +145,11 @@
 	return TRUE
 
 /datum/job/finnish/kersantti
-	title = "kersantti"
+	title = "Kersantti"
 	en_meaning = "Squad Leader"
 	rank_abbreviation = "Ker."
 
 	spawn_location = "JoinLateGE"
-	is_officer = TRUE
 	is_squad_leader = TRUE
 	is_karelina = TRUE
 	uses_squads = TRUE
@@ -180,7 +186,7 @@
 	return TRUE
 
 /datum/job/finnish/sotamies
-	title = "sotamies"
+	title = "Sotamies"
 	en_meaning = "Soldier"
 	rank_abbreviation = ""
 
@@ -229,7 +235,7 @@
 	return TRUE
 
 /datum/job/finnish/salaampuja
-	title = "ampuja"
+	title = "Ampuja"
 	en_meaning = "Sniper"
 	rank_abbreviation = ""
 
@@ -278,7 +284,7 @@
 	return TRUE
 
 /datum/job/finnish/itpar
-	title = "itsenäisyyspäivänparaatissa"
+	title = "Taistelulaakari"
 	en_meaning = "Combat Medic"
 	rank_abbreviation = "Dr."
 

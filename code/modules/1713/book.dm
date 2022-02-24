@@ -15,7 +15,7 @@
 	flammable = TRUE
 	var/const/deffont = "Verdana"
 	var/const/signfont = "Times New Roman"
-
+	flags = FALSE
 /obj/item/weapon/book/attack_self(var/mob/user as mob)
 	if (dat)
 		user.examinate(src)
@@ -60,11 +60,6 @@
 					NB.k_class = NC.k_class = "none"
 					NB.k_level = NC.k_level = 0
 					NB.styleb = NC.styleb = "scroll"
-					NB.sum_a = NC.sum_a = 0
-					NB.sum_b = NC.sum_b = 0
-					NB.sum_c = NC.sum_c = 0
-					NB.monk = NC.monk = FALSE //if the book was authored by a monk
-					NB.religion = NC.religion = "none"
 					qdel(B)
 	if (istype(W, /obj/item/weapon/pen))
 		if (unique)

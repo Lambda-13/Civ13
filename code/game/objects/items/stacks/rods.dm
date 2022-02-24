@@ -11,8 +11,7 @@
 	throw_range = 20
 	max_amount = 60
 	attack_verb = list("hit", "bludgeoned", "whacked")
-
-
+	flags = CONDUCT
 /obj/item/stack/rods/attack_self(mob/user as mob)
 	add_fingerprint(user)
 

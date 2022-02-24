@@ -286,6 +286,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	w_class = TRUE
 	slot_flags = SLOT_EARS
 	throwforce = TRUE
+	flags = FALSE
 
 /obj/item/weapon/cigbutt/New()
 	..()

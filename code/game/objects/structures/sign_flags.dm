@@ -197,6 +197,7 @@
 	icon_state = "cone1"
 	anchored = FALSE
 	w_class = 4
+	flags = FALSE
 
 /obj/item/weapon/trafficcone/New()
 	..()
@@ -354,6 +355,11 @@
 	name = "Italian flag"
 	desc = "The Italian flag."
 	icon_state = "flag_italy"
+
+/obj/structure/sign/flag/finland
+	name = "Finnish flag"
+	desc = "The flag of Finland."
+	icon_state = "flag_finland"
 
 /obj/structure/sign/flag/custom
 	name = "flag"

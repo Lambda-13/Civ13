@@ -187,6 +187,7 @@
 	sharp = FALSE
 	edge = FALSE
 	nothrow = TRUE
+	flags = CONDUCT
 	attack_verb = list("bashed", "hit")
 	force = WEAPON_FORCE_WEAK
 	throwforce = WEAPON_FORCE_WEAK
