@@ -76,12 +76,14 @@ var/list/not_resolved_in_attackby_objects = list(/obj/structure/chemical_dispens
 				user.visible_message("<span class='danger'>[user] splashes the contents of [src] onto [attacked]!</span>", \
 									"<span class='notice'>You splash the contents of [src] onto [attacked].</span>")
 				proper_spill(attacked, reagents.total_volume)
+				return TRUE
 			else if (istype(attacked, /turf/floor/dirt))
 				if (locate(/obj/structure/farming/plant) in attacked)
 					user.visible_message("<span class='notice'>[user] pours the contents of [src] onto [attacked]!</span>", \
 										"<span class='notice'>You pours the contents of [src] onto [attacked].</span>")
 					proper_spill(attacked, amount_per_transfer_from_this)
-	return TRUE //attack resolved anyway on turf
+				return TRUE
+	return FALSE
 
 /obj/item/weapon/reagent_containers/glass/attack(mob/living/M, mob/living/user, target_zone)
 	if (!is_open_container())
@@ -694,6 +696,15 @@ var/list/not_resolved_in_attackby_objects = list(/obj/structure/chemical_dispens
 		flags &= ~OPENCONTAINER
 		base_name = "wood barrel"
 		reagents.add_reagent("fat_oil",250)
+
+/obj/item/weapon/reagent_containers/glass/barrel/ethanol
+	name = "wood barrel (ethanol)"
+	label_text = "ethanol"
+	New()
+		..()
+		flags &= ~OPENCONTAINER
+		base_name = "wood barrel"
+		reagents.add_reagent("ethanol",250)
 
 /obj/item/weapon/reagent_containers/glass/barrel/modern
 	name = "steel barrel"

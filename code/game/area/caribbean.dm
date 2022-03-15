@@ -306,6 +306,8 @@
 	name = "sea"
 	base_turf = /turf/floor/beach/water/deep/saltwater
 	icon_state = "red4"
+/area/caribbean/sea/bottom/temperate
+	climate = "temperate"
 
 /area/caribbean/sea/bottom/roofed
 	location = AREA_INSIDE
@@ -315,10 +317,21 @@
 	base_turf = /turf/floor/beach/sand
 	icon_state = "red4"
 
+/area/caribbean/sea/beach/temperate
+	climate = "temperate"
+
 /area/caribbean/sea/shallow
 	name = "Shallow Water"
 	base_turf = /turf/floor/beach/water
 	icon_state = "blue1"
+
+/area/caribbean/sea/shallow/temperate
+	climate = "temperate"
+
+/area/caribbean/sea/cobblebridge
+	name = "Bridge"
+	base_turf = /turf/floor/plating/cobblestone
+	icon_state = "purple2"
 
 /area/caribbean/sea/sea
 	name = "Sea"
@@ -337,6 +350,7 @@
 	base_turf = /turf/floor/broken_floor/sky
 	var/corresponding_area_type = null
 	var/corresponding_area_allow_subtypes = FALSE
+
 /area/caribbean/no_mans_land
 	name = "No Man's Land"
 	icon_state = "purple1"
@@ -501,7 +515,6 @@
 	climate = "jungle"
 	base_turf = /turf/floor/dirt/jungledirt
 /area/caribbean/no_mans_land/invisible_wall
-	icon_state = "green1"
 	name = "grace wall"
 
 /area/caribbean/no_mans_land/invisible_wall/tundra
@@ -550,6 +563,9 @@
 	climate = "sea"
 	base_turf = /turf/floor/beach/water/deep/saltwater
 
+/area/caribbean/no_mans_land/invisible_wall/sea/temperate
+	climate = "temperate"
+
 /area/caribbean/no_mans_land/invisible_wall/one
 	icon_state = "green1"
 	name = "I grace wall"
@@ -593,6 +609,11 @@
 	icon_state = "purple1"
 	base_turf = /turf/floor/grass
 	climate = "temperate"
+
+/area/caribbean/forest/cobbleroad
+	name = "Road"
+	icon_state = "purple2"
+	base_turf = /turf/floor/plating/cobblestone
 
 /area/caribbean/forest/dirt
 	name = "The Forest"

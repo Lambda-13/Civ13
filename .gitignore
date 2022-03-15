@@ -28,3 +28,5 @@ map_saves/
 map_backups/
 maps/test/
 scripts/token.txt
+tts/
+config/host.txt

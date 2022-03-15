@@ -34,6 +34,8 @@ var/list/admin_verbs_admin = list(
 	/client/proc/cmd_admin_subtle_message,	//send an message to somebody as a 'voice in their head',
 	/client/proc/cmd_admin_delete,		//delete an instance/object/mob/etc,
 	/client/proc/cmd_admin_get,
+	/client/proc/getserverlog,
+	/client/proc/getruntimelog,
 	/client/proc/cmd_admin_check_contents,	//displays the contents of an instance,
 	/client/proc/Getmob,				//teleports a mob to our location,
 	/client/proc/Getkey,				//teleports a mob with a certain ckey to our location,
@@ -78,6 +80,7 @@ var/list/admin_verbs_admin = list(
 var/list/admin_verbs_trialadmin = list(
 	/client/proc/quickBan_search,
 	/client/proc/quickBan_person,
+	/client/proc/cmd_admin_get,
 	/client/proc/player_panel_new,
 	/datum/admins/proc/toggleenter,		//toggles whether people can join the current game,
 	/datum/admins/proc/toggleguests,	//toggles whether guests can join the current game,
@@ -106,8 +109,6 @@ var/list/admin_verbs_fun = list(
 	/client/proc/object_talk,
 	/client/proc/cmd_admin_gib_self,
 	/client/proc/cmd_admin_crush_self,
-	/client/proc/drop_bomb,
-	/client/proc/radiation_emission,
 	/datum/admins/proc/fantasy_races,
 	/datum/admins/proc/zombiemechanic,
 	/client/proc/nuke,
@@ -123,7 +124,11 @@ var/list/admin_verbs_spawn = list(
 	/datum/admins/proc/spawn_atom,		// allows us to spawn instances,
 	/datum/admins/proc/spawn_player_as_job,
 	/client/proc/game_panel,
-	/client/proc/respawn_character
+	/client/proc/respawn_character,
+	/client/proc/drop_bomb,
+	/client/proc/radiation_emission,
+	/client/proc/nuke,
+	/client/proc/create_crate,
 	)
 
 var/list/admin_verbs_server = list(
@@ -284,7 +289,6 @@ var/list/admin_verbs_mod = list(
 	/client/proc/toggle_respawn_delays,
 	/client/proc/see_battle_report,
 	/client/proc/show_battle_report,
-	/client/proc/create_crate,
 	/client/proc/quickBan_search,
 	/client/proc/quickBan_person,
 	/client/proc/set_teams,
@@ -511,7 +515,8 @@ var/list/admin_verbs_host = list(
 	set category = "Special"
 	set name = "Drop Bomb"
 	set desc = "Cause an explosion of varying strength at your location."
-
+	if (!check_rights(R_SPAWN))
+		return
 	if (!mob || !mob.loc)
 		src << "<span class = 'warning'>You can't drop a bomb here.</span>"
 		return
@@ -905,7 +910,8 @@ var/global/list/global_colour_matrix = null
 	set category = "Special"
 	set name = "Radiation Emission"
 	set desc = "Emits radiation for a set duration."
-
+	if (!check_rights(R_SPAWN))
+		return
 	if (!mob || !mob.loc)
 		src << "<span class = 'warning'>You can't create a radiation emission here.</span>"
 		return
@@ -927,6 +933,8 @@ var/global/list/global_colour_matrix = null
 	set category = "Special"
 	set name = "Nuke the Map"
 	set desc = "Spawns a large explosion and turns the whole map into a wasteland."
+	if (!check_rights(R_SPAWN))
+		return
 
 	message_admins("ВНИМАНИЕ: [key] готовится взорвать нюку.")
 	log_game("ВНИМАНИЕ: [key] отовится взорвать нюку.")
