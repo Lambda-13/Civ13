@@ -302,7 +302,11 @@
 			client.next_normal_respawn = world.realtime+999999
 			client << pick('sound/effects/gameover.ogg')
 		else
-			client.next_normal_respawn = world.realtime + (map ? map.respawn_delay : 3000)
+			if (map.ID == MAP_CAMPAIGN)
+				client.next_normal_respawn = world.realtime + 1800 + (client.respawn_count * 600)
+				client.respawn_count++
+			else
+				client.next_normal_respawn = world.realtime + (map ? map.respawn_delay : 3000)
 			client << RESPAWN_MESSAGE
 
 
