@@ -692,7 +692,7 @@
 	worn_state = "ssh_68_sovhelm"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 55, arrow = 100, gun = 76, energy = 24, bomb = 66, bio = 25, rad = FALSE)
+	armor = list(melee = 55, arrow = 75, gun = 41, energy = 24, bomb = 66, bio = 25, rad = FALSE)
 
 /obj/item/clothing/suit/b3 //need checking these assets before path name change, but i've updated the name to a real B3 russian armor circa 1980's
 	name = "USSR 6B3 body armor"
@@ -846,7 +846,7 @@
 	..()
 	new /obj/item/weapon/handcuffs(src)
 	new /obj/item/weapon/handcuffs(src)
-	new /obj/item/ammo_magazine/tt30(src)
+	new /obj/item/ammo_magazine/makarov(src)
 	new /obj/item/weapon/grenade/chemical/xylyl_bromide(src)
 	new /obj/item/weapon/grenade/chemical/xylyl_bromide(src)
 	new /obj/item/stack/medical/bruise_pack/gauze(src)

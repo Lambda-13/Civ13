@@ -92,7 +92,8 @@
 		if (!(riding_mob in range(1,src)))
 			riding = FALSE
 			riding_mob = null
-			forceMove(locate(x+1,y,z))
+			var/mob/living/human/H = src
+			forceMove(H.loc)
 			if (riding_mob)
 				riding_mob.ride = FALSE
 				riding_mob.rider = null
@@ -1413,6 +1414,8 @@
 				if (PIRATES)
 					if (map && !map.battleroyale)
 						holder2.icon_state = "pirate_basic"
+					if (map.ID == MAP_CAMPAIGN)
+						holder2.icon_state = "civ1"
 				if (BRITISH)
 					if (map.ordinal_age >= 4)
 						holder2.icon_state = "brit_basic"
@@ -1506,6 +1509,8 @@
 				if (CIVILIAN)
 					if (map.ID == MAP_CAPITOL_HILL)
 						holder2.icon_state = "civ1"
+					else if (map.ID == MAP_CAMPAIGN)
+						holder2.icon_state = "civ3"
 					else if (original_job_title == "Nomad")
 						holder2.icon_state = ""
 					else if (original_job.is_upa && map.ID != MAP_OCCUPATION)
