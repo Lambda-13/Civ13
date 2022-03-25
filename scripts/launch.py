@@ -58,4 +58,4 @@ handle.close()
 from discord import Webhook, RequestsWebhookAdapter
 
 webhook = Webhook.from_url(token, adapter=RequestsWebhookAdapter())
-webhook.send("Запустились, ссылка <byond://cm13.ru:{}/>".format(port))
+webhook.send("Запустились, ссылка <byond://lambda13.ru:{}/>".format(port))

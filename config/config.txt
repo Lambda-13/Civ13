@@ -213,11 +213,11 @@ SHOW_MENTORS 1
 DISABLE_FOV
 
 #if uncommented, redirects all players to the target server
-#REDIRECT_ALL_PLAYERS byond://cm13.ru:1480
+#REDIRECT_ALL_PLAYERS byond://lambda13.ru:1480
 
 #if uncommented, redirects not allowed players to the target server
 #если закомменчено, редиректать игроков которые не имеют доступ на другой сервер
-#REDIRECT_NEW_PLAYERS byond://cm13.ru:1480
+#REDIRECT_NEW_PLAYERS byond://lambda13.ru:1480
 
 ## System command that invokes youtube-dl, used by Play Internet Sound.
 ## You can install youtube-dl with

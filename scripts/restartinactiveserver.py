@@ -56,4 +56,4 @@ from discord import Webhook, RequestsWebhookAdapter
 
 webhook = Webhook.from_url(token, adapter=RequestsWebhookAdapter())
 webhook.send("Аварийный рестарт")
-webhook.send("<byond://cm13.ru:{}/".format(port))
+webhook.send("<byond://lambda13.ru:{}/".format(port))
