@@ -399,8 +399,6 @@ datum/job/indians/tribes/black
 /datum/job/indians/warlords/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 	H.name = H.species.get_random_zulu_name(H.gender)
-<<<<<<< HEAD
-=======
 	H.real_name = H.name
 	var/new_hair = "Black"
 	var/hex_hair = hair_colors[new_hair]
@@ -410,7 +408,7 @@ datum/job/indians/tribes/black
 	H.r_facial = hex2num(copytext(hex_hair, 2, 4))
 	H.g_facial = hex2num(copytext(hex_hair, 4, 6))
 	H.b_facial = hex2num(copytext(hex_hair, 6, 8))
->>>>>>> master
+
 	//shoes
 	var/pick1 = pick(1,2,3)
 	if (pick1 == 1)
@@ -483,14 +481,13 @@ datum/job/indians/tribes/black
 			var/obj/item/clothing/under/uniform = H.w_uniform
 			uniform.attackby(FJ, H)
 		else
-<<<<<<< HEAD
+
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/zulu_mbata(H), slot_wear_suit)
-=======
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/coat/ww2/japcoat/sand(H), slot_wear_suit)
 	var/obj/item/clothing/under/uniform = H.w_uniform
 	var/obj/item/clothing/accessory/armband/british/ab = new /obj/item/clothing/accessory/armband/british(null)
 	uniform.attackby(ab, H)
->>>>>>> master
+
 	//guns
 	give_gun(H)
 /datum/job/indians/warlords/proc/equip_shaman(mob/living/human/H)
