@@ -1,0 +1,728 @@
+"ag" = (/obj/covers/stone_wall/roman,/obj/covers/stone_wall/roman,/turf/floor/dirt,/area/caribbean/roofed)
+"ah" = (/obj/structure/window/barrier/rock{dir = 1; icon_state = "rock_barricade"},/obj/structure/window/barrier/rock{dir = 8; icon_state = "rock_barricade"},/obj/structure/window/barrier/rock,/turf/floor/trench/flooded,/area/caribbean/nomads/forest)
+"an" = (/obj/structure/window/barrier/railing/stone,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"as" = (/obj/structure/wild/rock{icon_state = "rock3"},/turf/floor/beach/sand/desert,/area/caribbean)
+"au" = (/obj/structure/grille/chainlinkfence,/turf/floor/grass,/area/caribbean)
+"aw" = (/obj/covers/fancywood,/obj/structure/closet/cabinet,/obj/item/weapon/gun/projectile/revolver/smithwesson,/obj/item/ammo_magazine/c32,/obj/item/ammo_magazine/c32,/turf/floor/dirt,/area/caribbean/roofed)
+"aC" = (/obj/structure/bed/chair/wood{dir = 1; icon_state = "wooden_chair"},/obj/structure/lamp/lamp_big/alwayson{dir = 4; icon_state = "tube"},/turf/floor/wood,/area/caribbean/roofed)
+"aE" = (/obj/covers/brick_wall,/turf/floor/dirt,/area/caribbean/roofed)
+"aH" = (/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean)
+"aJ" = (/obj/structure/window/barrier/railing/stone,/obj/structure/wild/rock{icon_state = "rock4"},/turf/floor/beach/sand/desert,/area/caribbean)
+"aY" = (/obj/structure/lamp/lamppost_small/alwayson,/obj/covers/roads/cobble,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"bl" = (/obj/covers/carpet/blackcarpet,/obj/covers/carpet/blackcarpet,/turf/floor/wood,/area/caribbean/roofed)
+"bp" = (/obj/covers/road,/turf/floor/beach/water/coastwater{dir = 1; icon_state = "beach"},/area/caribbean/nomads/forest)
+"bq" = (/obj/covers/steelplating,/obj/structure/closet/crate/bin,/turf/floor/plating/concrete,/area/caribbean/roofed)
+"bt" = (/obj/covers/stone_wall/roman,/obj/structure/noticeboard,/turf/floor/dirt,/area/caribbean/roofed)
+"bx" = (/obj/covers/cobblestone/stairs,/turf/floor/dirt,/area/caribbean)
+"bB" = (/obj/covers/ornatemarblefloor,/turf/floor/plating/steel,/area/caribbean/roofed)
+"bG" = (/obj/item/weapon/telephone/public,/obj/structure/lamp/lamp_small/alwayson{dir = 1; icon_state = "bulb"},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean)
+"bJ" = (/obj/covers/steelplating,/obj/structure/table,/obj/item/weapon/weldingtool,/turf/floor/beach/sand/desert,/area/caribbean/roofed)
+"bT" = (/obj/covers/steelplating,/obj/structure/table,/turf/floor/beach/sand/desert,/area/caribbean/roofed)
+"bX" = (/obj/structure/table/iron,/turf/floor/plating/tiled/dark,/area/caribbean/roofed)
+"bZ" = (/obj/covers/wood_ship,/obj/structure/bed/chair/comfy/beige{dir = 1; icon_state = "chair_padding"},/turf/floor/dirt,/area/caribbean/roofed)
+"cj" = (/obj/structure/window/classic/metal,/obj/structure/curtain/open/bed,/obj/structure/barricade/steel,/turf/floor/plating/concrete,/area/caribbean/roofed)
+"ck" = (/obj/structure/lamp/lamp_big/alwayson{dir = 4; icon_state = "tube"},/turf/floor/plating/steel,/area/caribbean/roofed)
+"cs" = (/turf/floor/beach/water,/area/caribbean)
+"cy" = (/obj/structure/grille/chainlinkfence,/obj/structure/grille/chainlinkfence{dir = 8; icon_state = "chainlinkfence"},/turf/floor/beach/sand/desert,/area/caribbean/nomads/forest)
+"cN" = (/obj/covers/wood,/obj/structure/bed/chair/wood{dir = 4; icon_state = "wooden_chair"},/turf/floor/wood,/area/caribbean/roofed)
+"cQ" = (/obj/structure/potted_plant{dir = 1; icon_state = "potted_plant"},/turf/floor/wood,/area/caribbean/roofed)
+"cR" = (/obj/covers/roads{icon_state = "d_roadhr"},/turf/floor/dirt/dust,/area/caribbean/nomads/forest)
+"cV" = (/obj/structure/table/wood,/obj/item/weapon/reagent_containers/glass/bucket,/turf/floor/wood,/area/caribbean/roofed)
+"db" = (/obj/covers/wood/stairs{dir = 4; icon_state = "wood2_stairs"},/turf/floor/beach/sand/desert,/area/caribbean/nomads/forest)
+"de" = (/obj/covers/carpet/redcarpet,/turf/floor/wood,/area/caribbean/roofed)
+"dl" = (/obj/covers/romanroad,/obj/structure/bed/chair{dir = 8; icon_state = "chair"},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"dt" = (/obj/structure/table/modern/table,/obj/item/weapon/pen/pencil,/turf/floor/wood,/area/caribbean/roofed)
+"dv" = (/obj/covers/wood,/obj/structure/table/wood,/obj/structure/roof_support,/turf/floor/wood,/area/caribbean/roofed)
+"dx" = (/obj/structure/lamp/lamppost_small/alwayson,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"dG" = (/obj/structure/bed/chair/wood/bleacher/l{dir = 1; icon_state = "bleacher_l"},/turf/floor/wood,/area/caribbean/roofed)
+"dL" = (/obj/structure/bed/chair/wood/wings{dir = 1; icon_state = "wooden_chair_wings"},/turf/floor/plating/steel,/area/caribbean/roofed)
+"dP" = (/obj/structure/lamp/lamp_big/alwayson,/turf/floor/wood,/area/caribbean/roofed)
+"dQ" = (/obj/structure/railing/steel{dir = 4; icon_state = "railing0"},/obj/covers/roads/cobble,/turf/floor/beach/water/coastwater,/area/caribbean)
+"dT" = (/obj/structure/window/barrier/rock,/obj/structure/window/barrier/rock{dir = 8; icon_state = "rock_barricade"},/obj/structure/wild/bush/big,/turf/floor/grass,/area/caribbean/nomads/forest)
+"dZ" = (/obj/covers/romanroad,/obj/structure/table/wood,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"ec" = (/obj/structure/sink,/turf/floor/plating/white,/area/caribbean/roofed)
+"en" = (/obj/covers/steelplating,/obj/structure/table/wood,/obj/covers/marbletile/black,/obj/item/weapon/telephone/wireless,/turf/floor/dirt,/area/caribbean/roofed)
+"eC" = (/obj/covers/cobblestone/stairs{dir = 8; icon_state = "rampup"},/turf/floor/dirt,/area/caribbean/nomads/forest)
+"eJ" = (/obj/covers/vault,/turf/floor/beach/water/coastwater,/area/caribbean)
+"eK" = (/obj/covers/steelplating,/obj/effect/decal/cleanable/blood/oil,/turf/floor/dirt,/area/caribbean/roofed)
+"eM" = (/turf/floor/grass,/area/caribbean/roofed)
+"eP" = (/obj/structure/grille/chainlinkfence,/turf/floor/beach/sand/desert,/area/caribbean/nomads/forest)
+"eQ" = (/obj/covers/wood/stairs{dir = 4; icon_state = "wood2_stairs"},/turf/floor/beach/water,/area/caribbean/nomads/forest)
+"eT" = (/obj/structure/wild/junglebush{icon_state = "22"},/turf/floor/beach/sand/desert,/area/caribbean)
+"fj" = (/obj/covers/roads/cobble,/turf/floor/beach/sand/desert,/area/caribbean/nomads/forest)
+"fs" = (/obj/covers/fancywood,/obj/structure/bed/chair/wood/red{dir = 1; icon_state = "wooden_chair_red"},/turf/floor/dirt,/area/caribbean/roofed)
+"fG" = (/obj/structure/bed/chair/wood/bleacher/r,/turf/floor/wood,/area/caribbean/roofed)
+"fH" = (/obj/structure/grille/chainlinkfence{dir = 8; icon_state = "chainlinkfence"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"fO" = (/obj/structure/grille/chainlinkfence,/obj/structure/grille/chainlinkfence{dir = 4; icon_state = "chainlinkfence"},/turf/floor/grass,/area/caribbean)
+"fR" = (/obj/structure/wild/jungle/medpine,/turf/floor/grass/jungle,/area/caribbean/nomads/forest)
+"ga" = (/obj/structure/wild/rock{icon_state = "rock4"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"gg" = (/obj/structure/lamp/lamp_big/alwayson{dir = 4; icon_state = "tube"},/turf/floor/wood,/area/caribbean/roofed)
+"gs" = (/obj/structure/grille/chainlinkfence{dir = 1; icon_state = "chainlinkfence"},/obj/structure/grille/chainlinkfence{dir = 8; icon_state = "chainlinkfence"},/turf/floor/grass,/area/caribbean)
+"gy" = (/obj/structure/railing/steel{dir = 4; icon_state = "railing0"},/obj/covers/roads/cobble,/turf/floor/beach/water/coastwater{dir = 1; icon_state = "beach"},/area/caribbean/nomads/forest)
+"gz" = (/obj/structure/wild/rock{icon_state = "basalt2"},/turf/floor/beach/sand/desert,/area/caribbean)
+"gC" = (/obj/structure/simple_door/fence/picket,/turf/floor/grass,/area/caribbean/nomads/forest)
+"gJ" = (/obj/covers/road,/turf/floor/beach/water/coastwater,/area/caribbean/nomads/forest)
+"gT" = (/obj/covers/wood_ship,/obj/structure/table/modern/table,/turf/floor/dirt,/area/caribbean/roofed)
+"gU" = (/turf/floor/beach/water/coastwater/corner{dir = 1; icon_state = "beachcorner"},/area/caribbean)
+"gV" = (/obj/structure/lamp/lamp_big/alwayson,/obj/structure/props/stove,/turf/floor/wood,/area/caribbean/roofed)
+"gX" = (/obj/covers/steelplating,/obj/structure/props/coatrack,/obj/covers/marbletile/black,/turf/floor/plating/concrete,/area/caribbean/roofed)
+"gZ" = (/obj/covers/fancywood,/obj/structure/filingcabinet/chestdrawer,/turf/floor/dirt,/area/caribbean/roofed)
+"ha" = (/obj/structure/table/modern/table,/obj/item/weapon/gongmallet,/turf/floor/plating/tiled/darker,/area/caribbean/roofed)
+"ho" = (/obj/covers/wood_ship,/obj/structure/roof_support,/turf/floor/dirt,/area/caribbean/roofed)
+"hA" = (/obj/structure/wild/tree/live_tree,/turf/floor/grass/jungle,/area/caribbean/nomads/forest)
+"hF" = (/obj/structure/mine_support/stone/ionic,/obj/structure/railing/steel{dir = 8; icon_state = "railing0"},/obj/structure/railing/steel,/turf/floor/plating/steel,/area/caribbean/roofed)
+"hV" = (/obj/structure/props/bathtub,/obj/structure/curtain/open/shower,/obj/structure/shower,/turf/floor/wood,/area/caribbean/roofed)
+"id" = (/turf/floor/plating/road,/area/caribbean)
+"iA" = (/obj/covers/roads/cobble,/turf/floor/beach/water/coastwater{dir = 1; icon_state = "beach"},/area/caribbean)
+"iM" = (/obj/covers/ornatemarblefloor,/obj/structure/table/fancy,/obj/structure/lamp/lamp_big/alwayson{dir = 8; icon_state = "tube"},/turf/floor/dirt,/area/caribbean/roofed)
+"iS" = (/obj/covers/wood,/obj/structure/table/wood,/turf/floor/wood,/area/caribbean/roofed)
+"iU" = (/turf/floor/beach/water/coastwater{dir = 5; icon_state = "beach"},/area/caribbean)
+"iZ" = (/obj/structure/wild/smallbush{icon_state = "smallbush7"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"jk" = (/obj/covers/steelplating,/obj/structure/railing/steel,/turf/floor/dirt,/area/caribbean/roofed)
+"jq" = (/obj/structure/window/classic/brickfull,/turf/floor/plating/tiled/dark,/area/caribbean/roofed)
+"js" = (/obj/covers/roads/cobble,/turf/floor/beach/water,/area/caribbean/nomads/forest)
+"jB" = (/obj/structure/window/classic/shoji,/obj/structure/curtain/black,/turf/floor/plating/tiled/darker,/area/caribbean/roofed)
+"jF" = (/obj/covers/wood_wall/log{dir = 8; icon_state = "log_wall"},/turf/floor/grass,/area/caribbean/roofed)
+"jG" = (/obj/structure/railing/steel{dir = 8; icon_state = "railing0"},/obj/covers/roads/cobble,/turf/floor/beach/water/coastwater,/area/caribbean/nomads/forest)
+"jK" = (/obj/structure/barricade,/turf/floor/wood,/area/caribbean/roofed)
+"jS" = (/obj/structure/printingpress,/turf/floor/wood,/area/caribbean/roofed)
+"jX" = (/obj/covers/steelplating,/obj/structure/bed/chair/comfy/blue{dir = 4; icon_state = "chair_padding"},/obj/covers/marbletile/black,/turf/floor/dirt,/area/caribbean/roofed)
+"jY" = (/obj/structure/railing{dir = 1; icon_state = "railing0"},/turf/floor/beach/water/deep/saltwater,/area/caribbean/nomads/forest)
+"kb" = (/obj/covers/cobblestone/stairs{dir = 4; icon_state = "rampup"},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"kk" = (/obj/structure/wild/largejungle,/turf/floor/grass,/area/caribbean/nomads/forest)
+"kp" = (/obj/structure/wild/rock{icon_state = "rock1"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"kr" = (/turf/floor/beach/sand/desert,/area/caribbean)
+"ku" = (/obj/structure/window/barrier/rock{dir = 8; icon_state = "rock_barricade"},/obj/structure/window/barrier/rock{dir = 1; icon_state = "rock_barricade"},/turf/floor/trench/flooded,/area/caribbean/nomads/forest)
+"ky" = (/obj/structure/wild/bush/big,/turf/floor/grass,/area/caribbean/nomads/forest)
+"kA" = (/turf/floor/beach/water/coastwater{dir = 8; icon_state = "beachcorner"},/area/caribbean)
+"kC" = (/obj/covers/brick_wall,/turf/floor/beach/sand/desert,/area/caribbean/roofed)
+"kF" = (/obj/structure/grille/chainlinkfence{dir = 4; icon_state = "chainlinkfence"},/turf/floor/beach/sand/desert,/area/caribbean/nomads/forest)
+"kI" = (/turf/floor/beach/water/coastwater{dir = 1; icon_state = "beach"},/area/caribbean)
+"kJ" = (/obj/structure/bed/chair/wood/wings,/turf/floor/plating/steel,/area/caribbean/roofed)
+"kL" = (/obj/structure/closet/cabinet,/obj/item/clothing/under/farmer_outfit,/obj/item/clothing/head/strawhat,/obj/item/weapon/gun/projectile/shotgun/coachgun,/obj/item/ammo_magazine/shellbox/slug,/turf/floor/wood/ship,/area/caribbean/roofed)
+"kM" = (/obj/structure/window/barrier/railing/stone,/obj/structure/window/barrier/railing/stone{dir = 8; icon_state = "stone"},/turf/floor/beach/water,/area/caribbean/nomads/forest)
+"lg" = (/obj/covers/brick_wall,/obj/structure/sign/painting2,/turf/floor/beach/sand/desert,/area/caribbean/roofed)
+"ln" = (/obj/structure/window/barrier/rock,/turf/floor/grass,/area/caribbean/nomads/forest)
+"lr" = (/obj/structure/railing/steel{dir = 1; icon_state = "railing0"},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"lv" = (/obj/structure/table/wood,/obj/covers/carpet/blackcarpet,/obj/item/weapon/pen/fancy,/turf/floor/wood,/area/caribbean/roofed)
+"lG" = (/obj/covers/vault,/turf/floor/beach/sand/desert,/area/caribbean/nomads/forest)
+"lJ" = (/obj/structure/props/stove,/turf/floor/plating/steel,/area/caribbean/roofed)
+"lN" = (/obj/structure/lamp/lamp_big/alwayson{dir = 8; icon_state = "tube"},/turf/floor/plating/steel,/area/caribbean/roofed)
+"lU" = (/obj/structure/railing{dir = 4},/obj/structure/bed/chair/wood/bleacher/r{dir = 8; icon_state = "bleacher_r"},/turf/floor/wood/ship,/area/caribbean/nomads/forest)
+"lV" = (/obj/structure/railing/steel{dir = 1; icon_state = "railing0"},/obj/covers/slatefloor,/turf/floor/grass,/area/caribbean/nomads/forest)
+"mc" = (/obj/structure/bed/chair/wood/bleacher{dir = 1; icon_state = "bleacher"},/turf/floor/wood,/area/caribbean/roofed)
+"mi" = (/obj/structure/window/barrier/railing/stone,/turf/floor/beach/sand/desert,/area/caribbean)
+"mj" = (/obj/covers/ornatemarblefloor,/obj/structure/potted_plant,/obj/structure/lamp/lamp_big/alwayson{dir = 4; icon_state = "tube"},/turf/floor/dirt,/area/caribbean/roofed)
+"mk" = (/obj/structure/window/barrier/railing/stone{dir = 1; icon_state = "stone"},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"mr" = (/obj/structure/wild/tallgrass2,/turf/floor/beach/water/coastwater{dir = 1; icon_state = "beach"},/area/caribbean)
+"mv" = (/obj/structure/window/barrier/rock{dir = 1; icon_state = "rock_barricade"},/obj/structure/window/barrier/rock,/turf/floor/trench/flooded,/area/caribbean/nomads/forest)
+"mE" = (/obj/structure/wild/jungle/medpine,/turf/floor/grass,/area/caribbean/nomads/forest)
+"mO" = (/obj/structure/railing/steel{dir = 8; icon_state = "railing0"},/obj/covers/roads/cobble,/turf/floor/beach/sand/desert,/area/caribbean/nomads/forest)
+"mQ" = (/obj/structure/wild/flowers{icon_state = "flower9"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"mY" = (/obj/structure/bed/chair/wood/bleacher/r{dir = 1; icon_state = "bleacher_r"},/turf/floor/wood,/area/caribbean/roofed)
+"ng" = (/obj/structure/mine_support/stone/ionic,/obj/structure/railing/steel{dir = 8; icon_state = "railing0"},/turf/floor/plating/steel,/area/caribbean/roofed)
+"nn" = (/obj/covers/vault,/turf/floor/beach/water,/area/caribbean)
+"nw" = (/obj/structure/potted_plant,/turf/floor/wood,/area/caribbean/roofed)
+"nD" = (/obj/structure/lamp/lamp_big/alwayson{dir = 1; icon_state = "tube"},/turf/floor/wood,/area/caribbean/roofed)
+"nF" = (/obj/structure/wild/jungle/medpine,/turf/floor/dirt,/area/caribbean/nomads/forest)
+"nG" = (/obj/covers/wood,/obj/structure/lamp/lamp_big/alwayson{dir = 4; icon_state = "tube"},/turf/floor/wood,/area/caribbean/roofed)
+"nP" = (/obj/structure/grille/chainlinkfence{dir = 4; icon_state = "chainlinkfence"},/obj/structure/grille/chainlinkfence,/turf/floor/beach/sand/desert,/area/caribbean/nomads/forest)
+"nR" = (/obj/covers/road,/turf/floor/beach/water/coastwater,/area/caribbean)
+"nY" = (/obj/structure/window/barrier/railing/stone{dir = 4; icon_state = "stone"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"oh" = (/obj/structure/sign/painting2,/obj/covers/wood_wall/adjustable,/turf/floor/dirt,/area/caribbean/roofed)
+"om" = (/obj/structure/wild/smallbush,/turf/floor/grass/jungle,/area/caribbean/nomads/forest)
+"op" = (/obj/effect/overlay/palmtree_r,/turf/floor/beach/water/coastwater{dir = 8; icon_state = "beachcorner"},/area/caribbean)
+"oq" = (/obj/covers/steelplating,/obj/structure/table,/obj/item/stack/material/steel/twentyfive,/obj/item/stack/material/steel/twentyfive,/obj/item/stack/material/steel/twentyfive,/obj/item/stack/material/steel/twentyfive,/obj/item/stack/material/steel/twentyfive,/turf/floor/beach/sand/desert,/area/caribbean/roofed)
+"ov" = (/turf/floor/beach/water/coastwater,/area/caribbean/nomads/forest)
+"oA" = (/obj/structure/railing/steel{dir = 4; icon_state = "railing0"},/obj/covers/roads/cobble,/turf/floor/beach/water,/area/caribbean)
+"oE" = (/obj/structure/railing/steel,/turf/floor/plating/steel,/area/caribbean/roofed)
+"oT" = (/obj/covers/steelplating,/obj/structure/table/wood,/obj/covers/marbletile/black,/turf/floor/dirt,/area/caribbean/roofed)
+"oW" = (/turf/floor/beach/water/coastwater{dir = 10; icon_state = "beach"},/area/caribbean)
+"oX" = (/obj/structure/wild/tree/live_tree{icon_state = "tree_3"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"oY" = (/obj/covers/wood,/obj/structure/table/wood,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/turf/floor/wood,/area/caribbean/roofed)
+"pe" = (/obj/structure/railing/steel,/obj/covers/slatefloor,/turf/floor/grass,/area/caribbean/nomads/forest)
+"pf" = (/obj/covers/wood,/turf/wall/wood,/area/caribbean/roofed)
+"pg" = (/obj/effect/decal/cleanable/vomit/bloody,/turf/floor/plating/tiled/woodh,/area/caribbean/roofed)
+"pq" = (/obj/covers/wood_ship,/obj/structure/table/modern/table,/obj/structure/closet/crate/cash_register,/turf/floor/dirt,/area/caribbean/roofed)
+"pt" = (/obj/structure/grille/chainlinkfence,/obj/structure/grille/chainlinkfence{dir = 8; icon_state = "chainlinkfence"},/turf/floor/grass,/area/caribbean)
+"py" = (/obj/covers/steelplating,/turf/floor/dirt,/area/caribbean/roofed)
+"pD" = (/obj/structure/window/barrier/railing/stone,/turf/floor/beach/sand/desert,/area/caribbean/nomads/forest)
+"pE" = (/obj/structure/sign/traffic/zebracrossing{dir = 4; icon_state = "zebra"},/turf/floor/plating/road,/area/caribbean)
+"pG" = (/obj/covers/vault,/turf/floor/beach/water,/area/caribbean/nomads/forest)
+"pQ" = (/obj/structure/simple_door,/turf/floor/plating/white,/area/caribbean/roofed)
+"pT" = (/obj/covers/fancywood,/obj/structure/lamp/lamp_big/alwayson,/turf/floor/dirt,/area/caribbean/roofed)
+"pV" = (/obj/structure/window/barrier/railing/stone,/obj/structure/wild/palm,/turf/floor/beach/sand/desert,/area/caribbean)
+"qb" = (/obj/structure/wild/burnedtree,/turf/floor/beach/sand/desert,/area/caribbean)
+"qe" = (/obj/covers/wood_ship,/obj/structure/religious/tiki_statue/small,/turf/floor/dirt,/area/caribbean/roofed)
+"qs" = (/obj/structure/railing{dir = 4},/obj/structure/closet/crate/bin,/turf/floor/wood/ship,/area/caribbean/nomads/forest)
+"qF" = (/obj/structure/railing{dir = 8},/turf/floor/wood/ship,/area/caribbean/nomads/forest)
+"qQ" = (/turf/wall/indestructable/black,/area/caribbean)
+"qW" = (/obj/covers/slatefloor,/turf/floor/grass,/area/caribbean/nomads/forest)
+"qZ" = (/turf/floor/grass/jungle,/area/caribbean/nomads/forest)
+"rb" = (/obj/structure/table/wood,/obj/item/weapon/paper,/obj/covers/steelplating,/turf/floor/plating/concrete,/area/caribbean/roofed)
+"rf" = (/obj/covers/road,/turf/floor/beach/water,/area/caribbean)
+"rg" = (/obj/covers/fancywood,/turf/floor/dirt,/area/caribbean/roofed)
+"rm" = (/obj/covers/steelplating,/obj/structure/railing/steel{dir = 8; icon_state = "railing0"},/turf/floor/dirt,/area/caribbean/roofed)
+"rn" = (/turf/floor/wood/ship,/area/caribbean/roofed)
+"rs" = (/obj/structure/wild/junglebush{icon_state = "21"},/turf/floor/beach/sand/desert,/area/caribbean)
+"rv" = (/obj/structure/grille/chainlinkfence{dir = 8; icon_state = "chainlinkfence"},/obj/structure/grille/chainlinkfence,/turf/floor/grass,/area/caribbean/nomads/forest)
+"rD" = (/obj/covers/carpet/redcarpet,/obj/structure/mine_support/stone/ionic,/turf/floor/wood,/area/caribbean/roofed)
+"rH" = (/turf/floor/plating/road,/area/caribbean/nomads/forest)
+"rJ" = (/obj/structure/potted_plant,/turf/floor/plating/steel,/area/caribbean/roofed)
+"rT" = (/obj/covers/road,/obj/structure/sign/traffic/zebracrossing,/turf/floor/beach/sand/desert,/area/caribbean/nomads/forest)
+"sf" = (/obj/covers/wood_ship,/turf/floor/dirt,/area/caribbean/roofed)
+"sg" = (/obj/structure/wild/tree/dead_tree,/turf/floor/beach/sand/desert,/area/caribbean)
+"si" = (/obj/structure/wild/rock,/turf/floor/beach/water/coastwater{dir = 2; icon_state = "beachcorner"},/area/caribbean)
+"sk" = (/obj/structure/wild/flowers{icon_state = "smallbush18"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"sm" = (/obj/structure/closet/crate/bin,/turf/floor/plating/tiled/darker,/area/caribbean/roofed)
+"ss" = (/turf/floor,/area/caribbean/roofed)
+"sw" = (/obj/structure/cell_tower,/turf/floor/beach/sand/desert,/area/caribbean/nomads/forest)
+"sA" = (/obj/covers/fancywood,/obj/structure/simple_door,/turf/floor/dirt,/area/caribbean/roofed)
+"sG" = (/obj/structure/window/barrier/railing/stone{dir = 1; icon_state = "stone"},/obj/structure/window/barrier/railing/stone{dir = 4; icon_state = "stone"},/turf/floor/beach/water,/area/caribbean/nomads/forest)
+"sJ" = (/turf/floor/beach/water/coastwater{icon_state = "desert_dug"},/area/caribbean)
+"sL" = (/obj/structure/railing/steel{dir = 1; icon_state = "railing0"},/turf/floor/grass,/area/caribbean)
+"sM" = (/obj/covers/vault,/turf/floor/beach/water/coastwater,/area/caribbean/nomads/forest)
+"sP" = (/obj/structure/table/wood,/obj/item/weapon/telephone/wireless,/turf/floor/wood,/area/caribbean/roofed)
+"sQ" = (/obj/structure/railing/steel,/turf/floor/grass,/area/caribbean)
+"sW" = (/obj/covers/fancywood,/obj/structure/bed/chair{dir = 1; icon_state = "chair"},/turf/floor/dirt,/area/caribbean/roofed)
+"te" = (/turf/floor/beach/water,/area/caribbean/nomads/forest)
+"tj" = (/obj/structure/mine_support/stone/ionic,/turf/floor/plating/white,/area/caribbean/roofed)
+"to" = (/obj/structure/lamp/lamp_big/alwayson{dir = 1; icon_state = "tube"},/turf/floor/plating/steel,/area/caribbean/roofed)
+"tq" = (/obj/covers/ornatemarblefloor,/obj/structure/bed/chair/wood/bleacher/r{dir = 4; icon_state = "bleacher_r"},/turf/floor/dirt,/area/caribbean/roofed)
+"tv" = (/obj/structure/wild/tree/live_tree{icon_state = "tree_3"},/obj/structure/wild/bush,/turf/floor/grass,/area/caribbean/nomads/forest)
+"tx" = (/obj/structure/lamp/lamp_big/alwayson{dir = 8; icon_state = "tube"},/turf/floor/wood,/area/caribbean/roofed)
+"ty" = (/obj/structure/wild/flowers{icon_state = "smallbush37"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"tB" = (/obj/structure/wild/tree/live_tree{icon_state = "tree_4"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"tE" = (/obj/covers/wood_ship,/obj/item/weapon/stool/wood,/turf/floor/dirt,/area/caribbean/roofed)
+"tJ" = (/obj/covers/wood_ship,/obj/structure/closet/crate/bin,/turf/floor/dirt,/area/caribbean/roofed)
+"tM" = (/obj/covers/wood,/obj/structure/bed/chair{dir = 8; icon_state = "wooden_chair"},/turf/floor/wood,/area/caribbean/roofed)
+"tN" = (/obj/item/weapon/telephone/public,/obj/structure/lamp/lamp_small/alwayson{dir = 1; icon_state = "bulb"},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"tO" = (/obj/structure/railing/steel,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"tP" = (/obj/structure/wild/burnedbush,/turf/floor/beach/sand/desert,/area/caribbean)
+"tR" = (/obj/covers/wood_wall/log{dir = 1; icon_state = "log_wall"},/turf/floor/dirt,/area/caribbean/roofed)
+"uc" = (/obj/structure/railing/steel{dir = 8; icon_state = "railing0"},/obj/covers/roads/cobble,/turf/floor/beach/water,/area/caribbean)
+"uy" = (/obj/covers/road,/turf/floor/beach/water/coastwater{dir = 1; icon_state = "beach"},/area/caribbean)
+"uA" = (/obj/covers/steelplating,/obj/structure/table,/obj/item/stack/material/steel/twentyfive,/obj/item/stack/material/steel/twentyfive,/obj/item/stack/material/steel/twentyfive,/obj/item/stack/material/steel/twentyfive,/obj/item/stack/material/steel/twentyfive,/obj/item/stack/material/steel/twentyfive,/obj/item/stack/material/steel/twentyfive,/obj/item/stack/material/steel/twentyfive,/turf/floor/beach/sand/desert,/area/caribbean/roofed)
+"uB" = (/obj/structure/bed/modern/steel{dir = 8; icon_state = "steelchair"},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"uE" = (/obj/structure/bed/chair{dir = 4; icon_state = "chair"},/turf/floor/plating/tiled/darker,/area/caribbean/roofed)
+"uH" = (/obj/structure/table/wood,/obj/item/weapon/paper,/obj/structure/lamp/lamp_small/alwayson{dir = 4; icon_state = "bulb"},/obj/covers/steelplating,/turf/floor/plating/concrete,/area/caribbean/roofed)
+"uK" = (/obj/structure/grille/chainlinkfence{dir = 4; icon_state = "chainlinkfence"},/turf/floor/grass,/area/caribbean)
+"uX" = (/obj/structure/wild/tallgrass2,/turf/floor/beach/water/coastwater/corner{dir = 1; icon_state = "beachcorner"},/area/caribbean)
+"vb" = (/obj/structure/wild/junglebush,/turf/floor/grass/jungle,/area/caribbean/nomads/forest)
+"vj" = (/obj/structure/wild/tallgrass2,/turf/floor/beach/water/coastwater{icon_state = "desert_dug"},/area/caribbean)
+"vq" = (/obj/structure/closet/crate/dumpster,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"vr" = (/turf/floor/wood,/area/caribbean/roofed)
+"vs" = (/obj/covers/romanroad,/obj/structure/bed/chair{dir = 4; icon_state = "chair"},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"vw" = (/obj/structure/table/wood,/obj/item/weapon/pen/pencil,/obj/covers/steelplating,/turf/floor/plating/concrete,/area/caribbean/roofed)
+"vC" = (/obj/structure/window/barrier/railing/stone{dir = 1; icon_state = "stone"},/turf/floor/beach/sand/desert,/area/caribbean/nomads/forest)
+"vK" = (/obj/covers/steelplating,/obj/structure/table/wood,/obj/covers/marbletile/black,/turf/floor/plating/concrete,/area/caribbean/roofed)
+"vM" = (/obj/covers/wood_ship,/obj/structure/bed/chair/comfy/beige,/turf/floor/dirt,/area/caribbean/roofed)
+"vO" = (/obj/structure/farming/plant/carrot,/turf/floor/dirt/ploughed,/area/caribbean/nomads/forest)
+"vU" = (/obj/structure/simple_door/key_door/anyone/wood{code = 3341; name = "Courthouse Lobby"},/turf/floor/wood,/area/caribbean/roofed)
+"vY" = (/obj/structure/lamp/lamppost_small/alwayson,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean)
+"wn" = (/obj/structure/wild/tallgrass,/turf/floor/grass,/area/caribbean/nomads/forest)
+"wr" = (/turf/floor/plating/tiled/darker,/area/caribbean/roofed)
+"ws" = (/obj/structure/sink/kitchen{dir = 4; icon_state = "sink_alt"},/turf/floor/wood,/area/caribbean/roofed)
+"wD" = (/obj/structure/simple_door,/turf/floor/plating/tiled/dark,/area/caribbean/roofed)
+"wH" = (/obj/structure/bed/chair/wood/wings{dir = 4; icon_state = "wooden_chair_wings"},/turf/floor/plating/steel,/area/caribbean/roofed)
+"wL" = (/obj/covers/roads/cobble,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean)
+"wO" = (/obj/covers/wood,/obj/structure/railing{dir = 4; icon_state = "railing0"},/turf/floor/wood,/area/caribbean/roofed)
+"xj" = (/obj/structure/table/modern/table,/turf/floor/plating/tiled/darker,/area/caribbean/roofed)
+"xk" = (/obj/structure/potted_plant,/turf/floor/plating/white,/area/caribbean/roofed)
+"xv" = (/obj/covers/wood_ship,/obj/structure/bed/chair/comfy/beige{dir = 4; icon_state = "chair_padding"},/turf/floor/dirt,/area/caribbean/roofed)
+"xw" = (/obj/covers/straw_wall,/turf/floor/dirt,/area/caribbean/roofed)
+"xB" = (/obj/covers/fancywood,/obj/structure/table/fancy,/turf/floor/dirt,/area/caribbean/roofed)
+"xE" = (/mob/living/simple_animal/mouse/gray,/turf/floor/grass,/area/caribbean/nomads/forest)
+"xM" = (/obj/structure/window/classic,/obj/covers/jail/woodjail,/obj/structure/curtain/open/shower/security,/turf/floor/wood,/area/caribbean/roofed)
+"xN" = (/obj/structure/window/barrier/rock{dir = 4; icon_state = "rock_barricade"},/obj/structure/window/barrier/rock{dir = 1; icon_state = "rock_barricade"},/obj/structure/window/barrier/rock,/turf/floor/trench/flooded,/area/caribbean/nomads/forest)
+"ya" = (/obj/structure/wild/burnedbush,/turf/floor/beach/water/coastwater/corner,/area/caribbean)
+"yb" = (/obj/structure/wild/junglebush{icon_state = "14"},/turf/floor/beach/sand/desert,/area/caribbean)
+"yn" = (/obj/structure/sign/painting5,/obj/covers/wood_wall,/turf/floor/dirt,/area/caribbean/roofed)
+"yu" = (/obj/covers/fancywood,/obj/structure/bed/chair/comfy/red,/turf/floor/dirt,/area/caribbean/roofed)
+"yv" = (/obj/structure/sink,/turf/floor/wood,/area/caribbean/roofed)
+"yz" = (/obj/structure/table,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"yB" = (/obj/structure/grille/chainlinkfence,/turf/floor/grass,/area/caribbean/nomads/forest)
+"yE" = (/obj/structure/sink/kitchen,/turf/floor/wood,/area/caribbean/roofed)
+"yF" = (/turf/floor/beach/water/coastwater{dir = 1; icon_state = "beach"},/area/caribbean/nomads/forest)
+"yJ" = (/obj/structure/lamp/lamp_small/alwayson{dir = 1; icon_state = "bulb"},/obj/covers/steelplating,/obj/covers/marbletile/black,/turf/floor/plating/concrete,/area/caribbean/roofed)
+"yM" = (/obj/structure/wild/smallbush,/turf/floor/grass,/area/caribbean/nomads/forest)
+"yP" = (/obj/structure/simple_door/key_door,/turf/floor/wood/ship,/area/caribbean/roofed)
+"yU" = (/obj/covers/wood_wall/log/corner,/turf/floor/dirt,/area/caribbean/roofed)
+"yZ" = (/obj/structure/railing/steel{dir = 4; icon_state = "railing0"},/obj/covers/roads/cobble,/turf/floor/beach/water/coastwater,/area/caribbean/nomads/forest)
+"zb" = (/obj/covers/road,/turf/floor/plating/road,/area/caribbean/nomads/forest)
+"zD" = (/obj/structure/table/modern/table,/turf/floor/wood,/area/caribbean/roofed)
+"zJ" = (/obj/structure/railing{dir = 8; icon_state = "railing0"},/obj/covers/slatefloor,/turf/floor/grass,/area/caribbean)
+"zM" = (/obj/structure/sink{dir = 4; icon_state = "sink"},/turf/floor/wood,/area/caribbean/roofed)
+"zV" = (/obj/structure/bed/chair/wood,/turf/floor/wood,/area/caribbean/roofed)
+"zZ" = (/obj/structure/wild/junglebush{icon_state = "30"},/turf/floor/beach/sand/desert,/area/caribbean)
+"Ah" = (/obj/structure/grille/chainlinkfence{dir = 1; icon_state = "chainlinkfence"},/obj/structure/grille/chainlinkfence{dir = 4; icon_state = "chainlinkfence"},/turf/floor/grass,/area/caribbean)
+"Aj" = (/obj/structure/window/barrier/railing/stone{dir = 4; icon_state = "stone"},/obj/structure/window/barrier/railing/stone,/turf/floor/grass,/area/caribbean/nomads/forest)
+"Ak" = (/turf/floor/grass,/area/caribbean)
+"At" = (/obj/structure/bed/chair{dir = 4; icon_state = "chair"},/turf/floor/plating/tiled/woodh,/area/caribbean/roofed)
+"Ax" = (/obj/effect/decal/cleanable/cobweb2{dir = 1; icon_state = "cobweb2"},/turf/floor/plating/tiled/woodh,/area/caribbean/roofed)
+"Ay" = (/obj/structure/wild/flowers{icon_state = "smallbush21"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"AE" = (/obj/structure/railing{dir = 4; icon_state = "railing0"},/obj/covers/slatefloor,/turf/floor/grass,/area/caribbean)
+"Bx" = (/obj/structure/table/wood,/obj/item/weapon/telephone/wireless,/turf/floor/plating/tiled/dark,/area/caribbean/roofed)
+"BB" = (/obj/covers/wood,/obj/structure/filingcabinet/filingcabinet,/turf/floor/wood,/area/caribbean/roofed)
+"BG" = (/obj/structure/window/barrier/rock{dir = 4; icon_state = "rock_barricade"},/obj/structure/window/barrier/rock{dir = 1; icon_state = "rock_barricade"},/turf/floor/trench/flooded,/area/caribbean/nomads/forest)
+"BL" = (/obj/structure/window/barrier/railing/stone,/turf/floor/grass,/area/caribbean/nomads/forest)
+"BM" = (/obj/structure/grille/chainlinkfence,/obj/structure/grille/chainlinkfence{dir = 4; icon_state = "chainlinkfence"},/turf/floor/beach/sand/desert,/area/caribbean/nomads/forest)
+"BU" = (/turf/floor/plating/white,/area/caribbean/roofed)
+"BY" = (/obj/structure/lamp/lamp_big/alwayson{dir = 8; icon_state = "tube"},/turf/floor/plating/white,/area/caribbean/roofed)
+"Cd" = (/obj/covers/ornatemarblefloor,/obj/structure/bed/chair/wood/bleacher/l{dir = 4; icon_state = "bleacher_l"},/turf/floor/dirt,/area/caribbean/roofed)
+"Cg" = (/obj/covers/wood_ship,/obj/structure/table/modern/table,/obj/item/weapon/reagent_containers/food/condiment/saltshaker,/obj/item/weapon/reagent_containers/food/condiment/peppermill,/turf/floor/dirt,/area/caribbean/roofed)
+"Cj" = (/obj/structure/props/stove,/turf/floor/plating/tiled/darker,/area/caribbean/roofed)
+"Ck" = (/obj/structure/multiz/ladder/ww2/manhole,/turf/floor/plating/road,/area/caribbean)
+"Cw" = (/obj/covers/steelplating,/obj/structure/window/classic/brickfull,/turf/floor/beach/sand/desert,/area/caribbean/roofed)
+"Cy" = (/obj/structure/closet/crate/cart/wooden,/turf/floor/plating/tiled/darker,/area/caribbean/roofed)
+"Cz" = (/obj/structure/wild/rock,/turf/floor/beach/sand/desert,/area/caribbean)
+"CA" = (/obj/structure/table/modern/table,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/obj/item/weapon/pen/pencil,/turf/floor/wood,/area/caribbean/roofed)
+"CD" = (/turf/floor/beach/sand/desert,/area/caribbean/nomads/forest)
+"CM" = (/obj/covers/wood_wall,/turf/floor/dirt,/area/caribbean/roofed)
+"CN" = (/obj/structure/grille/chainlinkfence{dir = 1; icon_state = "chainlinkfence"},/obj/structure/grille/chainlinkfence{dir = 8; icon_state = "chainlinkfence"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"CX" = (/turf/floor/plating/steel,/area/caribbean/roofed)
+"Dc" = (/obj/covers/fancywood,/obj/structure/printingpress,/obj/structure/lamp/lamp_big/alwayson{dir = 1; icon_state = "tube"},/turf/floor/dirt,/area/caribbean/roofed)
+"Dd" = (/obj/structure/bed/chair/drivers,/turf/floor/plating/tiled/dark,/area/caribbean/roofed)
+"Dg" = (/obj/structure/wild/junglebush,/turf/floor/grass,/area/caribbean/nomads/forest)
+"Di" = (/obj/structure/grille/chainlinkfence{dir = 1; icon_state = "chainlinkfence"},/obj/structure/grille/chainlinkfence{dir = 4; icon_state = "chainlinkfence"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"Dj" = (/obj/covers/cobblestone/stairs{dir = 8; icon_state = "rampup"},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"Dp" = (/obj/structure/barricade,/turf/floor/grass,/area/caribbean/nomads/forest)
+"Dq" = (/obj/covers/wood_ship,/obj/structure/window/classic,/turf/floor/dirt,/area/caribbean/roofed)
+"Dw" = (/obj/structure/table/glass,/obj/structure/closet/cabinet/ceiling,/obj/item/clothing/accessory/tie/red,/obj/item/clothing/accessory/tie/red,/turf/floor/plating/white,/area/caribbean/roofed)
+"DA" = (/obj/structure/wild/tree/anchored,/turf/floor/grass,/area/caribbean/nomads/forest)
+"DC" = (/obj/structure/railing/steel{dir = 8; icon_state = "railing0"},/turf/floor/plating/steel,/area/caribbean/roofed)
+"DE" = (/obj/structure/grille/chainlinkfence{dir = 1; icon_state = "chainlinkfence"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"DO" = (/obj/effect/overlay/palmtree_r,/turf/floor/beach/sand/desert,/area/caribbean)
+"DT" = (/obj/structure/bed/chair/wood,/turf/floor/plating/tiled/dark,/area/caribbean/roofed)
+"DU" = (/obj/structure/lamp/lamppost_small/alwayson,/obj/covers/roads/cobble,/turf/floor/beach/sand/desert,/area/caribbean)
+"DV" = (/obj/structure/table/glass,/obj/structure/closet/cabinet/ceiling,/obj/item/clothing/gloves/fingerless,/obj/structure/lamp/lamp_big/alwayson{dir = 1; icon_state = "tube"},/turf/floor/plating/white,/area/caribbean/roofed)
+"Ej" = (/obj/covers/road,/turf/floor/beach/sand/desert,/area/caribbean)
+"Ez" = (/obj/item/weapon/material/machete1,/turf/floor/plating/tiled/woodh,/area/caribbean/roofed)
+"EA" = (/obj/covers/steelplating,/obj/covers/marbletile/black,/turf/floor/dirt,/area/caribbean/roofed)
+"ED" = (/obj/covers/wood,/obj/structure/bed/chair/office/light{dir = 8; icon_state = "officechair_white"},/turf/floor/wood,/area/caribbean/roofed)
+"EG" = (/obj/covers/wood,/obj/structure/lamp/lamp_big/alwayson{dir = 8; icon_state = "tube"},/turf/floor/wood,/area/caribbean/roofed)
+"EH" = (/turf/floor/plating/tiled/woodh,/area/caribbean/roofed)
+"EJ" = (/obj/structure/oven,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"EL" = (/obj/structure/table/rack,/turf/floor/plating/tiled/dark,/area/caribbean/roofed)
+"EP" = (/turf/floor/dirt,/area/caribbean/roofed)
+"EW" = (/obj/structure/wild/junglebush{icon_state = "3"},/turf/floor/beach/sand/desert,/area/caribbean)
+"Fb" = (/obj/covers/straw_wall,/obj/structure/roof_support,/turf/floor/dirt,/area/caribbean/roofed)
+"Fe" = (/obj/item/weapon/stool/wood,/turf/floor/plating/tiled,/area/caribbean/roofed)
+"Fj" = (/turf/floor/beach/water/coastwater{dir = 4; icon_state = "beachcorner"},/area/caribbean)
+"Fr" = (/obj/structure/wild/rock{icon_state = "basalt2"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"Ft" = (/obj/covers/wood,/obj/structure/table/wood,/obj/item/weapon/paper_bin,/obj/item/weapon/pen/pencil,/obj/item/weapon/stamp,/turf/floor/wood,/area/caribbean/roofed)
+"Fz" = (/obj/covers/steelplating,/obj/structure/railing/steel{dir = 4; icon_state = "railing0"},/turf/floor/dirt,/area/caribbean/roofed)
+"FA" = (/obj/structure/window/barrier/railing/stone,/obj/structure/window/barrier/railing/stone{dir = 4; icon_state = "stone"},/turf/floor/beach/water,/area/caribbean/nomads/forest)
+"FE" = (/obj/covers/wood_wall/shoji,/turf/wall/wood,/area/caribbean/roofed)
+"FI" = (/obj/structure/railing,/turf/floor/beach/water/deep/saltwater,/area/caribbean/nomads/forest)
+"FM" = (/obj/covers/roads/cobble,/turf/floor/beach/water/coastwater,/area/caribbean/nomads/forest)
+"FP" = (/turf/floor/beach/water/coastwater/corner{dir = 8; icon_state = "beachcorner"},/area/caribbean)
+"FV" = (/obj/structure/farming/plant/orange,/turf/floor/dirt/ploughed,/area/caribbean/nomads/forest)
+"FZ" = (/obj/structure/props/bathtub,/obj/structure/shower{dir = 1; icon_state = "shower"},/obj/structure/curtain/open/shower,/turf/floor/wood,/area/caribbean/roofed)
+"Ge" = (/obj/structure/grille/fence/picket,/turf/floor/grass,/area/caribbean/nomads/forest)
+"Gg" = (/obj/structure/grille/chainlinkfence,/obj/structure/grille/chainlinkfence{dir = 4; icon_state = "chainlinkfence"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"Gv" = (/obj/structure/wild/tree/live_tree{icon_state = "tree_2"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"GB" = (/obj/item/weapon/reagent_containers/food/snacks/grown/coconut,/turf/floor/beach/sand/desert,/area/caribbean)
+"GC" = (/obj/structure/bed/chair/gunner,/turf/floor/plating/tiled/dark,/area/caribbean/roofed)
+"GE" = (/obj/covers/ornatemarblefloor,/obj/structure/lamp/lamp_big/alwayson{dir = 4; icon_state = "tube"},/turf/floor/dirt,/area/caribbean/roofed)
+"GS" = (/obj/structure/window/barrier/railing/stone{dir = 1; icon_state = "stone"},/turf/floor/beach/sand/desert,/area/caribbean)
+"Hd" = (/obj/structure/table/wood,/turf/floor/wood,/area/caribbean/roofed)
+"Ho" = (/obj/item/vehicleparts/frame/bike,/turf/floor/plating/tiled/dark,/area/caribbean/roofed)
+"Hr" = (/obj/covers/steelplating,/obj/structure/table,/obj/item/weapon/wrench,/turf/floor/beach/sand/desert,/area/caribbean/roofed)
+"Hs" = (/obj/covers/steelplating,/turf/floor,/area/caribbean/roofed)
+"Hv" = (/obj/covers/roads/cobble,/turf/floor/beach/water,/area/caribbean)
+"HF" = (/obj/structure/railing{dir = 4},/turf/floor/wood/ship,/area/caribbean/nomads/forest)
+"HJ" = (/obj/structure/window/classic/reinforced,/obj/structure/grille/ironfence,/obj/structure/curtain/leather/open,/turf/floor/wood,/area/caribbean/roofed)
+"HK" = (/obj/covers/brick_wall,/turf/floor/dirt/dust,/area/caribbean/roofed)
+"HP" = (/obj/covers/wood_wall/shoji,/turf/floor/dirt,/area/caribbean/roofed)
+"If" = (/obj/structure/railing/steel{dir = 8; icon_state = "railing0"},/obj/covers/roads/cobble,/turf/floor/beach/water/coastwater{dir = 1; icon_state = "beach"},/area/caribbean)
+"Ig" = (/obj/covers/vault,/turf/floor/dirt,/area/caribbean)
+"Il" = (/obj/structure/lamp/lamp_small/alwayson{dir = 1; icon_state = "bulb"},/turf/floor/wood,/area/caribbean/roofed)
+"Iq" = (/obj/structure/farming/plant/beans,/turf/floor/dirt/ploughed,/area/caribbean/nomads/forest)
+"Ir" = (/obj/structure/wild/tallgrass2,/turf/floor/beach/sand/desert,/area/caribbean)
+"Iv" = (/obj/structure/bed/chair/wood/bleacher,/turf/floor/wood,/area/caribbean/roofed)
+"IR" = (/obj/covers/roads/cobble,/turf/floor/beach/water/coastwater{dir = 1; icon_state = "beach"},/area/caribbean/nomads/forest)
+"IS" = (/obj/structure/window/barrier/rock{dir = 8; icon_state = "rock_barricade"},/obj/structure/window/barrier/rock,/turf/floor/trench/flooded,/area/caribbean/nomads/forest)
+"IV" = (/obj/structure/grille/chainlinkfence,/obj/structure/grille/chainlinkfence{dir = 8; icon_state = "chainlinkfence"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"IW" = (/obj/item/mine/ap/armed,/turf/wall/rockwall,/area/caribbean/roofed)
+"IX" = (/obj/covers/wood_ship,/obj/structure/simple_door,/turf/floor/dirt,/area/caribbean/roofed)
+"IY" = (/obj/structure/railing{dir = 4},/obj/structure/bed/chair/wood/bleacher{dir = 8; icon_state = "bleacher"},/turf/floor/wood/ship,/area/caribbean/nomads/forest)
+"Jh" = (/obj/covers/roads/cobble,/turf/floor/beach/sand/desert,/area/caribbean)
+"Jj" = (/obj/covers/vault,/turf/floor/dirt,/area/caribbean/nomads/forest)
+"Jt" = (/turf/floor/grass,/area/caribbean/nomads/forest)
+"JH" = (/obj/structure/wild/rock{icon_state = "rock2"},/turf/floor/beach/sand/desert,/area/caribbean)
+"JL" = (/obj/covers/wood,/obj/structure/railing,/obj/structure/railing{dir = 8; icon_state = "railing0"},/turf/floor/wood,/area/caribbean/roofed)
+"JS" = (/obj/structure/table,/obj/item/weapon/reagent_containers/food/drinks/coffee,/obj/item/weapon/reagent_containers/food/drinks/coffee,/obj/item/weapon/reagent_containers/food/drinks/coffee,/obj/item/weapon/reagent_containers/food/drinks/coffee,/obj/item/weapon/reagent_containers/food/drinks/coffee,/obj/item/weapon/reagent_containers/food/drinks/coffee,/obj/item/weapon/reagent_containers/food/drinks/coffee,/turf/floor/plating/steel,/area/caribbean/roofed)
+"Ka" = (/obj/structure/window/barrier/railing/stone,/obj/structure/wild/burnedbush,/turf/floor/beach/sand/desert,/area/caribbean)
+"Kc" = (/obj/covers/road,/turf/floor/beach/sand/desert,/area/caribbean/nomads/forest)
+"Kh" = (/obj/structure/bed/chair/wood/red{dir = 4; icon_state = "wooden_chair_red"},/obj/covers/carpet/blackcarpet,/turf/floor/wood,/area/caribbean/roofed)
+"Ki" = (/obj/covers/ornatemarblefloor,/turf/floor/dirt,/area/caribbean/roofed)
+"Kj" = (/obj/structure/gong,/turf/floor/plating/tiled/darker,/area/caribbean/roofed)
+"Kr" = (/turf/floor/wood/ship,/area/caribbean/nomads/forest)
+"Kw" = (/obj/structure/toilet{dir = 1; icon_state = "toilet00"},/obj/structure/lamp/lamp_small/alwayson,/turf/floor/plating/white,/area/caribbean/roofed)
+"Kx" = (/obj/structure/railing/steel{dir = 8; icon_state = "railing0"},/obj/covers/roads/cobble,/turf/floor/beach/sand/desert,/area/caribbean)
+"KD" = (/obj/covers/wood,/obj/structure/railing,/obj/structure/table/wood,/obj/item/weapon/paper_bin,/turf/floor/wood,/area/caribbean/roofed)
+"KX" = (/turf/floor/beach/water/coastwater{dir = 6; icon_state = "beach"},/area/caribbean)
+"Lh" = (/obj/covers/vault,/turf/floor/beach/water/deep/saltwater,/area/caribbean/nomads/forest)
+"Lj" = (/obj/structure/table/modern/table,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/obj/item/weapon/pen/pencil,/turf/floor/wood,/area/caribbean/roofed)
+"Ll" = (/obj/structure/railing/steel{dir = 4; icon_state = "railing0"},/obj/covers/roads/cobble,/turf/floor/beach/water,/area/caribbean/nomads/forest)
+"Lm" = (/obj/structure/wild/tallgrass2,/turf/floor/beach/sand/desert,/area/caribbean/nomads/forest)
+"Lo" = (/obj/covers/wood,/obj/structure/filingcabinet/filingcabinet,/obj/structure/lamp/lamp_big/alwayson{dir = 1; icon_state = "tube"},/turf/floor/wood,/area/caribbean/roofed)
+"Ls" = (/turf/wall/rockwall,/area/caribbean/nomads/forest)
+"Lv" = (/obj/structure/railing{dir = 4},/obj/structure/bed/chair/wood/bleacher/l{dir = 8; icon_state = "bleacher_l"},/turf/floor/wood/ship,/area/caribbean/nomads/forest)
+"LF" = (/obj/structure/simple_door/key_door/anyone/wood{code = 3341; name = "Court Room"},/turf/floor/wood,/area/caribbean/roofed)
+"LJ" = (/obj/covers/ornatemarblefloor,/obj/structure/bed/chair/wood/bleacher{dir = 4; icon_state = "bleacher"},/turf/floor/dirt,/area/caribbean/roofed)
+"Me" = (/turf/floor/dirt,/area/caribbean/nomads/forest)
+"Mg" = (/obj/structure/wild/rock{icon_state = "rock4"},/turf/floor/beach/sand/desert,/area/caribbean)
+"Mi" = (/obj/covers/steelplating,/obj/structure/printingpress,/turf/floor/dirt,/area/caribbean/roofed)
+"Ml" = (/obj/structure/railing/steel{dir = 4; icon_state = "railing0"},/obj/covers/roads/cobble,/turf/floor/beach/sand/desert,/area/caribbean/nomads/forest)
+"Ms" = (/turf/floor/beach/water/deep/saltwater,/area/caribbean/nomads/forest)
+"Mt" = (/obj/covers/vault,/turf/floor/beach/water/coastwater{dir = 1; icon_state = "beach"},/area/caribbean/nomads/forest)
+"My" = (/obj/covers/carpet/blackcarpet,/obj/structure/mine_support/stone/ionic,/turf/floor/wood,/area/caribbean/roofed)
+"Mz" = (/obj/covers/wood_wall/log/corner,/turf/floor/grass,/area/caribbean/roofed)
+"MA" = (/obj/structure/window/barrier/railing/stone,/turf/floor/beach/water,/area/caribbean/nomads/forest)
+"MP" = (/obj/covers/wood_ship,/obj/structure/table/modern/table,/obj/structure/roof_support,/turf/floor/dirt,/area/caribbean/roofed)
+"MS" = (/obj/structure/grille/chainlinkfence{dir = 8; icon_state = "chainlinkfence"},/obj/structure/grille/chainlinkfence,/turf/floor/beach/sand/desert,/area/caribbean/nomads/forest)
+"Ng" = (/obj/structure/railing/steel{dir = 1; icon_state = "railing0"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"Np" = (/obj/structure/bed/chair/wood/red{dir = 1; icon_state = "wooden_chair_red"},/turf/floor/wood,/area/caribbean/roofed)
+"Nr" = (/obj/structure/railing/steel{dir = 4; icon_state = "railing0"},/obj/covers/roads/cobble,/turf/floor/beach/sand/desert,/area/caribbean)
+"Nw" = (/turf/floor/plating/tiled,/area/caribbean/roofed)
+"NT" = (/obj/structure/barricade/steel,/turf/floor/grass,/area/caribbean/nomads/forest)
+"NU" = (/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"NV" = (/obj/covers/vault,/turf/floor/beach/sand/desert,/area/caribbean)
+"NW" = (/obj/structure/grille/chainlinkfence{dir = 4; icon_state = "chainlinkfence"},/obj/structure/grille/chainlinkfence,/turf/floor/grass,/area/caribbean/nomads/forest)
+"Ol" = (/obj/covers/steelplating,/obj/structure/table,/obj/item/weapon/telephone/wireless,/turf/floor/beach/sand/desert,/area/caribbean/roofed)
+"Oq" = (/turf/floor/beach/water/coastwater/corner,/area/caribbean)
+"Oy" = (/obj/covers/stone_wall/roman,/turf/floor/dirt,/area/caribbean/roofed)
+"OP" = (/obj/structure/railing/steel{dir = 8; icon_state = "railing0"},/obj/structure/railing/steel{dir = 8; icon_state = "railing0"},/turf/floor/plating/steel,/area/caribbean/roofed)
+"OR" = (/obj/structure/railing/steel{dir = 8; icon_state = "railing0"},/obj/covers/roads/cobble,/turf/floor/beach/water/coastwater{dir = 1; icon_state = "beach"},/area/caribbean/nomads/forest)
+"OV" = (/obj/structure/toilet{dir = 4; icon_state = "toilet00"},/turf/floor/wood,/area/caribbean/roofed)
+"OX" = (/obj/structure/table/rack,/obj/item/weapon/reagent_containers/food/snacks/sliceable/bread,/obj/item/weapon/reagent_containers/food/snacks/sliceable/bread,/obj/item/weapon/reagent_containers/food/snacks/sliceable/bread,/obj/item/weapon/reagent_containers/food/snacks/sliceable/bread,/obj/item/weapon/material/kitchen/utensil/knife/bread,/turf/floor/wood,/area/caribbean/roofed)
+"OZ" = (/obj/structure/simple_door/key_door/anyone/wood,/obj/covers/steelplating,/turf/floor/plating/concrete,/area/caribbean/roofed)
+"Pa" = (/obj/structure/window/barrier/railing/stone{dir = 1; icon_state = "stone"},/obj/structure/wild/tallgrass2,/turf/floor/beach/sand/desert,/area/caribbean)
+"Pe" = (/obj/structure/lamp/lamp_big/alwayson{dir = 8; icon_state = "tube"},/obj/structure/props/stove,/turf/floor/wood,/area/caribbean/roofed)
+"Pg" = (/obj/structure/table/modern/table,/obj/item/flashlight/lamp/littlelamp,/turf/floor/plating/tiled/darker,/area/caribbean/roofed)
+"Pi" = (/obj/structure/grille/chainlinkfence{dir = 8; icon_state = "chainlinkfence"},/turf/floor/beach/sand/desert,/area/caribbean/nomads/forest)
+"Pj" = (/obj/covers/wood,/obj/structure/railing,/obj/structure/railing{dir = 4; icon_state = "railing0"},/turf/floor/wood,/area/caribbean/roofed)
+"Pn" = (/obj/structure/window/barrier/rock,/obj/structure/window/barrier/rock{dir = 4; icon_state = "rock_barricade"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"Pp" = (/obj/structure/grille/chainlinkfence{dir = 1; icon_state = "chainlinkfence"},/turf/floor/grass,/area/caribbean)
+"Pt" = (/obj/structure/farming/plant/tomato,/turf/floor/dirt/ploughed,/area/caribbean/nomads/forest)
+"Pw" = (/obj/structure/table,/obj/item/weapon/paper_bin,/turf/floor/plating/steel,/area/caribbean/roofed)
+"PR" = (/obj/structure/wild/tree/live_tree{icon_state = "tree_3"},/obj/structure/wild/smallbush,/turf/floor/grass,/area/caribbean/nomads/forest)
+"PV" = (/obj/structure/sign/traffic/zebracrossing{dir = 4; icon_state = "zebra"},/turf/floor/plating/road,/area/caribbean/nomads/forest)
+"Qc" = (/obj/structure/table,/obj/structure/closet/cabinet/ceiling,/obj/item/weapon/reagent_containers/glass/small_pot,/turf/floor/plating/steel,/area/caribbean/roofed)
+"Qm" = (/obj/covers/fancywood,/obj/structure/filingcabinet/filingcabinet,/turf/floor/dirt,/area/caribbean/roofed)
+"Qq" = (/obj/structure/simple_door/key_door/anyone/wood{code = 3341; name = "Court Counciling Room"},/turf/floor/wood,/area/caribbean/roofed)
+"Qu" = (/obj/covers/wood,/obj/structure/railing,/obj/structure/table/wood,/turf/floor/wood,/area/caribbean/roofed)
+"Qx" = (/obj/structure/window/barrier/railing/stone{dir = 1; icon_state = "stone"},/obj/structure/wild/burnedbush,/turf/floor/beach/sand/desert,/area/caribbean)
+"Qy" = (/obj/structure/railing/steel{dir = 8; icon_state = "railing0"},/obj/covers/roads/cobble,/turf/floor/beach/water,/area/caribbean/nomads/forest)
+"QE" = (/obj/structure/wild/rock{icon_state = "rock2"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"QI" = (/obj/structure/table/wood,/turf/floor/plating/tiled/dark,/area/caribbean/roofed)
+"QM" = (/obj/structure/table/fancy,/obj/item/flashlight/lamp/littlelamp,/turf/floor/wood,/area/caribbean/roofed)
+"QQ" = (/obj/structure/wild/rock{icon_state = "rock2"},/obj/structure/wild/junglebush{icon_state = "24"},/turf/floor/beach/sand/desert,/area/caribbean)
+"Rc" = (/obj/structure/simple_door/key_door/anyone/wood{code = 4451; name = "House"},/turf/floor/wood,/area/caribbean/roofed)
+"Rk" = (/obj/covers/wood,/obj/structure/bed/chair{dir = 4; icon_state = "wooden_chair"},/turf/floor/wood,/area/caribbean/roofed)
+"Ru" = (/obj/structure/table,/obj/item/weapon/soap,/obj/structure/lamp/lamp_big/alwayson{dir = 1; icon_state = "tube"},/turf/floor/plating/white,/area/caribbean/roofed)
+"Rv" = (/turf/floor/beach/water/coastwater/corner{dir = 4; icon_state = "beachcorner"},/area/caribbean)
+"Ry" = (/obj/structure/sign/painting1,/obj/covers/wood_wall,/turf/floor/dirt,/area/caribbean/roofed)
+"RB" = (/obj/structure/window/barrier/railing/stone{dir = 1; icon_state = "stone"},/turf/floor/beach/water,/area/caribbean/nomads/forest)
+"RC" = (/obj/structure/cell_tower,/turf/floor/grass,/area/caribbean/nomads/forest)
+"RG" = (/obj/structure/window/barrier/rock{dir = 1; icon_state = "rock_barricade"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"RK" = (/obj/covers/roads/cobble,/turf/floor/beach/water/coastwater,/area/caribbean)
+"RL" = (/obj/structure/sign/traffic/zebracrossing,/turf/floor/plating/road,/area/caribbean)
+"RO" = (/turf/floor/beach/water/coastwater{dir = 2; icon_state = "beachcorner"},/area/caribbean)
+"Si" = (/obj/covers/vault,/turf/floor/grass,/area/caribbean/roofed)
+"Su" = (/obj/covers/fancywood,/obj/structure/potted_plant,/turf/floor/dirt,/area/caribbean/roofed)
+"Sz" = (/obj/structure/wild/junglebush{icon_state = "28"},/turf/floor/beach/sand/desert,/area/caribbean)
+"SD" = (/obj/structure/window/barrier/rock{dir = 1; icon_state = "rock_barricade"},/turf/floor/trench/flooded,/area/caribbean/nomads/forest)
+"SZ" = (/obj/structure/window/barrier/railing/stone{dir = 1; icon_state = "stone"},/obj/structure/wild/palm,/turf/floor/beach/sand/desert,/area/caribbean)
+"Ta" = (/obj/covers/slatefloor,/turf/floor/grass,/area/caribbean)
+"Ts" = (/obj/covers/road,/turf/floor/plating/road,/area/caribbean)
+"Tx" = (/obj/covers/steelplating,/obj/structure/simple_door/key_door{name = "Garage"},/turf/floor/dirt,/area/caribbean/roofed)
+"TA" = (/obj/covers/roads/cobble,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"TE" = (/obj/structure/bed/chair{dir = 8; icon_state = "wooden_chair"},/turf/floor/plating/tiled/darker,/area/caribbean/roofed)
+"TI" = (/obj/structure/window/barrier/rock,/turf/floor/trench/flooded,/area/caribbean/nomads/forest)
+"TK" = (/obj/covers/wood,/obj/covers/wood_wall/shoji,/turf/wall/wood,/area/caribbean/roofed)
+"TP" = (/obj/structure/sign/goldenplaque{desc = "The Court where the  Judge handles Municipal Matters"; name = "Municipal Court"},/obj/covers/stone_wall/roman,/turf/floor/grass,/area/caribbean/roofed)
+"TQ" = (/obj/structure/simple_door/key_door/anyone/wood{code = 6544; name = "Judge's Office"},/turf/floor/wood,/area/caribbean/roofed)
+"TR" = (/obj/structure/railing/steel,/turf/floor/grass,/area/caribbean/nomads/forest)
+"TU" = (/obj/structure/bed/modern/steel,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"TZ" = (/obj/covers/wood,/obj/structure/railing{dir = 8; icon_state = "railing0"},/turf/floor/wood,/area/caribbean/roofed)
+"Ub" = (/obj/structure/bed/modern/steel{dir = 1; icon_state = "steelchair"},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"Ue" = (/obj/covers/steelplating,/turf/floor/beach/sand/desert,/area/caribbean/roofed)
+"Ug" = (/obj/covers/wood_wall/adjustable,/turf/floor/dirt,/area/caribbean/roofed)
+"Ui" = (/obj/covers/wood,/obj/structure/closet/cabinet,/turf/floor/wood,/area/caribbean/roofed)
+"Ur" = (/obj/structure/toilet,/turf/floor/wood,/area/caribbean/roofed)
+"Ut" = (/obj/covers/wood,/turf/floor/wood,/area/caribbean/roofed)
+"Uy" = (/obj/covers/steelplating,/obj/covers/marbletile/black,/turf/floor/plating/concrete,/area/caribbean/roofed)
+"UF" = (/obj/structure/wild/junglebush{icon_state = "20"},/turf/floor/beach/sand/desert,/area/caribbean)
+"UG" = (/obj/covers/steelplating,/turf/floor/plating/concrete,/area/caribbean/roofed)
+"UO" = (/obj/effect/overlay/palmtree_l,/turf/floor/beach/sand/desert,/area/caribbean)
+"US" = (/obj/covers/fancywood,/obj/structure/lamp/lamp_big/alwayson{dir = 4; icon_state = "tube"},/turf/floor/dirt,/area/caribbean/roofed)
+"UW" = (/obj/covers/romanroad,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"UX" = (/obj/structure/wild/junglebush{icon_state = "9"},/turf/floor/beach/sand/desert,/area/caribbean)
+"Vc" = (/obj/structure/wild/flowers{icon_state = "flower12"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"Vi" = (/obj/structure/simple_door/key_door/anyone/wood{code = 4453; name = "House"},/turf/floor/wood,/area/caribbean/roofed)
+"Vj" = (/obj/structure/wild/rock,/turf/floor/grass,/area/caribbean/nomads/forest)
+"Vo" = (/obj/structure/window/barrier/rock{dir = 4; icon_state = "rock_barricade"},/obj/structure/window/barrier/rock,/turf/floor/trench/flooded,/area/caribbean/nomads/forest)
+"Vq" = (/obj/effect/overlay/palmtree_r,/turf/floor/beach/water/coastwater/corner{dir = 1; icon_state = "beachcorner"},/area/caribbean)
+"Vr" = (/obj/structure/grille/fence/picket{dir = 8; icon_state = "p1"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"Vt" = (/turf/wall/rockwall,/area/caribbean/roofed)
+"Vy" = (/turf/floor/beach/water/coastwater{dir = 9; icon_state = "beach"},/area/caribbean)
+"VA" = (/obj/structure/lamp/lamppost_small/alwayson,/obj/covers/roads/cobble,/turf/floor/beach/sand/desert,/area/caribbean/nomads/forest)
+"VD" = (/obj/covers/wood_wall/log{dir = 4; icon_state = "log_wall"},/turf/floor/dirt,/area/caribbean/roofed)
+"VK" = (/obj/covers/fancywood,/obj/structure/lamp/lamp_big/alwayson{dir = 8; icon_state = "tube"},/turf/floor/dirt,/area/caribbean/roofed)
+"VM" = (/obj/structure/table/modern/table,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/obj/item/weapon/paper/Court,/turf/floor/wood,/area/caribbean/roofed)
+"VX" = (/obj/covers/road,/turf/floor/beach/water,/area/caribbean/nomads/forest)
+"VY" = (/obj/covers/romanroad,/obj/structure/closet/crate/bin,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/nomads/forest)
+"Wa" = (/obj/covers/wood,/obj/structure/railing,/obj/structure/table/wood,/obj/item/weapon/paper,/obj/item/weapon/pen/fancy,/turf/floor/wood,/area/caribbean/roofed)
+"Wg" = (/turf/floor/beach/water/coastwater,/area/caribbean)
+"Wl" = (/obj/structure/simple_door/key_door/anyone/wood{code = 3341; name = "Municipal Courthouse"},/turf/floor/wood,/area/caribbean/roofed)
+"Wr" = (/obj/covers/steelplating,/obj/effect/decal/cleanable/cobweb,/obj/structure/railing/steel{dir = 4; icon_state = "railing0"},/turf/floor/dirt,/area/caribbean/roofed)
+"Ww" = (/obj/covers/wood,/obj/structure/filingcabinet/chestdrawer,/turf/floor/wood,/area/caribbean/roofed)
+"Wx" = (/obj/covers/wood,/obj/structure/table/wood,/obj/structure/computer,/turf/floor/wood,/area/caribbean/roofed)
+"WE" = (/obj/covers/vault,/turf/floor/dirt,/area/caribbean/roofed)
+"WF" = (/obj/structure/railing/steel{dir = 8; icon_state = "railing0"},/obj/covers/roads/cobble,/turf/floor/beach/water/coastwater,/area/caribbean)
+"WM" = (/obj/structure/railing{dir = 1; icon_state = "railing0"},/turf/floor/wood,/area/caribbean/roofed)
+"WT" = (/obj/structure/railing/steel{dir = 4; icon_state = "railing0"},/obj/covers/roads/cobble,/turf/floor/beach/water/coastwater{dir = 1; icon_state = "beach"},/area/caribbean)
+"WX" = (/obj/covers/cobblestone/stairs{dir = 4; icon_state = "rampup"},/turf/floor/dirt,/area/caribbean/nomads/forest)
+"Xj" = (/obj/covers/wood/stairs{dir = 10; icon_state = "wood2_stairs"},/turf/floor/wood,/area/caribbean/roofed)
+"Xt" = (/obj/covers/wood,/obj/structure/table/fancy,/obj/structure/lamp/lamp_big/alwayson,/turf/floor/wood,/area/caribbean/roofed)
+"Xw" = (/obj/covers/wood,/obj/structure/bed/chair/wood/red,/turf/floor/wood,/area/caribbean/roofed)
+"XK" = (/obj/covers/vault,/turf/floor/beach/water/coastwater{dir = 1; icon_state = "beach"},/area/caribbean)
+"XP" = (/obj/structure/pot,/turf/floor/plating/tiled/darker,/area/caribbean/roofed)
+"XT" = (/obj/effect/overlay/palmtree_l,/turf/floor/beach/water/coastwater{dir = 1; icon_state = "beach"},/area/caribbean)
+"XW" = (/obj/structure/lamp/lamp_small/alwayson{dir = 8; icon_state = "bulb"},/turf/floor/wood,/area/caribbean/roofed)
+"XY" = (/obj/covers/fancywood,/obj/structure/mine_support/stone/ionic,/turf/floor/dirt,/area/caribbean/roofed)
+"Yb" = (/obj/structure/grille/chainlinkfence{dir = 4; icon_state = "chainlinkfence"},/turf/floor/grass,/area/caribbean/nomads/forest)
+"Yc" = (/obj/structure/wild/rock{icon_state = "rock4"},/turf/floor/beach/water/coastwater,/area/caribbean)
+"Yd" = (/obj/structure/table/wood,/obj/structure/lamp/lamp_small/alwayson{dir = 8; icon_state = "bulb"},/obj/item/weapon/storage/box/handcuffs,/obj/covers/steelplating,/turf/floor/plating/concrete,/area/caribbean/roofed)
+"Ye" = (/obj/covers/wood_ship,/obj/structure/bed/chair/comfy/beige{dir = 8; icon_state = "chair_padding"},/turf/floor/dirt,/area/caribbean/roofed)
+"Yh" = (/obj/effect/overlay/palmtree_l,/turf/floor/beach/water/coastwater/corner,/area/caribbean)
+"Yi" = (/obj/structure/simple_door/key_door/anyone/wood,/turf/floor/wood,/area/caribbean/roofed)
+"Yo" = (/obj/structure/window/barrier/railing/stone,/obj/structure/wild/junglebush{icon_state = "19"},/turf/floor/beach/sand/desert,/area/caribbean)
+"Yt" = (/obj/structure/wild/tree/live_tree,/turf/floor/grass,/area/caribbean/nomads/forest)
+"Yv" = (/obj/structure/window/barrier/railing/stone{dir = 1; icon_state = "stone"},/obj/structure/window/barrier/railing/stone{dir = 8; icon_state = "stone"},/turf/floor/beach/water,/area/caribbean/nomads/forest)
+"YG" = (/obj/covers/wood,/obj/structure/table/wood,/obj/structure/lamp/lamp_big/alwayson{dir = 1; icon_state = "tube"},/turf/floor/wood,/area/caribbean/roofed)
+"YI" = (/obj/covers/steelplating,/obj/structure/closet/crate/bin,/obj/covers/marbletile/black,/turf/floor/plating/concrete,/area/caribbean/roofed)
+"YL" = (/obj/structure/wild/rock/basalt,/turf/floor/beach/sand/desert,/area/caribbean)
+"YX" = (/obj/structure/table/wood,/obj/covers/carpet/blackcarpet,/turf/floor/wood,/area/caribbean/roofed)
+"YY" = (/obj/structure/table/wood,/obj/item/weapon/pen/red,/turf/floor/plating/tiled/woodh,/area/caribbean/roofed)
+"Zc" = (/turf/floor/plating/tiled/dark,/area/caribbean/roofed)
+"Zf" = (/obj/structure/table/glass,/turf/floor/plating/white,/area/caribbean/roofed)
+"Zo" = (/obj/structure/window/barrier/railing/stone,/obj/structure/wild/burnedbush,/turf/floor/beach/sand/desert,/area/caribbean/nomads/forest)
+"Zu" = (/obj/structure/sink/kitchen,/turf/floor/plating/steel,/area/caribbean/roofed)
+"Zz" = (/obj/structure/wild/junglebush{icon_state = "8"},/turf/floor/beach/sand/desert,/area/caribbean)
+"ZB" = (/obj/structure/bed/chair/wood/bleacher/l,/turf/floor/wood,/area/caribbean/roofed)
+"ZC" = (/obj/structure/wild/tree/live_tree,/obj/structure/wild/bush,/turf/floor/grass,/area/caribbean/nomads/forest)
+"ZH" = (/obj/covers/cobblestone/stairs{dir = 4; icon_state = "rampup"},/turf/floor/dirt,/area/caribbean)
+"ZJ" = (/obj/structure/potted_plant{dir = 8; icon_state = "potted_plant"},/turf/floor/wood,/area/caribbean/roofed)
+"ZL" = (/obj/covers/carpet/blackcarpet,/turf/floor/wood,/area/caribbean/roofed)
+"ZQ" = (/obj/structure/sign/traffic/zebracrossing,/turf/floor/plating/road,/area/caribbean/nomads/forest)
+"ZS" = (/obj/structure/grille/chainlinkfence{dir = 8; icon_state = "chainlinkfence"},/turf/floor/grass,/area/caribbean)
+"ZT" = (/obj/structure/cell_tower,/turf/floor/grass,/area/caribbean)
+
+(1,1,1) = {"
+MsMsMsMsqFKrKrLvMsNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUrHrHrHrHrHNUNUqWkCpyMiYdrbUGvwuHkCqWNUNUNUaEAxpgEHEzEHAtYYaEJtDAJtwnQEJtoXkpJtwntBJtJtJtJtVjwntBJtJtJtJtJtJtnYaHaHaHTaFbxwDqDqxwDqDqxw
+MsMsMsFIqFKrKrIYMsNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUdxrHrHrHrHrHdxNUqWkCpypyUGUGUGUGbqkCqWNUNUNUaEaEaEaEaEaEaEaEaEBLBLBLBLBLBLBLBLBLBLBLBLBLBLBLBLBLBLBLBLBLBLBLBLAjaHaHaHTaxwvMsfsftEgTsfsf
+MsMsNUdbKrKrKrIYMsNUNUNUMsMsMsMsMsMsCDCDCDCDCDCDCDCDCDCDCDCDCDNUNUrHrHrHrHrHNUNUqWHKHKlgkCkCOZkCkCkCqWNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUaHaHaHTaxwCgsfsftEgTsfsf
+MsMsNUdbKrKrKrlUMsNUNUNUMsMsMsMsMsMskCkCkCjqjqkCkCjqjqkCkCkCCDNUNUrHrHrHrHrHNUNUqWngCXkCUyyJUyyJYIkCqWNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUaHaHaHTaxwbZhosftEMPpqsf
+MsMsNUdbKrKrKrHFMsNUNUNUMsMsMsMsMsMskCELZcELZcDTZcZcGCHoHokCCDNUNUrHrHrHrHrHNUNUqWOPCXOZUyEAenEAUykCpeNUNUNUNTyByByByByByByByByByByByByByByByByByByByByByByByByByByByByByByByBNTaHaHaHTaDqqesfsftJtEtEsf
+MsMsNUjYqFKrKrHFMsNUNUNUMsMsMsMsMsMskCELZcbXZcQIBxZcGCHoHokCCDNUNUrHrHrHrHrHNUNUqWDCCXkCUyjXoTEAUyOZWXNUNUNUYbiZJtJtwnkyFrJtoXwntBJtJtJtwnkyFrJtoXwntBJtiZJtJtwnkyFrJtoXwntBJtYbaHaHaHTaDqvMsfsfsfsfsfsf
+MsMsNUMsqFKrKrHFMsNUNUNUNUNUNUNUNUNUjqZcZcZcZcZcZcZcZcHoHojqCDNUNUrHrHrHrHrHNUNUqWDCCXkCUyUyvKUygXkClVNUNUNUYbwnZCJtJtJtiZGvyMJttvQEZCJtJtJtiZGvyMJttvQEwnZCJtJtJtiZGvyMJttvQEYbaHaHaHTaxwCgYesfsfsfsfxv
+MsMsNUMsqFKrKrHFMstNNUNUNUNUNUNUNUNUjqZcZcZcZcZcZcZcZcZcZcjqCDNUNUrHrHrHrHrHNUNUqWhFoEkCkCcjcjkCkCkCqWNUNUNUYbVjJtPRtBJtwnkygaJtwniZJtPRtBJtwnkygaJtwniZVjJtPRtBJtwnkygaJtwniZYbaHaHaHTaFbxwxwxwIXIXxwxw
+MsMsNUMsqFKrKrHFMsNUNUNUMsMsMsMsMsMskCELZcbXZcZcZcZcGCDdDdkCCDNUNUrHrHrHrHrHNUNUqWqWqWqWqWqWqWqWqWqWqWNUNUNUNTDEDEDEDEDEDEDEDEDEDEDEDEDEDEDEDEDEDEDEDEDEDEDEDEDEDEDEDEDEDEDEDENTaHaHaHTaTaTaTaAEbxbxzJTa
+MsMsNUMsqFKrKrHFMsNUNUNUMsMsMsMsMsMskCELZcbXZcZcZcZcGCDdDdkCCDNUNUrHrHrHrHrHNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHbGaHaHaHaHaHaHaHaHaHaH
+MsMsNUMsqFKrKrHFMsNUNUNUMsMsMsMsMsMskCkCkCkCkCwDwDkCkCkCkCkCCDNUNUrHrHrHrHrHdxNUNUNUNUNUNUdxNUNUNUNUNUNUdxNUaHaHaHaHaHvYaHaHaHaHaHaHvYaHaHaHaHaHaHvYaHaHaHaHaHaHvYaHaHaHaHaHaHvYaHaHaHaHaHaHvYaHaHaHaHaH
+MsMsNUMsqFKrKrLvMsNUNUNUMscyePBMMsMskCuAHrbTUeUeUeUeUeUeUekCCDNUNUrHrHrHrHrHrHrHPVPVrHrHrHrHrHrHrHrHrHrHrHrHidididididididididididididididididididididididididididididididididididididididididididididid
+MsMsNUMsqFKrKrIYMsNUNUNUMsPiswkFMsMskCbTFeNwNwNwNwNwNwNwUekCkraHaHidididididididpEPVrHrHrHrHrHrHrHrHrHrHrHrHidididididididididididididididididididididididididididididididididididididididididididididid
+MsMsNUMsqFKrKrIYMsNUNUNUMsMSePnPMsMskCbJNwNwNwNwNwNwNwNwUekCkraHaHidididididididpEPVrHrHrHrHrHrHrHrHrHrHrHrHidididididididididididididididididididididididididididididididididididididididididididididid
+MsMsNUMsqFKrKrlUMsNUNUNUMsMsMsMsMsMskCUeNwNwNwUeUeUeUeUeUekCkraHaHidididididididpEpEidididididididididididididididididididididididididididididididididididididididididididididididididididididididididid
+MsMsNUMsqFKrKrHFFINUNUNUMsMsMsMsMsMskCUeNwNwNwUesssssssssssskraHaHidididididididpEpEidididididididididididididididididididididididididididididididididididididididididididididididididididididididididid
+MsMsNUMsqFKrKrKrkbNUNUNUNUNUNUNUNUNUCwUeNwNwNwUesssssssssssskraHaHidididididididpEpEidididididididididididididididididididididididididididididididididididididididididididididididididididididididididid
+MsMsNUMsqFKrKrKrkbNUNUNUNUNUNUNUNUNUCwUeNwNwNwUesssssssssssskraHvYidididididvYaHaHaHaHaHaHvYaHaHaHaHaHaHvYaHaHaHaHaHaHvYaHaHaHaHaHaHvYaHaHaHaHaHaHidididididaHaHvYaHaHaHaHaHaHvYaHaHaHaHaHaHvYaHaHaHaHaH
+MsMsNUMsqFKrKrKrkbNUNUNUMsMsNUMsMsMskCbTNwNwNwUesssssssssssskraHaHidididididaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHidididididaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaH
+MsMsNUMsqFKrKrHFjYMsMsMsMsMsNUMsMsMskCbTNwNwNwUeUeUeUeUeUekCkraHaHRLRLRLRLRLaHaHAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkaHaHidididididaHaHAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAk
+MsMsNUMsqFKrKrLvMsMsMsMsMsMsNUMsMsMskCOlFeNwNwUeUeUeUeUeUekCkraHaHRLRLRLRLRLaHaHAkptaufOAkAkAkAkAkOyOyOyOyOyOyOyOyOyOyOyOyOyAkAkAkAkAkAkAkAkAkaHaHidididididaHaHAkAkAkAkAkAkAkAkAkAkFEpfpfpfjBjBjBTKTKTK
+MsMsNUMsqFKrKrIYMsMsMsMsMsMsNUMsMsMskCbTNwNwNwHssssssssssssskraHaHidididididaHaHAkZSZTuKAkAkAkAkAkOyUtRkiSBBWwLoWwBBiStMUtOyAkAkAkAkAkAkAkAkAkaHvYidididididvYaHAkAkAkAkAkAkAkAkAkAkFEwrwrwrwrwrwrwrwrwr
+MsMsNUMsqFKrKrIYMsMsMsMsMsMsNUMsMsMsCwUeNwNwNwHssssssssssssskraHaHidididididaHaHAkgsPpAhAkAkAkAkAkOyEGiSiSUtUtUtUtUtiSiSnGOyOyOyOyOyOyOyOyOyAkaHaHidididididaHaHAkAkAkAkAkAkAkAkAkAkFEwrwruExjPgxjTEwrwr
+MsMsNUMsqFKrKrlUMsMsMsMsMsMsNUMsMsMsCwUeNwNwNwHssssssssssssskraHaHidididididaHaHAkAkAkAkAkAkAkAkAkOyUtUtUtUtUtUtUtUtUtUtUtOyecRuecBUxkDVDwOyAkaHaHidididididaHaHAkAkAkAkAkAkAkAkAkAkHPwrwruExjxjxjTEwrwr
+MsMsNUMsqFKrKrHFMsMsMsMsMsMsNUMsMsMskCUeNwNwNwHsssssssssssssCDNUNUrHrHrHrHrHNUNUJtOyOyOyxMxMxMOyOyOyXjXjXjTZiSXwoYwOXjXjXjOyBUBUBUBUBUBUZfOyAkaHaHidididididaHaHAkAkAkAkAkAkAkAkAkAkjBwrwrwrwrCjXPwrwrwr
+MsMsNUFIqFKrKrHFMsMsMsMsMsMsNUMsMsMskCUeNwNwNwUeUeUeUeUeUekCCDNUNUrHrHrHrHrHNUNUJtOyawDcrgrgrgYGiSOyvrvrvrJLKDWaQuPjvrvrvrOyBYtjBUBUBUtjBUOyAkaHaHidididididaHaHAkAkAkAkAkAkAkAkAkAkjBhawrwrwrwrwrwrwrwr
+MsMsNUeQKrKrKrHFMsMsMsMsMsMsNUMsMsMskCHrNwNwNwNwNwNwNwNwUekCCDNUNUrHrHrHrHrHNUNUJtxMrgrgrgyurgrgrgOyvrvrvrvrvrvrvrvrvrvrvrOyBUBUBUOypQOypQOyAkaHaHidididididaHaHAkAkAkAkAkAkAkAkAkAkjBKjwrwrwrwrwrwrwrwr
+MsMsNUeQKrKrKrqsMsMsMsMsMsMsNUMsMsMskCbTFeNwNwNwNwNwNwNwUekCCDNUdxrHrHrHrHrHdxNUJtxMrgXYFtiSWxXYrgOytxHdHdvrvrdPvrvrHdHdggOyOypQOyOyKwOyKwOyAkaHaHidididididaHaHAkAkAkAkptaufOAkAkAkHPwrwrwrXPCjwrwrwrwr
+MsMsNUeQKrKrKrHFMsMsMsMsMsMsNUMsMsMskCoqbJbTUeUeUeUeUeUeUekCCDNUNUrHrHrHrHrHNUNUJtxMrgrgrgsWrgrgrgOyvrNpNpvrggjKtxvrNpNpvrOyiMbBmjOyOyOyOyOyAkaHaHidididididaHaHAkAkAkAkZSZTuKAkAkAkHPwrwruExjxjxjTEwrwr
+MsMsNUjYqFKrKrHFMsMsMsMsMsMsNUMsMsMskCkCkCkCkCkCkCkCkCkCkCkCCDNUNUrHrHrHrHrHNUNUJtOyiSrgrgpTrgrgSuOyWMWMWMWMvrnDvrWMWMWMWMOyCdKiKiOyUtYGUtOyAkaHaHidididididaHaHAkAkAkAkgsPpAhAkAkAkHPwrwruExjPgxjTEwrwr
+MsMsNUMsqFKrKrHFMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsNUNUrHrHrHrHrHNUNUJtOyOysAOybtOysAOyOydGmcmcmYvrvrvrdGmcmcmYOyLJKiKiOycNiSEDxMAkaHaHidididididaHaHAkAkAkAkAkAkAkAkAkAkjBwrwrwrwrwrwrwrwrwr
+MsMsNUMsjYjYjYjYMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsNUNUrHrHrHrHrHNUNUJtOyQmrgfsOyrgrgrgOytxvrvrvrvrvrvrvrvrvrggOyLJKiKiQqUtdvUtxMAkaHvYidididididvYaHAkAkAkAkAkAkAkAkAkAkjBwrwrwrwrwrwrwrwrCy
+MsMsNUMsMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsNUtNrHrHrHrHrHNUNUJtOygZrgxBOyVKrgUSOydGmcmcmYvrvrvrdGmcmcmYOytqKiKibtUtUtUtxMAkaHaHidididididaHaHAkAkAkAkAkAkAkAkAkAkjBwrwrwrwrCjXPwrwrCy
+MsMsNUMsMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsNUNUrHrHrHrHrHNUNUJtOyQmpTfsOySurgrgOyvrvrvrvrdPvrdPvrvrvrvrOyiMKiGEOyUtXtUiOyAkaHaHidididididaHaHAkAkAkAkAkAkAkAkAkAkHPwrwruExjxjxjTEwrCy
+MsMsNUMsMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsNUNUrHrHrHrHrHNUNUJtOyOyOyOyOyOyTQOyOyOyOyOybtOyLFOybtOyOyagOyOypQOyOyOyOyOyOyAkaHaHCkididididaHaHAkAkAkAkAkAkAkAkAkAkHPwrwruExjPgxjTEwrCy
+MsMsNUMsMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsNUNUrHrHrHrHrHNUNUJtOyrJCXkJtoCXCXlJZuQcOyZJvrvrvrvrvrcQOynwvrvrvrnDfGIvZBQMOyAkaHaHidididididaHaHAkAkAkAkAkAkAkAkAkAkFEsmwrwrwrwrwrwrwrCy
+MsMsNUMsMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsMsNUNUrHrHrHrHrHNUNUJtOyCXjSzDCAvrvrvrvrJSOytxrDdedederDggOytxZLMyZLZLZLMyZLggOyAkaHaHidididididaHaHAkAkAkAkAkAkAkAkAkAkFEFEFEFEFEFEFEFEFEFE
+NUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUdxrHrHrHrHrHdxNUJtxMCXvrvrvrvrvrOXvrPwOyvrdededededevrOyvrZLZLYXZLZLZLZLnwTPsQaHaHidididididaHaHAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAk
+MsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsNUMsMsMsMsMsNUNUrHrHrHrHrHNUNUJtxMCXLjvrvrvrvrvrvrCXvUvrdededededevrvUvrZLKhYXZLZLZLZLvrWlZHaHaHidididididaHaHAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAk
+MsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsNUMsMsMsMsMsNUNUrHrHrHrHrHNUNUJtxMwHzDvrvrvrvrvrvrCXOyvrdededededevrOyvrZLZLlvZLZLZLZLnwOysLaHaHidididididaHaHAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAk
+MsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsNUMsMsMsMsMsNUNUrHrHrHrHrHNUNUJtOylNjSvrvrVMdtjSvrckOytxrDdedederDggOytxZLMyZLZLZLMyblggOyAkaHaHidididididaHaHAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAk
+MsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsNUMsMsMsMsMsNUNUrHrHrHrHrHNUNUJtOyCXCXCXCXCXdLCXCXCXOynwvrdGmcmYvrnwOynwvrvrvrvrdGmcmYQMOyAkaHaHidididididaHaHAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAk
+MsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsNUMsMsMsMsMsNUNUrHrHrHrHrHNUNUJtOyOyOyOyxMxMxMOyOyOyOyOyOyxMxMxMOyOyOyOyOyOyxMxMxMOyOyOyOyAkaHvYidididididvYaHAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAk
+NUNUNUNUNUNUNUNUMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsNUMsMsMsMsMsNUNUrHrHrHrHrHNUNUJtJtJtJtAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkaHaHidididididaHaHAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAk
+MsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsNUMsMsMsMsMsTATArHrHrHrHrHTATANUNUNUNUaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHwLwLTsTsTsTsTswLwLAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAk
+MsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsNUMsMsMsMsMsTATArHrHrHrHrHTATANUNUNUNUaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHwLwLTsTsTsTsTswLwLAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAkAk
+MsMsMsMsMsMsMsNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNULhmOfjKcKcKcKcKcfjMllGvCvCvCPaGSGSGSGSGSGSGSGSGSGSGSGSGSGSGSGSGSGSPaGSGSGSGSGSGSNVKxJhEjEjEjEjEjJhNrNVPaSZGSGSGSGSGSGSQxGSGSPaGSGSGSGSGSGSGS
+MsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsMsLhLhmOVAKcKcKcKcKcVAMllGlGCDCDkrkrkrkrvjkrkrCzOqWgWgWgWgWgWgVqSzkrkrkrkrkrkreTIrNVNVKxJhEjEjEjEjEjJhNrNVNVkrkrYLkrkrkrkrkrkrkrkrDOROWgWgWgWgWg
+MsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsMsLhLhmOfjKcKcKcKcKcfjMllGlGLmCDYhWgWgWgWgWgWgWgKXcscscscscscsoWuXEWkrkrkryaWgWgWgeJeJWFRKnRnRnRnRnRRKdQeJeJWgWgWggUkrIrsgkrkrsiWgWgKXcscscscscs
+MsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsMsLhLhjGFMgJgJgJgJgJFMyZsMsMovovKXcscscscscscscscscscscscscscscsoWWgWgWgYcKXcscscsnnnnucHvrfrfrfrfrfHvoAnnnncscscsoWWgWgWgWgWgKXcscscscscscscscs
+MsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsMsLhLhQyjsVXVXVXVXVXjsLlpGpGtetecscscscscscscscsVykIkIkIkIkIiUcscscscscscscscscscsnnnnucHvrfrfrfrfrfHvoAnnnncscscscscscscscscscscscscscsVykIkIiU
+MsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsMsLhLhQyjsVXVXVXVXVXjsLlpGpGtetecsVykIkIkIkIkIkIFjDOkrkrkrkrkAiUcscscscscsVykIXTkIXKXKIfiAuyuyuyuyuyiAWTXKXKkIkIiUcscscscscscscsVykIkIkIFjkrkrop
+MsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsMsLhLhORIRbpbpbpbpbpIRgyMtMtyFyFkIRvDOkrkrkrkrkrGBkrIrkrkrkrQQkAkIkIkIkImrRvGBybkrNVNVKxJhEjEjEjEjEjJhNrNVNVIrkrFPkIkIkIiUcscsVyFjIrkrkrJHkrkrkr
+MsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsMsLhLhmOfjKcKcKcKcKcfjMllGlGCDCDZzaskrIrkrkrkrkrkrkrkrkrqbkrrskrkrUOkrkrkrkrUFGBkrNVNVKxJhEjEjEjEjEjJhNrNVNVkrMgkrkrUOkrkAkIkIFjkrkrkrkrkrkrkrtP
+MsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsMsLhLhmOfjrTrTrTrTrTfjMllGlGCDCDgzzZkrkrUOkrIrkrUXkrkrkrkrkrkrkrIrkrkrkrsJkrkrkrIrNVNVKxDUEjEjEjEjEjDUNrNVNVkrkrkrkrkrIrkrkrkrkrIrkrkrUOkrIrkrnn
+MsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsMsMsMsMsMsNUMsMsMsMsMsMsMsMsLhmOfjrTrTrTrTrTfjMllGpDpDZomimimimimimimimimiYomimimimimimimimimimimimimimimimiNVKxJhEjEjEjEjEjJhNrNVmiKamimimimimimipVmimimimiaJmimimiIgIg
+NUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUTATArHrHrHrHrHTATANUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUTATAzbzbzbzbzbTATANUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUlrlr
+NUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUTAaYrHrHrHrHrHaYTANUNUNUNUNUNUNUNUdxNUNUNUNUNUNUNUNUNUNUdxNUNUNUNUNUNUNUdxNUNUNUTATAzbzbzbzbzbTATANUNUNUNUNUNUNUNUNUNUNUNUdxNUNUNUNUNUNUNU
+rHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHPVPVrHrHrHrHrHrHrHrHrHPVPVrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrH
+rHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHPVPVrHrHrHrHrHrHrHrHrHPVPVrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrH
+rHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHPVPVrHrHrHrHrHrHrHrHrHPVPVrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrH
+rHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHPVPVrHrHrHrHrHrHrHrHrHPVPVrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrH
+rHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHPVPVrHrHrHrHrHrHrHrHrHPVPVrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrH
+rHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHPVPVrHrHrHrHrHrHrHrHrHPVPVrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrHrH
+NUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUdxrHrHrHrHrHdxNUNUNUNUNUNUNUNUNUdxNUNUNUNUNUNUNUNUNUNUvqNUNUNUNUNUNUNUdxNUNUNUtNNUNUNUNUNUNUdxNUNUNUNUrHrHrHrHrHNUNUNUNUdxNUNUNUNUNUNUNU
+NUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUrHrHrHrHrHNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUNUrHrHrHrHrHNUNUNUNUNUNUNUNUNUNUtOtO
+LsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtNUNUZQZQZQZQZQNUNUJtAkAkAkAkAkAkAkAkAkAkAkJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtNUNUrHrHrHrHrHNUNUJtJtJtJtJtJtJtJtJjJj
+LsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtNUNUZQZQZQZQZQNUNUJtaEaEaEaEaEaEaEaEaEaEaEVrVrVrgCVrVrVrDpVrVrVrVrgCVrVrVrVrUgUgUgUgUgRcUgUgHJUgUgSiSiSiTxTxTxTxTxSiSiSiJtJtJtJtJtJtJtVtJj
+LsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtNUNUrHrHrHrHrHNUNUJtaEnDvrvrvrvrnDUgUrIlaEJtJtJtNUJtJtwnGeJtJtJtJtUWJtAyJtJtUgOVvrhVCMvrnDvrvrnDUgWEpypypypypypypypypyWEJtJtJtJtJtJtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtNUNUrHrHrHrHrHNUNUJtHJvrvrvrvrvrvrYivrvrHJJtwnJtNUJtJtJtGeJtJtJtwnUWJtJtwnJtUgXWvrzMCMvrvrvrvrvrTxpypypyeKpypypypypyjkWEJtJtJtJtJtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtNUNUrHrHrHrHrHNUNUJtaEdPvrvrvrvrdPUgyvFZaEJtJtJtNUJtJtJtGewnJttyJtUWwnJtJtVcUgCMYiCMCMvrdPsPyEgVUgSipypypypypypypypypySiJtJtJtJtJtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtNUNUrHrHrHrHrHNUNUTRaEUgYiUgUgohUgUgUgUgaEJtJtVcNUJtwnJtGeJtJtJtmQUWJtJtJtJtUgtxvrggCMvrCMCMCMCMUgWEpypypypypypypypypyWEVtVtJtJtVtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtNUNUrHrHrHrHrHNUNUeCVivrvrvrvrvrvrvrvrvraEwnJtJtNUJtJtJtGeJtJtwnJtUWJtJtwnJtHJvrvrvrRyvrCMtxvrggUgWEpypyFzpypypyFzpypyWEVtVtVtVtVtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsJtJtIVyBGgJtJtJtJtJtJtJtJtJtJtJtJtJtNUNUrHrHrHrHrHNUNUNgaEUgYiUgUgUgtxvrvrggaEJtskJtNUJtJtJtGewnJtJtskUWJtJtJtJtHJvrvrvrCMvrynvrvrvrUgWEWEWEWEWEWEWEWEWEWEWEVtVtVtVtVtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsJtJtfHRCYbJtJtJtJtJtJtJtJtJtJtJtJtJtNUtNrHrHrHrHrHNUNUJtaEnDvrvrnDUgcVvrvrzVHJJtJtJtNUJtJtAyGeJtJtJtJtUWwnJtJtwnHJvrvrvrYivrYivrvrvrUgVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsJtJtrvyBNWJtJtJtJtJtJtJtJtJtJtJtJtJtNUNUrHrHrHrHrHNUNUJtHJvrvrvrvrUgwsvrvrsPaEJtJtwnNUJtJtJtGeVcJtJtJtUWJtJttyJtUgtxvrggCMvrCMtxvrggUgJtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtNUNUrHrHrHrHrHNUNUJtaEdPvrvrdPUgPevrvraCaEJtJtJtNUJtJtJtGeJtJtwnJtUWlnlnlnlnUgUgUgUgUgRcUgUgHJUgUgJtJtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtNUNUrHrHrHrHrHNUNUJtaEaEaEaEaEaEaEaEYiaEaEJtJtJtNUJtmQJtGelnlnlnlnUWdTlnlnlnlnlnlnlnPnUWtyJtJtJtGeJtJtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtNUNUrHrHrHrHrHNUNUJtSiSiSiWEWEWEWEJtNUJtJtJtJtJtNUJtJtJtGeISTITIVoUWUWUWUWVYUWUWUWUWUWUWJtJtJtJtGeJtIVyBGgVtVtIWVtVtVtVtVtVtVtVtVtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtNUNUrHrHrHrHrHNUNUNUWEWrpypypyrmWEJtNUNUNUTUyzTUNUNUEJJtGePtPtPtPtUWUWUWUWUWUWUWUWUWUWUWJtJtmQJtGeJtfHRCYbJtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtNUdxrHrHrHrHrHdxNUNUWEpypypypypyWEJtNUNUNUNUNUNUNUNUNUJtGecRcRcRcRUWUWUWvsdZdZdlUWUWUWUWJtJtJtJtGeJtCNDEDiJtJtJtVtVtVtVtVtVtVtVtVtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtNUNUrHrHrHrHrHrHrHrHTxpypypypypyTxNUNUanYvRBRBRBsGanNUJtGeFVFVFVFVUWUWUWUWUWUWUWUWUWUWUWJtJtJtJtGeJtJtJtJtJtJtJtVtVtVtVtVtVtVtVtVtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtNUNUrHrHrHrHrHrHrHrHTxpypyeKpypyWEJtNUkbteteteteteDjNUJtGeahmvmvxNUWUWUWahmvmvxNahmvmvxNMzjFjFjFyUJtJtJtJtJtJtJtJtEPEPEPVtVtVtVtVtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtNUNUrHrHrHrHrHrHrHrHTxpypypypypyWEJtNUkbteteteteteDjNUJtGevOvOvOvOUWUWUWvOvOvOvOvOvOvOvOtRrnkLrntRJtJtJtJtJtJtJtJtJtMeEPEPEPEPEPVtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtNUNUrHrHrHrHrHrHrHrHTxpypypypyjkWEJtNUmkkMMAMAMAFAmkNUAyGecRcRcRcRUWUWUWcRcRcRcRcRcRcRcRyPrnrnrntRJtJtJtJtJtJtJtJtJtJtEPEPEPEPEPEPEPEPEPVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtNUNUrHrHrHrHrHrHrHrHTxpyeKpypypyWEJtNUNUNUNUNUNUNUNUuBJtGeIqIqIqIqUWUWUWIqIqIqIqIqIqIqIqtRrnrnrntRJtJtJtJtJtJtJtJtJtJteMEPEPEPEPEPEPEPEPEP
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtNUdxNUNUNUNUNUdxNUNUWEpypypypypyWEJtNUNUNUUbyzUbNUUbyzJtGekuSDSDBGUWUWUWkuSDSDBGkuSDSDBGtRrnrnrntRJtJtJtJtJtJtJtJtJtJtJtMeEPEPEPEPEPEPEPEP
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtNUNUNUNUNUNUNUNUNUNUWEFzpypypypyWEVcJtJtJtJtJtJtJtJtJtJtGeRGRGRGRGJttyJtRGRGRGRGRGRGRGRGtRrnrnrntRJtJtJtJtJtJtJtJtJtJtJtJtEPEPEPEPEPEPEPEP
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtWEWEWEWEWEWEWEVrVrVrVrVrVrVrVrVrVrVrDpVrVrVrVrVrVrVrVrVrVrVrVrVrVrVrMzVDVDVDyUMeJtJtJtJtJtJtJtJtJtJtMeEPEPEPEPEPEPEPEP
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtyMJtJtJtJtJtJtDgJtJtDgJtJtqZqZqZqZqZqZJtJtJtqZJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtMeJtEPEPEPEPEPVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtyMJtJtmEyMmEJtJtmEJtJtJtyMqZqZqZqZvbqZJtJtqZJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtEPEPEPEPVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtYtJtJtJtIVyBGgJtJtDgmEJtDgmEJtJtqZhAqZqZhAqZJtJtqZhAJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtEPVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtfHRCYbyMJtJtJtJtJtJtJtJtqZfRqZqZJtJtJtqZJtmEJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtVtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsVtVtVtLsLsLsLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtJtJtJtJtJtJtJtYtJtJtJtVjCNDEDiJtYtJtJtYtJtJtYtJtqZvbqZqZJtJtJtqZJtkkYtJtJtMenFmEJtJtDgJtJtJtJtJtJtJtJtVtVtVtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsVtVtVtVtVtVtLsLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtJtJtJtJtJtJtYtJtJtJtJtyMJtJtJtJtJtYtJtJtYtJtJtJtDghAqZqZJtJtJtqZhADgJtYtJtmEJtJtJtJtJtJtJtJtJtJtJtJtJtVtVtVtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsVtVtVtVtVtVtVtVtLsLsLsLsLsLsLsLsJtJtJtJtJtJtJtJtJtJtJtJtJtvbqZqZqZqZqZVtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtJtVtJtJtMemEYtJtDgJtYtJtJtJtJtJtJtJtVtVtVtVtVtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsVtVtVtVtVtVtVtVtVtVtLsLsLsLsLsLsLsJtJtJtJtJtJtJtVtVtJtJtJtJtqZqZJtJtVtVtVtVtVtJtVtVtVtVtJtJtVtVtJtJtJtJtJtJtVtVtVtVtJtJtJtMeJtJtxEJtJtJtJtJtVtVtVtVtVtVtVtVtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsLsLsVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtJtomqZVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtJtJtVtVtVtVtVtVtVtVtVtVtMeMeVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsLsVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVt
+LsLsLsLsLsLsLsLsLsLsLsLsLsVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVtVt
+"}
+(1,1,2) = {"
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+qQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQqQ
+"}
