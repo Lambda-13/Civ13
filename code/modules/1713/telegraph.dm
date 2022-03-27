@@ -10,7 +10,7 @@
 	opacity = FALSE
 	var/currmsg = ""
 	var/list/allowedlist = list("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ц","ш","щ","ч","ы","ь","ъ","э","ю","я","А","Б","В","Г","Д","Е","Ё","Ж","З","И","Й","К","Л","М","Н","О","П","Р","С","Т","У","Ф","Х","Ц","Ш","Щ","Ч","Ы","Ь","Ъ","Э","Ю","Я")
-/obj/structure/telegraph/proc/convertmsg(var/message)
+/*/obj/structure/telegraph/proc/convertmsg(var/message)
 	var/output = ""
 	for (var/i=1, i<=length(message), i++)
 		var/ascii_char = text2ascii(message,i)
@@ -22,7 +22,7 @@
 			// a  .. z
 			if (97 to 122)			//Lowercase Letters
 				output += ascii2text(ascii_char-32)
-	return output
+	return output*/
 
 
 /obj/structure/telegraph/verb/name_telegraph()
@@ -54,9 +54,9 @@
 	return
 
 /obj/structure/telegraph/attack_hand(var/mob/user as mob)
-	var/message = input(usr, "Write a word. Up to 10 characters, no spaces, symbols or numbers.") as text
-	message = sanitize(message, 10)
-	message = convertmsg(message)
+	var/message = input(usr, "Write a word. Up to 100 characters, no spaces, symbols or numbers.") as text
+	message = sanitize(message, 100)
+//	message = convertmsg(message)
 	if (message && message != "")
 		var/stripmsg = message
 		currmsg = "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [name]:</b></font> \"...[message]...\""

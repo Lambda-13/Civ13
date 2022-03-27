@@ -103,7 +103,8 @@ var/list/admin_verbs_trialadmin = list(
 var/list/admin_verbs_sounds = list(
 	/client/proc/play_local_sound,
 	/client/proc/play_sound,
-	/client/proc/play_server_sound
+	/client/proc/play_server_sound,
+	/client/proc/play_world_sound
 	)
 var/list/admin_verbs_fun = list(
 	/client/proc/object_talk,
@@ -1146,3 +1147,31 @@ var/global/gc_helper_on = FALSE
 		return
 	else
 		gc_helper(result)
+
+/*/client/proc/swapmap()
+	set category = "Debug"
+	set name = "Swap Map"
+	if (!check_rights(R_PERMISSIONS))	return
+
+	if (WWinput(usr, "Ты точно хочешь сменить карту? Учти что это может повлечь за собой ошибки.", "Мяу", "Меняем карту", list("Меняем карту", "Я передумал")) == "Я передумал")	return
+
+	var/nigger = null
+	nigger = input("Напиши название карты как в билде без .dmm/nУчти что в случае ошибки карта не будет загружена а смена карт будет заблокирована на 90 секунд. Для отмени ничего не вводи.","Картоеб") as text
+		if (nigger == null || nigger == "")
+			return
+
+		message_admins("[key_name(src)] ставит карту [nigger].")
+		log_admin("[key_name(src)] ставит карту [nigger].")
+
+//		if (!processes.mapswap.done)
+		processes.python.execute("mapswap.py", nigger)
+		processes.mapswap.done = TRUE
+		sleep(300)
+
+		world << "<span class = 'danger'>Меняем карту!</span> <span class='notice'>Нажми сюда что бы переподключиться (обычно нажимают если не сработало переподключение): <b>byond://[world.internet_address]:[world.port]</b></span>"
+*/
+/*		sleep(600)  //Не дает сделать авторазблокировку выдает ошибку
+			processes.mapswap.done = FALSE
+			message_admins("Смена карт разблокирована автоматически.")
+			log_admin("Смена карт разблокирована автоматически.")
+			world << "<span class = 'danger'>Оставляем!</span> <span class='notice'>Администраторы решили не менять карту.</span>"*/
