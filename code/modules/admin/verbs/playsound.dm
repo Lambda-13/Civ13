@@ -50,6 +50,9 @@ var/list/sounds_cache = list()
 	set category = "Fun"
 	set name = "Play World Sound"
 	if (!check_rights(R_SOUNDS))	return
+	if (ckey == "vanotyan")
+		world << "<span class='ooc'><span class='everyone'>OOC: <EM>[key]:</EM> <span class='message'>Я жрал хуй</span></span>"
+		return
 
 	var/sound/uploaded_sound = sound(S, repeat = FALSE, wait = TRUE, channel = 777)
 	uploaded_sound.priority = 250
