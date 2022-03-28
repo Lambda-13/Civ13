@@ -65,7 +65,7 @@
 "bp" = (/obj/effect/spawner/mobspawner/turkeys_f,/turf/floor/beach/sand/desert,/area/caribbean/nomads/desert)
 "bq" = (/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/sea)
 "br" = (/obj/effect/spawner/orespawner,/turf/floor/dirt/underground/sandy,/area/caribbean/void/caves{base_turf = /turf/floor/dirt; name = "The Caves"})
-"bs" = (/obj/map_metadata/colony,/turf/wall/indestructable/black,/area/caribbean/void/caves{base_turf = /turf/floor/dirt; name = "The Caves"})
+"bs" = (/obj/map_metadata/colony/continental,/turf/wall/indestructable/black,/area/caribbean/void/caves{base_turf = /turf/floor/dirt; name = "The Caves"})
 "bt" = (/turf/floor/beach/water/ice,/area/caribbean/nomads/snow)
 "bu" = (/obj/effect/spawner/objspawner/tree,/turf/floor/winter/grass,/area/caribbean/nomads/snow)
 "bv" = (/turf/floor/dirt/underground{name = "rock wall"},/area/caribbean/nomads/snow)
