@@ -77,9 +77,9 @@ obj/map_metadata/colony/job_enabled_specialcheck(var/datum/job/J)
 		)
 	age = "1713"
 	ordinal_age = 3
-	faction_distribution_coeffs = list(INDIANS = 0.1, CIVILIAN = 0.4, PIRATE = 0.1, SPANISH = 0.4)
+	faction_distribution_coeffs = list(INDIANS = 0.1, CIVILIAN = 0.6, PIRATE = 0.1, SPANISH = 0.6)
 	battle_name = "new colony"
-	mission_start_message = "<big>Британская</b> колония расположилась в лесах, когда корабль <b>Испанцев</b> потерпел крушение. Каждая фракция сможет путешевствовать через 25 минут.</big><br><span class = 'notice'><i>ЭТО РП КАРТА - ВСЕ ФРАКЦИИ ИЗНАЧАЛЬНО НЕЙТРАЛЬНЫ ДРУГ К ДРУГУ.</b> За нарушение данного правила я имею право послать тебя нахуй.<i></span>" // to be replaced with the round's main event
+	mission_start_message = "<big>Британская</b> колония расположилась в лесах, когда корабль <b>Испанцев</b> потерпел крушение, что привлекло <b>Пиратов</b> и <b>Индейцев</b>.  Каждая фракция сможет путешевствовать через 25 минут.</big><br><span class = 'notice'><i>ЭТО РП КАРТА - ВСЕ ФРАКЦИИ ИЗНАЧАЛЬНО НЕЙТРАЛЬНЫ ДРУГ К ДРУГУ.</b> За нарушение данного правила я имею право послать тебя нахуй.<i></span>" // to be replaced with the round's main event
 	ambience = list('sound/ambience/jungle1.ogg')
 	faction1 = INDIANS
 	faction2 = CIVILIAN
