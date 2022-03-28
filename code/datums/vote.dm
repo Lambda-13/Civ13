@@ -329,7 +329,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 					config.allow_vote_mode = !config.allow_vote_mode
 			if ("restart")
 				if (config.allow_vote_restart || usr.client.holder)
-					if (round((roundduration2text_in_ticks % 36000) / 600) < 30) //30 минут
+					if (processes.ticker.playtime_elapsed < 18000) //30 минут
 						usr << "Раунд активен менее 30 минут, увы"
 						return FALSE
 					if (config.vote_no_dead && usr.stat == DEAD && !usr.client.holder)
