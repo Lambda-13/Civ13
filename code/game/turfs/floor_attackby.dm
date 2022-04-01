@@ -113,7 +113,7 @@
 		if ((istype(C, /obj/item/weapon/reagent_containers/food/snacks/poo/animal) || istype(C, /obj/item/weapon/reagent_containers/food/snacks/poo/fertilizer) || istype(C, /obj/item/stack/dung)))
 			user << "You start fertilizing the ploughed field..."
 			var/mob/living/human/H = user
-			if (do_after(user, 60/H.getStatCoeff("farming"), src))
+			if (do_after(user, 30/H.getStatCoeff("farming"), src))
 				user << "You fertilize the ploughed field around this plot."
 				for (var/obj/structure/farming/plant/P in range(1,src))
 					P.fertilized = TRUE
@@ -171,7 +171,7 @@
 					H.shoveling_snow = TRUE
 					visible_message("<span class = 'notice'>[user] starts to shovel snow into a pile.</span>", "<span class = 'notice'>You start to shovel snow into a pile.</span>")
 					playsound(src,'sound/effects/shovelling.ogg',100,1)
-					if (do_after(user, (80/(H.getStatCoeff("strength"))/SH.usespeed)))
+					if (do_after(user, (40/(H.getStatCoeff("strength"))/SH.usespeed)))
 						visible_message("<span class = 'notice'>[user] shovels snow into a pile.</span>", "<span class = 'notice'>You shovel snow into a pile.</span>")
 						H.shoveling_snow = FALSE
 						H.adaptStat("strength", 1)
@@ -193,7 +193,7 @@
 					H.shoveling_dirt = TRUE
 					visible_message("<span class = 'notice'>[user] starts to shovel dirt into a pile.</span>", "<span class = 'notice'>You start to shovel dirt into a pile.</span>")
 					playsound(src,'sound/effects/shovelling.ogg',100,1)
-					if (do_after(user, (80/(H.getStatCoeff("strength"))/SH.usespeed)))
+					if (do_after(user, (40/(H.getStatCoeff("strength"))/SH.usespeed)))
 						visible_message("<span class = 'notice'>[user] shovels dirt into a pile.</span>", "<span class = 'notice'>You shovel dirt into a pile.</span>")
 						H.shoveling_dirt = FALSE
 						H.adaptStat("strength", 1)
@@ -208,7 +208,7 @@
 					H.shoveling_sand = TRUE
 					visible_message("<span class = 'notice'>[user] starts to shovel sand into a pile.</span>", "<span class = 'notice'>You start to shovel sand into a pile.</span>")
 					playsound(src,'sound/effects/shovelling.ogg',100,1)
-					if (do_after(user, (80/(H.getStatCoeff("strength"))/SH.usespeed)))
+					if (do_after(user, (40/(H.getStatCoeff("strength"))/SH.usespeed)))
 						visible_message("<span class = 'notice'>[user] shovels sand into a pile.</span>", "<span class = 'notice'>You shovel sand into a pile.</span>")
 						H.shoveling_sand = FALSE
 						H.adaptStat("strength", 1)
@@ -223,7 +223,7 @@
 			if (radiation >= 1 && (istype(src, /turf/floor/dirt) || istype(src, /turf/floor/grass)))
 				visible_message("<span class = 'notice'>[user] starts to clean the irradiated soil.</span>", "<span class = 'notice'>You start to clean the irradiated soil.</span>")
 				playsound(src,'sound/effects/shovelling.ogg',100,1)
-				if (do_after(user, (150/(H.getStatCoeff("strength"))/SH.usespeed)))
+				if (do_after(user, (75/(H.getStatCoeff("strength"))/SH.usespeed)))
 					visible_message("<span class = 'notice'>[user] finishes cleaning the irradiated soil.</span>", "<span class = 'notice'>You finish cleaning the irradiated soil.</span>")
 					H.adaptStat("strength", 1)
 					radiation *= 0.1
@@ -285,7 +285,7 @@
 		if (istype(H))
 			visible_message("<span class = 'notice'>[user] carefully examines \the [src] with \the [C.name]...</span>", "<span class = 'notice'>You start to carefully examine \the [src] with \the [C.name].</span>")
 			playsound(src,'sound/effects/pickaxe.ogg',100,1)
-			var/timera = 110/(H.getStatCoeff("dexterity"))
+			var/timera = 90/(H.getStatCoeff("dexterity"))
 			if (do_after(user, timera))
 				extracting_proc(H, C)
 		else
@@ -399,7 +399,7 @@
 					user << "<span class='danger'>You can't make a dirt road here.</span>"
 					return
 				user << "You start making a dirt road..."
-				if (do_after(user, 50/PL.usespeed, user.loc))
+				if (do_after(user, 20/PL.usespeed, user.loc))
 					user << "You finish the dirt road."
 					var/obj/covers/roads/dirt/DR = new/obj/covers/roads/dirt(T)
 					if (user.dir == NORTH || user.dir == SOUTH)
@@ -422,12 +422,12 @@
 				user << "<span class='danger'>Jungle terrain is too poor to be farmed. Find a flood plain.</span>"
 				return
 			else if (istype(T, /turf/floor/grass) && !istype(T, /turf/floor/grass/jungle))
-				if (do_after(user, 50/PL.usespeed, user.loc))
+				if (do_after(user, 20/PL.usespeed, user.loc))
 					ChangeTurf(/turf/floor/dirt)
 					return
 			else if (istype(T, /turf/floor/dirt) && !(istype(T, /turf/floor/dirt/ploughed)) && !(istype(T, /turf/floor/dirt/dust)))
 				var/mob/living/human/H = user
-				if (do_after(user, (70/H.getStatCoeff("farming"))/PL.usespeed, user.loc))
+				if (do_after(user, (40/H.getStatCoeff("farming"))/PL.usespeed, user.loc))
 					if (istype(T, /turf/floor/dirt/flooded))
 						ChangeTurf(/turf/floor/dirt/ploughed/flooded)
 						if (ishuman(user))
@@ -840,7 +840,7 @@
 					H.shoveling_snow = TRUE
 					visible_message("<span class = 'notice'>[user] starts to collect snow into a pile.</span>", "<span class = 'notice'>You start to collect snow into a pile.</span>")
 					playsound(src,'sound/effects/shovelling.ogg',100,1)
-					if (do_after(user, rand(45,60)))
+					if (do_after(user, rand(25,40)))
 						visible_message("<span class = 'notice'>[user] collects the snow into a pile.</span>", "<span class = 'notice'>You collect the snow into a pile.</span>")
 						H.shoveling_snow = FALSE
 						H.adaptStat("strength", 1)
@@ -862,7 +862,7 @@
 					H.shoveling_dirt = TRUE
 					visible_message("<span class = 'notice'>[user] starts to collect dirt into a pile.</span>", "<span class = 'notice'>You start to collect dirt into a pile.</span>")
 					playsound(src,'sound/effects/shovelling.ogg',100,1)
-					if (do_after(user, rand(45,60)))
+					if (do_after(user, rand(25,40)))
 						visible_message("<span class = 'notice'>[user] collects the dirt into a pile.</span>", "<span class = 'notice'>You collect the dirt into a pile.</span>")
 						H.shoveling_dirt = FALSE
 						H.adaptStat("strength", 1)
@@ -877,7 +877,7 @@
 					H.shoveling_sand = TRUE
 					visible_message("<span class = 'notice'>[user] starts to collect sand into a pile.</span>", "<span class = 'notice'>You start to collect sand into a pile.</span>")
 					playsound(src,'sound/effects/shovelling.ogg',100,1)
-					if (do_after(user, rand(45,60)))
+					if (do_after(user, rand(25,40)))
 						visible_message("<span class = 'notice'>[user] collects the sand into a pile.</span>", "<span class = 'notice'>You collect the sand into a pile.</span>")
 						H.shoveling_sand = FALSE
 						H.adaptStat("strength", 1)
