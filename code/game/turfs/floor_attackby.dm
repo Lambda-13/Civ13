@@ -268,7 +268,7 @@
 		if (istype(T, /turf/floor/dirt/underground) && istype(H))
 			visible_message("<span class = 'notice'>[user] starts to break the rock with the [C.name].</span>", "<span class = 'notice'>You start to break the rock with the [C.name].</span>")
 			playsound(src,'sound/effects/pickaxe.ogg',100,1)
-			if (do_after(user, (320/(H.getStatCoeff("strength"))/SH.usespeed)))
+			if (do_after(user, (120/(H.getStatCoeff("strength"))/SH.usespeed)))
 				collapse_check()
 				if (istype(src, /turf/floor/dirt/underground/empty))
 					var/turf/floor/dirt/underground/empty/TT = src
@@ -542,7 +542,7 @@
 		if (istype(H))
 			visible_message("<span class = 'notice'>[user] starts to break the rocky floor with the [C.name].</span>", "<span class = 'notice'>You start to break the rocky floor with the [C.name].</span>")
 			playsound(src,'sound/effects/pickaxe.ogg',100,1)
-			var/timera = 320/(H.getStatCoeff("strength"))
+			var/timera = 120/(H.getStatCoeff("strength"))
 			if (do_after(user, timera))
 				mining_proc(H)
 		else
@@ -816,7 +816,7 @@
 		if (H.ant && H.a_intent == I_GRAB)
 			visible_message("<span class = 'notice'>[user] starts to break the rock with their hands...</span>", "<span class = 'notice'>You start to break the rock with the your hands...</span>")
 			playsound(src,'sound/effects/pickaxe.ogg',100,1)
-			if (do_after(user, (320/(H.getStatCoeff("strength"))/1.5)))
+			if (do_after(user, (120/(H.getStatCoeff("strength"))/1.5)))
 				U.collapse_check()
 				if (istype(src, /turf/floor/dirt/underground/empty))
 					var/turf/floor/dirt/underground/empty/T = src
