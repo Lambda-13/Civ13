@@ -549,6 +549,20 @@
 	item_state = "beret_rus_spez"
 	body_parts_covered = HEAD
 
+/obj/item/clothing/head/beret_blugoslavia
+	name = "Blugoslavian beret"
+	desc = "A beret worn by Blugoslavian Officers."
+	icon_state = "beret_rus_vdv"
+	item_state = "beret_rus_vdv"
+	body_parts_covered = HEAD
+
+/obj/item/clothing/head/beret_redmenia
+	name = "Redmenian beret"
+	desc = "A beret worn by Redmenian Officers."
+	icon_state = "beret_rus_spez"
+	item_state = "beret_rus_spez"
+	body_parts_covered = HEAD
+
 /* Vietcong Clothes*/
 
 /obj/item/clothing/under/localnlf1
@@ -903,6 +917,36 @@
 		..()
 		hold.can_hold = list(/obj/item/weapon/material/kitchen/utensil,/obj/item/weapon/key,/obj/item/ammo_casing, /obj/item/ammo_magazine, /obj/item/weapon/grenade,/obj/item/weapon/attachment,/obj/item/weapon/gun/projectile/pistol,/obj/item/weapon/gun/projectile/revolver,/obj/item/weapon/handcuffs,/obj/item/weapon/reagent_containers/food/drinks/bottle/canteen,/obj/item/stack/medical/bruise_pack)
 
+/obj/item/clothing/accessory/storage/webbing/green_webbing/blue
+	New()
+		..()
+		new/obj/item/ammo_magazine/sksm(hold)
+		new/obj/item/ammo_magazine/sksm(hold)
+		new/obj/item/ammo_magazine/sksm(hold)
+
+/obj/item/clothing/accessory/storage/webbing/green_webbing/blue/ak
+	New()
+		..()
+		new/obj/item/ammo_magazine/ak47(hold)
+		new/obj/item/ammo_magazine/ak47(hold)
+		new/obj/item/ammo_magazine/ak47(hold)
+
+/obj/item/clothing/accessory/storage/webbing/green_webbing/red
+	name = "khaki chest webbing"
+	desc = "A khaki chest-level webbing, with three medium sized pouches."
+	icon_state = "khaki_webbing"
+	item_state = "khaki_webbing"
+	New()
+		..()
+		new/obj/item/ammo_magazine/ak47(hold)
+		new/obj/item/ammo_magazine/ak47(hold)
+		new/obj/item/ammo_magazine/ak47(hold)
+/obj/item/clothing/accessory/storage/webbing/green_webbing/sniper
+	New()
+		..()
+		new/obj/item/ammo_magazine/mosin(hold)
+		new/obj/item/ammo_magazine/mosin(hold)
+		new/obj/item/ammo_magazine/mosin(hold)
 /obj/item/clothing/accessory/storage/webbing/khaki_webbing
 	name = "khaki chest webbing"
 	desc = "A khaki chest-level webbing, with three medium sized pouches."
