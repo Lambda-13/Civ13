@@ -80,3 +80,7 @@
 		else
 			return !faction1_can_cross_blocks()
 	return FALSE
+
+/obj/map_metadata/factory/aw
+	ID = MAP_FACTORY_AW
+	title = "Factory AW"

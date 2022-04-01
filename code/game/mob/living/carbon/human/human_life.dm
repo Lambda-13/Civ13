@@ -1482,7 +1482,7 @@
 						holder2.icon_state = "ru_basic"
 					else if (map.ordinal_age >= 6)
 						holder2.icon_state = "sov_basic"
-					if (map.ID == MAP_YELTSIN || map.ID == MAP_GROZNY || map.ID == MAP_FACTORY)
+					if (map.ID == MAP_YELTSIN || map.ID == MAP_GROZNY || map.ID == MAP_FACTORY || map.ID == MAP_FACTORY_AW)
 						holder2.icon_state = "ru_basic"
 				if (GERMAN)
 					if (map.ordinal_age <= 1)
@@ -1515,7 +1515,7 @@
 						holder2.icon_state = "upa_basic"
 					else if (map.ID == MAP_WHITERUN)
 						holder2.icon_state = "stormcloak"
-					else if (map.ID == MAP_FACTORY)
+					else if (map.ID == MAP_FACTORY || map.ID == MAP_FACTORY_AW)
 						holder2.icon_state = "ukr_basic"
 					else if (map.ID == MAP_GULAG13)
 						if(nationality == "Polish")
