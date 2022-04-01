@@ -84,3 +84,27 @@
 /obj/map_metadata/factory/aw
 	ID = MAP_FACTORY_AW
 	title = "Factory AW"
+	lobby_icon_state = "ukrainewar"
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/jungle,/area/caribbean/no_mans_land/invisible_wall,/area/caribbean/no_mans_land/invisible_wall/one,/area/caribbean/no_mans_land/invisible_wall/two,/area/caribbean/no_mans_land/invisible_wall/inside)
+	respawn_delay = 300
+
+
+	faction_organization = list(
+		CIVILIAN,
+		RUSSIAN)
+
+	roundend_condition_sides = list(
+		list(CIVILIAN) = /area/caribbean/japanese/land/inside/command,
+		list(RUSSIAN) = /area/caribbean/russian/land/inside/command
+		)
+	age = "2021"
+	ordinal_age = 8
+	faction_distribution_coeffs = list(CIVILIAN = 0.5, RUSSIAN = 0.5)
+	battle_name = "battle for the factory"
+	mission_start_message = "<font size=4>The <b>Ukrainian Ground Forces</b> must defend their front line and base from the Russian Advance. The <b>Russian Federal Forces</b> must defend their base.<br>All factions have <b>5 minutes</b> to prepare before the combat starts.</font>"
+	faction1 = CIVILIAN
+	faction2 = RUSSIAN
+	valid_weather_types = list(WEATHER_WET, WEATHER_NONE, WEATHER_EXTREME)
+	songs = list(
+		"Vopli Vidopliassova - Vesna:1" = 'sound/music/vesna.ogg',) //change this eventually to a more war march sounding song and not just a ukrainian rock band
+	artillery_count = 0
