@@ -167,7 +167,7 @@
 		var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
 		for (var/mob/M in player_list)
 			M.client << warning_sound
-		world << "<font size=3 color='red'><center><b>ALARM</b><br>The alarm is still on!</center></font>"
+		world << "<font size=3 color='red'><center><b>ВНИМАНИЕ</b><br>Тревога еще работает!</center></font>"
 
 		spawn(285)
 			if (siren)
