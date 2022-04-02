@@ -31,6 +31,7 @@ var/datum/nanomanager/nanomanager		= new() // NanoManager, the manager for Nano 
 
 var/season = "SPRING"
 var/game_hour = 0
+var/season_ru = "ВЕСНА"
 
 var/list/chicken_count = list()
 var/list/turkey_count = list()
@@ -45,6 +46,8 @@ var/list/bear_count = list()
 var/list/boar_count = list()
 /proc/get_season()
 	return capitalize(lowertext(season))
+/proc/get_season_ru()
+	return capitalize(lowertext(season_ru))
 
 // For FTP requests. (i.e. downloading runtime logs.)
 // However it'd be ok to use for accessing attack logs and such too, which are even laggier.

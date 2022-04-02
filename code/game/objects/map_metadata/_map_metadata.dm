@@ -955,7 +955,8 @@ var/civmax_research = list(230,230,230)
 	if (force || config.seasons_on)
 		if (season == "FALL")
 			season = "WINTER"
-			world << "<big>The <b>Winter</b> has started. In the hot climates, the wet season has started.</big>"
+			season_ru = "ЗИМА"
+			world << "<big><b>Зима</b> наступает.</big>"
 			change_weather_somehow()
 			spawn(1200)
 				for (var/obj/structure/wild/tree/live_tree/TREES in world)
@@ -1011,7 +1012,8 @@ var/civmax_research = list(230,230,230)
 
 		else if (season == "SPRING")
 			season = "SUMMER"
-			world << "<big>The <b>Summer</b> has started. In the hot climates, the dry season has started.</big>"
+			season_ru = "ЛЕТО"
+			world << "<big><b>Лето</b> наступает.</big>"
 			change_weather_somehow()
 			spawn(300)
 				for (var/obj/structure/wild/tree/live_tree/TREES in world)
@@ -1041,7 +1043,8 @@ var/civmax_research = list(230,230,230)
 				WT.ChangeTurf(/turf/floor/dirt)
 		else if (season == "WINTER")
 			season = "SPRING"
-			world << "<big>The weather is getting warmer. It is now <b>Spring</b>. In the hot climates, the wet season continues.</big>"
+			season_ru = "ВЕСНА"
+			world << "<big><b>Весна</b> наступает. Становится дождливо.</big>"
 			spawn(900)
 				for (var/obj/structure/wild/tree/live_tree/TREES in world)
 					TREES.change_season()
@@ -1096,7 +1099,8 @@ var/civmax_research = list(230,230,230)
 						qdel(SW3)
 		else if (season == "SUMMER")
 			season = "FALL"
-			world << "<big>The leaves start to fall and the weather gets colder. It is now <b>Fall</b>. In the hot climates, the dry season continues.</big>"
+			season_ru = "ОСЕНЬ"
+			world << "<big><b>Осень</b> наступает.</big>"
 			spawn(900)
 				for (var/obj/structure/wild/tree/live_tree/TREES in world)
 					TREES.change_season()

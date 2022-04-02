@@ -58,4 +58,5 @@
 
 	if (announce)
 		for (var/M in player_list)
-			M << "<font size=3><span class = 'notice'>It's <b>[lowertext(capitalize(time_of_day))]</b>.</span></font>"
+			spawn(100)
+			M << "<font size=3><span class = 'notice'>Наступает <b>[lowertext(capitalize(time_of_day_ru))]</b>.</span></font>"

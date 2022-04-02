@@ -735,7 +735,7 @@
 				stat("Карта:", map.title)
 				stat("Режим:", gmd)
 				stat("Год:", map.age)
-				stat("Сезон:", get_season())
+				stat("Сезон:", get_season_ru())
 				stat("Ветер:", map.winddesc)
 //				stat("Weather:", get_weather())
 				stat("Дневное время:", time_of_day)

@@ -16,14 +16,16 @@ var/GRACE_PERIOD_LENGTH = 7
 				sleep(1)
 			if (map && map.ID == MAP_FOOTBALL)
 				time_of_day = "Midday"
+				times_of_day_ru = "утро"
 			if (map && map.ID == MAP_CAMPAIGN)
 				time_of_day = "Night"
+				times_of_day_ru = "ночь"
 			update_lighting(time_of_day, null, FALSE)
 			if (!map || !map.meme)
 				spawn (0)
 					while (!processes.time_of_day_change || !processes.time_of_day_change.setup_lighting)
 						sleep(1)
-					world << "<br><font size=3><span class = 'notice'>It's <b>[lowertext(processes.time_of_day_change.changeto)]</b>, and the season is <b>[get_season()]</b>.</span></font>"
+					world << "<br><font size=3><span class = 'notice'>Наступает <b>[lowertext(processes.time_of_day_change.changeto)]</b>, время года сейчас <b>[get_season_ru()]</b>.</span></font>"
 
 	// spawn mice so pirates have something to eat after they start starving
 
