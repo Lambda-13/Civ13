@@ -131,6 +131,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 			text += "<b>Результат: <span class = 'ping'>Нет</span> - Недостаточно голосов за YES (59% необходимо)</b>"
 		log_vote(text)
 		world << "<font color='purple'>[text]</font>"
+		world << sound('sound/tf2/vote_success.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
 		return .
 
 	proc/result()
@@ -174,6 +175,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 				choices[choices[vote]]++	//check this
 				current_votes[ckey] = vote
 				return vote
+//		тут
 		return FALSE
 
 	proc/initiate_vote(var/vote_type, var/initiator_key, var/automatic = FALSE, var/list/_callback = list())
@@ -248,7 +250,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 			log_vote(text)
 			world << "<span class = 'deadsay'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src]'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</span>"
 
-			world << sound('sound/ambience/alarm4.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
+			world << sound('sound/tf2/Vote_started.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
 			if (mode == "gamemode" && round_progressing)
 				round_progressing = FALSE
 				world << "<font color='red'><b>Round start has been delayed.</b></font>"
@@ -321,6 +323,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 				message_admins("<span class = 'notice'>[key_name_admin(usr)] отменяет воут.</span>", TRUE)
 				if (usr.client.holder)
 					reset()
+				world << sound('sound/tf2/Vote_failure.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
 			if ("toggle_restart")
 				if (usr.client.holder)
 					config.allow_vote_restart = !config.allow_vote_restart
