@@ -144,7 +144,7 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 			if(H.stat!=DEAD && H.original_job && istype(H.original_job, /datum/job/civilian/prisoner) && !donecheck)
 				var/area/A = get_area(H)
 				if (istype(A, /area/caribbean/nomads/ice/target))
-					world << "<br><font size = 3><span class = 'warning'>There are prisoners currently escaping!</span></font>"
+					world << "<br><font size = 3><span class = 'warning'>Заключенные сбежали!</span></font>"
 					donecheck = TRUE
 
 	spawn(2400)
@@ -194,31 +194,31 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 				owner = H
 				name = "[document_name] prisoner documents"
 				desc = "The identification papers of <b>[document_name]</b>."
-				var/crimereason = "Criminal Behaviour"
+				var/crimereason = "Криминальное Отродье"
 				if (istype(H.original_job, /datum/job/civilian/prisoner))
 					var/datum/job/civilian/prisoner/P = H.original_job
 					switch(H.nationality)
 						if ("Vory")
-							crimereason = pick("Attempted murder.","Damage to people's property.","Theft of communal goods.")
+							crimereason = pick("Попытка убийства.","Порча имущества.","Украл хлеб из ларька.")
 						if ("German")
-							crimereason = "Fought for the Fascist invaders during the Great Patriotic War."
+							crimereason = "Воевал на стороне фашистских захватчиков в годы Великой Отечественной войны."
 						if ("Ukrainian")
-							crimereason = "Supporting the Banderovitsi in [pick("Lvov","Tarnopol", "Lutsk", "Chelm")]."
+							crimereason = "Воевал с Бандеровцами под [pick("Львовом","Терноплем", "Лутском", "Челмы")]."
 						if ("Polish")
-							crimereason = "Fighting for the Armia Krajowa in [pick("Grodno","Wroclaw", "Lodz", "Lvov")]."
+							crimereason = "Воевал с Войском Крайова под [pick("Гродно","Вроклавом", "Лодзом", "Львовом")]."
 						if ("Japanese")
-							crimereason = "Fighting for the Imperial Japanese Army in [pick("Khalkhyn Gol", "Mongolia", "the Krillin Islands", "Sakhalinsk")]."
+							crimereason = "Воевал с Имперской Армией Японии под [pick("Халхин-Голом", "одним из Монгольских городов", "одним из островов Крилии", "Сахалинском")]."
 
 					document_details = list(H.h_style, P.original_hair, H.f_style, P.original_facial, crimereason, H.gender, rand(6,32),P.original_eyes, P.randrole)
 				else if (istype(H.original_job, /datum/job/civilian/abashiri/prisoner/wing1) || istype(H.original_job, /datum/job/civilian/abashiri/prisoner/wing2) || istype(H.original_job, /datum/job/civilian/abashiri/prisoner/wing2) || istype(H.original_job, /datum/job/civilian/abashiri/prisoner/wing3) || istype(H.original_job, /datum/job/civilian/abashiri/prisoner/wing3_danger))
 					var/datum/job/civilian/abashiri/prisoner/P = H.original_job
 					switch(H.nationality)
 						if ("Japanese")
-							crimereason = pick("Attempted murder.","Damage to people's property.","Theft of private property.","Crimes against the Imperial Japanese Empire")
+							crimereason = pick("Покушение.","Порча имущества.","Вор.","Дизертир.")
 						if ("Russian")
-							crimereason = pick("Fought for the Imperial Russian Army in the Russo-Japanese War.", "Tresspassing into Japan", "Spreading Anti-Imperialist Propaganda")
+							crimereason = pick("Воевал за Русских во время Японской войны.", "Незаконно попал на территорию Японии.", "Распространение антиимпериалистической пропаганды.")
 						if ("Ainu")
-							crimereason = pick("Insubordination in the Imperial Japanese Army during the [pick("Russo-Japanese War", "Sino-Japanese War")].", "Murder", "Resisting Assimilation to Japanese Society")
+							crimereason = pick("Неповиновение в Японской Императорской Армии во время [pick("Русско-Японской Войны", "Китайско-Японской Войны")].", "Убийца", "Сопротивление Ассимиляции в Японском Обществе".)
 					document_details = list(H.h_style, P.original_hair, H.f_style, P.original_facial, crimereason, H.gender, rand(6,32),P.original_eyes, P.randrole)
 /obj/item/weapon/prisoner_passport/examine(mob/user)
 	user << "<span class='info'>*---------*</span>"
@@ -245,8 +245,8 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 		if (confirm == "No")
 			return
 		else
-			var/texttoadd = input(H, "What do you want to write? Up to 150 characters", "Notes", "") as text
-			texttoadd = sanitize(texttoadd, 150, FALSE)
+			var/texttoadd = input(H, "What do you want to write? Up to 1500 characters", "Notes", "") as text
+			texttoadd = sanitize(texttoadd, 1500, FALSE)
 			texttoadd = "<i>[texttoadd] - <b>[H.real_name]</b></i>"
 			guardnotes += texttoadd
 			return
@@ -300,7 +300,7 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 	if (istype(map, /obj/map_metadata/gulag13))
 		var/obj/map_metadata/gulag13/G13 = map
 		if (G13.siren)
-			world << "<font size=3 color='green'><center><b>ALARM LIFTED</b><br>The siren has been stopped, prisoners can get back up.</center></font>"
+			world << "<font size=3 color='green'><center><b>ВНИМАНИЕ</b><br>Тревога отключена, всем заключеным вернуться на свои места.</center></font>"
 			var/warning_sound = sound(null, channel = 777)
 			for (var/mob/M in player_list)
 				M.client << warning_sound
@@ -308,7 +308,7 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 	if (istype(map, /obj/map_metadata/abashiri))
 		var/obj/map_metadata/abashiri/ABA = map
 		if (ABA.siren)
-			world << "<font size=3 color='green'><center><b>ALARM LIFTED</b><br>The siren has been stopped, prisoners can get back up.</center></font>"
+			world << "<font size=3 color='green'><center><b>ВНИМАНИЕ</b><br>Тревога отключена, всем заключеным вернуться на свои места.</center></font>"
 			var/warning_sound = sound(null, channel = 777)
 			for (var/mob/M in player_list)
 				M.client << warning_sound
@@ -319,7 +319,7 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 		var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
 		for (var/mob/M in player_list)
 			M.client << warning_sound
-		world << "<font size=3 color='red'><center><b>ALARM</b><br>The alarm is still on!</center></font>"
+		world << "<font size=3 color='red'><center><b>ВНИМАНИЕ</b><br>Тревога еще поднята!</center></font>"
 
 		spawn(285)
 			if (siren)
