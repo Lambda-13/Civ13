@@ -169,13 +169,13 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 	proc/submit_vote(var/ckey, var/vote)
 		if (mode)
 			if (vote && vote >= 1 && vote <= choices.len)
+				usr.client << sound("sound/tf2/Vote_[rand(1, 2)].ogg", repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
 				if (current_votes[ckey])
 					choices[choices[current_votes[ckey]]]--
 				voted += usr.ckey
 				choices[choices[vote]]++	//check this
 				current_votes[ckey] = vote
 				return vote
-//		тут
 		return FALSE
 
 	proc/initiate_vote(var/vote_type, var/initiator_key, var/automatic = FALSE, var/list/_callback = list())
