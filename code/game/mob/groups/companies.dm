@@ -11,7 +11,7 @@
 		U = src
 	else
 		return
-	if (map.civilizations == TRUE || map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.ID == MAP_NATIONSRP || map.ID == MAP_FOUR_KINGDOMS || map.ID == MAP_BOHEMIA || map.ID == COLONY_RU)
+	if (map.civilizations == TRUE || map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.ID == MAP_NATIONSRP || map.ID == MAP_FOUR_KINGDOMS || map.ID == MAP_BOHEMIA || map.ID == MAP_COLONY_RU)
 		var/choosename = input(U, "Имя компании:") as text|null
 		create_company_pr(choosename)
 		return
