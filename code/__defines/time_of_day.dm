@@ -3,7 +3,6 @@
 //#define ALWAYS_DAY
 var/time_of_day = "Morning"
 var/list/times_of_day = list("Early Morning", "Morning", "Midday", "Afternoon", "Evening", "Night")
-var/time_of_day = "День"
 var/times_of_day_ru = "ДЕНЬ"
 // from lightest to darkest: midday, afternoon, morning, early morning, evening, night
 var/list/time_of_day2luminosity = list(
