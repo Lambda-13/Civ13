@@ -218,7 +218,7 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 						if ("Russian")
 							crimereason = pick("Воевал за Русских во время Японской войны.", "Незаконно попал на территорию Японии.", "Распространение антиимпериалистической пропаганды.")
 						if ("Ainu")
-							crimereason = pick("Неповиновение в Японской Императорской Армии во время [pick("Русско-Японской Войны", "Китайско-Японской Войны")].", "Убийца", "Сопротивление Ассимиляции в Японском Обществе".)
+							crimereason = pick("Неповиновение в Японской Императорской Армии во время [pick("Русско-Японской Войны", "Китайско-Японской Войны")].", "Убийца.", "Сопротивление Ассимиляции в Японском Обществе.")
 					document_details = list(H.h_style, P.original_hair, H.f_style, P.original_facial, crimereason, H.gender, rand(6,32),P.original_eyes, P.randrole)
 /obj/item/weapon/prisoner_passport/examine(mob/user)
 	user << "<span class='info'>*---------*</span>"
@@ -267,7 +267,7 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 	if (istype(map, /obj/map_metadata/gulag13))
 		var/obj/map_metadata/gulag13/G13 = map
 		if (!G13.siren)
-			world << "<font size=3 color='red'><center><b>ALARM</b><br>The siren has been activated, all prisoners must stop what they are doing and lay on the floor until the alarm is lifted!</center></font>"
+			world << "<font size=3 color='red'><center><b>ВНИМАНИЕ</b><br>Тревога поднята, всем заключенным вернуться в свои корпуса!</center></font>"
 			var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
 			for (var/mob/M in player_list)
 				M.client << warning_sound
@@ -279,7 +279,7 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 	if (istype(map, /obj/map_metadata/abashiri))
 		var/obj/map_metadata/abashiri/ABA = map
 		if (!ABA.siren)
-			world << "<font size=3 color='red'><center><b>ALARM</b><br>The siren has been activated, all prisoners must stop what they are doing and lay on the floor until the alarm is lifted!</center></font>"
+			world << "<font size=3 color='red'><center><b>ВНИМАНИЕ</b><br>Сирена была включена, всем заключеным вернуться на свои спальные места!</center></font>"
 			var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
 			for (var/mob/M in player_list)
 				M.client << warning_sound
