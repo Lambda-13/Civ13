@@ -268,7 +268,7 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 		var/obj/map_metadata/gulag13/G13 = map
 		if (!G13.siren)
 			world << "<font size=3 color='red'><center><b>ВНИМАНИЕ</b><br>Тревога поднята, всем заключенным вернуться в свои корпуса!</center></font>"
-			var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+			var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, volume = 50, channel = 777)
 			for (var/mob/M in player_list)
 				M.client << warning_sound
 			G13.siren = TRUE
@@ -280,7 +280,7 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 		var/obj/map_metadata/abashiri/ABA = map
 		if (!ABA.siren)
 			world << "<font size=3 color='red'><center><b>ВНИМАНИЕ</b><br>Сирена была включена, всем заключеным вернуться на свои спальные места!</center></font>"
-			var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+			var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, volume = 50, channel = 777)
 			for (var/mob/M in player_list)
 				M.client << warning_sound
 			ABA.siren = TRUE
@@ -316,7 +316,7 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 
 /obj/map_metadata/gulag13/proc/alarm_proc()
 	if (siren)
-		var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+		var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, volume = 50, channel = 777)
 		for (var/mob/M in player_list)
 			M.client << warning_sound
 		world << "<font size=3 color='red'><center><b>ВНИМАНИЕ</b><br>Тревога еще поднята!</center></font>"
