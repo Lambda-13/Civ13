@@ -159,6 +159,39 @@
 		new /obj/effect/decal/cleanable/poo(T)
 	..()
 
+/obj/item/projectile/bullet/pellet/a50cal
+	damage = DAMAGE_OH_GOD + 95
+	penetrating = 10
+	armor_penetration = 5
+
+/obj/item/projectile/bullet/pellet/a50cal_ap
+	damage = DAMAGE_MEDIUM + 5
+	penetrating = 100
+	armor_penetration = 80
+
+/obj/item/projectile/bullet/pellet/a50cal_he
+	damage = DAMAGE_LOW + 20
+	penetrating = 12
+	armor_penetration = 15
+	atype = "HE"
+
+/obj/item/projectile/bullet/pellet/a50cal_he/on_impact(var/atom/A) 	//Dont ask how, it works
+	impact_effect(effect_transform)
+	playsound(src, "ric_sound", 50, TRUE, -2)
+	if (istype(A, /turf))
+		var/turf/T = A
+		if (atype == "HE")
+			if (!istype(T, /turf/floor/beach) && !istype(T, /turf/floor/broken_floor))
+				T.ChangeTurf(/turf/floor/dirt/burned)
+			explosion(T, 1, 0, 2, 1)
+		else
+			if (!istype(T, /turf/floor/beach) && !istype(T, /turf/floor/broken_floor))
+				T.ChangeTurf(/turf/floor/dirt/burned)
+			explosion(T, 1, 0, 1, 1)
+	spawn(50)
+		if (src)
+			qdel(src)
+	return TRUE
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"

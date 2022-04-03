@@ -268,7 +268,7 @@
 	name = "AM grenade"
 	desc = "An American grenade used .50 caliber."
 	icon_state = "m26"
-	fragment_type = /obj/item/projectile/bullet/rifle/a50cal
+	fragment_type = /obj/item/projectile/bullet/pellet/a50cal
 	det_time = 50
 	throw_range = 9
 	num_fragments = 30
@@ -279,14 +279,14 @@
 	desc = "An American grenade used .50 armory penetration caliber."
 	icon_state = "mk2"
 	num_fragments = 30
-	fragment_type = /obj/item/projectile/bullet/rifle/a50cal_ap
+	fragment_type = /obj/item/projectile/bullet/pellet/a50cal_ap
 
 /obj/item/weapon/grenade/coldwar/a50cal/he
 	name = "AM \"Explosive\" grenade"
 	desc = "An American grenade used .50 explosive caliber."
 	icon_state = "m67"
 	num_fragments = 30
-	fragment_type = /obj/item/projectile/bullet/rifle/a50cal_he
+	fragment_type = /obj/item/projectile/bullet/pellet/a50cal_he
 
 /obj/item/weapon/grenade/modern/mills
 	name = "mills bomb no. 5"
