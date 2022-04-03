@@ -312,7 +312,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if (config.allow_admin_rev)
 		M.revive()
 		log_admin("[key_name(usr)] healed / revived [key_name(M)]")
-		world << "<span class = 'red'>Admin [key_name_admin(usr)] лечит педально [key_name_admin(M)]!</span>"
+		message_admins("<span class = 'red'>Admin [key_name_admin(usr)] healed / revived [key_name_admin(M)]!</span>", TRUE)
 	else
 		WWalert(src, "Admin rejuvenation is disabled.", "Admin Rejuvenation")
 
