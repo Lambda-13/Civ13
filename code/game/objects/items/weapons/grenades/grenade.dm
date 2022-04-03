@@ -264,6 +264,27 @@
 	throw_range = 7
 	explosion_sound = 'sound/weapons/Explosives/FTGrenade.ogg'
 
+/obj/item/weapon/grenade/coldwar/a50cal
+	name = "AM grenade"
+	desc = "An American grenade used .50 caliber."
+	icon_state = "m26"
+	fragment_type = /obj/item/ammo_casing/a50cal
+	det_time = 50
+	throw_range = 9
+	explosion_sound = 'sound/weapons/Explosives/FragGrenade.ogg'
+
+/obj/item/weapon/grenade/coldwar/a50cal/ap
+	name = "AM \"Penetrate\" grenade"
+	desc = "An American grenade used .50 armory penetration caliber."
+	icon_state = "mk2"
+	fragment_type = /obj/item/ammo_casing/a50cal_ap
+
+/obj/item/weapon/grenade/coldwar/a50cal/he
+	name = "AM \"Explosive\" grenade"
+	desc = "An American grenade used .50 explosive caliber."
+	icon_state = "m67"
+	fragment_type = /obj/item/ammo_casing/a50cal_he
+
 /obj/item/weapon/grenade/modern/mills
 	name = "mills bomb no. 5"
 	desc = "A British early XXth century grenade."
