@@ -1035,6 +1035,6 @@
 #include "code\processes\lighting\sources.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "maps\WIP\bootcamp_redblue.dmm"
+#include "maps\1713\colony.dmm"
 // END_INCLUDE
 
