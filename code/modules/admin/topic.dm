@@ -411,7 +411,7 @@
 
 		if (config.allow_admin_rev)
 			L.revive()
-			message_admins("<span class = 'red'>Admin [key_name_admin(usr)] healed / revived [key_name_admin(L)]!</span>", TRUE)
+			world << "<span class = 'red'>Admin [key_name_admin(usr)] лечит педально [key_name_admin(L)]!</span>"
 			log_admin("[key_name(usr)] healed / revived [key_name(L)]")
 		else
 			usr << "Admin Rejuvinates have been disabled"
