@@ -243,6 +243,8 @@ var/civmax_research = list(230,230,230)
 	var/ar_to_close_timeleft = 0
 
 	var/no_hardcore = FALSE
+
+	var/csssfx = FALSE //Звуки из кастомных серверов контр страйк соурс
 /obj/map_metadata/New()
 	..()
 	map = src
