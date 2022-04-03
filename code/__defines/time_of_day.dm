@@ -3,7 +3,6 @@
 //#define ALWAYS_DAY
 var/time_of_day = "Morning"
 var/list/times_of_day = list("Early Morning", "Morning", "Midday", "Afternoon", "Evening", "Night")
-var/times_of_day_ru = "ДЕНЬ"
 // from lightest to darkest: midday, afternoon, morning, early morning, evening, night
 var/list/time_of_day2luminosity = list(
 	"Early Morning" = BASIC_LIGHT_AMOUNT * 10,
@@ -84,14 +83,11 @@ var/list/time_of_day2ticks = list(
 		if ("Early Morning") //03-07
 			hr+=3
 			ampm = "AM"
-			times_of_day_ru = "восход"
 		if ("Morning") //07-11
 			hr+=7
 			ampm = "AM"
-			times_of_day_ru = "утро"
 		if ("Midday") //11-15
 			hr+=11
-			times_of_day_ru = "день"
 			if (hr<12)
 				ampm = "AM"
 			else
@@ -101,14 +97,11 @@ var/list/time_of_day2ticks = list(
 		if ("Afternoon") //15-19
 			ampm = "PM"
 			hr+=3
-			times_of_day_ru = "полдник"
 		if ("Evening") //19-23
 			hr+=7
 			ampm = "PM"
-			times_of_day_ru = "вечер"
 		if ("Night") //23-03
 			hr+=11
-			times_of_day_ru = "ночь"
 			if (hr<12)
 				ampm = "PM"
 			else

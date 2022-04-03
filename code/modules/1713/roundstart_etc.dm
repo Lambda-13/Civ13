@@ -16,10 +16,8 @@ var/GRACE_PERIOD_LENGTH = 7
 				sleep(1)
 			if (map && map.ID == MAP_FOOTBALL)
 				time_of_day = "Midday"
-				times_of_day_ru = "утро"
 			if (map && map.ID == MAP_CAMPAIGN)
 				time_of_day = "Night"
-				times_of_day_ru = "ночь"
 			update_lighting(time_of_day, null, FALSE)
 			if (!map || !map.meme)
 				spawn (0)
