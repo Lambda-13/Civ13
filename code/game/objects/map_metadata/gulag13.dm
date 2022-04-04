@@ -203,9 +203,9 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 						if ("German")
 							crimereason = "Воевал на стороне фашистских захватчиков в годы Великой Отечественной войны."
 						if ("Ukrainian")
-							crimereason = "Воевал с Бандеровцами под [pick("Львовом","Терноплем", "Лутском", "Челмы")]."
+							crimereason = "Помогал Бандеровцаи под [pick("Львовом","Терноплем", "Лутском", "Челмы")]."
 						if ("Polish")
-							crimereason = "Воевал с Войском Крайова под [pick("Гродно","Вроклавом", "Лодзом", "Львовом")]."
+							crimereason = "Помогал Войску Крайова под [pick("Гродно","Вроклавом", "Лодзом", "Львовом")]."
 						if ("Japanese")
 							crimereason = "Воевал с Имперской Армией Японии под [pick("Халхин-Голом", "одним из Монгольских городов", "одним из островов Крилии", "Сахалинском")]."
 
@@ -214,7 +214,7 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 					var/datum/job/civilian/abashiri/prisoner/P = H.original_job
 					switch(H.nationality)
 						if ("Japanese")
-							crimereason = pick("Покушение.","Порча имущества.","Вор.","Дизертир.")
+							crimereason = pick("Покушение.","Порча имущества.","Вор.","Не исполнение приказов.")
 						if ("Russian")
 							crimereason = pick("Воевал за Русских во время Японской войны.", "Незаконно попал на территорию Японии.", "Распространение антиимпериалистической пропаганды.")
 						if ("Ainu")
