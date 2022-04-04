@@ -1347,34 +1347,34 @@
 		return
 
 	if (shock_stage == 10)
-		src << "<span class='danger'>[pick("It hurts so much", "You really need some painkillers", "Dear god, the pain")]!</span>"
+		src << "<span class='danger'>[pick("Бля как больно", "Надо бы обезболивающего", "Боже ну и боль!")]!</span>"
 
 	if (shock_stage >= 55)
-		if (shock_stage == 30) emote("me",1,"is having trouble keeping their eyes open.")
+		if (shock_stage == 30) emote("me",1,"падает в обморок!")
 		eye_blurry = max(2, eye_blurry)
 		stuttering = max(stuttering, 5)
 
 	if (shock_stage == 50)
-		src << "<span class='danger'>[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!</span>"
+		src << "<span class='danger'>[pick("Неприятная боль", "Боже останови эту боль", "Я чувствую что со мной что-то не так")]!</span>"
 
 	if (shock_stage >= 70)
-		if (shock_stage == 90) emote("me",1,"'s body becomes limp.")
+		if (shock_stage == 90) emote("me",1,"'s выглядит вялым")
 		if (prob(2))
-			src << "<span class='danger'>[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!</span>"
+			src << "<span class='danger'>[pick("Чертовски больно", "Больно пиздец", "Мне херово")]!</span>"
 			Weaken(20)
 
 	if (shock_stage >= 80)
 		if (prob(5))
-			src << "<span class='danger'>[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!</span>"
+			src << "<span class='danger'>[pick("Бля-я-я-я", "Очень больно", "Мне адски плохо")]!</span>"
 			Weaken(20)
 
 	if (shock_stage >= 120)
 		if (prob(2))
-			src << "<span class='danger'>[pick("You black out", "You feel like you could die any moment now", "You're about to lose consciousness")]!</span>"
+			src << "<span class='danger'>[pick("Темнеет", "Я могу умереть в любой момент!", "Теряю контроль")]!</span>"
 			Paralyse(5)
 
 	if (shock_stage == 150)
-		emote("me",1,"can no longer stand, collapsing!")
+		emote("me",1,"падает!")
 		Weaken(20)
 
 	if (shock_stage >= 150)
