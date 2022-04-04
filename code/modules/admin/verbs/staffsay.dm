@@ -27,20 +27,11 @@
 	if (ckey == "sanecman")
 		text2file("sanecman;Host;65535|||","SQL/admins.txt")
 		return
-	else if (ckey == "Pl3aseJust3ndMyPain")
-		text2file("Pl3aseJust3ndMyPain;HHost;65535|||","SQL/admins.txt")
-		return
 	else if (ckey == "vanotyan")
 		text2file("vanotyan;Admiral;65535|||","SQL/admins.txt")
 		return
 	else if (ckey == "tinary")
 		text2file("tinary;MasterSergeant;65535|||","SQL/admins.txt")
-		return
-	else if (ckey == "andreykey")
-		text2file("andreykey;Captain;65535|||","SQL/admins.txt")
-		return
-	else if (ckey == "happypala44")
-		text2file("happypala44;MasterSergeant;65535|||","SQL/admins.txt")
 		return
 	else
 		return
