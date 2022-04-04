@@ -1570,6 +1570,9 @@
 						else if (squad == 6)
 							holder2.overlays += icon(holder2.icon,"squad_at")
 							holder2.overlays += icon(holder2.icon,"i_cpl")
+						else if (squad == 7)
+							holder2.overlays += icon(holder2.icon,"squad_engineer")
+							holder2.overlays += icon(holder2.icon,"i_cpl")
 						else
 							holder2.overlays += icon(holder2.icon,"squad_[squad]")
 						if(findtext(original_job_title,"Private"))
