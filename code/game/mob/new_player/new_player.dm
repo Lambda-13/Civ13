@@ -47,6 +47,15 @@ var/global/redirect_all_players = null
 			var/htmlfile = "<!DOCTYPE html><HTML><HEAD><TITLE>Wiki Guide</TITLE><META http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"></HEAD> \
 			<BODY><iframe src=\"https://civ13.github.io/civ13-wiki/Gulag_13\"  style=\"position: absolute; height: 97%; width: 97%; border: none\"></iframe></BODY></HTML>"
 			src << browse(htmlfile,"window=wiki;size=820x650")
+	spawn(30)
+		if (!isemptylist(approved_list) && config.useapprovedlist)
+			var/found = FALSE
+			for (var/i in approved_list)
+				if (i == client.ckey)
+					found = TRUE
+			if (!found)
+				src << link("https://img.ifunny.co/images/ec0645549b1216a05ae1d1418ac281729612615ecacbbe6c5242ba178ec029f9_1.webp")
+				del src
 
 /mob/new_player/Destroy()
 	new_player_mob_list -= src

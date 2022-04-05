@@ -297,7 +297,7 @@ var/world_topic_spam_protect_time = world.timeofday
 	. += "<b>Игроков</b>: [clients.len]" // turns out the bot only considers itself a player sometimes? its weird. Maybe it was fixed, not sure - Kachnov
 	if (config.useapprovedlist)
 		. += ";"
-		. += "<b>Approved only</b>: Enabled"
+		. += "<b>Пидорасам вход запрещен</b>"
 	. += ";"
 	. += "realtime=[num2text(world.realtime, 20)]"
 /proc/start_serverdata_loop()
