@@ -65,13 +65,13 @@
 		killer = "both factions"
 	if (killer != "none")
 		var/msg = "Civilian killed by [killer] at ([src.x],[src.y],[src.z])!"
-		var/obj/map_metadata/campaign/CM = map
-		if (CM)
-			switch(killer)
-				if("Blugoslavia")
-					CM.civilians_killed["Blugoslavia"]++
-				if("Redmenia")
-					CM.civilians_killed["Redmenia"]++
+//		var/obj/map_metadata/campaign/CM = map
+//		if (CM)
+//			switch(killer)
+//				if("Blugoslavia")
+//					CM.civilians_killed["Blugoslavia"]++
+//				if("Redmenia")
+//					CM.civilians_killed["Redmenia"]++
 		harmer_factions = list("Redmenia" = 0, "Blugoslavia" = 0)
 		world.log << "CIVDEATH: [msg]"
 		message_admins(msg)
