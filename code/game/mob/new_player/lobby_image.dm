@@ -8,6 +8,8 @@
 	screen_loc = "WEST,SOUTH"
 	var/list/stored_img = list()
 /obj/effect/lobby_image/initialize()
+	if (map && map.lobby_icon)
+		icon = map.lobby_icon
 	if (map && map.lobby_icon_state)
 		icon_state = map.lobby_icon_state
 	else
