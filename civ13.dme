@@ -516,6 +516,7 @@
 #include "code\game\objects\map_metadata\wake_island.dm"
 #include "code\game\objects\map_metadata\whiterun.dm"
 #include "code\game\objects\map_metadata\yeltsin.dm"
+#include "code\game\objects\map_metadata\pervomaisk.dm"
 #include "code\game\objects\map_metadata\ypres.dm"
 #include "code\game\objects\structures\appliances.dm"
 #include "code\game\objects\structures\barricades.dm"
@@ -1035,7 +1036,6 @@
 #include "code\processes\lighting\sources.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "code\game\objects\map_metadata\pervomaisk.dm"
-#include "maps\WIP\blue_fieldtraining.dmm"
+#include "maps\ru\pervomaisk_crossing.dmm"
 // END_INCLUDE
 
