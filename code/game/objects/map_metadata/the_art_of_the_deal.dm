@@ -207,7 +207,27 @@
 	if (prob(100))
 		var/idx = rand(1,999999)
 		var/list/chosen = list()
-		chosen = list(list(/obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98k,rand(1200,1500)),list(/obj/item/weapon/gun/projectile/boltaction/mosin/m30,rand(1200,1500)),list(/obj/item/weapon/gun/projectile/shotgun/pump,rand(1400,1700)),list(/obj/item/weapon/gun/projectile/pistol/waltherp38,rand(300,500)), list(/obj/item/weapon/material/sword/katana,rand(300,500)))
+		chosen = list(list(/obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98k,rand(1200,1500)),
+		list(/obj/item/weapon/gun/projectile/boltaction/mosin/m30,rand(1200,1500)),
+		list(/obj/item/weapon/gun/projectile/shotgun/pump,rand(1400,1700)),
+		list(/obj/item/weapon/gun/projectile/pistol/waltherp38,rand(300,500)), 
+		list(/obj/item/weapon/material/sword/katana,rand(300,500)),
+		list(/obj/item/weapon/gun/projectile/boltaction/m24,rand(2000,2500)),
+		list(/obj/item/weapon/gun/projectile/submachinegun/ak74m,rand(1000,2000)),
+		list(/obj/item/weapon/gun/projectile/pistol/makarov,rand(200,500)),
+		list(/obj/item/weapon/gun/launcher/rocket/rpg7,rand(20000,50000)),
+		list(/obj/item/weapon/gun/projectile/shotgun/pump,rand(5000,15000)),
+		list(/obj/item/weapon/gun/projectile/pistol/tt30,rand(500,1000)),
+		list(/obj/item/weapon/gun/projectile/submachinegun/victor,rand(2500,7000)),
+		list(/obj/item/weapon/gun/projectile/automatic/pkm,rand(5000,60000)),
+		list(/obj/item/weapon/gun/projectile/semiautomatic/svd,rand(5000,30000)),
+		list(/obj/item/weapon/gun/projectile/semiautomatic/vintorez,rand(5000,30000)),
+		list(/obj/item/weapon/gun/projectile/revolver/magnum44,rand(500,1000)),
+		list(/obj/item/weapon/gun/projectile/submachinegun/p90,rand(3000,50000)),
+		list(/obj/item/weapon/gun/projectile/submachinegun/saiga12,rand(1000,20000)),
+		list(/obj/item/weapon/gun/projectile/submachinegun/ar12,rand(5000,20000)),
+		list(/obj/item/weapon/gun/projectile/boltaction/singleshot/a50cal,rand(50000,100000)),
+		)
 		var/chosen1 = pick(chosen)
 		if (ispath(chosen1[1]))
 			var/pt = chosen1[1]
@@ -221,7 +241,30 @@
 	for(var/i, i<=num, i++)
 		var/idx = rand(1,999999)
 		var/list/chosen = list()
-		chosen = list(list(/obj/item/weapon/reagent_containers/pill/cocaine,rand(150,250)),list(/obj/item/weapon/disk/program/squadtracker,rand(250,350)),list(/obj/item/weapon/attachment/scope/adjustable/sniper_scope,rand(150,200)),list(/obj/item/weapon/attachment/silencer/pistol,rand(180,250)),list(/obj/item/weapon/plastique/c4,rand(750,950)),list(/obj/item/clothing/glasses/nvg,rand(140,180)),list(/obj/item/clothing/accessory/armor/nomads/civiliankevlar,rand(400,500)))
+		chosen = list(list(/obj/item/weapon/reagent_containers/pill/cocaine,rand(150,250)),
+		list(/obj/item/weapon/disk/program/squadtracker,rand(250,350)),
+		list(/obj/item/weapon/attachment/scope/adjustable/sniper_scope,rand(150,200)),
+		list(/obj/item/weapon/attachment/silencer/pistol,rand(180,250)),
+		list(/obj/item/weapon/plastique/c4,rand(750,950)),
+		list(/obj/item/clothing/glasses/nvg,rand(140,180)),
+		list(/obj/item/clothing/accessory/armor/nomads/civiliankevlar,rand(400,500)),
+		list(/obj/item/ammo_casing/rocket/pg7v,rand(500,1000)),
+		list(/obj/item/ammo_casing/rocket/og7v,rand(500,1000)),
+		list(/obj/item/weapon/grenade/modern/f1,rand(500,950)),
+		list(/obj/structure/closet/crate/ww1/grenades_french,rand(2000,5000)),
+		list(/obj/item/weapon/storage/firstaid/adv,rand(150,250)),
+		list(/obj/item/weapon/storage/firstaid/combat,rand(150,250)),
+		list(/obj/item/weapon/storage/pill_bottle/penicillin,rand(150,250)),
+		list(/obj/item/weapon/storage/firstaid/surgery,rand(150,250)),
+		list(/obj/item/football,rand(13,37)),
+		list(/obj/item/weapon/reagent_containers/glass/barrel/jerrycan/diesel,rand(50,100)),
+		list(/obj/item/weapon/reagent_containers/glass/barrel/jerrycan/gasoline,rand(50,100)),
+		list(/obj/structure/closet/crate/airdrops/food,rand(500,750)),
+		list(/obj/structure/closet/crate/airdrops/medicine,rand(750,1250)),
+		list(/obj/structure/closet/crate/airdrops/military,rand(1250,2400)),
+		list(/obj/structure/closet/crate/airdrops/supplies,rand(2400,3600)),
+		list(/obj/structure/closet/crate/airdrops/weapons,rand(3600,4800))
+		)
 		var/chosen1 = pick(chosen)
 		if (ispath(chosen1[1]))
 			var/pt = chosen1[1]
@@ -233,7 +276,26 @@
 	for(var/i, i<=num, i++)
 		var/idx = rand(1,999999)
 		var/list/chosen = list()
-		chosen = list(list(/obj/item/ammo_magazine/gewehr98,rand(100,120)),list(/obj/item/ammo_magazine/mosin,rand(100,120)),list(/obj/item/ammo_magazine/shellbox,rand(120,180)),list(/obj/item/ammo_magazine/walther,rand(60,90)))
+		chosen = list(list(/obj/item/ammo_magazine/gewehr98,rand(100,120)),
+		list(/obj/item/ammo_magazine/mosin,rand(100,120)),
+		list(/obj/item/ammo_magazine/shellbox,rand(120,180)),
+		list(/obj/item/ammo_magazine/walther,rand(60,90)),
+		list(/obj/item/ammo_magazine/m24,rand(100,120)),
+		list(/obj/item/ammo_magazine/ak74/ak74m,rand(100,120)),
+		list(/obj/item/ammo_magazine/makarov,rand(100,120)),
+		list(/obj/item/ammo_casing/rocket/pg7v,rand(100,120)),
+		list(/obj/item/ammo_magazine/tt30,rand(100,120)),
+		list(/obj/item/ammo_magazine/glock17/victor,rand(60,90)),
+		list(/obj/item/ammo_magazine/pkm/c100,rand(150,200)),
+		list(/obj/item/ammo_magazine/svd,rand(100,120)),
+		list(/obj/item/ammo_magazine/vintorez,rand(100,120)),
+		list(/obj/item/ammo_magazine/c44magnum,rand(100,120)),
+		list(/obj/item/ammo_magazine/p90,rand(100,120)),
+		list(/obj/item/ammo_magazine/saiga12,rand(120,180)),
+		list(/obj/item/ammo_magazine/ar12,rand(120,180)),
+		list(/obj/item/ammo_magazine/a50cal_ap,rand(500,750)),
+		list(/obj/item/ammo_magazine/a50cal_he,rand(1000,2000))
+		)
 		var/chosen1 = pick(chosen)
 		if (ispath(chosen1[1]))
 			var/pt = chosen1[1]
