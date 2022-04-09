@@ -6,8 +6,6 @@
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall,/area/caribbean/no_mans_land/invisible_wall/taiga)
 	respawn_delay = 1800
 	no_winner ="The battle is going on."
-	var/civilians_evacuated = "КОСТЫЛЬ МНЕ В ЖОПУ"
-	var/civilians_killed = "КОСТЫЛЬ МНЕ В ЖОПУ"
 
 	faction_organization = list(
 		PIRATES,
