@@ -229,6 +229,9 @@
 	if (!assailant.canmove || assailant.lying)
 		qdel(src)
 		return
+	if(pacifist && state < GRAB_UPGRADING)
+		src << "<font color='yellow'><b><big>Не надо сильный захват.</big></b></font>"
+		return
 
 	last_action = world.time
 

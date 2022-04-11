@@ -168,6 +168,9 @@
 
 /obj/item/weapon/gun/attack(atom/A, mob/living/user, def_zone)
 	var/mob/living/human/H = user
+	if (H.pacifist)
+		src << "<font color='yellow'><b><big>Не хочу стрелять.</big></b></font>"
+		return
 	if (istype(H) && (H.faction_text == "INDIANS"))
 		user << "<span class = 'danger'>You have no idea how this thing works.</span>"
 		return

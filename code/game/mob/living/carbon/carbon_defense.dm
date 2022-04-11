@@ -36,7 +36,7 @@
 	if (!W.has_edge() || !W.force || W.damtype != BRUTE)
 		return FALSE //unsuitable weapon
 
-	if(!pacifist)
+	if(user.pacifist)
 		src << "<font color='yellow'><b><big>Не хочу драться.</big></b></font>"
 		return FALSE
 
