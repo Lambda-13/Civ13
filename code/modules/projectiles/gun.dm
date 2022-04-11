@@ -229,12 +229,12 @@
 	if (user.pixel_y > 16) return // can't fire while we're this high up - used for paradropping in particular
 
 	// stops admemes from sending immortal dummies into combat
-	if (user && istype(user, /mob/living/human))
-		var/mob/living/human/H = user
-		if ((H.client && istype(H, /mob/living/human/dummy)) || !H.original_job || !H.original_job_title)
-			if (clients.len > 1)
-				user << "<span class = 'danger'>Hey you fucking dumbass, don't send immortal dummies into combat.</span>"
-				return
+	//if (user && istype(user, /mob/living/human))
+	//	var/mob/living/human/H = user
+	//	if ((H.client && istype(H, /mob/living/human/dummy)) || !H.original_job || !H.original_job_title)
+	//		if (clients.len > 1)
+	//			user << "<span class = 'danger'>Hey you fucking dumbass, don't send immortal dummies into combat.</span>"
+	//			return
 
 	add_fingerprint(user)
 
