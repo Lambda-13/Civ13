@@ -413,7 +413,7 @@
 	if (parea)
 		maptext = "<center><font color='yellow'><b>[parea.name]</b> ([parentmob.x],[parentmob.y])</font></center>"
 		if (parea.name == "[map.ar_to_close_string] Area")
-			maptext = "<center><font color='[currwarning]'><b>[parea.name]</b> ([parentmob.x],[parentmob.y]) (CLOSING!)</font></center>"
+			maptext = "<center><font color='[currwarning]'><b>[parea.name]</b> ([parentmob.x],[parentmob.y]) (БЕГИ ОТСЮДА)</font></center>"
 			if(currwarning == "yellow")
 				currwarning = "red"
 			else
