@@ -495,6 +495,9 @@
 		return
 	if(!Adjacent(user) || user.incapacitated(INCAPACITATION_STUNNED|INCAPACITATION_KNOCKOUT) || istype(user.loc, /obj/structure/closet) || !ishuman(src))
 		return
+	if(user.pacifist)
+		src << "<font color='yellow'><b><big>Не хочу кусать.</big></b></font>"
+		return
 	var/mob/living/human/target = src
 	if(user.middle_click_intent == "bite")//We're in bite mode, so bite the opponent
 		var/limbcheck = user.targeted_organ

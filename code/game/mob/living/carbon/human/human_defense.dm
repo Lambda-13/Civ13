@@ -958,7 +958,7 @@ bullet_act
 	if(user == src)//Can't kick yourself dummy.
 		return
 
-	if(!pacifist)
+	if(pacifist)
 		src << "<font color='yellow'><b><big>Не хочу пинаться.</big></b></font>"
 		return
 	var/hit_zone = user.targeted_organ
