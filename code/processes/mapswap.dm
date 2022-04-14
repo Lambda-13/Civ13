@@ -236,7 +236,7 @@
 			)
 		else if (epoch == "Civilization 13 (Colony & Pioneers)")
 			maps = list(
-				MAP_COLONY_RU = 0,
+				MAP_COLONY_CONTINENTAL = 0,
 				MAP_COLONY = 0,
 				MAP_JUNGLE_COLONY = 5,
 				MAP_PIONEERS = 5,

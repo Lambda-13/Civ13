@@ -56,7 +56,7 @@ obj/map_metadata/colony/job_enabled_specialcheck(var/datum/job/J)
 
 
 /obj/map_metadata/colony/continental
-	ID = MAP_COLONY_RU
+	ID = MAP_COLONY_CONTINENTAL
 	title = "Colony Continental"
 	lobby_icon_state = "imperial"
 	no_winner ="The round is proceeding normally."
