@@ -972,6 +972,10 @@ var/global/redirect_all_players = null
 			dat += "[alive_civilians.len] Soviets "
 		if (map && istype(map, /obj/map_metadata/african_warlords))
 			dat += "[alive_civilians.len] UN Peacekeepers "
+		if (map && istype(map, /obj/map_metadata/capitol_hill))
+			dat += "[alive_civilians.len] Rioters "
+		if (map && istype(map, /obj/map_metadata/yeltsin))
+			dat += "[alive_civilians.len] Soviet Remnants "
 		else
 			dat += "[alive_civilians.len] Civilians "
 	if (GREEK in map.faction_organization)
@@ -983,7 +987,10 @@ var/global/redirect_all_players = null
 	if (JAPANESE in map.faction_organization)
 		dat += "[alive_japanese.len] Japanese "
 	if (RUSSIAN in map.faction_organization)
-		dat += "[alive_russian.len] Russian "
+		if (map && istype(map, /obj/map_metadata/yeltsin))
+			dat += "[alive_russian.len] Russian Army "
+		else
+			dat += "[alive_russian.len] Russian "
 	if (CHECHEN in map.faction_organization)
 		dat += "[alive_chechen.len] Chechen "
 	if (FINNISH in map.faction_organization)
@@ -993,6 +1000,8 @@ var/global/redirect_all_players = null
 	if (AMERICAN in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/arab_town))
 			dat += "[alive_american.len] Israeli "
+		if (map && istype(map, /obj/map_metadata/capitol_hill))
+			dat += "[alive_american.len] American Government "
 		else
 			dat += "[alive_american.len] American "
 	if (VIETNAMESE in map.faction_organization)
@@ -1130,6 +1139,16 @@ var/global/redirect_all_players = null
 						temp_name = "Imperials"
 					if (temp_name == "Civilian")
 						temp_name = "Stormcloaks"
+				else if (map && map.ID == "CAPITOL_HILL")
+					if (temp_name == "American")
+						temp_name = "American Government"
+					if (temp_name == "Civilian")
+						temp_name = "Rioters"
+				else if (map && map.ID == "YELTSIN")
+					if (temp_name == "Russian")
+						temp_name = "Russian Army"
+					if (temp_name == "Civilian")
+						temp_name = "Soviet Militia"
 				else if (map && map.ID == MAP_CAMPAIGN)
 					if (temp_name == "Civilian")
 						temp_name = "Red"
