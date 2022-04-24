@@ -1,10 +1,10 @@
 /obj/map_metadata/sovafghan
 	ID = MAP_SOVAFGHAN
 	title = "Soviet-Afghan War"
-	no_winner ="The round is proceeding normally."
+	no_winner ="The region of Kandahar is still contested."
 	lobby_icon_state = "sovafghan"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall, /area/caribbean/no_mans_land/invisible_wall/one, /area/caribbean/no_mans_land/invisible_wall/two)
-	respawn_delay = 4000
+	respawn_delay = 600
 	has_hunger = TRUE
 
 	faction_organization = list(
@@ -16,25 +16,31 @@
 		list(RUSSIAN) = /area/caribbean/british,
 		list(ARAB) = /area/caribbean/russian/land/inside/command,
 		)
-	age = "1985"
+	age = "1984"
 	ordinal_age = 7
-	faction_distribution_coeffs = list(RUSSIAN = 0.3, CIVILIAN = 0.5, ARAB = 0.4)
+	faction_distribution_coeffs = list(RUSSIAN = 0.4, CIVILIAN = 0.5, ARAB = 0.5)
 	battle_name = "Soviet Afghan War"
-	mission_start_message = "<font size=4>The Soviets and the DRA have 10 minutes to prepare before they can leave their base. <br> After 20 minutes civilians (including the Mujahideen) will be able to access the army base and terrorist armoury unlocks. <br> To gain points the <b>armies</b> must imprison (passive point generation) or kill (one time point gain) all the Mujahideen and any murderers hidden within the populace while still maintaining peace and order. <br> The <b>Mujahideen</b> must rid the region of the Russian oppressors and kill any dra race traitors(one time point gain).<br> Civilians earn points for their nationality by having rubles in their pockets (points = rubles in pockets).<br> <b>The faction with the most points wins!</b><br></font>"
+	mission_start_message = "<font size=4>The <b><font color ='red'>Soviets</font></b>, along with the <b><font color ='green'>DRA</font></b>, have to remain in control of the Kandahar province. <br>The <b><font color ='black'>Mujahideen</font></b> must get rid of the communist oppressors in the region by capturing and holding their outposts and/or by killing their officers. <b>The faction with the most points (<b>60</b>) wins!</b><br></font>"
 	faction1 = ARAB
 	faction2 = RUSSIAN
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET, WEATHER_EXTREME)
 	songs = list(
 		"Swallowing Dust:1" = "sound/music/swallowingdust.ogg")
 	gamemode = "Afghan"
-	var/list/points = list(
-		list("Soviets",0,0),
-		list("DRA",0,0),
-		list("Civilians",0,0),
-		list("Mujahideen",0,0),
-	)
+	artillery_count = 3
+	var/sov_points = 0
+	var/muj_points = 0
+	var/a1_control = "DRA"
+	var/a2_control = "DRA"
+	var/a3_control = "DRA"
+	var/a4_control = "DRA"
 	is_RP = TRUE
 	var/gracedown1 = TRUE
+
+/obj/map_metadata/sovafghan/New()
+	..()
+	spawn(3000)
+		points_check()
 
 /obj/map_metadata/sovafghan/job_enabled_specialcheck(var/datum/job/J)
 	..()
@@ -44,7 +50,7 @@
 		. = FALSE
 
 /obj/map_metadata/sovafghan/faction2_can_cross_blocks()
-	return (processes.ticker.playtime_elapsed >= 12000 || admin_ended_all_grace_periods)
+	return (processes.ticker.playtime_elapsed >= 6000 || admin_ended_all_grace_periods)
 
 /obj/map_metadata/sovafghan/faction1_can_cross_blocks()
 	return (processes.ticker.playtime_elapsed >= 6000 || admin_ended_all_grace_periods)
@@ -76,7 +82,7 @@
 			return "Soviet Army"
 		if ("ARAB")
 			return "Mujahideen"
-		if (CIVILIAN)
+		if ("CIVILIAN")
 			return "DRA"
 
 /obj/map_metadata/sovafghan/cross_message(faction)
@@ -112,56 +118,205 @@
 			return FALSE
 	return FALSE
 
-/obj/map_metadata/sovafghan/New()
-	..()
-	var/newnamee = list("Mujahideen" = list(175,175,175,null,0,"star","#FF0000","#000000",0,0))
-	var/newnamef = list("Armies" = list(175,175,175,null,0,"cross","#000000","#FFFFFF",0,0))
-	custom_civs += newnamee
-	custom_civs += newnamef
-	spawn(2600)
-		check_points_msg()
-		config.no_respawn_delays = FALSE
+/obj/map_metadata/sovafghan/proc/points_check()
+	if (processes.ticker.playtime_elapsed > 1200)
+		var/c1 = 0
+		var/c2 = 0
+		var/c3 = 0
+		var/cust_color = "white"
+		for (var/mob/living/human/H in player_list)
+			var/area/temp_area = get_area(H)
+			if (istype(temp_area, /area/caribbean/no_mans_land/capturable/one))
+				if (H.faction_text == "ARAB" && H.stat == CONSCIOUS)
+					c1++
+				else if (H.faction_text == "RUSSIAN" && H.stat == CONSCIOUS)
+					c2++
+				else if ((H.faction_text == "CIVILIAN" && H.original_job.is_dra == TRUE) && H.stat == CONSCIOUS)
+					c3++
+		if ((c1 == c2 || c1 == c3) && c1 != 0)
+			a1_control = "none"
+			cust_color="white"
+		else if (c1 > c2)
+			a1_control = "Mujahideen"
+			cust_color="black"
+			muj_points++
+		else if (c2 > c1 || c2 > c3)
+			a1_control = "Soviets"
+			cust_color="red"
+			sov_points++
+		else if (c3 > c1 || c3 > c2)
+			a1_control = "DRA"
+			cust_color="green"
+			sov_points++
+		if (a1_control != "none")
+			if (a1_control == "Soviets")
+				cust_color = "red"
+			else if (a1_control == "Mujahideen")
+				cust_color = "black"
+			else if (a1_control == "DRA")
+				cust_color = "green"
+			else
+				cust_color = "white"
+			world << "<big><font color='[cust_color]'><b>South West Village Outpost</b>: [a1_control]</font></big>"
+		else
+			world << "<big><b>South West Village Outpost</b>: Nobody</big>"
+		c1 = 0
+		c2 = 0
+		c3 = 0
+		for (var/mob/living/human/H in player_list)
+			var/area/temp_area = get_area(H)
+			if (istype(temp_area, /area/caribbean/no_mans_land/capturable/two))
+				if (H.faction_text == "ARAB" && H.stat == CONSCIOUS)
+					c1++
+				else if (H.faction_text == "RUSSIAN" && H.stat == CONSCIOUS)
+					c2++
+				else if ((H.faction_text == "CIVILIAN" && H.original_job.is_dra == TRUE) && H.stat == CONSCIOUS)
+					c3++
+		if ((c1 == c2 || c1 == c3) && c1 != 0)
+			a2_control = "none"
+			cust_color="white"
+		else if (c1 > c2)
+			a2_control = "Mujahideen"
+			cust_color="black"
+			muj_points++
+		else if (c2 > c1 || c2 > c3)
+			a2_control = "Soviets"
+			cust_color="red"
+			sov_points++
+		else if (c3 > c1 || c3 > c2)
+			a2_control = "DRA"
+			cust_color="green"
+			sov_points++
+		if (a2_control != "none")
+			if (a2_control == "Soviets")
+				cust_color = "red"
+			else if (a2_control == "Mujahideen")
+				cust_color = "black"
+			else if (a2_control == "DRA")
+				cust_color = "green"
+			else
+				cust_color = "white"
+			world << "<big><font color='[cust_color]'><b>South Border Checkpoint</b>: [a2_control]</font></big>"
+		else
+			world << "<big><b>South Border Checkpoint</b>: Nobody</big>"
+		c1 = 0
+		c2 = 0
+		c3 = 0
+		for (var/mob/living/human/H in player_list)
+			var/area/temp_area = get_area(H)
+			if (istype(temp_area, /area/caribbean/no_mans_land/capturable/three))
+				if (H.faction_text == "ARAB" && H.stat == CONSCIOUS)
+					c1++
+				else if (H.faction_text == "RUSSIAN" && H.stat == CONSCIOUS)
+					c2++
+				else if ((H.faction_text == "CIVILIAN" && H.original_job.is_dra == TRUE) && H.stat == CONSCIOUS)
+					c3++
+		if ((c1 == c2 || c1 == c3) && c1 != 0)
+			a3_control = "none"
+			cust_color="white"
+		else if (c1 > c2)
+			a3_control = "Mujahideen"
+			cust_color="black"
+			muj_points++
+		else if (c2 > c1 || c2 > c3)
+			a3_control = "Soviets"
+			cust_color="red"
+			sov_points++
+		else if (c3 > c1 || c3 > c2)
+			a3_control = "DRA"
+			cust_color="green"
+			sov_points++
+		if (a3_control != "none")
+			if (a3_control == "Soviets")
+				cust_color = "red"
+			else if (a3_control == "Mujahideen")
+				cust_color = "black"
+			else if (a3_control == "DRA")
+				cust_color = "green"
+			else
+				cust_color = "white"
+			world << "<big><font color='[cust_color]'><b>Palace</b>: [a3_control]</font></big>"
+		else
+			world << "<big><b>Palace</b>: Nobody</big>"
+		c1 = 0
+		c2 = 0
+		c3 = 0
+		for (var/mob/living/human/H in player_list)
+			var/area/temp_area = get_area(H)
+			if (istype(temp_area, /area/caribbean/no_mans_land/capturable/four))
+				if (H.faction_text == "ARAB" && H.stat == CONSCIOUS)
+					c1++
+				else if (H.faction_text == "RUSSIAN" && H.stat == CONSCIOUS)
+					c2++
+				else if ((H.faction_text == "CIVILIAN" && H.original_job.is_dra == TRUE) && H.stat == CONSCIOUS)
+					c3++
+		if ((c1 == c2 || c1 == c3) && c1 != 0)
+			a4_control = "none"
+			cust_color="white"
+		else if (c1 > c2)
+			a4_control = "Mujahideen"
+			cust_color="black"
+			muj_points++
+		else if (c2 > c1 || c2 > c3)
+			a4_control = "Soviets"
+			cust_color="red"
+			sov_points++
+		else if (c3 > c1 || c3 > c2)
+			a4_control = "DRA"
+			cust_color="green"
+			sov_points++
+		if (a4_control != "none")
+			if (a4_control == "Soviets")
+				cust_color = "red"
+			else if (a4_control == "Mujahideen")
+				cust_color = "black"
+			else if (a4_control == "DRA")
+				cust_color = "green"
+			else
+				cust_color = "white"
+			world << "<big><font color='[cust_color]'><b>North West Village Outpost</b>: [a4_control]</font></big>"
+		else
+			world << "<big><b>North West Village Outpost</b>: Nobody</big>"
+	world << "<big><b>Current Points:</big></b>"
+	world << "<big>Mujahideen: [muj_points]</big>"
+	world << "<big>Soviets and DRA: [sov_points]</big>"
+	spawn(600)
+		points_check()
 
-/obj/map_metadata/sovafghan/proc/check_points()
-/*	for(var/i in points)
-		if (i[1] != "SS")
-			i[2]=0*/
-	for (var/mob/living/human/H in player_list)
-		if (H.stat!=DEAD && H.faction_text == CIVILIAN)
-			var/curval = 0
-			if (H.stat!=DEAD && H.original_job.is_upa == TRUE)
-				var/area/A = get_area(H)
-				if (istype(A, /area/caribbean/german/inside/objective))
-					if (H.stat!=DEAD && H.original_job.is_upa == TRUE && H.original_job.is_squad_leader == TRUE)
-						for(var/i in points)
-							if (i[1]=="Soviet Army")
-								i[2]+= 150
-					else if (H.stat!=DEAD && H.original_job.is_upa == TRUE && (H.original_job.is_officer == TRUE && !H.original_job.is_squad_leader == TRUE))
-						for(var/i in points)
-							if (i[1]=="Soviet Army")
-								i[2]+= 250
-					else
-						for(var/i in points)
-							if (i[1]=="Soviet Army")
-								i[2]+= 75
-			for(var/obj/item/stack/money/rubles/R in H)
-				curval += R.amount
-			if (H.wear_suit && istype(H.wear_suit, /obj/item/clothing/suit/storage))
-				var/obj/item/clothing/suit/storage/ST = H.wear_suit
-				for(var/obj/item/stack/money/rubles/R in ST.pockets)
-					curval += R.amount
-			for(var/i in points)
-				if (i[1]==H.nationality)
-					i[2]+=curval
-	return
+/obj/map_metadata/sovafghan/update_win_condition()
+	if (processes.ticker.playtime_elapsed > 3000)
+		if (sov_points < 60 && muj_points < 60)
+			return TRUE
+		if (sov_points >= 60 && sov_points > muj_points)
+			if (win_condition_spam_check)
+				return FALSE
+			ticker.finished = TRUE
+			var/message = "The <b><font color ='red'>Soviets</font></b> and <b><font color ='green'>DRA</font></b> have reached [sov_points] points and won! The Kandahar region remains under the <b><font color ='green'>DRA</font></b> control"
+			world << "<font size = 4><span class = 'notice'>[message]</span></font>"
+			show_global_battle_report(null)
+			win_condition_spam_check = TRUE
+			return FALSE
+		if (muj_points >= 60 && muj_points > sov_points)
+			if (win_condition_spam_check)
+				return FALSE
+			ticker.finished = TRUE
+			var/message = "The <b><font color ='black'>Mujahideen</font></b> have reached [muj_points] points and won! The Kandahar province is under their control!"
+			world << "<font size = 4><span class = 'notice'>[message]</span></font>"
+			show_global_battle_report(null)
+			win_condition_spam_check = TRUE
+			return FALSE
+	return TRUE
 
-/obj/map_metadata/sovafghan/proc/check_points_msg()
-	check_points()
-	spawn(1)
-		world << "<font size = 4><span class = 'notice'><b>Current Score:</b></font></span>"
-		for (var/i=1,i<=points.len,i++)
-			world << "<br><font size = 3><span class = 'notice'>[points[i][1]]: <b>[points[i][2]+points[i][3]]</b></span></font>"
-
-	spawn(2400)
-		check_points_msg()
-	return
+/obj/map_metadata/sovafghan/check_caribbean_block(var/mob/living/human/H, var/turf/T)
+	if (!istype(H) || !istype(T))
+		return FALSE
+	var/area/A = get_area(T)
+	if (istype(A, /area/caribbean/no_mans_land/invisible_wall))
+		if (istype(A, /area/caribbean/no_mans_land/invisible_wall/one))
+			if (H.faction_text == faction2)
+				return TRUE
+			if (H.faction_text == "CIVILIAN")
+				return TRUE
+		else
+			return !faction2_can_cross_blocks()
+	return FALSE

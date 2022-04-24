@@ -61,6 +61,10 @@
 			return "Stormcloaks"
 		if (map.ID == "CAPITOL_HILL")
 			return "Rioters"
+		if (map.ID == "MISSIONARY_RIDGE")
+			return "Confederates"
+		else if (age >= 6)
+			return "Civilians"
 		else
 			return "Colonists"
 
@@ -125,6 +129,8 @@
 		if (age >= 6)
 			if (map.ID == "ARAB_TOWN")
 				return "Hezbollah"
+			if (map.ID == "SOVAFGHAN")
+				return "Mujahideen"
 			else
 				return "Insurgents"
 		else

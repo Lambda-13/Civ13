@@ -844,7 +844,7 @@
 /obj/item/weapon/storage/belt/smallpouches/green/sov_74_alt
 /obj/item/weapon/storage/belt/smallpouches/green/sov_74_alt/New()
 	..()
-	new /obj/item/weapon/grenade/modern/custom(src)
+	new /obj/item/weapon/grenade/coldwar/rgd5(src)
 	new /obj/item/ammo_magazine/ak74(src)
 	new /obj/item/ammo_magazine/ak74(src)
 	new /obj/item/stack/medical/bruise_pack/gauze(src)
@@ -1403,3 +1403,26 @@
 	icon_state = "nkvd_uni"
 	item_state = "nkvd_uni"
 	worn_state = "nkvd_uni"
+
+/obj/item/clothing/under/coldwar/dra/soldier
+	name = "DRA uniform"
+	desc = "A military uniform worn by DRA soldiers."
+	icon_state = "dra_uni"
+	item_state = "dra_uni"
+	worn_state = "dra_uni"
+
+/obj/item/clothing/under/coldwar/dra/officer
+	name = "DRA officer uniform"
+	desc = "A military uniform worn by DRA officers."
+	icon_state = "dra_uni_officer"
+	item_state = "dra_uni_officer"
+	worn_state = "dra_uni_officer"
+
+/obj/item/clothing/head/custom/fieldcap/dra
+	name = "DRA field cap"
+	desc = "A cap worn by DRA military personnel."
+	icon_state = "fieldcap_custom"
+	item_state = "fieldcap_custom"
+	worn_state = "fieldcap_custom"
+	capcolor = "#767160"
+	uncolored1 = FALSE
