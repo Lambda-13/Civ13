@@ -185,6 +185,8 @@ var/world_topic_spam_protect_time = world.timeofday
 		s["players"] = 0
 		s["stationtime"] = stationtime2text()
 		s["roundduration"] = roundduration2text()
+		s["rounddurationinsecond"] = round((round_start_time ? world.time - round_start_time : FALSE) * 10)
+		s["rounddurationinticks"] = (round_start_time ? world.time - round_start_time : FALSE)
 
 		s["map"] = "unknown"
 		s["age"] = "unknown"
