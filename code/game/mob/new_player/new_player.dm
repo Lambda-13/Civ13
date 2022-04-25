@@ -588,7 +588,7 @@ var/global/redirect_all_players = null
 			WWalert(usr,"Админ запретил заходить в раунд.", "Error")
 			return
 
-		if (map && map.has_occupied_base(job_flag) && map.ID != MAP_CAPITOL_HILL && map.ID != MAP_CAMP && map.ID != MAP_HILL_203 && map.ID != MAP_CALOOCAN && map.ID != MAP_YELTSIN)
+		if (map && map.has_occupied_base(job_flag) && map.ID != MAP_CAPITOL_HILL && map.ID != MAP_CAMP && map.ID != MAP_HILL_203 && map.ID != MAP_CALOOCAN && map.ID != MAP_YELTSIN && map.ID != MAP_HOTEL)
 			WWalert(usr,"Враги оккупировали эту базу! Придётся выбрать что-то другое.", "Error")
 			return
 
