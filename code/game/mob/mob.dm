@@ -696,7 +696,7 @@
 			stat("")
 			stat("Игроков Онлайн (Играет, Наблюдает, Лобби):", "[clients.len] ([human_clients_mob_list.len], [clients.len-human_clients_mob_list.len-new_player_mob_list.len], [new_player_mob_list.len])")
 			stat("Длительность Раунда:", roundduration2text_days())
-			stat("Game ID:", "<b>[game_id]</b>")
+			stat("АйДи Раунда:", "<b>[game_id]</b>")
 			stat("")
 
 			if (map && !map.civilizations)
@@ -747,8 +747,8 @@
 				var/avg_ping = ceil(processes.ping_track.avg)
 				if (clients.len == 1)
 					avg_ping = our_ping
-				stat("Ping (Average):", "[our_ping] ms ([avg_ping] ms)")
-			stat("Time Dilation (Average):", processes.time_track ? "[ceil(processes.time_track.dilation)]% ([ceil(processes.time_track.stored_averages["dilation"])]%)" : "0% (0%)")
+				stat("Пинг (Обычно):", "[our_ping] ms ([avg_ping] ms)")
+			stat("Time Dilation (Обычно):", processes.time_track ? "[ceil(processes.time_track.dilation)]% ([ceil(processes.time_track.stored_averages["dilation"])]%)" : "0% (0%)")
 
 		if (client.holder && client.status_tabs)
 			if (statpanel("Status"))
