@@ -245,6 +245,7 @@
 #include "code\game\mob\living\simple_animal\hostile\bear.dm"
 #include "code\game\mob\living\simple_animal\hostile\british.dm"
 #include "code\game\mob\living\simple_animal\hostile\buffalo.dm"
+#include "code\game\mob\living\simple_animal\hostile\campaign.dm"
 #include "code\game\mob\living\simple_animal\hostile\dino.dm"
 #include "code\game\mob\living\simple_animal\hostile\fox.dm"
 #include "code\game\mob\living\simple_animal\hostile\gorilla.dm"

@@ -64,7 +64,7 @@
 	..()
 	civ_collector()
 
-obj/map_metadata/campaign/job_enabled_specialcheck(var/datum/job/J)
+/obj/map_metadata/campaign/job_enabled_specialcheck(var/datum/job/J)
 	..()
 	if (istype(J, /datum/job/civilian))
 		if (J.is_event)
@@ -474,6 +474,14 @@ var/no_loop_cm = FALSE
 	health = 1000000
 
 /obj/structure/altar/heads/attackby(obj/item/W, mob/living/human/user)
+	if (istype(map, /obj/map_metadata/campaign/campaign6))
+		var/obj/map_metadata/campaign/campaign6/AW = map
+		if(istype(W, /obj/item/weapon/book/holybook) || istype(W,/obj/item/clothing/suit/armor/royal) || istype(W,/obj/item/weapon/goldsceptre) || istype(W,/obj/item/clothing/head/helmet/gold_crown_diamond))
+			user << "You place the [W] in the chest."
+			qdel(W)
+			AW.scores["Blugoslavia"] += 1
+			user << "Total treasures inside: <b>[AW.scores["Blugoslavia"]]</b>"
+			return
 	if (istype(W, /obj/item/organ/external/head) && map.ID == MAP_CAMPAIGN)
 		var/obj/map_metadata/campaign/AW = map
 		if (!AW)
@@ -496,7 +504,7 @@ var/no_loop_cm = FALSE
 
 /obj/structure/altar/heads/examine(mob/user, distance)
 	. = ..()
-	if(ishuman(user) && map && map.ID == MAP_CAMPAIGN)
+	if(ishuman(user) && map && map.ID == MAP_CAMPAIGN && !istype(map, /obj/map_metadata/campaign/campaign6))
 		var/mob/living/human/H = user
 		var/obj/map_metadata/campaign/AW = map
 		switch(H.nationality)
@@ -585,7 +593,7 @@ var/no_loop_cm = FALSE
 			else
 				origincall.visible_message("<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Someone picks up the phone.")
 
-
+///////////////////////////////////////////////////////////////////////
 /obj/map_metadata/campaign/campaign5
 	victory_time = 48000
 	grace_wall_timer = 12000
@@ -659,3 +667,119 @@ var/no_loop_cm = FALSE
 		win_condition.hash = 0
 	last_win_condition = win_condition.hash
 	return TRUE
+
+///////////////////////////////////////////////////////////////////////
+/obj/map_metadata/campaign/campaign6
+	victory_time = 36000
+	grace_wall_timer = 9000
+	mission_start_message = "<font size=4><b>15 minutes</b> until the battle begins.</font>"
+	roundend_condition_sides = list(
+		list(CIVILIAN) = /area/caribbean/british,
+		list(PIRATES) = /area/caribbean/japanese/land,
+		)
+obj/map_metadata/campaign/campaign6/job_enabled_specialcheck(var/datum/job/J)
+	if (istype(J, /datum/job/civilian))
+		if (J.is_event)
+			. = TRUE
+		else
+			. = FALSE
+	else if (istype(J, /datum/job/pirates))
+		if (J.is_event)
+			. = TRUE
+		else
+			. = FALSE
+	else
+		. = FALSE
+/obj/map_metadata/campaign/campaign6/update_win_condition()
+
+	if (world.time >= victory_time || round_finished)
+		if (win_condition_spam_check)
+			return FALSE
+		ticker.finished = TRUE
+		var/message = "The <b>Redmenians</b> have sucessfuly defended Woodling! The Blugoslavians have retreated!"
+		world << "<font size = 4><span class = 'notice'>[message]</span></font>"
+		win_condition_spam_check = TRUE
+		show_global_battle_report(null)
+		world << "<b><big>Civilians Killed:</b> <font color='blue'>Blugoslavia</font> [civilians_killed["Blugoslavia"]], <font color='red'>Redmenia</font> [civilians_killed["Redmenia"]]</big>"
+		game_log("Civilians Killed: Blugoslavia [civilians_killed["Blugoslavia"]], Redmenia [civilians_killed["Redmenia"]]")
+		return FALSE
+	if ((current_winner && current_loser && world.time > next_win) && no_loop_cm == FALSE)
+		ticker.finished = TRUE
+		var/message = "The <b>Blugoslavians</b> have captured the eastern side of the river! The battle is over!"
+		world << "<font size = 4><span class = 'notice'>[message]</span></font>"
+		show_global_battle_report(null)
+		win_condition_spam_check = TRUE
+		world << "<b><big>Civilians Killed:</b> <font color='blue'>Blugoslavia</font> [civilians_killed["Blugoslavia"]], <font color='red'>Redmenia</font> [civilians_killed["Redmenia"]]</big>"
+		game_log("Civilians Killed: Blugoslavia [civilians_killed["Blugoslavia"]], Redmenia [civilians_killed["Redmenia"]]")
+		no_loop_cm = TRUE
+		return FALSE
+	else if (win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[2]]), roundend_condition_sides[1], roundend_condition_sides[2], 1.33, TRUE))
+		if (!win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[1]]), roundend_condition_sides[2], roundend_condition_sides[1], 1.33))
+			if (last_win_condition != win_condition.hash)
+				current_win_condition = "The <b>Blugoslavians</b> have control over the eastern side of the river! They will win in {time} minutes."
+				next_win = world.time + short_win_time(RUSSIAN)
+				announce_current_win_condition()
+				current_winner = roundend_condition_def2army(roundend_condition_sides[1][1])
+				current_loser = roundend_condition_def2army(roundend_condition_sides[2][1])
+	else if (win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[2]]), roundend_condition_sides[1], roundend_condition_sides[2], 1.01, TRUE))
+		if (!win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[1]]), roundend_condition_sides[2], roundend_condition_sides[1], 1.01))
+			if (last_win_condition != win_condition.hash)
+				current_win_condition = "The <b>Blugoslavians</b> have control over the eastern side of the river! They will win in {time} minutes."
+				next_win = world.time + short_win_time(RUSSIAN)
+				announce_current_win_condition()
+				current_winner = roundend_condition_def2army(roundend_condition_sides[1][1])
+				current_loser = roundend_condition_def2army(roundend_condition_sides[2][1])
+	else if (win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[1]]), roundend_condition_sides[2], roundend_condition_sides[1], 1.33, TRUE))
+		if (!win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[2]]), roundend_condition_sides[1], roundend_condition_sides[2], 1.33))
+			if (last_win_condition != win_condition.hash)
+				current_win_condition = "The <b>Blugoslavians</b> have control over the eastern side of the river! They will win in {time} minutes."
+				next_win = world.time + short_win_time(RUSSIAN)
+				announce_current_win_condition()
+				current_winner = roundend_condition_def2army(roundend_condition_sides[2][1])
+				current_loser = roundend_condition_def2army(roundend_condition_sides[1][1])
+	else if (win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[1]]), roundend_condition_sides[2], roundend_condition_sides[1], 1.01, TRUE))
+		if (!win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[2]]), roundend_condition_sides[1], roundend_condition_sides[2], 1.01))
+			if (last_win_condition != win_condition.hash)
+				current_win_condition = "The <b>Blugoslavians</b> have control over the eastern side of the river! They will win in {time} minutes."
+				next_win = world.time + short_win_time(RUSSIAN)
+				announce_current_win_condition()
+				current_winner = roundend_condition_def2army(roundend_condition_sides[2][1])
+				current_loser = roundend_condition_def2army(roundend_condition_sides[1][1])
+	else
+		if (current_win_condition != no_winner && current_winner && current_loser)
+			world << "<font size = 3>The <b>Redmenians</b> have recaptured the eastern side of the river!</font>"
+			current_winner = null
+			current_loser = null
+		next_win = -1
+		current_win_condition = no_winner
+		win_condition.hash = 0
+	last_win_condition = win_condition.hash
+	return TRUE
+
+/obj/map_metadata/campaign/campaign6/proc/paradrop()
+	for(var/turf/T in list(locate(137,48,1),locate(125,48,1),locate(137,37,1),locate(124,37,1),locate(131,38,1),locate(131,47,1)))
+		var/obj/item/weapon/grenade/smokebomb/SB = new/obj/item/weapon/grenade/smokebomb(T)
+		SB.activate()
+	sleep(40)
+	for(var/turf/floor/plating/ironsand/SF in world)
+		for(var/mob/living/human/H in SF)
+			var/turf/newloc = pick(paradrop_landmarks)
+			H.x = newloc.x
+			H.y = newloc.y
+			H.z = newloc.z
+			var/image/I = image('icons/effects/parachute.dmi', H, layer = MOB_LAYER + 1.0)
+			I.pixel_x = -16
+			I.pixel_y = 32
+
+			H.overlays += I
+			playsound(get_turf(H), 'sound/effects/bamf.ogg', 20)
+			shake_camera(H, 2)
+			spawn (60)
+				H.overlays -= I
+				qdel(I)
+
+		for(var/obj/O in SF)
+			var/turf/newloc = pick(paradrop_landmarks)
+			O.x = newloc.x
+			O.y = newloc.y
+			O.z = newloc.z
