@@ -79,6 +79,7 @@
 /datum/job/var/is_stormcloak = FALSE
 /datum/job/var/is_ukrainerussowar = FALSE
 /datum/job/var/is_lobby = FALSE
+/datum/job/var/is_cowmdww3 = FALSE
 
 /datum/job/var/is_russojapwar = FALSE
 /datum/job/var/is_smallsiegemoscow = FALSE
