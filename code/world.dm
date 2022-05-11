@@ -266,7 +266,7 @@ var/world_topic_spam_protect_time = world.timeofday
 
 	var/s = ""
 
-	s += "SS13.SU\]"
+	s += "SS13.SU\] "
 	if (config.open_hub_discord_in_new_window)
 		s += "<center><a href=\"[config.discordurl]\" target=\"_blank\"><b>[customserver_name()]</b></a></center><br>"
 	else
