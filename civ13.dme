@@ -727,6 +727,7 @@
 #include "code\modules\1713\jobs\prison.dm"
 #include "code\modules\1713\jobs\russian.dm"
 #include "code\modules\1713\jobs\russoukrainewar.dm"
+#include "code\modules\1713\jobs\ru.dm"
 #include "code\modules\1713\jobs\samurai.dm"
 #include "code\modules\1713\jobs\skyrim.dm"
 #include "code\modules\1713\jobs\sovafghan.dm"
