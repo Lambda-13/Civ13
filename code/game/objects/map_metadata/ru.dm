@@ -55,7 +55,7 @@
 	ID = MAP_COD_MW_WW3
 	title = "Dust to Dust"
 	lobby_icon = 'icons/_LOBBYRUS.dmi'
-	lobby_icon_state = "pervomaisk"
+	lobby_icon_state = "cod"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/jungle,/area/caribbean/no_mans_land/invisible_wall,/area/caribbean/no_mans_land/invisible_wall/one,/area/caribbean/no_mans_land/invisible_wall/two,/area/caribbean/no_mans_land/invisible_wall/inside)
 	respawn_delay = 300
 
@@ -71,7 +71,7 @@
 	age = "2022"
 	ordinal_age = 8
 	faction_distribution_coeffs = list(CIVILIAN = 0.5, RUSSIAN = 0.5)
-	battle_name = "Битва за Первомайськ"
+	battle_name = "Invasion of the US Eastern Coast"
 	mission_start_message = "<font size=4>The <b>Українські війська</b> захищають Первомайськ від <b>Російських окупантів</b> <br> Обидва боки мають <b>5 хвилин</b> для підготовки.</font>"
 	faction1 = CIVILIAN
 	faction2 = RUSSIAN
