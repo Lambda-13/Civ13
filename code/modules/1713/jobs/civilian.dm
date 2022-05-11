@@ -2431,8 +2431,8 @@
 		<b>10-5:</b> Отказ / Неисполнение.<br><br> \
 		<b>10-4:</b> Так точно / Вас понял.<br><br> \
 		<b>10-7:</b> Арестованый под стражей.<br><br> \
-		<b>10-9:</b> Автоматический код, сообщает где вас убили / Все незанятые подразделения должны ответить <b>10-0</b> и отправиться в указаную локацию.")
 		<b>10-8:</b> Запросить немедленную помощь / Офицер ранен - Все незанятые подразделения должны ответить <b>10-0</b> и отправиться на помощь.<br><br> \
+		<b>10-9:</b> Автоматический код, сообщает где вас убили / Все незанятые подразделения должны ответить <b>10-0</b> и отправиться в указаную локацию.")
 
 	H.setStat("strength", STAT_NORMAL)
 	H.setStat("crafting", STAT_NORMAL)
@@ -2472,18 +2472,17 @@
 	H.equip_to_slot_or_del(new /obj/item/gunbox(H), slot_l_hand)
 	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/ten(H), slot_r_hand)
 	H.add_note("Role", "You are the chief of the local Sheriff Department. Your objectives are to coordinate your fellow deputies in order to arrest as many criminal businessmen as possible and seize illegal money and disks!")
-	H.add_note("Police Codes", "As a sheriff, you can use police codes for fast broadcasting. It will be automatically converted to plaintext. Just use the radio prefix followed by the code, for example, \";10-4\" for affirmative.")
-		<b>10-9:</b> Автоматический код, сообщает где вас убили / Все незанятые подразделения должны ответить <b>10-0</b> и отправиться в указаную локацию.")
-		<b>10-8:</b> Запросить немедленную помощь / Офицер ранен - Все незанятые подразделения должны ответить <b>10-0</b> и отправиться на помощь.<br><br> \
-		<b>10-7:</b> Арестованый под стражей.<br><br> \
+	H.add_note("Undercover", "Если вам нужно работать под прикрытием и скрыть свой офицерский статус, включите его на вкладке IC - Toggle Undercover.")
+	H.add_note("List of Police Codes", "<b>10-0:</b> В пути и сказать свои координаты<br><br> \
+		<b>10-2:</b> Сообщить о доступности.<br><br> \
+		<b>10-1:</b> Сообщить свои координаты.<br><br> \
+		<b>10-3:</b> Сообщить что занят.<br><br> \
 		<b>10-6:</b> Возращаюсь в участок.<br><br> \
 		<b>10-5:</b> Отказ / Неисполнение.<br><br> \
 		<b>10-4:</b> Так точно / Вас понял.<br><br> \
-		<b>10-3:</b> Сообщить что занят.<br><br> \
-		<b>10-2:</b> Сообщить о доступности.<br><br> \
-		<b>10-1:</b> Сообщить свои координаты.<br><br> \
-	H.add_note("List of Police Codes", "<b>10-0:</b> В пути и сказать свои координаты<br><br> \
-	H.add_note("Undercover", "Если вам нужно работать под прикрытием и скрыть свой офицерский статус, включите его на вкладке IC - Toggle Undercover.")
+		<b>10-7:</b> Арестованый под стражей.<br><br> \
+		<b>10-8:</b> Запросить немедленную помощь / Офицер ранен - Все незанятые подразделения должны ответить <b>10-0</b> и отправиться на помощь.<br><br> \
+		<b>10-9:</b> Автоматический код, сообщает где вас убили / Все незанятые подразделения должны ответить <b>10-0</b> и отправиться в указаную локацию.")
 
 	H.setStat("strength", STAT_NORMAL)
 	H.setStat("crafting", STAT_NORMAL)
