@@ -17,14 +17,14 @@
 		)
 	age = "1993"
 	ordinal_age = 7
-	faction_distribution_coeffs = list(CIVILIAN = 0.2, AMERICAN = 0.8)
+	faction_distribution_coeffs = list(CIVILIAN = 0.3, AMERICAN = 0.7)
 	battle_name = "Siege of Mount Carmel"
-	mission_start_message = "<font size=4>All factions have <b>3 minutes</b> to prepare before the ceasefire ends!<br>The ATF will win if they capture the <b>Davidian leader's rooms inside the compound</b>. The Davidians will win if they manage to defend their home for <b>20 minutes!!</b>.</font>"
+	mission_start_message = "<font size=4>All factions have <b>5 minutes</b> to prepare before the ceasefire ends!<br>The ATF will win if they capture the <b>Davidian leader's rooms inside the compound</b>. The Davidians will win if they manage to defend their home for <b>20 minutes!</b></font>"
 	faction1 = CIVILIAN
 	faction2 = AMERICAN
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET)
 	songs = list(
-		"Emma:1" = "sound/music/emma.ogg",)
+		"Mad Man In Waco (David Koresh):1" = "sound/music/mad_man_in_waco.ogg",)
 
 /obj/map_metadata/waco/New()
 	..()
@@ -40,34 +40,34 @@
 		. = FALSE
 
 /obj/map_metadata/waco/faction2_can_cross_blocks()
-	return (processes.ticker.playtime_elapsed >= 1800 || admin_ended_all_grace_periods)
+	return (processes.ticker.playtime_elapsed >= 3000 || admin_ended_all_grace_periods)
 
 /obj/map_metadata/waco/faction1_can_cross_blocks()
-	return (processes.ticker.playtime_elapsed >= 1800 || admin_ended_all_grace_periods)
+	return (processes.ticker.playtime_elapsed >= 3000 || admin_ended_all_grace_periods)
 
 
 /obj/map_metadata/waco/roundend_condition_def2name(define)
 	..()
 	switch (define)
-		if (CIVILIAN)
-			return "Davidian"
 		if (AMERICAN)
 			return "American"
+		if (CIVILIAN)
+			return "Davidian"
 /obj/map_metadata/waco/roundend_condition_def2army(define)
 	..()
 	switch (define)
-		if (CIVILIAN)
-			return "Davidian"
 		if (AMERICAN)
 			return "ATF"
+		if (CIVILIAN)
+			return "Davidian"
 
 /obj/map_metadata/waco/army2name(army)
 	..()
 	switch (army)
-		if ("Davidian")
-			return "Davidian"
 		if ("ATF")
 			return "ATF"
+		if ("Davidian")
+			return "Davidian"
 
 
 /obj/map_metadata/waco/cross_message(faction)

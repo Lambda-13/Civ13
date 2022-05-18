@@ -143,6 +143,7 @@
 				MAP_PERVOMAISK_CROSSING = 10,
 				MAP_COD_MW_WW3 = 20,
 				MAP_AFRICAN_WARLORDS = 10,
+				MAP_WACO = 0,
 			)
 		else if (epoch == "World War II (1931-1948)")
 	// 1943 - TDM
