@@ -62,3 +62,44 @@
 	multiple_sprites = TRUE
 	clip = FALSE
 	slot_flags = SLOT_BACK
+
+/obj/item/ammo_magazine/tibannagas/dl44
+	name = "DL-44 Tibanna Gas Cartridge"
+	icon_state = "tibanna_pistol"
+	caliber = "laser"
+	ammo_type = /obj/item/ammo_casing/laser/pistol
+	max_ammo = 50
+
+/obj/item/ammo_magazine/tibannagas/a280
+	name = "A280 Tibanna Gas Cartridge"
+	icon_state = "tibanna_rebel"
+	caliber = "laser"
+	ammo_type = /obj/item/ammo_casing/laser
+	max_ammo = 100
+	weight = 0.01
+	multiple_sprites = FALSE
+	clip = FALSE
+
+/obj/item/ammo_magazine/tibannagas/e11
+	name = "E-11 Tibanna Gas Cartridge"
+	icon_state = "tibanna_e11"
+	caliber = "laser"
+	ammo_type = /obj/item/ammo_casing/laser
+	max_ammo = 100
+	weight = 0.01
+	multiple_sprites = FALSE
+	clip = FALSE
+
+/obj/item/ammo_magazine/tibannagas/dh17
+	name = "DH-17 Tibanna Gas Cartridge"
+	icon_state = "tibanna_DH17"
+	caliber = "laser"
+	ammo_type = /obj/item/ammo_casing/laser/pistol
+	max_ammo = 500
+
+/obj/item/ammo_magazine/tibannagas/westar34
+	name = "Westar-34 Tibanna Gas Cartridge"
+	icon_state = "tibanna_westar"
+	caliber = "laser"
+	ammo_type = /obj/item/ammo_casing/laser
+	max_ammo = 20

@@ -121,7 +121,7 @@
 	w_class = 4
 	load_method = MAGAZINE
 	max_shells = 100
-	caliber = "laserb"
+	caliber = "laser"
 	ammo_type = /obj/item/ammo_casing/laser
 	damage_modifier = 1.2
 	slot_flags = SLOT_SHOULDER
@@ -139,6 +139,62 @@
 	attachment_slots = null
 	handle_casings = REMOVE_CASINGS
 
+/obj/item/weapon/gun/projectile/semiautomatic/laser/e11
+	name = "E-11"
+	desc = "Standard issue rifle of the Storm Trooper Corps of the Galactic Empire"
+	icon_state = "E-11"
+	item_state = "E-11"
+	base_icon = "E-11"
+	fire_sound = 'sound/weapons/guns/fire/blasterimperial2.ogg'
+	w_class = 4
+	load_method = MAGAZINE
+	max_shells = 100
+	caliber = "laser"
+	ammo_type = /obj/item/ammo_casing/laser
+	damage_modifier = 1.2
+	slot_flags = SLOT_SHOULDER
+	magazine_type = /obj/item/ammo_magazine/tibannagas/e11
+	good_mags = list(/obj/item/ammo_magazine/tibannagas/e11, /obj/item/ammo_magazine/tibannagas/dc15a)
+	weight = 3.85
+	firemodes = list(
+		list(name="single shot",burst=1, move_delay=0, fire_delay=2)
+		)
+
+	gun_type = GUN_TYPE_RIFLE
+	force = 10
+	throwforce = 15
+	effectiveness_mod = 1.25
+	attachment_slots = null
+	handle_casings = REMOVE_CASINGS
+
+/obj/item/weapon/gun/projectile/semiautomatic/laser/a280
+	name = "A280 Blaster"
+	desc = "Standard issue rifle of the Rebel Alliance."
+	icon_state = "A280"
+	item_state = "A280"
+	base_icon = "A280"
+	fire_sound = 'sound/weapons/guns/fire/blasterrebel.ogg'
+	w_class = 4
+	load_method = MAGAZINE
+	max_shells = 100
+	caliber = "laser"
+	ammo_type = /obj/item/ammo_casing/laser
+	damage_modifier = 1.2
+	slot_flags = SLOT_SHOULDER
+	magazine_type = /obj/item/ammo_magazine/tibannagas/a280
+	good_mags = list(/obj/item/ammo_magazine/tibannagas/a280)
+	weight = 5.85
+	firemodes = list(
+		list(name="single shot",burst=1, move_delay=0, fire_delay=2)
+		)
+
+	gun_type = GUN_TYPE_RIFLE
+	force = 10
+	throwforce = 15
+	effectiveness_mod = 1.15
+	attachment_slots = null
+	handle_casings = REMOVE_CASINGS
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////PISTOLS/////////////////////////////////////////////
 /obj/item/weapon/gun/projectile/pistol/laser
 	name = "Laser pistol"
@@ -153,27 +209,57 @@
 	ammo_type = /obj/item/ammo_casing/laser/b
 	load_method = MAGAZINE
 	handle_casings = REMOVE_CASINGS
-	effectiveness_mod = 1.02
+	effectiveness_mod = 1
 
 /obj/item/weapon/gun/projectile/pistol/laser/dc17
 	name = "DC-17 blaster"
 	desc = "A DC-17 blaster pistol most commonly used by the Grand Army of the Republic."
 	icon_state = "DC-17"
 
+/obj/item/weapon/gun/projectile/pistol/laser/dc17c
+	name = "DC-17 Commando blaster"
+	desc = "A DC-17 Commando blaster pistol most commonly used by the Grand Army of the Republic Commandos."
+	icon_state = "DC-17c"
+	effectiveness_mod = 1.04
+
 /obj/item/weapon/gun/projectile/pistol/laser/dl44
 	name = "DL-44 blaster"
 	desc = "A DL-44 blaster pistol used by various organizations throughout the galaxy."
 	icon_state = "DL-44"
 	w_class = 2
-	caliber = "laserb"
+	caliber = "laser"
 	fire_sound = 'sound/weapons/guns/fire/blasterdl44.ogg'
-	magazine_type = /obj/item/ammo_magazine/tibannagas/dc17
-	good_mags = list(/obj/item/ammo_magazine/tibannagas/dc17)
+	magazine_type = /obj/item/ammo_magazine/tibannagas/dl44
+	good_mags = list(/obj/item/ammo_magazine/tibannagas/dl44)
 	weight = 0.5
-	ammo_type = /obj/item/ammo_casing/laser
-	load_method = MAGAZINE
-	handle_casings = REMOVE_CASINGS
+	ammo_type = /obj/item/ammo_casing/laser/pistol
 	effectiveness_mod = 1.02
+
+/obj/item/weapon/gun/projectile/pistol/laser/dh17
+	name = "DH-17 blaster"
+	desc = "A DH-17 blaster pistol used as a service pistol by the Empire and also common within the Rebel Alliance."
+	icon_state = "DH-17"
+	w_class = 2
+	caliber = "laser"
+	fire_sound = 'sound/weapons/guns/fire/blasterrebel.ogg'
+	magazine_type = /obj/item/ammo_magazine/tibannagas/dh17
+	good_mags = list(/obj/item/ammo_magazine/tibannagas/dh17)
+	weight = 0.5
+	ammo_type = /obj/item/ammo_casing/laser/pistol
+	effectiveness_mod = 0.98
+
+/obj/item/weapon/gun/projectile/pistol/laser/westar34
+	name = "Westar-34 blaster"
+	desc = "A Westar-34 blaster pistol, mostly used by those who can afford such a fancy lethal sidearm."
+	icon_state = "Westar-34"
+	w_class = 2
+	caliber = "laser"
+	fire_sound = 'sound/weapons/guns/fire/blasterrebel.ogg'
+	magazine_type = /obj/item/ammo_magazine/tibannagas/westar34
+	good_mags = list(/obj/item/ammo_magazine/tibannagas/westar34)
+	weight = 0.5
+	ammo_type = /obj/item/ammo_casing/laser/pistol
+	effectiveness_mod = 1.30
 /////////////////////////////STAT MG'S/////////////////////////////////////////
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/laser
 	name = "laser MG"
