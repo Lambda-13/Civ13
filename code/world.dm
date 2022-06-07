@@ -397,16 +397,15 @@ var/global/nextsave = 0
 					discord_admin_unban(tempmsg[1],temp_ckey)
 			fdel(J)
 			J << ""
-		var/AA = file("SQL/discord2announce.txt")
-		if (fexists(AA))
-			var/list/messages_read = splittext(file2text(AA), "\n")
+		var/Z = file("SQL/discord2announce.txt")
+		if (fexists(Z))
+			var/list/messages_read = splittext(file2text(Z), "\n")
 			for(var/msg in messages_read)
 				var/list/tempmsg = msg
-				if (tempmsg.len == 1)
-					var/dmsg =  "<IMG src='\ref[text_tag_icons.icon]' class='text_tag' iconstate='ooc' alt='Discord'><b><font color='#b82e00'>Система: [tempmsg]</font></b>"
-					world << dmsg
-					log_discord(dmsg)
-			fdel(AA)
+				var/dmsg =  "<IMG src='\ref[text_tag_icons.icon]' class='text_tag' iconstate='ooc' alt='Discord'><b><font color='#b82e00'>Система: [tempmsg]</font></b>"
+				world << dmsg
+				log_discord(dmsg)
+			fdel(Z)
 		sleep (100)
 
 /proc/start_serverswap_loop()
