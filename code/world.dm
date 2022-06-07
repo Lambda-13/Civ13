@@ -399,14 +399,14 @@ var/global/nextsave = 0
 			J << ""
 		var/Z = file("SQL/discord2announce.txt")
 		if (fexists(Z))
-			var/list/messages_read = splittext(file2text(Z), "\n")
+			var/list/messages_read = splittext(file2text(Z))
 			for(var/msg in messages_read)
 				var/list/tempmsg = msg
-				var/dmsg =  "<IMG src='\ref[text_tag_icons.icon]' class='text_tag' iconstate='ooc' alt='Discord'><b><font color='#b82e00'>Система: [tempmsg]</font></b>"
+				var/dmsg = "<IMG src='\ref[text_tag_icons.icon]' class='text_tag' iconstate='ooc' alt='Discord'><b><font color='#b82e00'> Система: [tempmsg]</font></b>"
 				world << dmsg
 				log_discord(dmsg)
 			fdel(Z)
-		sleep (100)
+		sleep (50)
 
 /proc/start_serverswap_loop()
 	spawn while (1)
