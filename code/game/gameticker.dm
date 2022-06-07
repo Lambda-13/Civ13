@@ -59,8 +59,8 @@ var/global/datum/lobby_music_player/lobby_music_player = null
 			pregame_timeleft = GAMETICKER_PREGAME_TIME
 			maytip = TRUE
 
-			world << "<b><span style = 'notice'>Welcome to the pre-game lobby!</span></b>"
-			world << "The game will start in [pregame_timeleft] seconds."
+			world << "<b><span style = 'notice'>Добро пожаловать в лобби!</span></b>"
+			world << "Начинаем через [pregame_timeleft] секунд."
 
 			while (current_state == GAME_STATE_PREGAME)
 				for (var/i=0, i<10, i++)
@@ -77,11 +77,11 @@ var/global/datum/lobby_music_player/lobby_music_player = null
 								vote.process()
 				if (pregame_timeleft == 20)
 					if (tip)
-						world << "<span class = 'notice'><b>Tip of the round:</b> [tip]</span>"
+						world << "<span class = 'notice'><b>Совет:</b> [tip]</span>"
 					else
 						var/list/tips = file2list("config/tips.txt")
 						if (tips.len)
-							world << "<span class = 'notice'><b>Tip of the round:</b> [pick(tips)]</span>"
+							world << "<span class = 'notice'><b>Совет:</b> [pick(tips)]</span>"
 							qdel_list(tips)
 					maytip = FALSE
 				if (pregame_timeleft <= 0)
@@ -89,11 +89,11 @@ var/global/datum/lobby_music_player/lobby_music_player = null
 					/* if we were force started, still show the tip */
 					if (maytip)
 						if (tip)
-							world << "<span class = 'notice'><b>Tip of the round:</b> [tip]</span>"
+							world << "<span class = 'notice'><b>Совет:</b> [tip]</span>"
 						else
 							var/list/tips = file2list("config/tips.txt")
 							if (tips.len)
-								world << "<span class = 'notice'><b>Tip of the round:</b> [pick(tips)]</span>"
+								world << "<span class = 'notice'><b>Совет:</b> [pick(tips)]</span>"
 								qdel_list(tips)
 		while (!setup())
 
@@ -105,7 +105,7 @@ var/global/datum/lobby_music_player/lobby_music_player = null
 	job_master.ResetOccupations()
 
 	if (!map || !map.can_start() && !admin_started)
-		world << "<b>Unable to start the game.</b> Not enough players, [map.required_players] active players needed. Reverting to the pre-game lobby."
+		world << "<b>Не могу начать игру.</b> Надо [map.required_players] игроков. Возврат в лобби."
 		current_state = GAME_STATE_PREGAME
 		job_master.ResetOccupations()
 		return FALSE
@@ -196,7 +196,7 @@ var/global/datum/lobby_music_player/lobby_music_player = null
 						restart_after = 1200 - n
 
 			if (!delay_end)
-				world << "<span class='notice'><big>Restarting in <b>90</b> seconds. Next map: <b>TBD</b></big></span>"
+				world << "<span class='notice'><big>Рестарт скоро будет. Следующая карта: <b>выбирается</b></big></span>"
 				if (restart_after > restart_timeout)
 					restarting_is_very_bad = TRUE
 					spawn (restart_after - restart_timeout)
@@ -207,8 +207,8 @@ var/global/datum/lobby_music_player/lobby_music_player = null
 				if (!delay_end)
 					world.Reboot()
 				else
-					world << "<span class='notice'><b>An admin has delayed the round end.</b></span>"
+					world << "<span class='notice'><b>Админ остановил конец раунда.</b></span>"
 			else
-				world << "<span class='notice'><b>An admin has delayed the round end.</b></span>"
+				world << "<span class='notice'><b>Админ остановил конец раунда.</b></span>"
 
 	return TRUE
