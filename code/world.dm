@@ -399,7 +399,7 @@ var/global/nextsave = 0
 			J << ""
 		var/Z = file("SQL/discord2announce.txt")
 		if (fexists(Z))
-			var/list/messages_read = splittext(file2text(Z))
+			var/list/messages_read = file2text(Z)
 			for(var/msg in messages_read)
 				var/list/tempmsg = msg
 				var/dmsg = "<IMG src='\ref[text_tag_icons.icon]' class='text_tag' iconstate='ooc' alt='Discord'><b><font color='#b82e00'> Система: [tempmsg]</font></b>"
