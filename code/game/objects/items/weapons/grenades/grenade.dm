@@ -20,13 +20,13 @@
 /obj/item/weapon/grenade/examine(mob/user)
 	if (..(user, FALSE))
 		if (det_time > 1)
-			user << "The timer is set to [det_time/10] seconds."
+			user << "Таймер установлен на [det_time/10] секунд."
 			return
 
 
 /obj/item/weapon/grenade/attack_self(mob/user as mob)
 	if (!active)
-		user << "<span class='warning'>You light \the [name]! [det_time/10] seconds!</span>"
+		user << "<span class='warning'>Я активировал \the [name]! [det_time/10] секунд до взрыва!</span>"
 		firer = user
 		activate(user)
 		add_fingerprint(user)
@@ -50,7 +50,7 @@
 	playsound(loc, armsound, 75, TRUE, -3)
 
 	spawn(det_time)
-		visible_message("<span class = 'warning'>\The [src] goes off!</span>")
+		visible_message("<span class = 'warning'>\The [src] выгорает!</span>")
 		prime()
 		return
 
@@ -208,7 +208,7 @@
 	playsound(loc, armsound, 75, TRUE, -3)
 	update_icon()
 	spawn(det_time)
-		visible_message("<span class = 'warning'>\The [src] goes off!</span>")
+		visible_message("<span class = 'warning'> Верёвка \The [src] сгорела!</span>")
 		prime()
 		return
 
@@ -286,6 +286,13 @@
 	desc = "An American grenade used .50 explosive caliber."
 	icon_state = "m67"
 	num_fragments = 30
+	fragment_type = /obj/item/projectile/bullet/pellet/a50cal_he
+
+/obj/item/weapon/grenade/coldwar/a50cal/he/OHSHIT
+	name = "AM \"Explosive\" grenade 2.0"
+	desc = "An American grenade used .50 explosive caliber. Do not use."
+	icon_state = "m67"
+	num_fragments = 120
 	fragment_type = /obj/item/projectile/bullet/pellet/a50cal_he
 
 /obj/item/weapon/grenade/modern/mills
@@ -592,10 +599,12 @@
 
 	if (armed == "armed")
 		usr << "You disarm \the [src]."
+		message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) деактивировал \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 		armed = "disarmed"
 		return
 	else
 		usr << "<span class='warning'>You arm \the [src]!</span>"
+		message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) активировал \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 		armed = "armed"
 		return
 
@@ -657,11 +666,13 @@
 
 	if (armed1 == "armed")
 		usr << "You disarm \the [src]."
+		message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) деактивировал \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 		armed1 = "disarmed"
 		firer = null
 		return
 	else
 		usr << "<span class='warning'>You arm \the [src]!</span>"
+		message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) активировал \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 		armed1 = "armed"
 		return
 
