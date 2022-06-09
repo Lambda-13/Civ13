@@ -128,8 +128,8 @@
 					lasty = usr.y
 					lastz = usr.z
 					usr.sleeping = 66 //nap
-					usr.drop_item()
 					inducedSSD = TRUE
+					usr.drop_item()
 					sleep_update()
 					usr.forceMove(locate(1,1,1))
 					usr << "Ты перенесён в безопасное место"
@@ -144,6 +144,9 @@
 
 	if (!usr.sleeping && !inducedSSD)
 		usr << "<span class = 'red'>You are already awake.</span>"
+		return
+	if (!inducedSSD)
+		usr << "<span class = 'red'>You aren't asleep that deeply, just wait.</span>"
 		return
 	if (WWinput(src, "Проснуться? Это займёт 30 секунд", "Wake Up", "Yes", list("Yes","No")) == "Yes")
 		usr << "Просыпаюсь"
