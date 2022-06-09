@@ -599,12 +599,10 @@
 
 	if (armed == "armed")
 		usr << "You disarm \the [src]."
-		message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) деактивировал \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 		armed = "disarmed"
 		return
 	else
 		usr << "<span class='warning'>You arm \the [src]!</span>"
-		message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) активировал \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 		armed = "armed"
 		return
 
@@ -666,13 +664,11 @@
 
 	if (armed1 == "armed")
 		usr << "You disarm \the [src]."
-		message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) деактивировал \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 		armed1 = "disarmed"
 		firer = null
 		return
 	else
 		usr << "<span class='warning'>You arm \the [src]!</span>"
-		message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) активировал \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 		armed1 = "armed"
 		return
 
