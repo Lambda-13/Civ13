@@ -190,6 +190,7 @@ var/world_topic_spam_protect_time = world.timeofday
 
 		s["map"] = "unknown"
 		s["age"] = "unknown"
+		s["gamemode"] = "unknown" 
 
 		if (input["status"] == "2")
 			var/list/players = list()
@@ -209,6 +210,7 @@ var/world_topic_spam_protect_time = world.timeofday
 			if (map)
 				s["map"] = map.title
 				s["age"] = map.age
+				s["gamemode"] = map.gamemode
 			s["season"] = season
 		else
 			var/n = FALSE
@@ -227,6 +229,7 @@ var/world_topic_spam_protect_time = world.timeofday
 			if (map)
 				s["map"] = map.title
 				s["age"] = map.age
+				s["gamemode"] = map.gamemode
 			s["season"] = season
 		return list2params(s)
 
