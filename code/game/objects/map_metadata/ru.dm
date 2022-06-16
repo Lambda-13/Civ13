@@ -134,3 +134,64 @@
 		else
 			return !faction1_can_cross_blocks()
 	return FALSE
+
+
+
+
+
+
+
+
+/obj/map_metadata/colony/lfwb
+	ID = MAP_LFWB
+	title = "Аscension"
+	lobby_icon_state = "lfwb"
+	no_winner ="Ещё один день миновал..."
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
+	respawn_delay = 18000 // 30 minutes!
+	has_hunger = TRUE
+
+	faction_organization = list(
+		CIVILIAN,
+		INDIANS,
+		PIRATES,
+		SPANISH)
+	roundend_condition_sides = list(
+		list(INDIANS) = /area/caribbean/british,
+		list(CIVILIAN) = /area/caribbean/british,
+		list(PIRATES) = /area/caribbean/british,
+		list(SPANISH) = /area/caribbean/british,
+		)
+	age = "1713"
+	ordinal_age = 3
+	faction_distribution_coeffs = list(INDIANS = 0.4, CIVILIAN = 0.4, PIRATE = 0.1, SPANISH = 0.1)
+	battle_name = "new colony"
+	mission_start_message = "Крепость оживает, через 5 минут внутрений ИИ сообщит о ситуации за стенами."
+	ambience = list('sound/ambience/jungle1.ogg')
+	faction1 = INDIANS
+	faction2 = CIVILIAN
+	songs = list(
+		"Nassau Shores:1" = "sound/music/nassau_shores.ogg",)
+	gamemode = "Secret"
+	is_RP = TRUE
+
+/obj/map_metadata/colony/New()
+	..()
+	spawn(18000)
+		seasons()
+
+obj/map_metadata/colony/job_enabled_specialcheck(var/datum/job/J)
+	..()
+	if (J.is_1713 == TRUE)
+		. = TRUE
+	else
+		. = FALSE
+
+/obj/map_metadata/colony/faction2_can_cross_blocks()
+	return (processes.ticker.playtime_elapsed >= 3000 || admin_ended_all_grace_periods)
+
+/obj/map_metadata/colony/faction1_can_cross_blocks()
+	return (processes.ticker.playtime_elapsed >= 3000 || admin_ended_all_grace_periods)
+
+/obj/map_metadata/colony/cross_message(faction)
+	return ""
