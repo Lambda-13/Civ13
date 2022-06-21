@@ -165,7 +165,7 @@
 	age = "1713"
 	ordinal_age = 3
 	faction_distribution_coeffs = list(INDIANS = 0.4, CIVILIAN = 0.4, PIRATE = 0.1, SPANISH = 0.1)
-	battle_name = "new colony"
+	battle_name = "lifeweb simulator"
 	mission_start_message = "Крепость оживает, через 5 минут внутрений ИИ сообщит о ситуации за стенами."
 	ambience = list('sound/ambience/jungle1.ogg')
 	faction1 = INDIANS
