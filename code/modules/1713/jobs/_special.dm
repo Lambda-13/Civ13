@@ -80,6 +80,7 @@
 /datum/job/var/is_ukrainerussowar = FALSE
 /datum/job/var/is_lobby = FALSE
 /datum/job/var/is_cowmdww3 = FALSE
+/datum/job/var/is_lfwb = FALSE
 
 /datum/job/var/is_russojapwar = FALSE
 /datum/job/var/is_smallsiegemoscow = FALSE
