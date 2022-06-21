@@ -414,6 +414,10 @@
 		ChangeTurf(/turf/floor/dirt/dust)
 	else if (A.climate == "jungle" || A.climate == "savanna")
 		ChangeTurf(/turf/floor/dirt/jungledirt)
+	else if (map.ID == MAP_LFWB)
+		ChangeTurf(/turf/floor/dirt/lfwb/underground)
+	else if (map.ID == MAP_LFWB || A.climate == "tundra")
+		ChangeTurf(/turf/floor/dirt/lfwb)
 	else
 		ChangeTurf(/turf/floor/dirt)
 
