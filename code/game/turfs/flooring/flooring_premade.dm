@@ -235,8 +235,24 @@
 	initial_flooring = /decl/flooring/dirt
 
 /turf/floor/dirt/lfwb
+	name = "stone"
+	icon = 'icons/ru/turf/floors.dmi'
+	icon_state = "dirt"
+	uses_winter_overlay = TRUE
+	may_become_muddy = TRUE
+	available_dirt = 3
+	is_diggable = TRUE
+	initial_flooring = /decl/flooring/lfwb_stone
 
 /turf/floor/dirt/lfwb/underground
+	name = "stone"
+	icon_state = "asteroid"
+	is_diggable = FALSE
+	uses_winter_overlay = FALSE
+	may_become_muddy = FALSE
+
+/turf/floor/dirt/lfwb/underground/New()
+	icon_state = pick("asteroid","asteroid[rand(2,13)]")
 
 /turf/floor/dirt/space
 	name = "space"
@@ -282,17 +298,18 @@
 /turf/floor/dirt/winter/lfwb
 	name = "snow"
 	desc = "White cold sand."
-	icon = 'icons/ru/turf/floors.dmi'
+	icon = 'icons/ru/turf/snow.dmi'
 	icon_state = "dirt"
 	uses_winter_overlay = TRUE
 	may_become_muddy = TRUE
 	available_snow = 2
 	available_dirt = 0
 	is_diggable = FALSE
-	initial_flooring = /decl/flooring/snow_dirt
+	initial_flooring = /decl/flooring/lfwb_snow
 
 /turf/floor/dirt/winter/lfwb/New()
-	icon_state = "asteroid[rand(2,13)]"
+
+	icon_state = pick("ironsand1","ironsand[rand(0,16)]")
 
 /turf/floor/dirt/dry_lava
 	name = "dried lava"
