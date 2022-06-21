@@ -234,6 +234,10 @@
 	is_diggable = TRUE
 	initial_flooring = /decl/flooring/dirt
 
+/turf/floor/dirt/lfwb
+
+/turf/floor/dirt/lfwb/underground
+
 /turf/floor/dirt/space
 	name = "space"
 	icon = 'icons/turf/floors.dmi'
@@ -274,6 +278,21 @@
 	available_dirt = 0
 	is_diggable = TRUE
 	initial_flooring = /decl/flooring/snow_dirt
+
+/turf/floor/dirt/winter/lfwb
+	name = "snow"
+	desc = "White cold sand."
+	icon = 'icons/ru/turf/floors.dmi'
+	icon_state = "dirt"
+	uses_winter_overlay = TRUE
+	may_become_muddy = TRUE
+	available_snow = 2
+	available_dirt = 0
+	is_diggable = FALSE
+	initial_flooring = /decl/flooring/snow_dirt
+
+/turf/floor/dirt/winter/lfwb/New()
+	icon_state = "asteroid[rand(2,13)]"
 
 /turf/floor/dirt/dry_lava
 	name = "dried lava"
