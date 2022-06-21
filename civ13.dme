@@ -452,6 +452,7 @@
 #include "code\game\objects\map_metadata\gulag13.dm"
 #include "code\game\objects\map_metadata\heraclea.dm"
 #include "code\game\objects\map_metadata\hill203.dm"
+#include "code\game\objects\map_metadata\hill_3234.dm"
 #include "code\game\objects\map_metadata\hostages.dm"
 #include "code\game\objects\map_metadata\hotel.dm"
 #include "code\game\objects\map_metadata\hue.dm"
@@ -767,6 +768,7 @@
 #include "code\modules\1713\machinery\modular_vehicles\frame_parts.dm"
 #include "code\modules\1713\machinery\modular_vehicles\movement.dm"
 #include "code\modules\1713\machinery\modular_vehicles\wheels.dm"
+#include "code\modules\1713\machinery\modular_vehicles\carparts\apcs.dm"
 #include "code\modules\1713\machinery\modular_vehicles\carparts\cars.dm"
 #include "code\modules\1713\machinery\modular_vehicles\carparts\premade.dm"
 #include "code\modules\1713\machinery\modular_vehicles\carparts\tanks.dm"
@@ -1062,6 +1064,6 @@
 #include "code\processes\lighting\sources.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "maps\ru\factory_ru.dmm"
+#include "maps\1969\hill_3234.dmm"
 // END_INCLUDE
 
