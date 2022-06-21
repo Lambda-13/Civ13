@@ -237,7 +237,7 @@
 /turf/floor/dirt/lfwb
 	name = "stone"
 	icon = 'icons/ru/turf/floors.dmi'
-	icon_state = "dirt"
+	icon_state = "surface"
 	uses_winter_overlay = TRUE
 	may_become_muddy = TRUE
 	available_dirt = 3
@@ -246,6 +246,7 @@
 
 /turf/floor/dirt/lfwb/underground
 	name = "stone"
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "asteroid"
 	is_diggable = FALSE
 	uses_winter_overlay = FALSE
@@ -299,7 +300,7 @@
 	name = "snow"
 	desc = "White cold sand."
 	icon = 'icons/ru/turf/snow.dmi'
-	icon_state = "dirt"
+	icon_state = "ironsand1"
 	uses_winter_overlay = TRUE
 	may_become_muddy = TRUE
 	available_snow = 2
