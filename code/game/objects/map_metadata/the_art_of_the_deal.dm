@@ -581,7 +581,7 @@
 		arn = rand(1000,9999)
 		icon_state = "police_record"
 		spawn(10)
-			info = "<center>DEPARTMENT OF JUSTICE<hr><large><b>Arrest Warrant No. [arn]</b></large><hr><br>Law Enforcement Agencies are hereby authorized and directed to detain <b>[tgt]</b>, working for <b><i>[tgtcmp]</i></b>, for the following reasons:<br><br><i>- [reason]</i><br><br>They will disregard any claims of immunity or privilege by the Suspect or agents acting on the Suspect's behalf. Law Enforcement Agencies shall bring <b>[tgt]</b> forthwith to the local station.<br><br><small><center><i>Form Model 13-B</i><center></small><hr>"
+			info = "<center>ДЕПАРТАМЕНТ ЮСТИЦИИ<hr><large><b>Ордер на арест № [arn]</b></large><hr><br>Правоохранительные органы настоящим уполномочены и обязаны задержать < b>[tgt]</b>, работает на <b><i>[tgtcmp]</i></b> по следующим причинам:<br><br><i>- [reason]</ i><br><br>Они не будут принимать во внимание любые претензии Подозреваемого или агентов, действующих от имени Подозреваемого, на иммунитет или привилегии. Правоохранительные органы должны немедленно доставить <b>[tgt]</b> в местную резидентуру.< br><br><small><center><i>Форма модели 13-B</i><center></small><hr>"
 		spawn(100)
 			if (spawntimer)
 				spawn(spawntimer)
@@ -597,10 +597,10 @@
 		arn = rand(100,999)
 		icon_state = "police_warrant"
 		spawn(10)
-			info = "<center>DEPARTMENT OF JUSTICE<hr><large><b>Search Warrant No. [arn]</b></large><hr><br>Law Enforcement Agencies are hereby authorized and directed to search all and every property owned by <b>[cmp]</b>. They will disregard any claims of immunity or privilege by the Suspect or agents acting on the Suspect's behalf.<br><br><small><center><i>Form Model 13-C1</i></center></small><hr>"
+			info = "<center>ДЕПАРТАМЕНТ ЮСТИЦИИ<hr><large><b>Ордер на обыск № [arn]</b></large><hr><br>Настоящим правоохранительным органам разрешается обыскивать все и любое имущество, принадлежащее <b>[cmp]</b>. Они не будут принимать во внимание любые заявления об иммунитете или привилегиях со стороны подозреваемого или агентов, действующих от имени подозреваемого.<br><br><small><center><i >Форма модели 13-C1</i></center></small><hr>"
 //////////////////SCREEN HELPERS////////////////////////////
 /obj/screen/areashow_aod
-	maptext = "<center><font color='yellow'>Unknown Area</font></center>"
+	maptext = "<center><font color='yellow'>Неизвестное место</font></center>"
 	maptext_width = 32*8
 	maptext_x = (32*8 * -0.5)+32
 	maptext_y = 32*0.75
@@ -659,7 +659,7 @@
 	if (findtext(name, "Deputy"))
 		real_name = replacetext(real_name, "Deputy ", "")
 		hidden_name = real_name
-		var/chosen_name = WWinput(src, "Which ethnicity do you want your name to be?","Choose Name","Cancel",list("Cancel","Russian","Jewish","Italian","Japanese"))
+		var/chosen_name = WWinput(src, "Под какую национальность маскируемся?","Choose Name","Cancel",list("Cancel","Russian","Jewish","Italian","Japanese"))
 		switch(chosen_name)
 			if ("Cancel")
 				return
@@ -674,13 +674,13 @@
 		name = chosen_name
 		real_name = chosen_name
 		voice = chosen_name
-		src << "<b><big>You go undercover.</big></b>"
+		src << "<b><big>Скрываю личность.</big></b>"
 		return
 	else
 		real_name = "Deputy [hidden_name]"
 		name = "Deputy [hidden_name]"
 		voice = "Deputy [hidden_name]"
-		src << "<b><big>You are now revealing your identity again.</big></b>"
+		src << "<b><big>Раскрываю себя.</big></b>"
 		return
 
 /obj/item/clothing/accessory/armband/policebadge
