@@ -387,7 +387,7 @@ proc/is_blind(A)
 					else										// Everyone else (dead people who didn't ghost yet, etc.)
 						lname = name
 				lname = "<span class='name'>[lname]</span> "
-			M << "<span class='deadsay'>" + create_text_tag("dead", "DEAD:", M.client) + " [lname][follow][message]</span>"
+			M << "<span class='deadsay'>" + create_text_tag("dead", "МЁРТВ:", M.client) + " [lname][follow][message]</span>"
 
 //Announces that a ghost has joined/left, mainly for use with wizards
 /proc/announce_ghost_joinleave(O, var/joined_ghosts = TRUE, var/message = "")
@@ -420,9 +420,9 @@ proc/is_blind(A)
 		if (!name)
 			name = (C.holder && C.holder.fakekey) ? C.holder.fakekey : C.key
 		if (joined_ghosts)
-			say_dead_direct("The ghost of <span class='name'>[name]</span> now [pick("skulks","lurks","prowls","creeps","stalks")] among the dead. [message]")
+			say_dead_direct("The ghost of <span class='name'>[name]</span> [pick("смотрит за раундом","гостанулся","смотрит за живыми","теперь призрак","наблюдает за игрой")]. [message]")
 		else
-			say_dead_direct("<span class='name'>[name]</span> no longer [pick("skulks","lurks","prowls","creeps","stalks")] in the realm of the dead. [message]")
+			say_dead_direct("<span class='name'>[name]</span> [pick("вернулся в лобби","покинул лимб","возвысился в мир","был прощён и отпущен","получил дополнительную жизнь")]. [message]")
 
 // Returns true if the mob has a client which has been active in the last given X minutes.
 /mob/proc/is_client_active(var/active = TRUE)
