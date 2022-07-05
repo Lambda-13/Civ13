@@ -219,6 +219,12 @@ proc/slur(phrase)
 	message = prob(intensity) ? replacetext(message, "k", "gh") : message
 	message = prob(intensity) ? replacetext(message, "р", "кх") : message
 	message = prob(intensity) ? replacetext(message, "ж", "ш") : message
+	message = prob(intensity) ? replacetext(message, "ш", "-") : message
+	message = prob(intensity) ? replacetext(message, "ж", "-") : message
+	message = prob(intensity) ? replacetext(message, "ж", "з") : message
+	message = prob(intensity) ? replacetext(message, "ж", "с") : message
+	message = prob(intensity) ? replacetext(message, "ш", "с") : message
+	message = prob(intensity) ? replacetext(message, "ш", "з") : message
 	return message
 
 proc/Gibberish(t, p)//t is the inputted message, and any value higher than 70 for p will cause letters to be replaced instead of added
