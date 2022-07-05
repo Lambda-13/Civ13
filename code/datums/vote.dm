@@ -33,7 +33,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 			// No more change mode votes after the game has started.
 			// 3 is GAME_STATE_PLAYING, but that #define is undefined for some reason
 			if (mode == "gamemode" && ticker.current_state >= 2)
-				world << "<b>Voting aborted due to game start.</b>"
+				world << "<b>Начало раунда остановлено до окончания голосования.</b>"
 				reset()
 				return
 
@@ -112,7 +112,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 		if (winners.len)
 			if (winners.len > 1)
 			//	if (mode != "gamemode") // Here we are making sure we don't announce potential game modes
-				text = "<b>Vote Tied Between:</b>\n"
+				text = "<b>Голоса разделились:</b>\n"
 				for (var/option in winners)
 					text += "\t[option]\n"
 			var/newwinner = pick(winners)
@@ -128,7 +128,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 					call(callback[1], callback[2])(newwinner)
 				callback = null
 		else
-			text += "<b>Результат: <span class = 'ping'>Нет</span> - Недостаточно голосов за YES (59% необходимо)</b>"
+			text += "<b>Результат: <span class = 'ping'>Нет</span> - Недостаточно голосов за yes (надо больше 59% проголосовавших за yes)</b>"
 		log_vote(text)
 		world << "<font color='purple'>[text]</font>"
 		world << sound('sound/tf2/vote_success.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
@@ -140,7 +140,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 			switch(mode)
 				if ("restart")
 					if (. == "Restart Round")
-						world << "Round ending due to vote."
+						world << "Пытаюсь закончить раунд."
 						log_game("Ending the round due to restart vote.")
 						map.next_win = world.time - 100
 						processes.epochswap.admin_triggered = FALSE
@@ -169,7 +169,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 	proc/submit_vote(var/ckey, var/vote)
 		if (mode)
 			if (vote && vote >= 1 && vote <= choices.len)
-				usr.client << sound("sound/tf2/Vote_[rand(1, 2)].ogg", repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
+				ckey.client << sound("sound/tf2/Vote_[rand(1, 2)].ogg", repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
 				if (current_votes[ckey])
 					choices[choices[current_votes[ckey]]]--
 				voted += usr.ckey
@@ -259,7 +259,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 			world << sound('sound/tf2/Vote_started.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
 			if (mode == "gamemode" && round_progressing)
 				round_progressing = FALSE
-				world << "<font color='red'><b>Round start has been delayed.</b></font>"
+				world << "<font color='red'><b>Старт раунда остановлен.</b></font>"
 			time_remaining = round(config.vote_period/10)
 			callback = _callback
 			return TRUE
@@ -305,7 +305,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 				. += "<font color='grey'>Рестарт</font>"
 			. += "</li><li>"
 			if (admin)
-				. += "\t(<a href='?src=\ref[src];vote=toggle_restart'>[config.allow_vote_restart?"Allowed":"Disallowed"]</a>)"
+				. += "\t(<a href='?src=\ref[src];vote=toggle_restart'>Воут на рестарт [config.allow_vote_restart?"включён":"выключен"]</a>)"
 				. += "</li><li>"
 				. += "<a href='?src=\ref[src];vote=gamemode'>Игровой Режим</a></li>"
 			//custom
@@ -346,7 +346,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 						return FALSE
 					if (!config.allowedgamemodes == "TDM")
 						if ((map.nomads || map.is_RP) && clients.len < 5 && ((world.time-round_start_time)>108000) && !usr.client.holder)
-							usr << "You can't start restart votes if the server population is lower than 5 and the round has been going for over 3 hour."
+							usr << "Вы не можете начать голосование за перезапуск, если игроков на сервере меньше 5, а раунд длится более 3 часов."
 							return FALSE
 					initiate_vote("restart",usr.key)
 			if ("custom")
