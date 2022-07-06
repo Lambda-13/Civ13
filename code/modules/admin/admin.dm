@@ -348,9 +348,9 @@ proc/admin_notice(var/message, var/rights)
 
 	config.ooc_allowed = !(config.ooc_allowed)
 	if (config.ooc_allowed)
-		world << "<b>The OOC channel has been globally enabled!</b>"
+		world << "<b>ООС включён.</b>"
 	else
-		world << "<b>The OOC channel has been globally disabled!</b>"
+		world << "<b>ООС отключён.</b>"
 	log_and_message_admins("toggled OOC.")
 
 
@@ -364,9 +364,9 @@ proc/admin_notice(var/message, var/rights)
 
 	config.looc_allowed = !(config.looc_allowed)
 	if (config.looc_allowed)
-		world << "<b>The LOOC channel has been globally enabled!</b>"
+		world << "<b>ЛООС включён.</b>"
 	else
-		world << "<b>The LOOC channel has been globally disabled!</b>"
+		world << "<b>ЛООС отключён.</b>"
 	log_and_message_admins("toggled LOOC.")
 
 
