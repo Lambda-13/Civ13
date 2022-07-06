@@ -78,24 +78,24 @@ var/global/redirect_all_players = null
 			return
 		if (!client.holder)
 			if (!config.ooc_allowed)
-				src << "<span class='danger'>OOC is globally muted.</span>"
+				src << "<span class='danger'>ООС отключён, приятной игры.</span>"
 				return
 			if (!config.dooc_allowed && (stat == DEAD))
-				usr << "<span class='danger'>OOC for dead mobs has been turned off.</span>"
+				usr << "<span class='danger'>ООС призракам отключён, приятной игры.</span>"
 				return
 			if (client.prefs.muted & MUTE_OOC)
-				src << "<span class='danger'>You cannot use OOC (muted).</span>"
+				src << "<span class='danger'>Тебе нельзя.</span>"
 				return
 			if (client.handle_spam_prevention(message,MUTE_OOC))
 				return
 			if (findtext(message, "byond://"))
-				src << "<b>Advertising other servers is not allowed.</b>"
+				src.client << sound('sound/dota.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
 				log_admin("[key_name(client)] has attempted to advertise in OOC: [message]")
-				message_admins("[key_name_admin(client)] has attempted to advertise in OOC: [message]")
+				message_admins("[key_name_admin(client)] пытался запостить эту хуйню в ООС: [message]")
 				return
 	for (var/new_player in new_player_mob_list)
 		if (new_player:client) // sanity check
-			new_player << "<span class = 'ping'><small>["\["]LOBBY["\]"]</small></span> <span class='deadsay'><b>[capitalize(key)]</b>:</span> [capitalize(message)]"
+			new_player << "<span class = 'ping'><small>["\["]ЛОББИ["\]"]</small></span> <span class='deadsay'><b>[capitalize(key)]</b>:</span> [capitalize(message)]"
 
 	return TRUE
 
