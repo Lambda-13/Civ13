@@ -78,7 +78,7 @@
 /obj/map_metadata/factory/aw
 	ID = MAP_FACTORY_AW
 	title = "Factory AW"
-	lobby_icon_state = "ukrainewar"
+	lobby_icon = "ukrainewar.png"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/jungle,/area/caribbean/no_mans_land/invisible_wall,/area/caribbean/no_mans_land/invisible_wall/one,/area/caribbean/no_mans_land/invisible_wall/two,/area/caribbean/no_mans_land/invisible_wall/inside)
 	respawn_delay = 300
 
@@ -106,7 +106,7 @@
 /obj/map_metadata/factory/kitik
 	ID = MAP_FACTORY_RU
 	title = "Украинская Фабрика"
-	lobby_icon_state = "ukrainewar"
+	lobby_icon = "ukrainewar.png"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/jungle,/area/caribbean/no_mans_land/invisible_wall,/area/caribbean/no_mans_land/invisible_wall/one,/area/caribbean/no_mans_land/invisible_wall/two,/area/caribbean/no_mans_land/invisible_wall/inside)
 	respawn_delay = 300
 

@@ -1,8 +1,7 @@
 /obj/map_metadata/pervomaisk_crossing
 	ID = MAP_PERVOMAISK_CROSSING
 	title = "Первомайск"
-	lobby_icon = 'icons/_LOBBYRUS.dmi'
-	lobby_icon_state = "pervomaisk"
+	lobby_icon = "pervomaisk.png"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/jungle,/area/caribbean/no_mans_land/invisible_wall,/area/caribbean/no_mans_land/invisible_wall/one,/area/caribbean/no_mans_land/invisible_wall/two,/area/caribbean/no_mans_land/invisible_wall/inside)
 	respawn_delay = 300
 

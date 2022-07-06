@@ -52,7 +52,7 @@ obj/map_metadata/colony/job_enabled_specialcheck(var/datum/job/J)
 /obj/map_metadata/colony/continental
 	ID = MAP_COLONY_CONTINENTAL
 	title = "Colony Continental"
-	lobby_icon_state = "imperial"
+	lobby_icon = "imperial.png"
 	no_winner ="The round is proceeding normally."
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
 	respawn_delay = 7200 // 12 minutes!

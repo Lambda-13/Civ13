@@ -55,7 +55,7 @@
 	ID = MAP_COD_MW_WW3
 	title = "Dust to Dust"
 	lobby_icon = 'icons/_LOBBYRUS.dmi'
-	lobby_icon_state = "cod"
+	lobby_icon = "cod.png"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/jungle,/area/caribbean/no_mans_land/invisible_wall,/area/caribbean/no_mans_land/invisible_wall/one,/area/caribbean/no_mans_land/invisible_wall/two,/area/caribbean/no_mans_land/invisible_wall/inside)
 	respawn_delay = 300
 
@@ -145,7 +145,7 @@
 /obj/map_metadata/colony/lfwb
 	ID = MAP_LFWB
 	title = "Аscension"
-	lobby_icon_state = "lfwb"
+	lobby_icon = "lfwb.png"
 	no_winner ="Ещё один день миновал..."
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
 	respawn_delay = 18000 // 30 minutes!
