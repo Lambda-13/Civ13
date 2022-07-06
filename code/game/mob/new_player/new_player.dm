@@ -24,11 +24,14 @@
 
 	var/on_welcome_popup = FALSE
 
+	var/byondmember = null // Для тех кто поддержал Люммокса
 var/global/redirect_all_players = null
 /mob/new_player/New()
 	mob_list += src
 	new_player_mob_list += src
 
+	if(client.IsByondMember())
+		byondmember = 1
 
 	spawn (10)
 		if (client)
@@ -118,7 +121,8 @@ var/global/redirect_all_players = null
 	</body></html>
 	"}
 
-	var/output = "<div align='center'><b>Welcome, [key]!</b>"
+	var/output = "<div align='center'><b>>[key]<</b>"
+	output +="Уровень: Свин [byondmember?"⚛":""]"
 	output +="<hr>"
 	output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Setup Character & Preferences</A></p>"
 
