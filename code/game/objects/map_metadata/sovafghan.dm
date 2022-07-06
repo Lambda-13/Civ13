@@ -2,7 +2,7 @@
 	ID = MAP_SOVAFGHAN
 	title = "Soviet-Afghan War"
 	no_winner ="The region of Kandahar is still contested."
-	lobby_icon_state = "sovafghan"
+	lobby_icon = "icons/lobby/sovafghan.png"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall, /area/caribbean/no_mans_land/invisible_wall/one, /area/caribbean/no_mans_land/invisible_wall/two)
 	respawn_delay = 600
 	has_hunger = TRUE
@@ -36,6 +36,7 @@
 	var/a4_control = "DRA"
 	is_RP = TRUE
 	var/gracedown1 = TRUE
+	grace_wall_timer = 4800
 
 /obj/map_metadata/sovafghan/New()
 	..()
@@ -60,12 +61,6 @@
 				. = FALSE
 	else
 		. = FALSE
-
-/obj/map_metadata/sovafghan/faction2_can_cross_blocks()
-	return (processes.ticker.playtime_elapsed >= 4800 || admin_ended_all_grace_periods)
-
-/obj/map_metadata/sovafghan/faction1_can_cross_blocks()
-	return (processes.ticker.playtime_elapsed >= 4800 || admin_ended_all_grace_periods)
 
 /obj/map_metadata/sovafghan/roundend_condition_def2name(define)
 	..()

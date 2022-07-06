@@ -2,7 +2,7 @@
 /obj/map_metadata/african_warlords
 	ID = MAP_AFRICAN_WARLORDS
 	title = "African Warlords"
-	lobby_icon_state = "africanwarlords"
+	lobby_icon = "icons/lobby/africanwarlords.png"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/jungle,/area/caribbean/no_mans_land/invisible_wall/jungle/one,/area/caribbean/no_mans_land/invisible_wall/jungle/two,/area/caribbean/no_mans_land/invisible_wall/jungle/three)
 	respawn_delay = 300
 	no_winner ="No warband has won yet."
@@ -10,7 +10,7 @@
 	faction_organization = list(INDIANS)
 
 	faction_organization = list(INDIANS, CIVILIAN)
-
+	grace_wall_timer = 1200
 	roundend_condition_sides = list(
 		list(INDIANS) = /area/caribbean/british,
 		list(CIVILIAN) = /area/caribbean/british,
@@ -56,12 +56,6 @@
 
 /obj/map_metadata/african_warlords/cross_message(faction)
 	return "<font size = 4>All factions may cross the grace wall now!</font>"
-
-/obj/map_metadata/african_warlords/faction2_can_cross_blocks()
-	return (processes.ticker.playtime_elapsed >= 1200 || admin_ended_all_grace_periods)
-
-/obj/map_metadata/african_warlords/faction1_can_cross_blocks()
-	return (processes.ticker.playtime_elapsed >= 1200 || admin_ended_all_grace_periods)
 
 /obj/map_metadata/african_warlords/check_caribbean_block(var/mob/living/human/H, var/turf/T)
 	if (!istype(H) || !istype(T))

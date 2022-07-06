@@ -1,7 +1,7 @@
 /obj/map_metadata/capitol_hill
 	ID = MAP_CAPITOL_HILL
 	title = "Capitol Hill"
-	lobby_icon_state = "capitol"
+	lobby_icon = "icons/lobby/capitol.png"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall,/area/caribbean/no_mans_land/invisible_wall/one,/area/caribbean/no_mans_land/invisible_wall/two)
 	respawn_delay = 1200
 	no_winner = "The operation is still underway."
@@ -38,6 +38,7 @@
 	var/sov_points = 0
 	var/a1_control = "none"
 	var/a2_control = "none"
+	grace_wall_timer = 2400
 
 /obj/map_metadata/capitol_hill/New()
 	..()
@@ -60,12 +61,6 @@
 			. = TRUE
 	else
 		. = FALSE
-
-/obj/map_metadata/capitol_hill/faction2_can_cross_blocks()
-	return (processes.ticker.playtime_elapsed >= 3000 || admin_ended_all_grace_periods)
-
-/obj/map_metadata/capitol_hill/faction1_can_cross_blocks()
-	return (processes.ticker.playtime_elapsed >= 3000 || admin_ended_all_grace_periods)
 
 
 /obj/map_metadata/capitol_hill/roundend_condition_def2name(define)
