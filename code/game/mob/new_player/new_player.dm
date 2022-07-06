@@ -124,26 +124,26 @@ var/global/redirect_all_players = null
 	var/output = "<div align='center'><b>>[key]<</b>"
 	output +="Уровень: Свин [byondmember?"⚛":""]"
 	output +="<hr>"
-	output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Setup Character & Preferences</A></p>"
+	output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Настройки</A></p>"
 
 	if (!ticker || ticker.current_state <= GAME_STATE_PREGAME)
-		output += "<p><a href='byond://?src=\ref[src];ready=0'>The game has not started yet.</a></p>"
+		output += "<p><a href='byond://?src=\ref[src];ready=0'>Игра ещё не началась</a></p>"
 	else
 		if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.ID == MAP_FOUR_KINGDOMS)
-			output += "<p><a href='byond://?src=\ref[src];tribes=1'>Join a Tribe!</a></p>"
+			output += "<p><a href='byond://?src=\ref[src];tribes=1'>Войти в племя</a></p>"
 		else if (map.civilizations == TRUE && map.nomads == FALSE)
-			output += "<p><a href='byond://?src=\ref[src];civilizations=1'>Join a Civilization!</a></p>"
+			output += "<p><a href='byond://?src=\ref[src];civilizations=1'>Войти в поселение</a></p>"
 		else if (map.nomads == TRUE)
-			output += "<p><a href='byond://?src=\ref[src];nomads=1'>Join!</a></p>"
+			output += "<p><a href='byond://?src=\ref[src];nomads=1'>Войти</a></p>"
 		else
 			if(map.ID == MAP_CAMPAIGN)
-				output += "<p><a href='byond://?src=\ref[src];join_campaign=1'>Join Game!</a></p>"
+				output += "<p><a href='byond://?src=\ref[src];join_campaign=1'>Подключиться</a></p>"
 			else
-				output += "<p><a href='byond://?src=\ref[src];late_join=1'>Join Game!</a></p>"
+				output += "<p><a href='byond://?src=\ref[src];late_join=1'>Подключиться</a></p>"
 
 	var/height = 250
 	if (map && map.ID != MAP_CAMPAIGN || client.holder)
-		output += "<p><a href='byond://?src=\ref[src];observe=1'>Observe</A></p>"
+		output += "<p><a href='byond://?src=\ref[src];observe=1'>Наблюдать</A></p>"
 
 	output += "</div>"
 
@@ -160,9 +160,9 @@ var/global/redirect_all_players = null
 
 		// by counting observers, our playercount now looks more impressive - Kachnov
 		if (ticker.current_state == GAME_STATE_PREGAME)
-			stat("Time Until Joining Allowed:", "[ticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]")
+			stat("Время до начала:", "[ticker.pregame_timeleft][round_progressing ? "" : " ∞"]")
 
-		stat("Players in lobby:", totalPlayers)
+		stat("Игроков в лобби:", totalPlayers)
 		stat("")
 		stat("")
 
@@ -196,14 +196,14 @@ var/global/redirect_all_players = null
 
 	if (href_list["observe"])
 		if (map.ID == MAP_CAMPAIGN && !client.holder)
-			WWalert(src,"You cannot observe during this round.","Error")
+			WWalert(src,"Возможность наблюдать отключена.","Вау")
 			return TRUE
 
 		if (client && client.quickBan_isbanned("Observe"))
-			WWalert(src,"You're banned from observing.","Error")
+			WWalert(src,"Тебе нельзя.","Ого")
 			return TRUE
 
-		if (WWinput(src, "Are you sure you wish to observe?", "Player Setup", "Yes", list("Yes","No")) == "Yes")
+		if (WWinput(src, "Уверен что хочешь наблюдать за игрой вместо самой игры? Учти что метагеймерство не порицается.", "Мяу", "Yes", list("Yes","No")) == "Yes")
 			if (!client)	return TRUE
 			var/mob/observer/ghost/observer = new(150, 317, 1)
 
@@ -216,7 +216,7 @@ var/global/redirect_all_players = null
 			if (T)
 				observer.loc = T
 			else
-				src << "<span class='danger'>Could not locate an observer spawn point. Use the Teleport verb to jump to another map point.</span>"
+				src << "<span class='danger'>Кажись маперы проебались. Используй телепорт кнопки.</span>"
 			observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
 
 			announce_ghost_joinleave(src)
@@ -241,19 +241,19 @@ var/global/redirect_all_players = null
 			return TRUE
 
 		if (client && client.quickBan_isbanned("Playing"))
-			WWalert(src,"You're banned from playing.","Error")
+			WWalert(src,"Тебе нельзя.","Особенный")
 			return TRUE
 
 		if (!ticker.players_can_join)
-			WWalert(src,"You can't join the game yet.","Error")
+			WWalert(src,"Вход в игру сейчас невозможен.","Ничего себе")
 			return TRUE
 
 		if (!ticker || ticker.current_state != GAME_STATE_PLAYING)
-			WWalert(src,"The round is either not ready, or has already finished.","Error")
+			WWalert(src,"Игра ещё не началась или уже закончилась.","Быстрый или медленный")
 			return TRUE
 
 		if (check_trait_points(client.prefs.traits) > 0)
-			WWalert(src,"Your traits are not balanced! You can't join until you balance them (sum has to be <= 0).","Error")
+			WWalert(src,"Твоя стоймость трейтов должна быть меньше нуля.","Умён")
 			return FALSE
 
 		if (client && client.next_normal_respawn > world.realtime && !config.no_respawn_delays)
