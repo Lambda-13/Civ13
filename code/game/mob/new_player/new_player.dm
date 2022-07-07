@@ -276,7 +276,7 @@ var/global/redirect_all_players = null
 	if (href_list["tribes"])
 
 		if (client && client.quickBan_isbanned("Playing"))
-			WWalert(src,"You're banned from playing.","Error")
+			WWalert(src,"Тебе нельзя.","Увы")
 			return TRUE
 
 		if (!ticker.players_can_join)
