@@ -30,7 +30,7 @@ var/global/redirect_all_players = null
 	mob_list += src
 	new_player_mob_list += src
 
-	if(client.IsByondMember())
+	if(client.IsByondMember)
 		byondmember = 1
 
 	spawn (10)
@@ -121,8 +121,7 @@ var/global/redirect_all_players = null
 	</body></html>
 	"}
 
-	var/output = "<div align='center'><b>>[key]<</b>"
-	output +="Уровень: Свин [byondmember?"⚛":""]"
+	var/output = "<div align='center'><b>[byondmember?"⚛":""][key][byondmember?"⚛":""]</b>"
 	output +="<hr>"
 	output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Настройки</A></p>"
 
@@ -201,6 +200,10 @@ var/global/redirect_all_players = null
 
 		if (client && client.quickBan_isbanned("Observe"))
 			WWalert(src,"Тебе нельзя.","Ого")
+			return TRUE
+
+		if (map.ID == MAP_LFWB)
+			WWalert(src,"...","")
 			return TRUE
 
 		if (WWinput(src, "Уверен что хочешь наблюдать за игрой вместо самой игры? Учти что метагеймерство не порицается.", "Мяу", "Yes", list("Yes","No")) == "Yes")
