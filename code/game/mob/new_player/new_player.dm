@@ -30,7 +30,7 @@ var/global/redirect_all_players = null
 	mob_list += src
 	new_player_mob_list += src
 
-	if(client.IsByondMember)
+	if(src.IsByondMember)
 		byondmember = 1
 
 	spawn (10)
