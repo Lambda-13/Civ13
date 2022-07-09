@@ -18,8 +18,8 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 	var/atom/movable/following = null
 	var/admin_ghosted = FALSE
 	var/anonsay = FALSE
-	var/ghostvision = TRUE //is the ghost able to see things humans can't?
-	var/seedarkness = TRUE
+	var/ghostvision_shit = TRUE //is the ghost able to see things humans can't?
+	var/seedarkness_shit = TRUE
 
 	incorporeal_move = TRUE
 
@@ -436,21 +436,21 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 	set name = "Toggle Ghost Vision"
 	set desc = "Toggles your ability to see things only ghosts can see, like other ghosts"
 	set category = "Ghost"
-	ghostvision = !(ghostvision)
+	ghostvision_shit = !(ghostvision_shit)
 	updateghostsight()
-	usr << "You [(ghostvision?"now":"no longer")] have ghost vision."
+	usr << "You [(ghostvision_shit?"now":"no longer")] have ghost vision."
 
 /mob/observer/ghost/verb/toggle_darkness()
 	set name = "Toggle Darkness"
 	set category = "Ghost"
-	seedarkness = !(seedarkness)
+	seedarkness_shit = !(seedarkness_shit)
 	updateghostsight()
 
 /mob/observer/ghost/proc/updateghostsight()
-	if (!seedarkness)
+	if (!seedarkness_shit)
 		see_invisible = SEE_INVISIBLE_OBSERVER_NOLIGHTING
 	else
-		see_invisible = ghostvision ? SEE_INVISIBLE_OBSERVER : SEE_INVISIBLE_LIVING
+		see_invisible = ghostvision_shit ? SEE_INVISIBLE_OBSERVER : SEE_INVISIBLE_LIVING
 
 	updateghostimages()
 
@@ -459,11 +459,11 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		return
 	client.images -= ghost_sightless_images
 	client.images -= ghost_darkness_images
-	if (!seedarkness)
+	if (!seedarkness_shit)
 		client.images |= ghost_sightless_images
-		if (ghostvision)
+		if (ghostvision_shit)
 			client.images |= ghost_darkness_images
-	else if (seedarkness && !ghostvision)
+	else if (seedarkness_shit && !ghostvision_shit)
 		client.images |= ghost_sightless_images
 	client.images -= ghost_image //remove ourself
 
