@@ -119,7 +119,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 			animation.icon_state = "blank"
 			animation.icon = 'icons/mob/mob.dmi'
 			animation.master = src
-			animation.invisibility = 60
+			animation.invisibility = INVISIBILITY_OBSERVER
 			flick(anim, animation)
 			src.forceMove(locate(1,1,1))
 			src.ghostlife = 100
