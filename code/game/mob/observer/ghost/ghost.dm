@@ -106,14 +106,14 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 	if (istype(user, /mob/observer/ghost))
 		var/mob/observer/ghost/G = user
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		var/attverb = pick("punches", "kicks", "slaps")
+		var/attverb = pick("трогает", "обнимает")
 		for(var/mob/observer/ghost/NG in range(7,src))
 			NG << "<span class='notice'>[G] [attverb] \the [src]!</span>"
 		user.do_attack_animation(src)
-		src.ghostlife = max(0, src.ghostlife - 15)
+		src.ghostlife = max(0, src.ghostlife - 0)
 		if (src.ghostlife <= 0)
 			var/anim = "dust-ghost"
-			src << "<span class='warning'>Your ethereal self vaporizes!</span>"
+			src << "<span class='warning'>Исчезаю!</span>"
 			var/atom/movable/overlay/animation = null
 			animation = new(loc)
 			animation.icon_state = "blank"
