@@ -30,9 +30,6 @@ var/global/redirect_all_players = null
 	mob_list += src
 	new_player_mob_list += src
 
-	if(src.IsByondMember)
-		byondmember = 1
-
 	spawn (10)
 		if (client)
 			movementMachine_clients -= client
@@ -121,7 +118,7 @@ var/global/redirect_all_players = null
 	</body></html>
 	"}
 
-	var/output = "<div align='center'><b>[byondmember?"⚛":""][key][byondmember?"⚛":""]</b>"
+	var/output = "<div align='center'>Привет <b>[key]</b>"
 	output +="<hr>"
 	output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Настройки</A></p>"
 
