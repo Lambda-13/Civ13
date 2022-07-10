@@ -53,13 +53,13 @@
 			. += "<img src=previewicon_[v]_west.png height=64 width=64>"
 			. += "<br><br>"
 		// name
-		. += "<b>Name:</b> "
+		. += "<b>Имя:</b> "
 		. += "<a href='?src=\ref[src];rename=1'><b>[pref.real_name]</b></a><br><br>"
-		. += "(<a href='?src=\ref[src];random_name=1'>Randomize Name</a>)<br><br>"
-		. += "<b>Always Randomize Name:</b> <a href='?src=\ref[src];always_random_name=1'>[pref.be_random_name ? "Yes" : "No"]</a><br><br>"
-		. += "<b>Traits: ([check_trait_points(pref.traits)])</b><br>"
-		. += "<i>(The sum of trait values has to be less or equal to <b>0</b>)</i><br>"
-		. += "<a href='?src=\ref[src];add_traits=1'>Add</a> <a href='?src=\ref[src];remove_traits=1'>Remove</a><br><br>"
+		. += "(<a href='?src=\ref[src];random_name=1'>Рандомизировать имя</a>)<br><br>"
+		. += "<b>Всегда рандомное имя:</b> <a href='?src=\ref[src];always_random_name=1'>[pref.be_random_name ? "Yes" : "No"]</a><br><br>"
+		. += "<b>Черты: ([check_trait_points(pref.traits)])</b><br>"
+		. += "<i>(Сумма должна быть меньше или равна <b>0</b>)</i><br>"
+		. += "<a href='?src=\ref[src];add_traits=1'>Добавить</a> <a href='?src=\ref[src];remove_traits=1'>Убрать</a><br><br>"
 		if (pref.traits.len)
 			for (var/i=1, i<=pref.traits.len, i++)
 				if (i == pref.traits.len)
@@ -71,14 +71,14 @@
 
 	//real names
 	if (href_list["rename"])
-		var/raw_name = input(user, "Choose your character's name:", "Character Name")  as text|null
+		var/raw_name = input(user, "Имя твоего персонажа:", "Назови Себя")  as text|null
 		if (!isnull(raw_name) && CanUseTopic(user))
 			var/new_name = sanitize_name(raw_name, pref.species)
 			if (new_name)
 				pref.real_name = new_name
 				return TOPIC_REFRESH
 			else
-				user << "<span class='warning'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</span>"
+				user << "<span class='warning'>Неправильное имя. Ваше имя должно быть не менее 2 и не более [MAX_NAME_LEN] символов. А так-же оно должно содержать только A-Z, a-z, -, ' и . символы.</span>"
 				return TOPIC_NOACTION
 
 	else if (href_list["random_name"])
@@ -97,7 +97,7 @@
 		return TOPIC_REFRESH
 
 	else if (href_list["select_cursor"])
-		var/cursor_new = WWinput(usr, "Choose Cursor Style:", "Mouse Cursor", "Default", list("Default","Red Crosshair","Green Crosshair","White Crosshair"))
+		var/cursor_new = WWinput(usr, "Выбери вид курсора:", "Курсор Мышки", "Default", list("Default","Red Crosshair","Green Crosshair","White Crosshair"))
 		if (cursor_new == "Default")
 			pref.cursor = null
 		else if (cursor_new == "Red Crosshair")
@@ -117,7 +117,7 @@
 			var/check_repeat = trait_list[i]
 			if (!(check_repeat in pref.traits)) //Checks if the trait was already choosen and leave it out of the options
 				possible += "[trait_list[i]] ([trait_list[trait_list[i]][1]])"
-		var/add = WWinput(usr, "Add Trait:", "Traits", "Cancel", possible)
+		var/add = WWinput(usr, "Добавить черты:", "Черты", "Cancel", possible)
 		if (add == "Cancel")
 			return TOPIC_REFRESH
 		else
@@ -133,7 +133,7 @@
 		return TOPIC_REFRESH
 
 	else if (href_list["remove_traits"])
-		var/remove = WWinput(usr, "Remove Trait:", "Traits", "Cancel", pref.traits + "Cancel")
+		var/remove = WWinput(usr, "Убрать черты:", "Черты", "Cancel", pref.traits + "Cancel")
 		if (remove == "Cancel")
 			return TOPIC_REFRESH
 		else
