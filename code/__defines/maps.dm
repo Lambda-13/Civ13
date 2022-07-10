@@ -135,3 +135,4 @@
 #define MAP_RED_MENACE "RED_MENACE"
 
 #define MAP_LFWB "LFWB"
+#define MAP_TEST_RU "TEST_RU"
