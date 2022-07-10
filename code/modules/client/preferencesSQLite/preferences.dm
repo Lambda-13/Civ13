@@ -112,7 +112,7 @@ var/list/preferences_datums = list()
 	<head>
 	[common_browser_style]
 	</head>
-	<body><center><big><b>PREFERENCES<br><br>
+	<body><center><big><b>Настройки<br><br>
 	"}
 	dat += player_setup.header()
 	dat += "</big></b><br><HR></center>"
