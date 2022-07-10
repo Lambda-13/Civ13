@@ -82,7 +82,10 @@
 	if(text2num(cril["proxy"]) == "true" || text2num(cril["hosting"]) == "true")
 		message_admins("[key_name(src)] возможно набегатор так как использует ВПН.")
 		spawn(10)
-			to_chat(src, "<span class='userdanger'>= )</span>")
+			to_chat(src, "<span class='userdanger'>1</span>")
+	else
+		spawn(10)
+			to_chat(src, "<span class='userdanger'>0</span>")
 		return FALSE
 
 	return TRUE
