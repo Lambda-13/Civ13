@@ -142,7 +142,7 @@
 
 
 
-/obj/map_metadata/colony/lfwb
+/*/obj/map_metadata/colony/lfwb
 	ID = MAP_LFWB
 	title = "Аscension"
 	lobby_icon = "lfwb.png"
@@ -195,3 +195,44 @@ obj/map_metadata/colony/job_enabled_specialcheck(var/datum/job/J)
 
 /obj/map_metadata/colony/cross_message(faction)
 	return ""
+
+/obj/map_metadata/testshit
+	ID = MAP_TEST_RU
+	title = "null"
+	lobby_icon = "icons/lobby/core.png"
+	no_winner ="Всё?"
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
+	respawn_delay = 7200 // 12 minutes!
+	has_hunger = TRUE
+
+	faction_organization = list(
+		GERMAN)
+
+	roundend_condition_sides = list(
+		list(GERMAN) = /area/caribbean/british,
+		)
+	age = "2022"
+	ordinal_age = 8
+	faction_distribution_coeffs = list( GERMAN = 1)
+	battle_name = "test map"
+	mission_start_message = "Если вы бы знали насколько я от пизды сделал эту карту."
+	ambience = list('sound/ambience/jungle1.ogg')
+	faction1 = CIVILIAN
+	songs = list(
+		"Core:1" = "sound/music/test/core.ogg",
+		)
+	gamemode = "null"
+	is_singlefaction = TRUE
+	force_mapgen = TRUE
+	is_RP = TRUE
+/obj/map_metadata/testshit/New()
+	..()
+	spawn(18000)
+		seasons()
+
+/obj/map_metadata/testshit/job_enabled_specialcheck(var/datum/job/J)
+	..()
+	if ((istype(J, /datum/job/german)) && (J.is_medieval == TRUE) && (J.is_rp == TRUE))
+		. = TRUE
+	else
+		. = FALSE*/
