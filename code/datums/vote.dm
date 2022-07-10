@@ -250,12 +250,12 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 			mode = vote_type
 			initiator = initiator_key
 			started_time = world.time
-			var/text = "[capitalize(mode)] vote started by [initiator]."
+			var/text = "[capitalize(mode)] начат [initiator]."
 			if (mode == "custom")
 				text += "\n[question]"
 
 			log_vote(text)
-			world << "<span class = 'deadsay'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src]'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</span>"
+			world << "<span class = 'deadsay'><b>[text]</b>\nЖми <a href='?src=\ref[src]'>сюда</a> что-бы отдать свой голос. \nДо конца голосования [config.vote_period/10] секунд.</span>"
 
 			world << sound('sound/tf2/Vote_started.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
 			if (mode == "gamemode" && round_progressing)
@@ -339,11 +339,11 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 					config.allow_vote_mode = !config.allow_vote_mode
 			if ("restart")
 				if (config.allow_vote_restart || usr.client.holder)
-					if (processes.ticker.playtime_elapsed < 18000) //30 минут
-						usr << "Раунд активен менее 30 минут, увы"
+					if (processes.ticker.playtime_elapsed < 9000) //30 минут
+						usr << "Раунд активен менее 15 минут, увы"
 						return FALSE
 					if (config.vote_no_dead && usr.stat == DEAD && !usr.client.holder)
-						usr << "You can't start restart votes if you are not playing."
+						usr << "Если ты не играешь то какой может быть рестарт?"
 						return FALSE
 					if (!config.allowedgamemodes == "TDM")
 						if ((map.nomads || map.is_RP) && clients.len < 5 && ((world.time-round_start_time)>108000) && !usr.client.holder)
