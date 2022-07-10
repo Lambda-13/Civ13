@@ -71,16 +71,18 @@
 				"Battle Royale" = 0,)
 		else if (config.allowedgamemodes == "LAMBDA")
 			epochs = list(
+		"Battle Royale" = 0,
+		"Chad Mode" = 25,
 		"Pre-Firearms (3000 B.C-1650 A.D.)" = 0,
 		"Early Fire Arms (1650-1930)" = 0,
 		"World War II (1931-1948)" = 0,
+		"COOL NIGGERS DICK" = 1337,
 		"Modern Fire Arms (1949-2021)" = 0,
-		"HRP TDM (Gulag, Voyage, Occupation, etc)" = 10,
-		"Civilization 13 (Nomads)" = 5,
-		"Civilization 13 (Colony & Pioneers)" = 5,
-		"Civilization 13 (Others)" = 0,
-		"Chad Mode" = 15,
-		"Battle Royale" = 0,)
+		"HRP TDM (Gulag, Voyage, Occupation, etc)" = 15,
+		"Civilization 13 (Nomads)" = 20,
+		"Civilization 13 (Colony & Pioneers)" = 20,
+		"Civilization 13 (Others)" = 5,
+		"Fiction" = 0,)
 		ready = FALSE
 		vote.initiate_vote("epoch", "EpochSwap Process", TRUE, list(src, "swap"))
 
