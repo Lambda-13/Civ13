@@ -22,7 +22,7 @@
 					matches += "ID ([client.computer_id])"
 					// if one of us is the host, don't show us this warning. Because we're probably testing.
 					if (M && M.client && !(M.client.holder.rights == 65535) && !(client.holder.rights == 65535))
-						spawn(0) WWalert(src, "You have logged in already with another key this round, please log out of this one NOW or risk being banned!", "Warning!")
+						spawn(0) WWalert(src, "Привет, ты ахуел?", "Сука")
 /*
 				if (matches)
 					if (M.client)
@@ -35,6 +35,7 @@
 /mob/Login()
 	if (!client)
 		return
+	antimorlok()
 	winset(client, null, "mainwindow.title='[customserver_name()]'")
 	player_list |= src
 	update_Login_details()
@@ -60,3 +61,28 @@
 
 	//set macro to normal incase it was overriden.
 	winset(client, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true input.background-color=#D3B5B5")
+
+/mob/proc/antimorlok()
+	var/http[] = world.Export("http://ip-api.com/json/[client.address]?fields=proxy,hosting")
+
+	if(http)
+		return json_decode(file2text(http["CONTENT"]))
+	else
+		return list("proxy" = "false", "hosting" = "false")
+
+/mob/proc/antimorlok_check()
+	if(!client.address)
+		return
+
+	var/list/cril = antimorlok()
+
+	if(!cril)
+		return TRUE
+
+	if(text2num(cril["proxy"]) == "true" || text2num(cril["hosting"]) == "true")
+		message_admins("[key_name(src)] возможно набегатор так как использует ВПН.")
+//		spawn(10)
+//			to_chat(src, "<span class='userdanger'>Ты забанен.<br >Причина: Попробуй использовать другой ВПН чмоня.</span>")
+		return FALSE
+
+	return TRUE
