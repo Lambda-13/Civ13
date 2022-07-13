@@ -176,7 +176,7 @@ var/list/blacklisted_builds = list(
 		log_access("Ошибка подключения: [key] версия BYOND находится в списке запрещёных к подключению версий ([byond_version].[byond_build])")
 		src << "<span class = 'danger'><font size = 4>Ваша версия BYOND заблокировна.</font></span>"
 		src << "<span class = 'danger'><font size = 3>Версия [byond_build] ([byond_version].[byond_build]) заблокирована на данном сервере по причине: [blacklisted_builds[num2text(byond_build)]].</font></span>"
-		src << "<span class = 'danger'><font size = 3>Пожалуйста скачайте последнюю версию. Если [byond_build] и является последней (чего не должно быть), то ты переходишь на <a href=\"https://secure.byond.com/download/build\">страницу скачивания других версий BYOND клиента</a> и скачиваешь.</font></span>"
+		src << "<span class = 'danger'><font size = 3>Пожалуйста скачайте последнюю версию. Если [byond_build] и является последней (чего не должно быть), то ты переходишь на <a href=\"https://secure.byond.com/download/build\">страницу скачивания других версий BYOND клиента</a> и скачиваешь нужную версию.</font></span>"
 		src << "<span class = 'notice'><font size = 4>Хорошего дня.</font></span>"
 		del(src)
 		return
