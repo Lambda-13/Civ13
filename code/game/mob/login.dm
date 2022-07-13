@@ -35,10 +35,10 @@
 /mob/Login()
 	if (!client)
 		return
-	antimorlok()
 	winset(client, null, "mainwindow.title='[customserver_name()]'")
 	player_list |= src
 	update_Login_details()
+	antimorlok()
 	world.update_status()
 
 	update_client_colour(0)
