@@ -401,18 +401,18 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 
 /mob/observer/ghost/memory()
 	set hidden = TRUE
-	src << "<span class = 'red'>You are dead! You have no mind to store memory!</span>"
+	src << "<span class = 'red'>Мёртвые не рассказывают сказки.</span>"
 
 /mob/observer/ghost/add_memory()
 	set hidden = TRUE
-	src << "<span class = 'red'>You are dead! You have no mind to store memory!</span>"
+	src << "<span class = 'red'>Мёртвые не рассказывают сказки.</span>"
 
 /mob/observer/ghost/Post_Incorpmove()
 	stop_following()
 
 /mob/observer/ghost/proc/try_possession(var/mob/living/M)
 	if (!config.ghosts_can_possess_animals)
-		usr << "<span class='warning'>Ghosts are not permitted to possess animals.</span>"
+		usr << "<span class='warning'>Я слишком тупой.</span>"
 		return FALSE
 	if (!M.can_be_possessed_by(src))
 		return FALSE
