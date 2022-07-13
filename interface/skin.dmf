@@ -484,8 +484,8 @@ window "chemdispenser"
 		type = MAIN
 		pos = 372,0
 		size = 340x480
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		is-visible = false
 		saved-params = "pos;size;is-minimized;is-maximized"
 		title = "Chem Dispenser"
@@ -494,16 +494,16 @@ window "chemdispenser"
 		type = LABEL
 		pos = 8,24
 		size = 56x16
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		saved-params = ""
 		text = "Energy: 25"
 	elem "eject"
 		type = BUTTON
 		pos = 264,4
 		size = 72x20
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		saved-params = "is-checked"
 		text = "[Insert beaker]"
 		command = "skincmd \"chemdispenser;eject\""
@@ -511,8 +511,8 @@ window "chemdispenser"
 		type = BUTTON
 		pos = 208,4
 		size = 48x20
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		saved-params = "is-checked"
 		text = "[Other]"
 		command = "skincmd \"chemdispenser;amountc\""
@@ -520,8 +520,8 @@ window "chemdispenser"
 		type = BUTTON
 		pos = 176,4
 		size = 24x20
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		saved-params = "is-checked"
 		text = "[30]"
 		command = "skincmd \"chemdispenser;amount30\""
@@ -529,8 +529,8 @@ window "chemdispenser"
 		type = BUTTON
 		pos = 144,4
 		size = 24x20
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		saved-params = "is-checked"
 		text = "[20]"
 		command = "skincmd \"chemdispenser;amount20\""
@@ -538,8 +538,8 @@ window "chemdispenser"
 		type = BUTTON
 		pos = 112,4
 		size = 24x20
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		saved-params = "is-checked"
 		text = "[10]"
 		command = "skincmd \"chemdispenser;amount10\""
@@ -547,8 +547,8 @@ window "chemdispenser"
 		type = LABEL
 		pos = 4,4
 		size = 100x20
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		font-size = 12
 		saved-params = ""
 		text = "Amount: 30"
@@ -556,8 +556,8 @@ window "chemdispenser"
 		type = CHILD
 		pos = 0,40
 		size = 340x440
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		saved-params = "splitter"
 		left = "chemdispenser_reagents"
 		is-vert = false
@@ -567,8 +567,8 @@ window "chemdispenser_reagents"
 		type = MAIN
 		pos = 372,0
 		size = 340x448
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		saved-params = "pos;size;is-minimized;is-maximized"
 		titlebar = false
 		statusbar = false
@@ -581,8 +581,8 @@ window "chemdispenser_reagents"
 		type = BUTTON
 		pos = 256,8
 		size = 64x32
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		is-visible = false
 		saved-params = "is-checked"
 		text = "Dispense"
@@ -592,8 +592,8 @@ window "chemdispenser_reagents"
 		type = LABEL
 		pos = 18,8
 		size = 230x32
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		font-size = 15
 		is-visible = false
 		saved-params = ""
@@ -605,17 +605,20 @@ window "mainwindow"
 		type = MAIN
 		pos = 281,0
 		size = 640x440
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		background-color = #000000
-		icon = 'icons\\icon.png'
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
-		title = "Цивилизация 13"
+		title = "Цивилизация 13 БЕТА"
 		titlebar = false
+		statusbar = false
 		is-maximized = true
+		icon = 'icons\\icon.png'
 		keep-aspect = true
 		macro = "macro"
+		outer-size = 1936x1096
+		inner-size = 1920x1080
 	elem "mainvsplit"
 		type = CHILD
 		pos = 0,0
@@ -633,8 +636,9 @@ window "mapwindow"
 		type = MAIN
 		pos = 372,0
 		size = 640x480
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		titlebar = false
 		statusbar = false
@@ -642,6 +646,7 @@ window "mapwindow"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
+		outer-size = 656x496
 	elem "map"
 		type = MAP
 		pos = 0,0
@@ -660,8 +665,8 @@ window "outputwindow"
 		type = MAIN
 		pos = 372,0
 		size = 640x480
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		background-color = #392611
 		saved-params = "pos;size;is-minimized;is-maximized"
 		titlebar = false
@@ -671,18 +676,19 @@ window "outputwindow"
 		can-resize = false
 		is-pane = true
 		can-scroll = vertical
+		outer-size = 656x496
 	elem "hotkey_toggle"
 		type = BUTTON
 		pos = 546,459
 		size = 92x20
 		anchor1 = 100,100
-		anchor2 = none
-		font-family = "Book Antiqua"
-		font-size = 8
+		anchor2 = -1,-1
+		font-family = "Gabriola"
+		font-size = 11
 		text-color = #e1e1d7
 		background-color = #242424
 		saved-params = "is-checked"
-		text = "Hotkey Toggle"
+		text = "Хоткеи"
 		command = ".winset \"mainwindow.macro!=macro ? mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true : mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true\""
 		button-type = pushbox
 	elem "saybutton"
@@ -690,13 +696,13 @@ window "outputwindow"
 		pos = 502,459
 		size = 40x20
 		anchor1 = 100,100
-		anchor2 = none
-		font-family = "Book Antiqua"
-		font-size = 8
+		anchor2 = -1,-1
+		font-family = "Gabriola"
+		font-size = 11
 		text-color = #e1e1d7
 		background-color = #242424
 		saved-params = "is-checked"
-		text = "Chat"
+		text = "Чат"
 		command = ".winset \"saybutton.is-checked=true?input.command=\"!say \\\"\" macrobutton.is-checked=false:input.command=\""
 		button-type = pushbox
 	elem "input"
@@ -730,12 +736,14 @@ window "browserwindow"
 		type = MAIN
 		pos = 372,0
 		size = 640x480
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		title = "Browser"
 		statusbar = false
 		is-pane = true
+		outer-size = 658x527
 	elem "browser"
 		type = BROWSER
 		pos = 0,0
@@ -753,8 +761,8 @@ window "infowindow"
 		type = MAIN
 		pos = 372,0
 		size = 420x477
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		background-color = #1f2025
 		saved-params = "pos;size;is-minimized;is-maximized"
 		title = "Info"
@@ -790,8 +798,8 @@ window "rpane"
 		type = MAIN
 		pos = 372,0
 		size = 420x457
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		background-color = #1f2025
 		saved-params = "pos;size;is-minimized;is-maximized"
 		titlebar = false
@@ -831,8 +839,8 @@ window "text_editor"
 		type = MAIN
 		pos = 372,0
 		size = 360x488
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		is-visible = false
 		border = sunken
 		saved-params = "pos;size;is-minimized;is-maximized"
@@ -843,8 +851,8 @@ window "text_editor"
 		type = BUTTON
 		pos = 248,456
 		size = 104x24
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		saved-params = "is-checked"
 		text = "Exit without saving"
 		command = ""
@@ -852,8 +860,8 @@ window "text_editor"
 		type = BUTTON
 		pos = 128,456
 		size = 104x24
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		saved-params = "is-checked"
 		text = "Save"
 		command = ""
@@ -861,8 +869,8 @@ window "text_editor"
 		type = BUTTON
 		pos = 8,456
 		size = 104x24
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		saved-params = "is-checked"
 		text = "Save + Exit"
 		command = ""
@@ -870,8 +878,8 @@ window "text_editor"
 		type = INPUT
 		pos = 0,0
 		size = 360x448
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		border = line
 		saved-params = ""
 		multi-line = true
