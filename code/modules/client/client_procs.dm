@@ -20,6 +20,13 @@
 		- If so, is there any protection against somebody spam-clicking a link?
 	If you have any  questions about this stuff feel free to ask. ~Carn
 	*/
+var/list/blacklisted_builds = list(
+	"1407" = "ошибка, препятствующая работе переопределения отображения клиента, приводит к тому, что клиенты могут видеть вещи/мобов, которые они не должны видеть",
+	"1408" = "ошибка, препятствующая работе переопределения отображения клиента, приводит к тому, что клиенты могут видеть вещи/мобов, которые они не должны видеть",
+	"1428" = "ошибка, из-за которой меню правой кнопки мыши отображало слишком много вербов, исправленных в версии 1429",
+	"1548" = "ошибка, нарушающая \"альфа\" функциональность в игре, позволяющая клиентам видеть вещи/мобов, которых они не должны видеть",
+	"1583" = "ошибка, позволяющая создавать корневое пиво из воздуха",
+	)
 /client/Topic(href, href_list, hsrc)
 	if (!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
@@ -164,6 +171,14 @@
 		src << "<span class = 'danger'><font size = 4>Пожалуйста обновите BYOND до [REAL_MIN_CLIENT_VERSION] версии.</font></span>"
 		del(src)
 		return FALSE
+
+	if (num2text(byond_build) in blacklisted_builds)
+		log_access("Ошибка подключения: [key] версия BYOND находится в списке запрещёных к подключению версий ([byond_version].[byond_build])")
+		world.log << "Ошибка подключения: [key] - версия BYOND находится в нигерлисте ([byond_version].[byond_build])"
+		sleep(3)
+		WWalert(src, "Твоя версия находится в списке запрещёных к подключению, обновись до последней.", "Привет")
+		qdel(src)
+		return
 
 	/*Admin Authorisation: */
 
