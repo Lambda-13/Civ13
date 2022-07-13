@@ -231,7 +231,7 @@ var/list/blacklisted_builds = list(
 
 	if (custom_event_msg && custom_event_msg != "")
 		src << "<h1 class='alert'>Событие</h1>"
-		src << "<h2 class='alert'>Что за событие:</h2>"
+		src << "<h2 class='alert'>Информация о событии:</h2>"
 		src << "<span class='alert'>[custom_event_msg]</span>"
 		src << "<br>"
 
