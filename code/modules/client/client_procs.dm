@@ -140,7 +140,7 @@ var/list/blacklisted_builds = list(
 
 	if (key != world.host)
 		if (!config.guests_allowed && IsGuestKey(key))
-			WWalert(src, "Привет, можешь зарегестрироваться или войти в свой аккаунт? Спасибо.", "Гости должны иметь имя")
+			src << "<span class = 'danger'><font size = 4>Привет, можешь зарегестрироваться или войти в свой аккаунт? Спасибо.</font></span>"
 			del(src)
 			return
 
