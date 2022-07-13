@@ -4,7 +4,7 @@
 #define UPLOAD_LIMIT		100000000	//Restricts client uploads to the server to 1000MB //Boosted this thing. What's the worst that can happen?
 #define ABSOLUTE_MIN_CLIENT_VERSION 512
 #define REAL_MIN_CLIENT_VERSION 513
-#define PLAYERCAP 200
+#define PLAYERCAP 20
 	/*
 	When somebody clicks a link in game, this Topic is called first.
 	It does the stuff in this proc and  then is redirected to the Topic() proc for the src=[0xWhatever]
@@ -27,7 +27,7 @@
 	//search the href for script injection
 	if ( findtext(href,"<script",1,0) )
 		world.log << "Attempted use of scripts within a topic call, by [src]"
-		message_admins("Attempted use of scripts within a topic call, by [src]")
+		message_admins("[src] попытался провести взлом с помощью иньектирования скрипта в вызов топиков")
 		//del(usr)
 		return
 
@@ -133,7 +133,7 @@
 
 	if (key != world.host)
 		if (!config.guests_allowed && IsGuestKey(key))
-			WWalert(src, "This server doesn't allow guest accounts to play. Please go to http://www.byond.com/ and register for a key.", "Guest Account Detected")
+			WWalert(src, "Привет, можешь зарегестрироваться или войти в свой аккаунт? Спасибо.", "Гости должны иметь имя")
 			del(src)
 			return
 
@@ -161,7 +161,7 @@
 		return FALSE
 
 	if (byond_version < REAL_MIN_CLIENT_VERSION)		//Out of date client.
-		src << "<span class = 'danger'><font size = 4>Please upgrade to BYOND [REAL_MIN_CLIENT_VERSION] to play.</font></span>"
+		src << "<span class = 'danger'><font size = 4>Пожалуйста обновите BYOND до [REAL_MIN_CLIENT_VERSION] версии.</font></span>"
 		del(src)
 		return FALSE
 
@@ -174,7 +174,7 @@
 	// this is here because mob/Login() is called whenever a mob spawns in
 	if (holder)
 		if (ticker && ticker.current_state == GAME_STATE_PLAYING) //Only report this stuff if we are currently playing.
-			message_admins("Staff login: [key_name(src)]")
+			message_admins("Админ подключился: [key_name(src)]")
 
 	if (holder)
 		holder.associate(src)
@@ -190,7 +190,7 @@
 
 	if (clients.len >= PLAYERCAP)
 		if (!holder)
-			src << "<span class = 'danger'><font size = 4>The server is full right now, sorry.</font></span>"
+			src << "<span class = 'danger'><font size = 4>На сервере достигнут лимит игроков, займите очередь.</font></span>"
 			del(src)
 			return
 
@@ -208,14 +208,14 @@
 	if (!holder)
 
 		if (!world_is_open)
-			src << "<span class = 'userdanger'>The server is currently closed to non-admins.</span>"
+			src << "<span class = 'userdanger'>Сервер закрыт для непосвящённых.</span>"
 			message_admins("[src] tried to log in, but was rejected, the server is closed to non-admins.")
 			del(src)
 			return
 
 	if (custom_event_msg && custom_event_msg != "")
-		src << "<h1 class='alert'>Custom Event</h1>"
-		src << "<h2 class='alert'>A custom event is taking place. OOC Info:</h2>"
+		src << "<h1 class='alert'>Событие</h1>"
+		src << "<h2 class='alert'>Что за событие:</h2>"
 		src << "<span class='alert'>[custom_event_msg]</span>"
 		src << "<br>"
 
