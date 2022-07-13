@@ -1,4 +1,4 @@
-/client/proc/pripeklon(pripeklon_key)
+/client/proc/pripeklon(pripeklon_ckey)
 	if (!check_rights(R_ADMIN))	return
 
 //	if (!pripeklon_ckey || !istext(pripeklon_ckey))	return
@@ -7,9 +7,9 @@
 //		return
 
 	for (var/client/C in clients)
-		if (C.key == pripeklon_key)
+		if (C.ckey == pripeklon_ckey)
 			C << 'sound/effects/pripeklon.ogg'
-			world << "<span class='ooc'><span class='everyone'>OOC: <EM>[pripeklon_key]:</EM> <span class='message'>Моя жопа <b>ГОРИТ!!!</b></span></span>"
+			world << "<span class='ooc'><span class='everyone'>OOC: <EM>[C.key]:</EM> <span class='message'>Моя жопа <b>ГОРИТ!!!</b></span></span>"
 			message_admins("[key_name_admin(src)] butthurt [key_name_admin(C)] ass.")
 			return
-	message_admins("[key_name_admin(src)] has butthurt [pripeklon_key] ass.")
+	message_admins("[key_name_admin(src)] has butthurt [pripeklon_ckey] ass.")
