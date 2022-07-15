@@ -20,8 +20,8 @@
 	is_singlefaction = TRUE
 	ordinal_age = 7
 	faction_distribution_coeffs = list(INDIANS = 0.9, CIVILIAN = 0.1)
-	battle_name = "Skull competition"
-	mission_start_message = "<font size=4>Three African warlords are fighting for the control of this area. They will need to collect <b>enemy skulls</b> and bring them to their shaman hut. First team to reach <b>35 points</b> wins.<br><b>DO NOT KILL THE UN (ESPECIALLY DOCTORS) AS IT WILL GIVE NEGATIVE POINTS TO YOUR TEAM!</b></font>"
+	battle_name = "Черепа ведут к победе"
+	mission_start_message = "<font size=4>Три африканских военачальника сражаются за контроль над этой территорией. Им нужно будет собрать <b>вражеские черепа</b> и принести их в свою шаманскую хижину. Первая команда, набравшая <b>35 очков </b> побеждает.<br><b>НЕ УБИВАЙТЕ ООН (ОСОБЕННО ВРАЧЕЙ), ТАК КАК ЭТО ПРИДАЕТ ОТРИЦАТЕЛЬНЫЕ БАЛЛЫ ВАШЕЙ КОМАНДЕ!</b></font>"
 	faction1 = INDIANS
 	faction2 = CIVILIAN
 	valid_weather_types = list(WEATHER_WET, WEATHER_NONE, WEATHER_EXTREME)

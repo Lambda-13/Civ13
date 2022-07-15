@@ -17,8 +17,8 @@
 	age = "1945"
 	ordinal_age = 6
 	faction_distribution_coeffs = list(GERMAN = 0.4, RUSSIAN = 0.6)
-	battle_name = "Battle of the Berlin Gate"
-	mission_start_message = "<font size=4>All factions have <b>8 minutes</b> to prepare before the ceasefire ends!<br>The Germans will win if they hold out for <b>40 minutes</b>. The Soviets will win if they manage to reach and hold past the Berlin Gate for 5 minutes.</font>"
+	battle_name = "Битва у Берлинских ворот"
+	mission_start_message = "<font size=4>У всех фракций есть <b>8 минут</b> на подготовку до прекращения огня!<br>Немцы победят, если продержатся <b>40 минут</b>. Советы выиграют, если им удастся добраться до Берлинских ворот и продержаться 5 минут».</font>"
 	faction1 = GERMAN
 	faction2 = RUSSIAN
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET)

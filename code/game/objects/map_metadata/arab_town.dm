@@ -18,8 +18,8 @@
 	ordinal_age = 8
 	no_hardcore = TRUE
 	faction_distribution_coeffs = list(ARAB = 0.5, AMERICAN = 0.5)
-	battle_name = "battle for the town"
-	mission_start_message = "<font size=4>The <b>Hezbollah</b> is holding the town. <b>IDF</b> troops must capture the Hezbollah HQ (SW corner) within <b>40 minutes</b>!</font>"
+	battle_name = "бой в городе"
+	mission_start_message = "<font size=4><b>Хезболла</b> удерживает город. Войска <b>ЦАХАЛ</b> должны захватить штаб-квартиру Хезболлы (юго-западный угол) в течение <b>40 минут</b>! </шрифт>"
 	faction1 = ARAB
 	faction2 = AMERICAN
 	valid_weather_types = list(WEATHER_NONE, WEATHER_EXTREME)
@@ -169,8 +169,8 @@ var/no_loop_arab = FALSE
 	age = "2006"
 	ordinal_age = 8
 	faction_distribution_coeffs = list(AMERICAN = 0.5, ARAB = 0.5)
-	battle_name = "battle for the town"
-	mission_start_message = "<font size=4>Capture most of the town and hold the enemy base! The grace wall will go down in <b>6 minutes</b>.</font>"
+	battle_name = "бой в городе"
+	mission_start_message = "<font size=4>Захватите большую часть города и удерживайте вражескую базу! Стена благодати рухнет через <b>6 минут</b>.</font>"
 	faction1 = AMERICAN
 	faction2 = ARAB
 	valid_weather_types = list(WEATHER_NONE, WEATHER_EXTREME)

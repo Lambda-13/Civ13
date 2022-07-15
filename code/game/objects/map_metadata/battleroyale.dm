@@ -1,6 +1,6 @@
 /obj/map_metadata/battleroyale
 	ID = MAP_BATTLEROYALE_IMPERIAL
-	title = "Battle Royale: Imperial"
+	title = "Королевская битва: 17 век"
 	lobby_icon = "icons/lobby/battleroyale.png"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall)
 	respawn_delay = 0
@@ -17,8 +17,8 @@
 	age = "1713"
 	ordinal_age = 3
 	faction_distribution_coeffs = list(PIRATES = 1)
-	battle_name = "Battleroyale at Isla Robusta"
-	mission_start_message = "<font size=4>You and several other pirates were abandoned at this forsaken island. Only one can survive! <b>Last standing player wins!</b></font>"
+	battle_name = "Battleroyale на острове Робуста"
+	mission_start_message = "<font size=4>Вы и несколько других пиратов были брошены на этом заброшенном острове. Только один может выжить! <b>Победит последний уцелевший игрок!</b></font>"
 	var/winner_name = "Unknown"
 	var/winner_ckey = "Unknown"
 	faction1 = PIRATES
@@ -470,13 +470,13 @@
 
 /obj/map_metadata/battleroyale/two
 	ID = MAP_BATTLEROYALE_MODERN
-	title = "Battle Royale: Modern"
+	title = "Королевская битва: 21 век"
 	lobby_icon = "icons/lobby/battleroyale_arab.png"
 
 	age = "2013"
 	ordinal_age = 8
 	faction_distribution_coeffs = list(PIRATES = 1)
-	battle_name = "Battleroyale at Arab Town"
+	battle_name = "Battleroyale в Городе"
 	mission_start_message = "<font size=4><b>Последний победитель!</b><br>ДВЕ МИНУТЫ ДО ЗАПУСКА!</font>"
 
 /obj/map_metadata/battleroyale/two/job_enabled_specialcheck(var/datum/job/J)
@@ -502,12 +502,12 @@
 	return .
 /obj/map_metadata/battleroyale/three
 	ID = MAP_BATTLEROYALE_MEDIEVAL
-	title = "Battle Royale: Medieval"
+	title = "Королевская битва: Средние века"
 
 	age = "1013"
 	ordinal_age = 2
 	faction_distribution_coeffs = list(PIRATES = 1)
-	battle_name = "Battleroyale at Camp"
+	battle_name = "Battleroyale в Лагере"
 	mission_start_message = "<font size=4><b>Последний на ногах выйгрывает!</b><br>ЧЕРЕЗ ДВЕ МИНУТЫ НАЧАЛО!</font>"
 
 /obj/map_metadata/battleroyale/three/job_enabled_specialcheck(var/datum/job/J)
@@ -535,12 +535,12 @@
 
 /obj/map_metadata/battleroyale/four
 	ID = MAP_BATTLEROYALE_WILDWEST
-	title = "Battle Royale: Wild West"
+	title = "Королевская битва: Дикий Запад"
 	age = "1873"
 	ordinal_age = 4
 	faction_distribution_coeffs = list(PIRATES = 1)
-	battle_name = "Battleroyale at Little Creek"
-	mission_start_message = "<font size=4><b>Last standing player wins!</b><br>TWO MINUTES UNTIL THE INVISIBLE WALL DISAPPEARS!</font>"
+	battle_name = "Battleroyale в Литтл-Крик"
+	mission_start_message = "<font size=4><b>Побеждает последний уцелевший игрок!</b><br>ДВЕ МИНУТЫ ПОКА НЕВИДИМАЯ СТЕНА ИСЧЕЗЕТ!</font>"
 
 /obj/map_metadata/battleroyale/four/job_enabled_specialcheck(var/datum/job/J)
 
