@@ -1,7 +1,7 @@
 /client/verb/icons_dmf()
-	set hidden = TRUE
-	set instant = TRUE
-	set name = ".icons_dmf"
+	set name = "Change Size"
+	set category = "OOC"
+	set desc = "Меняет размер экрана."
 //	set hidden = TRUE
 
 	var/choice = WWinput(usr, "Какой размер экрана?", "Размер", "Авто", list("Авто","128x128","96x96","64x64","48x48","32x32"))
