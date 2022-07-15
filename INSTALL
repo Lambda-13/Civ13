@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo Ну чё погняли нахуй!
+echo Ну чё погнали нахуй!
 echo -----------------
 echo Таак пажжи ёпт...
 sudo dpkg --add-architecture i386
