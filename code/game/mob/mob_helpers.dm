@@ -420,9 +420,9 @@ proc/is_blind(A)
 		if (!name)
 			name = (C.holder && C.holder.fakekey) ? C.holder.fakekey : C.key
 		if (joined_ghosts)
-			say_dead_direct("<span class='name'>[name]</span> [pick("смотрит за раундом","гостанулся","смотрит за живыми","теперь призрак","наблюдает за игрой")]. [message]")
+			say_dead_direct("<span class='name'>[name]</span> [pick("смотрит за раундом","наблюдает за игрой")]. [message]")
 		else
-			say_dead_direct("<span class='name'>[name]</span> [pick("вернулся в лобби","покинул лимб","возвысился в мир","был прощён и отпущен","получил дополнительную жизнь")]. [message]")
+			say_dead_direct("<span class='name'>[name]</span> [pick("вернулся в лобби","теперь в лобби")]. [message]")
 
 // Returns true if the mob has a client which has been active in the last given X minutes.
 /mob/proc/is_client_active(var/active = TRUE)
