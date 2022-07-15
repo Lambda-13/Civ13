@@ -693,7 +693,7 @@ var/list/vocal_emotes = list(
 					m_type = 1
 				else
 					if (!muzzled)
-						message = "screams in pain!"
+						message = "кричит от боли!"
 						m_type = 2
 						scream_sound(src, FALSE)
 					else
@@ -712,7 +712,7 @@ var/list/vocal_emotes = list(
 						spawn(600)
 							surrendered = FALSE
 					else
-						message = "surrenders!"
+						message = "капитулирует!"
 						Weaken(50)
 						if (l_hand) unEquip(l_hand)
 						if (r_hand) unEquip(r_hand)
