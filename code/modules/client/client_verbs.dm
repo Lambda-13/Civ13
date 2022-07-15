@@ -48,20 +48,20 @@
 		for (var/client/C in clients)
 			var/entry = "\t[C.key]"
 			if (C.holder && C.holder.fakekey)
-				entry += " <i>(as [C.holder.fakekey])</i>"
-			entry += " - Playing as [C.mob.real_name]"
+				entry += " <i>(он же [C.holder.fakekey])</i>"
+			entry += " - Играет на [C.mob.real_name]"
 			switch(C.mob.stat)
 				if (UNCONSCIOUS)
-					entry += " - <font color='red'><b>Unconscious</b></font>"
+					entry += " - <font color='red'><b>Без сознания</b></font>"
 				if (DEAD)
 					if (isghost(C.mob))
 						var/mob/observer/ghost/O = C.mob
 						if (O.started_as_observer)
-							entry += " - <font color='gray'>Observing</font>"
+							entry += " - <font color='gray'>Наблюдает</font>"
 						else
-							entry += " - <font color='red'><b>DEAD</b></font>"
+							entry += " - <font color='red'><b>МЁРТВ</b></font>"
 					else
-						entry += " - <font color='gray'>In Lobby</font>"
+						entry += " - <font color='gray'>Лобби</font>"
 
 			var/age
 			if (isnum(C.player_age))
@@ -90,7 +90,7 @@
 	for (var/line in sortList(Lines))
 		msg += "[line]\n"
 
-	msg += "<b>Total Players: [length(Lines)]</b>"
+	msg += "<b>Всего Игроков: [length(Lines)]</b>"
 	src << msg
 
 /client/verb/adminwho()
