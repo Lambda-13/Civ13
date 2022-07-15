@@ -34,8 +34,8 @@
 #define FINNISH_SYLLABLES 		list("a", "ан", "дел", "дес", "эр", "гас", "гo", "хе", "ик", "ил", "жa", "жар", "жэс", "жaт", "кa", "кaи", "кю", "лa", "лас", "лaт", "лэм", "лет", "ли", "лис", "ма", "мал", "мас", "мат", "ми", "мэл", "мэр", "ми", "мин", "мис", "мoит", "мyy", "нэн", "ни", "нин", "нит", "нo", "нос", "o", "oн", "ре", "рет", "рис", "рю", "ра", "ри", "сa", "сэс", "стрюк", "сyy", "тa", "тaю", "те", "тэл", "ти", "тo", "тю", "жар", "тан", "тo", "тoн", "вин", "вoи")
 
 /datum/language/portuguese
-	name = "Португальский"
-	desc = "На нём говорят любящие море."
+	name = "Portuguese"
+	desc = "Muito bom."
 	key = "pt"
 	colour = "Portuguese"
 	flags = RESTRICTED | COMMON_VERBS
@@ -43,8 +43,8 @@
 	mutual_intelligibility = list(/datum/language/spanish = 75,/datum/language/french = 35,/datum/language/italian = 10)
 
 /datum/language/danish
-	name = "Датский"
-	desc = "По звучанию похож на смесь немецкого и скандинавсткого языка - собственно он от них и берёт свои корни."
+	name = "Danish"
+	desc = "OH LO LO OH LO LO."
 	key = "dn"
 	colour = "danish"
 	flags = RESTRICTED | COMMON_VERBS
@@ -56,8 +56,8 @@
 	/datum/language/english = 10)
 
 /datum/language/spanish
-	name = "Испанский"
-	desc = "Мексиканский основной язык."
+	name = "Spanish"
+	desc = "Muy bueno."
 	key = "sp"
 	colour = "Spanish"
 	flags = RESTRICTED | COMMON_VERBS
@@ -65,8 +65,8 @@
 	mutual_intelligibility = list(/datum/language/portuguese = 50,/datum/language/french = 35,/datum/language/italian = 30)
 
 /datum/language/english
-	name = "Английский"
-	desc = "Основной язык других языков."
+	name = "English"
+	desc = "Very good."
 	key = "en"
 	colour = "English"
 	flags = RESTRICTED | COMMON_VERBS
@@ -74,8 +74,8 @@
 	mutual_intelligibility = list(/datum/language/french = 10,/datum/language/german = 10,/datum/language/dutch = 10)
 
 /datum/language/french
-	name = "Французкий"
-	desc = "Прекрасный язык."
+	name = "French"
+	desc = "Tres bien."
 	key = "fr"
 	colour = "French"
 	flags = RESTRICTED | COMMON_VERBS
@@ -83,8 +83,8 @@
 	mutual_intelligibility = list(/datum/language/english = 10,/datum/language/spanish = 25,/datum/language/portuguese = 10,/datum/language/dutch = 10,/datum/language/italian = 10)
 
 /datum/language/dutch
-	name = "Нидерландский"
-	desc = "Похож на Датский, но различия существенные между этими языками есть."
+	name = "Dutch"
+	desc = "Erg goed."
 	key = "nl"
 	colour = "Dutch"
 	flags = RESTRICTED | COMMON_VERBS
@@ -92,8 +92,8 @@
 	mutual_intelligibility = list(/datum/language/english = 10,/datum/language/german = 40,/datum/language/oldnorse = 15)
 
 /datum/language/carib
-	name = "Карибский"
-	desc = "Язык далёких земель."
+	name = "Carib"
+	desc = "???"
 	key = "cb"
 	colour = "Carib"
 	flags = RESTRICTED | COMMON_VERBS
@@ -102,8 +102,8 @@
 
 
 /datum/language/greek
-	name = "Греческий"
-	desc = "Брат латинского языка."
+	name = "Greek"
+	desc = "Old and rational."
 	key = "gr"
 	colour = "Greek"
 	flags = RESTRICTED | COMMON_VERBS
@@ -111,8 +111,8 @@
 	mutual_intelligibility = list(/datum/language/latin = 10)
 
 /datum/language/latin
-	name = "Латинский"
-	desc = "Дедушка других языков."
+	name = "Latin"
+	desc = "Sacred and violent."
 	key = "la"
 	colour = "Latin"
 	flags = RESTRICTED | COMMON_VERBS
@@ -125,8 +125,8 @@
 		/datum/language/dutch = 10)
 
 /datum/language/arab
-	name = "Арабский"
-	desc = "Язык жителей юга, похож на Египетский."
+	name = "Arabic"
+	desc = "Allahu Ackbar!"
 	key = "ar"
 	colour = "Arabic"
 	flags = RESTRICTED | COMMON_VERBS
@@ -134,8 +134,8 @@
 	mutual_intelligibility = list(/datum/language/hebrew = 35, /datum/language/egyptian= 30, /datum/language/chechen= 30)
 
 /datum/language/chechen
-	name = "Чеченский"
-	desc = "Нихуя не понятно."
+	name = "Chechen"
+	desc = "Marsallah!"
 	key = "ch"
 	colour = "Arabic"
 	flags = RESTRICTED | COMMON_VERBS
@@ -143,8 +143,8 @@
 	mutual_intelligibility = list(/datum/language/russian = 5, /datum/language/arab= 30, /datum/language/armenian= 30)
 
 /datum/language/hebrew
-	name = "Иврит"
-	desc = "На нём когда-то говорит Иисус."
+	name = "Hebrew"
+	desc = "Oy Vey!"
 	key = "hb"
 	colour = "Hebrew"
 	flags = RESTRICTED | COMMON_VERBS
@@ -152,8 +152,8 @@
 	mutual_intelligibility = list(/datum/language/arab = 35, /datum/language/egyptian= 30)
 
 /datum/language/japanese
-	name = "Японский"
-	desc = "Восточный язык, похож на Китайский."
+	name = "Japanese"
+	desc = "Ohio Gozaimasu."
 	key = "jp"
 	colour = "Japanese"
 	flags = RESTRICTED | COMMON_VERBS
@@ -161,8 +161,8 @@
 	mutual_intelligibility = list(/datum/language/chinese = 15)
 
 /datum/language/ainu
-	name = "Айнский"
-	desc = "Похож на Монгольский."
+	name = "Ainu"
+	desc = "Osoma!."
 	key = "ai"
 	colour = "Ainu"
 	flags = RESTRICTED | COMMON_VERBS
@@ -170,8 +170,8 @@
 	mutual_intelligibility = list(/datum/language/japanese = 15, /datum/language/russian = 15)
 
 /datum/language/russian
-	name = "Русский"
-	desc = "Да."
+	name = "Russian"
+	desc = "Za Rodinu!"
 	key = "ru"
 	colour = "Russian"
 	flags = RESTRICTED | COMMON_VERBS
@@ -179,8 +179,8 @@
 	mutual_intelligibility = list(/datum/language/ukrainian = 35, /datum/language/polish = 10)
 
 /datum/language/ukrainian
-	name = "Украинский"
-	desc = "🐖"
+	name = "Ukrainian"
+	desc = "Slava Ukraina!"
 	key = "uk"
 	colour = "Ukrainian"
 	flags = RESTRICTED | COMMON_VERBS
@@ -188,8 +188,8 @@
 	mutual_intelligibility = list(/datum/language/russian = 35, /datum/language/polish = 20)
 
 /datum/language/polish
-	name = "Польский"
-	desc = "Один из славянских языков."
+	name = "Polish"
+	desc = "Smierc dla ciemiezcow!"
 	key = "pl"
 	colour = "Polish"
 	flags = RESTRICTED | COMMON_VERBS
@@ -197,8 +197,8 @@
 	mutual_intelligibility = list(/datum/language/russian = 10, /datum/language/ukrainian = 20)
 
 /datum/language/chinese
-	name = "Китайский"
-	desc = "Похож на Японский язык."
+	name = "Chinese"
+	desc = "Xiexie."
 	key = "cn"
 	colour = "Chinese"
 	flags = RESTRICTED | COMMON_VERBS
@@ -206,8 +206,8 @@
 	mutual_intelligibility = list(/datum/language/japanese = 15)
 
 /datum/language/german
-	name = "Немецкий"
-	desc = "Современный скандинаский."
+	name = "German"
+	desc = "Vor uns liegt Deutschland, in uns marschiert Deutschland. und hinter uns kommt Deutschland!"
 	key = "de"
 	colour = "german"
 	flags = RESTRICTED | COMMON_VERBS
@@ -215,8 +215,8 @@
 	mutual_intelligibility = list(/datum/language/english = 15,/datum/language/dutch = 35,/datum/language/oldnorse = 15)
 
 /datum/language/zulu
-	name = "Зулу"
-	desc = "Южный язык чернокожих."
+	name = "Zulu"
+	desc = "Kuhle Kakhulu."
 	key = "zu"
 	colour = "Zulu"
 	flags = RESTRICTED | COMMON_VERBS
@@ -224,8 +224,8 @@
 	mutual_intelligibility = list(/datum/language/swahili = 35, /datum/language/egyptian= 10)
 
 /datum/language/swahili
-	name = "Суахили"
-	desc = "Южный язык чернокожих."
+	name = "Swahili"
+	desc = "Vizuri Sana."
 	key = "sw"
 	colour = "Swahili"
 	flags = RESTRICTED | COMMON_VERBS
@@ -233,8 +233,8 @@
 	mutual_intelligibility = list(/datum/language/zulu = 35, /datum/language/egyptian= 10)
 
 /datum/language/armenian
-	name = "Армянский"
-	desc = "Язык игроков в нарды."
+	name = "Armenian"
+	desc = "Baref!"
 	key = "ar"
 	colour = "Armenian"
 	flags = RESTRICTED | COMMON_VERBS
@@ -242,8 +242,8 @@
 	mutual_intelligibility = list(/datum/language/hebrew = 10, /datum/language/chechen= 30)
 
 /datum/language/vietnamese
-	name = "Вьетнамский"
-	desc = "Китайский изменёный язык."
+	name = "Vietnamese"
+	desc = "Rat Tot!"
 	key = "vn"
 	colour = "Vietnamese"
 	flags = RESTRICTED | COMMON_VERBS
@@ -252,8 +252,8 @@
 
 
 /datum/language/blackspeech
-	name = "Орочий"
-	desc = "Победа или смерть!"
+	name = "Black Speech"
+	desc = "Baldur!"
 	key = "bs"
 	colour = "Black Speech"
 	flags = RESTRICTED | COMMON_VERBS
@@ -261,8 +261,8 @@
 	mutual_intelligibility = list(/datum/language/oldnorse = 10) //easteregg to Norse god Baldr
 
 /datum/language/ant
-	name = "Муравьинный"
-	desc = "Чё они пиздят один хуй никто не поймёт."
+	name = "Antspeak"
+	desc = "Kch!"
 	key = "an"
 	colour = "Antspeak"
 	flags = RESTRICTED | COMMON_VERBS
@@ -270,8 +270,8 @@
 	mutual_intelligibility = list()
 
 /datum/language/ape
-	name = "Апексовый"
-	desc = "На нём говорят макаки и неважно макаки первобытные или из далёкого будущего."
+	name = "Ape Speech"
+	desc = "Ooga!"
 	key = "ap"
 	colour = "Ape Speech"
 	flags = RESTRICTED | COMMON_VERBS
@@ -279,8 +279,8 @@
 	mutual_intelligibility = list()
 
 /datum/language/wolf
-	name = "Вой"
-	desc = "На нём \"говорят\" волки и похожие на волков существа."
+	name = "Wolf Howling"
+	desc = "Awoooo!"
 	key = "wo"
 	colour = "Wolf Howling"
 	flags = RESTRICTED | COMMON_VERBS
@@ -288,34 +288,26 @@
 	mutual_intelligibility = list()
 
 /datum/language/lizard
-	name = "Ящерский"
-	desc = "Шипение пресмыкающихся."
+	name = "Lizard Hissing"
+	desc = "Hissss!"
 	key = "li"
-	speech_verb = "шипит"	
-	ask_verb = "шипит"
-	exclaim_verb = "шипит"
-	whisper_verb = "пришёптывает"
 	colour = "Lizard Hissing"
 	flags = RESTRICTED | COMMON_VERBS
 	syllables = HEBREW_SYLLABLES
 	mutual_intelligibility = list()
 
 /datum/language/crab
-	name = "Клешни"
-	desc = "Щёлкаете клешнями и говорите."
+	name = "Clack Tongue"
+	desc = "Clic Clac!"
 	key = "ct"
-	speech_verb = "щёлкает"	
-	ask_verb = "щёлкает"
-	exclaim_verb = "щёлкает"
-	whisper_verb = "тихо щёлкает"
 	colour = "Clack Tongue"
 	flags = RESTRICTED | COMMON_VERBS
 	syllables = CRAB_SYLLABLES
 	mutual_intelligibility = list()
 
 /datum/language/gaelic
-	name = "Шотландский"
-	desc = "Гэльский язык."
+	name = "Gaelic"
+	desc = "Drunken ramblings!"
 	key = "ga"
 	colour = "Gaelic"
 	flags = RESTRICTED | COMMON_VERBS
@@ -323,8 +315,8 @@
 	mutual_intelligibility = list()
 
 /datum/language/italian
-	name = "Итальянский"
-	desc = "Имеет схожесть с Испанским, Французким и Португальским."
+	name = "Italian"
+	desc = "Cazzo!"
 	key = "it"
 	colour = "ITALIAN"
 	flags = RESTRICTED | COMMON_VERBS
@@ -332,8 +324,8 @@
 	mutual_intelligibility = list(/datum/language/spanish = 30,/datum/language/french = 10,/datum/language/portuguese = 10)
 
 /datum/language/inuit
-	name = "Инуктитут"
-	desc = "Диалекты Канады."
+	name = "inuktitut"
+	desc = "Wendigo!"
 	key = "in"
 	colour = "Inuktitut"
 	flags = RESTRICTED | COMMON_VERBS
@@ -341,8 +333,8 @@
 	mutual_intelligibility = list()
 
 /datum/language/cherokee
-	name = "Черокский"
-	desc = "Изменёный Ирокезкий язык."
+	name = "Cherokee"
+	desc = "Zah-dah-dah-goh-huhn-yuhn"
 	key = "cr"
 	colour = "Cherokee"
 	flags = RESTRICTED | COMMON_VERBS
@@ -351,8 +343,8 @@
 
 
 /datum/language/oldnorse
-	name = "Всеобщий"
-	desc = "Древнескандинаский язык, дедушка Латинского языка."
+	name = "Old Norse"
+	desc = "Asgard Awaits!"
 	key = "on"
 	colour = "Old Norse"
 	flags = RESTRICTED | COMMON_VERBS
@@ -364,8 +356,8 @@
 	/datum/language/danish = 25)
 
 /datum/language/finnish
-	name = "Финский"
-	desc = "Имеет схожесть с английским и русским языком."
+	name = "Finnish"
+	desc = "Mamme!"
 	key = "fi"
 	colour = "Finnish"
 	flags = RESTRICTED | COMMON_VERBS
@@ -375,8 +367,8 @@
 	/datum/language/russian = 10)
 
 /datum/language/egyptian
-    name = "Египтянский"
-    desc = "Древний южный язык."
+    name = "Egyptian"
+    desc = "Amon-Ra, Aten!"
     key = "eg"
     colour = "Egyptian"
     flags = RESTRICTED | COMMON_VERBS
@@ -387,8 +379,8 @@
 	/datum/language/zulu = 10)
 
 /datum/language/korean
-    name = "Корейский"
-    desc = "На нём говорят фанаты k-pop."
+    name = "Korean"
+    desc = "Haudenosaunee."
     key = "ko"
     colour = "Korean"
     flags = RESTRICTED | COMMON_VERBS
@@ -396,8 +388,8 @@
     mutual_intelligibility = list(/datum/language/chinese = 15, /datum/language/japanese = 15)
 
 /datum/language/iroquois
-    name = "Изокезкий"
-    desc = "Язык племён индейцев."
+    name = "Iroquois"
+    desc = "Haudenosaunee."
     key = "ir"
     colour = "Iroquois"
     flags = RESTRICTED | COMMON_VERBS
@@ -405,8 +397,8 @@
     mutual_intelligibility = list(/datum/language/inuit = 10)
 
 /datum/language/filipino
-    name = "Филипинский"
-    desc = "Состоит из Испанского языка."
+    name = "Filipino"
+    desc = "Maligayang bati!"
     key = "ph"
     colour = "Filipino"
     flags = RESTRICTED | COMMON_VERBS
