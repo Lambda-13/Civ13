@@ -71,6 +71,7 @@
 				"Battle Royale" = 0,)
 		else if (config.allowedgamemodes == "LAMBDA")
 			epochs = list(
+		"Civilization 13 (Nomads)" = 15,
 		"Battle Royale" = 0,
 		"Chad Mode" = 20,
 		"Pre-Firearms (3000 B.C-1650 A.D.)" = 0,
@@ -79,7 +80,6 @@
 		"COOL NIGGERS DICK" = 1337,
 		"Modern Fire Arms (1949-2021)" = 0,
 		"HRP TDM (Gulag, Voyage, Occupation, etc)" = 15,
-		"Civilization 13 (Nomads)" = 15,
 		"Civilization 13 (Colony & Pioneers)" = 15,
 		"Civilization 13 (Others)" = 10,
 		"Fiction" = 0,)
