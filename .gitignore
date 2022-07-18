@@ -34,3 +34,4 @@ maps/ru/lifeweb.dmm
 maps/campaign/campaign8.dmm
 byhttp.dll
 libbyhttp.so
+config/webhooks.json
