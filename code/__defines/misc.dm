@@ -37,6 +37,7 @@
 #define COLOR_PALE_PURPLE_GRAY "#bda2ba"
 #define COLOR_PURPLE_GRAY	  "#a2819e"
 #define COLOR_SUN			  "#ec8b2f"
+#define COLOR_WEBHOOK           "0x8bbbd5"
 
 /*
 //Area flags, possibly more to come
@@ -70,3 +71,14 @@
 //HUD element hidings flags
 #define F12_FLAG 1 // 0001
 #define TOGGLE_INVENTORY_FLAG 2 //0010
+
+#ifndef WINDOWS_HTTP_POST_DLL_LOCATION
+#define WINDOWS_HTTP_POST_DLL_LOCATION "lib/byhttp.dll"
+#endif
+
+#ifndef UNIX_HTTP_POST_DLL_LOCATION
+#define UNIX_HTTP_POST_DLL_LOCATION "lib/libbyhttp.so"
+#endif
+
+#ifndef HTTP_POST_DLL_LOCATION
+#define HTTP_POST_DLL_LOCATION (world.system_type == MS_WINDOWS ? WINDOWS_HTTP_POST_DLL_LOCATION : UNIX_HTTP_POST_DLL_LOCATION)
