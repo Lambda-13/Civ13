@@ -494,6 +494,7 @@
 #include "code\game\objects\map_metadata\nomads_wasteland.dm"
 #include "code\game\objects\map_metadata\occupation.dm"
 #include "code\game\objects\map_metadata\omaha.dm"
+#include "code\game\objects\map_metadata\ong_thahn.dm"
 #include "code\game\objects\map_metadata\pavlov_house.dm"
 #include "code\game\objects\map_metadata\pioneers.dm"
 #include "code\game\objects\map_metadata\port_arthur.dm"
@@ -507,6 +508,7 @@
 #include "code\game\objects\map_metadata\road_to_dak_to.dm"
 #include "code\game\objects\map_metadata\robusta.dm"
 #include "code\game\objects\map_metadata\ru.dm"
+#include "code\game\objects\map_metadata\ruhr_uprising.dm"
 #include "code\game\objects\map_metadata\sammirhayeed.dm"
 #include "code\game\objects\map_metadata\santo_tomas.dm"
 #include "code\game\objects\map_metadata\save_awards.dm"
@@ -742,6 +744,7 @@
 #include "code\modules\1713\jobs\portuguese.dm"
 #include "code\modules\1713\jobs\prison.dm"
 #include "code\modules\1713\jobs\red_menace.dm"
+#include "code\modules\1713\jobs\ruhr_uprising.dm"
 #include "code\modules\1713\jobs\russian.dm"
 #include "code\modules\1713\jobs\russoukrainewar.dm"
 #include "code\modules\1713\jobs\ru.dm"
@@ -1068,7 +1071,6 @@
 #include "code\processes\lighting\sources.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "maps\1969\african_warlords.dmm"
-
+#include "maps\2013\capitol_hill_russians.dmm"
 // END_INCLUDE
 

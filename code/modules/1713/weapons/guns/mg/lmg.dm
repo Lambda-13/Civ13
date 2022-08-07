@@ -303,9 +303,9 @@
 /obj/item/weapon/gun/projectile/automatic/rpd
 	name = "RPD machine gun"
 	desc = "A soviet machinegun chambered in 7.62x39 rounds."
-	icon_state = "rpk"
-	item_state = "rpk"
-	base_icon = "rpk"
+	icon_state = "rpd"
+	item_state = "rpd"
+	base_icon = "rpd"
 	caliber = "a762x39"
 	magazine_type = /obj/item/ammo_magazine/rpd
 	good_mags = list(/obj/item/ammo_magazine/rpd)
@@ -317,19 +317,19 @@
 	force = 20
 	nothrow = TRUE
 	throwforce = 30
-	equiptimer = 25
-	load_delay = 50
+	equiptimer = 22
+	load_delay = 40
 	slowdown = 0.6
 
 /obj/item/weapon/gun/projectile/automatic/rpk74
-	name = "RPK74 maching gun"
-	desc = "A soviet machinegun chambered in 7.62x39 rounds."
-	icon_state = "rpd"
-	item_state = "rpd"
-	base_icon = "rpd"
-	caliber = "a762x39"
+	name = "RPK-74 machine gun"
+	desc = "A soviet machinegun chambered in 5.45x39 rounds."
+	icon_state = "rpk74"
+	item_state = "rpk74"
+	base_icon = "rpk74"
+	caliber = "a545x39"
 	magazine_type = /obj/item/ammo_magazine/rpk74
-	good_mags = list(/obj/item/ammo_magazine/rpk74, /obj/item/ammo_magazine/rpk74mag, /obj/item/ammo_magazine/ak74)
+	good_mags = list(/obj/item/ammo_magazine/rpk74, /obj/item/ammo_magazine/rpk74/drum, /obj/item/ammo_magazine/ak74)
 	weight = 5
 	firemodes = list(
 		list(name="full auto",	burst=1, burst_delay=1.3, move_delay=5, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.6), recoil = 0),)
@@ -338,9 +338,24 @@
 	force = 20
 	nothrow = TRUE
 	throwforce = 30
-	equiptimer = 24
-	load_delay = 50
+	equiptimer = 20
+	load_delay = 30
 	slowdown = 0.5
+
+/obj/item/weapon/gun/projectile/automatic/rpk74/update_icon()
+	if (ammo_magazine)
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74))
+			item_state = "rpk74"
+			icon_state = "rpk74"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74/drum))
+			icon_state = "rpk74_drum"
+			item_state = "rpk74_drum"
+			base_icon = "rpk74_drum"
+	else
+		icon_state = "rpk74_open"
+		item_state = "rpk74_open"
+	update_held_icon()
+	return
 
 /obj/item/weapon/gun/projectile/automatic/negev
 	name = "IWI Negev"

@@ -649,9 +649,10 @@ var/global/redirect_all_players = null
 //prevent boss spawns if there are enemies in the building
 		if (map && map.ID == MAP_CAPITOL_HILL)
 			var/obj/map_metadata/capitol_hill/CP = map
-			if (CP.gamemode == "Protect the VIP" && isemptylist(CP.HVT_list) && (actual_job && actual_job.title != "US HVT"))
-				WWalert(usr,"Someone needs to spawn as the HVT first!", "Error")
-				return
+			if(!istype(map, /obj/map_metadata/capitol_hill/russians))
+				if (CP.gamemode == "Protect the VIP" && isemptylist(CP.HVT_list) && (actual_job && actual_job.title != "US HVT"))
+					WWalert(usr,"Someone needs to spawn as the HVT first!", "Error")
+					return
 		if (map && map.ID == MAP_YELTSIN)
 			var/obj/map_metadata/yeltsin/CP = map
 			if (CP.gamemode == "Protect the VIP" && isemptylist(CP.HVT_list) && (actual_job && actual_job.title != "Soviet Supreme Chairman"))
@@ -1040,6 +1041,8 @@ var/global/redirect_all_players = null
 			dat += "[alive_civilians.len] Confederates "
 		else if (map && istype(map, /obj/map_metadata/tantiveiv))
 			dat += "[alive_civilians.len] Rebels "
+		else if (map && istype(map, /obj/map_metadata/ruhr_uprising))
+			dat += "[alive_civilians.len] Revolutionaries "
 		else
 			dat += "[alive_civilians.len] Civilians "
 	if (GREEK in map.faction_organization)
@@ -1065,7 +1068,10 @@ var/global/redirect_all_players = null
 	if (FINNISH in map.faction_organization)
 		dat += "[alive_finnish.len] Finnish "
 	if (GERMAN in map.faction_organization)
-		dat += "[alive_german.len] German "
+		if (map && istype(map, /obj/map_metadata/ruhr_uprising))
+			dat += "[alive_german.len] Reactionaries "
+		else
+			dat += "[alive_german.len] German "
 	if (AMERICAN in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/arab_town))
 			dat += "[alive_american.len] Israeli "
@@ -1245,6 +1251,11 @@ var/global/redirect_all_players = null
 				else if (map && map.ID == "RED_MENACE")
 					if (temp_name == "Russian")
 						temp_name = "Soviets"
+				else if (map && map.ID == "RUHR_UPRISING")
+					if (temp_name == "German")
+						temp_name = "Reactionaries"
+					if (temp_name == "Civilian")
+						temp_name = "Revolutionaries"
 				else if (map && map.ID == MAP_CAMPAIGN)
 					if (temp_name == "Civilian")
 						temp_name = "Red"
