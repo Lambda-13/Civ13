@@ -52,10 +52,10 @@ os.system("sudo DreamDaemon {}{}civ13.dmb {} -trusted -logself -webclient &".for
 
 handle = open(os.path.join(currdir, "token.txt"))
 token = handle.read()
-print("Запускаем...")
+print("Announce...")
 handle.close()
 
 from discord import Webhook, RequestsWebhookAdapter
 
 webhook = Webhook.from_url(token, adapter=RequestsWebhookAdapter())
-webhook.send("Запустились, ссылка <byond://lambda13.ru:{}/>".format(port))
+webhook.send("Server is up, join <byond://play.lambda13.ru:{}/>".format(port))

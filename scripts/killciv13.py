@@ -23,10 +23,10 @@ for pid in pids:
 
 handle = open(os.path.join(currdir, "token.txt"))
 token = handle.read()
-print("Запускаем...")
+print("Announce...")
 handle.close()
 
 from discord import Webhook, RequestsWebhookAdapter
 
 webhook = Webhook.from_url(token, adapter=RequestsWebhookAdapter())
-webhook.send("Сервер отключён.")
+webhook.send("Server shutdown.")
