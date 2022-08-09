@@ -1071,6 +1071,6 @@
 #include "code\processes\lighting\sources.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "maps\2013\capitol_hill_russians.dmm"
+#include "maps\1969\african_warlords.dmm"
 // END_INCLUDE
 
