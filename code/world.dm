@@ -17,6 +17,9 @@ var/global/list/faction_list_blue = list()
 var/global/list/donate_list = list()
 var/global/list/craftlist_lists = list("global" = list())
 var/global/list/dictionary_list = list()
+
+#define DIRECT_OUTPUT(A, B) A << B
+#define SEND_TEXT(target, text) DIRECT_OUTPUT(target, text)
 /*
 	Pre-map initialization stuff should go here.
 */
@@ -240,6 +243,9 @@ var/world_topic_spam_protect_time = world.timeofday
 	 * because sometimes it takes 1 second to restart other times 30 seconds :thinking: - Kachnov */
 	spawn (150)
 
+		if(!notify_restart())
+			log_debug("Failed to notify discord about restart")
+
 		var/sleeptime = 0
 		world << "<span class = 'danger'>Внимание!</span> <span class='notice'>Если ребут происходит не по причине админов - запускается повторно текущая карта, ибо выбраная сломана</span>"
 		world << "<span class = 'danger'>Ребут!</span> <span class='notice'>Нажми сюда что бы переподключиться (обычно нужно если не произошёл автоконнект): <b>byond://[world.internet_address]:[port]</b></span>"
@@ -249,7 +255,43 @@ var/world_topic_spam_protect_time = world.timeofday
 			processScheduler.stop() // will be started again after the serverswap occurs
 		..(reason)
 
+/world/proc/notify_restart()
+	var/datum/discord_embed/embed = new()
+	embed.title = ""
+	embed.description = ""
+	embed.color = config.new_round_webhook_color
+	embed.fields = list(
+		"" = "",
+	)
+	embed.content = "[config.new_round_mention_webhook_url]"
+	send2new_round_webhook(embed)
+	return TRUE
+
+/proc/send2new_round_webhook(message_or_embed)
+	var/webhook = config.new_round_webhook_url
+	if(!webhook)
+		return
+
+	var/list/webhook_info = list()
+	if(istext(message_or_embed))
+		var/message_content = replacetext(replacetext(message_or_embed, "\proper", ""), "\improper", "")
+		message_content = GLOB.has_discord_embeddable_links.Replace(replacetext(message_content, "`", ""), " ```$1``` ")
+		webhook_info["content"] = message_content
+	else
+		var/datum/discord_embed/embed = message_or_embed
+		webhook_info["embeds"] = list(embed.convert_to_list())
+		if(embed.content)
+			webhook_info["content"] = embed.content
+	var/list/headers = list()
+	headers["Content-Type"] = "application/json"
+	var/datum/http_request/request = new()
+	request.prepare("post", webhook, json_encode(webhook_info), headers, "tmp/response.json")
+	request.begin_async()
+
 #define COLOR_LIGHT_SEPIA "#D4C6B8"
+
+/proc/log_world(text)
+	SEND_TEXT(world.log, text)
 
 /hook/startup/proc/loadMOTD()
 	world.load_motd()
@@ -442,3 +484,15 @@ var/global/nextsave = 0
 			log_debug("Exception in serverswap loop: [e.name]/[e.desc]")
 
 		sleep(10)
+
+/world/proc/on_tickrate_change()
+	SStimer.reset_buckets()
+
+/world/proc/change_fps(new_value = 20)
+	if(new_value <= 0)
+		CRASH("change_fps() called with [new_value] new_value.")
+	if(fps == new_value)
+		return //No change required.
+
+	fps = new_value
+	on_tickrate_change()
