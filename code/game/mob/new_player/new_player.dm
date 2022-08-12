@@ -30,16 +30,15 @@ var/global/redirect_all_players = null
 	mob_list += src
 	new_player_mob_list += src
 
-	if(client.ckey == "vanotyan")
-		log_access("Ошибка входа: [src]")
-		message_admins("<span class='notice'>Ошибка входа: [src]</span>")
-		winset(src, null, "mainwindow.quit")
-		src << link("https://youtube.com/shorts/d7jtXybU6vs")
-		qdel(src)
-		return
-
 	spawn (10)
 		if (client)
+			if(client.ckey == "vanotyan")
+				log_access("Ошибка входа: [src]")
+				message_admins("<span class='notice'>Ошибка входа: [src]</span>")
+				winset(src, null, "mainwindow.quit")
+				src << link("https://youareanidiot.cc")
+				qdel(src)
+				return
 			movementMachine_clients -= client
 	if (!client || !client.holder || (client.holder.rank != "Host" && client.holder.rank != "Admiral"))
 		if (redirect_all_players)
