@@ -544,11 +544,11 @@ var/global/datum/controller/occupations/job_master
 			spawn (50)
 				if (H)
 					H.stopDumbDamage = FALSE
-
+/*
 			spawn(12)
 				if(map.ID != MAP_CAMPAIGN)
 					H.memory()
-
+*/
 			return H
 
 // this is a solution to 5 british and 1 pirates on lowpop.
