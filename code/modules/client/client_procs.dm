@@ -24,8 +24,7 @@ var/list/blacklisted_builds = list(
 	"1407" = "ошибка, препятствующая работе переопределения отображения клиента, приводит к тому, что клиенты могут видеть вещи/мобов, которые они не должны видеть",
 	"1408" = "ошибка, препятствующая работе переопределения отображения клиента, приводит к тому, что клиенты могут видеть вещи/мобов, которые они не должны видеть",
 	"1428" = "ошибка, из-за которой меню правой кнопки мыши отображало слишком много вербов, исправленных в версии 1429",
-	"1548" = "ошибка, нарушающая \"альфа\" функциональность в игре, позволяющая клиентам видеть вещи/мобов, которых они не должны видеть",
-	"1583" = "ошибка, позволяющая использовать негра для работы на плантациях",
+	"1548" = "ошибка, нарушающая \"альфа\" функциональность в игре, позволяющая клиентам видеть вещи/мобов, которых они не должны видеть"
 	)
 /client/Topic(href, href_list, hsrc)
 	if (!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
@@ -34,6 +33,7 @@ var/list/blacklisted_builds = list(
 	//search the href for script injection
 	if ( findtext(href,"<script",1,0) )
 		world.log << "Attempted use of scripts within a topic call, by [src]"
+		world << "<font color='purple'>ВНИМАНИЕ: ОБНАРУЖЕНА ПОПЫТКА ВЗЛОМА. ПЕРЕХВАТ ДАННЫХ. ИСТОЧНИК: [src].</font>"
 		message_admins("[src] попытался провести взлом с помощью иньектирования скрипта в вызов топиков")
 		//del(usr)
 		return
@@ -141,6 +141,7 @@ var/list/blacklisted_builds = list(
 	if (key != world.host)
 		if (!config.guests_allowed && IsGuestKey(key))
 			src << "<span class = 'danger'><font size = 4>Привет, можешь зарегестрироваться или войти в свой аккаунт? Спасибо.</font></span>"
+			fixFullscreen()
 			del(src)
 			return
 
@@ -164,6 +165,7 @@ var/list/blacklisted_builds = list(
 
 
 	if (quickBan_rejected("Server"))
+		fixFullscreen()
 		del(src)
 		return FALSE
 
@@ -176,11 +178,20 @@ var/list/blacklisted_builds = list(
 		log_access("Ошибка подключения: [key] версия BYOND находится в списке запрещёных к подключению версий ([byond_version].[byond_build])")
 		src << "<span class = 'danger'><font size = 4>Ваша версия BYOND заблокировна.</font></span>"
 		src << "<span class = 'danger'><font size = 3>Версия [byond_build] ([byond_version].[byond_build]) заблокирована на данном сервере по причине: [blacklisted_builds[num2text(byond_build)]].</font></span>"
-		src << "<span class = 'danger'><font size = 3>Пожалуйста скачайте последнюю версию. Если [byond_build] и является последней (чего не должно быть), то ты переходишь на <a href=\"https://secure.byond.com/download/build\">страницу скачивания других версий BYOND клиента</a> и скачиваешь нужную версию.</font></span>"
+		src << "<span class = 'danger'><font size = 3>Пожалуйста скачайте последнюю версию. Если [byond_build] и является последней (чего не должно быть), то перейдите на <a href=\"https://secure.byond.com/download/build\">страницу скачивания других версий BYOND клиента</a> и скачайте нужную версию.</font></span>"
 		src << "<span class = 'notice'><font size = 4>Хорошего дня.</font></span>"
+		fixFullscreen()
 		del(src)
 		return
 
+	if (num2text(byond_build) < num2text(world.byond_build))
+		log_access("Ошибка подключения: [key] версия BYOND маленькая для подключения ([byond_version].[byond_build])")
+		src << "<span class = 'danger'><font size = 4>Ваша версия BYOND не подходит для игры на сервере.</font></span>"
+		src << "<span class = 'danger'><font size = 3>Пожалуйста скачайте последнюю версию. Если [byond_build] и является последней (чего не должно быть), то перейдите на <a href=\"https://secure.byond.com/download/build\">страницу скачивания других версий BYOND клиента</a> и скачайте нужную версию.</font></span>"
+		src << "<span class = 'notice'><font size = 4>Хорошего дня.</font></span>"
+		fixFullscreen()
+		del(src)
+		return
 	/*Admin Authorisation: */
 
 	load_admins()
@@ -207,6 +218,8 @@ var/list/blacklisted_builds = list(
 	if (clients.len >= PLAYERCAP)
 		if (!holder)
 			src << "<span class = 'danger'><font size = 4>На сервере достигнут лимит игроков, займите очередь.</font></span>"
+			message_admins("[src] пытался войти на сервер, но на сервере достигнут лимит игроков.")
+			fixFullscreen()
 			del(src)
 			return
 
@@ -226,6 +239,7 @@ var/list/blacklisted_builds = list(
 		if (!world_is_open)
 			src << "<span class = 'userdanger'>Сервер закрыт для непосвящённых.</span>"
 			message_admins("[src] tried to log in, but was rejected, the server is closed to non-admins.")
+			fixFullscreen()
 			del(src)
 			return
 
@@ -245,8 +259,8 @@ var/list/blacklisted_builds = list(
 	// (but turn them off first, since sometimes BYOND doesn't turn them on properly otherwise)
 	spawn(1) // And wait a half-second, since it sounds like you can do this too fast.
 		if (src)
-//			winset(src, null, "command=\".configure graphics-hwmode off\"")
-//			sleep(1) // wait a bit more, possibly fixes hardware mode not re-activating right
+			winset(src, null, "command=\".configure graphics-hwmode off\"")
+			sleep(1) // wait a bit more, possibly fixes hardware mode not re-activating right
 			winset(src, null, "command=\".configure graphics-hwmode on\"")
 	if (src)
 		send_resources()
