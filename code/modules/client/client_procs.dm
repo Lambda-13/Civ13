@@ -140,7 +140,7 @@ var/list/blacklisted_builds = list(
 
 	if (key != world.host)
 		if (!config.guests_allowed && IsGuestKey(key))
-			src << "<span class = 'danger'><font size = 4>Привет, можешь зарегестрироваться или войти в свой аккаунт? Спасибо.</font></span>"
+			src << "<br><span class = 'danger'><font size = 4>Привет, можешь зарегестрироваться или войти в свой аккаунт? Спасибо.</font></span>"
 			fixFullscreen()
 			del(src)
 			return
@@ -176,7 +176,7 @@ var/list/blacklisted_builds = list(
 
 	if (num2text(byond_build) in blacklisted_builds)
 		log_access("Ошибка подключения: [key] версия BYOND находится в списке запрещёных к подключению версий ([byond_version].[byond_build])")
-		src << "<span class = 'danger'><font size = 4>Ваша версия BYOND заблокировна.</font></span>"
+		src << "<br><span class = 'danger'><font size = 4>Ваша версия BYOND заблокировна.</font></span>"
 		src << "<span class = 'danger'><font size = 3>Версия [byond_build] ([byond_version].[byond_build]) заблокирована на данном сервере по причине: [blacklisted_builds[num2text(byond_build)]].</font></span>"
 		src << "<span class = 'danger'><font size = 3>Пожалуйста скачайте последнюю версию. Если [byond_build] и является последней (чего не должно быть), то перейдите на <a href=\"https://secure.byond.com/download/build\">страницу скачивания других версий BYOND клиента</a> и скачайте нужную версию.</font></span>"
 		src << "<span class = 'notice'><font size = 4>Хорошего дня.</font></span>"
@@ -186,7 +186,7 @@ var/list/blacklisted_builds = list(
 
 	if (num2text(byond_build) != num2text(world.byond_build))
 		log_access("Ошибка подключения: [key] версия BYOND маленькая для подключения ([byond_version].[byond_build])")
-		src << "<span class = 'danger'><font size = 4>Ваша версия BYOND не подходит для игры на сервере.</font></span>"
+		src << "<br><span class = 'danger'><font size = 4>Ваша версия BYOND не подходит для игры на сервере.</font></span>"
 		src << "<span class = 'danger'><font size = 3>Пожалуйста скачайте последнюю версию. Если [byond_build] и является последней (чего не должно быть), то перейдите на <a href=\"https://secure.byond.com/download/build\">страницу скачивания других версий BYOND клиента</a> и скачайте нужную версию.</font></span>"
 		src << "<span class = 'notice'><font size = 4>Хорошего дня.</font></span>"
 		fixFullscreen()
@@ -217,7 +217,7 @@ var/list/blacklisted_builds = list(
 
 	if (clients.len >= PLAYERCAP)
 		if (!holder)
-			src << "<span class = 'danger'><font size = 4>На сервере достигнут лимит игроков, займите очередь.</font></span>"
+			src << "<br><span class = 'danger'><font size = 4>На сервере достигнут лимит игроков, займите очередь.</font></span>"
 			message_admins("[src] пытался войти на сервер, но на сервере достигнут лимит игроков.")
 			fixFullscreen()
 			del(src)
@@ -237,14 +237,14 @@ var/list/blacklisted_builds = list(
 	if (!holder)
 
 		if (!world_is_open)
-			src << "<span class = 'userdanger'>Сервер закрыт для непосвящённых.</span>"
+			src << "<br><span class = 'userdanger'>Сервер закрыт для непосвящённых.</span>"
 			message_admins("[src] tried to log in, but was rejected, the server is closed to non-admins.")
 			fixFullscreen()
 			del(src)
 			return
 
 	if (custom_event_msg && custom_event_msg != "")
-		src << "<h1 class='alert'>Событие</h1>"
+		src << "<br><h1 class='alert'>Событие</h1>"
 		src << "<h2 class='alert'>Информация о событии:</h2>"
 		src << "<span class='alert'>[custom_event_msg]</span>"
 		src << "<br>"
