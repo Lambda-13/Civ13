@@ -51,7 +51,7 @@ proc/f_damage(atom/Target, Value, color)
 
 */
 #ifndef F_damage_layer
-#define F_damage_layer 5
+#define F_damage_layer 4.2
 #endif
 
 /*
