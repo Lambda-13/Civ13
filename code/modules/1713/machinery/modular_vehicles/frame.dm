@@ -263,7 +263,7 @@
 			if (K.code == doorcode)
 				if (w_front[6])
 					if (w_front[7])
-						visible_message("[H] locks the door.")
+						visible_message("[H] закрыл дверь")
 						w_front[7] = FALSE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -273,7 +273,7 @@
 									VP.update_icon()
 							noroof = FALSE
 					else
-						visible_message("[H] unlocks the door.")
+						visible_message("[H] открыл дверь")
 						w_front[7] = TRUE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -285,7 +285,7 @@
 					H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				if (w_back[6])
 					if (w_back[7])
-						visible_message("[H] locks the door.")
+						visible_message("[H] закрыл дверь")
 						w_back[7] = FALSE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -295,7 +295,7 @@
 									VP.update_icon()
 							noroof = FALSE
 					else
-						visible_message("[H] unlocks the door.")
+						visible_message("[H] открыл дверь")
 						w_back[7] = TRUE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -307,7 +307,7 @@
 					H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				if (w_left[6])
 					if (w_left[7])
-						visible_message("[H] locks the door.")
+						visible_message("[H] закрыл дверь")
 						w_left[7] = FALSE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -317,7 +317,7 @@
 									VP.update_icon()
 							noroof = FALSE
 					else
-						visible_message("[H] unlocks the door.")
+						visible_message("[H] открыл дверь")
 						w_left[7] = TRUE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -329,7 +329,7 @@
 					H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				if (w_right[6])
 					if (w_right[7])
-						visible_message("[H] locks the door.")
+						visible_message("[H] закрыл дверь")
 						w_right[7] = FALSE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -339,7 +339,7 @@
 									VP.update_icon()
 							noroof = FALSE
 					else
-						visible_message("[H] unlocks the door.")
+						visible_message("[H] открыл дверь")
 						w_right[7] = TRUE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -352,7 +352,7 @@
 				playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
 				update_icon()
 			else
-				H << "This key does not match this lock!"
+				H << "Ключ не подходит!"
 				return
 		else
 			if(istype(src, /obj/structure/vehicleparts/frame/ship )) //adds routines to lock the boat
@@ -365,14 +365,14 @@
 				else if(src.w_front[1] == "boat_port2")
 					src.w_front[6] = TRUE
 				else
-					H << "This is not a door."
+					H << "Это не дверь."
 					return
 				doorcode = K.code
-				H << "You assign this key to the lock."
+				H << "Замок на двери привязан к ключу."
 				return
 			else
 				doorcode = K.code		//Leave it as before if its not a boat
-				H << "You assign this key to the lock."
+				H << "Замок на двери привязан к ключу."
 				return
 	else
 		..()
@@ -516,6 +516,7 @@
 				return TRUE
 	if (istype(proj, /obj/item/projectile/shell))
 		playsound(loc, pick('sound/machines/tank/tank_ricochet1.ogg','sound/machines/tank/tank_ricochet2.ogg','sound/machines/tank/tank_ricochet3.ogg'),100, TRUE)
+		playsound(loc, 'sound/tank/rikoshet1.ogg')
 	else
 		playsound(loc, "ric_sound", 50, TRUE)
 	return FALSE
@@ -534,7 +535,7 @@
 	if (mwheel && prob(30))
 		if (mwheel.ntype == "wheel")
 			mwheel.broken = TRUE
-			visible_message("<span class='danger'>\The [mwheel.name] breaks down!</span>")
+			visible_message("<span class='danger'>\The [mwheel.name] повреждено!</span>")
 			new/obj/effect/effect/smoke/small(loc)
 			update_icon()
 	if (penloc)
@@ -543,7 +544,7 @@
 			if (mwheel && prob(60))
 				if (mwheel.ntype == "wheel")
 					mwheel.broken = TRUE
-					visible_message("<span class='danger'>\The [mwheel.name] breaks down!</span>")
+					visible_message("<span class='danger'>\The [mwheel.name] повреждено!</span>")
 					new/obj/effect/effect/smoke/small(loc)
 					update_icon()
 				else if (mwheel.ntype == "track")
@@ -553,19 +554,22 @@
 								shake_camera(M, 3, 3)
 							if (!mwheel.broken && prob(80))
 								mwheel.broken = TRUE
-								visible_message("<span class='danger'>\The [mwheel.name] breaks down!</span>")
+								visible_message("<span class='danger'>\The [mwheel.name] уничтожен!</span>")
+								playsound(loc, 'sound/tank/unichtozhen.ogg')
 								new/obj/effect/effect/smoke/small(loc)
 								update_icon()
 						if ("APCR")
 							if (!mwheel.broken && prob(60))
 								mwheel.broken = TRUE
-								visible_message("<span class='danger'>\The [mwheel.name] breaks down!</span>")
+								visible_message("<span class='danger'>\The [mwheel.name] уничтожен!</span>")
+								playsound(loc, 'sound/tank/unichtozhen.ogg')
 								new/obj/effect/effect/smoke/small(loc)
 								update_icon()
 						if ("AP")
 							if (!mwheel.broken && prob(70))
 								mwheel.broken = TRUE
-								visible_message("<span class='danger'>\The [mwheel.name] breaks down!</span>")
+								visible_message("<span class='danger'>\The [mwheel.name] уничтожен!</span>")
+								playsound(loc, 'sound/tank/unichtozhen.ogg')
 								new/obj/effect/effect/smoke/small(loc)
 								update_icon()
 			else
@@ -580,7 +584,8 @@
 									tprob = 35
 								if (prob(tprob))
 									M.adjustBruteLoss(PS.damage)
-									visible_message("<span class='danger'>[M] is hit by the [PS]!</span>")
+									visible_message("<span class='danger'>[M] попадает в [PS]!</span>")
+									playsound(loc, 'sound/tank/ne-probil.ogg')
 						adjdam = proj.damage * 0.08
 					else if ("APCR")
 						for (var/mob/living/M in axis.transporting)
@@ -591,7 +596,8 @@
 									tprob = 35
 								if (prob(tprob))
 									M.adjustBruteLoss(PS.damage)
-									visible_message("<span class='danger'>[M] is hit by the [PS]!</span>")
+									visible_message("<span class='danger'>[M] попадает в [PS]!</span>")
+									playsound(loc, 'sound/tank/ne-probil.ogg')
 						adjdam = proj.damage * 0.35
 					else if ("AP")
 						for (var/mob/living/M in axis.transporting)
@@ -602,7 +608,8 @@
 									tprob = 35
 								if (prob(tprob))
 									M.adjustBruteLoss(PS.damage)
-									visible_message("<span class='danger'>[M] is hit by the [PS]!</span>")
+									visible_message("<span class='danger'>[M] попадает в [PS]!</span>")
+									playsound(loc, 'sound/tank/ne-probil.ogg')
 						adjdam = proj.damage * 0.3
 					else
 						for (var/mob/living/M in axis.transporting)
@@ -612,49 +619,61 @@
 									tprob = 25
 								if (prob(tprob))
 									M.adjustBruteLoss(PS.damage)
-									visible_message("<span class='danger'>[M] is hit by the [PS]!</span>")
+									visible_message("<span class='danger'>[M] попадает в [PS]!</span>")
 						adjdam = proj.damage * 0.05
 				switch(penloc)
 					if ("left")
 						w_left[5] -= adjdam
-						visible_message("<span class = 'danger'><big>The left hull is damaged!</big></span>")
+						visible_message("<span class = 'danger'><big>Левый корпус поврежден!</big></span>")
+						playsound(loc, 'sound/tank/probitie1.ogg')
 					if ("right")
 						w_right[5] -= adjdam
-						visible_message("<span class = 'danger'><big>The right hull is damaged!</big></span>")
+						visible_message("<span class = 'danger'><big>Правый корпус поврежден!</big></span>")
+						playsound(loc, 'sound/tank/probitie1.ogg')
 					if ("front")
 						w_front[5] -= adjdam
-						visible_message("<span class = 'danger'><big>The front hull is damaged!</big></span>")
+						visible_message("<span class = 'danger'><big>Передний корпус поврежден!</big></span>")
+						playsound(loc, 'sound/tank/probitie1.ogg')
 					if ("back")
 						w_back[5] -= adjdam
-						visible_message("<span class = 'danger'><big>The rear hull is damaged!</big></span>")
+						visible_message("<span class = 'danger'><big>Задний корпус поврежден!</big></span>")
+						playsound(loc, 'sound/tank/probitie1.ogg')
 					if ("frontleft")
 						if (w_left[4] > w_front[4] && w_left[5]>0 && w_front[5]>0)
 							w_left[5] -= adjdam
-							visible_message("<span class = 'danger'><big>The left hull is damaged!</big></span>")
+							visible_message("<span class = 'danger'><big>Левый корпус поврежден!</big></span>")
+							playsound(loc, 'sound/tank/probitie1.ogg')
 						else
 							w_front[5] -= adjdam
-							visible_message("<span class = 'danger'><big>The front hull is damaged!</big></span>")
+							visible_message("<span class = 'danger'><big>Передний корпус поврежден!</big></span>")
+							playsound(loc, 'sound/tank/probitie2.ogg')
 					if ("frontright")
 						if (w_right[4] > w_front[4] && w_right[5]>0 && w_front[5]>0)
 							w_right[5] -= adjdam
-							visible_message("<span class = 'danger'><big>The right hull is damaged!</big></span>")
+							visible_message("<span class = 'danger'><big>Правый корпус поврежден!</big></span>")
+							playsound(loc, 'sound/tank/probitie1.ogg')
 						else
 							w_front[5] -= adjdam
-							visible_message("<span class = 'danger'><big>The front hull is damaged!</big></span>")
+							visible_message("<span class = 'danger'><big>Передний корпус поврежден!</big></span>")
+							playsound(loc, 'sound/tank/probitie2.ogg')
 					if ("backleft")
 						if (w_left[4] > w_back[4] && w_left[5]>0 && w_back[5]>0)
 							w_left[5] -= adjdam
-							visible_message("<span class = 'danger'><big>The left hull is damaged!</big></span>")
+							visible_message("<span class = 'danger'><big>Левый корпус поврежден!</big></span>")
+							playsound(loc, 'sound/tank/probitie1.ogg')
 						else
 							w_back[5] -= adjdam
-							visible_message("<span class = 'danger'><big>The rear hull is damaged!</big></span>")
+							visible_message("<span class = 'danger'><big>Задний корпус поврежден!</big></span>")
+							playsound(loc, 'sound/tank/probitie2.ogg')
 					if ("backright")
 						if (w_right[4] > w_back[4] && w_right[5]>0 && w_back[5]>0)
 							w_right[5] -= adjdam
-							visible_message("<span class = 'danger'><big>The right hull is damaged!</big></span>")
+							visible_message("<span class = 'danger'><big>Правый корпус поврежден!</big></span>")
+							playsound(loc, 'sound/tank/probitie1.ogg')
 						else
 							w_back[5] -= adjdam
-							visible_message("<span class = 'danger'><big>The rear hull is damaged!</big></span>")
+							visible_message("<span class = 'danger'><big>Задний корпус поврежден!</big></span>")
+							playsound(loc, 'sound/tank/probitie2.ogg')
 		else
 			switch(penloc)
 				if ("left")
@@ -668,6 +687,7 @@
 		visible_message("<span class = 'warning'>\The [proj] hits \the [src]!</span>")
 		if (istype(proj, /obj/item/projectile/shell))
 			playsound(loc, pick('sound/effects/explosion1.ogg','sound/effects/explosion1.ogg'),100, TRUE)
+			playsound(loc, 'sound/tank/bronja-ne-probita.ogg')
 			new/obj/effect/effect/smoke/small/fast(loc)
 		try_destroy()
 		return
