@@ -263,7 +263,7 @@
 			if (K.code == doorcode)
 				if (w_front[6])
 					if (w_front[7])
-						visible_message("[H] закрыл дверь")
+						visible_message("[H] запер дверь")
 						w_front[7] = FALSE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -273,7 +273,7 @@
 									VP.update_icon()
 							noroof = FALSE
 					else
-						visible_message("[H] открыл дверь")
+						visible_message("[H] отпер дверь")
 						w_front[7] = TRUE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -285,7 +285,7 @@
 					H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				if (w_back[6])
 					if (w_back[7])
-						visible_message("[H] закрыл дверь")
+						visible_message("[H] запер дверь")
 						w_back[7] = FALSE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -295,7 +295,7 @@
 									VP.update_icon()
 							noroof = FALSE
 					else
-						visible_message("[H] открыл дверь")
+						visible_message("[H] отпер дверь")
 						w_back[7] = TRUE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -307,7 +307,7 @@
 					H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				if (w_left[6])
 					if (w_left[7])
-						visible_message("[H] закрыл дверь")
+						visible_message("[H] запер дверь")
 						w_left[7] = FALSE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -317,7 +317,7 @@
 									VP.update_icon()
 							noroof = FALSE
 					else
-						visible_message("[H] открыл дверь")
+						visible_message("[H] отпер дверь")
 						w_left[7] = TRUE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -329,7 +329,7 @@
 					H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				if (w_right[6])
 					if (w_right[7])
-						visible_message("[H] закрыл дверь")
+						visible_message("[H] запер дверь")
 						w_right[7] = FALSE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -339,7 +339,7 @@
 									VP.update_icon()
 							noroof = FALSE
 					else
-						visible_message("[H] открыл дверь")
+						visible_message("[H] отпер дверь")
 						w_right[7] = TRUE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
