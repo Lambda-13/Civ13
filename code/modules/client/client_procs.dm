@@ -185,9 +185,9 @@ var/list/blacklisted_builds = list(
 		return
 
 	if (num2text(byond_build) != num2text(world.byond_build))
-		log_access("Ошибка подключения: [key] версия BYOND маленькая для подключения ([byond_version].[byond_build])")
+		log_access("Ошибка подключения: [key] версия BYOND не подходит для подключения ([byond_version].[byond_build])")
 		src << "<br><span class = 'danger'><font size = 4>Ваша версия BYOND не подходит для игры на сервере.</font></span>"
-		src << "<span class = 'danger'><font size = 3>Пожалуйста скачайте последнюю версию. Если [byond_build] и является последней (чего не должно быть), то перейдите на <a href=\"https://secure.byond.com/download/build\">страницу скачивания других версий BYOND клиента</a> и скачайте нужную версию.</font></span>"
+		src << "<span class = 'danger'><font size = 3><a href=\"https://secure.byond.com/download/build\">Пожалуйста скачайте [world.byond_build]</a> и установите её.</font></span>"
 		src << "<span class = 'notice'><font size = 4>Хорошего дня.</font></span>"
 		fixFullscreen()
 		del(src)
