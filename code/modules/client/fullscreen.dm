@@ -23,12 +23,3 @@ client/verb/fixFullscreen()
 	set hidden = TRUE
 	winset(src, "mainwindow", "can-resize=true;titlebar=true;menu=menu")
 	winset(src, "mainwindow.mainvsplit", "splitter=75")
-
-
-client/verb/quit(var/customlink)
-	set name = "выход"
-	set hidden = TRUE
-	if (customlink != null)
-		src << link(customlink)
-	winset(src, null, "mainwindow.quit")
-	qdel(src)
