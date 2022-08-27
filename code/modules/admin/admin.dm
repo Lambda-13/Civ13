@@ -463,13 +463,13 @@ proc/admin_notice(var/message, var/rights)
 			ticker.pregame_timeleft += round(GAMETICKER_PREGAME_TIME/2)
 			ticker.pregame_timeleft = min(ticker.pregame_timeleft, GAMETICKER_PREGAME_TIME)
 			round_progressing = TRUE
-			world << "<b>The game start has been delayed by 90 seconds.</b>"
+			world << "<b>Игра начнётся через 90 секунд.</b>"
 			log_admin("[key_name(usr)] delayed the game by 90 seconds.")
 		else
-			world << "<b>The game start has been delayed.</b>"
+			world << "<b>Начало игры остановлено.</b>"
 			log_admin("[key_name(usr)] delayed the game.")
 	else
-		world << "<b>The game will start soon.</b>"
+		world << "<b>Игра начнётся скоро.</b>"
 		log_admin("[key_name(usr)] removed the roundstart delay.")
 
 /datum/admins/proc/adjump()
