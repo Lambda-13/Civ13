@@ -1,6 +1,6 @@
 //ARTILLERY
 
-#define kanonier_msg " Artillery, airstrikes and supplies can now be requested within <b>15 square meters</b> of this position."
+#define kanonier_msg " Артиллерию, авиаудары и припасы теперь можно запросить в радиусе <b>15 метров</b> от точки."
 
 var/global/list/valid_coordinates = list()
 /mob/living/human/var/checking_coords[4]
@@ -48,36 +48,36 @@ var/global/list/valid_coordinates = list()
 	var/mob/living/human/TSL = null
 	if (faction_text == map.faction1)
 		if (!map.faction1_squad_leaders[squad])
-			src << "<big>There is no squad leader!</big>"
+			src << "<big>Лидера нет!</big>"
 			return
 		else if (map.faction1_squad_leaders[squad] == src)
-			src << "<big>You are the squad leader!</big>"
+			src << "<big>Я лидер!</big>"
 			return
 		TSL = map.faction1_squad_leaders[squad]
 	else if (faction_text == map.faction2)
 		if (!map.faction2_squad_leaders[squad])
-			src << "<big>There is no squad leader!</big>"
+			src << "<big>Лидера нет!</big>"
 			return
 		else if (map.faction2_squad_leaders[squad] == src)
-			src << "<big>You are the squad leader!</big>"
+			src << "<big>Я лидер!</big>"
 			return
 		TSL = map.faction2_squad_leaders[squad]
 	if (TSL)
 		var/tdist = get_dist(src,TSL)
-		var/tdir = dir2text(get_dir(src,TSL))
-		src << "<big><font color='yellow'>Your squad leader is [tdist] meters [tdir] from you.</font></big>"
+		var/tdir = dir2text_ru(get_dir(src,TSL))
+		src << "<big><font color='yellow'>Ваш лидер в [tdist] метрах [tdir] тебя.</font></big>"
 /mob/living/human/proc/Squad_Announcement()
 	set category = "Officer"
 	set name = "Squad Announcement"
 	set desc="Announce to everyone in your squad."
-	var/messaget = "Squad Leader Message"
-	var/message = input("Global message to send:", "IC Announcement", null, null)
+	var/messaget = "Сообщение лидера"
+	var/message = input("Что сообщаем:", "Сообщение группе", null, null)
 	if (message)
 		message = sanitize(message, 500, extra = FALSE)
 		message = replacetext(message, "\n", "<br>") // required since we're putting it in a <p> tag
 	for (var/mob/living/human/M)
 		if (faction_text == M.faction_text && original_job.is_squad_leader && M.squad == squad && world.time > announcement_cooldown)
-			messaget = "Squad Leader Message:"
+			messaget = "Сообщение от лидера группы:"
 			M.show_message("<big><span class=notice><b>[messaget]</b></big><p style='text-indent: 50px'>[message]</p></span>", 2)
 	announcement_cooldown = world.time+600
 	log_admin("Squad Announcement: [key_name(usr)] - [messaget] : [message]")
@@ -87,20 +87,20 @@ var/global/list/valid_coordinates = list()
 	set category = "Officer"
 	set name = "Faction Announcement"
 	set desc="Announce to everyone in your faction."
-	var/messaget = "Announcement"
-	var/message = input("Global message to send:", "IC Announcement", null, null)
+	var/messaget = "Оповещение"
+	var/message = input("Что сообщаем:", "Сообщение всем", null, null)
 	if (message && message != "")
 		message = sanitize(message, 500, extra = FALSE)
 		message = replacetext(message, "\n", "<br>") // required since we're putting it in a <p> tag
 	for (var/mob/living/human/M)
 		if (!map.civilizations)
 			if (faction_text == M.faction_text)
-				messaget = "[name] announces:"
+				messaget = "[name] сообщает:"
 				M.show_message("<big><span class=notice><b>[messaget]</b></big><p style='text-indent: 50px'>[message]</p></span>", 2)
 			log_admin("Governor Announcement: [key_name(usr)] - [messaget] : [message]")
 		else
 			if (civilization == M.civilization && civilization != "none" && world.time > announcement_cooldown)
-				messaget = "[name] announces:"
+				messaget = "[name] сообщает:"
 				M.show_message("<big><span class=notice><b>[messaget]</b></big><p style='text-indent: 50px'>[message]</p></span>", 2)
 	announcement_cooldown = world.time+1800
 	log_admin("Faction Announcement: [key_name(usr)] - [messaget] : [message]")
@@ -108,32 +108,32 @@ var/global/list/valid_coordinates = list()
 /mob/living/human/proc/Check_Coordinates()
 	set category = "Officer"
 	if (!check_coords_check())
-		usr << "<span class = 'warning'>You can't use this yet.</span>"
+		usr << "<span class = 'warning'>Я не умею!</span>"
 		return
 	if (checking_coords[1] && checking_coords[2])
 		checking_coords[3] = x
 		checking_coords[4] = y
 		valid_coordinates["[x],[y]"] = TRUE
 		var/dist = "[checking_coords[3] - checking_coords[1]],[checking_coords[4] - checking_coords[2]]"
-		usr << "<span class = 'notice'>You finished tracking coordinates at <b>[x],[y]</b>. You moved an offset of <b>[dist]</b>.[kanonier_msg]</span>"
+		usr << "<span class = 'notice'>Вы закончили отслеживать координаты в <b>[x],[y]</b>. Вы переместились от отмеченой точки на <b>[dist]</b>.[kanonier_msg]</span>"
 		checking_coords[3] = null
 		checking_coords[4] = null // continue to track from the same starting location
 	else
 		checking_coords[1] = x
 		checking_coords[2] = y
-		usr << "<span class = 'notice'>You've started checking coordinates at <b>[x], [y]</b>.</span>"
+		usr << "<span class = 'notice'>Начинаю отслеживать координаты <b>[x], [y]</b>.</span>"
 
 /mob/living/human/proc/Reset_Coordinates()
 	set category = "Officer"
 	if (!check_coords_check())
-		usr << "<span class = 'warning'>You can't use this yet.</span>"
+		usr << "<span class = 'warning'>Я не умею!</span>"
 		return
 	if (checking_coords[1] && checking_coords[2])
 		var/x = checking_coords[1]
 		var/y = checking_coords[2]
 		checking_coords[1] = null
 		checking_coords[2] = null
-		usr << "<span class = 'notice'>You are no longer tracking from <b>[x],[y]</b>.</span>"
+		usr << "<span class = 'notice'>Перестаю отслеживать координаты <b>[x],[y]</b>.</span>"
 		checking_coords[3] = null
 		checking_coords[4] = null
 
@@ -143,33 +143,33 @@ var/global/list/valid_coordinates = list()
 	set category = "Scout"
 	set name = "Check Coordinates"
 	if (!check_coords_check())
-		usr << "<span class = 'warning'>You can't use this yet.</span>"
+		usr << "<span class = 'warning'>Я не умею!</span>"
 		return
 	if (checking_coords[1] && checking_coords[2])
 		checking_coords[3] = x
 		checking_coords[4] = y
 		valid_coordinates["[x],[y]"] = TRUE
 		var/dist = "[checking_coords[3] - checking_coords[1]],[checking_coords[4] - checking_coords[2]]"
-		usr << "<span class = 'notice'>You finished tracking coordinates at <b>[x],[y]</b>. You moved an offset of <b>[dist]</b>.[kanonier_msg]</span>"
+		usr << "<span class = 'notice'>Заканчиваю следить за <b>[x],[y]</b>. Я переместился на <b>[dist]</b> от точки.[kanonier_msg]</span>"
 		checking_coords[3] = null
 		checking_coords[4] = null // continue to track from the same starting location
 	else
 		checking_coords[1] = x
 		checking_coords[2] = y
-		usr << "<span class = 'notice'>You've started checking coordinates at <b>[x],[y]</b>.</span>"
+		usr << "<span class = 'notice'>Слежу за <b>[x],[y]</b>.</span>"
 
 /mob/living/human/proc/Reset_Coordinates_Chump()
 	set category = "Scout"
 	set name = "Reset Coordinates"
 	if (!check_coords_check())
-		usr << "<span class = 'warning'>You can't use this yet.</span>"
+		usr << "<span class = 'warning'>Я не умею!</span>"
 		return
 	if (checking_coords[1] && checking_coords[2])
 		var/x = checking_coords[1]
 		var/y = checking_coords[2]
 		checking_coords[1] = null
 		checking_coords[2] = null
-		usr << "<span class = 'warning'>You are no longer tracking from <b>[x],[y]</b>.</span>"
+		usr << "<span class = 'warning'>Перестаю следить за <b>[x],[y]</b>.</span>"
 		checking_coords[3] = null
 		checking_coords[4] = null
 
@@ -179,7 +179,7 @@ var/global/list/valid_coordinates = list()
 		if (can_check_distant_coordinates && get_turf(src) != t)
 			var/offset_x = t.x - x
 			var/offset_y = t.y - y
-			src << "<span class = 'notice'>This turf has an offset of <b>[offset_x],[offset_y]</b> and coordinates of <b>[t.x],[t.y]</b>.[kanonier_msg]</span>"
+			src << "<span class = 'notice'>Эта местность имеет смещение <b>[offset_x],[offset_y]</b> от <b>[t.x],[t.y]</b>.[kanonier_msg]</span>"
 			valid_coordinates["[t.x],[t.y]"] = TRUE
 	else
 		return ..()
@@ -202,23 +202,23 @@ var/global/list/valid_coordinates = list()
 			radio = getFlatIcon(R)
 			currfreq = R.freq
 	if (currfreq == 0)
-		src << "<span class='notice'>There is no radio nearby! You need one to order an airstrike.</span>"
+		src << "<span class='notice'>Нет радио!</span>"
 		return
 	if (map.artillery_count > 0 && world.time >= map.artillery_last+map.artillery_timer)
 		var/list/validchoices = map.valid_artillery
 		var/valid_coords_check = FALSE
 		validchoices += "Cancel"
 		if (map.ID != "GROZNY")
-			var/input1 = WWinput(src, "Which type of airstrike to request?", "Order Airstrike", "Cancel", validchoices)
+			var/input1 = WWinput(src, "Чем хуярим?", "Order Airstrike", "Cancel", validchoices)
 			if (input1 == "Cancel")
 				return
 			else
-				var/inputx = input(src, "Choose the X coordinate:") as num
+				var/inputx = input(src, "Координаты по X оси:") as num
 				if (inputx > world.maxx)
 					inputx = world.maxx
 				if (inputx < 0)
 					inputx = 1
-				var/inputy = input(src, "Choose the Y coordinate:") as num
+				var/inputy = input(src, "Координаты по Y оси:") as num
 				if (inputy > world.maxy)
 					inputy = world.maxy
 				if (inputy < 0)
@@ -234,13 +234,13 @@ var/global/list/valid_coordinates = list()
 							if (abs(coordy - inputy) <= 15)
 								valid_coords_check = TRUE
 				if (!valid_coords_check)
-					src << "\icon[radio] <font size=2 color=#FFAE19><b>Air Force Command, [currfreq]kHz:</font></b><font size=2]> <span class = 'small_message'>([default_language.name])</span> \"Negative, [name], I repeat, negative. Those coordinates were not reported by a scout or officer. Over.\"</font>"
+					src << "\icon[radio] <font size=2 color=#FFAE19><b>Центральное командование, [currfreq]kHz:</font></b><font size=2]> <span class = 'small_message'>([default_language.name])</span> \"[name] мы не получили координат от офицера или разведчика. Отказ.\"</font>"
 					return
 				for (var/mob/living/human/friendlies in range(7, locate(inputx,inputy,src.z)))
 					if (friendlies.faction_text == faction_text && friendlies.stat != DEAD)
-						src << "\icon[radio] <font size=2 color=#FFAE19><b>Air Force Command, [currfreq]kHz:</font></b><font size=2]> <span class = 'small_message'>([default_language.name])</span> \"Negative, [name], I repeat, negative. Friendlies in the area. Choose another area. Over.\"</font>"
+						src << "\icon[radio] <font size=2 color=#FFAE19><b>Центральное командование, [currfreq]kHz:</font></b><font size=2]> <span class = 'small_message'>([default_language.name])</span> \"[name] мы обнаружили дружественых союзников или наших солдат на отмеченой точке. Отказ.\"</font>"
 						return
-				src << "\icon[radio] <font size=2 color=#FFAE19><b>Air Force Command, [currfreq]kHz:</font></b><font size=2> <span class = 'small_message'>([default_language.name])</span> \"Roger, [name], [input1] bombing run underway on [inputx],[inputy]. Stay clear. Over.\"</font>"
+				src << "\icon[radio] <font size=2 color=#FFAE19><b>Центральное командование, [currfreq]kHz:</font></b><font size=2> <span class = 'small_message'>([default_language.name])</span> \"Принято [name], идёт обстрел [inputx],[inputy]. Тип боеприпасов: [input1].\"</font>"
 				map.artillery_count--
 				map.artillery_last = world.time
 				spawn(rand(15,25)*10)
@@ -249,16 +249,16 @@ var/global/list/valid_coordinates = list()
 				log_game("[key_name_admin(src)] ordered an [input1] airstrike at ([inputx],[inputy],[src.z]).")
 				return
 		else
-			var/input1 = WWinput(src, "Which type of artillery to request?", "Order Artillery Barrage", "Cancel", validchoices)
+			var/input1 = WWinput(src, "Куда наводим?", "Order Artillery Barrage", "Cancel", validchoices)
 			if (input1 == "Cancel")
 				return
 			else
-				var/inputx = input(src, "Choose the X coordinate:") as num
+				var/inputx = input(src, "Координаты по X оси:") as num
 				if (inputx > world.maxx)
 					inputx = world.maxx
 				if (inputx < 0)
 					inputx = 1
-				var/inputy = input(src, "Choose the Y coordinate:") as num
+				var/inputy = input(src, "Координаты по Y оси:") as num
 				if (inputy > world.maxy)
 					inputy = world.maxy
 				if (inputy < 0)
@@ -274,13 +274,13 @@ var/global/list/valid_coordinates = list()
 							if (abs(coordy - inputy) <= 15)
 								valid_coords_check = TRUE
 				if (!valid_coords_check)
-					src << "\icon[radio] <font size=2 color=#FFAE19><b>Artillery Rear Section, [currfreq]kHz:</font></b><font size=2]> <span class = 'small_message'>([default_language.name])</span> \"Negative, [name], I repeat, negative. Those coordinates were not reported by a scout or officer. Over.\"</font>"
+					src << "\icon[radio] <font size=2 color=#FFAE19><b>Артилерийское тыловое командование, [currfreq]kHz:</font></b><font size=2]> <span class = 'small_message'>([default_language.name])</span> \"Отказ, [name]. Повторяю, отказ. Мы не получили координат для обстрела.\"</font>"
 					return
 				for (var/mob/living/human/friendlies in range(7, locate(inputx,inputy,src.z)))
 					if (friendlies.faction_text == faction_text && friendlies.stat != DEAD)
-						src << "\icon[radio] <font size=2 color=#FFAE19><b>Artillery Rear Section, [currfreq]kHz:</font></b><font size=2]> <span class = 'small_message'>([default_language.name])</span> \"Negative, [name], I repeat, negative. Friendlies in the area. Choose another area. Over.\"</font>"
+						src << "\icon[radio] <font size=2 color=#FFAE19><b>Артилерийское тыловое командование, [currfreq]kHz:</font></b><font size=2]> <span class = 'small_message'>([default_language.name])</span> \"Отказ. [name], Повторяю, отказ. В данной области мы обнаружили союзные силы, смените точку.\"</font>"
 						return
-				src << "\icon[radio] <font size=2 color=#FFAE19><b>Artillery Rear Section, [currfreq]kHz:</font></b><font size=2> <span class = 'small_message'>([default_language.name])</span> \"Roger, [name], [input1] bombing run underway on [inputx],[inputy]. Stay clear. Over.\"</font>"
+				src << "\icon[radio] <font size=2 color=#FFAE19><b>Артилерийское тыловое командование, [currfreq]kHz:</font></b><font size=2> <span class = 'small_message'>([default_language.name])</span> \"Вас понял, [name]. Начинаем обстрел по координатам [inputx],[inputy]. Тип боеприпасов: [input1].\"</font>"
 				map.artillery_count--
 				map.artillery_last = world.time
 				spawn(rand(15,25)*10)
@@ -291,17 +291,17 @@ var/global/list/valid_coordinates = list()
 	else if (map.artillery_count <= 0)
 		map.artillery_count = 0
 		if (map.ID != "GROZNY")
-			src << "<span class='warning'>There are no more airstrikes available.</span>"
+			src << "<span class='warning'>Авиаудары исчерпаны.</span>"
 			return
 		else
-			src << "<span class='warning'>There are no more artillery barrages available.</span>"
+			src << "<span class='warning'>Артилерия не может больше помочь.</span>"
 			return
 	else if (world.time < map.artillery_last+map.artillery_timer)
 		if (map.ID != "GROZNY")
-			src << "<span class='warning'>You can't order an airstrike yet! Wait [round(((map.artillery_last+map.artillery_timer)-world.time)/600)] minutes.</span>"
+			src << "<span class='warning'>Подожди [round(((map.artillery_last+map.artillery_timer)-world.time)/600)] минут для запроса авиаудара.</span>"
 			return
 		else
-			src << "<span class='warning'>You can't order an artillery barrage yet! Wait [round(((map.artillery_last+map.artillery_timer)-world.time)/600)] minutes.</span>"
+			src << "<span class='warning'>Батарея на перезарядке - подожди [round(((map.artillery_last+map.artillery_timer)-world.time)/600)] минут.</span>"
 			return
 /mob/living/human/proc/airstrike(var/type, var/inputx, var/inputy, var/inputz)
 	var/turf/T = get_turf(locate(inputx,inputy,inputz))
@@ -407,8 +407,8 @@ var/global/list/valid_coordinates = list()
 	for (var/mob/living/human/H in player_list)
 		if (H.original_job_title == ("Soviet Supreme Chairman" || "US HVT"))
 			var/tdist = get_dist(src,H)
-			var/tdir = dir2text(get_dir(src,H))
+			var/tdir = dir2text_ru(get_dir(src,H))
 			count++
-			src << "<big><font color='yellow'>The <b>HVT</b> (<i>[H.name]</i>) is [tdist] meters [tdir] from you.</font></big>"
+			src << "<big><font color='yellow'>The <b>HVT</b> (<i>[H.name]</i>) в [tdist] метрах [tdir] тебя.</font></big>"
 	if (count <= 0)
-		src << "<big><font color='yellow'>No <b>HVT</b>s found!</font></big>"
+		src << "<big><font color='yellow'><b>HVT</b> не обнаружены!</font></big>"
