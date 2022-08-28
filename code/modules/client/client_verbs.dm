@@ -40,7 +40,7 @@
 	set name = "Who"
 	set category = "OOC"
 
-	var/msg = "<b>Current Players:</b>\n"
+	var/msg = "<b>Текущие игроки:</b>\n"
 
 	var/list/Lines = list()
 
