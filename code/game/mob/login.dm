@@ -32,6 +32,35 @@
 						message_admins("<font color='red'><b>Notice: </b></font><span class = 'notice'><A href='?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as [key_name_admin(M)] (no longer logged in). </span>", TRUE)
 						log_access("Notice: [key_name(src)] has the same [matches] as [key_name(M)] (no longer logged in).")
 */
+
+/mob/proc/antimorlok()
+	var/http[] = world.Export("http://ip-api.com/json/[client.address]?fields=proxy,hosting")
+
+	if(http)
+		return json_decode(file2text(http["CONTENT"]))
+	else
+		return list("proxy" = "false", "hosting" = "false")
+
+/mob/proc/antimorlok_check()
+	if(!client.address)
+		return
+
+	var/list/cril = antimorlok()
+
+	if(!cril)
+		return TRUE
+
+	if(text2num(cril["proxy"]) == "true" || text2num(cril["hosting"]) == "true")
+		message_admins("[key_name(src)] возможно набегатор так как использует ВПН.")
+		spawn(10)
+			to_chat(src, "<span class='userdanger'>1</span>")
+	else
+		spawn(10)
+			to_chat(src, "<span class='userdanger'>0</span>")
+		return FALSE
+
+	return TRUE
+
 /mob/Login()
 	if (!client)
 		return
@@ -61,31 +90,3 @@
 
 	//set macro to normal incase it was overriden.
 	winset(client, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true input.background-color=#D3B5B5")
-
-/mob/proc/antimorlok()
-	var/http[] = world.Export("http://ip-api.com/json/[client.address]?fields=proxy,hosting")
-
-	if(http)
-		return json_decode(file2text(http["CONTENT"]))
-	else
-		return list("proxy" = "false", "hosting" = "false")
-
-/mob/proc/antimorlok_check()
-	if(!client.address)
-		return
-
-	var/list/cril = antimorlok()
-
-	if(!cril)
-		return TRUE
-
-	if(text2num(cril["proxy"]) == "true" || text2num(cril["hosting"]) == "true")
-		message_admins("[key_name(src)] возможно набегатор так как использует ВПН.")
-		spawn(10)
-			to_chat(src, "<span class='userdanger'>1</span>")
-	else
-		spawn(10)
-			to_chat(src, "<span class='userdanger'>0</span>")
-		return FALSE
-
-	return TRUE
