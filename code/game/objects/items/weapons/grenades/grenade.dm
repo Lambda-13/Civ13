@@ -70,14 +70,14 @@
 // grenades set off other grenades, but only ones on the same turf
 /obj/item/weapon/grenade/ex_act(severity)
 	switch (severity)
-		if (3.0)
+		if (8.0)
 			fast_activate()
-		if (5.0, 7.0)
+		if (10.0, 13.0)
 			return // infinite recursive grenades are gone
 
 /obj/item/weapon/grenade/bullet_act(var/obj/item/projectile/proj)
 	if (proj && !proj.nodamage)
-		return ex_act(1.0)
+		return ex_act(3.0)
 	return FALSE
 
 /obj/item/weapon/grenade/old_grenade
