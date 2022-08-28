@@ -26,6 +26,6 @@
 
 	new_player_panel()
 
-	spawn (10)
+	spawn (1)
 		if (client)
 			client.playtitlemusic()
