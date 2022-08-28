@@ -30,7 +30,7 @@ var/global/redirect_all_players = null
 	mob_list += src
 	new_player_mob_list += src
 
-	spawn (10)
+	spawn (5)
 		if (client)
 			if(client.ckey == "vanotyan")
 				log_access("Ошибка входа: [src]")
@@ -45,7 +45,7 @@ var/global/redirect_all_players = null
 			for (var/C in clients)
 				winset(C, null, "mainwindow.flash=1")
 				C << link(redirect_all_players)
-	spawn(20)
+	spawn(5)
 		if (map && map.ID == MAP_THE_ART_OF_THE_DEAL)
 			var/htmlfile = "<!DOCTYPE html><HTML><HEAD><TITLE>Wiki Guide</TITLE><META http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"></HEAD> \
 			<BODY><iframe src=\"https://civ13.github.io/civ13-wiki/The_Art_of_the_Deal\"  style=\"position: absolute; height: 97%; width: 97%; border: none\"></iframe></BODY></HTML>"
@@ -54,7 +54,7 @@ var/global/redirect_all_players = null
 			var/htmlfile = "<!DOCTYPE html><HTML><HEAD><TITLE>Wiki Guide</TITLE><META http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"></HEAD> \
 			<BODY><iframe src=\"https://civ13.github.io/civ13-wiki/Gulag_13\"  style=\"position: absolute; height: 97%; width: 97%; border: none\"></iframe></BODY></HTML>"
 			src << browse(htmlfile,"window=wiki;size=820x650")
-	spawn(30)
+	spawn(5)
 		if (!isemptylist(approved_list) && config.useapprovedlist)
 			var/found = FALSE
 			for (var/i in approved_list)
