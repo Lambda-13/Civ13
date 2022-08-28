@@ -378,7 +378,7 @@ var/global/datum/controller/occupations/job_master
 
 		job.equip(H)
 
-		#define SAFE_SPAWN_TIME 4
+		#define SAFE_SPAWN_TIME 2
 		// Add loadout items. spawn(SAFE_SPAWN_TIME) so it happens after our pockets are filled with default job item
 		spawn (SAFE_SPAWN_TIME*2)
 			for (var/obj/item/weapon/gun/projectile/gun in H.contents)
@@ -549,7 +549,7 @@ var/global/datum/controller/occupations/job_master
 			if (H.client)
 				H.client.remove_gun_icons()
 		if (H)
-			spawn (50)
+			spawn (1)
 				if (H)
 					H.stopDumbDamage = FALSE
 /*
