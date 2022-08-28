@@ -266,13 +266,13 @@ var/global/redirect_all_players = null
 		if (client && client.next_normal_respawn > world.realtime && !config.no_respawn_delays)
 			var/wait = ceil((client.next_normal_respawn-world.realtime)/10)
 			if (check_rights(R_ADMIN, FALSE, src))
-				if ((WWinput(src, "If you were a normal player, you would have to wait [wait] more seconds to respawn. Do you want to bypass this?", "Admin Respawn", "Yes", list("Yes", "No"))) == "Yes")
+				if ((WWinput(src, "Как нормальный игрок, ты должен подождать [wait] минут для респавна. Уверен что хочешь обойти это ограничение?", "Мяу", "Yes", list("Yes", "No"))) == "Yes")
 					var/msg = "[key_name(src)] bypassed a [wait] second wait to respawn."
 					log_admin(msg)
 					message_admins(msg)
 					LateChoices()
 					return TRUE
-			WWalert(src, "Because you died in combat, you must wait [wait] more seconds to respawn.", "Error")
+			WWalert(src, "Так как ты умер в бою, тебе необходимо подождать [wait] минут для респавна.", "Error")
 			return FALSE
 		LateChoices()
 		return TRUE
@@ -280,19 +280,19 @@ var/global/redirect_all_players = null
 	if (href_list["tribes"])
 
 		if (client && client.quickBan_isbanned("Playing"))
-			WWalert(src,"Тебе нельзя.","Увы")
+			WWalert(src,"Тебе нельзя.","Ох1")
 			return TRUE
 
 		if (!ticker.players_can_join)
-			WWalert(src,"You can't join the game yet.","Error")
+			WWalert(src,"Ты не можешь зайти сейчас в игру.","Ох2")
 			return TRUE
 
 		if (!ticker || ticker.current_state != GAME_STATE_PLAYING)
-			WWalert(src,"The round is either not ready, or has already finished.","Error")
+			WWalert(src,"Раунд закончился или ещё не начался.","Ох3")
 			return
 
 		if (check_trait_points(client.prefs.traits) > 0)
-			WWalert(src,"Your traits are not balanced! You can't join until you balance them (sum has to be <= 0).","Error")
+			WWalert(src,"Your traits are not balanced! You can't join until you balance them (sum has to be <= 0).","Ох4")
 			return FALSE
 
 		if (client.next_normal_respawn > world.realtime && !config.no_respawn_delays)
