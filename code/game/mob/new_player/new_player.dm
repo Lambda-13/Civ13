@@ -1019,83 +1019,83 @@ var/global/redirect_all_players = null
 	dat += "<br>"
 	dat += "<b>Играют на фракциях</b>: "
 	if (BRITISH in map.faction_organization)
-		dat += "[alive_british.len] британцев "
+		dat += "[alive_british.len] за британцев "
 	if (PORTUGUESE in map.faction_organization)
-		dat += "[alive_portuguese.len] португальцев "
+		dat += "[alive_portuguese.len] за португальцев "
 	if (FRENCH in map.faction_organization)
-		dat += "[alive_french.len] французов "
+		dat += "[alive_french.len] за французов "
 	if (SPANISH in map.faction_organization)
-		dat += "[alive_spanish.len] испанцев "
+		dat += "[alive_spanish.len] за испанцев "
 	if (DUTCH in map.faction_organization)
-		dat += "[alive_dutch.len] датчан "
+		dat += "[alive_dutch.len] за датчан "
 	if (PIRATES in map.faction_organization)
-		dat += "[alive_pirates.len] пиратов "
+		dat += "[alive_pirates.len] за пиратов "
 	if (INDIANS in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/african_warlords))
-			dat += "[alive_indians.len] нигеров "
+			dat += "[alive_indians.len] за нигеров "
 		else
-			dat += "[alive_indians.len] Natives "
+			dat += "[alive_indians.len] за аборигенов "
 	if (CIVILIAN in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/tsaritsyn))
-			dat += "[alive_civilians.len] Soviets "
+			dat += "[alive_civilians.len] за красных "
 		else if (map && istype(map, /obj/map_metadata/african_warlords))
-			dat += "[alive_civilians.len] UN Peacekeepers "
+			dat += "[alive_civilians.len] за миротворцев "
 		else if (map && istype(map, /obj/map_metadata/capitol_hill))
-			dat += "[alive_civilians.len] Rioters "
+			dat += "[alive_civilians.len] за бунтовщиков "
 		else if (map && istype(map, /obj/map_metadata/yeltsin))
-			dat += "[alive_civilians.len] Soviet Remnants "
+			dat += "[alive_civilians.len] за КГЧП "
 		else if (map && istype(map, /obj/map_metadata/missionary_ridge))
-			dat += "[alive_civilians.len] Confederates "
+			dat += "[alive_civilians.len] конфедератов "
 		else if (map && istype(map, /obj/map_metadata/tantiveiv))
-			dat += "[alive_civilians.len] Rebels "
+			dat += "[alive_civilians.len] повстанцев "
 		else if (map && istype(map, /obj/map_metadata/ruhr_uprising))
-			dat += "[alive_civilians.len] Revolutionaries "
+			dat += "[alive_civilians.len] революционеров "
 		else
-			dat += "[alive_civilians.len] Civilians "
+			dat += "[alive_civilians.len] за остальных "
 	if (GREEK in map.faction_organization)
-		dat += "[alive_greek.len] Greeks "
+		dat += "[alive_greek.len] греков "
 	if (ROMAN in map.faction_organization)
-		dat += "[alive_roman.len] Romans "
+		dat += "[alive_roman.len] римлян "
 	if (ARAB in map.faction_organization)
 		if (map && (istype(map, /obj/map_metadata/sovafghan) || istype(map, /obj/map_metadata/hill_3234)))
-			dat += "[alive_arab.len] Mujahideen "
+			dat += "[alive_arab.len] за моджахедов "
 		else
-			dat += "[alive_arab.len] Arabs "
+			dat += "[alive_arab.len] за арабов "
 	if (JAPANESE in map.faction_organization)
-		dat += "[alive_japanese.len] Japanese "
+		dat += "[alive_japanese.len] за японцев "
 	if (RUSSIAN in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/yeltsin))
-			dat += "[alive_russian.len] Russian Army "
+			dat += "[alive_russian.len] за Российскую армию"
 		else if (map && (map.ordinal_age == 6 || map.ordinal_age == 7))
-			dat += "[alive_russian.len] Soviets "
+			dat += "[alive_russian.len] за СССР "
 		else
-			dat += "[alive_russian.len] Russians "
+			dat += "[alive_russian.len] за Русских "
 	if (CHECHEN in map.faction_organization)
-		dat += "[alive_chechen.len] Chechens "
+		dat += "[alive_chechen.len] за Чеченцев "
 	if (FINNISH in map.faction_organization)
-		dat += "[alive_finnish.len] Finnish "
+		dat += "[alive_finnish.len] за Финнов "
 	if (GERMAN in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/ruhr_uprising))
-			dat += "[alive_german.len] Reactionaries "
+			dat += "[alive_german.len] за реакционеров "
 		else
-			dat += "[alive_german.len] German "
+			dat += "[alive_german.len] за немцев "
 	if (AMERICAN in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/arab_town))
-			dat += "[alive_american.len] Israeli "
+			dat += "[alive_american.len] за Жидов " //Израиль
 		else if (map && istype(map, /obj/map_metadata/capitol_hill))
-			dat += "[alive_american.len] American Government "
+			dat += "[alive_american.len] за Американское правительство "
 		else if (map && istype(map, /obj/map_metadata/missionary_ridge))
-			dat += "[alive_american.len] Union Soldiers "
+			dat += "[alive_american.len] за Союз Штатов "
 		else if (map && istype(map, /obj/map_metadata/tantiveiv))
-			dat += "[alive_american.len] Imperials "
+			dat += "[alive_american.len] за Галактическую Империю "
 		else
-			dat += "[alive_american.len] American "
+			dat += "[alive_american.len] за американцев "
 	if (VIETNAMESE in map.faction_organization)
-		dat += "[alive_vietnamese.len] Vietnamese "
+		dat += "[alive_vietnamese.len] за вьетнамцев "
 	if (CHINESE in map.faction_organization)
-		dat += "[alive_chinese.len] Chinese "
+		dat += "[alive_chinese.len] за китайцев "
 	if (FILIPINO in map.faction_organization)
-		dat += "[alive_filipino.len] Filipino "
+		dat += "[alive_filipino.len] за филипинов "
 	dat += "<br>"
 //	dat += "<i>Jobs available for slave-banned players are marked with an *</i>"
 //	dat += "<br>"
