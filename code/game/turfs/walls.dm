@@ -30,7 +30,7 @@ var/list/global/wall_cache = list()
 
 /turf/wall/rockwall
 	name = "cave wall"
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "rock"
 	tank_destroyable = FALSE
 	layer = TURF_LAYER + 0.02 // above lifts
@@ -114,7 +114,7 @@ var/list/global/wall_cache = list()
 		update_material()
 		hitsound = material.hitsound
 	else
-		icon = 'icons/turf/walls.dmi'
+		icon = 'icons/ru/turf/walls.dmi'
 		icon_state = "rock"
 
 	for (var/atom/movable/lighting_overlay/L in view(7*3, src))

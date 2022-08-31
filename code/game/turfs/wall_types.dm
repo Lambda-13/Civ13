@@ -45,7 +45,7 @@ turf/wall/generic_wall/New(var/newloc)
 /turf/wall/wood/soft/New(var/newloc)
 	..(newloc,"wood")
 /turf/wall/abashiri
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "abashiri0"
 	ref_state = "abashiri"
 	mergewith = list(/obj/structure/window/classic/abashiri,/obj/structure/window_frame/abashiri,/turf/wall/abashiri,/obj/covers/wood_wall/abashiri)
@@ -68,7 +68,7 @@ turf/wall/generic_wall/New(var/newloc)
 /* Stone Walls */
 
 /turf/wall/old_stone
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "old_stone_wall"
 
 /turf/wall/old_stone/New()
@@ -88,7 +88,7 @@ turf/wall/generic_wall/New(var/newloc)
 /turf/wall/stone/stonebrick/New(var/newloc)
 	..(newloc,"stonebrick")
 /turf/wall/fortress
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "fortress_brickwall"
 	flags = TURF_HAS_EDGES | SMOOTH_ONLY_WITH_ITSELF
 
@@ -96,12 +96,12 @@ turf/wall/generic_wall/New(var/newloc)
 	name = "marble block wall"
 	desc = "A marble block wall."
 	icon_state = "marble_block_wall0"
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	flags = TURF_HAS_EDGES | SMOOTH_ONLY_WITH_ITSELF
 /turf/wall/stone/marble/New(var/newloc)
 	..(newloc,"marble")
 /turf/wall/indestructable
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "black" // so we look better on the map
 	layer=10
 /turf/wall/indestructable/black

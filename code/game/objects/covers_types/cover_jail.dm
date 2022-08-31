@@ -1,7 +1,7 @@
 /obj/covers/jail/
 	name = "jail"
 	desc = "Do not use this."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "woodjail"
 	passable = TRUE
 	not_movable = TRUE
@@ -79,7 +79,7 @@
 /obj/covers/jail/woodjail
 	name = "wood jail bars"
 	desc = "To keep prisoners in."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "woodjail"
 	passable = TRUE
 	not_movable = TRUE
@@ -99,7 +99,7 @@
 /obj/covers/jail/steeljail
 	name = "steel jail bars"
 	desc = "To keep prisoners in better."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "steeljail"
 	passable = TRUE
 	not_movable = TRUE

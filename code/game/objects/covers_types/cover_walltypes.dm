@@ -30,9 +30,9 @@
 	overlays.Cut()
 	overlays |= bullethole_overlays
 	if (moldy>0)
-		overlays += image(icon = 'icons/turf/walls.dmi', icon_state = "mold[moldy]", layer = src.layer+0.02)
+		overlays += image(icon = 'icons/ru/turf/walls.dmi', icon_state = "mold[moldy]", layer = src.layer+0.02)
 	if (cracked>0)
-		overlays += image(icon = 'icons/turf/walls.dmi', icon_state = "cracks[cracked]", layer = src.layer+0.01)
+		overlays += image(icon = 'icons/ru/turf/walls.dmi', icon_state = "cracks[cracked]", layer = src.layer+0.01)
 /obj/covers/New()
 	..()
 	check_relatives(1,1)
@@ -52,7 +52,7 @@
 	if (isemptylist(opts))
 		return
 	var/chnum = pick(opts)
-	var/tmp_bullethole = image(icon = 'icons/turf/walls.dmi', icon_state = "bullethole[chnum]", layer = src.layer+0.01)
+	var/tmp_bullethole = image(icon = 'icons/ru/turf/walls.dmi', icon_state = "bullethole[chnum]", layer = src.layer+0.01)
 	bullethole_overlays += tmp_bullethole
 	bullethole_count += list(chnum)
 	update_icon()
@@ -64,7 +64,7 @@
 /obj/covers/wood_wall
 	name = "soft wood wall"
 	desc = "A wood wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "b_wood_wall"
 	passable = FALSE
 	not_movable = TRUE
@@ -104,28 +104,28 @@
 /obj/covers/wood_wall/medieval
 	name = "medieval wall"
 	desc = "A dark-ages wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "medieval_wall"
 	health = 330
 
 /obj/covers/wood_wall/medieval/x
 	name = "medieval wall crossbeam"
 	desc = "A dark-ages wall with an x shaped support."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "medieval_wall_x"
 	health = 335
 
 /obj/covers/wood_wall/medieval/y/r
 	name = "medieval wall crossbeam"
 	desc = "A dark-ages wall with an slanted support."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "medieval_wall_y1"
 	health = 335
 
 /obj/covers/wood_wall/medieval/y/l
 	name = "medieval wall crossbeam"
 	desc = "A dark-ages wall with an slanted support."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "medieval_wall_y2"
 	health = 335
 
@@ -134,20 +134,20 @@
 /obj/covers/wood_wall/oriental
 	name = "oriental wall"
 	desc = "A east-oriental style wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "oriental"
 	health = 330
 
 /obj/covers/wood_wall/oriental/b
 	name = "braced oriental wall"
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "orientalb"
 	health = 335
 
 /obj/covers/wood_wall/oriental/doorway
 	name = "oriental doorway"
 	desc = "A east-oriental style doorway."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "oriental-door"
 	density = FALSE
 	opacity = FALSE
@@ -155,32 +155,32 @@
 
 /obj/covers/wood_wall/oriental/twop
 	name = "two panelled oriental wall"
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "oriental_twop"
 	health = 330
 
 /obj/covers/wood_wall/oriental/twop/b
 	name = "two panelled braced oriental wall"
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "oriental_twopb"
 	health = 335
 
 /obj/covers/wood_wall/oriental/threep
 	name = "three panelled oriental wall"
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "oriental_threep"
 	health = 330
 
 /obj/covers/wood_wall/oriental/threep/b
 	name = "three panelled braced oriental wall"
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "oriental_threepb"
 	health = 335
 
 /obj/covers/wood_wall/shoji
 	name = "shoji wall"
 	desc = "A shoji paper wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "shoji_wall2"
 	passable = TRUE
 	not_movable = TRUE
@@ -197,7 +197,7 @@
 /obj/covers/wood_wall/shoji_divider
 	name = "shoji dividing wall"
 	desc = "A shoji paper wall. This one is more meant to divide rooms."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "shoji_wall"
 	passable = TRUE
 	not_movable = TRUE
@@ -230,7 +230,7 @@
 /obj/covers/wood_wall/log
 	name = "log wall"
 	desc = "A log wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "log_wall"
 	passable = FALSE
 	not_movable = TRUE
@@ -254,7 +254,7 @@
 /obj/covers/stone_wall
 	name = "rough stone wall"
 	desc = "A rough stone wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "b_stone_wall"
 	passable = FALSE
 	not_movable = TRUE
@@ -367,7 +367,7 @@
 /obj/covers/marble_wall
 	name = "rough marble wall"
 	desc = "A rough marble wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "b_marble_wall"
 	passable = TRUE
 	not_movable = TRUE
@@ -464,7 +464,7 @@
 /obj/covers/sandstone_wall
 	name = "sandstone tiled wall"
 	desc = "A sandstone tiled wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "sandstone_brick"
 	passable = TRUE
 	not_movable = TRUE
@@ -497,7 +497,7 @@
 /obj/covers/sandstone_smooth_wall //just a parent to the real smooth sandstone wall.
 	name = "rough sandstone wall"
 	desc = "A rough sandstone wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "sandstone_smooth"
 	passable = TRUE
 	not_movable = TRUE
@@ -577,7 +577,7 @@
 /obj/covers/sandstone_wall/classic
 	name = "sandstone block wall"
 	desc = "A sandstone block wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "sandstone_block_wall0"
 	base_icon_state = "sandstone_block_wall"
 	adjusts = TRUE
@@ -591,7 +591,7 @@
 /obj/covers/sandstone_wall/brick
 	name = "sandstone brick wall"
 	desc = "A sandstone brick wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "sandstone_brickwall0"
 	base_icon_state = "sandstone_brickwall"
 	passable = TRUE
@@ -630,7 +630,7 @@
 /obj/covers/dirt_wall
 	name = "dirt wall"
 	desc = "A dirt wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "drydirt_wall"
 	passable = TRUE
 	material = "dirt"
@@ -650,7 +650,7 @@
 /obj/covers/straw_wall
 	name = "straw wall"
 	desc = "A straw wall. Looks flimsy."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "straw_wallh"
 	passable = TRUE
 	not_movable = TRUE
@@ -688,7 +688,7 @@
 /obj/covers/divider_wall
 	name = "divider wall"
 	desc = "A divider wall so you don't see what's next to you. Looks flimsy."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "divider0"
 	base_icon_state = "divider"
 	passable = TRUE
@@ -726,7 +726,7 @@
 /obj/covers/sovietwall
 	name = "Soviet tiles wall"
 	desc = "A cheap tiled wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "sovietwall_one"
 	passable = TRUE
 	not_movable = TRUE

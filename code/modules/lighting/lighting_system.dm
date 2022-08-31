@@ -21,7 +21,7 @@
 			if (T_area.is_void_area)
 				if (istype(T, /turf/wall/indestructable))
 					var/turf/wall/W = T
-					W.icon = 'icons/turf/walls.dmi'
+					W.icon = 'icons/ru/turf/walls.dmi'
 					W.icon_state = "black"
 					qdel_list(W.overlays)
 					qdel_list(W.damage_overlays)

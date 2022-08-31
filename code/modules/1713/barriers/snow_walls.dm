@@ -87,7 +87,7 @@
 /obj/covers/snow_wall/blocks
 	name = "snow blocks wall"
 	desc = "A snow blocks wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "igloo_wall"
 	passable = TRUE
 	not_movable = TRUE
@@ -104,7 +104,7 @@
 /obj/covers/snow_wall/blocks/incomplete
 	name = "snow blocks wall"
 	desc = "A snow blocks wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "igloo_wall_inc1"
 	passable = TRUE
 	not_movable = TRUE

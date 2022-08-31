@@ -1,7 +1,7 @@
 /obj/covers/dirt_wall/blocks
 	name = "dirt blocks wall"
 	desc = "A dirt blocks wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "drysod_wall"
 	passable = TRUE
 	not_movable = TRUE
@@ -18,7 +18,7 @@
 /obj/covers/dirt_wall/blocks/incomplete
 	name = "dirt blocks wall"
 	desc = "A dirt blocks wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "drysod_wall_inc1"
 	passable = TRUE
 	not_movable = TRUE
@@ -232,7 +232,7 @@
 /obj/covers/brick_wall
 	name = "brick wall"
 	desc = "A red brick wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "new_brick0"
 	base_icon_state = "new_brick"
 	adjusts = TRUE
@@ -267,7 +267,7 @@
 /obj/covers/cement_wall
 	name = "concrete wall"
 	desc = "A concrete wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "cement_wall0"
 	base_icon_state = "cement_wall"
 	passable = FALSE
@@ -302,7 +302,7 @@
 /obj/covers/cement_wall/incomplete
 	name = "incomplete concrete wall"
 	desc = "A cement brick wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	base_icon_state = "cement_wall_inc"
 	icon_state = "cement_wall_inc0"
 	adjusts = FALSE
@@ -335,7 +335,7 @@
 /obj/covers/brick_wall/incomplete
 	name = "incomplete brick wall"
 	desc = "A red brick wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	base_icon_state = "new_brick_inc"
 	icon_state = "new_brick_inc0"
 	adjusts = FALSE
@@ -379,7 +379,7 @@
 /obj/covers/generic_wall
 	name = "simple wall"
 	desc = "A generic wall."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "generic0"
 	base_icon_state = "generic"
 	passable = FALSE

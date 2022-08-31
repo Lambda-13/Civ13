@@ -688,7 +688,7 @@
 /obj/structure/barricade/ship/mast
 	name = "mast"
 	desc = "A wooden ship mast."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/ru/turf/walls.dmi'
 	icon_state = "wood_mast"
 	protection_chance = 60
 
