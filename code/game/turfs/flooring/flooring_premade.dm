@@ -226,7 +226,7 @@
 
 /turf/floor/dirt
 	name = "dirt"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "dirt"
 	uses_winter_overlay = TRUE
 	may_become_muddy = TRUE

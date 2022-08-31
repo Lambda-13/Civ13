@@ -3,7 +3,7 @@
 /obj/item/weapon/covers
 	name = "floor cover"
 	desc = "Use this to cover holes."
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "wood_ship_repaired2"
 	w_class = 2.0
 	flammable = TRUE
@@ -13,7 +13,7 @@
 /obj/covers/repairedfloor
 	name = "repaired floor"
 	desc = "a repaired wood floor."
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "wood_ship_repaired"
 	layer = 1.98
 	flammable = TRUE
@@ -155,7 +155,7 @@
 
 /obj/covers/tatami
 	name = "horizontal tatami floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "tatami0"
 	passable = TRUE
 	amount = 1
@@ -164,7 +164,7 @@
 
 /obj/covers/tatami_vertical
 	name = "vertical tatami floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "tatami1"
 	passable = TRUE
 	amount = 1
@@ -173,7 +173,7 @@
 
 /obj/covers/tatami_dark
 	name = "horizontal tatami floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "tatami_dark0"
 	passable = TRUE
 	amount = 1
@@ -182,7 +182,7 @@
 
 /obj/covers/tatami_dark_vertical
 	name = "vertical tatami floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "tatami_dark1"
 	passable = TRUE
 	amount = 1
@@ -213,7 +213,7 @@
 
 /obj/covers/cobblestone
 	name = "cobblestone floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "cobble_vertical_dark"
 	passable = TRUE
 	not_movable = TRUE
@@ -233,7 +233,7 @@
 
 /obj/covers/road
 	name = "road"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "road_1"
 	passable = TRUE
 	not_movable = TRUE
@@ -251,7 +251,7 @@
 
 /obj/covers/romanroad
 	name = "roman road"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "roman_road"
 	passable = TRUE
 	not_movable = TRUE
@@ -265,7 +265,7 @@
 
 /obj/covers/stone/slab/decorative
 	name = "stone decorative slab floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "decorative_stone_slab"
 	passable = TRUE
 	not_movable = TRUE
@@ -279,7 +279,7 @@
 
 /obj/covers/stonebrickfloor
 	name = "stone brick floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "stone_bricks"
 	passable = TRUE
 	not_movable = TRUE
@@ -295,7 +295,7 @@
 
 /obj/covers/marblefloor
 	name = "marble floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "marble"
 	passable = TRUE
 	not_movable = TRUE
@@ -309,7 +309,7 @@
 
 /obj/covers/ornatemarblefloor
 	name = "ornate marble floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "ornate_marble"
 	passable = TRUE
 	not_movable = TRUE
@@ -323,7 +323,7 @@
 
 /obj/covers/raw_marblefloor
 	name = "raw marble floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "raw_marble0"
 	passable = TRUE
 	not_movable = TRUE
@@ -337,13 +337,13 @@
 
 /obj/covers/raw_marblefloor/New()
 	..()
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = pick("raw_marble0", "raw_marble1", "raw_marble2")
 	update_icon()
 
 /obj/covers/marbletile
 	name = "marble tiles"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "marble_tile0"
 	passable = TRUE
 	not_movable = TRUE
@@ -357,13 +357,13 @@
 
 /obj/covers/marbletile/New()
 	..()
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = pick("marble_tile0", "marble_tile1", "marble_tile2")
 	update_icon()
 
 /obj/covers/ornate_marbletile
 	name = "ornate marble tile"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "ornate_marble"
 	passable = TRUE
 	not_movable = TRUE
@@ -377,7 +377,7 @@
 
 /obj/covers/decorative_marbletile
 	name = "decorative marble tile"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "decorative_marble_tile0"
 	passable = TRUE
 	not_movable = TRUE
@@ -391,13 +391,13 @@
 
 /obj/covers/decorative_marbletile/New()
 	..()
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = pick("decorative_marble_tile0", "decorative_marble_tile1", "decorative_marble_tile2")
 	update_icon()
 
 /obj/covers/marble_checkerboard
 	name = "marble checkerboard floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "marble_checkerboard"
 	passable = TRUE
 	not_movable = TRUE
@@ -415,7 +415,7 @@
 
 /obj/covers/marble_grid
 	name = "marble grid tile floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "marble_grid"
 	passable = TRUE
 	not_movable = TRUE
@@ -431,39 +431,39 @@
 
 /obj/covers/ornatemarblefloor/black
 	name = "ornate black marble tile"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "ornate_black_marble"
 
 /obj/covers/decorative_marbletile/black
 	name = "decorative black marble tile"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "decorative_black_marble_tile0"
 
 /obj/covers/decorative_marbletile/black/New()
 	..()
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = pick("decorative_black_marble_tile0", "decorative_black_marble_tile1", "decorative_black_marble_tile2", "decorative_black_marble_tile3")
 	update_icon()
 
 /obj/covers/raw_marblefloor/black
 	name = "raw black marble floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "black_marble0"
 
 /obj/covers/raw_marblefloor/black/New()
 	..()
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = pick("black_marble0", "black_marble1", "black_marble2", "black_marble3")
 	update_icon()
 
 /obj/covers/marbletile/black
 	name = "black marble tiles"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "black_marble_tile0"
 
 /obj/covers/marbletile/black/New()
 	..()
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = pick("black_marble_tile0", "black_marble_tile1", "black_marble_tile2", "black_marble_tile3")
 	update_icon()
 
@@ -471,52 +471,52 @@
 
 /obj/covers/raw_marblefloor/pink
 	name = "raw pink marble floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "pink_marble0"
 
 /obj/covers/raw_marblefloor/pink/New()
 	..()
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = pick("pink_marble0", "pink_marble1", "pink_marble2")
 	update_icon()
 
 /obj/covers/decorative_marbletile/pink
 	name = "decorative pink marble tile"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "decorative_pink_marble_tile0"
 
 /obj/covers/decorative_marbletile/pink/New()
 	..()
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = pick("decorative_pink_marble_tile0", "decorative_pink_marble_tile1", "decorative_pink_marble_tile2")
 	update_icon()
 
 /obj/covers/marbletile/pink
 	name = "pink marble tiles"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "pink_marble_tile0"
 
 /obj/covers/marbletile/pink/New()
 	..()
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = pick("pink_marble_tile0", "pink_marble_tile1", "pink_marble_tile2")
 	update_icon()
 
 /obj/covers/marble_checkerboard/pink
 	name = "pink marble checkerboard floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "pink_marble_checkerboard"
 
 /obj/covers/marble_checkerboard/pink/reverse
 	name = "reverse pink marble checkerboard floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "pink_marble_checkerboard_reverse"
 
 /* Marble Floors -End*/
 
 /obj/covers/slatefloor
 	name = "slate floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "slatefloor"
 	passable = TRUE
 	not_movable = TRUE
@@ -533,7 +533,7 @@
 
 /obj/covers/sandstone
 	name = "sandstone floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "sandstone_floor"
 	passable = TRUE
 	not_movable = TRUE
@@ -581,7 +581,7 @@
 
 /obj/covers/steelplating
 	name = "steel floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "floor"
 	passable = TRUE
 	not_movable = TRUE
