@@ -557,6 +557,10 @@ var/global/datum/controller/occupations/job_master
 				if(map.ID != MAP_CAMPAIGN)
 					H.memory()
 */
+
+			H << "You name a [H.real_name]"
+
+
 			return H
 
 // this is a solution to 5 british and 1 pirates on lowpop.
