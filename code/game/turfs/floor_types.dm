@@ -27,7 +27,7 @@
 
 /turf/floor/wood_broken
 	name = "floor"
-	icon = 'icons/turf/flooring/wood.dmi'
+	icon = 'icons/ru/turf/flooring/wood.dmi'
 	icon_state = "broken0"
 	stepsound = "wood"
 

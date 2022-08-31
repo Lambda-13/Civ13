@@ -222,7 +222,7 @@ var/list/flooring_types
 /decl/flooring/wood
 	name = "wooden floor"
 	desc = "Polished redwood planks."
-	icon = 'icons/turf/flooring/wood.dmi'
+	icon = 'icons/ru/turf/flooring/wood.dmi'
 	icon_base = "wood"
 	has_damage_range = 6
 	damage_temperature = T0C+200

@@ -111,7 +111,7 @@
 	..()
 /obj/covers/wood
 	name = "wood floor"
-	icon = 'icons/turf/flooring/wood.dmi'
+	icon = 'icons/ru/turf/flooring/wood.dmi'
 	icon_state = "wood"
 	passable = TRUE
 	amount = 1
@@ -120,7 +120,7 @@
 
 /obj/covers/thatch
 	name = "thatch floor"
-	icon = 'icons/turf/flooring/wood.dmi'
+	icon = 'icons/ru/turf/flooring/wood.dmi'
 	icon_state = "thatch1"
 	passable = TRUE
 	amount = 1
@@ -129,7 +129,7 @@
 
 /obj/covers/thatch2
 	name = "thatch floor"
-	icon = 'icons/turf/flooring/wood.dmi'
+	icon = 'icons/ru/turf/flooring/wood.dmi'
 	icon_state = "thatch2"
 	passable = TRUE
 	amount = 1
@@ -138,7 +138,7 @@
 
 /obj/covers/fancywood
 	name = "wood floor"
-	icon = 'icons/turf/flooring/wood.dmi'
+	icon = 'icons/ru/turf/flooring/wood.dmi'
 	icon_state = "fancywood"
 	passable = TRUE
 	amount = 1
