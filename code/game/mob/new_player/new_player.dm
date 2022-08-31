@@ -1013,26 +1013,26 @@ var/global/redirect_all_players = null
 
 	//<body style='background-color:#1D2951; color:#ffffff'>
 	var/list/dat = list("<center>")
-	dat += "<b><big>Welcome, [key].</big></b>"
+	dat += "<meta charset='utf-8'><b><big>Привет, [key].</big></b>"
 	dat += "<br>"
-	dat += "Round Duration: [roundduration2text_days()]"
+	dat += "Раунд длится: [roundduration2text_days()]"
 	dat += "<br>"
-	dat += "<b>Current Autobalance Status</b>: "
+	dat += "<b>Играют на фракциях</b>: "
 	if (BRITISH in map.faction_organization)
-		dat += "[alive_british.len] British "
+		dat += "[alive_british.len] британцев "
 	if (PORTUGUESE in map.faction_organization)
-		dat += "[alive_portuguese.len] Portuguese "
+		dat += "[alive_portuguese.len] португальцев "
 	if (FRENCH in map.faction_organization)
-		dat += "[alive_french.len] French "
+		dat += "[alive_french.len] французов "
 	if (SPANISH in map.faction_organization)
-		dat += "[alive_spanish.len] Spanish "
+		dat += "[alive_spanish.len] испанцев "
 	if (DUTCH in map.faction_organization)
-		dat += "[alive_dutch.len] Dutch "
+		dat += "[alive_dutch.len] датчан "
 	if (PIRATES in map.faction_organization)
-		dat += "[alive_pirates.len] Pirates "
+		dat += "[alive_pirates.len] пиратов "
 	if (INDIANS in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/african_warlords))
-			dat += "[alive_indians.len] Africans "
+			dat += "[alive_indians.len] нигеров "
 		else
 			dat += "[alive_indians.len] Natives "
 	if (CIVILIAN in map.faction_organization)
