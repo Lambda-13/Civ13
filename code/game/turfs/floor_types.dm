@@ -52,9 +52,9 @@
 
 /turf/floor/grass
 	name = "Grass patch"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "grass0"
-	var/deadicon = 'icons/turf/floors.dmi'//Rad stuff what to turn into
+	var/deadicon = 'icons/ru/turf/floors.dmi'//Rad stuff what to turn into
 	var/deadicon_state = "ndead_grass1"//Rad stuff what to turn into
 	var/grassamt = 1
 	New()
@@ -127,7 +127,7 @@
 
 /turf/floor/plating/ironsand/New()
 	..()
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	name = "Iron Sand"
 	icon_state = "ironsand[rand(1,15)]"
 
@@ -194,14 +194,14 @@
 
 /turf/floor/beach/drywater
 	name = "dry riverbed"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "sand1"
 	is_diggable = FALSE
 	initial_flooring = null
 
 /turf/floor/beach/drywater2
 	name = "dry riverbed"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "sand1"
 	is_diggable = FALSE
 	initial_flooring = null
@@ -222,7 +222,7 @@
 
 /turf/floor/beach/sand/dark
 	name = "dark sand"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "darksand"
 	is_diggable = TRUE
 	available_sand = 4
@@ -440,13 +440,13 @@
 
 /turf/floor/plating/concrete
 	name = "concrete"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "concrete6"
 	interior = FALSE
 
 /turf/floor/plating/marble
 	name = "raw marble floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "raw_marble0"
 	interior = FALSE
 
@@ -495,19 +495,19 @@
 
 /turf/floor/plating/metro
 	name = "Metro floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "metro"
 	interior = FALSE
 
 /turf/floor/plating/metroline
 	name = "Metro floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "metroline"
 	interior = FALSE
 
 /turf/floor/plating/tiled
 	name = "tiled floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "wooden_floor_s1"
 	interior = TRUE
 /turf/floor/plating/tiled/dark
@@ -524,7 +524,7 @@
 
 /turf/floor/plating/road
 	name = "road"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "road_1"
 	interior = FALSE
 
@@ -552,42 +552,42 @@
 
 /turf/floor/plating/steel
 	name = "steel plated floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "floor"
 	interior = TRUE
 
 /turf/floor/plating/white
 	name = "white plated floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "white"
 	interior = TRUE
 
 /turf/floor/plating/cobblestone
 	name = "road"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "cobble_horizontal"
 	interior = FALSE
 
 /turf/floor/plating/stone_old
 	name = "stone floor"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "stone_old"
 	interior = FALSE
 
 /turf/floor/plating/cobblestone/dark
 	name = "road"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "cobble_horizontal_dark"
 	interior = FALSE
 
 /turf/floor/plating/cobblestone/vertical
 	name = "road"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "cobble_vertical"
 	interior = FALSE
 
 /turf/floor/plating/cobblestone/vertical/dark
 	name = "road"
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_state = "cobble_vertical_dark"
 	interior = FALSE

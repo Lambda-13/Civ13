@@ -40,7 +40,7 @@ var/list/flooring_types
 /decl/flooring/grass
 	name = "grass"
 	desc = "Simple grass."
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_base = "grass"
 	has_base_range = 3
 	damage_temperature = T0C+80
@@ -49,7 +49,7 @@ var/list/flooring_types
 /decl/flooring/dirt
 	name = "dirt"
 	desc = "Simple dirt."
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_base = "dirt"
 	has_base_range = 0
 	damage_temperature = T0C+3000
@@ -58,7 +58,7 @@ var/list/flooring_types
 /decl/flooring/dirt/space
 	name = "space"
 	desc = "vast emptyness."
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_base = "space"
 	has_base_range = 0
 	damage_temperature = T0C+3000
@@ -67,7 +67,7 @@ var/list/flooring_types
 /decl/flooring/dust
 	name = "dry dirt"
 	desc = "Simple dry dirt."
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_base = "dust"
 	has_base_range = 0
 	damage_temperature = T0C+3000
@@ -76,7 +76,7 @@ var/list/flooring_types
 /decl/flooring/flooded
 	name = "flooded plains dirt"
 	desc = "The dirt left after a flood recesses."
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_base = "flood_dirt"
 	has_base_range = 0
 	damage_temperature = T0C+3000
@@ -159,7 +159,7 @@ var/list/flooring_types
 /decl/flooring/sand
 	name = "sand"
 	desc = "Simple sand."
-	icon = 'icons/turf/floors.dmi'
+	icon = 'icons/ru/turf/floors.dmi'
 	icon_base = "sand"
 	has_base_range = 0
 	damage_temperature = T0C+200
