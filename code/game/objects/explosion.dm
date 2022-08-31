@@ -30,12 +30,12 @@
 /turf
 	var/explosion_resistance
 
-/turf/floor
-	explosion_resistance = TRUE
-
-/turf/floor/New()
+/turf/New()
 	..()
 	dir = pick("2", "4", "6", "8")
+
+/turf/floor
+	explosion_resistance = TRUE
 
 /turf/wall
 	explosion_resistance = 10
