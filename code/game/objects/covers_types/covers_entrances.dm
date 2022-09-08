@@ -31,7 +31,7 @@
 /obj/covers/wood_wall/oriental/doorway
 	name = "oriental doorway"
 	desc = "A east-oriental style doorway."
-	icon = 'icons/ru/turf/walls.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "oriental-door"
 	density = FALSE
 	opacity = FALSE

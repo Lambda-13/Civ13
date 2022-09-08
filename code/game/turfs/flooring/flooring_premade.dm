@@ -6,13 +6,13 @@
 
 /turf/floor/wood
 	name = "wooden floor"
-	icon = 'icons/ru/turf/floors.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "wood"
 	initial_flooring = /decl/flooring/wood
 
 /turf/floor/grass
 	name = "wild grass"
-	icon = 'icons/ru/turf/floors.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "grass0"
 	initial_flooring = /decl/flooring/grass
 	is_diggable = TRUE
@@ -226,7 +226,7 @@
 
 /turf/floor/dirt
 	name = "dirt"
-	icon = 'icons/ru/turf/floors.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "dirt"
 	uses_winter_overlay = TRUE
 	may_become_muddy = TRUE
@@ -236,7 +236,7 @@
 
 /turf/floor/dirt/lfwb
 	name = "stone"
-	icon = 'icons/ru/turf/floors.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "surface"
 	uses_winter_overlay = TRUE
 	may_become_muddy = TRUE
@@ -246,7 +246,7 @@
 
 /turf/floor/dirt/lfwb/underground
 	name = "stone"
-	icon = 'icons/ru/turf/floors.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "asteroid"
 	is_diggable = FALSE
 	uses_winter_overlay = FALSE
@@ -257,7 +257,7 @@
 
 /turf/floor/dirt/space
 	name = "space"
-	icon = 'icons/ru/turf/floors.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "space"
 	uses_winter_overlay = TRUE
 	may_become_muddy = TRUE
@@ -267,7 +267,7 @@
 /turf/floor/dirt/dark_dirt
 	name = "dark dirt"
 	desc = "Darker than normal dirt, spooky."
-	icon = 'icons/ru/turf/floors.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "dark_dirt"
 	is_diggable = FALSE
 	uses_winter_overlay = FALSE
@@ -276,7 +276,7 @@
 
 /turf/floor/dirt/flooded
 	name = "flood plains dirt"
-	icon = 'icons/ru/turf/floors.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "flood_dirt"
 	desc = "a fertile dirt patch, flooded during the wet season."
 	uses_winter_overlay = FALSE
@@ -287,7 +287,7 @@
 
 /turf/floor/dirt/winter
 	name = "snowy dirt"
-	icon = 'icons/ru/turf/snow.dmi'
+	icon = 'icons/turf/snow.dmi'
 	icon_state = "dirt"
 	uses_winter_overlay = TRUE
 	may_become_muddy = TRUE
@@ -316,7 +316,7 @@
 
 /turf/floor/dirt/underground
 	name = "underground rock"
-	icon = 'icons/ru/turf/walls.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "rocky"
 	desc = "This space is blocked off by soft earth and rocks. Can be mined."
 	uses_winter_overlay = FALSE
@@ -394,7 +394,7 @@
 
 /turf/floor/dirt/underground/sandy
 	name = "sandy underground rock"
-	icon = 'icons/ru/turf/walls.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "sandyrocky"
 	desc = "This space is blocked off by soft earth and sandy stones. Can be mined."
 	New()
@@ -406,7 +406,7 @@
 	..()
 /turf/floor/dirt/underground/icy
 	name = "icy underground rock"
-	icon = 'icons/ru/turf/walls.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "icyrocky"
 	desc = "This space is blocked off by frozen earth and rocks. Can be mined."
 	New()
@@ -444,21 +444,21 @@
 
 /turf/floor/dirt/ploughed
 	name = "ploughed field"
-	icon = 'icons/ru/turf/floors.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "dirt_ploughed"
 	is_plowed = TRUE
 	initial_flooring = null
 
 /turf/floor/dirt/ploughed/flooded
 	name = "ploughed field"
-	icon = 'icons/ru/turf/floors.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "flood_dirt_ploughed"
 	is_plowed = TRUE
 	initial_flooring = null
 
 /turf/floor/dirt/dust
 	name = "dry dirt"
-	icon = 'icons/ru/turf/floors.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "dust"
 	interior = FALSE
 	stepsound = "dirt"
@@ -469,7 +469,7 @@
 
 /turf/floor/dirt/jungledirt
 	name = "dirt"
-	icon = 'icons/ru/turf/floors.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "dirt"
 	interior = FALSE
 	stepsound = "dirt"
@@ -481,7 +481,7 @@
 
 /turf/floor/mining
 	name = "minerals"
-	icon = 'icons/ru/turf/floors.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "minerals"
 	interior = FALSE
 	stepsound = "dirt"

@@ -1,7 +1,7 @@
 /*/obj/structure/plating
 	density = FALSE
 	layer = 2.005 // above floors, below floor decals
-	icon = 'icons/ru/turf/floors.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "plating"
 
 /obj/structure/plating/New()

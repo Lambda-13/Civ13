@@ -53,7 +53,7 @@ var/process/open_space/OS_controller = null
 				o_img += temp3
 			overlays += o_img
 
-			var/image/over_OS_darkness = image('icons/ru/turf/floors.dmi', "black_open")
+			var/image/over_OS_darkness = image('icons/turf/floors.dmi', "black_open")
 			over_OS_darkness.plane = FLOOR_PLANE
 			over_OS_darkness.layer = MOB_LAYER + 0.1
 			overlays += over_OS_darkness

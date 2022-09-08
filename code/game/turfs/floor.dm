@@ -1,6 +1,6 @@
 /turf/floor
 	name = "plating"
-	icon = 'icons/ru/turf/floors.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "plating"
 
 	// Damage to flooring.
@@ -10,7 +10,7 @@
 	// Plating data.
 	var/base_name = "plating"
 	var/base_desc = "A destroyed floor."
-	var/base_icon = 'icons/ru/turf/floors.dmi'
+	var/base_icon = 'icons/turf/floors.dmi'
 	var/base_icon_state = "dirtnew"
 
 	// Flooring data.

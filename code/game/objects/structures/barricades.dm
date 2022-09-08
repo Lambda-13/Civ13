@@ -201,7 +201,7 @@
 /obj/structure/barricade/sandstone_h
 	name = "sandstone wall"
 	desc = "A wall of sandstone blocks."
-	icon = 'icons/ru/turf/walls.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "sandstone_brick"
 	health = 300
 	maxhealth = 300
@@ -212,7 +212,7 @@
 /obj/structure/barricade/sandstone_v
 	name = "sandstone wall"
 	desc = "A wall of sandstone blocks."
-	icon = 'icons/ru/turf/walls.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "sandstone_brick2"
 	health = 300
 	maxhealth = 300
@@ -223,7 +223,7 @@
 /obj/structure/barricade/sandstone_h/crenelated
 	name = "crenelated sandstone wall"
 	desc = "A wall of sandstone blocks."
-	icon = 'icons/ru/turf/walls.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "sandstone_brick_c"
 	health = 300
 	maxhealth = 300
@@ -301,7 +301,7 @@
 /obj/structure/barricade/sandstone_v/crenelated
 	name = "crenelated sandstone wall"
 	desc = "A wall of sandstone blocks."
-	icon = 'icons/ru/turf/walls.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "sandstone_brick_c2"
 	health = 300
 	maxhealth = 300
@@ -439,7 +439,7 @@
 /obj/structure/barricade/stone_h
 	name = "stone wall"
 	desc = "A wall of stone blocks."
-	icon = 'icons/ru/turf/walls.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "stone_brick"
 	material = "stone"
 	health = 300
@@ -471,7 +471,7 @@
 /obj/structure/barricade/stone_v
 	name = "stone wall"
 	desc = "A wall of stone blocks."
-	icon = 'icons/ru/turf/walls.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "stone_brick2"
 	material = "stone"
 	health = 300
@@ -503,7 +503,7 @@
 /obj/structure/barricade/stone_h/crenelated
 	name = "crenelated stone wall"
 	desc = "A wall of stone blocks."
-	icon = 'icons/ru/turf/walls.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "stone_brick_c"
 	material = "stone"
 	health = 300
@@ -535,7 +535,7 @@
 /obj/structure/barricade/stone_v/crenelated
 	name = "crenelated stone wall"
 	desc = "A wall of stone blocks."
-	icon = 'icons/ru/turf/walls.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "stone_brick_c2"
 	material = "stone"
 	health = 300
@@ -657,7 +657,7 @@
 /obj/structure/barricade/jap_h
 	name = "shingled stone wall"
 	desc = "A wall of stone blocks with some red shingles."
-	icon = 'icons/ru/turf/walls.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "jap_wall_h"
 	material = "stone"
 	health = 2709
@@ -712,7 +712,7 @@
 /obj/structure/barricade/jap_h_l
 	name = "shingled stone wall"
 	desc = "A wall of stone blocks with some red shingles."
-	icon = 'icons/ru/turf/walls.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "jap_wall_h_l"
 	material = "stone"
 	health = 2709
@@ -767,7 +767,7 @@
 /obj/structure/barricade/jap_h_r
 	name = "shingled stone wall"
 	desc = "A wall of stone blocks with some red shingles."
-	icon = 'icons/ru/turf/walls.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "jap_wall_h_r"
 	material = "stone"
 	health = 2709
@@ -822,7 +822,7 @@
 /obj/structure/barricade/jap_v
 	name = "shingled stone wall"
 	desc = "A wall of stone blocks with red shingling."
-	icon = 'icons/ru/turf/walls.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "jap_wall_v"
 	material = "stone"
 	health = 2709
@@ -877,7 +877,7 @@
 /obj/structure/barricade/jap_v_t
 	name = "shingled stone wall"
 	desc = "A wall of stone blocks with red shingling."
-	icon = 'icons/ru/turf/walls.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "jap_wall_v_t"
 	material = "stone"
 	health = 2709
@@ -932,7 +932,7 @@
 /obj/structure/barricade/jap_v_b
 	name = "shingled stone wall"
 	desc = "A wall of stone blocks with red shingling."
-	icon = 'icons/ru/turf/walls.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "jap_wall_v_b"
 	material = "stone"
 	health = 2709
@@ -1083,7 +1083,7 @@
 /obj/structure/barricade/jap
 	name = "shingled stone wall"
 	desc = "A wall of stone blocks with some red shingles."
-	icon = 'icons/ru/turf/walls.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "japwall0"
 	var/base_icon_state = "japwall"
 	material = "stone"

@@ -2,7 +2,7 @@
 
 	name = "floor covers"
 	desc = ""
-	icon = 'icons/ru/turf/floors.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "wood_ship"
 	var/base_icon_state = "wood_ship"
 	var/passable = TRUE

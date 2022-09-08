@@ -33,7 +33,7 @@
 
 /turf/floor/lava
 	name = "lava"
-	icon = 'icons/ru/turf/floors.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "lava0"
 	interior = FALSE
 	var/stage = 0
