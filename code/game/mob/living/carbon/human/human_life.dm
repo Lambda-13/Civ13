@@ -1482,12 +1482,15 @@
 					else
 						holder2.icon_state = "jp_basic"
 				if (RUSSIAN)
-					if (map.ordinal_age <= 5)
-						holder2.icon_state = "ru_basic"
-					else if (map.ordinal_age >= 6)
-						holder2.icon_state = "sov_basic"
 					if (map.ID == MAP_YELTSIN || map.ID == MAP_GROZNY || map.ID == MAP_FACTORY || map.ID == MAP_FACTORY_AW || map.ID == MAP_PERVOMAISK_CROSSING || map.ID == MAP_COD_MW_WW3 || map.ID == MAP_FACTORY_RU)
 						holder2.icon_state = "ru_basic"
+					else if (map.ID == MAP_BANK_ROBBERY)
+						holder2.icon_state = "robbers"
+					else
+						if (map.ordinal_age <= 5)
+							holder2.icon_state = "ru_basic"
+						else if (map.ordinal_age >= 6)
+							holder2.icon_state = "sov_basic"
 				if (GERMAN)
 					if (map.ordinal_age <= 1)
 						holder2.icon_state = "ger0_basic"
@@ -1526,6 +1529,8 @@
 						holder2.icon_state = "stormcloak"
 					else if (map.ID == MAP_TANTIVEIV)
 						holder2.icon_state = "rebel_basic"
+					else if (map.ID == MAP_BANK_ROBBERY && original_job.is_law)
+						holder2.icon_state = "police"
 					else if (map.ID == MAP_FACTORY || map.ID == MAP_FACTORY_AW || map.ID == MAP_PERVOMAISK_CROSSING || map.ID == MAP_COD_MW_WW3 || map.ID == MAP_FACTORY_RU)
 						holder2.icon_state = "ukr_basic"
 					else if (map.ID == MAP_GULAG13)

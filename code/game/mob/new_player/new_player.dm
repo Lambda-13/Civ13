@@ -1050,6 +1050,8 @@ var/global/redirect_all_players = null
 			dat += "[alive_civilians.len] повстанцев "
 		else if (map && istype(map, /obj/map_metadata/ruhr_uprising))
 			dat += "[alive_civilians.len] революционеров "
+		else if (map && istype(map, /obj/map_metadata/bank_robbery))
+			dat += "[alive_civilians.len] Policemen "
 		else
 			dat += "[alive_civilians.len] за остальных "
 	if (GREEK in map.faction_organization)
@@ -1065,11 +1067,14 @@ var/global/redirect_all_players = null
 		dat += "[alive_japanese.len] за японцев "
 	if (RUSSIAN in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/yeltsin))
-			dat += "[alive_russian.len] за Российскую армию"
-		else if (map && (map.ordinal_age == 6 || map.ordinal_age == 7))
-			dat += "[alive_russian.len] за СССР "
+			dat += "[alive_russian.len] Russian Army "
+		else if (map && istype(map, /obj/map_metadata/bank_robbery))
+			dat +="[alive_russian.len] Robbers "
 		else
-			dat += "[alive_russian.len] за Русских "
+			if (map && (map.ordinal_age == 6 || map.ordinal_age == 7))
+				dat += "[alive_russian.len] Soviets "
+			else
+				dat += "[alive_russian.len] Russians "
 	if (CHECHEN in map.faction_organization)
 		dat += "[alive_chechen.len] за Чеченцев "
 	if (FINNISH in map.faction_organization)
@@ -1260,6 +1265,11 @@ var/global/redirect_all_players = null
 						temp_name = "Reactionaries"
 					if (temp_name == "Civilian")
 						temp_name = "Revolutionaries"
+				else if (map && map.ID == "BANK_ROBBERY")
+					if (temp_name == "Civilian")
+						temp_name = "Police Department"
+					if (temp_name == "Russian")
+						temp_name = "Robbers"
 				else if (map && map.ID == MAP_CAMPAIGN)
 					if (temp_name == "Civilian")
 						temp_name = "Red"

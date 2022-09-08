@@ -143,6 +143,35 @@
 		/obj/item/weapon/attachment/bayonet/military = 25,
 	)
 
+/obj/structure/vending/rednikovweapons
+	name = "Rednikov Weapon rack"
+	desc = "A rack of Mafia equipment."
+	icon_state = "weapons_sof"
+	products = list(
+		/obj/item/weapon/gun/projectile/submachinegun/ak47/akms = 8,
+		/obj/item/weapon/gun/projectile/submachinegun/uzi = 12,
+		/obj/item/weapon/gun/projectile/submachinegun/tec9 = 10,
+		/obj/item/ammo_magazine/ak47 = 35,
+		/obj/item/ammo_magazine/uzi = 40,
+		/obj/item/ammo_magazine/tec9 = 40,
+		/obj/item/weapon/material/kitchen/utensil/knife/military = 10,
+	)
+
+/obj/structure/vending/rednikovapparel
+	name = "Rednikov apparel rack"
+	desc = "Basic wear for the Rednikov Mafia."
+	icon_state = "apparel_sof"
+	products = list(
+		/obj/item/clothing/under/expensive/red = 40,
+		/obj/item/clothing/head/helmet/ww2/soviet = 20,
+		/obj/item/clothing/head/helmet/modern/pasgt = 10,
+		/obj/item/clothing/accessory/armor/modern/plate = 10,
+		/obj/item/clothing/accessory/armor/coldwar/plates/interceptor = 15,
+		/obj/item/weapon/armorplates = 30,
+		/obj/item/clothing/accessory/armband = 40,
+
+	)
+
 /obj/structure/vending/ww1gerweapons
 	name = "German rifle rack"
 	desc = "A rack of rifles and ammunition."
@@ -462,7 +491,7 @@
 		/obj/item/ammo_magazine/c9mm_jap_revolver = 5,
 		/obj/item/ammo_magazine/c44magnum = 2,
 		/obj/item/ammo_magazine/p220 = 4,
-		/obj/item/weapon/material/knife/tanto = 15,
+		/obj/item/weapon/material/kitchen/utensil/knife/tanto = 15,
 		/obj/item/ammo_magazine/emptyspeedloader = 20,
 	)
 
@@ -1001,7 +1030,8 @@ obj/structure/vending/hezammo
 		/obj/item/clothing/shoes/combat = 15,
 		/obj/item/clothing/shoes/soldiershoes = 10,
 		/obj/item/clothing/under/afghanka = 20,
-		/obj/item/clothing/accessory/armor/coldwar/plates/b3 = 20,
+		/obj/item/clothing/accessory/armor/coldwar/plates/b2 = 20,
+		/obj/item/clothing/accessory/armor/coldwar/plates/b3 = 15,
 		/obj/item/clothing/suit/storage/jacket/afghanka = 15,
 		/obj/item/clothing/mask/gas/russia = 15,
 		/obj/item/clothing/head/helmet/modern/ssh_68 = 20,
@@ -1056,6 +1086,7 @@ obj/structure/vending/hezammo
 		/obj/item/clothing/under/coldwar/dra/soldier = 20,
 		/obj/item/clothing/head/custom/fieldcap/dra = 20,
 		/obj/item/clothing/head/helmet/modern/ssh_68 = 10,
+		/obj/item/clothing/accessory/armor/coldwar/plates/b2 = 5,
 		/obj/item/clothing/accessory/armband = 20,
 		/obj/item/clothing/accessory/storage/webbing/russian = 10,
 		/obj/item/weapon/storage/belt/smallpouches/green = 10,

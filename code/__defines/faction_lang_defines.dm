@@ -71,6 +71,8 @@
 			return "Ruhr Red Army"
 		else if (map.ID == "MAGISTRAL")
 			return "DRA Army"
+		else if (map.ID == "BANK_ROBBERY")
+			return "Police Department"
 		else
 			if (age >= 6)
 				return "Civilians"
@@ -109,6 +111,8 @@
 			return "Russian Federal Forces"
 		else if (map.ID == "TSARITSYN")
 			return "White Army"
+		else if (map.ID == "BANK_ROBBERY")
+			return "Robbers"
 		else
 			if (age == 6 || age == 7)
 				return "Soviet Union"
