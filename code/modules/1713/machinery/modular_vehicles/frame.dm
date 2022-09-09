@@ -516,7 +516,7 @@
 				return TRUE
 	if (istype(proj, /obj/item/projectile/shell))
 		playsound(loc, pick('sound/machines/tank/tank_ricochet1.ogg','sound/machines/tank/tank_ricochet2.ogg','sound/machines/tank/tank_ricochet3.ogg'),100, TRUE)
-		playsound(loc, 'sound/tank/rikoshet1.ogg')
+		playsound(loc, "ric_voice", 100, TRUE)
 	else
 		playsound(loc, "ric_sound", 50, TRUE)
 	return FALSE
@@ -555,21 +555,21 @@
 							if (!mwheel.broken && prob(80))
 								mwheel.broken = TRUE
 								visible_message("<span class='danger'>\The [mwheel.name] уничтожен!</span>")
-								playsound(loc, 'sound/tank/unichtozhen.ogg')
+								playsound(loc, "track_voice", 100, TRUE)
 								new/obj/effect/effect/smoke/small(loc)
 								update_icon()
 						if ("APCR")
 							if (!mwheel.broken && prob(60))
 								mwheel.broken = TRUE
 								visible_message("<span class='danger'>\The [mwheel.name] уничтожен!</span>")
-								playsound(loc, 'sound/tank/unichtozhen.ogg')
+								playsound(loc, "track_voice", 100, TRUE)
 								new/obj/effect/effect/smoke/small(loc)
 								update_icon()
 						if ("AP")
 							if (!mwheel.broken && prob(70))
 								mwheel.broken = TRUE
 								visible_message("<span class='danger'>\The [mwheel.name] уничтожен!</span>")
-								playsound(loc, 'sound/tank/unichtozhen.ogg')
+								playsound(loc, "track_voice", 100, TRUE)
 								new/obj/effect/effect/smoke/small(loc)
 								update_icon()
 			else
@@ -585,7 +585,7 @@
 								if (prob(tprob))
 									M.adjustBruteLoss(PS.damage)
 									visible_message("<span class='danger'>[M] попадает в [PS]!</span>")
-									playsound(loc, 'sound/tank/ne-probil.ogg')
+									playsound(loc, "pen_voice", 100, TRUE)
 						adjdam = proj.damage * 0.08
 					else if ("APCR")
 						for (var/mob/living/M in axis.transporting)
@@ -597,8 +597,8 @@
 								if (prob(tprob))
 									M.adjustBruteLoss(PS.damage)
 									visible_message("<span class='danger'>[M] попадает в [PS]!</span>")
-									playsound(loc, 'sound/tank/ne-probil.ogg')
-						adjdam = proj.damage * 0.35
+									playsound(loc, "pen_voice", 100, TRUE)
+						adjdam = proj.damage * 0.5
 					else if ("AP")
 						for (var/mob/living/M in axis.transporting)
 							shake_camera(M, 1, 1)
@@ -609,7 +609,7 @@
 								if (prob(tprob))
 									M.adjustBruteLoss(PS.damage)
 									visible_message("<span class='danger'>[M] попадает в [PS]!</span>")
-									playsound(loc, 'sound/tank/ne-probil.ogg')
+									playsound(loc, "pen_voice", 100, TRUE)
 						adjdam = proj.damage * 0.3
 					else
 						for (var/mob/living/M in axis.transporting)
@@ -625,55 +625,55 @@
 					if ("left")
 						w_left[5] -= adjdam
 						visible_message("<span class = 'danger'><big>Левый корпус поврежден!</big></span>")
-						playsound(loc, 'sound/tank/probitie1.ogg')
+						playsound(loc, "pen_voice", 100, TRUE)
 					if ("right")
 						w_right[5] -= adjdam
 						visible_message("<span class = 'danger'><big>Правый корпус поврежден!</big></span>")
-						playsound(loc, 'sound/tank/probitie1.ogg')
+						playsound(loc, "pen_voice", 100, TRUE)
 					if ("front")
 						w_front[5] -= adjdam
 						visible_message("<span class = 'danger'><big>Передний корпус поврежден!</big></span>")
-						playsound(loc, 'sound/tank/probitie1.ogg')
+						playsound(loc, "pen_voice", 100, TRUE)
 					if ("back")
 						w_back[5] -= adjdam
 						visible_message("<span class = 'danger'><big>Задний корпус поврежден!</big></span>")
-						playsound(loc, 'sound/tank/probitie1.ogg')
+						playsound(loc, "pen_voice", 100, TRUE)
 					if ("frontleft")
 						if (w_left[4] > w_front[4] && w_left[5]>0 && w_front[5]>0)
 							w_left[5] -= adjdam
 							visible_message("<span class = 'danger'><big>Левый корпус поврежден!</big></span>")
-							playsound(loc, 'sound/tank/probitie1.ogg')
+							playsound(loc, "pen_voice", 100, TRUE)
 						else
 							w_front[5] -= adjdam
 							visible_message("<span class = 'danger'><big>Передний корпус поврежден!</big></span>")
-							playsound(loc, 'sound/tank/probitie2.ogg')
+							playsound(loc, "pen_voice", 100, TRUE)
 					if ("frontright")
 						if (w_right[4] > w_front[4] && w_right[5]>0 && w_front[5]>0)
 							w_right[5] -= adjdam
 							visible_message("<span class = 'danger'><big>Правый корпус поврежден!</big></span>")
-							playsound(loc, 'sound/tank/probitie1.ogg')
+							playsound(loc, "pen_voice", 100, TRUE)
 						else
 							w_front[5] -= adjdam
 							visible_message("<span class = 'danger'><big>Передний корпус поврежден!</big></span>")
-							playsound(loc, 'sound/tank/probitie2.ogg')
+							playsound(loc, "pen_voice", 100, TRUE)
 					if ("backleft")
 						if (w_left[4] > w_back[4] && w_left[5]>0 && w_back[5]>0)
 							w_left[5] -= adjdam
 							visible_message("<span class = 'danger'><big>Левый корпус поврежден!</big></span>")
-							playsound(loc, 'sound/tank/probitie1.ogg')
+							playsound(loc, "pen_voice", 100, TRUE)
 						else
 							w_back[5] -= adjdam
 							visible_message("<span class = 'danger'><big>Задний корпус поврежден!</big></span>")
-							playsound(loc, 'sound/tank/probitie2.ogg')
+							playsound(loc, "pen_voice", 100, TRUE)
 					if ("backright")
 						if (w_right[4] > w_back[4] && w_right[5]>0 && w_back[5]>0)
 							w_right[5] -= adjdam
 							visible_message("<span class = 'danger'><big>Правый корпус поврежден!</big></span>")
-							playsound(loc, 'sound/tank/probitie1.ogg')
+							playsound(loc, "pen_voice", 100, TRUE)
 						else
 							w_back[5] -= adjdam
 							visible_message("<span class = 'danger'><big>Задний корпус поврежден!</big></span>")
-							playsound(loc, 'sound/tank/probitie2.ogg')
+							playsound(loc, "pen_voice", 100, TRUE)
 		else
 			switch(penloc)
 				if ("left")
