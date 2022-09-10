@@ -1043,7 +1043,7 @@ var/global/redirect_all_players = null
 		else if (map && istype(map, /obj/map_metadata/capitol_hill))
 			dat += "[alive_civilians.len] за бунтовщиков "
 		else if (map && istype(map, /obj/map_metadata/yeltsin))
-			dat += "[alive_civilians.len] за КГЧП "
+			dat += "[alive_civilians.len] за бунтовщиков "
 		else if (map && istype(map, /obj/map_metadata/missionary_ridge))
 			dat += "[alive_civilians.len] конфедератов "
 		else if (map && istype(map, /obj/map_metadata/tantiveiv))
@@ -1051,7 +1051,7 @@ var/global/redirect_all_players = null
 		else if (map && istype(map, /obj/map_metadata/ruhr_uprising))
 			dat += "[alive_civilians.len] революционеров "
 		else if (map && istype(map, /obj/map_metadata/bank_robbery))
-			dat += "[alive_civilians.len] Policemen "
+			dat += "[alive_civilians.len] за полицейских "
 		else
 			dat += "[alive_civilians.len] за остальных "
 	if (GREEK in map.faction_organization)
@@ -1067,14 +1067,14 @@ var/global/redirect_all_players = null
 		dat += "[alive_japanese.len] за японцев "
 	if (RUSSIAN in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/yeltsin))
-			dat += "[alive_russian.len] Russian Army "
+			dat += "[alive_russian.len] за Русскую армию "
 		else if (map && istype(map, /obj/map_metadata/bank_robbery))
-			dat +="[alive_russian.len] Robbers "
+			dat +="[alive_russian.len] за грабителей "
 		else
 			if (map && (map.ordinal_age == 6 || map.ordinal_age == 7))
-				dat += "[alive_russian.len] Soviets "
+				dat += "[alive_russian.len] за СССР "
 			else
-				dat += "[alive_russian.len] Russians "
+				dat += "[alive_russian.len] за русских "
 	if (CHECHEN in map.faction_organization)
 		dat += "[alive_chechen.len] за Чеченцев "
 	if (FINNISH in map.faction_organization)
@@ -1086,7 +1086,7 @@ var/global/redirect_all_players = null
 			dat += "[alive_german.len] за немцев "
 	if (AMERICAN in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/arab_town))
-			dat += "[alive_american.len] за Жидов " //Израиль
+			dat += "[alive_american.len] за жидов " //Израиль
 		else if (map && istype(map, /obj/map_metadata/capitol_hill))
 			dat += "[alive_american.len] за Американское правительство "
 		else if (map && istype(map, /obj/map_metadata/missionary_ridge))
