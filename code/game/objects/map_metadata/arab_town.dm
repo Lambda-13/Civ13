@@ -19,7 +19,7 @@
 	no_hardcore = TRUE
 	faction_distribution_coeffs = list(ARAB = 0.5, AMERICAN = 0.5)
 	battle_name = "бой в городе"
-	mission_start_message = "<font size=4><b>Хезболла</b> удерживает город. Войска <b>ЦАХАЛ</b> должны захватить штаб-квартиру Хезболлы (юго-западный угол) в течение <b>40 минут</b>! </шрифт>"
+	mission_start_message = "<font size=4><b>Хезболла</b> удерживает город. Войска <b>ЦАХАЛ</b> должны захватить штаб-квартиру Хезболлы (юго-западный угол) в течение <b>40 минут</b>! </font>"
 	faction1 = ARAB
 	faction2 = AMERICAN
 	valid_weather_types = list(WEATHER_NONE, WEATHER_EXTREME)
