@@ -3,6 +3,7 @@
 
 	var/list/epochs = list(
 		//"Stone Age (?-3000 B.C.)" = 0,
+		"Избранное" = 50,
 		"Chad Mode" = 15,
 		"Pre-Firearms (3000 B.C-1650 A.D.)" = 0,
 		//"Bronze Age (3000 B.C.-400 A.D.)" = 0,
@@ -244,14 +245,11 @@
 				MAP_NOMADS_PANGEA = 10,
 				MAP_NOMADS_WASTELAND = 0,
 				MAP_NOMADS_WASTELAND_2 = 0,
-				MAP_NOMADS_WASTELAND_RU = 0,
-				MAP_NOMADS_WASTELAND_SCARLET_PLAGUE = 0,
 				MAP_NOMADS_NEW_WORLD = 5,
 				MAP_NOMADS_MEDITERRANEAN = 0,
 //				MAP_NOMADS_ISLAND = 0,
 				MAP_NOMADS_KARAFUTO = 0,
-				MAP_NOMADS_EUROPE = 10,
-				MAP_NOMADS_FLY = 228, //Not work, 400x400x3, please fix ~~sanecman
+				MAP_NOMADS_EUROPE = 10
 			)
 		else if (epoch == "Civilization 13 (Colony & Pioneers)")
 			maps = list(
@@ -292,6 +290,11 @@
 				MAP_NOMADS_WASTELAND_RU = 5,
 				MAP_NOMADS_FLY = 228, //Not work, 400x400x3, please fix ~~sanecman
 				MAP_NOMADS_WASTELAND_SCARLET_PLAGUE = 5,)
+		else if (epoch == "Избранное")
+			maps = list(
+				MAP_COLONY = 0,
+				MAP_KURSK = 0,
+				MAP_CAPITOL_HILL = 0)
 		spawn(10)
 			vote.initiate_vote("map", "MapSwap Process", TRUE, list(src, "swap"))
 			return
