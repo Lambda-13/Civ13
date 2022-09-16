@@ -111,7 +111,7 @@
 	worn_state = "atf"
 
 /obj/item/clothing/suit/storage/dea
-	name = "FBI jacket"
+	name = "DEA jacket"
 	desc = "A DEA jacket, standard issue for DEA agents."
 	icon_state = "dea"
 	item_state = "dea"
@@ -1532,7 +1532,7 @@
 	icon_state = "astronaut"
 	item_state = "astronaut"
 	worn_state = "astronaut"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|FEET|HANDS|HEAD
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|FEET|HANDS
 	armor = list(melee = FALSE, arrow = FALSE, gun = FALSE, energy = 5, bomb = 35, bio = 150, rad = 195)
 	ripable = FALSE
 

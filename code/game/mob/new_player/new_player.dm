@@ -599,7 +599,7 @@ var/global/redirect_all_players = null
 			WWalert(usr,"Админ запретил заходить в раунд.", "Error")
 			return
 
-		if (map && map.has_occupied_base(job_flag) && map.ID != MAP_WACO && map.ID != MAP_CAPITOL_HILL && map.ID != MAP_CAMP && map.ID != MAP_HILL_203 && map.ID != MAP_CALOOCAN && map.ID != MAP_YELTSIN && map.ID != MAP_HOTEL)
+		if (map && map.has_occupied_base(job_flag) && map.ID != MAP_WACO && map.ID != MAP_CAPITOL_HILL && map.ID != MAP_CAMP && map.ID != MAP_HILL_203 && map.ID != MAP_CALOOCAN && map.ID != MAP_YELTSIN && map.ID != MAP_HOTEL && map.ID != MAP_OASIS)
 			WWalert(usr,"Враги оккупировали эту базу! Придётся выбрать что-то другое.", "Error")
 			return
 
@@ -1051,7 +1051,9 @@ var/global/redirect_all_players = null
 		else if (map && istype(map, /obj/map_metadata/ruhr_uprising))
 			dat += "[alive_civilians.len] революционеров "
 		else if (map && istype(map, /obj/map_metadata/bank_robbery))
-			dat += "[alive_civilians.len] за полицейских "
+			dat += "[alive_civilians.len] Policemen "
+		else if (map && istype(map, /obj/map_metadata/drug_bust))
+			dat += "[alive_civilians.len] Policemen and Federal Agents "
 		else
 			dat += "[alive_civilians.len] за остальных "
 	if (GREEK in map.faction_organization)
@@ -1069,7 +1071,9 @@ var/global/redirect_all_players = null
 		if (map && istype(map, /obj/map_metadata/yeltsin))
 			dat += "[alive_russian.len] за Русскую армию "
 		else if (map && istype(map, /obj/map_metadata/bank_robbery))
-			dat +="[alive_russian.len] за грабителей "
+			dat +="[alive_russian.len] Robbers "
+		else if (map && istype(map, /obj/map_metadata/drug_bust))
+			dat +="[alive_russian.len] Rednikov Mobsters "
 		else
 			if (map && (map.ordinal_age == 6 || map.ordinal_age == 7))
 				dat += "[alive_russian.len] за СССР "
@@ -1078,7 +1082,13 @@ var/global/redirect_all_players = null
 	if (CHECHEN in map.faction_organization)
 		dat += "[alive_chechen.len] за Чеченцев "
 	if (FINNISH in map.faction_organization)
-		dat += "[alive_finnish.len] за Финнов "
+		dat += "[alive_finnish.len] Finnish "
+	if (NORWEGIAN in map.faction_organization)
+		dat += "[alive_norwegian.len] Norwegians "
+	if (SWEDISH in map.faction_organization)
+		dat += "[alive_swedish.len] Swedes "
+	if (DANISH in map.faction_organization)
+		dat += "[alive_danish.len] Danes "
 	if (GERMAN in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/ruhr_uprising))
 			dat += "[alive_german.len] за реакционеров "
@@ -1122,6 +1132,9 @@ var/global/redirect_all_players = null
 		RUSSIAN = FALSE,
 		CHECHEN = FALSE,
 		FINNISH = FALSE,
+		NORWEGIAN = FALSE,
+		SWEDISH = FALSE,
+		DANISH = FALSE,
 		JAPANESE = FALSE,
 		GERMAN = FALSE,
 		AMERICAN = FALSE,
@@ -1194,6 +1207,15 @@ var/global/redirect_all_players = null
 			job_is_available = FALSE
 
 		if (istype(job, /datum/job/finnish) && !finnish_toggled)
+			job_is_available = FALSE
+
+		if (istype(job, /datum/job/norwegian) && !norwegian_toggled)
+			job_is_available = FALSE
+
+		if (istype(job, /datum/job/swedish) && !swedish_toggled)
+			job_is_available = FALSE
+
+		if (istype(job, /datum/job/danish) && !danish_toggled)
 			job_is_available = FALSE
 
 		if (istype(job, /datum/job/german) && !german_toggled)
@@ -1270,6 +1292,11 @@ var/global/redirect_all_players = null
 						temp_name = "Police Department"
 					if (temp_name == "Russian")
 						temp_name = "Robbers"
+				else if (map && map.ID == "DRUG_BUST")
+					if (temp_name == "Civilian")
+						temp_name = "Police and Federal Agents"
+					if (temp_name == "Russian")
+						temp_name = "Rednikov Mobsters"
 				else if (map && map.ID == MAP_CAMPAIGN)
 					if (temp_name == "Civilian")
 						temp_name = "Red"

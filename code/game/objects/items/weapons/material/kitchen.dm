@@ -156,7 +156,7 @@
 		return
 
 /obj/item/weapon/material/kitchen/utensil/knife/razorblade/attack(mob/living/human/M as mob, mob/living/user as mob)
-	if (user.a_intent == I_HELP && (M in range(user,1) || M == user) && ishuman(M) && ishuman(user))
+	if (user.a_intent == I_DISARM && user.targeted_organ == "head" && (M in range(user,1) || M == user) && ishuman(M) && ishuman(user))
 		visible_message("[user] starts cutting [M]'s hair...","You start cutting [M]'s hair...")
 		if (do_after(user, 80, M))
 			var/list/hairlist = M.generate_valid_hairstyles(1,1)
@@ -227,6 +227,20 @@
 /obj/item/weapon/material/kitchen/utensil/knife/bowie/iron
 	default_material = "iron"
 
+/obj/item/weapon/material/kitchen/utensil/knife/dagger
+	name = "dagger"
+	desc = "A long, sharp, swordlike knife that is used for close quarter combat."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "dagger"
+	item_state = "knife"
+	applies_material_colour = FALSE
+	unbreakable = TRUE
+	drawsound = 'sound/items/unholster_knife.ogg'
+	force_divisor = 0.75
+
+/obj/item/weapon/material/kitchen/utensil/knife/dagger/iron
+	default_material = "iron"
+
 /obj/item/weapon/material/kitchen/utensil/knife/switchblade
 	name = "switchblade knife"
 	desc = "A sharp, concealable, spring-loaded knife."
@@ -289,6 +303,9 @@
 	drawsound = 'sound/items/unholster_knife.ogg'
 	force_divisor = 0.3
 
+/obj/item/weapon/material/kitchen/utensil/knife/fancy/silver
+	default_material = "silver"
+
 /obj/item/weapon/material/kitchen/utensil/knife/trench
 	name = "trench knife"
 	desc = "A rather large knife."
@@ -335,6 +352,9 @@
 	unbreakable = TRUE
 	drawsound = 'sound/items/unholster_knife.ogg'
 	force_divisor = 0.5
+
+/obj/item/weapon/material/kitchen/utensil/knife/fish/silver
+	default_material = "silver"
 
 /obj/item/weapon/material/kitchen/utensil/knife/tacticalknife
 	name = "tactical knife"
@@ -481,7 +501,6 @@
 
 /obj/item/weapon/material/kitchen/utensil/knife/wood
 	default_material = "wood"
-	name = "meat hook"
 
 /obj/item/weapon/material/kitchen/utensil/knife/hook
 	name = "meat hook"

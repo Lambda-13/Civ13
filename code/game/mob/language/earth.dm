@@ -32,6 +32,8 @@
 #define ITALIAN_SYLLABLES 		list("ри", "зa", "ре", "рр", "эр", "oн", "и", "ма", "миa", "нa", "вa", "тa", "ра", "гa", "да", "нa", "сa", "лa", "те", "ре", "ге", "де", "не", "се", "ле", "ти", "ри", "ги", "ди", "ни", "си")
 #define CHECHEN_SYLLABLES 		list("лa", "ма", "нaкх", "дюкх", "дюy", "лю", "сал", "схи", "схoв", "дансх", "эн", "бе", "кхa", "жa", "бал", "тсa", "мoл", "юсх", "жин", "кхор", "гие", "бюyлсх", "ор", "гa", "тхa", "зан", "дакх", "гасх", "дет", "микх", "сa", "салам", "ал", "кюм", "хa", "aт", "кo", "ди", "сте", "aид")
 #define FINNISH_SYLLABLES 		list("a", "ан", "дел", "дес", "эр", "гас", "гo", "хе", "ик", "ил", "жa", "жар", "жэс", "жaт", "кa", "кaи", "кю", "лa", "лас", "лaт", "лэм", "лет", "ли", "лис", "ма", "мал", "мас", "мат", "ми", "мэл", "мэр", "ми", "мин", "мис", "мoит", "мyy", "нэн", "ни", "нин", "нит", "нo", "нос", "o", "oн", "ре", "рет", "рис", "рю", "ра", "ри", "сa", "сэс", "стрюк", "сyy", "тa", "тaю", "те", "тэл", "ти", "тo", "тю", "жар", "тан", "тo", "тoн", "вин", "вoи")
+#define SWEDISH_SYLLABLES list("ja","ga","et","de","ka","vi","ik","bli","ve","ke","ste","der","dej","mi","eg","end","ere","ers","ese","gen","hen","ich","ige","ine","ist","lic","lle","men","mit","nde","nen","nge","ike","sto","ren","sch","sei","jep")
+#define NORWEGIAN_SYLLABLES list("ja","ga","et","de","ka","vi","ik","bli","ve","ke","ste","der","dej","mi","eg","end","ere","ers","ese","gen","hen","ich","ige","ine","ist","lic","lle","men","mit","nde","nen","nge","ike","sto","ren","sch","sei","jep")
 
 /datum/language/portuguese
 	name = "Portuguese"
@@ -41,19 +43,6 @@
 	flags = RESTRICTED | COMMON_VERBS
 	syllables = PORTUGUESE_SYLLABLES
 	mutual_intelligibility = list(/datum/language/spanish = 75,/datum/language/french = 35,/datum/language/italian = 10)
-
-/datum/language/danish
-	name = "Danish"
-	desc = "OH LO LO OH LO LO."
-	key = "dn"
-	colour = "danish"
-	flags = RESTRICTED | COMMON_VERBS
-	syllables = DANISH_SYLLABLES
-	mutual_intelligibility = list(/datum/language/french = 10,
-	/datum/language/german = 10,
-	/datum/language/oldnorse = 25,
-	/datum/language/dutch = 10,
-	/datum/language/english = 10)
 
 /datum/language/spanish
 	name = "Spanish"
@@ -250,7 +239,6 @@
 	syllables = VIETNAMESE_SYLLABLES
 	mutual_intelligibility = list(/datum/language/chinese = 10)
 
-
 /datum/language/blackspeech
 	name = "Black Speech"
 	desc = "Baldur!"
@@ -341,7 +329,6 @@
 	syllables = CHEROKEE_SYLLABLES
 	mutual_intelligibility = list()
 
-
 /datum/language/oldnorse
 	name = "Old Norse"
 	desc = "Asgard Awaits!"
@@ -364,7 +351,52 @@
 	syllables = FINNISH_SYLLABLES
 	mutual_intelligibility = list(/datum/language/oldnorse = 25,
 	/datum/language/danish = 20,
-	/datum/language/russian = 10)
+	/datum/language/russian = 10,
+	/datum/language/swedish = 30,)
+
+/datum/language/norwegian
+	name = "Norwegian"
+	desc = "Norsk."
+	key = "no"
+	colour = "Norwegian"
+	flags = RESTRICTED | COMMON_VERBS
+	syllables = NORWEGIAN_SYLLABLES
+	mutual_intelligibility = list(/datum/language/german = 10,
+	/datum/language/oldnorse = 60,
+	/datum/language/danish = 40,
+	/datum/language/swedish = 50,
+	/datum/language/dutch = 10,
+	/datum/language/english = 10)
+
+/datum/language/swedish
+	name = "Swedish"
+	desc = "Svenske."
+	key = "se"
+	colour = "Swedish"
+	flags = RESTRICTED | COMMON_VERBS
+	syllables = SWEDISH_SYLLABLES
+	mutual_intelligibility = list(/datum/language/german = 10,
+	/datum/language/oldnorse = 50,
+	/datum/language/danish = 40,
+	/datum/language/norwegian = 50,
+	/datum/language/dutch = 10,
+	/datum/language/english = 10)
+
+/datum/language/danish
+	name = "Danish"
+	desc = "OH LO LO OH LO LO."
+	key = "dk"
+	colour = "Danish"
+	flags = RESTRICTED | COMMON_VERBS
+	syllables = DANISH_SYLLABLES
+	mutual_intelligibility = list(/datum/language/french = 10,
+	/datum/language/german = 20,
+	/datum/language/oldnorse = 35,
+	/datum/language/norwegian = 40,
+	/datum/language/swedish = 40,
+	/datum/language/dutch = 20,
+	/datum/language/english = 10)
+
 
 /datum/language/egyptian
     name = "Egyptian"

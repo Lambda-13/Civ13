@@ -1,7 +1,7 @@
 /obj/map_metadata/drug_bust
 	ID = MAP_DRUG_BUST
 	title = "The Rednikov Drug Bust"
-	lobby_icon = "icons/lobby/bank_robbery.png"
+	lobby_icon = "icons/lobby/policestories.png"
 	no_winner ="The drug bust is still underway."
 	caribbean_blocking_area_types = list(
 		/area/caribbean/no_mans_land/invisible_wall,
@@ -12,25 +12,33 @@
 		CIVILIAN,
 		RUSSIAN,)
 
+	roundend_condition_sides = list(
+		list(RUSSIAN) = /area/caribbean/british/land/inside/objective,
+		list(CIVILIAN) = /area/caribbean/japanese/land/inside/command, //doesn't exist on the map
+		)
+
 	age = "1986"
 	ordinal_age = 7
-	faction_distribution_coeffs = list(CIVILIAN = 0.7, RUSSIAN = 0.3)
+	faction_distribution_coeffs = list(CIVILIAN = 0.65, RUSSIAN = 0.35)
 	battle_name = "Rednikov Drug Bust"
-	mission_start_message = "<font size=4>The Russians have <b>5 minutes</b> to prepare SWAT raid the building!<br>The police will win if they <b>confiscate 20 stacks of cocaine!</b>. The Russians will win if they manage to hold off the police for <b>20 minutes!</b></font>"
+	mission_start_message = "<font size=4>Rednikov have <b>5 minutes</b> to prepare before the SWAT raid the building!<br>The Police will win if they <b>capture the Storage Depot</b> in time! Rednikov will win if they manage to hold off the Police for <b>20 minutes!</b></font>"
 	faction1 = CIVILIAN
 	faction2 = RUSSIAN
 	grace_wall_timer = 3000
 	gamemode = "Drug Bust"
 	songs = list(
 		"D.A.V.E. The Drummer - Amphetamine or Cocaine:1" = "sound/music/amphetamine_cocaine.ogg",)
-		
+
 obj/map_metadata/drug_bust/job_enabled_specialcheck(var/datum/job/J)
 	..()
 	if (J.is_heist == TRUE)
 		. = TRUE
 		if (J.title == "Police Officer")
-			J.max_positions = 4
-			J.total_positions = 4
+			J.max_positions = 2
+			J.total_positions = 2
+		if (J.title == "DEA Agent")
+			J.max_positions = 2
+			J.total_positions = 2	
 		if (J.title == "SWAT Officer")
 			J.whitelisted = FALSE
 			J.max_positions = 30
@@ -41,34 +49,112 @@ obj/map_metadata/drug_bust/job_enabled_specialcheck(var/datum/job/J)
 		. = FALSE
 
 /obj/map_metadata/drug_bust/faction1_can_cross_blocks()
-	return (processes.ticker.playtime_elapsed >= 2400 || admin_ended_all_grace_periods)
+	return (processes.ticker.playtime_elapsed >= 3000 || admin_ended_all_grace_periods)
 
 /obj/map_metadata/drug_bust/faction2_can_cross_blocks()
-	return (processes.ticker.playtime_elapsed >= 2400 || admin_ended_all_grace_periods)
-	
+	return (processes.ticker.playtime_elapsed >= 3000 || admin_ended_all_grace_periods)
+
+/obj/map_metadata/drug_bust/roundend_condition_def2name(define)
+	..()
+	switch (define)
+		if (CIVILIAN)
+			return "SWAT"
+		if (RUSSIAN)
+			return "Rednikov"
+
+/obj/map_metadata/drug_bust/roundend_condition_def2army(define)
+	..()
+	switch (define)
+		if (CIVILIAN)
+			return "SWAT"
+		if (RUSSIAN)
+			return "Rednikov"
+
+/obj/map_metadata/drug_bust/army2name(army)
+	..()
+	switch (army)
+		if ("CIVILIAN")
+			return "SWAT"
+		if ("Russians")
+			return "Rednikov"
+
 /obj/map_metadata/drug_bust/cross_message(faction)
-	return "<font size = 4>SWAT has started the raid!</font>"
+	return "<font size = 4>SWAT have started the raid!</font>"
 
 /obj/map_metadata/drug_bust/reverse_cross_message(faction)
 	return ""
 
+/obj/map_metadata/drug_bust/short_win_time(faction)
+	if (!(alive_n_of_side(faction1)) || !(alive_n_of_side(faction2)))
+		return 600
+	else
+		return 1200 // 2 minutes
+
+/obj/map_metadata/drug_bust/long_win_time(faction)
+	if (!(alive_n_of_side(faction1)) || !(alive_n_of_side(faction2)))
+		return 600
+	else
+		return 3000 // 5 minutes
+
 /obj/map_metadata/drug_bust/update_win_condition()
 	if (win_condition_spam_check)
 		return FALSE
-	for(var/obj/structure/money_bag/C in world)
-		if (C.storedvalue >= 10000) // total value stored = 12400+. So roughly 3/4th
-			var/message = "The Police have sucessfully stolen over 10.000 dollars! The robbery was successful!"
-			world << "<font size = 4><span class = 'notice'>[message]</span></font>"
-			show_global_battle_report(null)
-			win_condition_spam_check = TRUE
-			ticker.finished = TRUE
-			return TRUE
 	if (processes.ticker.playtime_elapsed >= 20000)
 		ticker.finished = TRUE
-		var/message = "The Police have suffered enough casualties and have retreated! The Russains win!"
+		var/message = "SWAT retreat out of the Storage Depot with heavy casualties, Rednikov managed to stand their ground!"
 		world << "<font size = 4><span class = 'notice'>[message]</span></font>"
 		show_global_battle_report(null)
 		win_condition_spam_check = TRUE
+		return FALSE
+	else
+		if ((current_winner && current_loser && world.time > next_win) && no_loop_o == FALSE)
+			ticker.finished = TRUE
+			world << "<font size = 4><span class = 'notice'>SWAT seized total control of the Storage Depot!</span></font>"
+			show_global_battle_report(null)
+			win_condition_spam_check = TRUE
+			no_loop_o = TRUE
+			return FALSE
+		else if (win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[2]]), roundend_condition_sides[1], roundend_condition_sides[2], 1.33, TRUE))
+			if (!win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[1]]), roundend_condition_sides[2], roundend_condition_sides[1], 1.33))
+				if (last_win_condition != win_condition.hash)
+					current_win_condition = "SWAT are now securing the Storage Depot! They will win in {time} minutes."
+					next_win = world.time + short_win_time(CIVILIAN)
+					announce_current_win_condition()
+					current_winner = roundend_condition_def2army(roundend_condition_sides[1][1])
+					current_loser = roundend_condition_def2army(roundend_condition_sides[2][1])
+		else if (win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[2]]), roundend_condition_sides[1], roundend_condition_sides[2], 1.01, TRUE))
+			if (!win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[1]]), roundend_condition_sides[2], roundend_condition_sides[1], 1.01))
+				if (last_win_condition != win_condition.hash)
+					current_win_condition = "SWAT are now securing the Storage Depot! They will win in {time} minutes."
+					next_win = world.time + short_win_time(CIVILIAN)
+					announce_current_win_condition()
+					current_winner = roundend_condition_def2army(roundend_condition_sides[1][1])
+					current_loser = roundend_condition_def2army(roundend_condition_sides[2][1])
+		else if (win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[1]]), roundend_condition_sides[2], roundend_condition_sides[1], 1.33, TRUE))
+			if (!win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[2]]), roundend_condition_sides[1], roundend_condition_sides[2], 1.33))
+				if (last_win_condition != win_condition.hash)
+					current_win_condition = "SWAT are now securing the Storage Depot! They will win in {time} minutes."
+					next_win = world.time + short_win_time(CIVILIAN)
+					announce_current_win_condition()
+					current_winner = roundend_condition_def2army(roundend_condition_sides[2][1])
+					current_loser = roundend_condition_def2army(roundend_condition_sides[1][1])
+		else if (win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[1]]), roundend_condition_sides[2], roundend_condition_sides[1], 1.01, TRUE))
+			if (!win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[2]]), roundend_condition_sides[1], roundend_condition_sides[2], 1.01))
+				if (last_win_condition != win_condition.hash)
+					current_win_condition = "SWAT are now securing the Storage Depot! They will win in {time} minutes."
+					next_win = world.time + short_win_time(CIVILIAN)
+					announce_current_win_condition()
+					current_winner = roundend_condition_def2army(roundend_condition_sides[2][1])
+					current_loser = roundend_condition_def2army(roundend_condition_sides[1][1])
+		else
+			if (current_win_condition != no_winner && current_winner && current_loser)
+				world << "<font size = 3>Rednikov have regained control of the Storage Depot!</font>"
+				current_winner = null
+				current_loser = null
+			next_win = -1
+			current_win_condition = no_winner
+			win_condition.hash = 0
+		last_win_condition = win_condition.hash
 		return TRUE
 
 /obj/map_metadata/drug_bust/check_caribbean_block(var/mob/living/human/H, var/turf/T)
@@ -88,10 +174,7 @@ obj/map_metadata/drug_bust/job_enabled_specialcheck(var/datum/job/J)
 
 
 
-////////////////////////////////Jobs and stuff//////////////////////////////////////////////////
-
-/datum/job/civilian/policeofficer/equip(var/mob/living/human/H)
-	H.equip_to_slot_or_del(new /obj/item/weapon/paper/police/searchwarrant/drug(H), slot_r_hand)
+////////////////////////////////Objects and stuff//////////////////////////////////////////////////
 
 /obj/item/weapon/paper/police/searchwarrant/drug
 	icon_state = "police_warrant"
@@ -102,7 +185,7 @@ obj/map_metadata/drug_bust/job_enabled_specialcheck(var/datum/job/J)
 		arn = rand(100,999)
 		icon_state = "police_warrant"
 		spawn(10)
-			info = "<center>DEPARTMENT OF JUSTICE<hr><large><b>Search Warrant No. [arn]</b></large><hr><br>Law Enforcement Agencies are hereby authorized and directed to search all and every property owned by <b>Vyacheslav 'Tatarin' Grigoriev</b>. They will disregard any claims of immunity or privilege by the Suspect or agents acting on the Suspect's behalf.<br><br><small><center><i>Form Model 13-C1</i></center></small><hr>"
+			info = "<center>DEPARTMENT OF JUSTICE<hr><large><b>Search Warrant No. [arn]</b></large><hr><br>Law Enforcement Agencies are hereby authorized and directed to search all and every property owned by <b>Vyacheslav Grigoriev</b>. They will disregard any claims of immunity or privilege by the Suspect or agents acting on the Suspect's behalf.<br><br><small><center><i>Form Model 13-C1</i></center></small><hr>"
 
 /obj/item/weapon/reagent_containers/cocaineblock
 	icon = 'icons/obj/drugs.dmi'
