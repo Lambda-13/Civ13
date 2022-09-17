@@ -25,6 +25,7 @@ var/list/blacklisted_builds = list(
 	"1408" = "ошибка, препятствующая работе переопределения отображения клиента, приводит к тому, что клиенты могут видеть вещи/мобов, которые они не должны видеть",
 	"1428" = "ошибка, из-за которой меню правой кнопки мыши отображало слишком много вербов, исправленных в версии 1429",
 	"1548" = "ошибка, нарушающая \"альфа\" функциональность в игре, позволяющая клиентам видеть вещи/мобов, которых они не должны видеть"
+	"1583" = "ошибка, связаная с утечкой памяти"
 	)
 /client/Topic(href, href_list, hsrc)
 	if (!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
@@ -179,17 +180,6 @@ var/list/blacklisted_builds = list(
 		src << "<br><span class = 'danger'><font size = 4>Ваша версия BYOND заблокировна.</font></span>"
 		src << "<span class = 'danger'><font size = 3>Версия [byond_build] ([byond_version].[byond_build]) заблокирована на данном сервере по причине: [blacklisted_builds[num2text(byond_build)]].</font></span>"
 		src << "<span class = 'danger'><font size = 3>Пожалуйста скачайте последнюю версию. Если [byond_build] и является последней (чего не должно быть), то перейдите на <a href=\"https://secure.byond.com/download/build\">страницу скачивания других версий BYOND клиента</a> и скачайте нужную версию.</font></span>"
-		src << "<span class = 'notice'><font size = 4>Хорошего дня.</font></span>"
-		fixFullscreen()
-		del(src)
-		return
-
-	if (num2text(byond_build) <= num2text(world.byond_build))
-		src << ""
-	else
-		log_access("Ошибка подключения: [key] версия BYOND не подходит для подключения ([byond_version].[byond_build])")
-		src << "<br><span class = 'danger'><font size = 4>Ваша версия BYOND не подходит для игры на сервере.</font></span>"
-		src << "<span class = 'danger'><font size = 3><a href=\"https://secure.byond.com/download/build\">Пожалуйста скачайте [world.byond_build]</a> и установите её.</font></span>"
 		src << "<span class = 'notice'><font size = 4>Хорошего дня.</font></span>"
 		fixFullscreen()
 		del(src)
