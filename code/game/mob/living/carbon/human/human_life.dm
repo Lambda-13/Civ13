@@ -1471,11 +1471,17 @@
 				if (FINNISH)
 					holder2.icon_state = "finnish_basic"
 				if (NORWEGIAN)
-					holder2.icon_state = "norway_basic"
+					if (map.ID == MAP_CLASH)
+						holder2.icon_state = "ger0_basic"
+					else
+						holder2.icon_state = "norway_basic"
 				if (SWEDISH)
 					holder2.icon_state = "swedish_basic"
 				if (DANISH)
-					holder2.icon_state = "danish_basic"
+					if (map.ID == MAP_CLASH)
+						holder2.icon_state = "barbarian_basic"
+					else
+						holder2.icon_state = "danish_basic"
 				if (JAPANESE)
 					if (original_job.is_yakuza && original_job.is_yama)
 						holder2.icon_state = "yamaguchi"
@@ -1605,26 +1611,25 @@
 						if(findtext(original_job_title,"Machinegunner"))
 							holder2.overlays += icon(holder2.icon,"mg")
 							holder2.overlays += icon(holder2.icon,"i_cpl")
+						if((findtext(original_job_title,"Officer") && !findtext(original_job_title,"Petty Officer")) || findtext(original_job_title,"Ensign"))
+							holder2.overlays += icon(holder2.icon,"i_lt")
+						else if(findtext(original_job_title,"Squadleader") || findtext(original_job_title,"Petty Officer"))
+							holder2.overlays += icon(holder2.icon,"i_sgt")
+						else if(findtext(original_job_title,"Commander") || findtext(original_job_title,"Captain"))
+							holder2.overlays += icon(holder2.icon,"i_cpt")
+						else if(findtext(original_job_title,"Medic"))
+							holder2.overlays += icon(holder2.icon,"i_ssgt")
+						else if(findtext(original_job_title,"Corpsman"))
+							holder2.overlays += icon(holder2.icon,"i_cpl")
 					else
 						holder2.overlays += icon(holder2.icon,"squad_[squad]")
-					if((findtext(original_job_title,"Officer") && !findtext(original_job_title,"Petty Officer")) || findtext(original_job_title,"Ensign"))
-						holder2.overlays += icon(holder2.icon,"i_lt")
-					else if(findtext(original_job_title,"Squadleader") || findtext(original_job_title,"Petty Officer"))
-						holder2.overlays += icon(holder2.icon,"i_sgt")
-					else if(findtext(original_job_title,"Commander") || findtext(original_job_title,"Captain"))
-						if(map.ID != MAP_SOVAFGHAN)
-							holder2.overlays += icon(holder2.icon,"i_cpt")
-					else if(findtext(original_job_title,"Medic"))
-						holder2.overlays += icon(holder2.icon,"i_ssgt")
-					else if(findtext(original_job_title,"Corpsman"))
-						holder2.overlays += icon(holder2.icon,"i_cpl")
 			if (map.ID != MAP_CAMPAIGN)
-				if (original_job.is_commander || (original_job.is_commander && original_job.is_officer))
+				if (original_job.is_commander || (original_job.is_commander && original_job.is_officer) || original_job.is_vip)
 					if (faction_text == CIVILIAN && map.ID == MAP_OCCUPATION)
 						holder2.icon_state = ""
 					else
 						holder2.overlays += icon(holder2.icon,"commander")
-				else if (original_job.is_officer && !original_job.is_commander)
+				else if (original_job.is_officer && !original_job.is_commander && !original_job.is_vip)
 					if (faction_text == CIVILIAN && map.ID == MAP_OCCUPATION)
 						holder2.icon_state = ""
 					else

@@ -1,14 +1,17 @@
 ////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////BEAR CLAN///////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
-/datum/job/roman/bear_clan
+/datum/job/norwegian/bear_clan
 	faction = "Human"
 	is_ancient = TRUE
-/datum/job/roman/bear_clan/give_random_name(var/mob/living/human/H)
+	default_language = "Old Norse"
+	additional_languages = list()
+
+/datum/job/norwegian/bear_clan/give_random_name(var/mob/living/human/H)
 	H.name = H.species.get_random_oldnorse_name()
 	H.real_name = H.name
 
-/datum/job/roman/bear_clan/king
+/datum/job/norwegian/bear_clan/king
 	title = "Bear Clan King"
 	rank_abbreviation = "King"
 
@@ -20,7 +23,7 @@
 	min_positions = 1
 	max_positions = 1
 
-/datum/job/roman/bear_clan/king/equip(var/mob/living/human/H)
+/datum/job/norwegian/bear_clan/king/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 	//shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/fur/brown(H), slot_shoes)
@@ -31,8 +34,10 @@
 	//head
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/medieval/viking(H), slot_head)
 	//weapons
-	H.equip_to_slot_or_del(new /obj/item/weapon/material/sword/armingsword/iron(H), slot_belt)
+	H.equip_to_slot_or_del(new /obj/item/weapon/material/sword/vikingsword/iron(H), slot_belt)
 	H.equip_to_slot_or_del(new /obj/item/weapon/horn(H), slot_r_store)
+	H.equip_to_slot_or_del(new /obj/item/weapon/map_clash(H), slot_l_store)
+	H.f_style = pick("Lumberjack Beard")
 	H.add_note("Role", "You are the <b>[title]</b>, the leader of the <b>Bear Clan</b>, a fearsome clan. Organize your <b>Clan</b> and lead your fighters to victory!</b>.")
 	H.setStat("strength", STAT_MEDIUM_HIGH)
 	H.setStat("crafting", STAT_NORMAL)
@@ -42,12 +47,11 @@
 	H.setStat("pistol", STAT_LOW)
 	H.setStat("bows", STAT_HIGH)
 	H.setStat("medical", STAT_MEDIUM_LOW)
-	H.f_style = "Lumberjack"
 	give_random_name(H)
 
 	return TRUE
 
-/datum/job/roman/bear_clan/jarl	//Roman - Decurion
+/datum/job/norwegian/bear_clan/jarl
 	title = "Bear Clan Jarl"
 	rank_abbreviation = "Jarl"
 
@@ -60,7 +64,7 @@
 	min_positions = 1
 	max_positions = 1
 
-/datum/job/roman/bear_clan/jarl/equip(var/mob/living/human/H)
+/datum/job/norwegian/bear_clan/jarl/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 	//shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/fur/brown(H), slot_shoes)
@@ -74,6 +78,8 @@
 	H.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/ancient/chainmail(H), slot_wear_suit)
 	H.equip_to_slot_or_del(new /obj/item/weapon/material/hatchet/battleaxe(H), slot_belt)
 	H.equip_to_slot_or_del(new /obj/item/weapon/shield/iron(H), slot_back)
+	H.equip_to_slot_or_del(new /obj/item/weapon/material/kitchen/utensil/knife/dagger/iron(H), slot_r_store)
+	H.equip_to_slot_or_del(new /obj/item/weapon/horn(H), slot_l_store)
 	H.add_note("Role", "You are a <b>[title]</b>, a vassal of the King. Lead your <b>Clan</b> to battle according to the orders of the <b>King</b>!")
 	H.setStat("strength", STAT_HIGH)
 	H.setStat("crafting", STAT_NORMAL)
@@ -83,11 +89,11 @@
 	H.setStat("pistol", STAT_LOW)
 	H.setStat("bows", STAT_NORMAL)
 	H.setStat("medical", STAT_MEDIUM_LOW)
-	H.f_style = "Lumberjack"
+	H.f_style = pick("Dwarf Beard", "Biker Beard","Long Beard","Very Long Beard")
 	give_random_name(H)
 	return TRUE
 
-/datum/job/roman/bear_clan/berserker
+/datum/job/norwegian/bear_clan/berserker
 	title = "Berserker"
 	rank_abbreviation = "Berserker"
 
@@ -100,7 +106,7 @@
 	min_positions = 5
 	max_positions = 8
 
-/datum/job/roman/bear_clan/berserker/equip(var/mob/living/human/H)
+/datum/job/norwegian/bear_clan/berserker/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 	//shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/fur/brown(H), slot_shoes)
@@ -112,14 +118,23 @@
 	//weapons
 	if(prob(60))
 		H.equip_to_slot_or_del(new /obj/item/weapon/material/hatchet/battleaxe(H), slot_belt)
+		H.equip_to_slot_or_del(new /obj/item/weapon/material/kitchen/utensil/knife/dagger/iron(H), slot_r_hand)
 	else if (prob(20))
-		H.equip_to_slot_or_del(new /obj/item/weapon/material/sword/armingsword/iron(H), slot_belt)
+		H.equip_to_slot_or_del(new /obj/item/weapon/material/sword/vikingsword/iron(H), slot_belt)
+		H.equip_to_slot_or_del(new /obj/item/weapon/shield/iron(H), slot_back)
+		H.equip_to_slot_or_del(new /obj/item/weapon/material/kitchen/utensil/knife/dagger/iron(H), slot_r_hand)
 	else
 		H.equip_to_slot_or_del(new /obj/item/weapon/material/sword/longsword/iron(H), slot_belt)
+		H.equip_to_slot_or_del(new /obj/item/weapon/shield/iron(H), slot_back)
+		H.equip_to_slot_or_del(new /obj/item/weapon/material/kitchen/utensil/knife/dagger/iron(H), slot_r_hand)
 
-	H.equip_to_slot_or_del(new /obj/item/weapon/shield/iron(H), slot_back)
 	H.equip_to_slot_or_del(new /obj/item/weapon/horn(H), slot_r_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/reagent_containers/food/snacks/grown/mushroompsy(H), slot_l_store)
+
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	var/obj/item/clothing/accessory/storage/sheath/knife/h = new /obj/item/clothing/accessory/storage/sheath/knife(null)
+	uniform.attackby(h, H)
+
 	H.add_note("Role", "You are a <b>[title]</b>, a warrior capable of supernatural frenzy in battle. Lead your fellow clan members to battle and destroy your foes!")
 	H.setStat("strength", STAT_HIGH)
 	H.setStat("crafting", STAT_NORMAL)
@@ -129,12 +144,11 @@
 	H.setStat("pistol", STAT_LOW)
 	H.setStat("bows", STAT_LOW)
 	H.setStat("medical", STAT_HIGH)
-	H.f_style = "Lumberjack"
+	H.f_style = pick("Dwarf Beard","Very Long Beard")
 	give_random_name(H)
 	return TRUE
 
-
-/datum/job/roman/bear_clan/warrior
+/datum/job/norwegian/bear_clan/warrior
 	title = "Bear Clan Warrior"
 	rank_abbreviation = ""
 
@@ -147,7 +161,7 @@
 	min_positions = 20
 	max_positions = 100
 
-/datum/job/roman/bear_clan/warrior/equip(var/mob/living/human/H)
+/datum/job/norwegian/bear_clan/warrior/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 		//shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/fur/brown(H), slot_shoes)
@@ -163,13 +177,16 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/coat/fur/grey(H), slot_wear_suit)
 	//weapons
 	if(prob(60))
-		H.equip_to_slot_or_del(new /obj/item/weapon/material/sword/longsword(H), slot_back)
+		H.equip_to_slot_or_del(new /obj/item/weapon/material/sword/longsword/iron(H), slot_back)
+		H.equip_to_slot_or_del(new /obj/item/weapon/material/kitchen/utensil/knife/dagger/iron(H), slot_belt)
 	else if (prob(20))
 		H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/bow/shortbow(H), slot_shoulder)
 		H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/quiver/medieval(H), slot_back)
+		H.equip_to_slot_or_del(new /obj/item/weapon/material/kitchen/utensil/knife/dagger/iron(H), slot_belt)
 	else
 		H.equip_to_slot_or_del(new /obj/item/weapon/material/sword/armingsword/iron(H), slot_r_hand)
 		H.equip_to_slot_or_del(new /obj/item/weapon/shield/iron(H), slot_back)
+		H.equip_to_slot_or_del(new /obj/item/weapon/material/kitchen/utensil/knife/dagger/iron(H), slot_belt)
 
 	H.add_note("Role", "You are a <b>[title]</b>, a warrior of the Bear clan. Follow your leaders and help your brothers in battle.")
 	H.setStat("strength", STAT_MEDIUM_HIGH)
@@ -180,13 +197,13 @@
 	H.setStat("pistol", STAT_LOW)
 	H.setStat("bows", STAT_MEDIUM_HIGH)
 	H.setStat("medical", STAT_LOW)
+	if (prob(80))
+		H.f_style = pick("Dwarf Beard", "Biker Beard","Long Beard","Medium Beard","Full Beard","Long Beard")
 	give_random_name(H)
 
 	return TRUE
 
-
-
-/datum/job/roman/bear_clan/healer
+/datum/job/norwegian/bear_clan/healer
 	title = "Laekir"
 	en_meaning = "Healer"
 	rank_abbreviation = "Herbalist"
@@ -199,8 +216,8 @@
 
 	min_positions = 4
 	max_positions = 5
-	
-/datum/job/roman/bear_clan/healer/equip(var/mob/living/human/H)
+
+/datum/job/norwegian/bear_clan/healer/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 		//shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/fur/brown(H), slot_shoes)
@@ -217,7 +234,7 @@
 	H.equip_to_slot_or_del(new /obj/item/stack/medical/bruise_pack/bint(H), slot_r_store)
 	H.equip_to_slot_or_del(new /obj/item/stack/medical/advanced/herbs(H), slot_l_store)
 	//weapons
-	H.equip_to_slot_or_del(new /obj/item/weapon/material/sword/smallsword/iron(H), slot_belt)
+	H.equip_to_slot_or_del(new /obj/item/weapon/material/kitchen/utensil/knife/dagger/iron(H), slot_r_hand)
 
 	H.add_note("Role", "You are a <b>[title]</b>, the clan's healer. Your task is to keep your fellow clanmembers fit for battle, Valhalla awaits them as victors!")
 	H.setStat("strength", STAT_NORMAL)
@@ -234,15 +251,17 @@
 /////////////////////////////////RAVEN CLAN///////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
 
-/datum/job/greek/raven_clan
+/datum/job/danish/raven_clan
 	faction = "Human"
 	is_ancient = TRUE
+	default_language = "Old Norse"
+	additional_languages = list()
 
-/datum/job/greek/raven_clan/give_random_name(var/mob/living/human/H)
+/datum/job/danish/raven_clan/give_random_name(var/mob/living/human/H)
 	H.name = H.species.get_random_oldnorse_name()
 	H.real_name = H.name
 
-/datum/job/greek/raven_clan/king
+/datum/job/danish/raven_clan/king
 	title = "Raven King"
 	en_meaning = ""
 	rank_abbreviation = "King"
@@ -256,16 +275,17 @@
 	min_positions = 1
 	max_positions = 1
 
-/datum/job/greek/raven_clan/king/equip(var/mob/living/human/H)
+/datum/job/danish/raven_clan/king/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/fur/black(H), slot_shoes)
 //clothes
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/medieval/blue(H), slot_w_uniform)
-	H.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/medieval/chainmail(H), slot_wear_suit)
+	H.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/medieval/varangian(H), slot_wear_suit)
 //weapons
-	H.equip_to_slot_or_del(new /obj/item/weapon/material/sword/armingsword/iron(H), slot_belt)
+	H.equip_to_slot_or_del(new /obj/item/weapon/material/sword/vikingsword/iron(H), slot_belt)
 	H.equip_to_slot_or_del(new /obj/item/weapon/shield/iron(H), slot_back)
+	H.equip_to_slot_or_del(new /obj/item/weapon/material/kitchen/utensil/knife/dagger/iron(H), slot_r_hand)
 	H.add_note("Role", "You are the <b>[title]</b>, the leader of the <b>Raven clan</b>, a prosperous clan. Defend and lead your kingdom to victory!</b>.")
 	H.setStat("strength", STAT_HIGH)
 	H.setStat("crafting", STAT_LOW)
@@ -275,11 +295,11 @@
 	H.setStat("pistol", STAT_LOW)
 	H.setStat("bows", STAT_HIGH)
 	H.setStat("medical", STAT_MEDIUM_LOW)
-	H.f_style = "Lumberjack"
+	H.f_style = pick("Sailor Beard")
 	give_random_name(H)
 	return TRUE
 
-/datum/job/greek/raven_clan/jarl
+/datum/job/danish/raven_clan/jarl
 	title = "Raven Clan Jarl"
 	rank_abbreviation = "Jarl"
 
@@ -292,7 +312,7 @@
 	min_positions = 1
 	max_positions = 1
 
-/datum/job/greek/raven_clan/jarl/equip(var/mob/living/human/H)
+/datum/job/danish/raven_clan/jarl/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/fur/black(H), slot_shoes)
@@ -321,11 +341,11 @@
 	H.setStat("pistol", STAT_LOW)
 	H.setStat("bows", STAT_NORMAL)
 	H.setStat("medical", STAT_HIGH)
-	H.f_style = "Lumberjack"
+	H.f_style = pick("Dwarf Beard", "Biker Beard","Long Beard","Very Long Beard")
 	give_random_name(H)
 	return TRUE
 
-/datum/job/greek/raven_clan/huntsman
+/datum/job/danish/raven_clan/huntsman
 	title = "Huntsman"
 	rank_abbreviation = ""
 
@@ -337,7 +357,7 @@
 	min_positions = 5
 	max_positions = 8
 
-/datum/job/greek/raven_clan/huntsman/equip(var/mob/living/human/H)
+/datum/job/danish/raven_clan/huntsman/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/fur/black(H), slot_shoes)
@@ -356,7 +376,13 @@
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/bow/shortbow(H), slot_shoulder)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/quiver/medieval(H), slot_back)
 	H.equip_to_slot_or_del(new /obj/item/weapon/material/spear/iron(H), slot_r_hand)
-	H.equip_to_slot_or_del(new /obj/item/weapon/horn(H), slot_r_store)
+	H.equip_to_slot_or_del(new /obj/item/weapon/horn(H), slot_l_store)
+	H.equip_to_slot_or_del(new /obj/item/weapon/material/kitchen/utensil/knife/fancy/(H), slot_r_store)
+
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	var/obj/item/clothing/accessory/storage/sheath/knife/h = new /obj/item/clothing/accessory/storage/sheath/knife(null)
+	uniform.attackby(h, H)
+
 	H.add_note("Role", "You are a <b>[title]</b>, a very skilled archer. help your fellow clanmembers win!")
 	H.setStat("strength", STAT_NORMAL)
 	H.setStat("crafting", STAT_HIGH)
@@ -367,10 +393,12 @@
 	H.setStat("bows", STAT_HIGH)
 	H.setStat("medical", STAT_MEDIUM_LOW)
 	give_random_name(H)
+	if (prob(80))
+		H.f_style = pick("Dwarf Beard", "Biker Beard","Long Beard","Medium Beard","Full Beard","Long Beard")
 
 	return TRUE
 
-/datum/job/greek/raven_clan/warrior
+/datum/job/danish/raven_clan/warrior
 	title = "Raven Clan Warrior"
 	rank_abbreviation = ""
 
@@ -382,7 +410,7 @@
 	min_positions = 8
 	max_positions = 100
 
-/datum/job/greek/raven_clan/warrior/equip(var/mob/living/human/H)
+/datum/job/danish/raven_clan/warrior/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/fur/black(H), slot_shoes)
@@ -400,12 +428,15 @@
 	if(prob(60))
 		H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/bow/longbow(H), slot_shoulder)
 		H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/quiver/medieval(H), slot_back)
+		H.equip_to_slot_or_del(new /obj/item/weapon/material/kitchen/utensil/knife/dagger/iron(H), slot_belt)
 	else if (prob(20))
 		H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/bow/shortbow(H), slot_shoulder)
 		H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/quiver/medieval(H), slot_back)
+		H.equip_to_slot_or_del(new /obj/item/weapon/material/kitchen/utensil/knife/dagger/iron(H), slot_belt)
 	else
 		H.equip_to_slot_or_del(new /obj/item/weapon/material/sword/armingsword/iron(H), slot_r_hand)
 		H.equip_to_slot_or_del(new /obj/item/weapon/shield/iron(H), slot_back)
+		H.equip_to_slot_or_del(new /obj/item/weapon/material/kitchen/utensil/knife/dagger/iron(H), slot_belt)
 
 	H.add_note("Role", "You are a <b>[title]</b>, a warrior of the Raven clan. Help your other clanmembers defend your settlement.")
 	H.setStat("strength", STAT_NORMAL)
@@ -416,10 +447,13 @@
 	H.setStat("pistol", STAT_LOW)
 	H.setStat("bows", STAT_MEDIUM_HIGH)
 	H.setStat("medical", STAT_LOW)
+	if (prob(80))
+		H.f_style = pick("Dwarf Beard", "Biker Beard","Long Beard","Medium Beard","Full Beard","Long Beard")
+
 	give_random_name(H)
 	return TRUE
 
-/datum/job/greek/raven_clan/shaman
+/datum/job/danish/raven_clan/shaman
 	title = "Seidmadr"
 	en_meaning = "Shaman"
 	rank_abbreviation = "Seer"
@@ -433,16 +467,17 @@
 	min_positions = 3
 	max_positions = 4
 
-/datum/job/greek/raven_clan/shaman/equip(var/mob/living/human/H)
+/datum/job/danish/raven_clan/shaman/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/fur/black(H), slot_shoes)
 //clothes
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/medieval/blue(H), slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/coat/fur/black(H), slot_wear_suit)
 //face
 	H.equip_to_slot_or_del(new /obj/item/clothing/mask/raven(H), slot_wear_mask)
 //weapons
-	H.equip_to_slot_or_del(new /obj/item/weapon/material/spear/iron(H), slot_r_hand)
+	H.equip_to_slot_or_del(new /obj/item/weapon/material/kitchen/utensil/knife/dagger/iron(H), slot_r_hand)
 //pockets
 	H.equip_to_slot_or_del(new /obj/item/weapon/reagent_containers/food/snacks/grown/mushroompsy(H), slot_r_store)
 	H.equip_to_slot_or_del(new /obj/item/stack/medical/advanced/herbs(H), slot_l_store)
