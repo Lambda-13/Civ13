@@ -167,6 +167,12 @@
 	icon = 'icons/obj/decals_wide.dmi'
 	icon_state = "kandahar"
 
+/obj/structure/sign/wide/grestin
+	name = "East Grestin sign"
+	desc = "A somewhat worn-out sign displaying East Grestin Border Checkpoint."
+	icon = 'icons/obj/decals_wide.dmi'
+	icon_state = "grestin"
+
 /obj/structure/sign
 	anchored = TRUE
 
@@ -759,6 +765,11 @@
 	name = "Blugoslavian flag"
 	desc = "The flag of the Republic of Blugoslavia."
 	icon_state = "flag_blugoslavia"
+
+/obj/structure/sign/flag/arstotzka
+	name = "Arstotzkan flag"
+	desc = "The flag of Arstotzka."
+	icon_state = "flag_arstotzka"
 
 /obj/structure/sign/flag/custom
 	name = "flag"
