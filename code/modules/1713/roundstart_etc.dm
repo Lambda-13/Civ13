@@ -4,6 +4,7 @@ var/game_started = FALSE
 var/train_checked = FALSE
 var/secret_ladder_message = null
 var/GRACE_PERIOD_LENGTH = 7
+var/time_of_day_change_ru = "день"
 
 /hook/roundstart/proc/game_start()
 
@@ -25,7 +26,22 @@ var/GRACE_PERIOD_LENGTH = 7
 				spawn (0)
 					while (!processes.time_of_day_change || !processes.time_of_day_change.setup_lighting)
 						sleep(1)
-					world << "<br><font size=3><span class = 'notice'>Наступает <b>[lowertext(processes.time_of_day_change.changeto)]</b>, время года сейчас <b>[get_season_ru()]</b>.</span></font>"
+					switch(time_of_day)
+						if ("Early Morning")
+							time_of_day_change_ru = "раннее утро"
+						if ("Morning") //07-11
+							time_of_day_change_ru = "утро"
+						if ("Midday") //11-15
+							time_of_day_change_ru = "день"
+						if ("Afternoon") //15-19
+							time_of_day_change_ru = "вечереет"
+						if ("Evening") //19-23
+							time_of_day_change_ru = "вечер"
+						if ("Night") //23-03
+							time_of_day_change_ru = "ночь"
+						else
+							time_of_day_change_ru = "день"
+					world << "<br><font size=3><span class = 'notice'>Сейчас <b>[lowertext(processes.time_of_day_change.changeto)]</b>, время года сейчас <b>[get_season_ru()]</b>.</span></font>"
 
 	// spawn mice so pirates have something to eat after they start starving
 
