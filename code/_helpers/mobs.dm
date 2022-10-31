@@ -335,7 +335,7 @@ proc/age2agedescription(age)
 		if (13 to 19)		return "подросток"
 		if (19 to 30)		return "молодой"
 		if (30 to 45)		return "в возрасте"
-		if (45 to 60)		return "пенсионер"
+		if (45 to 60)		return "престарелый"
 		if (60 to 70)		return "старик"
 		if (70 to INFINITY)	return "очень старый"
 		else				return "ещё не рождёный"
