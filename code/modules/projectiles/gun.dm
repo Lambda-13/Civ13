@@ -171,7 +171,7 @@
 	if (H.pacifist)
 		src << "<font color='yellow'><b><big>Не хочу стрелять.</big></b></font>"
 		return
-	if (istype(H) && (H.faction_text == "INDIANS"))
+	if (istype(H) && (H.faction_text == "INDIANS") && (map && (!map.ID == MAP_AFRICAN_WARLORDS || !map.ID == MAP_TADOJSVILLE)))
 		user << "<span class = 'danger'>You have no idea how this thing works.</span>"
 		return
 	if (A == user)

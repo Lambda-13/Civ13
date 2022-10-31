@@ -1032,14 +1032,20 @@ var/global/redirect_all_players = null
 		dat += "[alive_pirates.len] за пиратов "
 	if (INDIANS in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/african_warlords))
-			dat += "[alive_indians.len] за нигеров "
+			dat += "[alive_indians.len] Blugisi "
+		else if (map && istype(map, /obj/map_metadata/tadojsville))
+			dat += "[alive_indians.len] Wartribe Mercenary "
+		else if (map && istype(map, /obj/map_metadata/east_los_santos))
+			dat += "[alive_indians.len] Ballas "
 		else
 			dat += "[alive_indians.len] за аборигенов "
 	if (CIVILIAN in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/tsaritsyn))
 			dat += "[alive_civilians.len] за красных "
 		else if (map && istype(map, /obj/map_metadata/african_warlords))
-			dat += "[alive_civilians.len] за миротворцев "
+			dat += "[alive_civilians.len] Yellowagwana "
+		else if (map && istype(map, /obj/map_metadata/tadojsville))
+			dat += "[alive_civilians.len] UN Peacekeepers "
 		else if (map && istype(map, /obj/map_metadata/capitol_hill))
 			dat += "[alive_civilians.len] за бунтовщиков "
 		else if (map && istype(map, /obj/map_metadata/yeltsin))
@@ -1054,6 +1060,8 @@ var/global/redirect_all_players = null
 			dat += "[alive_civilians.len] Policemen "
 		else if (map && istype(map, /obj/map_metadata/drug_bust))
 			dat += "[alive_civilians.len] Policemen and Federal Agents "
+		else if (map && istype(map, /obj/map_metadata/long_march))
+			dat += "[alive_civilians.len] Chinese Red Army "
 		else
 			dat += "[alive_civilians.len] за остальных "
 	if (GREEK in map.faction_organization)
@@ -1108,13 +1116,18 @@ var/global/redirect_all_players = null
 		else if (map && istype(map, /obj/map_metadata/missionary_ridge))
 			dat += "[alive_american.len] за Союз Штатов "
 		else if (map && istype(map, /obj/map_metadata/tantiveiv))
-			dat += "[alive_american.len] за Галактическую Империю "
+			dat += "[alive_american.len] Imperials "
+		else if (map && istype(map, /obj/map_metadata/east_los_santos))
+			dat += "[alive_american.len] Grove Street "
 		else
 			dat += "[alive_american.len] за американцев "
 	if (VIETNAMESE in map.faction_organization)
 		dat += "[alive_vietnamese.len] за вьетнамцев "
 	if (CHINESE in map.faction_organization)
-		dat += "[alive_chinese.len] за китайцев "
+		if (map && istype(map, /obj/map_metadata/long_march))
+			dat += "[alive_chinese.len] Chinese National Army "
+		else
+			dat += "[alive_chinese.len] Chinese "
 	if (FILIPINO in map.faction_organization)
 		dat += "[alive_filipino.len] за филипинов "
 	dat += "<br>"
@@ -1250,9 +1263,14 @@ var/global/redirect_all_players = null
 					temp_name = "Israeli"
 				else if (map && map.ID == "AFRICAN_WARLORDS")
 					if (temp_name == "Indians")
-						temp_name = "Africans"
+						temp_name = "Blugisi"
 					else if (temp_name == "Civilian")
-						temp_name = "United Nations"
+						temp_name = "Yellowagwana"
+				else if (map && map.ID == "TADOJSVILLE")
+					if (temp_name == "Indians")
+						temp_name = "Mercenary Warband"
+					else if (temp_name == "Civilian")
+						temp_name = "United Nations Peacepeeker"
 				else if (map && map.ID == "MISSIONARY_RIDGE")
 					if (temp_name == "American")
 						temp_name = "Union"
@@ -1308,6 +1326,16 @@ var/global/redirect_all_players = null
 						temp_name = "Bear Clan"
 					if (temp_name == "Danish")
 						temp_name = "Raven Clan"
+				else if (map && map.ID == "EAST_LOS_SANTOS")
+					if (temp_name == "Indians")
+						temp_name = "Ballas"
+					if (temp_name == "American")
+						temp_name = "Grove Street Families"
+				else if (map && map.ID == "LONG_MARCH")
+					if (temp_name == "Civilian")
+						temp_name = "Chinese Red Army"
+					if (temp_name == "Chinese")
+						temp_name = "Chinese National Army"
 				else if (map && map.ID == MAP_CAMPAIGN)
 					if (temp_name == "Civilian")
 						temp_name = "Red"

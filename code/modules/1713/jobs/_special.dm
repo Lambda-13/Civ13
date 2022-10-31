@@ -24,6 +24,7 @@
 /datum/job/var/is_marooned = FALSE //marooned pirate
 /datum/job/var/is_medieval = FALSE //self explanatory
 /datum/job/var/is_crusader = FALSE //self explanatory
+/datum/job/var/is_arabcaliph = FALSE
 /datum/job/var/is_nomad = FALSE //self explanatory
 /datum/job/var/is_gladiator = FALSE
 /datum/job/var/is_civilizations = FALSE //if the job is for civilization maps
@@ -62,6 +63,10 @@
 /datum/job/var/is_abashiri = FALSE
 /datum/job/var/is_nva = FALSE
 /datum/job/var/is_warlords = FALSE
+/datum/job/var/is_redka = FALSE
+/datum/job/var/is_blugi = FALSE
+/datum/job/var/is_yellowag = FALSE
+/datum/job/var/is_un = FALSE
 /datum/job/var/is_capitol = FALSE
 /datum/job/var/is_paratrooper = FALSE
 /datum/job/var/is_vietcong = FALSE
@@ -74,7 +79,7 @@
 /datum/job/var/is_whitehouse = FALSE
 /datum/job/var/is_kremlin = FALSE
 /datum/job/var/can_be_minor = FALSE
-/datum/job/var/is_karelina = FALSE
+/datum/job/var/is_karelia = FALSE
 /datum/job/var/is_grozny = FALSE
 /datum/job/var/is_skyrim = FALSE
 /datum/job/var/is_imperial = FALSE
@@ -102,6 +107,8 @@
 /datum/job/var/is_interwar = FALSE
 /datum/job/var/is_pla = FALSE
 /datum/job/var/is_vip = FALSE
+/datum/job/var/is_gta = FALSE
+/datum/job/var/is_ccw = FALSE
 
 /datum/job/var/can_get_coordinates = FALSE
 /datum/job/var/is_event = FALSE
