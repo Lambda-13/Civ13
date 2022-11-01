@@ -1349,7 +1349,7 @@
 		return
 
 	if (shock_stage == 10)
-		src << "<span class='danger'>[pick("Бля как больно", "Надо бы обезболивающего", "Боже ну и боль!")]!</span>"
+		src << "<span class='danger'>[pick("Очень больно!", "Больно!", "Боже ну и боль!")]!</span>"
 
 	if (shock_stage >= 55)
 		if (shock_stage == 30) emote("me",1,"падает в обморок!")
