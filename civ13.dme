@@ -1100,5 +1100,5 @@
 #include "interface\skin.dmf"
 #include "lambda\sanecman\code\_globalvars\text.dm"
 #include "lambda\sanecman\code\serverside\padezhi.dm"
-#include "maps\1943\smallingrad.dmm"
+#include "maps\nomads\nomads_wasteland_2.dmm"
 // END_INCLUDE
