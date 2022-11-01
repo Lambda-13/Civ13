@@ -1106,5 +1106,4 @@
 #include "lambda\sanecman\code\_globalvars\text.dm"
 #include "lambda\sanecman\code\serverside\padezhi.dm"
 #include "maps\1943\smallingrad.dmm"
-#include "white\valtos\code\_globalvars\text.dm"
 // END_INCLUDE
