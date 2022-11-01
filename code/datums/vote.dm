@@ -133,7 +133,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 			text += "<b>Результат: <span class = 'ping'>Нет</span> - Недостаточно голосов за yes (надо больше 59% проголосовавших за yes)</b>"
 		log_vote(text)
 		world << "<font color='purple'>[text]</font>"
-		world << sound('sound/tf2/vote_success.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
+		world << sound('lambda/sanecman/sound/tf2/vote_success.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
 		return .
 
 	proc/result()

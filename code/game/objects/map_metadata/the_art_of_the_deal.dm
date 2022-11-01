@@ -669,14 +669,14 @@
 		name = chosen_name
 		real_name = chosen_name
 		voice = chosen_name
-		usr.client << sound('sound/tf2/spy_disguise.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
+		usr.client << sound('lambda/sanecman/sound/tf2/spy_disguise.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
 		src << "<b><big>Скрываю личность.</big></b>"
 		return
 	else
 		real_name = "Deputy [hidden_name]"
 		name = "Deputy [hidden_name]"
 		voice = "Deputy [hidden_name]"
-		usr.client << sound('sound/tf2/spy_uncloak.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
+		usr.client << sound('lambda/sanecman/sound/tf2/spy_uncloak.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
 		src << "<b><big>Раскрываю себя.</big></b>"
 		return
 

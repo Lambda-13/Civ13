@@ -96,9 +96,9 @@ var/global/redirect_all_players = null
 			if (client.handle_spam_prevention(message,MUTE_OOC))
 				return
 			if (findtext(message, "byond://"))
-				src.client << sound('sound/dota.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
-				log_admin("[key_name(client)] has attempted to advertise in OOC: [message]")
-				message_admins("[key_name_admin(client)] пытался запостить эту хуйню в ООС: [message]")
+				src.client << sound('lambda/sanecman/sound/dota.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
+				log_admin("[key_name(client)] запостил ссылку на другой сервер в ООС: [message]")
+				message_admins("[key_name_admin(client)] запостил ссылку на другой сервер в ООС: [message]")
 				return
 	for (var/new_player in new_player_mob_list)
 		if (new_player:client) // sanity check
