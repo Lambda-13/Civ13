@@ -81,6 +81,8 @@
 	var/brute_ratio = 0
 	var/encased = ""
 	var/cavity_name = ""
+	//Русский язык
+	var/organ_ru_name = "тело"
 
 /obj/item/organ/external/New()
 	..()
@@ -1123,6 +1125,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 /obj/item/organ/external/chest
 	name = "upper body"
+	organ_ru_name = "грудь"
 	limb_name = "chest"
 	icon_name = "torso"
 	min_broken_damage = 55
@@ -1142,6 +1145,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 /obj/item/organ/external/groin
 	name = "lower body"
+	organ_ru_name = "паховая область"
 	limb_name = "groin"
 	icon_name = "groin"
 	min_broken_damage = 55
@@ -1161,6 +1165,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/arm
 	limb_name = "l_arm"
 	name = "left arm"
+	organ_ru_name = "левая рука"
 	icon_name = "l_arm"
 	min_broken_damage = 40
 	max_damage = 60
@@ -1174,6 +1179,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/arm/right
 	limb_name = "r_arm"
 	name = "right arm"
+	organ_ru_name = "правая рука"
 	icon_name = "r_arm"
 	body_part = ARM_RIGHT
 	joint = "right elbow"
@@ -1182,6 +1188,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/leg
 	limb_name = "l_leg"
 	name = "left leg"
+	organ_ru_name = "левая нога"
 	icon_name = "l_leg"
 	min_broken_damage = 40
 	max_damage = 70
@@ -1196,6 +1203,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/leg/right
 	limb_name = "r_leg"
 	name = "right leg"
+	organ_ru_name = "правая нога"
 	icon_name = "r_leg"
 	body_part = LEG_RIGHT
 	icon_position = RIGHT
@@ -1205,6 +1213,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/foot
 	limb_name = "l_foot"
 	name = "left foot"
+	organ_ru_name = "левая пятка"
 	icon_name = "l_foot"
 	min_broken_damage = 35
 	max_damage = 65
@@ -1222,6 +1231,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/foot/right
 	limb_name = "r_foot"
 	name = "right foot"
+	organ_ru_name = "правая пятка"
 	icon_name = "r_foot"
 	body_part = FOOT_RIGHT
 	icon_position = RIGHT
@@ -1232,6 +1242,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/hand
 	limb_name = "l_hand"
 	name = "left hand"
+	organ_ru_name = "левая ладонь"
 	icon_name = "l_hand"
 	min_broken_damage = 35
 	max_damage = 60
@@ -1248,6 +1259,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/hand/right
 	limb_name = "r_hand"
 	name = "right hand"
+	organ_ru_name = "правая ладонь"
 	icon_name = "r_hand"
 	body_part = HAND_RIGHT
 	parent_organ = "r_arm"
@@ -1258,6 +1270,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	limb_name = "head"
 	icon_name = "head"
 	name = "head"
+	organ_ru_name = "голова"
 	min_broken_damage = 40
 	max_damage = 60
 	w_class = 3
@@ -1274,7 +1287,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 /obj/item/organ/external/head/removed()
 	if (owner)
-		name = "[owner.real_name]'s head"
+		name = "голова [owner.real_name]"
 		owner.u_equip(owner.head)
 		owner.u_equip(owner.l_ear)
 		owner.u_equip(owner.r_ear)
@@ -1343,12 +1356,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 
 /obj/item/stack/teeth
-	name = "teeth"
-	singular_name = "tooth"
+	name = "зубы"
+	singular_name = "зуб"
 	w_class = TRUE
 	throwforce = 2
 	max_amount = 32
-	desc = "Welp. Someone had their teeth knocked out."
+	desc = "Зубы. Целые зубы."
 	icon = 'icons/mob/surgery.dmi'
 	icon_state = "tooth"
 
@@ -1357,11 +1370,11 @@ Note that amputating the affected organ does in fact remove the infection from t
 	icon_state = "tooth"
 
 /obj/item/stack/teeth/human
-	name = "human teeth"
-	singular_name = "human tooth"
+	name = "зубы"
+	singular_name = "зуб"
 
 /obj/item/stack/teeth/generic //Used for species without unique teeth defined yet
-	name = "teeth"
+	name = "зубы"
 
 /obj/item/stack/proc/zero_amount()//Teeth shit
 	if (amount < 1)

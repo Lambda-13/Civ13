@@ -108,13 +108,13 @@ mob/living/human/proc/handle_pain()
 		if (prob(10))
 			switch(maxdam)
 				if(1 to 10)
-					msg = "Your [damaged_organ.name] [burning ? "burns" : "hurts"]."
+					msg = "Моя [damaged_organ.organ_ru_name] [burning ? "обожжена" : "болит"]."
 
 				if(11 to 90)
-					msg = "<font size=2>Your [damaged_organ.name] [burning ? "burns" : "hurts"] badly!</font>"
+					msg = "<font size=2>Моя [damaged_organ.organ_ru_name] [burning ? "обожжена" : "болит"]!</font>"
 
 				if(91 to 10000)
-					msg = "<font size=3>OH GOD! Your [damaged_organ.name] is [burning ? "on fire" : "hurting terribly"]!</font>"
+					msg = "<font size=3>Моя [damaged_organ.organ_ru_name] [burning ? "обгорела" : "сильно болит"]!</font>"
 		custom_pain(msg, 0, prob(10), affecting = damaged_organ, flash_pain = maxdam)
 
 	// Damage to internal organs hurts a lot.
@@ -127,11 +127,11 @@ mob/living/human/proc/handle_pain()
 	if(prob(2))
 		switch(getToxLoss())
 			if(10 to 25)
-				custom_pain("Your body stings slightly.", getToxLoss())
+				custom_pain("Тело колит.", getToxLoss())
 			if(25 to 45)
-				custom_pain("Your whole body hurts badly.", getToxLoss())
+				custom_pain("Меня колит!", getToxLoss())
 			if(61 to INFINITY)
-				custom_pain("Your body aches all over, it's driving you mad.", getToxLoss())
+				custom_pain("Колющая боль сводит меня с ума!", getToxLoss())
 
 /mob/living/human/proc/painchecks()
 	if (stat >= 2)
@@ -156,4 +156,4 @@ mob/living/human/proc/suffer_well(var/prob)
 		emote("agony")
 		Weaken(10)
 		shake_camera(src, 20, 3)
-		visible_message("<span class='warning'>[src] gives into the pain!</span>")
+		visible_message("<span class='warning'>[src] корчится от боли!</span>")
