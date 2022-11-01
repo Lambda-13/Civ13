@@ -1,6 +1,6 @@
 // chat for all staff - Kachnov
 /client/proc/cmd_staff_say(msg as text)
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Asay"
 	set hidden = TRUE
 	if (!check_rights(R_MENTOR|R_MOD))

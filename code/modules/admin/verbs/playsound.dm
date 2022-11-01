@@ -1,7 +1,7 @@
 var/list/sounds_cache = list()
 
 /client/proc/play_sound(S as sound)
-	set category = "Fun"
+	set category = "Веселье"
 	set name = "Play Global Sound"
 	if (!check_rights(R_SOUNDS))	return
 
@@ -22,7 +22,7 @@ var/list/sounds_cache = list()
 				M.client << uploaded_sound
 
 /client/proc/play_local_sound(S as sound, var/volume = 50)
-	set category = "Fun"
+	set category = "Веселье"
 	set name = "Play Local Sound"
 	if (!check_rights(R_SOUNDS))	return
 
@@ -32,7 +32,7 @@ var/list/sounds_cache = list()
 
 
 /client/proc/play_server_sound()
-	set category = "Fun"
+	set category = "Веселье"
 	set name = "Play Server Sound"
 	if (!check_rights(R_SOUNDS))	return
 
@@ -47,7 +47,7 @@ var/list/sounds_cache = list()
 	play_sound(melody)
 
 /client/proc/play_world_sound(S as sound)
-	set category = "Fun"
+	set category = "Веселье"
 	set name = "Play World Sound"
 	if (!check_rights(R_SOUNDS))	return
 

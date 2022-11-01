@@ -252,7 +252,7 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 
 /mob/living/human/proc/Sound_Alarm()
 	set name = "Sound the Siren"
-	set category = "Officer"
+	set category = "Лидер"
 	if (!map || (map.ID != MAP_GULAG13 && map.ID != MAP_ABASHIRI))
 		usr << "You cannot use this in this map."
 		return
@@ -285,7 +285,7 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 				return
 /mob/living/human/proc/Stop_Alarm()
 	set name = "Stop the Siren"
-	set category = "Officer"
+	set category = "Лидер"
 	if (!map || (map.ID != MAP_GULAG13 && map.ID != MAP_ABASHIRI))
 		usr << "You cannot use this in this map."
 		return

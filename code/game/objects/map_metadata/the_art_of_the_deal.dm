@@ -647,7 +647,7 @@
 /mob/living/human/var/hidden_name = ""
 
 /mob/living/human/proc/undercover()
-	set category = "IC"
+	set category = "ИЦ"
 	set name = "Toggle Undercover"
 	set desc="Hide your identity for undercover police operations."
 

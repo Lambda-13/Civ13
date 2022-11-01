@@ -1,6 +1,6 @@
 /client/var/pingability = TRUE
 /client/proc/toggle_pingability()
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Toggle Pingability"
 	if (!check_rights(R_HOST))
 		return

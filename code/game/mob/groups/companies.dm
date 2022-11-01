@@ -4,7 +4,7 @@
 
 /mob/living/human/proc/create_company()
 	set name = "Create Company"
-	set category = "Faction"
+	set category = "Фракция"
 	var/mob/living/human/U
 
 	if (istype(src, /mob/living/human))
@@ -49,7 +49,7 @@
 
 /mob/living/human/proc/transfer_company_stock()
 	set name = "Transfer Company Stock"
-	set category = "Faction"
+	set category = "Фракция"
 	var/mob/living/human/H
 	if (istype(src, /mob/living/human))
 		H = src

@@ -352,7 +352,7 @@ BLIND	 // can't see anything
 /obj/item/clothing/shoes/proc/draw_knife()
 	set name = "Draw Hidden Weapon"
 	set desc = "Pull out your boot knife or small pistol."
-	set category = "IC"
+	set category = "ИЦ"
 	set src in usr
 
 	if (!holding)

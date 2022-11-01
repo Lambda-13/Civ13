@@ -43,7 +43,7 @@ var/datum/quickBan_handler/quickBan_handler = null
 
 /* admin procedures */
 /client/proc/quickBan_search()
-	set category = "Bans"
+	set category = "Баны"
 
 	if (!quickBan_handler)
 		quickBan_handler = new
@@ -142,7 +142,7 @@ var/datum/quickBan_handler/quickBan_handler = null
 	return FALSE
 
 /client/proc/quickBan_person()
-	set category = "Bans"
+	set category = "Баны"
 
 	var/option = input(src, "Do you wish to ban by client or by manual input? (Necessary to ban an offline client)") in list("Client", "Manual Input", "Cancel")
 	if (option == "Cancel")

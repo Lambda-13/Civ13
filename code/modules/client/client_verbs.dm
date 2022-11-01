@@ -1,5 +1,5 @@
 /client/verb/clear_cache()
-	set category = "OOC"
+	set category = "ООС"
 	set name = "Clear Cache"
 	if (mob)
 		nanomanager.close_uis(mob)
@@ -8,7 +8,7 @@
 	src << "<span class = 'good'>Cache successfully cleared!</span>"
 
 /client/verb/open_embed_wiki()
-	set category = "OOC"
+	set category = "ООС"
 	set name = "Open Wiki"
 	if (mob)
 		var/htmlfile = "<!DOCTYPE html><meta charset='utf-8'><HEAD><TITLE>Civ13 Wiki</TITLE><META http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"></HEAD> \
@@ -17,20 +17,20 @@
 
 
 /client/verb/MOTD()
-	set category = "OOC"
+	set category = "ООС"
 	set name = "See MOTD"
 	if (mob) // sanity
 		mob.see_personalized_MOTD()
 
 /client/proc/hide_status_tabs()
-	set category = "OOC"
+	set category = "ООС"
 	set name = "Hide Status Tabs"
 	status_tabs = FALSE
 	verbs -= /client/proc/hide_status_tabs
 	verbs += /client/proc/show_status_tabs
 
 /client/proc/show_status_tabs()
-	set category = "OOC"
+	set category = "ООС"
 	set name = "Show Status Tabs"
 	status_tabs = TRUE
 	verbs -= /client/proc/show_status_tabs
@@ -38,7 +38,7 @@
 
 /client/verb/who()
 	set name = "Who"
-	set category = "OOC"
+	set category = "ООС"
 
 	var/msg = "<b>Текущие игроки:</b>\n"
 
@@ -94,7 +94,7 @@
 	src << msg
 
 /client/verb/adminwho()
-	set category = "Help!"
+	set category = "Админ"
 	set name = "Staff Who"
 
 	var/highstaff_message = ""
@@ -231,7 +231,7 @@
 
 /client/verb/ooc(msg as text)
 	set name = "OOC"
-	set category = "OOC"
+	set category = "ООС"
 
 	if (say_disabled)	//This is here to try to identify lag problems
 		usr << "<span class='warning'>Speech is currently admindisabled.</span>"
@@ -346,7 +346,7 @@
 /client/verb/looc(msg as text)
 	set name = "LOOC"
 	set desc = "Local OOC, seen only by those in view."
-	set category = "OOC"
+	set category = "ООС"
 
 	if (say_disabled)	//This is here to try to identify lag problems
 		usr << "<span class='danger'>Speech is currently admindisabled.</span>"

@@ -39,7 +39,7 @@ var/global/list/valid_coordinates = list()
 	return (!map || map.faction2_can_cross_blocks() || map.faction1_can_cross_blocks())
 
 /mob/living/human/proc/find_nco()
-	set category = "Officer"
+	set category = "Лидер"
 	set name = "Find Squad Leader"
 	set desc="Check where your squad leader is."
 
@@ -67,7 +67,7 @@ var/global/list/valid_coordinates = list()
 		var/tdir = dir2text_ru(get_dir(src,TSL))
 		src << "<big><font color='yellow'>Ваш лидер в [tdist] метрах [tdir] тебя.</font></big>"
 /mob/living/human/proc/Squad_Announcement()
-	set category = "Officer"
+	set category = "Лидер"
 	set name = "Squad Announcement"
 	set desc="Announce to everyone in your squad."
 	var/messaget = "Сообщение лидера"
@@ -84,7 +84,7 @@ var/global/list/valid_coordinates = list()
 
 
 /mob/living/human/proc/Commander_Announcement()
-	set category = "Officer"
+	set category = "Лидер"
 	set name = "Faction Announcement"
 	set desc="Announce to everyone in your faction."
 	var/messaget = "Оповещение"
@@ -106,7 +106,7 @@ var/global/list/valid_coordinates = list()
 	log_admin("Faction Announcement: [key_name(usr)] - [messaget] : [message]")
 
 /mob/living/human/proc/Check_Coordinates()
-	set category = "Officer"
+	set category = "Лидер"
 	if (!check_coords_check())
 		usr << "<span class = 'warning'>Я не умею!</span>"
 		return
@@ -124,7 +124,7 @@ var/global/list/valid_coordinates = list()
 		usr << "<span class = 'notice'>Начинаю отслеживать координаты <b>[x], [y]</b>.</span>"
 
 /mob/living/human/proc/Reset_Coordinates()
-	set category = "Officer"
+	set category = "Лидер"
 	if (!check_coords_check())
 		usr << "<span class = 'warning'>Я не умею!</span>"
 		return
@@ -189,7 +189,7 @@ var/global/list/valid_coordinates = list()
 
 
 /mob/living/human/proc/order_airstrike()
-	set category = "Officer"
+	set category = "Лидер"
 	set name = "Order Airstrike"
 	var/icon/radio
 	var/currfreq = 0
@@ -399,7 +399,7 @@ var/global/list/valid_coordinates = list()
 ////FBI COMMAND TO FIND HVT
 
 /mob/living/human/proc/find_hvt()
-	set category = "Officer"
+	set category = "Лидер"
 	set name = "Locate HVT"
 	set desc="Check where the HVT is."
 

@@ -366,7 +366,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 
 
 /mob/verb/vote()
-	set category = "OOC"
+	set category = "ООС"
 	set name = "Vote"
 
 	if (vote)

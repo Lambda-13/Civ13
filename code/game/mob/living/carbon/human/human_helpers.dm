@@ -79,7 +79,7 @@
 
 /mob/living/human/verb/mob_sleep()
 	set name = "Sleep"
-	set category = "IC"
+	set category = "ИЦ"
 
 	if(map && map.ID == MAP_VOYAGE)
 		WWalert("You cannot use this function on this map.","Disabled",usr)
@@ -140,7 +140,7 @@
 					return
 /mob/living/human/verb/mob_wakeup()
 	set name = "Wake Up"
-	set category = "IC"
+	set category = "ИЦ"
 
 	if (!usr.sleeping && !inducedSSD)
 		usr << "<span class = 'red'>You are already awake.</span>"

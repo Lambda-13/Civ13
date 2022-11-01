@@ -1,6 +1,6 @@
 /client/proc/show_custom_roundstart_tip()
 	set name = "Show Custom Roundstart Tip"
-	set category = "Fun"
+	set category = "Веселье"
 
 	if (!check_rights(R_FUN))	return
 
@@ -14,7 +14,7 @@
 
 /client/proc/reset_custom_roundstart_tip()
 	set name = "Reset Custom Roundstart Tip"
-	set category = "Fun"
+	set category = "Веселье"
 
 	if (!check_rights(R_FUN))	return
 

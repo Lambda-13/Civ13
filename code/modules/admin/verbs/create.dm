@@ -1,6 +1,6 @@
 /client/proc/create_crate()
 	set name = "Create Custom Crate"
-	set category = "Admin"
+	set category = "Админ"
 
 	if (!check_rights(R_SPAWN))
 		return

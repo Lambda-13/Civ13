@@ -1,5 +1,5 @@
 /client/proc/Debug2()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Debug-Game"
 	if (!check_rights(R_DEBUG))	return
 
@@ -13,7 +13,7 @@
 
 //TODO: merge the vievars version into this or something maybe mayhaps
 /client/proc/cmd_debug_del_all()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Del-All"
 
 	// to prevent REALLY stupid deletions
@@ -27,7 +27,7 @@
 		message_admins("[key_name_admin(src)] has deleted all instances of [hsbitem].", FALSE)
 
 /client/proc/cmd_assume_direct_control(var/mob/M in mob_list)
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Assume direct control"
 	set desc = "Direct intervention"
 

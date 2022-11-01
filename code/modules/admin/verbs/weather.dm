@@ -1,5 +1,5 @@
 /client/proc/randomly_change_weather()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Randomly Change the Weather"
 	change_weather_somehow()
 	src << "<span class = 'good'>Sucessfully changed the weather!</span>"
@@ -7,7 +7,7 @@
 	log_admin("[key_name(src)] randomly changed the weather.")
 
 /client/proc/randomly_modify_weather()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Randomly Modify the Weather"
 	var/old_intensity = weather_intensity
 	modify_weather_somehow()
@@ -16,7 +16,7 @@
 	log_admin("[key_name(src)] randomly modified the weather.")
 
 /client/proc/change_season()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Change the Season"
 
 	map.seasons(FALSE,TRUE)

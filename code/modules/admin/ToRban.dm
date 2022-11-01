@@ -46,7 +46,7 @@
 
 /client/proc/ToRban(task in list("update","toggle","show","remove","remove all","find"))
 	set name = "ToRban"
-	set category = "Server"
+	set category = "Сервер"
 	if (!holder)	return
 	switch(task)
 		if ("update")

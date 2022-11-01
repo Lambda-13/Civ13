@@ -16,5 +16,5 @@
 
 /client/verb/ping()
 	set name = "Ping"
-	set category = "OOC"
+	set category = "ООС"
 	winset(src, null, "command=.display_ping+[world.time+world.tick_lag*world.tick_usage/100]")

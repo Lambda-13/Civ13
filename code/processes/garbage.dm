@@ -282,7 +282,7 @@ var/list/delayed_garbage = list()
 	usr.client.running_find_references = null
 
 /client/proc/purge_all_destroyed_objects()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Purge Destroyed Objects"
 	if (processes.garbage)
 		while (processes.garbage.destroyed.len)

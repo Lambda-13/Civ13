@@ -1,6 +1,6 @@
 /mob/living/verb/set_default_language(language as anything in languages)
 	set name = "Set Default Language"
-	set category = "IC"
+	set category = "ИЦ"
 
 	if (!languages.len)
 		return
@@ -13,7 +13,7 @@
 
 /mob/living/verb/check_default_language()
 	set name = "Check Default Language"
-	set category = "IC"
+	set category = "ИЦ"
 
 	if (default_language)
 		src << "<span class='notice'>You are currently speaking [default_language] by default.</span>"

@@ -181,7 +181,7 @@ default behaviour is:
 /mob/living/verb/succumb()
 	set name = "Succumb"
 	set desc = "Succumb to death."
-	set category = "IC"
+	set category = "ИЦ"
 	if (getTotalDmg() > 60)
 		if (WWinput(src, "Are you sure you want to succumb? You only live once.", "", "Cancel", list("Succumb", "Cancel")) == "Succumb")
 			adjustBrainLoss(300)
@@ -581,7 +581,7 @@ default behaviour is:
 
 /mob/living/verb/resist()
 	set name = "Resist"
-	set category = "IC"
+	set category = "ИЦ"
 
 	if (!stat && canClick())
 		setClickCooldown(20)
@@ -633,7 +633,7 @@ default behaviour is:
 
 /mob/living/verb/lay_down()
 	set name = "Rest"
-	set category = "IC"
+	set category = "ИЦ"
 
 	resting = !resting
 	src << "<span class='notice'>You are [resting ? "now resting" : "no longer resting"].</span>"
@@ -721,7 +721,7 @@ default behaviour is:
 /mob/living/stop_pulling()
 
 	set name = "Stop Pulling"
-	set category = "IC"
+	set category = "ИЦ"
 
 
 	if (pulling)

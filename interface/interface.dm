@@ -124,7 +124,7 @@ Any-Mode: (hotkey doesn't need to be on)\n  \
 
 /client/verb/hotkeys_help()
 	set name = "Hotkeys Help"
-	set category = "OOC"
+	set category = "ООС"
 
 	src << HOTKEY_MODE_OPTIONS
 

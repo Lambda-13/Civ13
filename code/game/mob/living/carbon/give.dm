@@ -1,5 +1,5 @@
 /mob/living/human/verb/give(var/mob/living/target in view(1)-usr)
-	set category = "IC"
+	set category = "ИЦ"
 	set name = "Give"
 
 	if (incapacitated())

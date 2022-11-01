@@ -1,7 +1,7 @@
 /client/var/showed_mentorhelp_popup = FALSE
 
 /client/verb/mentorhelp()
-	set category = "Help!"
+	set category = "Админ"
 	set name = "Mentorhelp"
 
 	if (say_disabled)	//This is here to try to identify lag problems

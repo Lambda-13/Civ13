@@ -156,14 +156,14 @@ var/global/redirect_all_players = null
 
 /mob/new_player/Stat()
 
-	if (client.status_tabs && statpanel("Status") && ticker)
+	if (client.status_tabs && statpanel("Статус") && ticker)
 		stat("")
-		stat(stat_header("Lobby"))
+		stat(stat_header("Лобби"))
 		stat("")
 
 		// by counting observers, our playercount now looks more impressive - Kachnov
 		if (ticker.current_state == GAME_STATE_PREGAME)
-			stat("Время до начала:", "[ticker.pregame_timeleft][round_progressing ? "" : " ∞"]")
+			stat("До начала раунда:", "[ticker.pregame_timeleft][round_progressing ? "" : " (ОТЛОЖЕНО)"]")
 
 		stat("Игроков в лобби:", totalPlayers)
 		stat("")

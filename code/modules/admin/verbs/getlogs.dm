@@ -54,7 +54,7 @@
 
 //Shows today's server log
 /datum/admins/proc/view_txt_log()
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Show Server Logs"
 	set desc = "Shows the server logs."
 	if (!usr || !usr.client)

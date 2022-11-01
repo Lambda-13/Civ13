@@ -603,7 +603,7 @@ var/list/global/slot_flags_enumeration = list(
 
 /mob/living/human/verb/showoff()
 	set name = "Show Held Item"
-	set category = "IC"
+	set category = "ИЦ"
 
 	var/obj/item/I = get_active_hand()
 	if (I && !I.abstract)

@@ -1,6 +1,6 @@
 
 /client/proc/callproc()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Advanced ProcCall"
 
 	if (!check_rights(R_DEBUG)) return
@@ -34,7 +34,7 @@
 	callproc_targetpicked(targetselected, target)
 
 /client/proc/callproc_target(atom/A in range(7))
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Advanced ProcCall Target"
 
 	if (!check_rights(R_DEBUG)) return

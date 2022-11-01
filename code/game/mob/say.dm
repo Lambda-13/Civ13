@@ -3,12 +3,12 @@
 
 /mob/verb/whisper()
 	set name = "Whisper"
-	set category = "IC"
+	set category = "ИЦ"
 	return
 
 /mob/verb/say_verb(message as text)
 	set name = "Say"
-	set category = "IC"
+	set category = "ИЦ"
 	if (say_disabled)	//This is here to try to identify lag problems
 		usr << "<span class = 'red'>Speech is currently admin-disabled.</span>"
 		return
@@ -22,7 +22,7 @@
 
 /mob/living/human/verb/howl_verb(message as text)
 	set name = "Howl"
-	set category = "IC"
+	set category = "ИЦ"
 
 	if (say_disabled)	//This is here to try to identify lag problems
 		usr << "<span class = 'red'>Speech is currently admin-disabled.</span>"
@@ -39,7 +39,7 @@
 	usr.say(message, TRUE)
 /mob/verb/me_verb(message as text)
 	set name = "Me"
-	set category = "IC"
+	set category = "ИЦ"
 	if (ishuman(src))
 		var/mob/living/human/H = src
 		if ((H.werewolf || H.gorillaman) && H.body_build.name != "Default")

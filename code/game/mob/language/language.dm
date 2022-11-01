@@ -741,7 +741,7 @@
 //TBD
 /mob/verb/check_languages()
 	set name = "Check Known Languages"
-	set category = "IC"
+	set category = "ИЦ"
 	set src = usr
 
 	var/dat = "<b><font size = 5>Known Languages</font></b><br/><br/>"

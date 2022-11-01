@@ -1,6 +1,6 @@
 /proc/possess(obj/O as obj in range(7))
 	set name = "Possess Obj"
-	set category = "Ghost"
+	set category = "Призрак"
 
 	var/turf/T = get_turf(O)
 
@@ -23,7 +23,7 @@
 
 /proc/release(obj/O as obj in range(7))
 	set name = "Release Obj"
-	set category = "Ghost"
+	set category = "Призрак"
 	//usr.loc = get_turf(usr)
 
 	if (usr.control_object && usr.name_archive) //if you have a name archived and if you are actually relassing an object
@@ -41,7 +41,7 @@
 
 /proc/givetestverbs(mob/M as mob in mob_list)
 	set desc = "Give this guy possess/release verbs"
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Give Possessing Verbs"
 	M.verbs += /proc/possess
 	M.verbs += /proc/release

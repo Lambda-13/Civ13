@@ -189,7 +189,7 @@
 
 /*atom/verb/Interact()
 	set name = "Interact"
-	set category = "IC"
+	set category = "ИЦ"
 
 	set src in view(1)
 	var/mob/user = usr
@@ -200,7 +200,7 @@
 
 /mob/verb/interact(atom/A as mob|obj|turf in view(1))
 	set name = "Interact"
-	set category = "IC"
+	set category = "ИЦ"
 	if (ishuman(src))
 		if(A in range(1,src))
 			src.ClickOn(A)
@@ -210,7 +210,7 @@
 //mob verbs are faster than object verbs. See http://www.byond.com/forum/?post=1326139&page=2#comment8198716 for why this isn't atom/verb/examine()
 /mob/verb/examinate(atom/A as mob|obj|turf in view())
 	set name = "Examine"
-	set category = "IC"
+	set category = "ИЦ"
 
 	if ((is_blind(src) || stat) && !isobserver(src))
 		src << "<span class='notice'>Something is there but you can't see it.</span>"
@@ -258,7 +258,7 @@
 
 /mob/verb/mode()
 	set name = "Activate Held Object"
-	set category = "IC"
+	set category = "ИЦ"
 	set src = usr
 	if (ishuman(src))
 		var/mob/living/human/H = src
@@ -341,7 +341,7 @@
 
 /mob/verb/secondary_action()
 	set name = "Activate Secondary Object"
-	set category = "IC"
+	set category = "ИЦ"
 	set src = usr
 	if (hand)
 		var/obj/item/W = l_hand
@@ -367,7 +367,7 @@
 
 /mob/verb/memory()
 	set name = "Notes"
-	set category = "IC"
+	set category = "ИЦ"
 	if (mind)
 		mind.show_memory(src)
 	else
@@ -376,7 +376,7 @@
 
 /mob/verb/add_memory(msg as message)
 	set name = "Add Note"
-	set category = "IC"
+	set category = "ИЦ"
 
 	msg = replacetext(msg, "<i>", "")
 	msg = replacetext(msg, "</i>", "")
@@ -459,7 +459,7 @@
 
 /mob/verb/abandon_mob()
 	set name = "Respawn"
-	set category = "IC"
+	set category = "ИЦ"
 
 	if (!( config.abandon_allowed ))
 		usr << "<span class='notice'>Respawn is disabled.</span>"
@@ -501,7 +501,7 @@
 
 /mob/verb/observe()
 	set name = "Observe"
-	set category = "OOC"
+	set category = "ООС"
 	var/is_admin = FALSE
 
 	if (client.holder && (client.holder.rights & R_ADMIN))
@@ -586,7 +586,7 @@
 /mob/verb/stop_pulling()
 
 	set name = "Stop Pulling"
-	set category = "IC"
+	set category = "ИЦ"
 
 	if (pulling)
 		pulling.pulledby = null
@@ -690,9 +690,9 @@
 	..()
 	. = (is_client_active(10 MINUTES))
 	if (.)
-		if (client.status_tabs && statpanel("Status") && ticker)
+		if (client.status_tabs && statpanel("Статус") && ticker)
 			stat("")
-			stat(stat_header("Server"))
+			stat(stat_header("Сервер"))
 			stat("")
 			stat("Игроков Онлайн (Играет, Наблюдает, Лобби):", "[clients.len] ([human_clients_mob_list.len], [clients.len-human_clients_mob_list.len-new_player_mob_list.len], [new_player_mob_list.len])")
 			stat("Длительность Раунда:", roundduration2text_days())
@@ -751,9 +751,9 @@
 			stat("Time Dilation (Обычно):", processes.time_track ? "[ceil(processes.time_track.dilation)]% ([ceil(processes.time_track.stored_averages["dilation"])]%)" : "0% (0%)")
 
 		if (client.holder && client.status_tabs)
-			if (statpanel("Status"))
+			if (statpanel("Статус"))
 				stat("")
-				stat(stat_header("Developer"))
+				stat(stat_header("МС"))
 				stat("")
 				if (processes.time_track && movementMachine)
 					stat("CPU (Average) (Movement Scheduler (Average)):","[world.cpu]% ([ceil(processes.time_track.stored_averages["cpu"])]%) ([ceil(movementMachine.last_cpu)]% ([ceil(movementMachine.average_cpu)]%))")
@@ -769,7 +769,7 @@
 			if (!TurfAdjacent(listed_turf))
 				listed_turf = null
 			else
-				if (statpanel("Turf"))
+				if (statpanel("Пол"))
 					stat(listed_turf)
 					for (var/atom/A in listed_turf)
 						if (!A.mouse_opacity)
@@ -1068,7 +1068,7 @@ mob/proc/yank_out_object()
 /mob/verb/face_direction()
 
 	set name = "Face Direction"
-	set category = "IC"
+	set category = "ИЦ"
 	set src = usr
 
 	set_face_dir()

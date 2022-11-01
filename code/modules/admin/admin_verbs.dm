@@ -368,7 +368,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/hide_most_verbs()//Allows you to keep some functionality while hiding some verbs
 	set name = "Adminverbs - Hide Most"
-	set category = "Admin"
+	set category = "Админ"
 
 	verbs.Remove(/client/proc/hide_most_verbs, admin_verbs_hideable)
 	verbs += /client/proc/show_verbs
@@ -379,7 +379,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/hide_verbs()
 	set name = "Adminverbs - Hide All"
-	set category = "Admin"
+	set category = "Админ"
 
 	remove_admin_verbs()
 	verbs += /client/proc/show_verbs
@@ -390,7 +390,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/show_verbs()
 	set name = "Adminverbs - Show"
-	set category = "Admin"
+	set category = "Админ"
 
 	verbs -= /client/proc/show_verbs
 	add_admin_verbs()
@@ -399,7 +399,7 @@ var/list/admin_verbs_host = list(
 
 
 /client/proc/admin_ghost()
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Aghost"
 	if (!holder)	return
 	if (isghost(mob))
@@ -433,7 +433,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/invisimin()
 	set name = "Invisimin"
-	set category = "Admin"
+	set category = "Админ"
 	set desc = "Toggles ghost-like invisibility (Don't abuse this)"
 	if (holder && mob)
 		if (istype(mob, /mob/observer))
@@ -451,7 +451,7 @@ var/list/admin_verbs_host = list(
 /client/var/visible_in_who = TRUE
 /client/proc/who_invisimin()
 	set name = "Toggle Staffwho Visibility"
-	set category = "Admin"
+	set category = "Админ"
 	set desc = "Toggle your visibility in Staffwho."
 	if (holder && mob)
 		visible_in_who = !visible_in_who
@@ -462,7 +462,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/player_panel()
 	set name = "Player Panel"
-	set category = "Admin"
+	set category = "Админ"
 	if (holder)
 		holder.player_panel_old()
 
@@ -470,7 +470,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/player_panel_new()
 	set name = "Player Panel New"
-	set category = "Admin"
+	set category = "Админ"
 	if (holder)
 		holder.player_panel_new()
 
@@ -478,13 +478,13 @@ var/list/admin_verbs_host = list(
 
 /client/proc/game_panel()
 	set name = "Game Panel"
-	set category = "Admin"
+	set category = "Админ"
 	if (holder)
 		holder.game_panel()
 	return
 
 /client/proc/colorooc()
-	set category = "Fun"
+	set category = "Веселье"
 	set name = "OOC Text Color"
 	if (!holder)	return
 	var/response = WWinput(src, "Please choose a distinct color that is easy to read and doesn't mix with all the other chat and radio frequency colors.", "Change own OOC color", "Pick new color", list("Pick new color", "Reset to default", "Cancel"))
@@ -498,7 +498,7 @@ var/list/admin_verbs_host = list(
 	return
 
 /client/proc/stealth()
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Stealth Mode"
 	if (holder)
 		if (holder.fakekey)
@@ -514,7 +514,7 @@ var/list/admin_verbs_host = list(
 
 
 /client/proc/drop_bomb() // Some admin dickery that can probably be done better -- TLE
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Drop Bomb"
 	set desc = "Cause an explosion of varying strength at your location."
 	if (!check_rights(R_SPAWN))
@@ -552,7 +552,7 @@ var/list/admin_verbs_host = list(
 	message_admins("[key] creating an admin explosion at [epicenter.loc].")
 
 /client/proc/make_sound(var/obj/O in range(7)) // -- TLE
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Make Sound"
 	set desc = "Display a message to everyone who can hear the target"
 	if (O)
@@ -566,7 +566,7 @@ var/list/admin_verbs_host = list(
 
 
 /client/proc/object_talk(var/msg as text) // -- TLE
-	set category = "Special"
+	set category = "Особенное"
 	set name = "oSay"
 	set desc = "Display a message to everyone who can hear the target"
 	if (mob.control_object)
@@ -577,7 +577,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/readmin_self()
 	set name = "Re-Admin self"
-	set category = "Admin"
+	set category = "Админ"
 
 	if (deadmin_holder)
 		deadmin_holder.reassociate()
@@ -587,7 +587,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/deadmin_self()
 	set name = "De-admin self"
-	set category = "Admin"
+	set category = "Админ"
 
 	if (holder)
 		if (WWinput(src, "Confirm self-deadmin for the round? You can re-admin yourself at any time.", "Deadmin Self", "Yes", list("Yes","No")) == "Yes")
@@ -598,7 +598,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/toggle_log_hrefs()
 	set name = "Toggle href logging"
-	set category = "Server"
+	set category = "Сервер"
 	if (!holder)	return
 	if (config)
 		if (config.log_hrefs)
@@ -611,7 +611,7 @@ var/list/admin_verbs_host = list(
 /client/proc/change_human_appearance_admin()
 	set name = "Change Mob Appearance - Admin"
 	set desc = "Allows you to change the mob appearance"
-	set category = "Admin"
+	set category = "Админ"
 
 	if (!check_rights(R_FUN)) return
 
@@ -625,7 +625,7 @@ var/list/admin_verbs_host = list(
 /client/proc/change_human_appearance_self()
 	set name = "Change Mob Appearance - Self"
 	set desc = "Allows the mob to change its appearance"
-	set category = "Admin"
+	set category = "Админ"
 
 	if (!check_rights(R_FUN)) return
 
@@ -649,7 +649,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/mod_panel()
 	set name = "Moderator Panel"
-	set category = "Admin"
+	set category = "Админ"
 /*	if (holder)
 		holder.mod_panel()*/
 
@@ -657,7 +657,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/editappear()
 	set name = "Edit Appearance"
-	set category = "Fun"
+	set category = "Веселье"
 
 	if (!check_rights(R_FUN))	return
 
@@ -717,13 +717,13 @@ var/list/admin_verbs_host = list(
 
 /client/proc/playernotes()
 	set name = "Show Player Info"
-	set category = "Admin"
+	set category = "Админ"
 	if (holder)
 		holder.PlayerNotes()
 
 /client/proc/free_slot()
 	set name = "Free Job Slot"
-	set category = "Admin"
+	set category = "Админ"
 	if (holder)
 		var/list/jobs = list()
 		for (var/datum/job/J in job_master.occupations)
@@ -742,7 +742,7 @@ var/global/list/global_colour_matrix = null
 
 /client/proc/change_colour_filter()
 	set name = "Color Filter"
-	set category = "Debug"
+	set category = "Дебаг"
 	set desc = "Apply cool colour filter to players' screens."
 	var/input = input("Choose filter", "Filter") in list("normal", "black and white", "bloody", "bloody2", "sepia", "special")
 	switch(input)
@@ -792,7 +792,7 @@ var/global/list/global_colour_matrix = null
 
 /client/proc/enable_approved_only()
 	set name = "Enable Approved Only"
-	set category = "Server"
+	set category = "Сервер"
 
 	if (config.useapprovedlist == TRUE)
 		src << "Server is already \"Approved Only\"."
@@ -811,7 +811,7 @@ var/global/list/global_colour_matrix = null
 
 /client/proc/disable_approved_only()
 	set name = "Disable Approved Only"
-	set category = "Server"
+	set category = "Сервер"
 
 	if (config.useapprovedlist == FALSE)
 		src << "Server is already open to everyone."
@@ -830,7 +830,7 @@ var/global/list/global_colour_matrix = null
 
 /client/proc/enable_whitelist()
 	set name = "Enable Job Whitelists"
-	set category = "Server"
+	set category = "Сервер"
 
 	if (config.use_job_whitelist == TRUE)
 		src << "Whitelisted Jobs are already restricted."
@@ -847,7 +847,7 @@ var/global/list/global_colour_matrix = null
 
 /client/proc/disable_whitelist()
 	set name = "Disable Job Whitelists"
-	set category = "Server"
+	set category = "Сервер"
 
 	if (config.use_job_whitelist == FALSE)
 		src << "Whitelisted jobs are already open to everyone."
@@ -865,7 +865,7 @@ var/global/list/global_colour_matrix = null
 
 /client/proc/enable_fov()
 	set name = "Enable FOV"
-	set category = "Special"
+	set category = "Особенное"
 
 	if (config.disable_fov == FALSE)
 		src << "Field of View mechanic is already enabled."
@@ -879,7 +879,7 @@ var/global/list/global_colour_matrix = null
 	return
 /client/proc/disable_fov()
 	set name = "Disable FOV"
-	set category = "Special"
+	set category = "Особенное"
 
 	if (config.disable_fov == TRUE)
 		src << "Field of View mechanic is already disabled."
@@ -894,7 +894,7 @@ var/global/list/global_colour_matrix = null
 
 /client/proc/remove_dead_bodies()
 	set name = "Remove Dead Bodies"
-	set category = "Special"
+	set category = "Особенное"
 
 	if (!check_rights(R_ADMIN))
 		src << "<span class = 'danger'>You don't have the permissions.</span>"
@@ -909,7 +909,7 @@ var/global/list/global_colour_matrix = null
 	return
 
 /client/proc/radiation_emission()
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Radiation Emission"
 	set desc = "Emits radiation for a set duration."
 	if (!check_rights(R_SPAWN))
@@ -932,7 +932,7 @@ var/global/list/global_colour_matrix = null
 	log_game("[key] created a radiation emission with size ([range]) and severity [severity] mSv in area [epicenter.loc.name], for [duration].")
 
 /client/proc/nuke()
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Nuke the Map"
 	set desc = "Spawns a large explosion and turns the whole map into a wasteland."
 	if (!check_rights(R_SPAWN))
@@ -982,7 +982,7 @@ var/global/list/global_colour_matrix = null
 		log_game("[key] nuked the map at ([epicenter.x],[epicenter.y],[epicenter.z]) in area [epicenter.loc.name].")
 
 /client/proc/nukeT90()
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Nuke the Map (T90)"
 	set desc = "Spawns a large explosion and turns the whole map into a wasteland. Sound by SCP:CB."
 
@@ -1038,7 +1038,7 @@ var/global/list/global_colour_matrix = null
 
 
 /client/proc/fakenuke()
-	set category = "Fun"
+	set category = "Веселье"
 	set name = "Fake Nuke the Map"
 	set desc = "Fake nuke bomb. No fallout."
 
@@ -1119,7 +1119,7 @@ var/global/gc_helper_on = FALSE
 	return
 
 /client/proc/toggle_gc_helper()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Toggle GC Helper"
 	if (!check_rights(R_DEBUG))	return
 
@@ -1131,14 +1131,14 @@ var/global/gc_helper_on = FALSE
 		start_gc_helper()
 
 /client/proc/run_gc_helper()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Run GC Helper"
 	if (!check_rights(R_DEBUG))	return
 
 	gc_helper()
 
 /client/proc/check_null_atoms()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Check null Atoms"
 	if (!check_rights(R_DEBUG))	return
 
@@ -1150,7 +1150,7 @@ var/global/gc_helper_on = FALSE
 		gc_helper(result)
 
 /*/client/proc/swapmap()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Swap Map"
 	if (!check_rights(R_PERMISSIONS))	return
 

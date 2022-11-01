@@ -17,7 +17,7 @@
 
 
 /client/proc/cmd_admin_subtle_message(mob/M as mob in mob_list)
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Subtle Message"
 
 	if (!ismob(M))	return
@@ -39,7 +39,7 @@
 
 
 /client/proc/cmd_mentor_check_new_players()	//Allows mentors / admins to determine who the newer players are.
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Check new Players"
 	if (!holder)
 		src << "Only staff members may use this command."
@@ -72,7 +72,7 @@
 
 
 /client/proc/cmd_admin_world_narrate() // Allows administrators to fluff events a little easier -- TLE
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Global Narrate"
 
 	if (!holder)
@@ -89,7 +89,7 @@
 
 
 /client/proc/cmd_admin_direct_narrate(var/mob/M)	// Targetted narrate -- TLE
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Direct Narrate"
 
 	if (!holder)
@@ -113,7 +113,7 @@
 
 
 /client/proc/cmd_admin_godmode(mob/M as mob in mob_list)
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Godmode"
 	if (!holder)
 		src << "Only administrators may use this command."
@@ -204,7 +204,7 @@ Ccomp's first proc.
 
 
 /client/proc/allow_character_respawn()
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Allow player to respawn"
 	set desc = "Let's the player bypass the wait to respawn or allow them to re-enter their corpse."
 	if (!holder)
@@ -232,7 +232,7 @@ Works kind of like entering the game with a new character. Character receives a 
 Traitors and the like can also be revived with the previous role mostly intact.
 /N */
 /client/proc/respawn_character()
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Respawn Character"
 	set desc = "Respawn a person that has been gibbed/dusted/killed. They must be a ghost for this to work and preferably should not have a body to go back into."
 	if (!holder)
@@ -299,7 +299,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	return new_character
 
 /client/proc/cmd_admin_rejuvenate(mob/living/M as mob in mob_list)
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Rejuvenate"
 	if (!holder)
 		src << "Only administrators may use this command."
@@ -318,12 +318,12 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 
 /client/proc/cmd_admin_create_centcom_report()
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Create Command Report"
 	return FALSE
 
 /client/proc/cmd_admin_delete(atom/O as obj|mob|turf in range(7))
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Delete"
 
 	if (!holder)
@@ -337,7 +337,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		qdel(O)
 
 /client/proc/cmd_admin_get(atom/movable/O as obj|mob in range(7))
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Get"
 
 	if (!holder)
@@ -352,7 +352,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		O.loc = get_turf(mob)
 
 /client/proc/cmd_admin_list_open_jobs()
-	set category = "Admin"
+	set category = "Админ"
 	set name = "List free slots"
 
 	if (!holder)
@@ -364,7 +364,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 
 /client/proc/cmd_admin_explosion(atom/O as obj|mob|turf in range(7))
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Explosion"
 
 	if (!check_rights(R_SPAWN))	return
@@ -392,7 +392,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 /client/proc/cmd_admin_gib(mob/M as mob in mob_list)
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Gib"
 
 	if (!check_rights(R_ADMIN|R_FUN))	return
@@ -412,7 +412,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	M.gib()
 
 /client/proc/cmd_admin_crush(mob/M as mob in mob_list)
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Crush"
 
 	if (!check_rights(R_ADMIN|R_FUN))	return
@@ -433,7 +433,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 /client/proc/cmd_admin_gib_self()
 	set name = "Gibself"
-	set category = "Fun"
+	set category = "Веселье"
 
 	var/confirm = WWinput(src, "Are you sure?", "Gibself Confirmation", "Yes", list("Yes", "No"))
 	if (confirm == "Yes")
@@ -447,7 +447,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 /client/proc/cmd_admin_crush_self()
 	set name = "Crushself"
-	set category = "Fun"
+	set category = "Веселье"
 
 	var/confirm = WWinput(src, "Are you sure?", "Crushself Confirmation", "Yes", list("Yes", "No"))
 	if (confirm == "Yes")
@@ -466,7 +466,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	return
 
 /client/proc/cmd_admin_check_contents(mob/living/M as mob in mob_list)
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Check Contents"
 
 	var/list/L = M.get_contents()
@@ -475,7 +475,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 
 /client/proc/toggle_view_range()
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Change View Range"
 	set desc = "switches between 1x and custom views"
 
@@ -489,7 +489,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 
 /client/proc/cmd_admin_attack_log(mob/M as mob in mob_list)
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Attack Log"
 
 	usr << text("<span class = 'red'><b>Attack Log for []</b></span>", mob)

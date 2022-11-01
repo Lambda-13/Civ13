@@ -824,7 +824,7 @@ atom/proc/add_fibers(mob/living/human/M)
 			scanning = 0
 
 /obj/machinery/dnaforensics/verb/toggle_lid()
-	set category = "IC"
+	set category = "ИЦ"
 	set name = "Toggle Lid"
 	set src in oview(1)
 
@@ -839,7 +839,7 @@ atom/proc/add_fibers(mob/living/human/M)
 	src.update_icon()
 
 /obj/machinery/dnaforensics/verb/eject_item()
-	set category = "IC"
+	set category = "ИЦ"
 	set name = "Eject item"
 	set src in oview(1)
 

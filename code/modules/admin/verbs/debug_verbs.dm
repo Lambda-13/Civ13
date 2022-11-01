@@ -57,11 +57,11 @@ var/global/movement_disabled_exception //This is the client that calls the proc,
 		message_admins("[ckey] used 'Disable all movement', restoring all movement.")*/
 
 /client/proc/see_world_realtime()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "See World Realtime"
 	usr << num2text(world.realtime, 20)
 
 /client/proc/see_processes()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "See Processes"
 	src << browse(processScheduler.htmlProcesses(), "window=processes;size=500x500")

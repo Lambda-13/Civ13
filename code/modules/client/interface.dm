@@ -1,6 +1,6 @@
 /client/verb/icons_dmf()
 	set name = "Change Size"
-	set category = "OOC"
+	set category = "ООС"
 	set desc = "Меняет размер экрана."
 //	set hidden = TRUE
 

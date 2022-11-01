@@ -393,7 +393,7 @@ var/list/blacklisted_builds = list(
 
 /client/verb/character_setup()
 	set name = "Character & Preferences Setup"
-	set category = "OOC"
+	set category = "ООС"
 	if (prefs)
 		prefs.ShowChoices(usr)
 
@@ -458,7 +458,7 @@ var/list/blacklisted_builds = list(
 
 /client/verb/fit_viewport()
 	set name = "Fit Viewport"
-	set category = "OOC"
+	set category = "ООС"
 	set desc = "Fit the width of the map window to match the viewport"
 
 	// Fetch aspect ratio
