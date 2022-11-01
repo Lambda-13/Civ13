@@ -264,7 +264,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 			log_vote(text)
 			world << "<span class = 'deadsay'><b>[text]</b>\nЖми <a href='?src=\ref[src]'>сюда</a> что-бы отдать свой голос. \nДо конца голосования [config.vote_period/10] секунд.</span>"
 
-			world << sound('sound/tf2/Vote_started.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
+			world << sound('lambda/sanecman/sound/tf2/Vote_started.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
 			if (mode == "gamemode" && round_progressing)
 				round_progressing = FALSE
 				world << "<font color='red'><b>Старт раунда остановлен.</b></font>"
@@ -337,7 +337,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 				message_admins("<span class = 'notice'>[key_name_admin(usr)] отменяет воут.</span>", TRUE)
 				if (usr.client.holder)
 					reset()
-				world << sound('sound/tf2/Vote_failure.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
+				world << sound('lambda/sanecman/sound/tf2/Vote_failure.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
 			if ("toggle_restart")
 				if (usr.client.holder)
 					config.allow_vote_restart = !config.allow_vote_restart
