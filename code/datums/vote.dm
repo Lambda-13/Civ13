@@ -204,7 +204,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 						choices[epoch] = 0
 					for (var/epoch in processes.epochswap.epochs)
 						if (clients.len < processes.epochswap.epochs[epoch])
-							disabled[epoch] = "[processes.epochswap.epochs[epoch]] players needed"
+							disabled[epoch] = "необходимо [processes.epochswap.epochs[epoch]] игроков"
 				if ("map")
 					for (var/map in processes.mapswap.maps)
 						if (!default)
@@ -214,7 +214,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 						choices[map] = 0
 					for (var/map in processes.mapswap.maps)
 						if (clients.len < processes.mapswap.maps[map])
-							disabled[capitalize(lowertext(map))] = "[processes.mapswap.maps[map]] players needed"
+							disabled[capitalize(lowertext(map))] = "необходимо [processes.mapswap.maps[map]] игроков"
 				if ("custom")
 					question = input(usr,"What is the vote for?") as text|null
 					if (!question)	return FALSE
