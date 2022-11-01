@@ -26,7 +26,7 @@ var/time_of_day_change_ru = "день"
 				spawn (0)
 					while (!processes.time_of_day_change || !processes.time_of_day_change.setup_lighting)
 						sleep(1)
-					switch(time_of_day)
+					switch(processes.time_of_day_change.changeto)
 						if ("Early Morning")
 							time_of_day_change_ru = "раннее утро"
 						if ("Morning") //07-11
@@ -41,7 +41,7 @@ var/time_of_day_change_ru = "день"
 							time_of_day_change_ru = "ночь"
 						else
 							time_of_day_change_ru = "день"
-					world << "<br><font size=3><span class = 'notice'>Сейчас <b>[lowertext(processes.time_of_day_change.changeto)]</b>, время года сейчас <b>[get_season_ru()]</b>.</span></font>"
+					world << "<br><font size=3><span class = 'notice'>Сейчас <b>[time_of_day_change_ru]</b>, время года сейчас <b>[lowertext(get_season_ru())]</b>.</span></font>"
 
 	// spawn mice so pirates have something to eat after they start starving
 
