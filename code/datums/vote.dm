@@ -236,7 +236,12 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 						if (!default)
 							default = "Siege"
 					else if (!map.is_RP && !map.nomads && !map.civilizations)
-						options = list("Easy", "Normal", "Competitive", "Hardcore", "RealLive")
+						if (clients.len < 10)
+							options = list("Easy", "Normal", "Competitive")
+						else if  (clients.len < 20)
+							options = list("Easy", "Normal", "Competitive", "Hardcore")
+						else
+							options = list("Easy", "Normal", "Competitive", "Hardcore", "RealLive")
 						if (!default)
 							default = "Normal"
 					else if (map.is_wasteland)
