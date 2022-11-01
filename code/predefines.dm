@@ -600,3 +600,9 @@
 #define KD_CHANCE_LOW 40
 #define KD_CHANCE_MEDIUM 60
 #define KD_CHANCE_HIGH 80
+
+#define RODITELNI  1
+#define DATELNI    2
+#define VINITELNI  3
+#define TVORITELNI 4
+#define PREDLOZHNI 5

@@ -194,6 +194,7 @@ var/list/admin_verbs_debug = list(
 	/client/proc/ticklag,
 	/client/proc/load_voyage_event,
 	/client/proc/debug_variables_map,
+	/client/proc/fuck_pie,
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
