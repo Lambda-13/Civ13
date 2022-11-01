@@ -85,7 +85,7 @@ var/list/flooring_types
 /decl/flooring/water
 	name = "water"
 	desc = "Simple water."
-	icon = 'icons/ru/misc/beach.dmi'
+	icon = 'icons/misc/beach.dmi'
 	icon_base = "seashallow"
 	has_base_range = 0
 	damage_temperature = T0C+3000
@@ -94,7 +94,7 @@ var/list/flooring_types
 /decl/flooring/water_salt
 	name = "saltwater"
 	desc = "Salt water."
-	icon = 'icons/ru/misc/beach.dmi'
+	icon = 'icons/misc/beach.dmi'
 	icon_base = "seashallow"
 	has_base_range = 0
 	damage_temperature = T0C+3000
@@ -103,7 +103,7 @@ var/list/flooring_types
 /decl/flooring/water_deep
 	name = "deep water"
 	desc = "Deep water."
-	icon = 'icons/ru/misc/beach.dmi'
+	icon = 'icons/misc/beach.dmi'
 	icon_base = "seadeep"
 	has_base_range = 0
 	damage_temperature = T0C+8000
@@ -112,7 +112,7 @@ var/list/flooring_types
 /decl/flooring/water_deep_salt
 	name = "deep saltwater"
 	desc = "Deep salt water."
-	icon = 'icons/ru/misc/beach.dmi'
+	icon = 'icons/misc/beach.dmi'
 	icon_base = "seadeep"
 	has_base_range = 0
 	damage_temperature = T0C+8000
@@ -123,7 +123,7 @@ var/list/flooring_types
 /decl/flooring/water_swamp
 	name = "swamp water"
 	desc = "Simple water."
-	icon = 'icons/ru/misc/beach.dmi'
+	icon = 'icons/misc/beach.dmi'
 	icon_base = "seashallow_swamp"
 	has_base_range = 0
 	damage_temperature = T0C+3000
@@ -132,7 +132,7 @@ var/list/flooring_types
 /decl/flooring/water_jungle1
 	name = "jungle river water"
 	desc = "Simple water."
-	icon = 'icons/ru/misc/beach.dmi'
+	icon = 'icons/misc/beach.dmi'
 	icon_base = "seashallow_jungle1"
 	has_base_range = 0
 	damage_temperature = T0C+3000
@@ -141,7 +141,7 @@ var/list/flooring_types
 /decl/flooring/water_jungle2
 	name = "jungle flooded land"
 	desc = "Simple water."
-	icon = 'icons/ru/misc/beach.dmi'
+	icon = 'icons/misc/beach.dmi'
 	icon_base = "seashallow_jungle2"
 	has_base_range = 0
 	damage_temperature = T0C+3000
@@ -150,7 +150,7 @@ var/list/flooring_types
 /decl/flooring/water_jungle3
 	name = "deep jungle river water"
 	desc = "Simple water."
-	icon = 'icons/ru/misc/beach.dmi'
+	icon = 'icons/misc/beach.dmi'
 	icon_base = "seashallow_jungle3"
 	has_base_range = 0
 	damage_temperature = T0C+3000
@@ -168,7 +168,7 @@ var/list/flooring_types
 /decl/flooring/sand_beach
 	name = "sand"
 	desc = "Simple sand."
-	icon = 'icons/ru/misc/beach.dmi'
+	icon = 'icons/misc/beach.dmi'
 	icon_base = "sand"
 	has_base_range = 0
 	damage_temperature = T0C+200
@@ -177,7 +177,7 @@ var/list/flooring_types
 /decl/flooring/desert
 	name = "desert sand"
 	desc = "Simple desert sand."
-	icon = 'icons/ru/misc/beach.dmi'
+	icon = 'icons/misc/beach.dmi'
 	icon_base = "desert"
 	has_base_range = 0
 	damage_temperature = T0C+200

@@ -21,6 +21,6 @@
 
 /obj/effect/overlay/coconut
 	name = "Coconuts"
-	icon = 'icons/ru/misc/beach.dmi'
+	icon = 'icons/misc/beach.dmi'
 	icon_state = "coconuts"
 

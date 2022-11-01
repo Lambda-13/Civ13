@@ -189,7 +189,7 @@
 
 /turf/floor/beach
 	name = "beach"
-	icon = 'icons/ru/misc/beach.dmi'
+	icon = 'icons/misc/beach.dmi'
 	initial_flooring = null
 
 /turf/floor/beach/drywater
@@ -251,7 +251,7 @@
 	..()
 	water_turf_list += src
 	spawn(1)
-		water_overlay = image(icon='icons/ru/misc/beach.dmi')
+		water_overlay = image(icon='icons/misc/beach.dmi')
 		water_overlay.icon_state= "[icon_state]_ov"
 		water_overlay.layer= 10
 
@@ -426,7 +426,7 @@
 
 /turf/floor/beach/sand/desert
 	name = "desert sand"
-	icon = 'icons/ru/misc/beach.dmi'
+	icon = 'icons/misc/beach.dmi'
 	icon_state = "desert1"
 	interior = FALSE
 	stepsound = "dirt"
