@@ -41,7 +41,7 @@ var/time_of_day_change_ru = "день"
 							time_of_day_change_ru = "ночь"
 						else
 							time_of_day_change_ru = "день"
-					world << "<br><font size=3><span class = 'notice'>Сейчас <b>[time_of_day_change_ru]</b>, время года сейчас <b>[lowertext(get_season_ru())]</b>.</span></font>"
+					world << "<br><font size=3><span class = 'notice'>Сейчас <b>[time_of_day_change_ru]</b>, время года <b>[lowertext(get_season_ru())]</b>.</span></font>"
 
 	// spawn mice so pirates have something to eat after they start starving
 
