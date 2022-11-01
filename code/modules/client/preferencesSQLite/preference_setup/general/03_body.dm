@@ -32,7 +32,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else
 		var/mob_species = all_species[pref.species]
 		. += "<table><tr style='vertical-align:top'><td>"
-		. += "<b>Ты [age2agedescription(pref.age)] [skintone2racedescription(pref.s_tone)] [pref.gender].</b><br><br>"
+		. += "<b>Ты [age2agedescription(pref.age)] [skintone2racedescription(pref.s_tone)] [bodyGender2Desc(pref.gender)].</b><br><br>"
 		. += "<b>Пол:</b> <a href='?src=\ref[src];gender=1'>[capitalize(lowertext(pref.gender))]</a><br>"
 		. += "<b>Возраст:</b> <a href='?src=\ref[src];age=1'>[pref.age]</a><br>"
 		. += "<b>Тип крови: </b><a href='?src=\ref[src];blood_type=1'>[pref.b_type]</a><br>"
