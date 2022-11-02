@@ -1360,7 +1360,6 @@
 		src << "<span class='danger'>[pick("Неприятная боль", "Боже останови эту боль", "Я чувствую что со мной что-то не так")]!</span>"
 
 	if (shock_stage >= 70)
-		if (shock_stage == 90) emote("me",1,"'s выглядит вялым")
 		if (prob(2))
 			src << "<span class='danger'>[pick("Чертовски больно", "Больно пиздец", "Мне херово")]!</span>"
 			Weaken(20)
