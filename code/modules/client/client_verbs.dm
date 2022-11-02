@@ -384,7 +384,7 @@
 		if (handle_spam_prevention(msg, MUTE_OOC))
 			return
 		if (findtext(msg, "byond://"))
-			src << sound('sound/dota.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
+			src << sound('lambda/sanecman/sound/dota.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
 			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]")
 			message_admins("[key_name_admin(src)] has attempted to advertise in OOC: [msg]")
 			return

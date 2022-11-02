@@ -77,7 +77,7 @@
 	faction2 = RUSSIAN
 	valid_weather_types = list(WEATHER_WET, WEATHER_NONE, WEATHER_EXTREME)
 	songs = list(
-		"Korobeiniki - Leonid Smetannikov:1" = 'sound/pizdec/korobeiniki.ogg',) //troll
+		"Korobeiniki - Leonid Smetannikov:1" = 'lambda/sanecman/sound/pizdec/korobeiniki.ogg',) //troll
 	artillery_count = 0
 
 /obj/map_metadata/pervomaisk_crossing/job_enabled_specialcheck(var/datum/job/J)
