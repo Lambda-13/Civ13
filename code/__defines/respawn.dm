@@ -1,1 +1,1 @@
-#define RESPAWN_MESSAGE "<span class = 'good'><font size = 4>You can respawn with the 'Respawn' verb in the IC tab.</font></span>"
+#define RESPAWN_MESSAGE "<span class = 'good'><font size = 5>Ты умер! Тебя уже не спасти. Для получения ещё одного шанса нажимай ИЦ - Респавн, или наблюдай за жизнью дальше в виде призрака.</font></span>"
