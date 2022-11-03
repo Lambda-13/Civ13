@@ -28,7 +28,7 @@
 	var/race_key = FALSE	   								 // Used for mob icon cache string.
 	var/icon/icon_template							   // Used for mob icon generation for non-32x32 species.
 	var/mob_size	= MOB_MEDIUM
-	var/show_ssd = "fast asleep"
+	var/show_ssd = "в апатии"
 	var/virus_immune
 	var/blood_volume = 560							   // Initial blood volume.
 	var/hunger_factor = DEFAULT_HUNGER_FACTOR			// Multiplier for hunger.

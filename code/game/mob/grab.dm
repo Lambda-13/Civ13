@@ -236,7 +236,7 @@
 		if (!allow_upgrade)
 			return
 		if (!affecting.lying)
-			assailant.visible_message("<span class='warning'>[assailant] has grabbed [affecting] aggressively (now hands)!</span>")
+			assailant.visible_message("<span class='warning'>[assailant] хватает [affecting] в сильный захват!</span>")
 		else
 			assailant.visible_message("<span class='warning'>[assailant] pins [affecting] down to the ground (now hands)!</span>")
 			apply_pinning(affecting, assailant)
@@ -245,7 +245,7 @@
 		icon_state = "grabbed1"
 		hud.icon_state = "reinforce1"
 	else if (state < GRAB_NECK)
-		assailant.visible_message("<span class='warning'>[assailant] has reinforced \his grip on [affecting] (now neck)!</span>")
+		assailant.visible_message("<span class='warning'>[assailant] схватил [affecting] за горло!</span>")
 		state = GRAB_NECK
 		icon_state = "grabbed+1"
 		assailant.set_dir(get_dir(assailant, affecting))
@@ -256,7 +256,7 @@
 		hud.name = "kill"
 		affecting.Stun(7) //7 ticks of ensured grab
 	else if (state < GRAB_UPGRADING)
-		assailant.visible_message("<span class='danger'>[assailant] starts to tighten \his grip on [affecting]'s neck!</span>")
+		assailant.visible_message("<span class='danger'>[assailant] начинает душить [affecting]!</span>")
 		hud.icon_state = "kill1"
 
 		state = GRAB_KILL

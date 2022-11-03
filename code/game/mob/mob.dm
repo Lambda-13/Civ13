@@ -213,7 +213,7 @@
 	set category = "ИЦ"
 
 	if ((is_blind(src) || stat) && !isobserver(src))
-		src << "<span class='notice'>Something is there but you can't see it.</span>"
+		src << "<span class='notice'>Я не вижу.</span>"
 		return TRUE
 
 	// changing direction counts as a movement, so don't do it unless we have to - Kachnov
