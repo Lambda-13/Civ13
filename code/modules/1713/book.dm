@@ -1,11 +1,11 @@
 /obj/item/weapon/book
-	name = "book"
+	name = "книга"
 	icon = 'icons/obj/library.dmi'
 	icon_state ="book"
 	throw_speed = TRUE
 	throw_range = 5
 	w_class = 3		 //upped to three because books are, y'know, pretty big. (and you could hide them inside eachother recursively forever)
-	attack_verb = list("bashed", "whacked")
+	attack_verb = list("бухает", "бьёт")
 	var/dat			 // Actual page content
 	var/due_date = FALSE // Game time in TRUE/10th seconds
 	var/author		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
@@ -21,15 +21,15 @@
 		user.examinate(src)
 		return
 	else
-		user << "This book is completely blank!"
+		user << "Тут ничего не написано!"
 
 /obj/item/weapon/book/attackby(obj/item/weapon/W as obj, mob/living/human/user as mob)
 	if (istype(W, /obj/item/weapon/book))
 		var/obj/item/weapon/book/B = W
 		if (!B.author && user.religious_clergy == "Monks")
-			user << "You start copying [src]..."
+			user << "Начинаю копировать [src]..."
 			if (do_after(user, 200, src))
-				user << "You finish copying [src]."
+				user << "Успешно скопировал [src]."
 				if (istype(src, /obj/item/weapon/book) && !istype(src, /obj/item/weapon/book/holybook) && !istype(src, /obj/item/weapon/book/research))
 					var/obj/item/weapon/book/NC = src
 					var/obj/item/weapon/book/NB = new/obj/item/weapon/book(get_turf(user))
@@ -63,30 +63,30 @@
 					qdel(B)
 	if (istype(W, /obj/item/weapon/pen))
 		if (unique)
-			user << "Looks like you can't modify it."
+			user << "Похоже, я не могу внести изменения."
 			return
-		var/choice = input("What would you like to change?") in list("Title", "Contents", "Author", "Cancel")
+		var/choice = input("Что меняем?") in list("Title", "Contents", "Author", "Cancel")
 		switch(choice)
 			if ("Title")
-				var/newtitle = reject_bad_text(sanitizeSafe(input("Write a new title:")))
+				var/newtitle = reject_bad_text(sanitizeSafe(input("Новый титульник:")))
 				if (!newtitle)
-					usr << "The title is invalid."
+					usr << "Неправильный текст."
 					return
 				else
 					name = newtitle
 					title = newtitle
 			if ("Contents")
-				var/content = sanitize(input("Write your book's contents:") as message|null, MAX_BOOK_MESSAGE_LEN)
+				var/content = sanitize(input("Новый текст на страницах:") as message|null, MAX_BOOK_MESSAGE_LEN)
 				if (!content)
-					usr << "The content is invalid."
+					usr << "Неправильный текст."
 					return
 				else
 					var/t = parsepencode(content, W, user)
 					dat += t
 			if ("Author")
-				var/newauthor = sanitize(input(usr, "Write the author's name:"))
+				var/newauthor = sanitize(input(usr, "Автор книги:"))
 				if (!newauthor)
-					usr << "The name is invalid."
+					usr << "Неправильный автор."
 					return
 				else
 					author = newauthor
@@ -100,7 +100,7 @@
 	if (in_range(user, src) || isghost(user))
 		show_content(usr)
 	else
-		user << "<span class='notice'>You have to go closer if you want to read it.</span>"
+		user << "<span class='notice'>Ничего не видно отсюда.</span>"
 	return
 
 /obj/item/weapon/book/proc/show_content(var/mob/user, var/forceshow=0)
@@ -117,13 +117,13 @@
 	set src in usr
 	playsound(src,'sound/effects/pen.ogg',40,1)
 
-	var/n_name = sanitizeSafe(input(usr, "What would you like to label the book?", "Book Labelling", null)  as text, MAX_NAME_LEN)
+	var/n_name = sanitizeSafe(input(usr, "Как подпишем книгу?", "Название книги", null)  as text, MAX_NAME_LEN)
 
 	// We check loc one level up, so we can rename in clipboards and such. See also: /obj/item/weapon/photo/rename()
 	if ((loc == usr || loc.loc && loc.loc == usr) && usr.stat == FALSE && n_name)
 		name = n_name
 		if (n_name != "paper")
-			desc = "This is a paper titled '" + name + "'."
+			desc = "Это документ под названием '" + name + "'."
 
 		add_fingerprint(usr)
 	return
