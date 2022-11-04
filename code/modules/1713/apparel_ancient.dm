@@ -21,8 +21,8 @@
 /*Roman Uniforms & Sandals*/
 
 /obj/item/clothing/shoes/roman
-	name = "sandals"
-	desc = "Basic leather sandals, going up to the knee."
+	name = "сандали"
+	desc = "Базовые кожаные сандалии длиной до колена."
 	icon_state = "roman"
 	item_state = "roman"
 	worn_state = "roman"
@@ -31,32 +31,32 @@
 	siemens_coefficient = 0.6
 
 /obj/item/clothing/under/roman
-	name = "roman legionary uniform"
-	desc = "A red tunic covered with iron armor. Used by the roman army."
+	name = "форма римского легионера"
+	desc = "Красная туника, покрытая железными доспехами. Использовался римской армией."
 	icon_state = "roman"
 	item_state = "roman"
 	worn_state = "roman"
 	heat_protection = LOWER_TORSO|LEGS|UPPER_TORSO
 
 /obj/item/clothing/under/toga
-	name = "white toga"
-	desc = "A simple cloth toga."
+	name = "белая тога"
+	desc = "Простая тканевая тога."
 	icon_state = "toga"
 	item_state = "toga"
 	worn_state = "toga"
 	heat_protection = LOWER_TORSO|LEGS|UPPER_TORSO
 
 /obj/item/clothing/under/toga2
-	name = "half-shoulder white toga"
-	desc = "A simple cloth toga, covering just one of the shoulders."
+	name = "белая тога до середины плеча"
+	desc = "Простая матерчатая тога, закрывающая только одно плечо."
 	icon_state = "toga2"
 	item_state = "toga2"
 	worn_state = "toga2"
 	heat_protection = LOWER_TORSO|LEGS|UPPER_TORSO
 
 /obj/item/clothing/under/roman_centurion
-	name = "roman centurion uniform"
-	desc = "A red tunic covered with iron armor, with added golden plates. Used by the roman army's centurions."
+	name = "униформа римского центуриона"
+	desc = "Красная туника, покрытая железными доспехами, с добавленными золотыми пластинами. Использовался центурионами римской армии."
 	icon_state = "roman_centurion"
 	item_state = "roman_centurion"
 	worn_state = "roman_centurion"
@@ -65,40 +65,40 @@
 /*Greek Uniforms*/
 
 /obj/item/clothing/under/greek1
-	name = "greek uniform"
-	desc = "A light tunic, covered with bronze and leather armor. Used by the hellenic armies."
+	name = "Афинская греческая форма"
+	desc = "Легкая туника, покрытая бронзовыми и кожаными доспехами. Использовался эллинскими армиями."
 	icon_state = "athens"
 	item_state = "athens"
 	worn_state = "athens"
 	heat_protection = LOWER_TORSO|LEGS|UPPER_TORSO
 
 /obj/item/clothing/under/greek2
-	name = "greek uniform"
-	desc = "A light tunic, covered with bronze and leather armor. Used by the hellenic armies."
+	name = "Фивская греческая форма"
+	desc = "Легкая туника, покрытая бронзовыми и кожаными доспехами. Использовался эллинскими армиями."
 	icon_state = "thebes"
 	item_state = "thebes"
 	worn_state = "thebes"
 	heat_protection = LOWER_TORSO|LEGS|UPPER_TORSO
 
 /obj/item/clothing/under/greek3
-	name = "greek uniform"
-	desc = "A light tunic, covered with bronze and leather armor. Used by the hellenic armies."
+	name = "Коринфийская греческая форма"
+	desc = "Легкая туника, покрытая бронзовыми и кожаными доспехами. Использовался эллинскими армиями."
 	icon_state = "corinthia"
 	item_state = "corinthia"
 	worn_state = "corinthia"
 	heat_protection = LOWER_TORSO|LEGS|UPPER_TORSO
 
 /obj/item/clothing/under/greek_commander
-	name = "greek commander uniform"
-	desc = "A light blue tunic covered by a bronze plate armor. Used by hellenic commanders."
+	name = "форма греческого командира"
+	desc = "Светло-голубая туника, покрытая бронзовыми пластинами. Использовался греческими полководцами."
 	icon_state = "greek_commander"
 	item_state = "greek_commander"
 	worn_state = "greek_commander"
 	heat_protection = LOWER_TORSO|LEGS|UPPER_TORSO
 
 /obj/item/clothing/under/toxotai
-	name = "white tunic"
-	desc = "A light white tunic."
+	name = "белая туника"
+	desc = "Легкая белая туника."
 	icon_state = "toxotai"
 	item_state = "toxotai"
 	worn_state = "toxotai"
@@ -107,40 +107,40 @@
 /*Celtic Uniforms*/
 
 /obj/item/clothing/under/celtic_green
-	name = "green celtic trousers"
-	desc = "Celtic-style trousers, in green."
+	name = "зеленые кельтские брюки"
+	desc = "Зеленые брюки в кельтском стиле."
 	icon_state = "celtic_green"
 	item_state = "celtic_green"
 	worn_state = "celtic_green"
 	heat_protection = LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/celtic_blue
-	name = "blue celtic trousers"
-	desc = "Celtic-style trousers, in blue."
+	name = "синие кельтские брюки"
+	desc = "Брюки в кельтском стиле синего цвета."
 	icon_state = "celtic_blue"
 	item_state = "celtic_blue"
 	worn_state = "celtic_blue"
 	heat_protection = LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/celtic_red
-	name = "red celtic trousers"
-	desc = "Celtic-style trousers, in red."
+	name = "красные кельтские брюки"
+	desc = "Брюки в кельтском стиле красного цвета."
 	icon_state = "celtic_red"
 	item_state = "celtic_red"
 	worn_state = "celtic_red"
 	heat_protection = LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/celtic_short_braccae
-	name = "short celtic braccae"
-	desc = "Short, celtic-style wool trousers."
+	name = "короткие кельтские прицветники"
+	desc = "Короткие шерстяные брюки в кельтском стиле."
 	icon_state = "celtic_short_braccae"
 	item_state = "celtic_short_braccae"
 	worn_state = "celtic_short_braccae"
 	heat_protection = LOWER_TORSO
 
 /obj/item/clothing/under/celtic_long_braccae
-	name = "long celtic braccae"
-	desc = "Long, celtic-style wool trousers."
+	name = "длинные кельтские прицветники"
+	desc = "Длинные шерстяные брюки в кельтском стиле."
 	icon_state = "celtic_long_braccae"
 	item_state = "celtic_long_braccae"
 	worn_state = "celtic_long_braccae"
@@ -149,24 +149,24 @@
 /*Mayan & Aztec Uniforms + Sandals*/
 
 /obj/item/clothing/under/mayan_loincloth
-	name = "mayan loincloth"
-	desc = "Mayan-style loincloth."
+	name = "набедренная повязка майя"
+	desc = "Набедренная повязка в стиле майя."
 	icon_state = "mayan_loincloth"
 	item_state = "mayan_loincloth"
 	worn_state = "mayan_loincloth"
 	heat_protection = LOWER_TORSO
 
 /obj/item/clothing/under/aztec_loincloth
-	name = "aztec loincloth"
-	desc = "A loincloth fit for a ferocious aztec warrior."
+	name = "ацтекская набедренная повязка"
+	desc = "Набедренная повязка, подходящая для свирепого ацтекского воина."
 	icon_state = "aztec_loincloth"
 	item_state = "aztec_loincloth"
 	worn_state = "aztec_loincloth"
 	heat_protection = LOWER_TORSO
 
 /obj/item/clothing/shoes/aztec_sandals
-	name = "aztec sandals"
-	desc = "Basic leather sandals, hailing from the jungles."
+	name = "ацтекские сандалии"
+	desc = "Простые кожаные сандалии родом из джунглей."
 	icon_state = "aztec_sandals"
 	item_state = "aztec_sandals"
 	worn_state = "aztec_sandals"
@@ -177,16 +177,16 @@
 /*Egyptian Uniforms*/
 
 /obj/item/clothing/under/pharaoh
-	name = "pharaohic shendyt"
-	desc = "A fancy, decorated shendyt."
+	name = "фараонский шендит"
+	desc = "Необычный, украшенный шендыт."
 	icon_state = "pharaoh"
 	item_state = "pharaoh"
 	worn_state = "pharaoh"
 	heat_protection = LOWER_TORSO|UPPER_TORSO
 
 /obj/item/clothing/under/pharaoh2
-	name = "nemes shendyt"
-	desc = "A fancy, decorated shendyt."
+	name = "немеский шендит"
+	desc = "Необычный, украшенный шендыт."
 	icon_state = "greatshendyt"
 	item_state = "greatshendyt"
 	worn_state = "greatshendyt"
@@ -194,24 +194,24 @@
 
 /*Ainu Things*/
 /obj/item/clothing/under/ainu
-	name = "ainu robes"
-	desc = "A set of robes worn by the ainu."
+	name = "айнская роба"
+	desc = "Комплект одежды, которую носят айны."
 	icon_state = "ainu_robe"
 	item_state = "ainu_robe"
 	worn_state = "ainu_robe"
 	heat_protection = LOWER_TORSO|LEGS|UPPER_TORSO
 
 /obj/item/clothing/under/ainu2
-	name = "ainu robes"
-	desc = "A set of robes worn by the ainu."
+	name = "айнская роба"
+	desc = "Комплект одежды, которую носят айны."
 	icon_state = "ainu_robe2"
 	item_state = "ainu_robe2"
 	worn_state = "ainu_robe2"
 	heat_protection = LOWER_TORSO|LEGS|UPPER_TORSO
 
 /obj/item/clothing/head/ainu_bandana
-	name = "ainu bandana"
-	desc = "a bandana with intricate patterns."
+	name = "повязка айну"
+	desc = "Бандана с замысловатыми узорами."
 	icon_state = "ainu"
 	item_state = "ainu"
 	worn_state = "ainu"
@@ -227,13 +227,13 @@
 			item_state = "ainu"
 			worn_state = "ainu"
 			item_state_slots["slot_w_head"] = "ainu"
-			usr << "<span class = 'danger'>You unfold your bandana.</span>"
+			usr << "<span class = 'danger'>Разматываю бандану.</span>"
 			folded = FALSE
 		else if (!folded)
 			item_state = "ainu_smol"
 			worn_state = "ainu_smol"
 			item_state_slots["slot_w_head"] = "ainu_smol"
-			usr << "<span class = 'danger'>You fold your bandana.</span>"
+			usr << "<span class = 'danger'>Обматываю бандану вокруг головы.</span>"
 			folded = TRUE
 	update_clothing_icon()
 
@@ -245,8 +245,8 @@
 	flags = CONDUCT
 
 /obj/item/clothing/suit/armor/ancient/scale
-	name = "segmented armor"
-	desc = "A thick, expensive segmented iron armor, covering the torso."
+	name = "сегментированная броня"
+	desc = "Толстая, дорогая сегментированная железная броня, покрывающая туловище."
 	icon_state = "scale_armor"
 	item_state = "scale_armor"
 	worn_state = "scale_armor"
@@ -257,8 +257,8 @@
 	health = 47
 
 /obj/item/clothing/suit/armor/ancient/chainmail
-	name = "early Chainmail"
-	desc = "Wearable armor made of several small interlinked chains."
+	name = "кольчуга"
+	desc = "Носимая броня, состоящая из нескольких небольших взаимосвязанных цепей."
 	icon_state = "early_chainmail"
 	item_state = "early_chainmail"
 	worn_state = "early_chainmail"
@@ -269,8 +269,8 @@
 	health = 50
 
 /obj/item/clothing/suit/armor/ancient/linen
-	name = "linothorax armor"
-	desc = "A thick linen armor, covering the torso and lower body."
+	name = "линотораксовская броня"
+	desc = "Толстая льняная броня, закрывающая туловище и нижнюю часть тела."
 	icon_state = "heavycloth_armor"
 	item_state = "heavycloth_armor"
 	worn_state = "heavycloth_armor"
@@ -282,8 +282,8 @@
 	flags = FALSE
 
 /obj/item/clothing/suit/armor/ancient/bronze_lamellar
-	name = "bronze egyptian lamellar"
-	desc = "A bronze lamellar armor, used by soldiers of pharoahic dynasties."
+	name = "бронзовый египетский доспех"
+	desc = "Бронзовый ламеллярный доспех, использовавшийся солдатами династий фараонов."
 	icon_state = "egyptian_lamellar"
 	item_state = "egyptian_lamellar"
 	worn_state = "egyptian_lamellar"
@@ -294,8 +294,8 @@
 	health = 48
 
 /obj/item/clothing/suit/armor/ancient/bronze_lamellar/chinese
-	name = "bronze chinese lamellar"
-	desc = "A bronze lamellar armor, used by warriors of early chinese dynasties."
+	name = "бронзовый китайский доспех"
+	desc = "Бронзовый ламеллярный доспех, использовавшийся воинами ранних китайских династий."
 	icon_state = "chinese_lamellar"
 	item_state = "chinese_lamellar"
 	worn_state = "chinese_lamellar"
@@ -307,8 +307,8 @@
 
 
 /obj/item/clothing/suit/armor/ancient/scaled
-	name = "scaled armor"
-	desc = "An armor made of serveral scales made of bronze."
+	name = "чешуйчатая броня"
+	desc = "Броня из нескольких чешуек из бронзы."
 	icon_state = "scaled_armor"
 	item_state = "scaled_armor"
 	worn_state = "scaled_armor"
@@ -320,8 +320,8 @@
 
 
 /obj/item/clothing/suit/armor/ancient/aztec_harness
-	name = "aztec harness"
-	desc = "A few metal plates on leather strips, covering the torso."
+	name = "ацтекская упряжь"
+	desc = "Несколько металлических пластин на кожаных полосках, закрывающих туловище."
 	icon_state = "aztec_harness"
 	item_state = "aztec_harness"
 	worn_state = "aztec_harness"
@@ -332,8 +332,8 @@
 	health = 18
 
 /obj/item/clothing/suit/armor/ancient/gator_scale_armor
-	name = "alligator scale armor"
-	desc = "A carefully cured & hardened alligator scale armor, covering the torso."
+	name = "броня из чешуи аллигатора"
+	desc = "Тщательно обработанная и закаленная броня из чешуи аллигатора, покрывающая туловище."
 	icon_state = "gator_scale_armor"
 	item_state = "gator_scale_armor"
 	worn_state = "gator_scale_armor"
@@ -346,15 +346,15 @@
 /*Ancient Capes*/
 
 /obj/item/clothing/suit/cape
-	name = "red cape"
-	desc = "A long red cape."
+	name = "красный плащ"
+	desc = "Длинный красный плащ."
 	icon_state = "redcape"
 	item_state = "redcape"
 	worn_state = "redcape"
 
 /obj/item/clothing/suit/cape/blue
-	name = "blue cape"
-	desc = "A long blue cape."
+	name = "синий плащ"
+	desc = "Длинный синий плащ."
 	icon_state = "bluecape"
 	item_state = "bluecape"
 	worn_state = "bluecape"
@@ -362,15 +362,15 @@
 /*Ancient Headpieces*/
 
 /obj/item/clothing/head/toxotai
-	name = "toxotai hat"
-	desc = "a wide brim hat, used by the toxotai."
+	name = "токсотайская шляпа"
+	desc = "Шляпа с широкими полями, используемая токсотай."
 	icon_state = "toxotai"
 	item_state = "toxotai"
 	worn_state = "toxotai"
 
 /obj/item/clothing/head/egyptian_headdress_black
-	name = "black egyptian headdress"
-	desc = "a plain sun-protective linen headdress, despite its black stripes."
+	name = "черный египетский головной убор"
+	desc = "Простой солнцезащитный льняной головной убор, несмотря на черные полосы."
 	icon_state = "egyptian_headdress_black"
 	item_state = "egyptian_headdress_black"
 	worn_state = "egyptian_headdress_black"
@@ -378,8 +378,8 @@
 	heat_protection = HEAD|FACE|EYES
 
 /obj/item/clothing/head/egyptian_headdress_blue
-	name = "blue egyptian headdress"
-	desc = "a plain sun-protective blue linen headdress."
+	name = "синий египетский головной убор"
+	desc = "Простой солнцезащитный синий льняной головной убор."
 	icon_state = "egyptian_headdress_blue"
 	item_state = "egyptian_headdress_blue"
 	worn_state = "egyptian_headdress_blue"
@@ -387,8 +387,8 @@
 	heat_protection = HEAD|FACE|EYES
 
 /obj/item/clothing/head/egyptian_headdress_red
-	name = "red egyptian headdress"
-	desc = "a plain sun-protective red linen headdress."
+	name = "красный египетский головной убор"
+	desc = "Простой солнцезащитный красный льняной головной убор."
 	icon_state = "egyptian_headdress_red"
 	item_state = "egyptian_headdress_red"
 	worn_state = "egyptian_headdress_red"
@@ -398,8 +398,8 @@
 /*Ancient Helmets*/
 
 /obj/item/clothing/head/helmet/roman
-	name = "roman legionary helmet"
-	desc = "The typical helmet of the roman army."
+	name = "шлем римского легионера"
+	desc = "Типичный шлем римской армии."
 	icon_override = 'code/modules/1713/clothing/head.dmi'
 	icon_state = "roman"
 	item_state = "roman"
@@ -410,8 +410,8 @@
 	health = 35
 
 /obj/item/clothing/head/helmet/roman_decurion
-	name = "roman decurion helmet"
-	desc = "An iron helmet, used by decurions. Officers within the cavalry of the roman army."
+	name = "римский шлем декуриона"
+	desc = "Железный шлем, используемый декурионами - офицерами кавалерии римской армии."
 	icon_override = 'code/modules/1713/clothing/head.dmi'
 	icon_state = "roman_d"
 	item_state = "roman_d"
@@ -422,8 +422,8 @@
 	health = 35
 
 /obj/item/clothing/head/helmet/roman_centurion
-	name = "roman centurion helmet"
-	desc = "An iron helmet, used by centurions. Officers within the infantry of the roman army."
+	name = "шлем римского центуриона"
+	desc = "Железный шлем центурионов - офицеров пехоты римской армии."
 	icon_override = 'code/modules/1713/clothing/head.dmi'
 	icon_state = "roman_c"
 	item_state = "roman_c"
@@ -434,8 +434,8 @@
 	health = 35
 
 /obj/item/clothing/head/helmet/gladiator
-	name = "gladiator helmet"
-	desc = "A gladiator helmet."
+	name = "гладиаторский шлем"
+	desc = "Шлем гладиатора."
 	icon_state = "gladiator"
 	item_state = "gladiator"
 	worn_state = "gladiator"
@@ -445,8 +445,8 @@
 	health = 40
 
 /obj/item/clothing/head/helmet/solinvictus
-	name = "sol invictus helmet"
-	desc = "A gold adorned helmet with masqued visage and gold solar streaks. Worn by roman emperors."
+	name = "шлем инвиктус"
+	desc = "Украшенный золотом шлем с замаскированным лицом и золотыми солнечными полосами который носили римские императоры."
 	icon_state = "sol_invictus"
 	item_state = "sol_invictus"
 	worn_state = "sol_invictus"
@@ -458,8 +458,8 @@
 	slowdown = 0.25
 
 /obj/item/clothing/head/helmet/anax
-	name = "greek anax helmet"
-	desc = "A reinforced bronze greek helmet, covering most of the face, with black plummage on top. Worn by hellenic kings."
+	name = "греческий шлем анакса"
+	desc = "Укрепленный бронзовый греческий шлем, закрывающий большую часть лица, с черным оперением сверху который носили эллинские короли."
 	icon_state = "leonidas"
 	item_state = "leonidas"
 	worn_state = "leonidas"
@@ -471,8 +471,8 @@
 	slowdown = 0.10
 
 /obj/item/clothing/head/helmet/greek
-	name = "greek helmet"
-	desc = "A bronze greek helmet, covering most of the face."
+	name = "греческий шлем"
+	desc = "Бронзовый греческий шлем, закрывающий большую часть лица."
 	icon_state = "new_greek"
 	item_state = "new_greek"
 	worn_state = "new_greek"
@@ -482,8 +482,8 @@
 	health = 40
 
 /obj/item/clothing/head/helmet/greek_commander
-	name = "lochagos helmet"
-	desc = "A bronze greek helmet, covering most of the face, with red plummage on top. Worn by hellenic lochagos."
+	name = "шлем лохагос"
+	desc = "Бронзовый греческий шлем, закрывающий большую часть лица, с красным оперением наверху который носят эллинские лохаго."
 	icon_state = "spartan"
 	item_state = "spartan"
 	worn_state = "spartan"
@@ -493,8 +493,8 @@
 	health = 40
 
 /obj/item/clothing/head/helmet/greek_sl
-	name = "dimoerites helmet"
-	desc = "A bronze greek helmet, covering most of the face, with blue plummage on top. Worn by hellenic dimoerites."
+	name = "димеритовый шлем"
+	desc = "Бронзовый греческий шлем, закрывающий большую часть лица, с голубым оперением сверху которые носят эллинские димериты."
 	icon_state = "athenian"
 	item_state = "athenian"
 	worn_state = "athenian"
@@ -504,8 +504,8 @@
 	health = 40
 
 /obj/item/clothing/head/helmet/egyptian
-	name = "egyptian war headdress"
-	desc = "A bronze egyptian headpiece, with a exposed face to relieve the wearer of heat."
+	name = "египетский военный головной убор"
+	desc = "Бронзовый египетский головной убор с открытым лицом для защиты от жары."
 	icon_state = "egyptian_bronze_headdress"
 	item_state = "egyptian_bronze_headdress"
 	worn_state = "egyptian_bronze_headdress"
@@ -516,8 +516,8 @@
 	heat_protection = HEAD|FACE|EYES
 
 /obj/item/clothing/head/helmet/phrigian
-	name = "bronze phrigian helmet"
-	desc = "A knob ended bronze phrigian helmet. With more emphasis on style than overall protection"
+	name = "бронзовый фригийский шлем"
+	desc = "Набалдашник заканчивался бронзовым фригийским шлемом. Больше внимания уделяется стилю, чем общей защите."
 	icon_state = "phrigian_helmet"
 	item_state = "phrigian_helmet"
 	worn_state = "phrigian_helmet"
@@ -527,8 +527,8 @@
 
 
 /obj/item/clothing/head/helmet/leather
-	name = "leather helmet"
-	desc = "A simple leather helmet."
+	name = "кожаный шлем"
+	desc = "Простой кожаный шлем."
 	icon_state = "leatherhelmet"
 	item_state = "leatherhelmet"
 	worn_state = "leatherhelmet"
@@ -538,8 +538,8 @@
 	health = 20
 
 /obj/item/clothing/head/helmet/hatchigane
-	name = "hatchigane headband"
-	desc = "A armored leather headband of japanese design, it wears away petty attacks but will not withstand heavy blows."
+	name = "повязка на голову хэтчиган"
+	desc = "Бронированная кожаная повязка японского дизайна, она выдерживает слабые, но не сильные атаки."
 	icon_state = "hatchigane"
 	item_state = "hatchigane"
 	worn_state = "hatchigane"
@@ -548,8 +548,8 @@
 	health = 15
 
 /obj/item/clothing/head/helmet/khepresh
-	name = "khepresh war crown"
-	desc = "A ornate egyptian war crown made of leather and gold. It is not as protective as bronze or iron, but practical for protecting your majesty."
+	name = "боевая корона кепреша"
+	desc = "Богато украшенная египетская военная корона из кожи и золота. Он не так защитит, как бронза или железо, но удобен для защиты вашего величества."
 	icon_state = "khepresh"
 	item_state = "khepresh"
 	worn_state = "khepresh"
@@ -560,8 +560,8 @@
 	/* Nomads (Craftable) Helmets*/
 
 /obj/item/clothing/head/helmet/gladiator/nomads //nerfing it down for mass consumption
-	name = "gladiator helmet"
-	desc = "A gladiator helmet."
+	name = "гладиаторский шлем"
+	desc = "Шлем гладиатора."
 	icon_state = "gladiator"
 	item_state = "gladiator"
 	worn_state = "gladiator"
@@ -571,8 +571,8 @@
 	health = 30
 
 /obj/item/clothing/head/helmet/horned
-	name = "horned helmet"
-	desc = "A horned helmet, used by barbarians."
+	name = "шлем с рогами"
+	desc = "Рогатый шлем, который носили варвары."
 	icon_state = "barbarian" //"viking" can be used elsewise for wagner
 	item_state = "barbarian"
 	worn_state = "barbarian"
@@ -582,8 +582,8 @@
 	health = 30
 
 /obj/item/clothing/head/helmet/asterix
-	name = "winged helmet"
-	desc = "A winged helmet, used swift warriors who don't mind brutalistic stabs to the face."
+	name = "шлем с крыльями"
+	desc = "Крылатый шлем, используемый быстрыми воинами, которые не боятся сильных ударов по лицу."
 	icon_state = "asterix"
 	item_state = "asterix"
 	worn_state = "asterix"
@@ -593,8 +593,8 @@
 	health = 30
 
 /obj/item/clothing/head/helmet/egyptian/nomads
-	name = "egyptian war headdress"
-	desc = "A bronze egyptian headdress, with a exposed face to relieve the wearer of heat."
+	name = "египетский военный головной убор"
+	desc = "Бронзовый египетский головной убор с открытым лицом для защиты от жары."
 	icon_state = "egyptian_bronze_headdress"
 	item_state = "egyptian_bronze_headdress"
 	worn_state = "egyptian_bronze_headdress"
@@ -605,8 +605,8 @@
 	heat_protection = HEAD|FACE|EYES
 
 /obj/item/clothing/head/helmet/greek/nomads
-	name = "greek helmet"
-	desc = "A bronze greek helmet, covering most of the face."
+	name = "греческий шлем"
+	desc = "Бронзовый греческий шлем, закрывающий большую часть лица."
 	icon_state = "new_greek"
 	item_state = "new_greek"
 	worn_state = "new_greek"
@@ -616,8 +616,8 @@
 	health = 30
 
 /obj/item/clothing/head/helmet/greek_commander/nomads
-	name = "lochagos helmet"
-	desc = "A bronze greek helmet, covering most of the face, with red plummage on top. Worn by hellenic lochagos."
+	name = "шлем лохагос"
+	desc = "Бронзовый греческий шлем, закрывающий большую часть лица, с красным оперением наверху которые носят эллинские лохаго."
 	icon_state = "spartan"
 	item_state = "spartan"
 	worn_state = "spartan"
@@ -627,8 +627,8 @@
 	health = 40
 
 /obj/item/clothing/head/helmet/greek_sl/nomads
-	name = "dimoerites helmet"
-	desc = "A bronze greek helmet, covering most of the face, with blue plummage on top. Worn by hellenic dimoerites."
+	name = "димеритовый шлем"
+	desc = "Бронзовый греческий шлем, закрывающий большую часть лица, с голубым оперением сверху которые носят эллинские димериты."
 	icon_state = "athenian"
 	item_state = "athenian"
 	worn_state = "athenian"
@@ -638,8 +638,8 @@
 	health = 40
 
 /obj/item/clothing/head/helmet/roman/nomads
-	name = "roman legionary helmet"
-	desc = "The typical helmet of the roman army."
+	name = "шлем римского легионера"
+	desc = "Типичный шлем римской армии."
 	icon_override = 'code/modules/1713/clothing/head.dmi'
 	icon_state = "roman"
 	item_state = "roman"
@@ -650,8 +650,8 @@
 	health = 30
 
 /obj/item/clothing/head/helmet/chinese_warrior
-	name = "chinese warrior helmet"
-	desc = "A bronze helmet, used by early chinese dynasties."
+	name = "шлем китайского воина"
+	desc = "Бронзовый шлем, который использовался ранними китайскими династиями."
 	icon_state = "bronze_chinese"
 	item_state = "bronze_chinese"
 	worn_state = "bronze_chinese"
@@ -663,8 +663,8 @@
 /*Royal & Laurel Headwear*/
 
 /obj/item/clothing/head/pharoah
-	name = "pharoah headdress"
-	desc = "A ornate, golden headdress."
+	name = "головной убор фараона"
+	desc = "Изысканный золотой головной убор."
 	icon_state = "pharoah_headdress"
 	item_state = "pharoah_headdress"
 	worn_state = "pharoah_headdress"
@@ -672,8 +672,8 @@
 	heat_protection = HEAD|FACE|EYES
 
 /obj/item/clothing/head/nemes
-	name = "nemes headdress"
-	desc = "A fancy, golden headdress."
+	name = "головной убор немес"
+	desc = "Необычный золотой головной убор."
 	icon_state = "nemes_headdress"
 	item_state = "nemes_headdress"
 	worn_state = "nemes_headdress"
@@ -681,15 +681,15 @@
 	heat_protection = HEAD|FACE|EYES
 
 /obj/item/clothing/head/doublecrown //replaced by hedjet/deshret/pschent following
-	name = "double crown"
-	desc = "A double-coloured cloth crown."
+	name = "двойная корона"
+	desc = "Корона из двухцветной ткани."
 	icon_state = "doublecrown"
 	item_state = "doublecrown"
 	worn_state = "doublecrown"
 
 /obj/item/clothing/head/hedjet
-	name = "hedjet crown"
-	desc = "A egyptian crown made from cloth. It is often worn by pharoahs ruling over the floodplains." //historically the northern pharoahs nearer to the nile delta
+	name = "хеджетная корона"
+	desc = "Египетская корона, изготовленная из ткани. Его часто носят фараоны, властвующие над поймами." //historically the northern pharoahs nearer to the nile delta
 	icon_state = "hedjet"
 	item_state = "hedjet"
 	worn_state = "hedjet"
@@ -697,8 +697,8 @@
 	heat_protection = HEAD|FACE|EYES
 
 /obj/item/clothing/head/deshret
-	name = "deshret crown"
-	desc = "A red egyptian crown made from cloth. It is often worn by pharoahs ruling over desert dunes." //historically the southern pharoahs nearer to the nubian desert
+	name = "корона дешрета"
+	desc = "Красная египетская корона, сделанная из ткани. Его часто носят фараоны, правящие пустынными дюнами." //historically the southern pharoahs nearer to the nubian desert
 	icon_state = "deshret"
 	item_state = "deshret"
 	worn_state = "deshret"
@@ -706,8 +706,8 @@
 	heat_protection = HEAD|FACE|EYES
 
 /obj/item/clothing/head/pschent
-	name = "pschent crown"
-	desc = "A combined red and white egyptian crown made from cloth. Combined of deshret & hedjet; it represents divine authority over their domain." //worn by herod, of a united egyptian kingdom.
+	name = "корона пшентов"
+	desc = "Комбинированная красно-белая египетская корона, изготовленная из ткани. Сочетание дешрета и хеджета; он представляет божественную власть над их владениями." //worn by herod, of a united egyptian kingdom.
 	icon_state = "pschent"
 	item_state = "pschent"
 	worn_state = "pschent"
@@ -715,15 +715,15 @@
 	heat_protection = HEAD|FACE|EYES
 
 /obj/item/clothing/head/laurelcrown
-	name = "laurel crown"
-	desc = "A crown made of laurel."
+	name = "лавровый венец"
+	desc = "Корона из лавра."
 	icon_state = "laurelcrown"
 	item_state = "laurelcrown"
 	body_parts_covered = FALSE
 
 /obj/item/clothing/head/laurelcrown/gold
-	name = "gold laurel crown"
-	desc = "A crown made of gold, imitating a laurel crown."
+	name = "золотой лавровый венец"
+	desc = "Золотая корона, имитирующая лавровый венец."
 	icon_state = "laurelcrown_gold"
 	item_state = "laurelcrown_gold"
 	body_parts_covered = FALSE
@@ -731,8 +731,8 @@
 /* Religious Headwear*/
 
 /obj/item/clothing/head/fiendish
-	name = "fiendish headdress"
-	desc = "A menacing headdress, preferred by cults & covens."
+	name = "зловещий головной убор"
+	desc = "Угрожающий головной убор, предпочитаемый культами и шабашами."
 	icon_state = "fiendish"
 	item_state = "fiendish"
 	worn_state = "fiendish"
@@ -743,8 +743,8 @@
 
 
 /obj/item/clothing/head/semitic_cap
-	name = "semitic cap"
-	desc = "A yellow knob-headed hat applied to denote jews amongst themselves and those ruling over them."
+	name = "семитская шапочка"
+	desc = "Желтая шапка с выпуклой головкой применялась для обозначения евреев между собой и правящих ими."
 	icon_state = "semitic_cap"
 	item_state = "semitic_cap"
 	worn_state = "semitic_cap"
@@ -753,8 +753,8 @@
 /*Pelts*/
 
 /obj/item/clothing/head/bearpelt
-	name = "bearpelt headcover"
-	desc = "a bear pelt turned into a headcover."
+	name = "головной убор из медвежьей шкуры"
+	desc = "Медвежья шкура переделанная под головной убор."
 	icon_state = "bearpelt"
 	item_state = "bearpelt"
 	worn_state = "bearpelt"
@@ -763,8 +763,8 @@
 	var/colortype = "black"
 
 /obj/item/clothing/head/wolfpelt
-	name = "wolfpelt headcover"
-	desc = "a wolf pelt turned into a headcover."
+	name = "головной убор из волчьей шкуры"
+	desc = "Волчья шкура переделанная под головной убор."
 	icon_state = "wolfpelt"
 	item_state = "wolfpelt"
 	worn_state = "wolfpelt"
@@ -773,16 +773,16 @@
 	var/colortype = "grey"
 
 /obj/item/clothing/head/wolfpelt/white
-	name = "white wolfpelt headcover"
-	desc = "A wolf pelt turned into a headcover."
+	name = "головной убор из белой волчьей шкуры"
+	desc = "Волчья шкура переделанная под головной убор."
 	icon_state = "whitewolfpelt"
 	item_state = "whitewolfpelt"
 	worn_state = "whitewolfpelt"
 	colortype = "white"
 
 /obj/item/clothing/head/pantherpelt
-	name = "pantherpelt headcover"
-	desc = "A panther pelt turned into a headcover."
+	name = "головной убор из пантерской шкуры"
+	desc = "Пантерья шкура переделанная под головной убор."
 	icon_state = "pantherpelt"
 	item_state = "pantherpelt"
 	worn_state = "pantherpelt"
@@ -791,8 +791,8 @@
 	var/colortype = "black"
 
 /obj/item/clothing/head/lionpelt
-	name = "lionpelt headcover"
-	desc = "A lion pelt turned into a headcover."
+	name = "головной убор из львинной шкуры"
+	desc = "Львинная шкура переделанная под головной убор."
 	icon_state = "lionpelt"
 	item_state = "lionpelt"
 	worn_state = "lionpelt"
@@ -801,8 +801,8 @@
 	var/colortype = "brown" //I haven't knocked together the coloration idea yet - @fantasticfwoosh
 
 /obj/item/clothing/head/gatorpelt
-	name = "alligator pelt headcover"
-	desc = "A alligator pelt turned into a headcover."
+	name = "головной убор из алигаторской шкуры"
+	desc = "Алигаторская шкура переделанная под головной убор."
 	icon_state = "gatorpelt"
 	item_state = "gatorpelt"
 	worn_state = "gatorpelt"
@@ -811,8 +811,8 @@
 	var/colortype = "grey" //i really dont know what to put in this one - @fantasticfwoosh
 
 /obj/item/clothing/head/foxpelt
-	name = "foxpelt headcover"
-	desc = "A fox pelt turned into a headcover."
+	name = "головной убор из лисьей шкуры"
+	desc = "Лисья шкура переделанная под головной убор."
 	icon_state = "foxpelt"
 	item_state = "foxpelt"
 	worn_state = "foxpelt"
@@ -821,16 +821,16 @@
 	var/colortype = "brown"
 
 /obj/item/clothing/head/foxpelt/white
-	name = "white foxpelt headcover"
-	desc = "A fox pelt turned into a headcover."
+	name = "головной убор из белой лисьей шкуры"
+	desc = "Лисья шкура переделанная под головной убор."
 	icon_state = "whitefoxpelt"
 	item_state = "whitefoxpelt"
 	worn_state = "whitefoxpelt"
 	colortype = "white"
 
 /obj/item/clothing/head/sheeppelt
-	name = "sheep-pelt headcover"
-	desc = "A sheep pelt turned into a headcover. The thick wool helps keep the cold off your body."
+	name = "головной убор из овечьей шкуры"
+	desc = "Овечья шкура переделанная под головной убор. Густая шерсть помогает защитить тело от холода."
 	icon_state = "sheeppelt"
 	item_state = "sheeppelt"
 	worn_state = "sheeppelt"
@@ -838,8 +838,8 @@
 	var/colortype = "white"
 
 /obj/item/clothing/head/goatpelt
-	name = "goatpelt headcover"
-	desc = "A goat pelt turned into a headcover. The light loose fur helps keep the sun's rays off your body."
+	name = "головной убор из козьей шкуры"
+	desc = "Козья шкура переделанная под головной убор. Легкий свободный мех защищает тело от солнечных лучей."
 	icon_state = "goatpelt"
 	item_state = "goatpelt"
 	worn_state = "goatpelt"
@@ -847,8 +847,8 @@
 	var/colortype = "beige" //erm...
 
 /obj/item/clothing/head/bisonpelt
-	name = "bisonpelt headcover"
-	desc = "A bison pelt turned into a headcover. The thick matted fur keeps the cold off your body; the horns are just for show."
+	name = "головной убор из бизоньей шкуры"
+	desc = "Шкура бизона переделанная под головной убор. Густой свалявшийся мех защищает тело от холода; рога только для вида."
 	icon_state = "bisonpelt"
 	item_state = "bisonpelt"
 	worn_state = "bisonpelt"
@@ -862,8 +862,8 @@
 	min_cold_protection_temperature = COAT_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/coat/fur
-	name = "fur coat"
-	desc = "A thick fur coat, great for the winter."
+	name = "шуба"
+	desc = "Толстая шуба из толстого меха отлично подойдет для зимы."
 	icon_state = "fur_jacket1"
 	item_state = "fur_jacket1"
 	worn_state = "fur_jacket1"
@@ -876,8 +876,8 @@
 	flags_inv = BLOCKHEADHAIR
 
 /obj/item/clothing/suit/storage/coat/fur/brown
-	name = "brown fur coat"
-	desc = "A thick brown fur coat, great for the winter."
+	name = "коричневая шуба"
+	desc = "Толстая коричневая шуба, отлично подходит для зимы."
 	icon_state = "fur_jacket1"
 	item_state = "fur_jacket1"
 	worn_state = "fur_jacket1"
@@ -885,8 +885,8 @@
 	colorn = 1
 
 /obj/item/clothing/suit/storage/coat/fur/white
-	name = "white fur coat"
-	desc = "A thick white fur coat, great for the winter."
+	name = "белая шуба"
+	desc = "Толстая белая шуба, отлично подходит для зимы."
 	icon_state = "fur_jacket4"
 	item_state = "fur_jacket4"
 	worn_state = "fur_jacket4"
@@ -894,8 +894,8 @@
 	colorn = 4
 
 /obj/item/clothing/suit/storage/coat/fur/black
-	name = "black fur coat"
-	desc = "A thick black fur coat, great for the winter."
+	name = "чёрная шуба"
+	desc = "Толстая чёрная шуба, отлично подходит для зимы."
 	icon_state = "fur_jacket3"
 	item_state = "fur_jacket3"
 	worn_state = "fur_jacket3"
@@ -903,8 +903,8 @@
 	colorn = 3
 
 /obj/item/clothing/suit/storage/coat/fur/grey
-	name = "grey fur coat"
-	desc = "A thick grey fur coat, great for the winter."
+	name = "серая шуба"
+	desc = "Толстая серая шуба, отлично подходит для зимы."
 	icon_state = "fur_jacket2"
 	item_state = "fur_jacket2"
 	worn_state = "fur_jacket2"
@@ -912,8 +912,8 @@
 	colorn = 2
 
 /obj/item/clothing/suit/storage/coat/fur/pink
-	name = "human skin coat"
-	desc = "A coat made of human skin. Spooky..."
+	name = "кожаная шуба"
+	desc = "Толстая шуба из кожи человека. Мерзость."
 	icon_state = "fur_jacket5"
 	item_state = "fur_jacket5"
 	worn_state = "fur_jacket5"
@@ -933,12 +933,12 @@
 /obj/item/clothing/suit/storage/coat/fur/verb/toggle_hood()
 	set category = null
 	set src in usr
-	set name = "Toggle Hood"
+	set name = "Накинуть капюшон"
 
 	if (ishuman(usr))
 		var/mob/living/human/H = usr
 		if (H.head)
-			usr << "<span class = 'warning'>You cannot put your hood up, the [H.head] is in the way!</span>"
+			usr << "<span class = 'warning'>Сначала надо убрать [H.head]!</span>"
 			return
 	if (hood)
 		icon_state = "fur_jacket[colorn]"
@@ -947,7 +947,7 @@
 		body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 		cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
 		item_state_slots["slot_wear_suit"] = "fur_jacket[colorn]"
-		usr << "<span class = 'danger'>You take off your coat's hood.</span>"
+		usr << "<span class = 'danger'>Ты снимаешь капюшон.</span>"
 		update_icon()
 		hood = FALSE
 		usr.update_inv_head(1)
@@ -960,7 +960,7 @@
 		body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HEAD
 		cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT|HEAD
 		item_state_slots["slot_wear_suit"] = "fur_jacket[colorn]h"
-		usr << "<span class = 'danger'>You cover your head with your coat's hood.</span>"
+		usr << "<span class = 'danger'>Ты прикрываешь голову капюшоном.</span>"
 		update_icon()
 		hood = TRUE
 		usr.update_inv_head(1)
@@ -970,8 +970,8 @@
 /*Fur Shoes*/
 
 /obj/item/clothing/shoes/fur
-	name = "fur boots"
-	desc = "Dense fur boots."
+	name = "меховые сапоги"
+	desc = "Сапожки из плотного меха."
 	icon_state = "fur"
 	item_state = "fur"
 	worn_state = "fur"
@@ -985,40 +985,40 @@
 	var/specific = FALSE
 
 /obj/item/clothing/shoes/fur/black
-	name = "black fur boots"
-	desc = "Dense fur boots."
+	name = "чёрные меховые сапоги"
+	desc = "Сапожки из плотного меха."
 	icon_state = "fur3"
 	item_state = "fur3"
 	worn_state = "fur3"
 	specific = TRUE
 
 /obj/item/clothing/shoes/fur/brown
-	name = "brown fur boots"
-	desc = "Dense fur boots."
+	name = "коричневые меховые сапоги"
+	desc = "Сапожки из плотного меха."
 	icon_state = "fur1"
 	item_state = "fur1"
 	worn_state = "fur1"
 	specific = TRUE
 
 /obj/item/clothing/shoes/fur/white
-	name = "white fur boots"
-	desc = "Dense fur boots."
+	name = "белые меховые сапоги"
+	desc = "Сапожки из плотного меха."
 	icon_state = "fur4"
 	item_state = "fur4"
 	worn_state = "fur4"
 	specific = TRUE
 
 /obj/item/clothing/shoes/fur/grey
-	name = "grey fur boots"
-	desc = "Dense fur boots."
+	name = "серые меховые сапоги"
+	desc = "Сапожки из плотного меха."
 	icon_state = "fur2"
 	item_state = "fur2"
 	worn_state = "fur2"
 	specific = TRUE
 
 /obj/item/clothing/shoes/fur/pink
-	name = "human skin boots"
-	desc = "Human skin boots."
+	name = "кожанные сапоги"
+	desc = "Сапожки из кожи человека."
 	icon_state = "fur5"
 	item_state = "fur5"
 	worn_state = "fur5"
@@ -1035,8 +1035,8 @@
 /*Ancient Facemasks & Covers*/
 
 /obj/item/clothing/mask/redkerchief
-	name = "red kerchief"
-	desc = "A piece of light cloth, worn around the neck."
+	name = "красный платок"
+	desc = "Кусок легкой ткани, надеваемый на шею."
 	icon_state = "redkerchief"
 	item_state = "redkerchief"
 	worn_state = "redkerchief"
@@ -1045,8 +1045,8 @@
 	var/toggled = FALSE
 
 /obj/item/clothing/mask/shemagh
-	name = "shemagh"
-	desc = "A piece of light cloth, used to protect the head and face."
+	name = "шемаг"
+	desc = "Кусок легкой ткани, используемый для защиты головы и лица."
 	icon_state = "shemagh0"
 	item_state = "shemagh0"
 	worn_state = "shemagh0"
@@ -1060,8 +1060,8 @@
 	heat_protection = HEAD|FACE|EYES
 
 /obj/item/clothing/mask/shemagh/redkerchief
-	name = "red kerchief"
-	desc = "A piece of light cloth, worn around the neck."
+	name = "красный платок"
+	desc = "Кусок легкой ткани, надеваемый на шею."
 	icon_state = "redkerchief0"
 	item_state = "redkerchief0"
 	worn_state = "redkerchief0"
@@ -1072,8 +1072,8 @@
 	w_class = 2
 
 /obj/item/clothing/mask/shemagh/bluekerchief
-	name = "blue kerchief"
-	desc = "A piece of light cloth, worn around the neck."
+	name = "синий платок"
+	desc = "Кусок легкой ткани, надеваемый на шею."
 	icon_state = "bluekerchief0"
 	item_state = "bluekerchief0"
 	worn_state = "bluekerchief0"
@@ -1083,8 +1083,8 @@
 	flags_inv = 0
 	w_class = 2
 /obj/item/clothing/mask/shemagh/yellowkerchief
-	name = "yellow kerchief"
-	desc = "A piece of light cloth, worn around the neck."
+	name = "жёлтый платок"
+	desc = "Кусок легкой ткани, надеваемый на шею."
 	icon_state = "yellowkerchief0"
 	item_state = "yellowkerchief0"
 	worn_state = "yellowkerchief0"
@@ -1095,8 +1095,8 @@
 	w_class = 2
 
 /obj/item/clothing/mask/shemagh/greykerchief
-	name = "grey kerchief"
-	desc = "A piece of light cloth, worn around the neck."
+	name = "серый платок"
+	desc = "Кусок легкой ткани, надеваемый на шею."
 	icon_state = "greykerchief0"
 	item_state = "greykerchief0"
 	worn_state = "greykerchief0"
@@ -1126,14 +1126,14 @@
 /obj/item/clothing/mask/shemagh/verb/toggle_hood()
 	set category = null
 	set src in usr
-	set name = "Toggle"
+	set name = "Приубрать"
 	if (toggled == TRUE)
 		icon_state = unusedstate
 		item_state = unusedstate
 		worn_state = unusedstate
 		body_parts_covered = 0
 		flags_inv = 0
-		usr << "<span class = 'danger'>You adjust the [name].</span>"
+		usr << "<span class = 'danger'>Меняю положение [name].</span>"
 		update_icon()
 		toggled = FALSE
 		usr.update_inv_wear_mask(1)
@@ -1144,7 +1144,7 @@
 		worn_state = usedstate
 		body_parts_covered = partscovered
 		flags_inv = HIDEFACE
-		usr << "<span class = 'danger'>You adjust the [name].</span>"
+		usr << "<span class = 'danger'>Меняю положение [name].</span>"
 		update_icon()
 		toggled = TRUE
 		usr.update_inv_wear_mask(1)
@@ -1155,8 +1155,8 @@
 	/* Asian Uniforms*/
 
 /obj/item/clothing/under/kimono
-	name = "white kimono"
-	desc = "A plain kimono in popular asian style, with simplistic underwear concealed beneath." //skipping the notion that its skintight.
+	name = "белое кимоно"
+	desc = "Простое кимоно в популярном азиатском стиле, под которым скрыто простое нижнее белье." //skipping the notion that its skintight.
 	icon_state = "kimono"
 	item_state = "kimono"
 	worn_state = "kimono"
@@ -1164,16 +1164,16 @@
 	/* Asian Uniforms - End*/
 
 /obj/item/clothing/under/towel  //this was incorrectly reported as a exterior suit, it is actually a interior uniform
-	name = "white towel"
-	desc = "A simple towel to wrap around yourself."
+	name = "белое полотенце"
+	desc = "Простое полотенце, которым можно обернуться."
 	icon_state = "towel"
 	item_state = "towel"
 	worn_state = "towel"
 	heat_protection = LOWER_TORSO
 
 /obj/item/clothing/head/helmet/anax/aries //op fantasy helm
-	name = "aries helmet"
-	desc = "A reinforced bronze greek helmet, covering most of the face, with red plummage on top. Worn by dieties and avatars of destruction such as aries."
+	name = "шлем Овна"
+	desc = "Укрепленный бронзовый греческий шлем, закрывающий большую часть лица, с красным оперением сверху. Его носят божества и аватары разрушения, такие как Овен."
 	icon_state = "aries"
 	item_state = "aries"
 	worn_state = "aries"
@@ -1181,8 +1181,8 @@
 	health = 60
 
 /obj/item/clothing/head/helmet/anax/athena
-	name = "athena helmet"
-	desc = "A reinforced bronze greek helmet, covering most of the face, with blue plummage on top and a gold laurel. Chosen helm of the god of tactical warfare and knowledge athena herself."
+	name = "шлем Афины"
+	desc = "Укрепленный бронзовый греческий шлем, закрывающий большую часть лица, с синим оперением сверху и золотым лавром. Выбрала шлем сама богиня тактической войны и знаний Афина."
 	icon_state = "athena"
 	item_state = "athena"
 	worn_state = "athena"
@@ -1190,8 +1190,8 @@
 	health = 60
 
 /obj/item/clothing/head/helmet/asterix/apollo
-	name = "conspicious gaelic helmet"
-	desc = "The gold winged helmet of the god of the sun and light, as well a a messenger of olympus. The wearer feels energized to move quickly"
+	name = "заметный гэльский шлем"
+	desc = "Золотой крылатый шлем бога солнца и света, а также вестника Олимпа. Владелец чувствует прилив энергии для быстрого движения."
 	icon_state = "apollo"
 	item_state = "apollo"
 	worn_state = "apollo"
@@ -1200,8 +1200,8 @@
 	slowdown = -0.25 //actually reduces your slowdown
 
 /obj/item/clothing/head/helmet/asterix/conspicious //R.I.P Albert Uzdero / René Goscinny respectively.
-	name = "conspicious gaelic helmet"
-	desc = "A hard to miss winged helmet with white & black trimmings and modest red necktie, often worn by chieftains."
+	name = "заметный гэльский шлем"
+	desc = "Трудно не заметить крылатый шлем с бело-черной отделкой и скромным красным галстуком, который часто носят предводители."
 	icon_state = "vitalstatistix"
 	item_state = "vitalstatistix"
 	worn_state = "vitalstatistix"
@@ -1210,8 +1210,8 @@
 	health = 40
 
 /obj/item/clothing/head/helmet/egyptian/anubis
-	name = "bronze anubis headdress"
-	desc = "A bronze egyptian headpiece, with the visage of the god anubis; god of the dead."
+	name = "бронзовый головной убор Анубиса"
+	desc = "Бронзовый египетский головной убор с изображением бога Анубиса - богом мёртвых."
 	icon_state = "anubis"
 	item_state = "anubis"
 	worn_state = "anubis"
@@ -1220,8 +1220,8 @@
 	health = 60
 
 /obj/item/clothing/head/helmet/egyptian/osiris
-	name = "bronze osirus headdress"
-	desc = "A bronze egyptian headpiece, with the visage of the god osiris; god of the underworld."
+	name = "бронзовый головной убор Осирус"
+	desc = "Бронзовый египетский головной убор с изображением бога Осириса - богом подземного мира."
 	icon_state = "osiris"
 	item_state = "osiris"
 	worn_state = "osiris"
@@ -1230,8 +1230,8 @@
 	health = 60
 
 /obj/item/clothing/head/atef
-	name = "atef crown"
-	desc = "A white egyptian crown made from cloth adorned with plumes of feathers. The preferred crown of egyptian dieties."
+	name = "корона атеф"
+	desc = "Белая египетская корона из ткани, украшенная плюмажами из перьев. Предпочитаемая корона египетской элиты."
 	icon_state = "deshret"
 	item_state = "deshret"
 	worn_state = "deshret"
@@ -1239,8 +1239,8 @@
 	heat_protection = HEAD|FACE|EYES
 
 /obj/item/clothing/mask/anubis
-	name = "anubis mask"
-	desc = "A bronze mask in the form of a the egyptian god of the dead, anubis."
+	name = "маска анубиса"
+	desc = "Бронзовая маска в виде египетского бога мёртвых Анубиса."
 	icon_state = "anubis"
 	item_state = "anubis"
 	flags_inv = HIDEFACE
@@ -1253,23 +1253,23 @@
 	flags = CONDUCT
 
 /obj/item/clothing/under/mummywappings
-	name = "linnen wrappings"
+	name = "льняные ткани"
 	icon = 'icons/mob/uniform.dmi'
 	icon_state = "mummy"
 	item_state = "mummy"
 	worn_state = "mummy"
 	canremove = FALSE
-	desc = "The musty wrappings seem to disintigrate as you examine them."
+	desc = "Затхлые ткани, кажется, рассыпаются, когда вы их рассматриваете."
 
 /obj/item/clothing/mask/necklace/christian/gold
-	name = "christian gold necklace"
-	desc = " A chritian necklace, it's made out of gold. Expensive."
+	name = "христианское золотое ожерелье"
+	desc = " Христианское ожерелье из золота. Дорогое."
 	icon_state = "necklace_christian_gold"
 	item_state = "necklace_christian_gold"
 
 /obj/item/clothing/mask/osiris
-	name = "osiris mask"
-	desc = "A mask in the form of a the egyptian god of the underworld, osiris."
+	name = "маска Осириса"
+	desc = "Маска в виде египетского бога подземного мира Осириса."
 	icon_state = "osiris"
 	item_state = "osiris"
 	flags_inv = HIDEFACE
@@ -1282,8 +1282,8 @@
 	heat_protection = FACE|EYES
 
 /obj/item/clothing/mask/stone
-	name = "stone mask"
-	desc = "A stone mask with a masculine apperance with fangs."
+	name = "каменная маска"
+	desc = "Каменная маска с мужественным видом и клыками."
 	icon_state = "stone_mask"
 	item_state = "stone_mask"
 	flags_inv = HIDEFACE
@@ -1295,8 +1295,8 @@
 	heat_protection = FACE|EYES
 
 /obj/item/clothing/mask/stone_jewelled
-	name = "jewelled stone mask"
-	desc = "A jewelled stone mask, possibly sometype of honorific attire?"
+	name = "каменная маска с драгоценным камнем"
+	desc = "Каменная маска, украшенная драгоценным камнем, возможно, что-то вроде почетного одеяния?"
 	icon_state = "stone_mask_jeweled"
 	item_state = "stone_mask_jeweled"
 	flags_inv = HIDEFACE
@@ -1308,8 +1308,8 @@
 	heat_protection = FACE|EYES
 
 /obj/item/clothing/suit/armor/god_pharoah //copied broadly from /obj/item/clothing/suit/armor/sauronarmor
-	name = "pharoahic armor of the gods"
-	desc = "The armor of the divine gods of the desert"
+	name = "фараонские доспехи богов"
+	desc = "Доспехи божественных богов пустыни."
 	icon_state = "settra"
 	item_state = "settra"
 	worn_state = "settra"
@@ -1321,8 +1321,8 @@
 	heat_protection = LOWER_TORSO|LEGS|UPPER_TORSO|ARMS
 
 /obj/item/clothing/head/helmet/yellow_ninja
-	name = "yellow ninja headband"
-	desc = "A armored leather headband of japanese design, wearing it makes you feel faster and the urge to flail your arms behind you as you run."
+	name = "желтая повязка на голову ниндзя"
+	desc = "Бронированная кожаная повязка на голову японского дизайна, ее ношение заставляет вас чувствовать себя быстрее и побуждает размахивать руками за спиной во время бега."
 	icon_state = "yellow_ninja"
 	item_state = "yellow_ninja"
 	worn_state = "yellow_ninja"
