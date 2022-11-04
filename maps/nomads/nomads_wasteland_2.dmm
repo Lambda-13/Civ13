@@ -9720,10 +9720,10 @@
 /obj/item/weapon/gun/projectile/pistol/p220,
 /obj/item/weapon/gun/projectile/submachinegun/ar12,
 /obj/item/ammo_magazine/scarh{
-	name = "AR-12 magazine (7.62x51mm)"
+	name = "AR-12 магазин (7.62x51mm)"
 	},
 /obj/item/ammo_magazine/scarh{
-	name = "AR-12 magazine (7.62x51mm)"
+	name = "AR-12 магазин (7.62x51mm)"
 	},
 /obj/item/weapon/grenade/modern/f1,
 /obj/item/clothing/accessory/armor/nomads/thickcarrier,
