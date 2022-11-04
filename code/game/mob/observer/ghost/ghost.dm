@@ -102,7 +102,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		return
 	..()
 
-/mob/observer/ghost/attack_hand(mob/user)
+/*/mob/observer/ghost/attack_hand(mob/user)
 	if (istype(user, /mob/observer/ghost))
 		var/mob/observer/ghost/G = user
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -127,7 +127,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 				if (animation)
 					qdel(animation)
 	else
-		..()
+		..()*/
 
 /mob/observer/ghost/Life()
 	..()
