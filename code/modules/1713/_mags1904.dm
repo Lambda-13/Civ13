@@ -2,7 +2,7 @@
 RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 ***********************************/
 /obj/item/ammo_magazine/mosin
-	name = "clip (7.62x54mm)"
+	name = "клипса (7.62x54mm)"
 	icon_state = "clip"
 	caliber = "a762x54"
 	ammo_type = /obj/item/ammo_casing/a762x54
@@ -12,7 +12,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	clip = TRUE
 
 /obj/item/ammo_magazine/mosinbox
-	name = "magazine box (7.62x54mm)"
+	name = "патронная коробка (7.62x54mm)"
 	icon_state = "mosin_ammo"
 	mag_type = MAGAZINE
 	caliber = "a762x54"
@@ -23,7 +23,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	is_box = TRUE
 
 /obj/item/ammo_magazine/madsen
-	name = "magazine (7.62x54mm)"
+	name = "рожок (7.62x54mm)"
 	icon_state = "madsen"
 	mag_type = MAGAZINE
 	caliber = "a762x54"
@@ -33,7 +33,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/madsen/box
-	name = "magazine box (7.62x54mm)"
+	name = "патронная коробка (7.62x54mm)"
 	icon_state = "mhbox"
 	mag_type = MAGAZINE
 	caliber = "a762x54"
@@ -43,7 +43,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	multiple_sprites = TRUE
 	is_box = TRUE
 /obj/item/ammo_magazine/b762
-	name = "belt (7.62x51mm)"
+	name = "патронная лента (7.62x51mm)"
 	icon_state = "b762"
 	mag_type = MAGAZINE
 	caliber = "a762x51_weak"
@@ -53,7 +53,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/m249
-	name = "belt (5.56x45mm)"
+	name = "патронная лента (5.56x45mm)"
 	icon_state = "b762"
 	mag_type = MAGAZINE
 	caliber = "a556x45"
@@ -63,7 +63,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/gewehr71
-	name = "clip (7.65x53mm)"
+	name = "клипса (7.65x53mm)"
 	icon_state = "kclip"
 	caliber = "a765x53"
 	ammo_type = /obj/item/ammo_casing/a765x53
@@ -74,7 +74,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 
 
 /obj/item/ammo_magazine/gewehr71box
-	name = "magazine box (7.65x53mm)"
+	name = "патронная коробка (7.65x53mm)"
 	icon_state = "ammo"
 	mag_type = MAGAZINE
 	caliber = "a765x53"
@@ -85,7 +85,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	is_box = TRUE
 
 /obj/item/ammo_magazine/gewehr98
-	name = "clip (7.92x57mm)"
+	name = "клипса (7.92x57mm)"
 	icon_state = "kclip"
 	caliber = "a792x57"
 	ammo_type = /obj/item/ammo_casing/a792x57
@@ -95,7 +95,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	clip = TRUE
 
 /obj/item/ammo_magazine/mauser1893
-	name = "clip (7x53mm)"
+	name = "клипса (7x53mm)"
 	icon_state = "kclip"
 	caliber = "a7x57"
 	ammo_type = /obj/item/ammo_casing/a7x57
@@ -105,7 +105,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	clip = TRUE
 
 /obj/item/ammo_magazine/gewehr98box
-	name = "magazine box (7.92x57mm)"
+	name = "патронная коробка (7.92x57mm)"
 	icon_state = "ammo"
 	mag_type = MAGAZINE
 	caliber = "a792x57"
@@ -117,7 +117,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 
 
 /obj/item/ammo_magazine/mauser1893box
-	name = "magazine box (7x53mm)"
+	name = "патронная коробка (7x53mm)"
 	icon_state = "ammo"
 	mag_type = MAGAZINE
 	caliber = "a7x57"
@@ -150,7 +150,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	is_box = TRUE
 
 /obj/item/ammo_magazine/arisaka
-	name = "clip (6.5x50mm)"
+	name = "клипса (6.5x50mm)"
 	icon_state = "kclip"
 	caliber = "a65x50"
 
@@ -161,7 +161,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	clip = TRUE
 
 /obj/item/ammo_magazine/arisakabox
-	name = "magazine box (6.5x50mm)"
+	name = "патронная коробка (6.5x50mm)"
 	icon_state = "arisaka_ammo"
 	mag_type = MAGAZINE
 	caliber = "a65x50"
@@ -173,7 +173,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	is_box = TRUE
 
 /obj/item/ammo_magazine/carcano
-	name = "clip (6.5x52mm)"
+	name = "клипса (6.5x52mm)"
 	icon_state = "kclip"
 	caliber = "a65x52"
 
@@ -184,7 +184,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	clip = TRUE
 
 /obj/item/ammo_magazine/carcano_box
-	name = "magazine box (6.5x52mm)"
+	name = "патронная коробка (6.5x52mm)"
 	icon_state = "ammo"
 	mag_type = MAGAZINE
 	caliber = "a65x52"
@@ -233,7 +233,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	belt = TRUE
 
 /obj/item/ammo_magazine/vickers/box
-	name = "magazine box (.303 British)"
+	name = "патронная коробка (.303 British)"
 	icon_state = "wood_ammobox"
 	mag_type = MAGAZINE
 	caliber = "a303_weak"
@@ -526,7 +526,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	pouch = TRUE
 
 /obj/item/ammo_magazine/murata
-	name = "clip (8x53mm)"
+	name = "клипса (8x53mm)"
 	icon_state = "kclip"
 	caliber = "a8x53"
 
@@ -537,7 +537,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	clip = TRUE
 
 /obj/item/ammo_magazine/murata_box
-	name = "magazine box (8x53mm)"
+	name = "патронная коробка (8x53mm)"
 	icon_state = "arisaka_ammo"
 	mag_type = MAGAZINE
 	caliber = "a8x53"
@@ -549,7 +549,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	is_box = TRUE
 
 /obj/item/ammo_magazine/enfield
-	name = "clip (.303)"
+	name = "клипса (.303)"
 	icon_state = "clip"
 	caliber = "a303"
 
@@ -560,7 +560,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	clip = TRUE
 
 /obj/item/ammo_magazine/enfield_box
-	name = "magazine box (.303)"
+	name = "патронная коробка (.303)"
 	icon_state = "ammo"
 	mag_type = MAGAZINE
 	caliber = "a303"
@@ -571,7 +571,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	multiple_sprites = FALSE
 	is_box = TRUE
 /obj/item/ammo_magazine/c8x50_3clip
-	name = "clip (8x50mmR Lebel, 3u)"
+	name = "клипса (8x50mmR Lebel, 3u)"
 	icon_state = "clip"
 
 	ammo_type = /obj/item/ammo_casing/a8x50
@@ -581,7 +581,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	multiple_sprites = TRUE
 	clip = TRUE
 /obj/item/ammo_magazine/c8x50_5clip
-	name = "clip (8x50mmR Lebel, 5u)"
+	name = "клипса (8x50mmR Lebel, 5u)"
 	icon_state = "clip"
 
 	ammo_type = /obj/item/ammo_casing/a8x50
