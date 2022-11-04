@@ -1,12 +1,12 @@
 /obj/item/weapon/book/language_book
-	name = "language book"
-	desc = "A book that allows translation between two languages. Nothing is written in it."
+	name = "языковая книга"
+	desc = "Книга, позволяющая переводить между двумя языками. В нем ничего не написано."
 	icon = 'icons/obj/library.dmi'
 	icon_state = "book2" // temporary someone fix this aa
 	throw_speed = TRUE
 	throw_range = 5
 	w_class = 3
-	attack_verb = list("bashed", "whacked")
+	attack_verb = list("шлёпает", "бьёт")
 	flammable = TRUE
 	var/written = FALSE // has this book been written in yet?
 	var/datum/language/lang1 = null // 1st language of translation
@@ -15,7 +15,7 @@
 /obj/item/weapon/book/language_book/attack_self(var/mob/user as mob)
 	var/mob/living/human/H = user
 	if(src.written && lang1 && lang2)
-		var/choice = WWinput(user, "Do you want to learn a language from [src]?", "Learn a Language", "Yes", list("Yes", "No"))
+		var/choice = WWinput(user, "Выучить язык из [src]?", "Учим новый язык", "Yes", list("Yes", "No"))
 		if (choice == "No")
 			return
 		else
@@ -27,39 +27,39 @@
 				if (i == lang2)
 					known2 = TRUE
 			if(!known1 && !known2)
-				user << "<span class = 'warning'>You can't read a language book without knowing one of the languages!</span>"
+				user << "<span class = 'warning'>Не могу прочитать книгу по языку, не зная ни одного из языков написаных тут!</span>"
 				return
 			if(known1 && known2)
-				user << "<span class = 'warning'>You can't read a language book if you already know both languages!</span>"
+				user << "<span class = 'warning'>Не могу читать книгу по языку, если уже знаю оба языка!</span>"
 				return
 			var/datum/language/langtolearn = lang1
 			if (known1)
 				langtolearn = lang2
-			H.visible_message("<span class='notice'>[user] begins to read the [src].</span>", "<span class='notice'>You begin reading translations for [langtolearn.name] in the [src]. This will take around 2 minutes, and you need to stand or sit still.</span>")
+			H.visible_message("<span class='notice'>[user] начинает [pick("", "вдумчиво ")]читать [src].</span>", "<span class='notice'>Начинаю читать переводы для [langtolearn.name] написаных в [src]. Это займет около 2 минут, и вам нужно стоять или сидеть неподвижно.</span>")
 			if(do_after(user, 1200, src))
-				H.visible_message("<span class='notice'>[user] finishes reading the [src].</span>", "<span class='notice'>You finish reading translations in the [src]. You can now understand and speak [langtolearn.name]!</span>")
+				H.visible_message("<span class='notice'>[user] закончил читать [src].</span>", "<span class='notice'>Заканчиваю читать перевод в [src]. Теперь я знаю [langtolearn.name]!</span>")
 				H.add_language(langtolearn.name, FALSE)
 				H.add_note("Known Languages", "[langtolearn.name]")
 	else
-		user << "<span class = 'warning'>You can't read a language book with nothing in it!</span>"
+		user << "<span class = 'warning'>Тут ничего не написано!</span>"
 
 /obj/item/weapon/book/language_book/attackby(obj/item/weapon/W as obj, mob/living/human/user as mob)
 	if(istype(W, /obj/item/weapon/pen))
 		if(user.languages.len < 2)
-			user << "<span class = 'warning'>You can't write a language book if you only know one language!</span>"
+			user << "<span class = 'warning'>Я знаю только один язык, а нужно два!</span>"
 			return
 		if(written)
-			user << "<span class = 'warning'>You can't write a language book that has already been written in!</span>"
+			user << "<span class = 'warning'>Тут уже что-то написано!</span>"
 			return
 		var/list/langcopy = user.languages.Copy() + "Cancel"
-		var/datum/language/language1 = WWinput(user, "What will your 1st language to translate be?", "Writing Translations", "text", langcopy)
+		var/datum/language/language1 = WWinput(user, "Какой будет первый язык для перевода?", "Этот язык", "text", langcopy)
 		langcopy.Remove(language1)
-		var/datum/language/language2 = WWinput(user, "What will your 2nd language to translate be?", "Writing Translations", "text", langcopy)
-		user.visible_message("<span class='notice'>[user] begins to write in the [src].</span>", "<span class='notice'>You begin writing translations in the [src]. This will take around 2 minutes, and you need to stand or sit still.</span>")
+		var/datum/language/language2 = WWinput(user, "Каким будет второй язык для перевода?", "Учит этому языку", "text", langcopy)
+		user.visible_message("<span class='notice'>[user] пишет в [src].</span>", "<span class='notice'>Начинаю записывать перевод в [src]. Это займет около 2 минут, и вам нужно стоять или сидеть неподвижно.</span>")
 		if(do_after(user, 1200, src))
-			user.visible_message("<span class='notice'>[user] finishes writing in the [src].</span>", "<span class='notice'>You finish writing translations in the [src].</span>")
-			src.name = "[language1.name] to [language2.name] language book"
-			src.desc = "A book that allows translation between two languages. It looks like it translates between [language1] and [language2]."
+			user.visible_message("<span class='notice'>[user] закончил писать [src].</span>", "<span class='notice'>Я написал перевод в [src].</span>")
+			src.name = "языковая книга"
+			src.desc = "Книга, позволяющая переводить между двумя языками. Похоже, это перевод между [language1] и [language2]."
 			src.written = TRUE
 			src.lang1 = language1
 			src.lang2 = language2
