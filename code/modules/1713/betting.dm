@@ -1,6 +1,6 @@
 /obj/structure/betting_box
-	name = "betting box"
-	desc = "A box storing bets on something."
+	name = "ставочный ящик"
+	desc = "Ящик для ставок."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "bet_box"
 	flammable = FALSE
@@ -14,20 +14,20 @@
 	var/moneyname = "rubles"
 	var/match_running = FALSE
 /obj/structure/betting_box/red
-	name = "red betting box"
+	name = "красный ставочный ящик"
 	icon_state = "bet_box_red"
-	desc = "A box storing bets on the red."
+	desc = "Ящик для ставок на красных."
 	bettingon = "red"
 
 /obj/structure/betting_box/blue
-	name = "blue betting box"
+	name = "синий ставочный ящик"
 	icon_state = "bet_box_blue"
-	desc = "A box storing bets on the blue."
+	desc = "Ящик для ставок на синих."
 	bettingon = "blue"
 
 /obj/structure/betting_box/examine(mob/user)
 	..()
-	user << "<b>There is a total of [process_totals()] [moneyname] inside.</b>"
+	user << "<b>Тут всего [process_totals()] [moneyname] внутри.</b>"
 
 /obj/structure/betting_box/proc/clear_bets()
 	odd = 2.0
@@ -72,7 +72,7 @@
 			RB.amount = i[2]
 			H.put_in_active_hand(RB)
 			i[2]=0
-			H << "You withdraw [RB] rubles."
+			H << "Закидываю [RB] рублей."
 			return
 /obj/structure/betting_box/attackby(var/obj/item/I,var/mob/living/human/H)
 	if (!istype(I, /obj/item/stack/money))
@@ -140,12 +140,14 @@
 		return
 
 /obj/effect/bet_processor/proc/start_match()
-	blue_player.visible_message("<big>A combat is starting between [red_player.real_name] (red) and [blue_player.real_name] (blue)!</big>")
+	blue_player.visible_message("<big>Бой между [red_player.real_name] (красный) и [blue_player.real_name] (синий) начинается!</big>")
 	for (var/obj/structure/betting_box/BB in range(5,src))
 		BB.match_running = TRUE
 	if (istype(map, /obj/map_metadata/gulag13))
 		var/obj/map_metadata/gulag13/G = map
 		G.gracedown1 = FALSE
+		playsound(red_player, 'lambda/sanecman/sound/quake_3/feedback/fight.ogg', 50, TRUE)
+		playsound(blue_player, 'lambda/sanecman/sound/quake_3/feedback/fight.ogg', 50, TRUE)
 	process_match()
 	return
 
@@ -154,7 +156,8 @@
 		for(var/mob/living/human/H in curr_area)
 			if (H.stat != CONSCIOUS || H.surrendered)
 				if (H == red_player)
-					H.visible_message("<big>The <font color='blue'>Blue Player</font> ([blue_player.real_name]) wins!</big>")
+					H.visible_message("<big>The <font color='blue'>Синий боец</font> ([blue_player.real_name]) побеждает!</big>")
+					playsound(blue_player, 'lambda/sanecman/sound/quake_3/player/announce/youwin.ogg', 50, TRUE)
 					match_running = FALSE
 					for (var/obj/structure/betting_box/BB in range(5,src))
 						BB.match_running = FALSE
@@ -164,7 +167,8 @@
 						G.gracedown1 = TRUE
 					return
 				else if (H == blue_player)
-					H.visible_message("<big>The <font color='red'>Red Player</font> ([red_player.real_name]) wins!</big>")
+					H.visible_message("<big>The <font color='red'>Красный боец</font> ([red_player.real_name]) побеждает!</big>")
+					playsound(red_player, 'lambda/sanecman/sound/quake_3/player/announce/youwin.ogg', 50, TRUE)
 					match_running = FALSE
 					for (var/obj/structure/betting_box/BB in range(5,src))
 						BB.match_running = FALSE
