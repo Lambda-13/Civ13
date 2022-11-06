@@ -79,7 +79,7 @@
 		if (back.blood_DNA)
 			msg += "<span class='warning'>На спине висит \icon[back] [back.gender==PLURAL?"some":"a"] [back] [(back.blood_color != "#030303") ? "(в крови)" : "(в масле)"].</span>\n"
 		else
-			msg += ">На спине висит \icon[back] [back].\n"
+			msg += "На спине висит \icon[back] [back].\n"
 
 	//shoulder
 	if (shoulder)
