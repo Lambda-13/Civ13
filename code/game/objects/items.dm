@@ -602,7 +602,7 @@ var/list/global/slot_flags_enumeration = list(
 		M.show_message("[user] holds up [src]. <a HREF=?src=\ref[M];lookitem=\ref[src]>Take a closer look.</a>",1)
 
 /mob/living/human/verb/showoff()
-	set name = "Показать предмет"
+	set name = "Show Held Item"
 	set category = "ИЦ"
 
 	var/obj/item/I = get_active_hand()

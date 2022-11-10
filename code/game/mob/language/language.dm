@@ -740,11 +740,11 @@
 
 //TBD
 /mob/verb/check_languages()
-	set name = "Проверить мои языки"
+	set name = "Check Known Languages"
 	set category = "ИЦ"
 	set src = usr
 
-	var/dat = "<meta charset='utf-8'><b><font size = 5>Языки</font></b><br/><br/>"
+	var/dat = "<b><font size = 5>Known Languages</font></b><br/><br/>"
 
 	for (var/datum/language/L in languages)
 		if (!(L.flags & NONGLOBAL))
@@ -754,15 +754,15 @@
 	return
 
 /mob/living/check_languages()
-	var/dat = "<b><font size = 5>Языки</font></b><br/><br/>"
+	var/dat = "<b><font size = 5>Known Languages</font></b><br/><br/>"
 
 	if (default_language)
-		dat += "Сейчас я говорю на: [default_language]<br/><br/>"
+		dat += "Current default language: [default_language]<br/><br/>"
 
 	for (var/datum/language/L in languages)
 		if (!(L.flags & NONGLOBAL))
 			if (L == default_language)
-				dat += "<b>[L.name] ([get_language_prefix()][L.key])</b> - используется<br/>[L.desc]<br/><br/>"
+				dat += "<b>[L.name] ([get_language_prefix()][L.key])</b> - default<br/>[L.desc]<br/><br/>"
 			else
 				dat += "<b>[L.name] ([get_language_prefix()][L.key])</b><br/>[L.desc]<br/><br/>"
 

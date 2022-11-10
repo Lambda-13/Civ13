@@ -179,8 +179,8 @@ default behaviour is:
 	return can_move_mob(tmob, TRUE, FALSE)
 
 /mob/living/verb/succumb()
-	set name = "Суицид"
-	set desc = "Сдаться и умереть."
+	set name = "Succumb"
+	set desc = "Succumb to death."
 	set category = "ИЦ"
 	if (getTotalDmg() > 60)
 		if (WWinput(src, "Are you sure you want to succumb? You only live once.", "", "Cancel", list("Succumb", "Cancel")) == "Succumb")
@@ -580,7 +580,7 @@ default behaviour is:
 
 
 /mob/living/verb/resist()
-	set name = "Сопротивляться"
+	set name = "Resist"
 	set category = "ИЦ"
 
 	if (!stat && canClick())
@@ -632,7 +632,7 @@ default behaviour is:
 
 
 /mob/living/verb/lay_down()
-	set name = "Лечь"
+	set name = "Rest"
 	set category = "ИЦ"
 
 	resting = !resting
@@ -720,7 +720,7 @@ default behaviour is:
 
 /mob/living/stop_pulling()
 
-	set name = "Прекратить тащить"
+	set name = "Stop Pulling"
 	set category = "ИЦ"
 
 
