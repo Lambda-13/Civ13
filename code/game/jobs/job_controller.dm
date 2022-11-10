@@ -565,7 +565,11 @@ var/global/datum/controller/occupations/job_master
 					H.memory()
 */
 
-			H << "You name a [H.real_name]"
+			H << "<big>Меня зовут <b>[H.real_name]</b>, я <b>[H.original_job_title]</b>.</big>"
+			H << "<big>Как [H.original_job.faction] я говорю на [H.original_job.default_language].</big>"
+			if (map && map.is_zombie)
+				H << "<big>Надо не забывать что вокруг зомби, а значит если меня укусят мне надо срочно принять <b>Potassium Iodide</b> до превращения в зомби.</big>"
+
 
 
 			return H
