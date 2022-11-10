@@ -44,13 +44,13 @@ open//totally not basing this off of the language datum system.
 
 //verbs
 /mob/verb/check_spells()
-	set name = "Spellcast"
-	set desc = "Lists the spells you know for selection."
+	set name = "Магия"
+	set desc = "Наколдовать что-то."
 	set category = "ИЦ"
 	set src = usr
 
 	if (isliving(src))
-		var/dat = "<b><font size = 5>Spells</font></b><br/><br/>"
+		var/dat = "<meta charset'utf-8'><b><font size = 5>Магия</font></b><br/><br/>"
 
 		for (var/datum/spell/S in spell_list)
 			dat += {"<a href='byond://?src=\ref[src];spell=[S]>
@@ -60,9 +60,9 @@ open//totally not basing this off of the language datum system.
 		if(spell_list.len > 0)
 			src << browse(dat, "window=checklanguage")
 		else
-			src << "<span class='warning'>You know no spells!</span>"
+			src << "<span class='warning'>Я не маг!</span>"
 	else
-		src << "<span class='warning'>This verb may only be used while alive.</span>"
+		src << "<span class='warning'>Я мёртв.</span>"
 	return
 
 //Spell in hand.

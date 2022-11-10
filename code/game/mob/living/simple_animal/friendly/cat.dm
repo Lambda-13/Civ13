@@ -198,22 +198,22 @@
 			audible_emote("[verb] anxiously.")
 
 /mob/living/simple_animal/cat/fluff/verb/friend()
-	set name = "Become Friends"
+	set name = "Подружиться"
 	set category = "ИЦ"
 	set src in view(1)
 
 	if (friend && usr == friend)
 		set_dir(get_dir(src, friend))
-		say("Meow!")
+		say("Мяу!")
 		return
 
 	if (ishuman(usr))
 		friend = usr
 		set_dir(get_dir(src, friend))
-		say("Meow!")
+		say("Мявк!")
 		return
 
-	usr << "<span class='notice'>[src] ignores you.</span>"
+	usr << "<span class='notice'>[src] игнорирует тебя.</span>"
 	return
 
 

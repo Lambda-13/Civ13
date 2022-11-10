@@ -1,5 +1,5 @@
 /mob/living/verb/set_default_language(language as anything in languages)
-	set name = "Set Default Language"
+	set name = "Выбрать мой язык"
 	set category = "ИЦ"
 
 	if (!languages.len)
@@ -12,7 +12,7 @@
 	default_language = language
 
 /mob/living/verb/check_default_language()
-	set name = "Check Default Language"
+	set name = "Проверить мои языки"
 	set category = "ИЦ"
 
 	if (default_language)

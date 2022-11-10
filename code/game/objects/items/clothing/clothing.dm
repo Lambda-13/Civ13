@@ -350,8 +350,8 @@ BLIND	 // can't see anything
 	else return ..(M)
 
 /obj/item/clothing/shoes/proc/draw_knife()
-	set name = "Draw Hidden Weapon"
-	set desc = "Pull out your boot knife or small pistol."
+	set name = "Достать скрытое оружие"
+	set desc = "Достаёт скрытое в ботинке оружие."
 	set category = "ИЦ"
 	set src in usr
 
@@ -364,10 +364,10 @@ BLIND	 // can't see anything
 	holding.forceMove(get_turf(usr))
 
 	if (usr.put_in_hands(holding))
-		usr.visible_message("<span class='danger'>\The [usr] pulls a [holding] out of their boot!</span>")
+		usr.visible_message("<span class='danger'>[usr] достаёт [holding] из своей обуви!</span>")
 		holding = null
 	else
-		usr << "<span class='warning'>Your need an empty, unbroken hand to do that.</span>"
+		usr << "<span class='warning'>У меня нету!</span>"
 		holding.forceMove(src)
 
 	if (!holding)

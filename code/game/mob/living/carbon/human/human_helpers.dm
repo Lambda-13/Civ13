@@ -78,7 +78,7 @@
 
 
 /mob/living/human/verb/mob_sleep()
-	set name = "Sleep"
+	set name = "Спать"
 	set category = "ИЦ"
 
 	if(map && map.ID == MAP_VOYAGE)
@@ -139,7 +139,7 @@
 					log_game("[name]([key]) уснул на кровати и был перенесён в сейф зону")
 					return
 /mob/living/human/verb/mob_wakeup()
-	set name = "Wake Up"
+	set name = "Проснуться"
 	set category = "ИЦ"
 
 	if (!usr.sleeping && !inducedSSD)

@@ -199,7 +199,7 @@
 		src.examine(user)*/
 
 /mob/verb/interact(atom/A as mob|obj|turf in view(1))
-	set name = "Interact"
+	set name = "Взаимодействовать"
 	set category = "ИЦ"
 	if (ishuman(src))
 		if(A in range(1,src))
@@ -209,7 +209,7 @@
 
 //mob verbs are faster than object verbs. See http://www.byond.com/forum/?post=1326139&page=2#comment8198716 for why this isn't atom/verb/examine()
 /mob/verb/examinate(atom/A as mob|obj|turf in view())
-	set name = "Examine"
+	set name = "Осмотреть"
 	set category = "ИЦ"
 
 	if ((is_blind(src) || stat) && !isobserver(src))
@@ -257,7 +257,7 @@
 	return
 
 /mob/verb/mode()
-	set name = "Activate Held Object"
+	set name = "Рука - активировать"
 	set category = "ИЦ"
 	set src = usr
 	if (ishuman(src))
@@ -340,7 +340,7 @@
 
 
 /mob/verb/secondary_action()
-	set name = "Activate Secondary Object"
+	set name = "Рука - доп активировать"
 	set category = "ИЦ"
 	set src = usr
 	if (hand)
@@ -366,16 +366,16 @@
 */
 
 /mob/verb/memory()
-	set name = "Notes"
+	set name = "Воспоминания"
 	set category = "ИЦ"
 	if (mind)
 		mind.show_memory(src)
 	else
-		src << "The game appears to have misplaced your mind datum, so we can't show you your notes."
+		src << "Я тупой."
 
 
 /mob/verb/add_memory(msg as message)
-	set name = "Add Note"
+	set name = "Добавить воспоминание"
 	set category = "ИЦ"
 
 	msg = replacetext(msg, "<i>", "")
@@ -458,25 +458,25 @@
 */
 
 /mob/verb/abandon_mob()
-	set name = "Respawn"
-	set category = "ИЦ"
+	set name = "Возродиться"
+	set category = "ООС"
 
 	if (!( config.abandon_allowed ))
-		usr << "<span class='notice'>Respawn is disabled.</span>"
+		usr << "<span class='notice'>Возрождения отключены.</span>"
 		return
 
 	if ((stat != DEAD || !( ticker )))
-		usr << "<span class='notice'><b>You must be dead to use this!</b></span>"
+		usr << "<span class='notice'><b>Я ещё живой!</b></span>"
 		return
 
 	src << browse(null, "window=memory")
 
-	src << "You can respawn now, enjoy your new life!"
+	src << "Добро пожаловать во вторую жизнь!"
 	stop_ambience(usr)
 
 	log_game("[name]/[key] used abandon mob.")
 
-	usr << "<span class='notice'><b>Make sure to play a different character, and please roleplay correctly!</b></span>"
+	usr << "<span class='notice'><b>Забудь о своеём прошлом и живи настоящим!</b></span>"
 
 	if (!client)
 		log_game("[key] AM failed due to disconnect.")
@@ -585,7 +585,7 @@
 
 /mob/verb/stop_pulling()
 
-	set name = "Stop Pulling"
+	set name = "Прекратить тащить"
 	set category = "ИЦ"
 
 	if (pulling)
@@ -1067,16 +1067,16 @@ mob/proc/yank_out_object()
 
 /mob/verb/face_direction()
 
-	set name = "Face Direction"
+	set name = "Зафиксировать взгляд"
 	set category = "ИЦ"
 	set src = usr
 
 	set_face_dir()
 
 	if (!facing_dir)
-		usr << "You are now not facing anything."
+		usr << "Не смотрю в одну сторону."
 	else
-		usr << "You are now facing [dir2text(facing_dir)]."
+		usr << "Смотрю в одну сторону."
 	if (ishuman(src))
 		var/mob/living/human/H = src
 		if (H.HUDneed.Find("fixeye"))

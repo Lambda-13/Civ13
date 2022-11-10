@@ -713,10 +713,10 @@
 		L.set_face_dir()
 
 		if (!L.facing_dir)
-			L << "You are now not facing anything."
+			L << "Теперь не смотрю в одну сторону."
 			icon_state = "fixeye"
 		else
-			L << "You are now facing [dir2text(L.facing_dir)]."
+			L << "Теперь смотрю в одну сторону."
 			icon_state = "fixeye_on"
 		update_icon()
 

@@ -2,12 +2,12 @@
 	return
 
 /mob/verb/whisper()
-	set name = "Whisper"
+	set name = "Шёпот"
 	set category = "ИЦ"
 	return
 
 /mob/verb/say_verb(message as text)
-	set name = "Say"
+	set name = "Говорить"
 	set category = "ИЦ"
 	if (say_disabled)	//This is here to try to identify lag problems
 		usr << "<span class = 'red'>Speech is currently admin-disabled.</span>"
@@ -38,7 +38,7 @@
 		return
 	usr.say(message, TRUE)
 /mob/verb/me_verb(message as text)
-	set name = "Me"
+	set name = "Действие"
 	set category = "ИЦ"
 	if (ishuman(src))
 		var/mob/living/human/H = src
