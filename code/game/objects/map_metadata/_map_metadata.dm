@@ -386,7 +386,7 @@ var/civmax_research = list(230,230,230)
 	if (windspeedvar != oldspeed)
 		world << "<big>Надвигается <b>[windspeed_ru]</b>.</big>"
 	if (winddirection != oldwind)
-		world << "<big>Теперь ветер дует с <b>[lowertext(winddirection_ru)]</b>.</big>"
+		world << "<big>Теперь ветер дует с <b>[lowertext(winddirection_ru)]а</b>.</big>"
 	spawn(rand(3600,6000))
 		wind()
 
