@@ -1102,5 +1102,6 @@
 #include "lambda\sanecman\code\serverside\hesheit.dm"
 #include "lambda\sanecman\code\serverside\lists.dm"
 #include "lambda\sanecman\code\serverside\padezhi.dm"
+#include "lambda\sanecman\code\serverside\debug.dm"
 #include "maps\nomads\nomads_wasteland_2.dmm"
 // END_INCLUDE
