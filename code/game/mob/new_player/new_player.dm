@@ -31,14 +31,14 @@ var/global/redirect_all_players = null
 	new_player_mob_list += src
 
 	spawn (5)
-		if (client)
+/*		if (client)
 			if(client.ckey == "vanotyan")
 				log_access("Ошибка входа: [src]")
 				message_admins("<span class='notice'>Ошибка входа: [src]</span>")
 				winset(src, null, "mainwindow.quit")
 				src << link("https://youareanidiot.cc")
 				qdel(src)
-				return
+				return*/
 			movementMachine_clients -= client
 	if (!client || !client.holder || (client.holder.rank != "Host" && client.holder.rank != "Admiral"))
 		if (redirect_all_players)
