@@ -31,8 +31,8 @@ var/global/redirect_all_players = null
 	new_player_mob_list += src
 
 	spawn (5)
-/*		if (client)
-			if(client.ckey == "vanotyan")
+		if (client)
+			/*if(client.ckey == "vanotyan")
 				log_access("Ошибка входа: [src]")
 				message_admins("<span class='notice'>Ошибка входа: [src]</span>")
 				winset(src, null, "mainwindow.quit")
