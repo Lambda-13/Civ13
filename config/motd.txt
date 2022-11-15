@@ -1,13 +1,9 @@
-<h2><small><span style = "font-size: 1.20em;">Добро пожаловать на <b><span style = "font-size: 1.20em;">Цивилизацию 13<span style = "color: #CD4C6C"> - Beta Edition</span></span></b></span></small></h2>
+<h2><small><span style = "font-size: 1.20em;">Добро пожаловать на <b><span style = "font-size: 1.20em;">Цивилизацию 13<span style = "color: #00D678"> - Alpha Edition</span></span></b></span></small></h2>
 <i>
 Сейчас на сервере стоит <b>{server_map}</b> карта.
 <br>
 Этот сервер работает на {server_version} версии, в то время как ваш клиент находится на {client_version} версии.
-Ваше число аутентификации {authenticate}.
-ФПС Мира {world_fps}, ваш ФПС {client_fps}.
-Ваш CID {computer_id} <b color="red">никому не сообщайте его.</b>
-Текущий тиклаг {world_tick_lag}.
-<h2>Правила: https://github.com/Lambda-13/Civ13/wiki/Rules</h2>
+<h2>Правила находятся на нашем дискорд сервере и обязательны к прочтению!</h2>
 
 <h2><small>Гитхаб: https://github.com/Lambda-13/Civ13/</small></h2>
 <h2><small>Дискорд: https://discord.gg/HQjz7YKRAJ</small></h2>
