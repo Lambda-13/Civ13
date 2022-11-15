@@ -1,6 +1,6 @@
 /obj/item/weapon/grenade/smokebomb
-	desc = "It is set to detonate in 2 seconds."
-	name = "smoke grenade"
+	name = "дымовая граната"
+	desc = "Пускает дым, взорвётся через 2 секунды."
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "m18smoke"
 	det_time = 20
@@ -37,13 +37,13 @@
 
 /obj/item/weapon/grenade/smokebomb/fast_activate()
 	spawn(round(det_time/10))
-		visible_message("<span class = 'warning'>\The [src] goes off!</span>")
+		visible_message("<span class = 'warning'>[src] начинает дымиться!</span>")
 		active = TRUE
 		prime()
 
 /obj/item/weapon/grenade/smokebomb/m18smoke
-	desc = "It is set to detonate in 2 seconds."
-	name = "M18 smoke grenade"
+	name = "дымовая граната M18"
+	desc = "Дымовая граната, взорвётся через 2 секунды."
 	icon_state = "m18smoke"
 	det_time = 20
 	item_state = "m18smoke"
@@ -51,8 +51,8 @@
 //////////Signal Smoke//////////////////////////////////////////
 
 /obj/item/weapon/grenade/smokebomb/m18smoke/signal
-	desc = "It is set to detonate in 2 seconds. A US Army helicopter will drop a crate of supplies at its location."
-	name = "M18 signal smoke grenade (supplies)"
+	name = "дымовая сигнальная граната M18"
+	desc = "Дымовая граната, взорвётся через 2 секунды. Вертолет армии США сбросит на место дыма ящик с припасами."
 	icon_state = "m18smoke_purple"
 	det_time = 20
 	item_state = "m18smoke_purple"
@@ -83,7 +83,7 @@
 				if(src && choice)
 					var/list/things_to_spawn = options[choice]
 					for(var/new_type in things_to_spawn)
-						user << "<span class='warning'>You light \the [name]! [det_time/10] seconds!</span>"
+						user << "<span class='warning'>Активирую [name]! [det_time/10] до взрыва!</span>"
 						firer = user
 						activate(user)
 						add_fingerprint(user)
@@ -94,7 +94,7 @@
 						sleep(500)
 						new new_type(get_turf(src))
 			else
-				visible_message("<span class = 'danger'>There is no sufficient visibility for a supply drop!</span>")
+				visible_message("<span class = 'danger'>Нет достаточной видимости дыма для падения ящиков снабжения!</span>")
 		else
 			firer = user
 			activate(user)
@@ -112,7 +112,7 @@
 		if (triggered_by_us == TRUE)
 			sleep(300)
 			if (time_of_day != "Night")
-				world << "The sound of a helicopter rotor can be heard in the distance."
+				world << "Слышу гул лопастей."
 				if (map.ID == "ROAD_TO_DAK_TO" || map.ID == "COMPOUND" || map.ID == "HUE" || map.ID == "ONG_THAHN")
 					playsound(get_turf(src), 'sound/effects/uh1.ogg', 100, TRUE, extrarange = 70)
 					sleep(200)
@@ -127,14 +127,14 @@
 
 /obj/item/weapon/grenade/smokebomb/m18smoke/signal/fast_activate()
 	spawn(round(det_time/10))
-		visible_message("<span class = 'warning'>\The [src] goes off!</span>")
+		visible_message("<span class = 'warning'>[src] пускает сигнальный дым!</span>")
 		active = TRUE
 		prime()
 
 ///////////////////////////////////////////////////////////////////////////////
 /obj/item/weapon/grenade/incendiary
-	desc = "It is set to detonate in 6 seconds."
-	name = "incendiary grenade"
+	name = "зажигательная граната"
+	desc = "Поджигает вокруг себя всё, взорвётся через 6 секунд."
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "incendiary"
 	det_time = 60
@@ -143,14 +143,14 @@
 	var/spread_range = 2
 
 /obj/item/weapon/grenade/incendiary/incendiarydetonator
-	name = "Incendiary Detonator"
-	desc = "A grenade-like incendiary weapon popular among military personnel, criminals, bountyhunters, and mercenaries."
+	name = "термальный детонатор типа \"А\""
+	desc = "Созданый по заказу БласТех Индастриз, данная термальная граната может уничтожить всё вокруг себя в довольно большом радиусе. Данная версия гранаты помимо взрыва ещё и поджигает всё вокруг благодаря большому количеству барадия внутри неё."
 	icon_state = "detonator"
 	det_time = 35
 	throw_range = 12
 
 /obj/item/weapon/grenade/incendiary/anm14
-	name = "AN/M14 incendiary grenade"
+	name = "зажигательная граната AN/M14"
 
 /obj/item/weapon/grenade/incendiary/prime()
 	if (active)
@@ -169,14 +169,14 @@
 
 /obj/item/weapon/grenade/incendiary/fast_activate()
 	spawn(round(det_time/10))
-		visible_message("<span class = 'warning'>\The [src] goes off!</span>")
+		visible_message("<span class = 'warning'>[src] начинает дымиться!</span>")
 		active = TRUE
 		prime()
 
 
 /obj/item/weapon/grenade/chemical
-	desc = "It is set to detonate in 5 seconds."
-	name = "chemical grenade"
+	name = "химическая граната"
+	desc = "Пускает газ, взорвётся через 5 секунд."
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "m18smoke"
 	det_time = 50
@@ -214,30 +214,30 @@
 
 /obj/item/weapon/grenade/chemical/fast_activate()
 	spawn(round(det_time/10))
-		visible_message("<span class = 'warning'>\The [src] goes off!</span>")
+		visible_message("<span class = 'warning'>[src] начинает пускать дым!</span>")
 		active = TRUE
 		prime()
 
 /obj/item/weapon/grenade/chemical/chlorine
-	name = "chlorine gas grenade"
+	name = "хлорная граната"
 	stype = /datum/effect/effect/system/smoke_spread/bad/chem/payload/chlorine_gas
 
 /obj/item/weapon/grenade/chemical/mustard
-	name = "mustard gas grenade"
+	name = "слезоточивая граната"
 	stype = /datum/effect/effect/system/smoke_spread/bad/chem/payload/mustard_gas
 
 /obj/item/weapon/grenade/chemical/phosgene
-	name = "phosgene gas grenade"
+	name = "фосгенная граната"
 	stype = /datum/effect/effect/system/smoke_spread/bad/chem/payload/phosgene
 
 /obj/item/weapon/grenade/chemical/white_phosphorus
-	name = "white phosphorus gas grenade"
+	name = "фосфорная граната"
 	stype = /datum/effect/effect/system/smoke_spread/bad/chem/payload/white_phosphorus_gas
 
 /obj/item/weapon/grenade/chemical/xylyl_bromide
-	name = "xylyl bromide gas grenade"
+	name = "ксилилбромидовая граната"
 	stype = /datum/effect/effect/system/smoke_spread/bad/chem/payload/xylyl_bromide
 
 /obj/item/weapon/grenade/chemical/zyklon_b
-	name = "Zyklon B gas grenade"
+	name = "граната с циклоном Б"
 	stype = /datum/effect/effect/system/smoke_spread/bad/chem/payload/zyklon_b
