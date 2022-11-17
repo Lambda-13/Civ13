@@ -204,7 +204,7 @@ var/list/global/phone_numbers = list()
 	else if (connected)
 		connected = FALSE
 		if (origincall)
-			user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Поднимаю трубку."
+			user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Отключаюсь."
 			if (ishuman(origincall.loc))
 				origincall.loc << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Someone hangs up the phone."
 			else
@@ -230,7 +230,7 @@ var/list/global/phone_numbers = list()
 			origincall.connected = phonenumber
 			origincall.ringing = FALSE
 			origincall.origincall = src
-			user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Отключаюсь."
+			user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Поднимаю трубку."
 			if (ishuman(origincall.loc))
 				origincall.loc << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Someone picks up the phone."
 			else
