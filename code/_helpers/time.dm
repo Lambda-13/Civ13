@@ -140,3 +140,7 @@ var/round_start_time = FALSE
 /proc/process_schedule_interval(var/process_name)
 	var/process/process = processScheduler.getProcess(process_name)
 	return process.schedule_interval
+
+//Returns the world time in english
+/proc/worldtime2text(time = world.time)
+	return "[round(time / 36000)+12]:[(time / 600 % 60) < 10 ? add_zero(time / 600 % 60, 1) : time / 600 % 60]"
