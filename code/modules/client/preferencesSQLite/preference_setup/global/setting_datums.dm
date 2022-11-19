@@ -45,19 +45,19 @@ var/list/_client_preferences_by_type
 *********************/
 
 /datum/client_preference/show_chat_overlays
-	description ="Show chat overlays"
+	description ="Показать оверлей чата"
 	key = "CHAT_OVERLAY"
 
 /datum/client_preference/show_tips
-	description ="Show tips"
+	description ="Постоянно выводить советы"
 	key = "CHAT_TIPS"
 
 /datum/client_preference/play_chat_tts
-	description ="Play chat TTS"
+	description ="Слова в звук TTS"
 	key = "CHAT_TTS"
 
 /datum/client_preference/play_admin_midis
-	description ="Play admin midis"
+	description ="Админсаунды"
 	key = "SOUND_MIDI"
 
 /datum/client_preference/play_admin_midis/toggled(var/mob/new_player/preference_mob, var/enabled)
@@ -65,7 +65,7 @@ var/list/_client_preferences_by_type
 		preference_mob << sound(null, channel = 777)
 
 /datum/client_preference/play_lobby_music
-	description ="Play lobby music"
+	description ="Лобби музыка"
 	key = "SOUND_LOBBY"
 
 /datum/client_preference/play_lobby_music/toggled(var/mob/new_player/preference_mob, var/enabled)
@@ -89,31 +89,31 @@ var/list/_client_preferences_by_type
 		preference_mob << sound(null, repeat = FALSE, wait = FALSE, volume = FALSE, channel = 2)
 */
 /datum/client_preference/ghost_ears
-	description ="Ghost ears"
+	description ="Призрак - слышать всё"
 	key = "CHAT_GHOSTEARS"
 	enabled_description = "All Speech"
 	disabled_description = "Nearby"
 
 /datum/client_preference/ghost_sight
-	description ="Ghost sight"
+	description ="Призрак - видеть эмоуты"
 	key = "CHAT_GHOSTSIGHT"
 	enabled_description = "All Emotes"
 	disabled_description = "Nearby"
 
 /datum/client_preference/ghost_radio
-	description ="Ghost radio"
+	description ="Призрак - слышать радио"
 	key = "CHAT_GHOSTRADIO"
 	enabled_description = "All Chatter"
 	disabled_description = "Nearby"
 
 /datum/client_preference/chat_tags
-	description ="Chat tags"
+	description ="Теги чата"
 	key = "CHAT_SHOWICONS"
 	enabled_description = "Show"
 	disabled_description = "Hide"
 
 /datum/client_preference/show_typing_indicator
-	description ="Typing indicator"
+	description ="Индикатор \"Печатает\""
 	key = "SHOW_TYPING"
 	enabled_description = "Show"
 	disabled_description = "Hide"
@@ -123,28 +123,34 @@ var/list/_client_preferences_by_type
 		preference_mob.set_typing_indicator(0)
 
 /datum/client_preference/show_ooc
-	description ="OOC chat"
+	description ="Вне-игровой общий (ООС) чат"
 	key = "CHAT_OOC"
 	enabled_description = "Show"
 	disabled_description = "Hide"
 
 /datum/client_preference/show_looc
-	description ="LOOC chat"
+	description ="Вне-игровой локальный (ЛООК) чат"
 	key = "CHAT_LOOC"
 	enabled_description = "Show"
 	disabled_description = "Hide"
 
 /datum/client_preference/show_dsay
-	description ="Dead chat"
+	description ="Мёртвый (dead) чат"
 	key = "CHAT_DEAD"
 	enabled_description = "Show"
 	disabled_description = "Hide"
 
 /datum/client_preference/show_progress_bar
-	description ="Progress Bar"
+	description ="Полоска процесса (progress bar)"
 	key = "SHOW_PROGRESS"
 	enabled_description = "Show"
 	disabled_description = "Hide"
+
+/datum/client_preference/fit_viewport
+	description ="Подстраивать экран при заходе в игру"
+	key = "FIT_VIEWPORT"
+	enabled_description = "Fix"
+	disabled_description = "Neverby"
 
 /********************
 * Admin Preferences *
@@ -153,21 +159,21 @@ var/list/_client_preferences_by_type
 	return check_rights(R_ADMIN, FALSE, preference_mob)
 
 /datum/client_preference/admin/show_attack_logs
-	description = "Attack Log Messages"
+	description = "Админ - логи атак"
 	key = "CHAT_ATTACKLOGS"
 	enabled_description = "Show"
 	disabled_description = "Hide"
 	enabled_by_default = FALSE
 
 /datum/client_preference/admin/show_debug_logs
-	description = "Debug Log Messages"
+	description = "Админ - дебаг логи"
 	key = "CHAT_DEBUGLOGS"
 	enabled_description = "Show"
 	disabled_description = "Hide"
 	enabled_by_default = FALSE
 
 /datum/client_preference/admin/show_chat_prayers
-	description = "Chat Prayers"
+	description = "Админ - преи"
 	key = "CHAT_PRAYER"
 	enabled_description = "Show"
 	disabled_description = "Hide"
@@ -176,7 +182,7 @@ var/list/_client_preferences_by_type
 	return preference_mob && preference_mob.client && preference_mob.client.holder
 
 /datum/client_preference/holder/play_adminhelp_ping
-	description = "Adminhelps"
+	description = "Админ - ахелпы"
 	key = "SOUND_ADMINHELP"
 	enabled_description = "Hear"
 	disabled_description = "Silent"
