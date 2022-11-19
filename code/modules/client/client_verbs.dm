@@ -213,15 +213,15 @@
 	if (config.admin_irc)
 		src << "<span class='info'>Adminhelps are also sent to IRC. If no admins are available in game try anyway and an admin on IRC may see it and respond.</span>"*/
 
-	var/msg = "<b>Current High Staff ([num_highstaff_online]):</b>\n" + highstaff_message
+	var/msg = "<b>Текущий высший педальсостав: ([num_highstaff_online]):</b>\n" + highstaff_message
 
-	msg += "\n<b>Current Admins ([num_admins_online]):</b>\n" + adminmsg
+	msg += "\n<b>Текущий педальсостав: ([num_admins_online]):</b>\n" + adminmsg
 
 	if (config.show_mods)
-		msg += "\n<b> Current Moderators ([num_mods_online]):</b>\n" + modmsg
+		msg += "\n<b> Текущие модераторы: ([num_mods_online]):</b>\n" + modmsg
 
 	if (config.show_mentors)
-		msg += "\n<b> Current Mentors ([num_mentors_online]):</b>\n" + mentmsg
+		msg += "\n<b> Текущие менторы: ([num_mentors_online]):</b>\n" + mentmsg
 
 //	msg += "\n<b> Current Developers ([num_devs_online]):</b>\n" + devmsg
 
@@ -239,15 +239,15 @@
 
 	if (!mob)	return
 	if (IsGuestKey(key))
-		src << "Guests may not use OOC."
+		src << "Привет, войди в аккаунт пожалуйста."
 		return
 
 	if (!is_preference_enabled(/datum/client_preference/show_ooc))
-		src << "<span class='warning'>You have OOC muted.</span>"
+		src << "<span class='warning'>Включи ООС у себя в настройках.</span>"
 		return
 
 	if (quickBan_isbanned("OOC"))
-		src << "<span class = 'danger'>You're banned from OOC.</span>"
+		src << "<span class = 'danger'>Пошёл нахуй.</span>"
 		return
 
 	var/msg_prefix = ""
@@ -259,13 +259,13 @@
 
 	if (!holder)
 		if (!config.ooc_allowed)
-			src << "<span class='danger'>OOC is globally muted.</span>"
+			src << "<span class='danger'>ООС отключён.</span>"
 			return
 		if (!config.dooc_allowed && (mob.stat == DEAD))
-			usr << "<span class='danger'>OOC for dead mobs has been turned off.</span>"
+			usr << "<span class='danger'>Гостота не имеет права общаться в ООС.</span>"
 			return
 		if (prefs.muted & MUTE_OOC)
-			src << "<span class='danger'>You cannot use OOC (muted).</span>"
+			src << "<span class='danger'>Тебе нельзя.</span>"
 			return
 		if (handle_spam_prevention(msg,MUTE_OOC))
 			return
@@ -300,6 +300,12 @@
 	var/imsg = msg
 	msg = replacetext(msg, "@admins", "<span class='ping'>@admins</span>")
 	msg = replacetext(msg, "@Admins", "<span class='ping'>@admins</span>")
+	msg = replacetext(msg, "@хуесосы", "<span class='ping'>@хуесосы</span>")
+	msg = replacetext(msg, "@Хуесосы", "<span class='ping'>@хуесосы</span>")
+	msg = replacetext(msg, "@Педали", "<span class='ping'>@педали</span>")
+	msg = replacetext(msg, "@педали", "<span class='ping'>@педали</span>")
+	msg = replacetext(msg, "@админы", "<span class='ping'>@админ</span>")
+	msg = replacetext(msg, "@Админы", "<span class='ping'>@админ</span>")
 	if (msg != imsg)
 		for (var/client/C in clients)
 			if (C.holder && C.holder.rights & R_MOD && !(C.holder.rights & R_PERMISSIONS))
@@ -310,6 +316,16 @@
 	imsg = msg
 	msg = replacetext(msg, "@highstaff", "<span class='ping'>@highstaff</span>")
 	msg = replacetext(msg, "@Highstaff", "<span class='ping'>@highstaff</span>")
+	msg = replacetext(msg, "@главы", "<span class='ping'>@главы</span>")
+	msg = replacetext(msg, "@Главы", "<span class='ping'>@Главы</span>")
+	msg = replacetext(msg, "@щитспавнеры", "<span class='ping'>@щитспавнеры</span>")
+	msg = replacetext(msg, "@Щитспавнеры", "<span class='ping'>@щитспавнеры</span>")
+	msg = replacetext(msg, "@главпедали", "<span class='ping'>главпедали</span>")
+	msg = replacetext(msg, "@Главпедали", "<span class='ping'>главпедали</span>")
+	msg = replacetext(msg, "@уёбки", "<span class='ping'>@уёбки</span>")
+	msg = replacetext(msg, "@Уёбки", "<span class='ping'>@Уёбки</span>")
+	msg = replacetext(msg, "@уебки", "<span class='ping'>@уебки</span>")
+	msg = replacetext(msg, "@Уебки", "<span class='ping'>@уебки</span>")
 	if (msg != imsg)
 		for (var/client/C in clients)
 			if (C.holder && C.holder.rights & R_PERMISSIONS)
