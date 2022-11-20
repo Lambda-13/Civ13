@@ -29,3 +29,5 @@
 	spawn (1)
 		if (client)
 			client.playtitlemusic()
+			if (client.is_preference_enabled(/datum/client_preference/fit_viewport))
+				client.fit_viewport()
