@@ -71,19 +71,40 @@
 			epochs = list(
 				"Battle Royale" = 0,)
 		else if (config.allowedgamemodes == "LAMBDA")
-			epochs = list(
-		"Civilization 13 (Nomads)" = 15,
-		"Battle Royale" = 0,
-		"Chad Mode" = 20,
-		"Pre-Firearms (3000 B.C-1650 A.D.)" = 0,
-		"Early Fire Arms (1650-1930)" = 0,
-		"World War II (1931-1948)" = 0,
-		"COOL NIGGERS DICK" = 1337,
-		"Modern Fire Arms (1949-2021)" = 0,
-		"HRP TDM (Gulag, Voyage, Occupation, etc)" = 15,
-		"Civilization 13 (Colony & Pioneers)" = 15,
-		"Civilization 13 (Others)" = 10,
-		"Fiction" = 0,)
+
+			var/servertime = "[time2text(world.timeofday,"hh")]" // Текущий час сервера
+
+			if (servertime == "20" || servertime == "21" || servertime == "22" || servertime == "23" || servertime == "24" || servertime == "00" || servertime == "01" || servertime == "02" || servertime == "03" || servertime == "04" || servertime == "05" || servertime == "06") // Проверка на ночное время
+				epochs = list(
+					"Chad Mode" = 15,
+					"Pre-Firearms (3000 B.C-1650 A.D.)" = 10,
+					"Early Fire Arms (1650-1930)" = 10,
+					"World War II (1931-1948)" = 10,
+					"Modern Fire Arms (1949-2021)" = 10,
+					"HRP TDM (Gulag, Voyage, Occupation, etc)" = 10,
+					"Civilization 13 (Nomads)" = 0,
+					"Civilization 13 (Colony & Pioneers)" = 5,
+					"Civilization 13 (Others)" = 5,
+					"Battle Royale" = 6,
+					"Fiction" = 10,
+				)
+				world << "<big>Режим голосования - Ночной</big>"
+			else
+				epochs = list(
+					"Избранное" = 50,
+					"Chad Mode" = 15,
+					"Pre-Firearms (3000 B.C-1650 A.D.)" = 0,
+					"Early Fire Arms (1650-1930)" = 0,
+					"World War II (1931-1948)" = 0,
+					"Modern Fire Arms (1949-2021)" = 0,
+					"HRP TDM (Gulag, Voyage, Occupation, etc)" = 10,
+					"Civilization 13 (Nomads)" = 30,
+					"Civilization 13 (Colony & Pioneers)" = 20,
+					"Civilization 13 (Others)" = 15,
+					"Battle Royale" = 0,
+					"Fiction" = 0,
+				)
+				world << "<big>Режим голосования - Дневной</big>"
 		ready = FALSE
 		vote.initiate_vote("epoch", "EpochSwap Process", TRUE, list(src, "swap"))
 
