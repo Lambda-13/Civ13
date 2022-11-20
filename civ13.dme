@@ -1104,5 +1104,6 @@
 #include "lambda\sanecman\code\serverside\padezhi.dm"
 #include "lambda\sanecman\code\serverside\debug.dm"
 #include "lambda\sanecman\code\soldier_stogie\soldier_stogie.dm"
+#include "lambda\sanecman\code\factory_aw\map_metadata\factory_aw.dm"
 #include "maps\nomads\nomads_wasteland_2.dmm"
 // END_INCLUDE
