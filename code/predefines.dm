@@ -238,6 +238,8 @@
 #define NORMAL		 0
 #define COMPETITIVE	 1
 #define HARDCORE	 2
+#define Easy		 3
+#define RealLive	 4
 
 #define GAS_O2  (1 << 0)
 #define GAS_N2  (1 << 1)
@@ -413,6 +415,7 @@
 #define CAN_JOIN		  16384 // Species is selectable in chargen.
 #define IS_RESTRICTED	 32768 // Is not a core/normally playable species. (castes, mutantraces)
 #define REGENERATES_LIMBS 65536 // Attempts to regenerate unamputated limbs.
+#define IS_DONATE		 131072 // Donate players
 
 //Flags for zone sleeping
 #define ZONE_ACTIVE   TRUE
@@ -597,3 +600,9 @@
 #define KD_CHANCE_LOW 40
 #define KD_CHANCE_MEDIUM 60
 #define KD_CHANCE_HIGH 80
+
+#define RODITELNI  1
+#define DATELNI    2
+#define VINITELNI  3
+#define TVORITELNI 4
+#define PREDLOZHNI 5

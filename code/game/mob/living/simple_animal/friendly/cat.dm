@@ -199,7 +199,7 @@
 
 /mob/living/simple_animal/cat/fluff/verb/friend()
 	set name = "Become Friends"
-	set category = "IC"
+	set category = "ИЦ"
 	set src in view(1)
 
 	if (friend && usr == friend)

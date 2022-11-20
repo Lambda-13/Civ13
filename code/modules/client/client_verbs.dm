@@ -1,5 +1,5 @@
 /client/verb/clear_cache()
-	set category = "OOC"
+	set category = "ООС"
 	set name = "Clear Cache"
 	if (mob)
 		nanomanager.close_uis(mob)
@@ -8,29 +8,29 @@
 	src << "<span class = 'good'>Cache successfully cleared!</span>"
 
 /client/verb/open_embed_wiki()
-	set category = "OOC"
+	set category = "ООС"
 	set name = "Open Wiki"
 	if (mob)
-		var/htmlfile = "<!DOCTYPE html><HTML><HEAD><TITLE>Civ13 Wiki</TITLE><META http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"></HEAD> \
+		var/htmlfile = "<!DOCTYPE html><meta charset='utf-8'><HEAD><TITLE>Civ13 Wiki</TITLE><META http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"></HEAD> \
 		<BODY><iframe src=\"http://civ13.com/wiki/index.php\" style=\"position: absolute; height: 97%; width: 97%; border: none\"></iframe></BODY></HTML>"
 		src << browse(htmlfile,"window=wiki;size=820x650")
 
 
 /client/verb/MOTD()
-	set category = "OOC"
+	set category = "ООС"
 	set name = "See MOTD"
 	if (mob) // sanity
 		mob.see_personalized_MOTD()
 
 /client/proc/hide_status_tabs()
-	set category = "OOC"
+	set category = "ООС"
 	set name = "Hide Status Tabs"
 	status_tabs = FALSE
 	verbs -= /client/proc/hide_status_tabs
 	verbs += /client/proc/show_status_tabs
 
 /client/proc/show_status_tabs()
-	set category = "OOC"
+	set category = "ООС"
 	set name = "Show Status Tabs"
 	status_tabs = TRUE
 	verbs -= /client/proc/show_status_tabs
@@ -38,9 +38,9 @@
 
 /client/verb/who()
 	set name = "Who"
-	set category = "OOC"
+	set category = "ООС"
 
-	var/msg = "<b>Current Players:</b>\n"
+	var/msg = "<b>Текущие игроки:</b>\n"
 
 	var/list/Lines = list()
 
@@ -48,20 +48,20 @@
 		for (var/client/C in clients)
 			var/entry = "\t[C.key]"
 			if (C.holder && C.holder.fakekey)
-				entry += " <i>(as [C.holder.fakekey])</i>"
-			entry += " - Playing as [C.mob.real_name]"
+				entry += " <i>(он же [C.holder.fakekey])</i>"
+			entry += " - Играет на [C.mob.real_name]"
 			switch(C.mob.stat)
 				if (UNCONSCIOUS)
-					entry += " - <font color='red'><b>Unconscious</b></font>"
+					entry += " - <font color='red'><b>Без сознания</b></font>"
 				if (DEAD)
 					if (isghost(C.mob))
 						var/mob/observer/ghost/O = C.mob
 						if (O.started_as_observer)
-							entry += " - <font color='gray'>Observing</font>"
+							entry += " - <font color='gray'>Наблюдает</font>"
 						else
-							entry += " - <font color='red'><b>DEAD</b></font>"
+							entry += " - <font color='red'><b>МЁРТВ</b></font>"
 					else
-						entry += " - <font color='gray'>In Lobby</font>"
+						entry += " - <font color='gray'>Лобби</font>"
 
 			var/age
 			if (isnum(C.player_age))
@@ -90,11 +90,11 @@
 	for (var/line in sortList(Lines))
 		msg += "[line]\n"
 
-	msg += "<b>Total Players: [length(Lines)]</b>"
+	msg += "<b>Всего Игроков: [length(Lines)]</b>"
 	src << msg
 
 /client/verb/adminwho()
-	set category = "Help!"
+	set category = "Админ"
 	set name = "Staff Who"
 
 	var/highstaff_message = ""
@@ -213,15 +213,15 @@
 	if (config.admin_irc)
 		src << "<span class='info'>Adminhelps are also sent to IRC. If no admins are available in game try anyway and an admin on IRC may see it and respond.</span>"*/
 
-	var/msg = "<b>Current High Staff ([num_highstaff_online]):</b>\n" + highstaff_message
+	var/msg = "<b>Текущий высший педальсостав: ([num_highstaff_online]):</b>\n" + highstaff_message
 
-	msg += "\n<b>Current Admins ([num_admins_online]):</b>\n" + adminmsg
+	msg += "\n<b>Текущий педальсостав: ([num_admins_online]):</b>\n" + adminmsg
 
 	if (config.show_mods)
-		msg += "\n<b> Current Moderators ([num_mods_online]):</b>\n" + modmsg
+		msg += "\n<b> Текущие модераторы: ([num_mods_online]):</b>\n" + modmsg
 
 	if (config.show_mentors)
-		msg += "\n<b> Current Mentors ([num_mentors_online]):</b>\n" + mentmsg
+		msg += "\n<b> Текущие менторы: ([num_mentors_online]):</b>\n" + mentmsg
 
 //	msg += "\n<b> Current Developers ([num_devs_online]):</b>\n" + devmsg
 
@@ -231,7 +231,7 @@
 
 /client/verb/ooc(msg as text)
 	set name = "OOC"
-	set category = "OOC"
+	set category = "ООС"
 
 	if (say_disabled)	//This is here to try to identify lag problems
 		usr << "<span class='warning'>Speech is currently admindisabled.</span>"
@@ -239,15 +239,15 @@
 
 	if (!mob)	return
 	if (IsGuestKey(key))
-		src << "Guests may not use OOC."
+		src << "Привет, войди в аккаунт пожалуйста."
 		return
 
 	if (!is_preference_enabled(/datum/client_preference/show_ooc))
-		src << "<span class='warning'>You have OOC muted.</span>"
+		src << "<span class='warning'>Включи ООС у себя в настройках.</span>"
 		return
 
 	if (quickBan_isbanned("OOC"))
-		src << "<span class = 'danger'>You're banned from OOC.</span>"
+		src << "<span class = 'danger'>Пошёл нахуй.</span>"
 		return
 
 	var/msg_prefix = ""
@@ -259,20 +259,20 @@
 
 	if (!holder)
 		if (!config.ooc_allowed)
-			src << "<span class='danger'>OOC is globally muted.</span>"
+			src << "<span class='danger'>ООС отключён.</span>"
 			return
 		if (!config.dooc_allowed && (mob.stat == DEAD))
-			usr << "<span class='danger'>OOC for dead mobs has been turned off.</span>"
+			usr << "<span class='danger'>Гостота не имеет права общаться в ООС.</span>"
 			return
 		if (prefs.muted & MUTE_OOC)
-			src << "<span class='danger'>You cannot use OOC (muted).</span>"
+			src << "<span class='danger'>Тебе нельзя.</span>"
 			return
 		if (handle_spam_prevention(msg,MUTE_OOC))
 			return
 		if (findtext(msg, "byond://"))
-			src << "<b>Advertising other servers is not allowed.</b>"
-			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]")
-			message_admins("[key_name_admin(src)] has attempted to advertise in OOC: [msg]")
+			src << sound('lambda/sanecman/sound/dota.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
+			log_admin("[key_name(src)] запостил ссылку на другой сервер в ООС: [msg]")
+			message_admins("[key_name_admin(src)] запостил ссылку на другой сервер в ООС: [msg]")
 			return
 
 	/* mentioning clients with @key or @ckey */
@@ -300,6 +300,12 @@
 	var/imsg = msg
 	msg = replacetext(msg, "@admins", "<span class='ping'>@admins</span>")
 	msg = replacetext(msg, "@Admins", "<span class='ping'>@admins</span>")
+	msg = replacetext(msg, "@хуесосы", "<span class='ping'>@хуесосы</span>")
+	msg = replacetext(msg, "@Хуесосы", "<span class='ping'>@хуесосы</span>")
+	msg = replacetext(msg, "@Педали", "<span class='ping'>@педали</span>")
+	msg = replacetext(msg, "@педали", "<span class='ping'>@педали</span>")
+	msg = replacetext(msg, "@админы", "<span class='ping'>@админ</span>")
+	msg = replacetext(msg, "@Админы", "<span class='ping'>@админ</span>")
 	if (msg != imsg)
 		for (var/client/C in clients)
 			if (C.holder && C.holder.rights & R_MOD && !(C.holder.rights & R_PERMISSIONS))
@@ -310,6 +316,16 @@
 	imsg = msg
 	msg = replacetext(msg, "@highstaff", "<span class='ping'>@highstaff</span>")
 	msg = replacetext(msg, "@Highstaff", "<span class='ping'>@highstaff</span>")
+	msg = replacetext(msg, "@главы", "<span class='ping'>@главы</span>")
+	msg = replacetext(msg, "@Главы", "<span class='ping'>@Главы</span>")
+	msg = replacetext(msg, "@щитспавнеры", "<span class='ping'>@щитспавнеры</span>")
+	msg = replacetext(msg, "@Щитспавнеры", "<span class='ping'>@щитспавнеры</span>")
+	msg = replacetext(msg, "@главпедали", "<span class='ping'>главпедали</span>")
+	msg = replacetext(msg, "@Главпедали", "<span class='ping'>главпедали</span>")
+	msg = replacetext(msg, "@уёбки", "<span class='ping'>@уёбки</span>")
+	msg = replacetext(msg, "@Уёбки", "<span class='ping'>@Уёбки</span>")
+	msg = replacetext(msg, "@уебки", "<span class='ping'>@уебки</span>")
+	msg = replacetext(msg, "@Уебки", "<span class='ping'>@уебки</span>")
 	if (msg != imsg)
 		for (var/client/C in clients)
 			if (C.holder && C.holder.rights & R_PERMISSIONS)
@@ -346,7 +362,7 @@
 /client/verb/looc(msg as text)
 	set name = "LOOC"
 	set desc = "Local OOC, seen only by those in view."
-	set category = "OOC"
+	set category = "ООС"
 
 	if (say_disabled)	//This is here to try to identify lag problems
 		usr << "<span class='danger'>Speech is currently admindisabled.</span>"
@@ -384,7 +400,7 @@
 		if (handle_spam_prevention(msg, MUTE_OOC))
 			return
 		if (findtext(msg, "byond://"))
-			src << "<b>Advertising other servers is not allowed.</b>"
+			src << sound('lambda/sanecman/sound/dota.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
 			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]")
 			message_admins("[key_name_admin(src)] has attempted to advertise in OOC: [msg]")
 			return

@@ -308,53 +308,61 @@ proc/random_skin_tone()
 		skin_tone = "latino"
 
 	switch(skin_tone)
-		if ("caucasian")		. = -10
-		if ("mulatto")	. = -115
-		if ("african")		. = -165
-		if ("latino")		. = -55
-		else				. = rand(-185,34)
-	return min(max( .+rand(-25, 25), -185),34)
+		if ("caucasian")				. = -10
+		if ("mulatto")					. = -115
+		if ("african")					. = -165
+		if ("latino")					. = -55
+		else							. = rand(-185,34)
+	return 								min(max( .+rand(-25, 25), -185),34)
 
 proc/skintone2racedescription(tone)
 	switch (tone)
-		if (30 to INFINITY)		return "albino"
-		if (20 to 30)			return "pale"
-		if (5 to 15)				return "light skinned"
-		if (-10 to 5)			return "white"
-		if (-25 to -10)			return "tan"
-		if (-45 to -25)			return "darker skinned"
-		if (-65 to -45)			return "brown"
-		if (-INFINITY to -65)	return "black"
-		else					return "unknown"
+		if (30 to INFINITY)				return "альбинос"
+		if (20 to 30)					return "бледнокожий"
+		if (5 to 15)					return "светлокожий"
+		if (-10 to 5)					return "белый"
+		if (-25 to -10)					return "загорелый"
+		if (-45 to -25)					return "тёмнокожий"
+		if (-65 to -45)					return "коричневатый"
+		if (-INFINITY to -65)			return "темнокожий"
+		else							return "неизвестного цвета"
 
 proc/age2agedescription(age)
 	switch(age)
-		if (0 to 1)			return "infant"
-		if (1 to 3)			return "toddler"
-		if (3 to 13)			return "child"
-		if (13 to 19)		return "teenager"
-		if (19 to 30)		return "young adult"
-		if (30 to 45)		return "adult"
-		if (45 to 60)		return "middle-aged"
-		if (60 to 70)		return "aging"
-		if (70 to INFINITY)	return "elderly"
-		else				return "unknown"
+		if (0 to 1)						return "младенец"
+		if (1 to 3)						return "дитя"
+		if (3 to 13)					return "ребёнок"
+		if (13 to 19)					return "подросток"
+		if (19 to 30)					return "молодой"
+		if (30 to 45)					return "в возрасте"
+		if (45 to 60)					return "престарелый"
+		if (60 to 70)					return "старик"
+		if (70 to INFINITY)				return "очень старый"
+		else							return "ещё не рождёный"
 
 proc/ageAndGender2Desc(age, gender)//Used for the radio
 	if (gender == FEMALE)
 		switch(age)
-			if (0 to 15)			return "Girl"
-			if (15 to 25)		return "Young Woman"
-			if (25 to 60)		return "Woman"
-			if (60 to INFINITY)	return "Old Woman"
-			else				return "Unknown"
+			if (0 to 15)				return "Девочка"
+			if (15 to 25)				return "Подросток"
+			if (25 to 60)				return "Женщина"
+			if (60 to INFINITY)			return "Старик"
+			else						return "Кто-то"
 	else
 		switch(age)
-			if (0 to 15)			return "Boy"
-			if (15 to 25)		return "Young Man"
-			if (25 to 60)		return "Man"
-			if (60 to INFINITY)	return "Old Man"
-			else				return "Unknown"
+			if (0 to 15)				return "Пацан"
+			if (15 to 25)				return "Подросток"
+			if (25 to 60)				return "Мужик"
+			if (60 to INFINITY)			return "Старик"
+			else						return "Кто-то"
+
+proc/bodyGender2Desc(gender)
+	if (gender == FEMALE)
+		return "женщина"
+	if (gender == MALE)
+		return "мужчина"
+	else
+		return "боевой вертолёт"
 
 proc/get_body_build(gender, body_build = "Default")
 	if (gender == MALE)

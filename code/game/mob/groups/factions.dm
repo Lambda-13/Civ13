@@ -44,7 +44,7 @@
 /////////////FACTIONS////////////////////////////
 /mob/living/human/proc/create_faction()
 	set name = "Create Faction"
-	set category = "Faction"
+	set category = "Фракция"
 	var/mob/living/human/U
 
 	if (istype(src, /mob/living/human))
@@ -105,7 +105,7 @@
 
 /mob/living/human/proc/abandon_faction()
 	set name = "Abandon Faction"
-	set category = "Faction"
+	set category = "Фракция"
 	var/mob/living/human/U
 
 	if (istype(src, /mob/living/human))
@@ -145,7 +145,7 @@
 
 /mob/living/human/proc/transfer_faction()
 	set name = "Transfer Faction Leadership"
-	set category = "Faction"
+	set category = "Фракция"
 	var/mob/living/human/U
 
 	if (istype(src, /mob/living/human))
@@ -190,7 +190,7 @@
 
 /mob/living/human/proc/become_leader()
 	set name = "Become Faction Leader"
-	set category = "Faction"
+	set category = "Фракция"
 	var/mob/living/human/U
 
 	if (istype(src, /mob/living/human))
@@ -220,7 +220,7 @@
 
 /mob/living/human/proc/Add_Title()
 	set name = "Give Faction Title"
-	set category = "Officer"
+	set category = "Лидер"
 	var/mob/living/human/U
 
 	if (map.civilizations == TRUE)
@@ -286,7 +286,7 @@
 
 /mob/living/human/proc/Remove_Title()
 	set name = "Remove Faction Title"
-	set category = "Officer"
+	set category = "Лидер"
 	var/mob/living/human/U
 
 	if (map.civilizations == TRUE)
@@ -539,7 +539,7 @@
 
 /mob/proc/faction_list()
 	set name = "Check Faction List"
-	set category = "Faction"
+	set category = "Фракция"
 	if (map && map.civilizations)
 		map.facl = list()
 		for (var/i=1,i<=map.custom_faction_nr.len,i++)
@@ -552,7 +552,7 @@
 				if (relf == H.civilization && H.stat != DEAD)
 					map.facl[relf] += 1
 
-		var/body = "<html><head><title>Faction List</title></head><b>FACTION LIST</b><br><br>"
+		var/body = "<meta charset='utf-8'><head><title>Faction List</title></head><b>FACTION LIST</b><br><br>"
 		for (var/relf in map.facl)
 			if (map.facl[relf] > 0)
 				body += "<b>[relf]</b>: [map.facl[relf]] members.</br>"

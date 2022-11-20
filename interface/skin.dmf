@@ -358,125 +358,6 @@ macro "hotkeymode"
 
 
 menu "menu"
-	elem 
-		name = "&File"
-		command = ""
-		saved-params = "is-checked"
-	elem 
-		name = "&Quick screenshot\tF2"
-		command = ".screenshot auto"
-		category = "&File"
-		saved-params = "is-checked"
-	elem 
-		name = "&Save screenshot as...\tShift+F2"
-		command = ".screenshot"
-		category = "&File"
-		saved-params = "is-checked"
-	elem 
-		name = ""
-		command = ""
-		category = "&File"
-		saved-params = "is-checked"
-	elem 
-		name = "&Reconnect"
-		command = ".reconnect"
-		category = "&File"
-		saved-params = "is-checked"
-	elem 
-		name = "&Quit"
-		command = ".quit"
-		category = "&File"
-		saved-params = "is-checked"
-	elem 
-		name = "&Icons"
-		command = ""
-		saved-params = "is-checked"
-	elem "stretch"
-		name = "&Stretch to fit"
-		command = ".winset \"mapwindow.map.icon-size=0\""
-		category = "&Icons"
-		is-checked = true
-		can-check = true
-		group = "size"
-		saved-params = "is-checked"
-	elem "icon128"
-		name = "&128x128"
-		command = ".winset \"mapwindow.map.icon-size=128\""
-		category = "&Icons"
-		can-check = true
-		group = "size"
-		saved-params = "is-checked"
-	elem "icon96"
-		name = "&96x96"
-		command = ".winset \"mapwindow.map.icon-size=96\""
-		category = "&Icons"
-		can-check = true
-		group = "size"
-		saved-params = "is-checked"
-	elem "icon64"
-		name = "&64x64"
-		command = ".winset \"mapwindow.map.icon-size=64\""
-		category = "&Icons"
-		can-check = true
-		group = "size"
-		saved-params = "is-checked"
-	elem "icon48"
-		name = "&48x48"
-		command = ".winset \"mapwindow.map.icon-size=48\""
-		category = "&Icons"
-		can-check = true
-		group = "size"
-		saved-params = "is-checked"
-	elem "icon32"
-		name = "&32x32"
-		command = ".winset \"mapwindow.map.icon-size=32\""
-		category = "&Icons"
-		can-check = true
-		group = "size"
-		saved-params = "is-checked"
-	elem 
-		name = "Links"
-		command = ""
-		saved-params = "is-checked"
-	elem 
-		name = "Discord"
-		command = "discord"
-		category = "Links"
-		saved-params = "is-checked"
-	elem 
-		name = "Wiki"
-		command = "wiki"
-		category = "Links"
-		saved-params = "is-checked"
-	elem 
-		name = "Rules"
-		command = "rules"
-		category = "Links"
-		saved-params = "is-checked"
-	elem 
-		name = "Github"
-		command = "github"
-		category = "Links"
-		saved-params = "is-checked"
-	elem 
-		name = "Site"
-		command = "website"
-		category = "Links"
-		saved-params = "is-checked"
-	elem 
-		name = "&Help"
-		command = ""
-		saved-params = "is-checked"
-	elem 
-		name = "&Admin help\tF1"
-		command = "adminhelp"
-		category = "&Help"
-		saved-params = "is-checked"
-	elem 
-		name = "&Hotkeys"
-		command = "hotkeys-help"
-		category = "&Help"
-		saved-params = "is-checked"
 
 
 window "chemdispenser"
@@ -608,9 +489,10 @@ window "mainwindow"
 		anchor1 = none
 		anchor2 = none
 		background-color = #000000
+		icon = 'icons\\icon.png'
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
-		title = "Civilization 13"
+		title = "Цивилизация 13"
 		titlebar = false
 		is-maximized = true
 		keep-aspect = true
@@ -621,7 +503,7 @@ window "mainwindow"
 		size = 640x440
 		anchor1 = 0,0
 		anchor2 = 100,100
-		background-color = #271a0c
+		background-color = #1f2025
 		saved-params = "splitter"
 		right = "rpane"
 		is-vert = true
@@ -679,7 +561,7 @@ window "outputwindow"
 		font-family = "Book Antiqua"
 		font-size = 8
 		text-color = #e1e1d7
-		background-color = #392611
+		background-color = #242424
 		saved-params = "is-checked"
 		text = "Hotkey Toggle"
 		command = ".winset \"mainwindow.macro!=macro ? mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true : mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true\""
@@ -693,7 +575,7 @@ window "outputwindow"
 		font-family = "Book Antiqua"
 		font-size = 8
 		text-color = #e1e1d7
-		background-color = #392611
+		background-color = #242424
 		saved-params = "is-checked"
 		text = "Chat"
 		command = ".winset \"saybutton.is-checked=true?input.command=\"!say \\\"\" macrobutton.is-checked=false:input.command=\""
@@ -706,7 +588,7 @@ window "outputwindow"
 		anchor2 = 100,100
 		font-family = "Book Antiqua"
 		font-size = 8
-		background-color = #a68b7d
+		background-color = #696969
 		is-default = true
 		border = sunken
 		saved-params = ""
@@ -754,7 +636,7 @@ window "infowindow"
 		size = 420x477
 		anchor1 = none
 		anchor2 = none
-		background-color = #271a0c
+		background-color = #1f2025
 		saved-params = "pos;size;is-minimized;is-maximized"
 		title = "Info"
 		titlebar = false
@@ -772,13 +654,13 @@ window "infowindow"
 		font-family = "Book Antiqua"
 		font-size = 8
 		text-color = #e1e1d7
-		background-color = #271a0c
+		background-color = #1f2025
 		is-default = true
 		drop-zone = false
 		saved-params = ""
 		highlight-color = #ff8040
 		tab-text-color = #e1e1d7
-		tab-background-color = #271a0c
+		tab-background-color = #1f2025
 		tab-font-family = "Book Antiqua"
 		tab-font-size = 9
 		on-show = ".winset\"rpane.infob.is-visible=true;rpane.browseb.is-visible=true?rpane.infob.pos=130,0:rpane.infob.pos=65,0 rpane.textb.is-visible=true rpane.infob.is-checked=true rpane.rpanewindow.pos=0,30 rpane.rpanewindow.size=0x0 rpane.rpanewindow.left=infowindow\""
@@ -791,7 +673,7 @@ window "rpane"
 		size = 420x457
 		anchor1 = none
 		anchor2 = none
-		background-color = #271a0c
+		background-color = #1f2025
 		saved-params = "pos;size;is-minimized;is-maximized"
 		titlebar = false
 		statusbar = false
@@ -805,7 +687,7 @@ window "rpane"
 		size = 420x482
 		anchor1 = 0,0
 		anchor2 = 100,100
-		background-color = #271a0c
+		background-color = #1f2025
 		saved-params = "splitter"
 		left = "buttons"
 		right = "outputwindow"
@@ -821,9 +703,9 @@ window "rpane"
 		font-size = 12
 		font-style = "bold italic"
 		text-color = #e1e1d7
-		background-color = #271a0c
+		background-color = #1f2025
 		saved-params = ""
-		text = "Civilization 13"
+		text = "Цивилизация 13"
 
 window "text_editor"
 	elem "text_editor"

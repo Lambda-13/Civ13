@@ -234,6 +234,27 @@
 	is_diggable = TRUE
 	initial_flooring = /decl/flooring/dirt
 
+/turf/floor/dirt/lfwb
+	name = "stone"
+	icon = 'icons/turf/floors.dmi'
+	icon_state = "surface"
+	uses_winter_overlay = TRUE
+	may_become_muddy = TRUE
+	available_dirt = 3
+	is_diggable = TRUE
+	initial_flooring = /decl/flooring/lfwb_stone
+
+/turf/floor/dirt/lfwb/underground
+	name = "stone"
+	icon = 'icons/turf/floors.dmi'
+	icon_state = "asteroid"
+	is_diggable = FALSE
+	uses_winter_overlay = FALSE
+	may_become_muddy = FALSE
+
+/turf/floor/dirt/lfwb/underground/New()
+	icon_state = pick("asteroid","asteroid[rand(2,13)]")
+
 /turf/floor/dirt/space
 	name = "space"
 	icon = 'icons/turf/floors.dmi'
@@ -414,6 +435,10 @@
 		ChangeTurf(/turf/floor/dirt/dust)
 	else if (A.climate == "jungle" || A.climate == "savanna")
 		ChangeTurf(/turf/floor/dirt/jungledirt)
+	else if (map.ID == MAP_LFWB)
+		ChangeTurf(/turf/floor/dirt/lfwb/underground)
+	else if (map.ID == MAP_LFWB || A.climate == "tundra")
+		ChangeTurf(/turf/floor/dirt/lfwb)
 	else
 		ChangeTurf(/turf/floor/dirt)
 

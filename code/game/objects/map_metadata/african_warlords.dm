@@ -6,6 +6,9 @@
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/jungle,/area/caribbean/no_mans_land/invisible_wall/jungle/one,/area/caribbean/no_mans_land/invisible_wall/jungle/two,/area/caribbean/no_mans_land/invisible_wall/jungle/three)
 	respawn_delay = 300
 	no_winner ="No warband has won yet."
+	lobby_icon = "africanwarlords.png"
+	faction_organization = list(INDIANS)
+
 	faction_organization = list(INDIANS, CIVILIAN)
 	grace_wall_timer = 1200
 	roundend_condition_sides = list(
@@ -16,8 +19,7 @@
 	age = "1984"
 
 	ordinal_age = 7
-	faction_distribution_coeffs = list(INDIANS = 0.5, CIVILIAN = 0.5)
-	battle_name = "Skull competition"
+	battle_name = "Черепа ведут к победе"
 	mission_start_message = "<font size=4>Two African warlords are fighting to humiliate the other's tribe. They will need to collect <b>Enemy Skulls</b> and bring them to their camp shaman's altar to score. Each skull is worth two points and first team to reach <b>30 points</b> wins.<br></font>"
 	faction1 = INDIANS
 	faction2 = CIVILIAN

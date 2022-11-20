@@ -1,6 +1,6 @@
 
 /client/proc/toggle_playing()
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Toggle Playing"
 
 	ticker.players_can_join = !ticker.players_can_join
@@ -8,21 +8,21 @@
 	message_admins("[key_name(src)] changed the playing setting.")
 
 /client/proc/toggle_tts()
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Toggle TTS"
 
 	config.tts_on = !config.tts_on
 	message_admins("[key_name(src)] changed turned the TTS setting [config.tts_on ? "on" : "off"].")
 
 /client/proc/set_teams()
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Set Teams"
 	if (map && istype(map, /obj/map_metadata/football))
 		var/obj/map_metadata/football/FM = map
 		FM.assign_teams(triggerer = src)
 
 /client/proc/end_all_grace_periods()
-	set category = "Special"
+	set category = "Особенное"
 	set name = "End All Grace Periods"
 	var/conf = input(src, "Are you sure you want to end all grace periods?") in list("Yes", "No")
 	if (conf == "Yes")
@@ -31,7 +31,7 @@
 		log_admin("[key_name(src)] ended all grace periods.")
 
 /client/proc/reset_all_grace_periods()
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Reset All Grace Periods"
 	var/conf = input(src, "Are you sure you want to reset all grace periods?") in list("Yes", "No")
 	if (conf == "Yes")
@@ -40,7 +40,7 @@
 		log_admin("[key_name(src)] reset all grace periods.")
 
 /client/proc/faction_species()
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Faction Species"
 
 	if (!map)
@@ -184,7 +184,7 @@ var/filipino_toggled = TRUE
 
 /client/proc/toggle_factions()
 	set name = "Toggle Factions"
-	set category = "Special"
+	set category = "Особенное"
 
 	if (!check_rights(R_ADMIN))
 		src << "<span class = 'danger'>You don't have the permissions.</span>"
@@ -340,7 +340,7 @@ var/filipino_forceEnabled = FALSE
 
 /client/proc/forcibly_enable_faction()
 	set name = "Forcibly Enable Faction"
-	set category = "Special"
+	set category = "Особенное"
 
 	if (!check_rights(R_ADMIN))
 		src << "<span class = 'danger'>You don't have the permissions.</span>"
@@ -479,7 +479,7 @@ var/filipino_forceEnabled = FALSE
 		message_admins("[key_name(src)] changed the Filipino faction 'forceEnabled' setting to [filipino_forceEnabled].")
 
 /client/proc/toggle_respawn_delays()
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Toggle Respawn Delays"
 	config.no_respawn_delays = !config.no_respawn_delays
 	var/M = "[key_name(src)] [config.no_respawn_delays ? "disabled" : "enabled"] respawn delays."
@@ -490,7 +490,7 @@ var/filipino_forceEnabled = FALSE
 
 
 /client/proc/show_battle_report()
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Show Battle Report"
 
 	if (!processes.battle_report || !processes.battle_report.fires_at_gamestates.Find(ticker.current_state))
@@ -505,7 +505,7 @@ var/filipino_forceEnabled = FALSE
 		show_global_battle_report(src)
 
 /client/proc/see_battle_report()
-	set category = "Special"
+	set category = "Особенное"
 	set name = "See Battle Report"
 	if (!processes.battle_report || !processes.battle_report.fires_at_gamestates.Find(ticker.current_state))
 		src << "<span class = 'warning'>You can't see the battle report right now.</span>"

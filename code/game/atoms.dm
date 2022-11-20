@@ -164,17 +164,13 @@
 	//This reformat names to get a/an properly working on item descriptions when they are bloody
 	var/f_name = "\a [src][infix]."
 	if (blood_DNA && !istype(src, /obj/effect/decal))
-		if (gender == PLURAL)
-			f_name = "some "
-		else
-			f_name = "a "
 		if (blood_color != "#030303")
-			f_name += "<span class='danger'>blood-stained</span> [name][infix]!"
+			f_name += "[name][infix] <span class='danger'>(в крови)</span>."
 		else
-			f_name += "oil-stained [name][infix]."
+			f_name += "[name][infix] (в масле)."
 	if (!isobserver(user))
-		user.visible_message("<font size=1>[user.name] looks at [src].</font>")
-	user << "\icon[src] That's [f_name] [suffix]"
+		user.visible_message("<font size=1>[user.name] смотрит на [src].</font>")
+	user << "\icon[src] Это [f_name] [suffix]"
 	user << desc
 
 	return distance == -1 || (get_dist(src, user) <= distance)
@@ -204,7 +200,7 @@
 				if(W.ash_production) //Needed to not break the ash production from wood
 					return
 			if (prob(27))
-				visible_message("<span class = 'warning'>\The [NS] is burned away.</span>")
+				visible_message("<span class = 'warning'>[NS] сгорает.</span>")
 				if (prob(3))
 					new/obj/effect/effect/smoke(loc)
 				qdel(src)
@@ -496,6 +492,9 @@
 	if (!user.canClick())
 		return
 	if(!Adjacent(user) || user.incapacitated(INCAPACITATION_STUNNED|INCAPACITATION_KNOCKOUT) || istype(user.loc, /obj/structure/closet) || !ishuman(src))
+		return
+	if(user.pacifist)
+		src << "<font color='yellow'><b><big>Не хочу кусать.</big></b></font>"
 		return
 	var/mob/living/human/target = src
 	if(user.middle_click_intent == "bite")//We're in bite mode, so bite the opponent

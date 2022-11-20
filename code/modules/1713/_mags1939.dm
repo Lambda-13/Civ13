@@ -1,5 +1,5 @@
 /obj/item/ammo_magazine/arisaka99
-	name = "clip (7.7x58mm)"
+	name = "клипса (7.7x58mm)"
 	icon_state = "kclip"
 	caliber = "a77x58"
 
@@ -10,7 +10,7 @@
 	clip = TRUE
 
 /obj/item/ammo_magazine/arisakabox99
-	name = "magazine box (7.7x58mm)"
+	name = "патронная коробка (7.7x58mm)"
 	icon_state = "arisaka_ammo"
 	mag_type = MAGAZINE
 	caliber = "a77x58"
@@ -22,7 +22,7 @@
 	is_box = TRUE
 
 /obj/item/ammo_magazine/arisaka99_training
-	name = "clip (7.7x58mm)"
+	name = "клипса (7.7x58mm)"
 	icon_state = "kclip"
 	caliber = "a77x58_wood"
 
@@ -69,7 +69,7 @@
 	var/overlay_state = null
 
 /obj/item/ammo_magazine/mp40
-	name = "MP40 magazine (9x19mm)"
+	name = "MP40 магазин (9x19mm)"
 	icon_state = "mp40"
 	mag_type = MAGAZINE
 	caliber = "a9x19"
@@ -79,11 +79,11 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/mp40/mp5
-	name = "MP5 magazine (9x19mm)"
+	name = "MP5 магазин (9x19mm)"
 	icon_state = "mp5"
 
 /obj/item/ammo_magazine/mg34
-	name = "MG34 magazine (7.92x57mm)"
+	name = "MG34 магазин (7.92x57mm)"
 	icon_state = "mg34"
 	mag_type = MAGAZINE
 	caliber = "a792x57_weak"
@@ -93,7 +93,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/greasegun
-	name = "M3A1 magazine (.45 ACP)"
+	name = "M3A1 магазин (.45 ACP)"
 	icon_state = "greasegun"
 	mag_type = MAGAZINE
 	caliber = "a45acp"
@@ -103,7 +103,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/greasegun/box
-	name = "magazine box (.45 ACP)"
+	name = "патронная коробка (.45 ACP)"
 	icon_state = "oldbox"
 	mag_type = MAGAZINE
 	caliber = "a45acp"
@@ -114,7 +114,7 @@
 	is_box = TRUE
 
 /obj/item/ammo_magazine/c762x25_pps
-	name = "PPS-43 magazine (7.62x25mm)"
+	name = "PPS-43 магазин (7.62x25mm)"
 	icon_state = "pps"
 	mag_type = MAGAZINE
 	caliber = "a762x25"
@@ -124,7 +124,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/c762x25_ppsh
-	name = "PPSh-41 drum magazine (7.62x25mm)"
+	name = "PPSh-41 барабанный магазин (7.62x25mm)"
 	icon_state = "ppsh"
 	mag_type = MAGAZINE
 	caliber = "a762x25"
@@ -134,7 +134,7 @@
 	multiple_sprites = TRUE
 
 obj/item/ammo_magazine/dp
-	name = "DP pan (7.62x54mmR)"
+	name = "барабанный магазин (7.62x54mmR)"
 	icon_state = "dpdisk"
 	mag_type = MAGAZINE
 	caliber = "a762x54_weak"
@@ -144,7 +144,7 @@ obj/item/ammo_magazine/dp
 	multiple_sprites = FALSE
 
 /obj/item/ammo_magazine/stg
-	name = "StG 44 magazine (7.92x33mm)"
+	name = "StG 44 магазин (7.92x33mm)"
 	icon_state = "stg"
 	mag_type = MAGAZINE
 	caliber = "a792x33"
@@ -154,7 +154,7 @@ obj/item/ammo_magazine/dp
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/g43
-	name = "G43 magazine (7.92x57mm)"
+	name = "G43 магазин (7.92x57mm)"
 	icon_state = "g43"
 	caliber = "a792x57"
 	mag_type = MAGAZINE
@@ -165,7 +165,7 @@ obj/item/ammo_magazine/dp
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/svd
-	name = "SVD magazine (7.62x54mmR)"
+	name = "SVD магазин (7.62x54mmR)"
 	icon_state = "g43"
 	caliber = "a762x54"
 	mag_type = MAGAZINE
@@ -176,7 +176,7 @@ obj/item/ammo_magazine/dp
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/avtomat
-	name = "avtomat magazine (6.5x50mm)"
+	name = "avtomat магазин (6.5x50mm)"
 	icon_state = "g43"
 	caliber = "a65x50"
 	mag_type = MAGAZINE
@@ -187,7 +187,7 @@ obj/item/ammo_magazine/dp
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/svt
-	name = "SVT-40 magazine (7.62x54mm)"
+	name = "SVT-40 магазин (7.62x54mm)"
 	icon_state = "svt"
 	caliber = "a762x54"
 	mag_type = MAGAZINE
@@ -198,7 +198,7 @@ obj/item/ammo_magazine/dp
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/m1911
-	name = "M1911 magazine (.45)"
+	name = "M1911 магазин (.45)"
 	icon_state = "m1911"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/a45acp
@@ -210,7 +210,7 @@ obj/item/ammo_magazine/dp
 	stored_ammo.Cut()
 
 /obj/item/ammo_magazine/a45acpbox
-	name = "magazine box (.45)"
+	name = "патронная коробка (.45)"
 	icon_state = "oldbox"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/a45acp
@@ -221,7 +221,7 @@ obj/item/ammo_magazine/dp
 	is_box = TRUE
 
 /obj/item/ammo_magazine/tt30
-	name = "TT-33 magazine (7.62x25mm)"
+	name = "TT-33 магазин (7.62x25mm)"
 	icon_state = "m1911"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/a762x25
@@ -233,7 +233,7 @@ obj/item/ammo_magazine/dp
 	stored_ammo.Cut()
 
 /obj/item/ammo_magazine/tt30ll/rubber
-	name = "TT-33 magazine (wooden)"
+	name = "TT-33 магазин (wooden)"
 	icon_state = "m1911"
 	mag_type = MAGAZINE
 	ammo_type =  /obj/item/ammo_casing/a762x25/rubber
@@ -245,7 +245,7 @@ obj/item/ammo_magazine/dp
 	stored_ammo.Cut()
 
 /obj/item/ammo_magazine/makarov
-	name = "PM Makarov magazine (9x18mm)"
+	name = "PM Makarov магазин (9x18mm)"
 	icon_state = "m1911"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/a9x18
@@ -258,7 +258,7 @@ obj/item/ammo_magazine/dp
 
 
 /obj/item/ammo_magazine/garand
-	name = "clip (30-06) 8 rounds"
+	name = "клипса (30-06) на 8 патронов"
 	icon_state = "g-clip"
 	caliber = "a3006"
 
@@ -269,7 +269,7 @@ obj/item/ammo_magazine/dp
 	clip = TRUE
 
 /obj/item/ammo_magazine/m3006box
-	name = "magazine box (30-06)"
+	name = "патронная коробка (30-06)"
 	icon_state = "ammo"
 	mag_type = MAGAZINE
 	caliber = "a3006"
@@ -280,7 +280,7 @@ obj/item/ammo_magazine/dp
 	is_box = TRUE
 
 /obj/item/ammo_magazine/springfield
-	name = "clip (30-06)"
+	name = "клипса (30-06)"
 	icon_state = "clip"
 	caliber = "a3006"
 
@@ -291,7 +291,7 @@ obj/item/ammo_magazine/dp
 	clip = TRUE
 
 /obj/item/ammo_magazine/browning
-	name = "browning ammo belt"
+	name = "лента с патронами Браунинг"
 	icon_state = "maximbelt"
 	mag_type = MAGAZINE
 	caliber = "a3006"
@@ -307,7 +307,7 @@ obj/item/ammo_magazine/dp
 	var/overlay_state = null
 
 /obj/item/ammo_magazine/bar
-	name = "BAR magazine (30-06)"
+	name = "BAR магазин (30-06)"
 	icon_state = "bar"
 	caliber = "a3006_weak"
 
@@ -318,7 +318,7 @@ obj/item/ammo_magazine/dp
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/thompson
-	name = "Thompson magazine (.45)"
+	name = "Thompson магазин (.45)"
 	icon_state = "thompson"
 	caliber = "a45acp"
 	mag_type = MAGAZINE
@@ -327,7 +327,7 @@ obj/item/ammo_magazine/dp
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/deagle
-	name = "Desert eagle magazine (50cal)"
+	name = "Desert eagle магазин (50cal)"
 	icon_state = "deagle"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/a50cal
@@ -336,7 +336,7 @@ obj/item/ammo_magazine/dp
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/deaglemagnum
-	name = "Desert eagle magazine (44.magnum)"
+	name = "Desert eagle магазин (44.magnum)"
 	icon_state = "deagle"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/a44magnum
@@ -345,7 +345,7 @@ obj/item/ammo_magazine/dp
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/browninghp
-	name = "Browning hi-power magazine (9mm Parabellum)"
+	name = "Browning hi-power магазин (9mm Parabellum)"
 	icon_state = "browning_hp"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/a9x19

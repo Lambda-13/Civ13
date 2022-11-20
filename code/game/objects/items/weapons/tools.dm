@@ -15,8 +15,8 @@
  * Wrench
  */
 /obj/item/weapon/wrench
-	name = "wrench"
-	desc = "A wrench with many common uses. Can be usually found in your hand."
+	name = "гаечный ключ"
+	desc = "Необходим если надо открутить или прикрутить (не)нужный предмет к полу."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "wrench"
 	flags = CONDUCT
@@ -25,14 +25,14 @@
 	throwforce = WEAPON_FORCE_NORMAL
 	w_class = 2.0
 
-	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
+	attack_verb = list("прикручивает", "забивает", "избивает", "ударил")
 
 /*
  * Fire Extinguisher
  */
 /obj/item/weapon/fire_extinguisher
-	name = "fire extinguisher"
-	desc = "A fire extinguisher filled with foam."
+	name = "огнетушитель"
+	desc = "Тушит огонь."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "fire_extinguisher"
 	flags = CONDUCT
@@ -41,19 +41,19 @@
 	throwforce = WEAPON_FORCE_NORMAL+5
 	w_class = 3.0
 
-	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
+	attack_verb = list("бахает", "бухает", "долбит", "ударил")
 	var/cap = 25
 	New()
 		..()
-		desc = "A fire extinguisher filled with foam. Has [cap] units left."
+		desc = "Похоже в нём осталось [cap] единиц пены."
 
 /obj/item/weapon/fire_extinguisher/attack_self(mob/living/human/user as mob)
 	if (!ishuman(user))
 		return
 	if (cap >= 1)
-		visible_message("<span class='notice'>[user] sprays the fire extinguisher!</span>", "<span class='notice'>You spray the fire extinguisher!</span>")
+		visible_message("<span class='notice'>[user] нажимает на ручку-рычаг огнетушителя!</span>", "<span class='notice'>Нажимаю на ручку-рычаг огнетушителя!</span>")
 		cap--
-		desc = "A fire extinguisher filled with foam. Has [cap] units left."
+		desc = "Похоже в нём осталось [cap] единиц пены."
 		var/turf/dest = get_turf(get_step(user, user.dir))
 		if (dest)
 			for (var/obj/effect/fire/BO in dest)
@@ -65,12 +65,12 @@
 			playsound(dest, 'sound/effects/extinguish.ogg', 100, FALSE)
 			return
 	else
-		user << "<span class='warning'>The fire extinguisher is empty.</span>"
+		user << "<span class='warning'>Он пуст.</span>"
 		return
 
 /obj/item/weapon/fire_extinguisher/ww2
-	name = "fire extinguisher"
-	desc = "A fire extinguisher filled with foam."
+	name = "огнетушитель"
+	desc = "Наполнен противопожарной пеной.."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "german_fire_extinguisher"
 
@@ -78,8 +78,8 @@
  * Screwdriver
  */
 /obj/item/weapon/hammer
-	name = "hammer"
-	desc = "Hit stuff apart with this."
+	name = "молоток"
+	desc = "Молоток с маленькой головкой идеален для разборки предметов."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "hammer"
 	item_state = "hammer"
@@ -91,12 +91,12 @@
 	throw_speed = 5
 	throw_range = 5
 
-	attack_verb = list("bludgeoned", "hit")
+	attack_verb = list("колотит", "бьёт")
 	flammable = TRUE
 
 /obj/item/weapon/hammer/tribalhammer
-	name = "simple wooden mallet"
-	desc = "Hit stuff apart with this."
+	name = "простой деревянный молоток"
+	desc = "Грубо сделаный молоток с маленькой головкой идеален для разборки предметов."
 	icon = 'icons/misc/tribal.dmi'
 	icon_state = "tribalhammer"
 	item_state = "tribalhammer"
@@ -108,12 +108,12 @@
 	throw_speed = 5
 	throw_range = 5
 
-	attack_verb = list("bludgeoned", "hit")
+	attack_verb = list("колотит", "бьёт")
 	flammable = TRUE
 
 /obj/item/weapon/hammer/modern
-	name = "clawhammer"
-	desc = "For hitting things or pulling them apart."
+	name = "молоток"
+	desc = "Современный молоток идеален для разборки предметов."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "hammer_modern"
 	item_state = "hammer_modern"
@@ -125,12 +125,12 @@
 	throw_speed = 6
 	throw_range = 5
 
-	attack_verb = list("bludgeoned", "hit")
+	attack_verb = list("колотит", "бьёт")
 	flammable = FALSE
 
 /obj/item/weapon/globe
-	name = "globe"
-	desc = "flat earthers hate this thing."
+	name = "глобус"
+	desc = "Модель планеты."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "globe"
 	item_state = "globe"
@@ -142,7 +142,7 @@
 	throw_speed = 5
 	throw_range = 5
 
-	attack_verb = list("bludgeoned", "hit")
+	attack_verb = list("забивает", "бьёт")
 	flammable = TRUE
 
 
@@ -151,8 +151,8 @@
  */
 
 /obj/item/weapon/wirecutters
-	name = "wirecutters"
-	desc = "This cuts wires."
+	name = "кусачки"
+	desc = "Обкусывают провода."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "cutters-y"
 	flags = CONDUCT
@@ -161,7 +161,7 @@
 	throw_speed = 2
 	throw_range = 9
 	w_class = 2.0
-	attack_verb = list("pinched", "nipped")
+	attack_verb = list("обкусывает", "делает кусь")
 	sharp = TRUE
 	edge = TRUE
 
@@ -180,8 +180,8 @@
  */
 
 /obj/item/weapon/crowbar
-	name = "crowbar"
-	desc = "Used to remove floors and to pry open doors."
+	name = "лом"
+	desc = "Подцепляет плитки пола и вскрывает обесточеные автоматические двери."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "crowbar"
 	flags = CONDUCT
@@ -191,11 +191,11 @@
 	item_state = "crowbar"
 	w_class = 2.0
 
-	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
+	attack_verb = list("ударил", "ломает", "бацает", "делает бонк", "ударил")
 
 /obj/item/weapon/horn
-	name = "blowing horn"
-	desc = "Good for long range communication."
+	name = "горн"
+	desc = "Труба для призыва делать что-то."
 	icon = 'icons/misc/tribal.dmi'
 	icon_state = "tribalhorn"
 	flags = CONDUCT
@@ -206,21 +206,21 @@
 	w_class = 2.0
 	flags = FALSE
 
-	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
+	attack_verb = list("бьёт", "призывает", "долбит", "хреначит", "ударил")
 	var/cooldown_horn = FALSE
 
 /obj/item/weapon/horn/attack_self(mob/user as mob)
 	if (cooldown_horn == FALSE)
 		playsound(loc, 'sound/effects/blowing_horn.ogg', 100, FALSE, 25)
-		user.visible_message("<span class='warning'>[user] sounds the [name]!</span>")
+		user.visible_message("<span class='warning'>[user] трубит в [name]!</span>")
 		cooldown_horn = TRUE
 		spawn(100)
 			cooldown_horn = FALSE
 		return
 
 /obj/item/weapon/whistle
-	name = "whistle"
-	desc = "Good for ordering the troops to go over the top."
+	name = "свисток"
+	desc = "Для тех кто не умеет свистеть. Не плохо привлекает внимание."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "whistle"
 	flags = CONDUCT
@@ -230,21 +230,21 @@
 	item_state = "zippo"
 	w_class = 2.0
 
-	attack_verb = list("attacked", "whacked")
+	attack_verb = list("бьёт")
 	var/cooldown_whistle = FALSE
 
 /obj/item/weapon/whistle/attack_self(mob/user as mob)
 	if (cooldown_whistle == FALSE)
 		playsound(loc, 'sound/effects/whistle.ogg', 100, FALSE, 5)
-		user.visible_message("<span class='warning'>[user] sounds the [name]!</span>")
+		user.visible_message("<span class='warning'>[user] свистит в [name]!</span>")
 		cooldown_whistle = TRUE
 		spawn(100)
 			cooldown_whistle = FALSE
 		return
 
 /obj/item/weapon/deathwhistle
-	name = "death whistle"
-	desc = "Good for terrifying enemy soldiers."
+	name = "свисток смерти"
+	desc = "Подходит для запугивания вражеских солдат."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "death_whistle"
 	flags = CONDUCT
@@ -267,8 +267,8 @@
 		return
 
 /obj/item/weapon/siegeladder
-	name = "siege ladder"
-	desc = "A wood ladder, used to climb over walls."
+	name = "лестница"
+	desc = "Её ставят на стены и по ней взбираются."
 	icon = 'icons/obj/stairs.dmi'
 	icon_state = "siege_ladder"
 	flags = CONDUCT
@@ -285,8 +285,8 @@
 	var/handicon = "siege_ladder"
 
 /obj/item/weapon/siegeladder/metal
-	name = "ladder"
-	desc = "A metal ladder, good for climbing things."
+	name = "лестница"
+	desc = "Металическая лестница для взбирания."
 	icon = 'icons/obj/stairs.dmi'
 	icon_state = "metal_ladder"
 	flags = CONDUCT
@@ -304,12 +304,12 @@
 /obj/item/weapon/siegeladder/attackby(obj/item/weapon/O as obj, mob/user as mob)
 	if (deployed)
 		user.visible_message(
-			"<span class='danger'>\The [user] starts removing \the [src]!</span>",
-			"<span class='danger'>You start removing \the [src]!</span>")
+			"<span class='danger'>[user] убирает [src] от стены!</span>",
+			"<span class='danger'>Убираю [src] от стены!</span>")
 		if (do_after(user, 80, src))
 			user.visible_message(
-				"<span class='danger'>\The [user] has removed \the [src]!</span>",
-				"<span class='danger'>You have removed \the [src]!</span>")
+				"<span class='danger'>[user] убрал [src] от стены!</span>",
+				"<span class='danger'>Убрал [src] от стены!</span>")
 			anchored = FALSE
 			deployed = FALSE
 			icon_state = handicon
@@ -321,12 +321,12 @@
 /obj/structure/barricade/attackby(obj/item/weapon/siegeladder/O as obj, mob/living/user as mob)
 	if (istype(O, /obj/item/weapon/siegeladder))
 		visible_message(
-			"<span class='danger'>\The [user] starts deploying \the [O.name].</span>",
-			"<span class='danger'>You start deploying \the [O.name].</span>")
+			"<span class='danger'>[user] ставит [O.name] к стене.</span>",
+			"<span class='danger'>Ставлю [O.name] к стене.</span>")
 		if (do_after(user, 80, src))
 			visible_message(
-				"<span class='danger'>\The [user] has deployed \the [O.name]!</span>",
-				"<span class='danger'>You have deployed \the [O.name]!</span>")
+				"<span class='danger'>[user] поставил [O.name] к стене!</span>",
+				"<span class='danger'>Ставлю [O.name] к стене!</span><br><b>Что-бы взобраться перетащи себя на лестницу</b>")
 			qdel(O)
 			var/obj/item/weapon/siegeladder/ANCH = new/obj/item/weapon/siegeladder(src.loc)
 			ANCH.anchored = TRUE
@@ -339,8 +339,8 @@
 		..()
 
 /obj/item/weapon/fishing
-	name = "fishing pole"
-	desc = "A classic fishing pole."
+	name = "удочка"
+	desc = "Для ловли морских обитателей."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "fishing"
 	slot_flags = SLOT_BACK
@@ -353,8 +353,8 @@
 	flammable = TRUE
 
 /obj/item/weapon/fishing/net
-	name = "fishing net"
-	desc = "A classic fishing net, made of fiberous rope."
+	name = "сеть"
+	desc = "Для ловли морсих обитателей если вам лень рыбачить."
 	w_class = 2.0
 	icon_state = "fishing_net"
 	force = WEAPON_FORCE_WEAK
@@ -364,8 +364,8 @@
 	flammable = TRUE
 
 /obj/item/weapon/fishing/modern
-	name = "fishing rod"
-	desc = "A modern fishing pole."
+	name = "сеть"
+	desc = "Для ловли морских обитателей если вам лень рыбачить. Выглядит классно."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "fishing_modern"
 	slot_flags = SLOT_BACK
@@ -377,8 +377,8 @@
 	flammable = TRUE
 
 /obj/item/weapon/goldsceptre
-	name = "gold sceptre"
-	desc = "A sceptre made of gold."
+	name = "золотой скипетр"
+	desc = "Скипетр из золота."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "goldsceptre"
 	flags = CONDUCT
@@ -392,8 +392,8 @@
  * Wrench
  */
 /obj/item/weapon/shears
-	name = "shears"
-	desc = "A tool used to collect wool from sheep."
+	name = "ножницы"
+	desc = "Ножницы для состригания с овец шерсти."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "shears"
 	flags = CONDUCT
@@ -407,8 +407,8 @@
 
 //////////////////////////////////////////////////////WELDER///////////////////////////////////////////////////////////
 /obj/item/weapon/weldingtool
-	name = "welding tool"
-	desc = "used to weld metals together"
+	name = "сварочный аппарат"
+	desc = "Используется для починки предметов."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "ww2_welder_off"
 	var/on_state = "ww2_welder_on"
@@ -591,8 +591,8 @@ Shinobi's unfinished welder stuff - siro*/
 
 
 /obj/item/weapon/gongmallet
-	name = "gong mallet"
-	desc = "A wooden mallet used to hit a gong."
+	name = "молоток для гонга"
+	desc = "Подходит для стучания по гонгу."
 	icon_state = "gongmallet"
 	item_state = "gongmallet"
 	flags = CONDUCT
@@ -607,8 +607,8 @@ Shinobi's unfinished welder stuff - siro*/
 	flammable = TRUE
 
 /obj/item/weapon/whistle/tin
-	name = "whistle"
-	desc = "A cheap whistle made from tin."
+	name = "свисток"
+	desc = "Свисток из металла."
 	icon = 'icons/obj/clothing/masks.dmi'
 	icon_state = "whistle"
 	flags = CONDUCT
@@ -617,8 +617,8 @@ Shinobi's unfinished welder stuff - siro*/
 
 //////////////////////////////////////////LOCKPICK/////////////////////////////////////////////////////////////////////////////
 /obj/item/weapon/lockpick
-	name = "lockpick"
-	desc = "A lockpick. Used to unlock chests and doors. It does require some skill though."
+	name = "отмычка"
+	desc = "Вскрывает двери и замки, если вы умеете ей пользоваться."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "lockpick"
 	flags = CONDUCT

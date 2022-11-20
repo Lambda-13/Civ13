@@ -1,6 +1,6 @@
 /obj/map_metadata/battleroyale
 	ID = MAP_BATTLEROYALE_IMPERIAL
-	title = "Battle Royale: Imperial"
+	title = "Королевская битва: 17 век"
 	lobby_icon = "icons/lobby/battleroyale.png"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall)
 	respawn_delay = 0
@@ -17,8 +17,8 @@
 	age = "1713"
 	ordinal_age = 3
 	faction_distribution_coeffs = list(PIRATES = 1)
-	battle_name = "Battleroyale at Isla Robusta"
-	mission_start_message = "<font size=4>You and several other pirates were abandoned at this forsaken island. Only one can survive! <b>Last standing player wins!</b></font>"
+	battle_name = "Battleroyale на острове Робуста"
+	mission_start_message = "<font size=4>Вы и несколько других пиратов были брошены на этом заброшенном острове. Только один может выжить! <b>Победит последний уцелевший игрок!</b></font>"
 	var/winner_name = "Unknown"
 	var/winner_ckey = "Unknown"
 	faction1 = PIRATES
@@ -77,10 +77,10 @@
 						winner_name =  H.name
 						winner_ckey = H.ckey
 						give_award(winner_ckey,winner_name,1)
-						var/warning_sound = sound('sound/effects/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+						var/win_sound = sound('sound/effects/battleroyale/win.ogg', repeat = FALSE, wait = TRUE, channel = 777)
 						for (var/mob/M in player_list)
-							M.client << warning_sound
-						message = "The battle is over! <b>[winner_ckey]</b> was the winner!"
+							M.client << win_sound
+						message = "The battle is over! <b>[winner_ckey]</b> победитель в королевской битве!"
 						world << "<font size = 4 color='yellow'><span class = 'notice'>[message]</span></font>"
 						win_condition_spam_check = TRUE
 			ticker.finished = TRUE
@@ -224,7 +224,7 @@
 					warn_closing_areas(ar_to_close,10)
 		spawn(300)
 			ar_to_close_timeleft = 15
-			world << "<big><b>The [ar_to_close_string] Area will close in 30 seconds!</big></b>"
+			world << "<big><b>The [ar_to_close_string] замкнётся через 30 секунд!</big></b>"
 			spawn(300)
 				close_area(ar_to_close)
 				closing_areas()
@@ -299,7 +299,7 @@
 						H.crush()
 					else if (istype(get_area(get_turf(H)),/area/caribbean/no_mans_land/invisible_wall) && get_area(get_turf(H)).name == "North-Western Area")
 						H.crush()
-			world << "<big>The <b>North-Western</b> Area has been closed!</big>"
+			world << "<big>The <b>North-Western</b> Зона сузилась!</big>"
 			closed_areas += list("one")
 			return
 		if ("two")
@@ -315,7 +315,7 @@
 						H.crush()
 					else if (istype(get_area(get_turf(H)),/area/caribbean/no_mans_land/invisible_wall) && get_area(get_turf(H)).name == "North-Eastern Area")
 						H.crush()
-			world << "<big>The <b>North-Eastern</b> Area has been closed!</big>"
+			world << "<big>The <b>North-Eastern</b> Зона сузилась!</big>"
 			closed_areas += list("two")
 			return
 		if ("three")
@@ -331,7 +331,7 @@
 						H.crush()
 					else if (istype(get_area(get_turf(H)),/area/caribbean/no_mans_land/invisible_wall) && get_area(get_turf(H)).name == "Western Area")
 						H.crush()
-			world << "<big>The <b>Western</b> Area has been closed!</big>"
+			world << "<big>The <b>Western</b> Зона сузилась!</big>"
 			closed_areas += list("three")
 			return
 		if ("four")
@@ -347,7 +347,7 @@
 						H.crush()
 					else if (istype(get_area(get_turf(H)),/area/caribbean/no_mans_land/invisible_wall) && get_area(get_turf(H)).name == "Eastern Area")
 						H.crush()
-			world << "<big>The <b>Eastern</b> Area has been closed!</big>"
+			world << "<big>The <b>Eastern</b> Зона сузилась!</big>"
 			closed_areas += list("four")
 			return
 		if ("five")
@@ -363,7 +363,7 @@
 						H.crush()
 					else if (istype(get_area(get_turf(H)),/area/caribbean/no_mans_land/invisible_wall) && get_area(get_turf(H)).name == "South-Western Area")
 						H.crush()
-			world << "<big>The <b>South-Western</b> Area has been closed!</big>"
+			world << "<big>The <b>South-Western</b> Зона сузилась!</big>"
 			closed_areas += list("five")
 			return
 		if ("six")
@@ -379,12 +379,12 @@
 						H.crush()
 					else if (istype(get_area(get_turf(H)),/area/caribbean/no_mans_land/invisible_wall) && get_area(get_turf(H)).name == "South-Eastern Area")
 						H.crush()
-			world << "<big>The <b>South-Eastern</b> Area has been closed!</big>"
+			world << "<big>The <b>South-Eastern</b> Зона сузилась!</big>"
 			closed_areas += list("six")
 			return
 //////////////////SCREEN HELPERS////////////////////////////
 /obj/screen/areashow
-	maptext = "<center><font color='yellow'>Unknown Area</font></center>"
+	maptext = "<center><font color='yellow'>НЕИЗВЕСТНО</font></center>"
 	maptext_width = 32*8
 	maptext_x = (32*8 * -0.5)+32
 	maptext_y = 32*0.75
@@ -396,7 +396,7 @@
 	if (parea)
 		maptext = "<center><font color='yellow'><b>[parea.name]</b> ([parentmob.x],[parentmob.y])</font></center>"
 	else
-		maptext = "<center><font color='yellow'>Unknown Area</font></center>"
+		maptext = "<center><font color='yellow'>НЕИЗВЕСТНО</font></center>"
 	icon_state = "blank"
 	spawn(30)
 		update()
@@ -408,7 +408,7 @@
 	if (parea)
 		maptext = "<center><font color='yellow'><b>[parea.name]</b> ([parentmob.x],[parentmob.y])</font></center>"
 		if (parea.name == "[map.ar_to_close_string] Area")
-			maptext = "<center><font color='[currwarning]'><b>[parea.name]</b> ([parentmob.x],[parentmob.y]) (CLOSING!)</font></center>"
+			maptext = "<center><font color='[currwarning]'><b>[parea.name]</b> ([parentmob.x],[parentmob.y]) (БЕГИ ОТСЮДА)</font></center>"
 			if(currwarning == "yellow")
 				currwarning = "red"
 			else
@@ -419,7 +419,7 @@
 		update()
 
 /obj/screen/areaclosing
-	maptext = "<center><font color='green'><b>Closing:</b> None</font></center>"
+	maptext = "<center><font color='green'><b>Сужение через:</b> хз</font></center>"
 	maptext_width = 96
 	maptext_x = 0
 	maptext_y = 32*0.75
@@ -436,20 +436,20 @@
 		return
 	if (map && map.ar_to_close_string != "" && map.ar_to_close_string != "None")
 		if (map.ar_to_close_timeleft > 0 && (map.ar_to_close_timeleft>30))
-			maptext = "<center><font color='green'><b>Closing:</b> [round(map.ar_to_close_timeleft*2)] secs</font></center>"
+			maptext = "<center><font color='green'><b>Сужение через:</b> [round(map.ar_to_close_timeleft*2)] сек.</font></center>"
 		else if (map.ar_to_close_timeleft > 0 && (map.ar_to_close_timeleft>15))
-			maptext = "<center><font color='yellow'><b>Closing:</b> [round(map.ar_to_close_timeleft*2)] secs</font></center>"
+			maptext = "<center><font color='yellow'><b>Сужение через:</b> [round(map.ar_to_close_timeleft*2)] сек.</font></center>"
 		else if (map.ar_to_close_timeleft > 0)
-			maptext = "<center><font color='red'><b>Closing:</b> [round(map.ar_to_close_timeleft*2)] secs</font></center>"
+			maptext = "<center><font color='red'><b>Сужение через:</b> [round(map.ar_to_close_timeleft*2)] сек.</font></center>"
 		else
-			maptext = "<center><font color='green'><b>Closing:</b> None</font></center>"
+			maptext = "<center><font color='green'><b>Сужение через:</b> хз</font></center>"
 	else
-		maptext = "<center><font color='green'><b>Closing:</b> None</font></center>"
+		maptext = "<center><font color='green'><b>Сужение через:</b> хз</font></center>"
 	spawn(10)
 		update()
 
 /obj/screen/playersleft
-	maptext = "<center><font color='yellow'>Alive: <b>N/A</b></font></center>"
+	maptext = "<center><font color='yellow'>Живых: <b>хз</b></font></center>"
 	maptext_width = 64
 	maptext_x = 64
 	maptext_y = 32*0.75
@@ -464,20 +464,20 @@
 /obj/screen/playersleft/proc/update()
 	if (!parentmob || !src)
 		return
-	maptext = "<center><font color='yellow'>Alive: <b>[alive_n_of_side(PIRATES)]</b></font></center>"
+	maptext = "<center><font color='yellow'>Живых: <b>[alive_n_of_side(PIRATES)]</b></font></center>"
 	spawn(50)
 		update()
 
 /obj/map_metadata/battleroyale/two
 	ID = MAP_BATTLEROYALE_MODERN
-	title = "Battle Royale: Modern"
+	title = "Королевская битва: 21 век"
 	lobby_icon = "icons/lobby/battleroyale_arab.png"
 
 	age = "2013"
 	ordinal_age = 8
 	faction_distribution_coeffs = list(PIRATES = 1)
-	battle_name = "Battleroyale at Arab Town"
-	mission_start_message = "<font size=4><b>Last standing player wins!</b><br>TWO MINUTES UNTIL THE INVISIBLE WALL DISAPPEARS!</font>"
+	battle_name = "Battleroyale в Городе"
+	mission_start_message = "<font size=4><b>Последний победитель!</b><br>ДВЕ МИНУТЫ ДО ЗАПУСКА!</font>"
 
 /obj/map_metadata/battleroyale/two/job_enabled_specialcheck(var/datum/job/J)
 
@@ -502,13 +502,13 @@
 	return .
 /obj/map_metadata/battleroyale/three
 	ID = MAP_BATTLEROYALE_MEDIEVAL
-	title = "Battle Royale: Medieval"
+	title = "Королевская битва: Средние века"
 
 	age = "1013"
 	ordinal_age = 2
 	faction_distribution_coeffs = list(PIRATES = 1)
-	battle_name = "Battleroyale at Camp"
-	mission_start_message = "<font size=4><b>Last standing player wins!</b><br>TWO MINUTES UNTIL THE INVISIBLE WALL DISAPPEARS!</font>"
+	battle_name = "Battleroyale в Лагере"
+	mission_start_message = "<font size=4><b>Последний на ногах выйгрывает!</b><br>ЧЕРЕЗ ДВЕ МИНУТЫ НАЧАЛО!</font>"
 
 /obj/map_metadata/battleroyale/three/job_enabled_specialcheck(var/datum/job/J)
 
@@ -535,12 +535,12 @@
 
 /obj/map_metadata/battleroyale/four
 	ID = MAP_BATTLEROYALE_WILDWEST
-	title = "Battle Royale: Wild West"
+	title = "Королевская битва: Дикий Запад"
 	age = "1873"
 	ordinal_age = 4
 	faction_distribution_coeffs = list(PIRATES = 1)
-	battle_name = "Battleroyale at Little Creek"
-	mission_start_message = "<font size=4><b>Last standing player wins!</b><br>TWO MINUTES UNTIL THE INVISIBLE WALL DISAPPEARS!</font>"
+	battle_name = "Battleroyale в Литтл-Крик"
+	mission_start_message = "<font size=4><b>Побеждает последний уцелевший игрок!</b><br>ДВЕ МИНУТЫ ПОКА НЕВИДИМАЯ СТЕНА ИСЧЕЗЕТ!</font>"
 
 /obj/map_metadata/battleroyale/four/job_enabled_specialcheck(var/datum/job/J)
 

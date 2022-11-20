@@ -17,6 +17,10 @@
 	var/has  = "have"
 	var/is   = "are"
 	var/does = "do"
+	var/He_ru = "Он"
+	var/he_ru = "он"
+	var/His_ru = "Его"
+	var/his_ru = "его"
 
 /datum/gender/male
 	key  = "male"
@@ -29,6 +33,10 @@
 	has  = "has"
 	is   = "is"
 	does = "does"
+	He_ru = "Оно"
+	he_ru = "оно"
+	His_ru = "Его"
+	his_ru = "его"
 
 /datum/gender/female
 	key  = "female"
@@ -41,6 +49,10 @@
 	has  = "has"
 	is   = "is"
 	does = "does"
+	He_ru = "Она"
+	he_ru = "она"
+	His_ru = "Её"
+	his_ru = "её"
 
 /datum/gender/neuter
 	key = "neuter"
@@ -53,3 +65,7 @@
 	has  = "has"
 	is   = "is"
 	does = "does"
+	He_ru = "Оно"
+	he_ru = "оно"
+	His_ru = "Его"
+	his_ru = "его"

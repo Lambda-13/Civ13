@@ -110,7 +110,7 @@
 					recipes += new/datum/stack_recipe_list(i[8], list(new/datum/stack_recipe(i[2], text2path(i[3]), text2num(i[4]),  _time = text2num(i[5]), _one_per_turf = text2num(i[6]), _on_floor = text2num(i[7]), _supplied_material = supmat)))
 
 datum/admins/proc/print_crafting_recipes()
-	set category = "Debug"
+	set category = "Дебаг"
 	set desc="Print all the ingame crafting recipes into a text file."
 	set name="Print Crafting Recipes"
 	var/recipe_list = file("recipes.txt")

@@ -1,6 +1,6 @@
 /obj/structure/window
-	name = "window"
-	desc = "A window."
+	name = "окно"
+	desc = "Окошечко."
 	icon = 'icons/obj/windows.dmi'
 	density = TRUE
 	w_class = 3
@@ -27,24 +27,24 @@
 	if (istype(src, /obj/structure/window/barrier))
 		return
 	if (health == maxhealth)
-		user << "<span class='notice'>It looks fully intact.</span>"
+		user << "<span class='notice'>Выглядит целым.</span>"
 	else
 		var/perc = health / maxhealth
 		if (perc > 0.75)
-			user << "<span class='notice'>It has a few cracks.</span>"
+			user << "<span class='notice'>Выглядит почти целым.</span>"
 		else if (perc > 0.5)
-			user << "<span class='warning'>It looks slightly damaged.</span>"
+			user << "<span class='warning'>Выглядит поцарапаным.</span>"
 		else if (perc > 0.25)
-			user << "<span class='warning'>It looks moderately damaged.</span>"
+			user << "<span class='warning'>Выглядит треснутым.</span>"
 		else
-			user << "<span class='danger'>It looks heavily damaged.</span>"
+			user << "<span class='danger'>Выглядит достаточно потрескавшимся.</span>"
 	if (silicate)
 		if (silicate < 30)
-			user << "<span class='notice'>It has a thin layer of silicate.</span>"
+			user << "<span class='notice'>Имеет тонкий слой силиката.</span>"
 		else if (silicate < 70)
-			user << "<span class='notice'>It is covered in silicate.</span>"
+			user << "<span class='notice'>Покрыт силикатом.</span>"
 		else
-			user << "<span class='notice'>There is a thick layer of silicate covering it.</span>"
+			user << "<span class='notice'>Покрыт слоем силиката.</span>"
 
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = TRUE)
 	var/initialhealth = health
@@ -60,18 +60,18 @@
 		if (sound_effect)
 			playsound(loc, 'sound/effects/Glasshit.ogg', 100, TRUE)
 		if (health < maxhealth / 4 && initialhealth >= maxhealth / 4)
-			visible_message("[src] looks like it's about to shatter!" )
+			visible_message("[src] похоже сейчас [pick("сломается", "развалится")]!" )
 		else if (health < maxhealth / 2 && initialhealth >= maxhealth / 2)
-			visible_message("[src] looks seriously damaged!" )
+			visible_message("[src] выглядит сильно [pick("сломаным", "сломленым", "треснутым")]!" )
 		else if (health < maxhealth * 3/4 && initialhealth >= maxhealth * 3/4)
-			visible_message("Cracks begin to appear in [src]!" )
+			visible_message("Трещины появляются в [src]!" )
 	return
 
 /obj/structure/window/proc/apply_silicate(var/amount)
 	if (health < maxhealth) // Mend the damage
 		health = min(health + amount * 3, maxhealth)
 		if (health == maxhealth)
-			visible_message("[src] looks fully repaired." )
+			visible_message("[src] выглядит полностью целым." )
 	else // Reinforce
 		silicate = min(silicate + amount, 100)
 		updateSilicate()
@@ -88,7 +88,7 @@
 /obj/structure/window/proc/shatter(var/display_message = TRUE)
 	playsound(get_turf(src), "shatter", 70, TRUE)
 	if (display_message)
-		visible_message("<span class = 'warning'>[src] shatters!</span>")
+		visible_message("<span class = 'warning'>[src] разбивается!</span>")
 		new/obj/item/weapon/material/shard/glass(loc)
 	if (glassed)
 		if (istype(src, /obj/structure/window/classic/shoji))
@@ -190,7 +190,7 @@
 
 /obj/structure/window/hitby(AM as mob|obj)
 	..()
-	visible_message("<span class='danger'>[src] was hit by [AM].</span>")
+	visible_message("<span class='danger'>[src] стучит по [AM].</span>")
 	var/tforce = FALSE
 	if (ismob(AM))
 		tforce = 40
@@ -210,14 +210,14 @@
 
 		playsound(loc, 'sound/effects/glassknock.ogg', 80, TRUE)
 		user.do_attack_animation(src)
-		usr.visible_message("<span class='danger'>\The [usr] bangs against \the [src]!</span>",
-							"<span class='danger'>You bang against \the [src]!</span>",
-							"You hear a banging sound.")
+		usr.visible_message("<span class='danger'>[usr] бьёт по [src]!</span>",
+							"<span class='danger'>Бью [src]!</span>",
+							"Банг-банг.")
 	else
 		playsound(loc, 'sound/effects/glassknock.ogg', 80, TRUE)
-		usr.visible_message("[usr.name] knocks on the [name].",
-							"You knock on the [name].",
-							"You hear a knocking sound.")
+		usr.visible_message("[usr.name] стучит в [name].",
+							"Стучу в [name].",
+							"Тук-тук.")
 	return
 
 /obj/structure/window/attack_generic(var/mob/user, var/damage)
@@ -227,10 +227,10 @@
 	if (!damage)
 		return
 	if (damage >= 10)
-		visible_message("<span class='danger'>[user] smashes into [src]!</span>")
+		visible_message("<span class='danger'>[user] бьёт [src]!</span>")
 		take_damage(damage)
 	else
-		visible_message("<span class='notice'>\The [user] bonks \the [src] harmlessly.</span>")
+		visible_message("<span class='notice'>[user] постукивает [src].</span>")
 	return TRUE
 
 
@@ -238,7 +238,7 @@
 	if(!..())
 		return
 	user.stats["stamina"][1] = max(user.stats["stamina"][1] - rand(10,15), 0)
-	visible_message("<span class='danger'>[user] kicks the [src]!</span>")
+	visible_message("<span class='danger'>[user] пинает [src]!</span>")
 	take_damage(rand(5,10))
 
 /obj/structure/window/attackby(obj/item/W as obj, mob/user as mob)
@@ -251,17 +251,17 @@
 			qdel(W)	//gotta delete it here because if window breaks, it won't get deleted
 			switch (state)
 				if (1)
-					M.visible_message("<span class='warning'>[user] slams [M] against \the [src]!</span>")
+					M.visible_message("<span class='warning'>[user] доблит [M] [src]!</span>")
 					M.apply_damage(7)
 					hit(10)
 				if (2)
-					M.visible_message("<span class='danger'>[user] bashes [M] against \the [src]!</span>")
+					M.visible_message("<span class='danger'>[user] ломает [M] [src]!</span>")
 					if (prob(50))
 						M.Weaken(1)
 					M.apply_damage(10)
 					hit(25)
 				if (3)
-					M.visible_message("<span class='danger'><big>[user] crushes [M] against \the [src]!</big></span>")
+					M.visible_message("<span class='danger'><big>[user] крушит [M] [src]!</big></span>")
 					M.Weaken(5)
 					M.apply_damage(20)
 					hit(50)
@@ -292,7 +292,7 @@
 			user << "<span class='notice'>You're not sure how to dismantle \the [src] properly.</span>"
 		else
 			playsound(loc, 'sound/items/Ratchet.ogg', 75, TRUE)
-			visible_message("<span class='notice'>[user] dismantles \the [src].</span>")
+			visible_message("<span class='notice'>[user] разбирает [src].</span>")
 			if (dir == SOUTHWEST)
 				var/obj/item/stack/material/mats = new glasstype(loc)
 				mats.amount = is_fulltile() ? 4 : 2

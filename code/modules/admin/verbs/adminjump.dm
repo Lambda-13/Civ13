@@ -7,7 +7,7 @@
 /client/proc/Jump(var/area/A in return_sorted_areas())
 	set name = "Jump to Area"
 	set desc = "Area to jump to"
-	set category = "Admin"
+	set category = "Админ"
 	if (!check_rights(R_ADMIN|R_MOD|R_DEBUG))
 		return
 
@@ -37,7 +37,7 @@
 
 /client/proc/jumptoturf(var/turf/T in turfs)
 	set name = "Jump to Turf"
-	set category = "Admin"
+	set category = "Админ"
 	if (!check_rights(R_ADMIN|R_MOD|R_DEBUG))
 		return
 	if (config.allow_admin_jump)
@@ -50,7 +50,7 @@
 		WWalert(src, "Admin jumping is disabled", "Admin Jump")
 
 /client/proc/jumptomob(var/mob/M in mob_list)
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Jump to Mob"
 
 	if (!check_rights(R_ADMIN|R_MOD|R_DEBUG))
@@ -72,7 +72,7 @@
 		WWalert(src, "Admin jumping is disabled", "Admin Jump")
 
 /client/proc/jumptocoord(tx as num, ty as num, tz as num)
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Jump to Coordinate"
 
 	if (!check_rights(R_ADMIN|R_MOD|R_DEBUG))
@@ -92,7 +92,7 @@
 		WWalert(src, "Admin jumping is disabled", "Admin Jump")
 
 /client/proc/jumptokey()
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Jump to Key"
 
 	if (!check_rights(R_ADMIN|R_MOD|R_DEBUG))
@@ -116,7 +116,7 @@
 		WWalert(src, "Admin jumping is disabled", "Admin Jump")
 
 /client/proc/Getmob(var/mob/M in mob_list)
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Get Mob"
 	set desc = "Mob to teleport"
 	if (!check_rights(R_ADMIN|R_MOD|R_DEBUG))
@@ -133,7 +133,7 @@
 var/turf/default_adminzone_turf = null
 
 /client/proc/goto_adminzone()
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Go To The Admin Zone"
 
 	if (!check_rights(R_MOD))
@@ -170,7 +170,7 @@ var/turf/default_adminzone_turf = null
 
 
 /client/proc/Getkey()
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Get Key"
 	set desc = "Key to teleport"
 
@@ -198,7 +198,7 @@ var/turf/default_adminzone_turf = null
 		WWalert(src, "Admin jumping is disabled", "Admin Jump")
 
 /client/proc/sendmob(var/mob/M in sortmobs())
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Send Mob"
 	if (!check_rights(R_ADMIN|R_MOD|R_DEBUG))
 		return

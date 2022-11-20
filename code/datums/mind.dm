@@ -119,23 +119,24 @@
 		output += "<br>"
 
 	output += "<br><br>"
-	output += "<b><span style = 'font-size: 1.1em; color: #E1E1FF'>Memories</span></b>"
+	output += "<b><span style = 'font-size: 1.1em; color: #E1E1FF'>Память</span></b>"
 	output += "<br><br>"
 	if (memory)
 		output += "<i>[memory]</i>"
 	else
-		output += "<i>No memories stored.</i>"
+		output += "<i>Пусто!</i>"
 
 	var/memory_stylized = {"
 	<br>
 	<html>
+	<meta charset='utf-8'>
 	<head>
 	[common_browser_style]
 	</head>
 	<body><center>
 	<big>PLACEHOLDER</big>
 	<br><br><br>
-	<i>Use the 'Notes' verb in the 'IC' tab to re-open this window.</i>
+	<i>Используйте верб 'Notes' во вкладке 'IC' для открытия данного окна.</i>
 	</body></html>
 	"}
 

@@ -1,6 +1,6 @@
 /obj/item/blueprint
-	name = "blueprint"
-	desc = "A technical blueprint."
+	name = "схема"
+	desc = "Схема для создания."
 	icon_state = "blueprints"
 	icon = 'icons/obj/items.dmi'
 	flammable = TRUE
@@ -21,8 +21,8 @@
 	var/cost_steel = 0
 
 /obj/item/blueprint/gun/arisaka
-	name = "Arisaka Type 99 Blueprint"
-	desc = "A blueprint for a Japanese bolt-action rifle chambered in 7.7x58mm Arisaka ammunition."
+	name = "Arisaka Type 99 схема"
+	desc = "Схема создания Японской винтовки 7.7x58 калибра \"Арисака\"."
 	stock_type = "Rifle Wooden Stock"
 	receiver_type = "Bolt-Action"
 	feeding_type = "Internal Magazine"

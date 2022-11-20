@@ -3,12 +3,12 @@
 
 /mob/verb/whisper()
 	set name = "Whisper"
-	set category = "IC"
+	set category = "ИЦ"
 	return
 
 /mob/verb/say_verb(message as text)
 	set name = "Say"
-	set category = "IC"
+	set category = "ИЦ"
 	if (say_disabled)	//This is here to try to identify lag problems
 		usr << "<span class = 'red'>Speech is currently admin-disabled.</span>"
 		return
@@ -22,7 +22,7 @@
 
 /mob/living/human/verb/howl_verb(message as text)
 	set name = "Howl"
-	set category = "IC"
+	set category = "ИЦ"
 
 	if (say_disabled)	//This is here to try to identify lag problems
 		usr << "<span class = 'red'>Speech is currently admin-disabled.</span>"
@@ -39,7 +39,7 @@
 	usr.say(message, TRUE)
 /mob/verb/me_verb(message as text)
 	set name = "Me"
-	set category = "IC"
+	set category = "ИЦ"
 	if (ishuman(src))
 		var/mob/living/human/H = src
 		if ((H.werewolf || H.gorillaman) && H.body_build.name != "Default")
@@ -112,7 +112,7 @@
 
 /mob/proc/say_quote(var/message, var/datum/language/speaking = null)
 		var/verb = "says"
-		var/ending = copytext(message, length(message))
+		var/ending = copytext(message, length_char(message))
 		if (ending=="!")
 				verb=pick("exclaims","shouts","yells")
 		else if (ending=="?")
@@ -134,7 +134,7 @@
 	return get_turf(src)
 
 /mob/proc/say_test(var/text)
-	var/ending = copytext(text, length(text))
+	var/ending = copytext(text, length_char(text))
 	if (ending == "?")
 		return "1"
 	else if (ending == "!")
@@ -145,10 +145,10 @@
 //returns the language object only if the code corresponds to a language that src can speak, otherwise null.
 /mob/proc/parse_language(var/message)
 	var/prefix = copytext(message,1,2)
-	if (length(message) >= 1 && prefix == "!")
+	if (length_char(message) >= 1 && prefix == "!")
 		return all_languages["Noise"]
 
-	if (length(message) >= 3 && is_language_prefix(prefix))
+	if (length_char(message) >= 3 && is_language_prefix(prefix))
 		var/language_prefix = lowertext(copytext(message, 2, 4))
 		var/datum/language/L = language_keys[language_prefix]
 		if (can_speak(L))

@@ -1,6 +1,6 @@
 // verb for admins to set custom event
 /client/proc/cmd_admin_change_custom_event()
-	set category = "Fun"
+	set category = "Веселье"
 	set name = "Change Custom Event"
 
 	if (!holder)
@@ -19,14 +19,14 @@
 
 	custom_event_msg = input
 
-	world << "<h1 class='alert'>Custom Event</h1>"
-	world << "<h2 class='alert'>A custom event is starting. OOC Info:</h2>"
+	world << "<h1 class='alert'>Событие</h1>"
+	world << "<h2 class='alert'>Информация о событии:</h2>"
 	world << "<span class='alert'>[custom_event_msg]</span>"
 	world << "<br>"
 /*
 // normal verb for players to view info
 /client/verb/cmd_view_custom_event()
-	set category = "OOC"
+	set category = "ООС"
 	set name = "Custom Event Info"
 
 	if (!custom_event_msg || custom_event_msg == "")

@@ -379,7 +379,7 @@ var/global/datum/controller/occupations/job_master
 
 		job.equip(H)
 
-		#define SAFE_SPAWN_TIME 4
+		#define SAFE_SPAWN_TIME 2
 		// Add loadout items. spawn(SAFE_SPAWN_TIME) so it happens after our pockets are filled with default job item
 		spawn (SAFE_SPAWN_TIME*2)
 			for (var/obj/item/weapon/gun/projectile/gun in H.contents)
@@ -556,13 +556,21 @@ var/global/datum/controller/occupations/job_master
 			if (H.client)
 				H.client.remove_gun_icons()
 		if (H)
-			spawn (50)
+			spawn (1)
 				if (H)
 					H.stopDumbDamage = FALSE
-
+/*
 			spawn(12)
 				if(map.ID != MAP_CAMPAIGN)
 					H.memory()
+*/
+
+			H << "<big>Меня зовут <b>[H.real_name]</b>, я <b>[H.original_job_title]</b>.</big>"
+			H << "<big>Как [H.original_job.faction] я говорю на [H.original_job.default_language].</big>"
+			if (map && map.is_zombie)
+				H << "<big>Надо не забывать что вокруг зомби, а значит если меня укусят мне надо срочно принять <b>Potassium Iodide</b> до превращения в зомби.</big>"
+
+
 
 			return H
 

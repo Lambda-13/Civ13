@@ -39,7 +39,7 @@ var/civmax_research = list(230,230,230)
 	var/list/ambience = list('sound/ambience/ship1.ogg')
 	var/list/songs = list(
 		"Nassau Shores:1" = "sound/music/nassau_shores.ogg",)
-	var/mission_start_message = "Round will start soon!"
+	var/mission_start_message = "Раунд скоро начнётся!"
 	var/is_RP = FALSE
 	var/squads = 1
 	var/list/faction1_squads = list(
@@ -146,7 +146,7 @@ var/civmax_research = list(230,230,230)
 
 	var/chad_mode = FALSE //Virgins BTFO
 	var/chad_mode_plus = FALSE //SUPER CHAD
-	var/gamemode = "Team Deathmatch"
+	var/gamemode = "Командный бой"
 	var/research_active = FALSE //if research can be done
 	var/default_research = 0 //the starting research level
 	var/is_zombie = FALSE
@@ -154,6 +154,7 @@ var/civmax_research = list(230,230,230)
 	var/perschadplus = FALSE
 	var/is_wasteland = FALSE
 	var/nonukes = FALSE
+	var/disablehud = FALSE //Faction hud
 
 	//autoresearch
 	var/autoresearch = FALSE //if autoresearch is active
@@ -166,37 +167,37 @@ var/civmax_research = list(230,230,230)
 
 	var/age2_lim = 135
 	var/age2_done = 0
-	var/age2_timer = 24*36000
+	var/age2_timer = 2*36000
 	var/age2_top = 65
 
 	var/age3_lim = 230
 	var/age3_done = 0
-	var/age3_timer = 2*24*36000
+	var/age3_timer = 2*2*36000
 	var/age3_top = 95
 
 	var/age4_lim = 290
 	var/age4_done = 0
-	var/age4_timer = 3*24*36000
+	var/age4_timer = 2*3*36000
 	var/age4_top = 105
 
 	var/age5_lim = 335
 	var/age5_done = 0
-	var/age5_timer = 4*24*36000
+	var/age5_timer = 2*4*36000
 	var/age5_top = 125
 
 	var/age6_lim = 420
 	var/age6_done = 0
-	var/age6_timer = 5*24*36000
+	var/age6_timer = 2*5*36000
 	var/age6_top = 178
 
 	var/age7_lim = 540
 	var/age7_done = 0
-	var/age7_timer = 6*24*36000
+	var/age7_timer = 2*6*36000
 	var/age7_top = 195
 
 	var/age8_lim = 620
 	var/age8_done = 0
-	var/age8_timer = 7*24*36000
+	var/age8_timer = 2*7*36000
 	var/age8_top = 230
 
 	var/orespawners = 0
@@ -224,6 +225,9 @@ var/civmax_research = list(230,230,230)
 	var/windspeedvar = 1 // 0 to 4
 	var/windspeed = "a light breeze" // calm, light breeze, moderate breeze, strong breeze, gale
 	var/winddesc = "A light Eastern breeze."
+	var/winddirection_ru = "Восток"
+	var/windspeed_ru = "лёгкий бриз"
+	var/winddesc_ru = "Лёгкий восточный бриз."
 
 	var/artillery_count = 0
 	var/artillery_timer = 3000
@@ -252,6 +256,8 @@ var/civmax_research = list(230,230,230)
 	var/ar_to_close_timeleft = 0
 
 	var/no_hardcore = FALSE
+
+	var/csssfx = FALSE //Звуки из кастомных серверов контр страйк соурс
 /obj/map_metadata/New()
 	..()
 	map = src
@@ -342,26 +348,45 @@ var/civmax_research = list(230,230,230)
 		windspeedvar = 4
 	if (windspeedvar < 0)
 		windspeedvar = 0
+	if (winddirection == "North")
+		winddirection_ru = "Север"
+	if (winddirection == "South")
+		winddirection_ru = "Юг"
+	if (winddirection == "East")
+		winddirection_ru = "Восток"
+	if (winddirection == "West")
+		winddirection_ru = "Запад"
 	switch (windspeedvar)
 		if (0)
 			windspeed = "calm"
 			winddesc = "No wind."
+			windspeed_ru = "затишье"
+			winddesc_ru = "Ветра нет."
+
 		if (1)
 			windspeed = "a light breeze"
 			winddesc = "A light [winddirection]ern breeze."
+			windspeed_ru = "лёгкий бриз"
+			winddesc_ru = "Лёгкий ветер дует с [lowertext(winddirection_ru)]."
 		if (2)
 			windspeed = "a moderate breeze"
 			winddesc = "A moderate [winddirection]ern breeze."
+			windspeed_ru = "средний бриз"
+			winddesc_ru = "Средний ветер дует с [lowertext(winddirection_ru)]."
 		if (3)
 			windspeed = "a strong breeze"
 			winddesc = "A strong [winddirection]ern breeze."
+			windspeed_ru = "сильный бриз"
+			winddesc_ru = "Сильный ветер дует с [lowertext(winddirection_ru)]."
 		if (4)
 			windspeed = "a gale"
 			winddesc = "A [winddirection]ern gale."
+			windspeed_ru = "шторм"
+			winddesc_ru = "Штормящий ветер дует с [lowertext(winddirection_ru)]."
 	if (windspeedvar != oldspeed)
-		world << "<big>The wind changes strength. It is now <b>[windspeed]</b>.</big>"
+		world << "<big>Надвигается <b>[windspeed_ru]</b>.</big>"
 	if (winddirection != oldwind)
-		world << "<big>The wind changes direction. It is now blowing from the <b>[winddirection]</b>.</big>"
+		world << "<big>Теперь ветер дует с <b>[lowertext(winddirection_ru)]а</b>.</big>"
 	spawn(rand(3600,6000))
 		wind()
 
@@ -369,7 +394,7 @@ var/civmax_research = list(230,230,230)
 
 	if (pollutionmeter >= 1000)
 		change_weather(WEATHER_SMOG)
-		world << "The air gets smoggy..."
+		world << pick("Воздух вокруг покрывается дымкой...", "Вокруг смог...", "Дышать тяжело... Дым вокруг...", "Вокруг меня дымка...", "Туманно...", "Вокруг становится туманно...", "Смог... Или туман?", "Плохо видно... Смог...", "Дымка...")
 	pollutionmeter -= 80
 	if (pollutionmeter < 0)
 		pollutionmeter = 0
@@ -387,7 +412,7 @@ var/civmax_research = list(230,230,230)
 		for(var/client/C in clients)
 			if(C.is_preference_enabled(/datum/client_preference/show_tips))
 				C << "<font color='#5194BB'>---</font>"
-				C << "<font color='#5194BB'><b>Tip:</b> [pick(tips)]</font>"
+				C << "<font color='#5194BB'><b>Совет:</b> [pick(tips)]</font>"
 				C << "<font color='#5194BB'>---</font>"
 
 /obj/map_metadata/proc/set_ordinal_age()
@@ -480,7 +505,7 @@ var/civmax_research = list(230,230,230)
 			for(var/i = 1, i <= custom_faction_nr.len, i++)
 				count = custom_civs[custom_faction_nr[i]][1]+custom_civs[custom_faction_nr[i]][2]+custom_civs[custom_faction_nr[i]][3]
 				if (count > age1_lim && world.time > 36000)
-					world << "<big>The world has advanced into the Bronze Age!</big>"
+					world << "<big>Мир перешёл в бронзовый век!</big>"
 					age = "313 B.C."
 					set_ordinal_age()
 					age1_done = TRUE
@@ -494,7 +519,7 @@ var/civmax_research = list(230,230,230)
 			for(var/i = 1, i <= custom_faction_nr.len, i++)
 				count = custom_civs[custom_faction_nr[i]][1]+custom_civs[custom_faction_nr[i]][2]+custom_civs[custom_faction_nr[i]][3]
 				if (count > age2_lim && world.time >= age2_timer)
-					world << "<big>The world has advanced into the Medieval Age!</big>"
+					world << "<big>Мир перешёл в средневековье!</big>"
 					age = "1013"
 					set_ordinal_age()
 					age2_done = TRUE
@@ -508,7 +533,7 @@ var/civmax_research = list(230,230,230)
 			for(var/i = 1, i <= custom_faction_nr.len, i++)
 				count = custom_civs[custom_faction_nr[i]][1]+custom_civs[custom_faction_nr[i]][2]+custom_civs[custom_faction_nr[i]][3]
 				if (count > age3_lim && world.time >= age3_timer)
-					world << "<big>The world has advanced into the Imperial Age!</big>"
+					world << "<big>Мир перешёл в эпоху империй!</big>"
 					age = "1713"
 					set_ordinal_age()
 					age3_done = TRUE
@@ -521,7 +546,7 @@ var/civmax_research = list(230,230,230)
 			for(var/i = 1, i <= custom_faction_nr.len, i++)
 				count = custom_civs[custom_faction_nr[i]][1]+custom_civs[custom_faction_nr[i]][2]+custom_civs[custom_faction_nr[i]][3]
 				if (count > age4_lim && world.time >= age4_timer)
-					world << "<big>The world has advanced into the Industrial Age!</big>"
+					world << "<big>Мир перешёл в Индустриальную эпоху!</big>"
 					age = "1873"
 					set_ordinal_age()
 					age4_done = TRUE
@@ -533,7 +558,7 @@ var/civmax_research = list(230,230,230)
 			for(var/i = 1, i <= custom_faction_nr.len, i++)
 				count = custom_civs[custom_faction_nr[i]][1]+custom_civs[custom_faction_nr[i]][2]+custom_civs[custom_faction_nr[i]][3]
 				if (count > age5_lim && world.time >= age5_timer)
-					world << "<big>The world has advanced into the Early Modern Age!</big>"
+					world << "<big>Мир перешёл в эпоху нового времени!</big>"
 					age = "1903"
 					set_ordinal_age()
 					age5_done = TRUE
@@ -545,7 +570,7 @@ var/civmax_research = list(230,230,230)
 			for(var/i = 1, i <= custom_faction_nr.len, i++)
 				count = custom_civs[custom_faction_nr[i]][1]+custom_civs[custom_faction_nr[i]][2]+custom_civs[custom_faction_nr[i]][3]
 				if (count > age6_lim && world.time >= age6_timer)
-					world << "<big>The world has advanced into the Second World War!</big>"
+					world << "<big>Мир перешёл в эпоху второй мировой войны!</big>"
 					age = "1943"
 					set_ordinal_age()
 					age6_done = TRUE
@@ -557,7 +582,7 @@ var/civmax_research = list(230,230,230)
 			for(var/i = 1, i <= custom_faction_nr.len, i++)
 				count = custom_civs[custom_faction_nr[i]][1]+custom_civs[custom_faction_nr[i]][2]+custom_civs[custom_faction_nr[i]][3]
 				if (count > age7_lim && world.time >= age7_timer)
-					world << "<big>The world has advanced into the Cold War!</big>"
+					world << "<big>TМир перешёл в эпоху холодной войны!</big>"
 					age = "1969"
 					set_ordinal_age()
 					age7_done = TRUE
@@ -569,7 +594,7 @@ var/civmax_research = list(230,230,230)
 			for(var/i = 1, i <= custom_faction_nr.len, i++)
 				count = custom_civs[custom_faction_nr[i]][1]+custom_civs[custom_faction_nr[i]][2]+custom_civs[custom_faction_nr[i]][3]
 				if (count > age8_lim && world.time >= age8_timer)
-					world << "<big>The world has advanced into the Modern Age!</big>"
+					world << "<big>Мир перешёл в эру технологий!</big>"
 					age = "2013"
 					set_ordinal_age()
 					age8_done = TRUE
@@ -630,10 +655,10 @@ var/civmax_research = list(230,230,230)
 	if (J.is_nomad == TRUE)
 		. = FALSE
 /obj/map_metadata/proc/cross_message(faction)
-	return "<font size = 4>The [faction_const2name(faction,ordinal_age)] may now cross the invisible wall!</font>"
+	return "<font size = 4>[faction_const2name(faction,ordinal_age)] идут в атаку!</font>"
 
 /obj/map_metadata/proc/reverse_cross_message(faction)
-	return "<span class = 'userdanger'>The [faction_const2name(faction,ordinal_age)] may no longer cross the invisible wall!</span>"
+	return "<span class = 'userdanger'>[faction_const2name(faction,ordinal_age)] теперь не могут атаковать!</span>"
 
 
 // old game mode stuff
@@ -662,11 +687,11 @@ var/civmax_research = list(230,230,230)
 		ticker.finished = TRUE
 		var/message = ""
 		if (!map.civilizations)
-			message = "The [battle_name ? battle_name : "battle"] has ended in a stalemate!"
+			message = "[battle_name ? battle_name : "война была окончена!"] Наступило затишье."
 		else
-			message = "The round has ended!"
+			message = "Раунд окончен."
 		if (current_winner && current_loser)
-			message = "The battle is over! The [current_winner] was victorious over the [current_loser][battle_name ? " in the [battle_name]" : ""]!"
+			message = "Бой окончен! [current_winner] победили [current_loser][battle_name ? " в [battle_name]" : ""]!"
 		world << "<font size = 4><span class = 'notice'>[message]</span></font>"
 		win_condition_spam_check = TRUE
 		return FALSE
@@ -980,7 +1005,8 @@ var/civmax_research = list(230,230,230)
 	if (force || config.seasons_on)
 		if (season == "FALL")
 			season = "WINTER"
-			world << "<big>The <b>Winter</b> has started. In the hot climates, the wet season has started.</big>"
+			season_ru = "ЗИМА"
+			world << "<big><b>Зима</b> наступает. [pick("Будет холодно...", "Надеюсь тёплая одежда есть.", "Будет морозно...", "Лишь бы не заболеть.", "Холодновато...", "Морозно...", "Надеюсь я не заболею.", "Снова.", "")]</big>"
 			change_weather_somehow()
 			spawn(1200)
 				for (var/obj/structure/wild/tree/live_tree/TREES in world)
@@ -1036,7 +1062,8 @@ var/civmax_research = list(230,230,230)
 
 		else if (season == "SPRING")
 			season = "SUMMER"
-			world << "<big>The <b>Summer</b> has started. In the hot climates, the dry season has started.</big>"
+			season_ru = "ЛЕТО"
+			world << "<big><b>Лето</b> наступает. [pick("Солнечно.", "Тепло.", "Немного жарковато.", "Надеюсь есть лёгкая одежда.", "Наконец.", "Время следить за урожаем.", "Теплынь.", "Надо успеть до зимы сделать свои дела.", "Время делать запасы.", "Круто.", "")]</big>"
 			change_weather_somehow()
 			spawn(300)
 				for (var/obj/structure/wild/tree/live_tree/TREES in world)
@@ -1066,7 +1093,8 @@ var/civmax_research = list(230,230,230)
 				WT.ChangeTurf(/turf/floor/dirt)
 		else if (season == "WINTER")
 			season = "SPRING"
-			world << "<big>The weather is getting warmer. It is now <b>Spring</b>. In the hot climates, the wet season continues.</big>"
+			season_ru = "ВЕСНА"
+			world << "<big><b>Весна</b> наступает. [pick("Становится дождливо.", "Сыровато.", "Ещё холодно но не сильно.", "Теплеет.", "Снег тает.", "Как приятно заболеть.", "Листочки растут на деревьях.", "Птички поют.", "Цветочки растут.", "Вроде теплеет.", "Вроде ещё холодно.", "")]</big>"
 			spawn(900)
 				for (var/obj/structure/wild/tree/live_tree/TREES in world)
 					TREES.change_season()
@@ -1121,7 +1149,8 @@ var/civmax_research = list(230,230,230)
 						qdel(SW3)
 		else if (season == "SUMMER")
 			season = "FALL"
-			world << "<big>The leaves start to fall and the weather gets colder. It is now <b>Fall</b>. In the hot climates, the dry season continues.</big>"
+			season_ru = "ОСЕНЬ"
+			world << "<big><b>Осень</b> наступает. [pick("Пасмурно.", "Тучно.", "Холодно.", "Холодеет.", "Ещё тепло но не так сильно.", "Надо бы успеть закончить свои дела.", "Время делать запасы.", "Время собирать урожай.", "Время... Идёт так быстро.", "До зимы недалеко.", "До зимы осталось немного.", "Брр...", "Дождливо.", "")]</big>"
 			spawn(900)
 				for (var/obj/structure/wild/tree/live_tree/TREES in world)
 					TREES.change_season()

@@ -1023,6 +1023,9 @@ bullet_act
 	if(user == src)//Can't kick yourself dummy.
 		return
 
+	if(pacifist)
+		src << "<font color='yellow'><b><big>Не хочу пинаться.</big></b></font>"
+		return
 	var/hit_zone = user.targeted_organ
 	if (user.targeted_organ == "random")
 		hit_zone = pick("l_foot","r_foot","l_leg","r_leg","chest","groin","l_arm","r_arm","l_hand","r_hand","eyes","mouth","head")

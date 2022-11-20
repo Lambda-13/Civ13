@@ -1,6 +1,6 @@
 /client/proc/see_soldiers()
 	set name = "See Soldiers"
-	set category = "Special"
+	set category = "Особенное"
 
 	if (!check_rights(R_MOD))
 		src << "<span class = 'danger'>You don't have the permissions.</span>"

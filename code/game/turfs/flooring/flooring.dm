@@ -228,3 +228,21 @@ var/list/flooring_types
 	damage_temperature = T0C+200
 	descriptor = "planks"
 	flags = TURF_CAN_BREAK | TURF_IS_FRAGILE | TURF_REMOVE_SCREWDRIVER
+
+/decl/flooring/lfwb_stone
+	name = "stone"
+	desc = ""
+	icon = 'icons/turf/floors.dmi'
+	icon_base = "asteroid"
+	has_base_range = 0
+	damage_temperature = T0C+30
+//	flags = TURF_HAS_EDGES
+
+/decl/flooring/lfwb_snow
+	name = "snow"
+	desc = ""
+	icon = 'icons/turf/snow.dmi'
+	icon_base = "ironsand1"
+	has_base_range = 0
+	damage_temperature = T0C+30
+//	flags = TURF_HAS_EDGES

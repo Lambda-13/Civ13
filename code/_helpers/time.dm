@@ -15,6 +15,25 @@
 
 #define CHECK_TICK if (world.tick_usage > 80) sleep(world.tick_lag)
 
+#define TICKS *world.tick_lag
+
+#define DS2TICKS(DS) ((DS)/world.tick_lag)
+
+#define TICKS2DS(T) ((T) TICKS)
+
+var/midnight_rollovers = 0
+var/rollovercheck_last_timeofday = 0
+
+#define REALTIMEOFDAY (world.timeofday + (864000 * MIDNIGHT_ROLLOVER_CHECK))
+#define MIDNIGHT_ROLLOVER_CHECK ( rollovercheck_last_timeofday != world.timeofday ? update_midnight_rollover() : midnight_rollovers )
+
+/proc/update_midnight_rollover()
+	if(world.timeofday < rollovercheck_last_timeofday)
+		midnight_rollovers++
+
+	rollovercheck_last_timeofday = world.timeofday
+	return midnight_rollovers
+
 /proc/get_game_time()
 	var/global/time_offset = 0
 	var/global/last_time = 0
@@ -121,3 +140,7 @@ var/round_start_time = FALSE
 /proc/process_schedule_interval(var/process_name)
 	var/process/process = processScheduler.getProcess(process_name)
 	return process.schedule_interval
+
+//Returns the world time in english
+/proc/worldtime2text(time = world.time)
+	return "[round(time / 36000)+12]:[(time / 600 % 60) < 10 ? add_zero(time / 600 % 60, 1) : time / 600 % 60]"

@@ -1,5 +1,5 @@
 /client/proc/change_time_of_day()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Change Time of Day"
 	if (!processes.time_of_day || !processes.time_of_day.fires_at_gamestates.Find(ticker.current_state))
 		src << "<span class = 'warning'>You can't change the time of day right now.</span>"
@@ -11,7 +11,7 @@
 	progress_time_of_day(caller = src, force = TRUE)
 
 /client/proc/change_wind_dir()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Change Wind Direction"
 
 	if (!check_rights(R_ADMIN))
@@ -40,7 +40,7 @@
 		world << "<big>The wind changes direction. It is now blowing from the <b>[map.winddirection]</b>.</big>"
 
 /client/proc/change_wind_spd()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Change Wind Speed"
 
 	if (!check_rights(R_ADMIN))

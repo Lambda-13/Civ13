@@ -193,7 +193,7 @@
 				map.scores[civilization] -= 250
 				if (ishuman(last_harmed))
 					map.scores[last_harmed.civilization] -= 100
-					global_broadcast(FREQP,"<big>10-9: Officer down! All available units proceed to [get_coded_loc()] ([x],[y])!</big>")
+					global_broadcast(FREQP,"<big>10-9: Офицер убит! Координаты последнего местонахождения [get_coded_loc()] ([x],[y])!</big>")
 					var/comp_to_warrant = last_harmed.civilization
 					var/mob/living/human/Huser = last_harmed
 					spawn(rand(300,500))
@@ -400,6 +400,9 @@
 	if (client)
 		if (map.gamemode == "Hardcore")
 			client.next_normal_respawn = world.realtime+999999
+		if (map.gamemode == "RealLive")
+			client.next_normal_respawn = world.realtime+999999
+			client << pick('sound/effects/gameover.ogg')
 		else
 			if (map.ID == MAP_CAMPAIGN)
 				client.next_normal_respawn = world.realtime + 1800 + (client.respawn_count * 600)

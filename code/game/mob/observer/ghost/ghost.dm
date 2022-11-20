@@ -102,24 +102,24 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		return
 	..()
 
-/mob/observer/ghost/attack_hand(mob/user)
+/*/mob/observer/ghost/attack_hand(mob/user)
 	if (istype(user, /mob/observer/ghost))
 		var/mob/observer/ghost/G = user
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		var/attverb = pick("punches", "kicks", "slaps")
+		var/attverb = pick("трогает", "обнимает")
 		for(var/mob/observer/ghost/NG in range(7,src))
 			NG << "<span class='notice'>[G] [attverb] \the [src]!</span>"
 		user.do_attack_animation(src)
-		src.ghostlife = max(0, src.ghostlife - 15)
+		src.ghostlife = max(0, src.ghostlife - 0)
 		if (src.ghostlife <= 0)
 			var/anim = "dust-ghost"
-			src << "<span class='warning'>Your ethereal self vaporizes!</span>"
+			src << "<span class='warning'>Исчезаю!</span>"
 			var/atom/movable/overlay/animation = null
 			animation = new(loc)
 			animation.icon_state = "blank"
 			animation.icon = 'icons/mob/mob.dmi'
 			animation.master = src
-			animation.invisibility = 60
+			animation.invisibility = INVISIBILITY_OBSERVER
 			flick(anim, animation)
 			src.forceMove(locate(1,1,1))
 			src.ghostlife = 100
@@ -127,7 +127,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 				if (animation)
 					qdel(animation)
 	else
-		..()
+		..()*/
 
 /mob/observer/ghost/Life()
 	..()
@@ -155,7 +155,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 	// remove ambient sounds
 	stop_ambience(src)
 	if (map && map.battleroyale)
-		world << "<big><font color='red'><b>[client.ckey]</b> has died at ([x],[y])! <b>[alive_n_of_side(PIRATES)]</b> remaining.</font></big>"
+		world << "<big><font color='red'><b>[client.ckey]</b> умер по координатам ([x],[y])! <b>[alive_n_of_side(PIRATES)]</b> осталось.</font></big>"
 	if (key)
 		var/mob/observer/ghost/ghost = new(src)	//Transfer safety to observer spawning proc.
 		ghost.can_reenter_corpse = can_reenter_corpse
@@ -170,7 +170,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 /mob/observer/ghost/is_active()		return FALSE
 
 /mob/observer/ghost/verb/reenter_corpse()
-	set category = "Ghost"
+	set category = "Призрак"
 	set name = "Re-enter Corpse"
 	if (!client)	return
 	if (!(mind && mind.current && can_reenter_corpse))
@@ -202,7 +202,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 	return TRUE
 
 /mob/observer/ghost/verb/follow(input in getfitmobs()+"Cancel")
-	set category = "Ghost"
+	set category = "Призрак"
 	set name = "Follow" // "Haunt"
 	set desc = "Follow and haunt a mob."
 
@@ -212,7 +212,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 			ManualFollow(mobs[input])
 
 /mob/observer/ghost/verb/follow_pirates(input in getfitmobs(PIRATES)+"Cancel")
-	set category = "Ghost"
+	set category = "Призрак"
 	set name = "Follow a Pirate"
 	set desc = "Follow and haunt a living Pirate."
 
@@ -222,7 +222,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 			ManualFollow(mobs[input])
 
 /mob/observer/ghost/verb/follow_british(input in getfitmobs(BRITISH)+"Cancel")
-	set category = "Ghost"
+	set category = "Призрак"
 	set name = "Follow a British"
 	set desc = "Follow and haunt a living British."
 
@@ -232,7 +232,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 			ManualFollow(mobs[input])
 
 /mob/observer/ghost/verb/follow_civilian(input in getfitmobs(CIVILIAN)+"Cancel")
-	set category = "Ghost"
+	set category = "Призрак"
 	set name = "Follow a Civilian"
 	set desc = "Follow and haunt a living Civilian."
 
@@ -242,7 +242,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 			ManualFollow(mobs[input])
 
 /mob/observer/ghost/verb/follow_portuguese(input in getfitmobs(PORTUGUESE)+"Cancel")
-	set category = "Ghost"
+	set category = "Призрак"
 	set name = "Follow a Portuguese"
 	set desc = "Follow and haunt a living Portuguese."
 
@@ -252,7 +252,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 			ManualFollow(mobs[input])
 
 /mob/observer/ghost/verb/follow_spanish(input in getfitmobs(SPANISH)+"Cancel")
-	set category = "Ghost"
+	set category = "Призрак"
 	set name = "Follow a Spanish"
 	set desc = "Follow and haunt a living Spanish."
 
@@ -261,7 +261,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		if (mobs[input])
 			ManualFollow(mobs[input])
 /mob/observer/ghost/verb/follow_french(input in getfitmobs(FRENCH)+"Cancel")
-	set category = "Ghost"
+	set category = "Призрак"
 	set name = "Follow a French"
 	set desc = "Follow and haunt a living French."
 
@@ -271,7 +271,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 			ManualFollow(mobs[input])
 
 /mob/observer/ghost/verb/follow_dutch(input in getfitmobs(DUTCH)+"Cancel")
-	set category = "Ghost"
+	set category = "Призрак"
 	set name = "Follow a Dutch"
 	set desc = "Follow and haunt a living Dutch."
 
@@ -280,7 +280,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		if (mobs[input])
 			ManualFollow(mobs[input])
 /mob/observer/ghost/verb/follow_indians(input in getfitmobs(INDIANS)+"Cancel")
-	set category = "Ghost"
+	set category = "Призрак"
 	set name = "Follow a Native"
 	set desc = "Follow and haunt a living Native."
 	if (input != "Cancel")
@@ -288,7 +288,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		if (mobs[input])
 			ManualFollow(mobs[input])
 /mob/observer/ghost/verb/follow_roman(input in getfitmobs(ROMAN)+"Cancel")
-	set category = "Ghost"
+	set category = "Призрак"
 	set name = "Follow a Roman"
 	set desc = "Follow and haunt a living Roman."
 	if (input != "Cancel")
@@ -296,7 +296,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		if (mobs[input])
 			ManualFollow(mobs[input])
 /mob/observer/ghost/verb/follow_greek(input in getfitmobs(GREEK)+"Cancel")
-	set category = "Ghost"
+	set category = "Призрак"
 	set name = "Follow a Greek"
 	set desc = "Follow and haunt a living Greek."
 	if (input != "Cancel")
@@ -304,7 +304,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		if (mobs[input])
 			ManualFollow(mobs[input])
 /mob/observer/ghost/verb/follow_german(input in getfitmobs(GERMAN)+"Cancel")
-	set category = "Ghost"
+	set category = "Призрак"
 	set name = "Follow a German"
 	set desc = "Follow and haunt a living German."
 	if (input != "Cancel")
@@ -312,7 +312,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		if (mobs[input])
 			ManualFollow(mobs[input])
 /mob/observer/ghost/verb/follow_american(input in getfitmobs(AMERICAN)+"Cancel")
-	set category = "Ghost"
+	set category = "Призрак"
 	set name = "Follow an American"
 	set desc = "Follow and haunt a living American."
 	if (input != "Cancel")
@@ -320,7 +320,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		if (mobs[input])
 			ManualFollow(mobs[input])
 /mob/observer/ghost/verb/follow_vietnamese(input in getfitmobs(VIETNAMESE)+"Cancel")
-	set category = "Ghost"
+	set category = "Призрак"
 	set name = "Follow a Vietnamese"
 	set desc = "Follow and haunt a living Vietnamese."
 	if (input != "Cancel")
@@ -328,7 +328,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		if (mobs[input])
 			ManualFollow(mobs[input])
 /mob/observer/ghost/verb/follow_filipino(input in getfitmobs(FILIPINO)+"Cancel")
-	set category = "Ghost"
+	set category = "Призрак"
 	set name = "Follow a Filipino"
 	set desc = "Follow and haunt a living Filipino."
 	if (input != "Cancel")
@@ -336,7 +336,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		if (mobs[input])
 			ManualFollow(mobs[input])
 /mob/observer/ghost/verb/follow_arab(input in getfitmobs(ARAB)+"Cancel")
-	set category = "Ghost"
+	set category = "Призрак"
 	set name = "Follow an Arab"
 	set desc = "Follow and haunt a living Arab."
 	if (input != "Cancel")
@@ -345,7 +345,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 			ManualFollow(mobs[input])
 
 /mob/observer/ghost/verb/toggle_visibility()
-	set category = "Ghost"
+	set category = "Призрак"
 	set name = "Toggle Visibility"
 	if (!icon)
 		icon = original_icon
@@ -382,7 +382,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		following = null
 
 /mob/observer/ghost/verb/jumptomob(target in getfitmobs() + "Cancel") //Moves the ghost instead of just changing the ghosts's eye -Nodrak
-	set category = "Ghost"
+	set category = "Призрак"
 	set name = "Jump to Mob"
 	set desc = "Teleport to a mob"
 
@@ -401,25 +401,25 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 
 /mob/observer/ghost/memory()
 	set hidden = TRUE
-	src << "<span class = 'red'>You are dead! You have no mind to store memory!</span>"
+	src << "<span class = 'red'>Мёртвые не рассказывают сказки.</span>"
 
 /mob/observer/ghost/add_memory()
 	set hidden = TRUE
-	src << "<span class = 'red'>You are dead! You have no mind to store memory!</span>"
+	src << "<span class = 'red'>Мёртвые не рассказывают сказки.</span>"
 
 /mob/observer/ghost/Post_Incorpmove()
 	stop_following()
 
 /mob/observer/ghost/proc/try_possession(var/mob/living/M)
 	if (!config.ghosts_can_possess_animals)
-		usr << "<span class='warning'>Ghosts are not permitted to possess animals.</span>"
+		usr << "<span class='warning'>Я слишком тупой.</span>"
 		return FALSE
 	if (!M.can_be_possessed_by(src))
 		return FALSE
 	return M.do_possession(src)
 
 /mob/observer/ghost/verb/pointed(atom/A as mob|obj|turf in view())
-	set category = "Ghost"
+	set category = "Призрак"
 	set name = "Point To"
 	return TRUE
 
@@ -435,14 +435,14 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 /mob/observer/ghost/verb/toggle_ghostsee()
 	set name = "Toggle Ghost Vision"
 	set desc = "Toggles your ability to see things only ghosts can see, like other ghosts"
-	set category = "Ghost"
+	set category = "Призрак"
 	ghostvision = !(ghostvision)
 	updateghostsight()
 	usr << "You [(ghostvision?"now":"no longer")] have ghost vision."
 
 /mob/observer/ghost/verb/toggle_darkness()
 	set name = "Toggle Darkness"
-	set category = "Ghost"
+	set category = "Призрак"
 	seedarkness = !(seedarkness)
 	updateghostsight()
 

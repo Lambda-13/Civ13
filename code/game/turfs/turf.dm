@@ -137,7 +137,7 @@ var/list/interior_areas = list(/area/caribbean/houses,
 		if (H.ant)
 			visible_message("<span class = 'notice'>[user] starts to break the rock with their hands...</span>", "<span class = 'notice'>You start to break the rock with the your hands...</span>")
 			playsound(src,'sound/effects/pickaxe.ogg',100,1)
-			if (do_after(user, (160/(H.getStatCoeff("strength"))/1.5)))
+			if (do_after(user, (120/(H.getStatCoeff("strength"))/1.5)))
 				U.collapse_check()
 				if (istype(src, /turf/floor/dirt/underground/empty))
 					var/turf/floor/dirt/underground/empty/T = src

@@ -3,7 +3,8 @@
 
 	var/list/epochs = list(
 		//"Stone Age (?-3000 B.C.)" = 0,
-		"Chad Mode" = 0,
+		"Избранное" = 50,
+		"Chad Mode" = 15,
 		"Pre-Firearms (3000 B.C-1650 A.D.)" = 0,
 		//"Bronze Age (3000 B.C.-400 A.D.)" = 0,
 		//"Dark Ages (400-700)" = 0,
@@ -53,8 +54,8 @@
 				"Modern Fire Arms (1949-2021)" = 0,
 				"HRP TDM (Gulag, Voyage, Occupation, etc)" = 10,
 //				"Chad Mode" = 0,
-				"Battle Royale" = 6,
 				"Fiction" = 0,
+				"Battle Royale" = 10,
 			)
 		else if (config.allowedgamemodes == "RP")
 			epochs = list(
@@ -65,10 +66,45 @@
 				"Civilization 13 (Others)" = 0,)
 		else if (config.allowedgamemodes == "PERSISTENCE")
 			epochs = list(
-				"Civilization 13 (Nomads)" = 0,)
+				"Civilization 13 (Nomads)" = 5,)
 		else if (config.allowedgamemodes == "BR")
 			epochs = list(
-				"Battle Royale" = 6,)
+				"Battle Royale" = 0,)
+		else if (config.allowedgamemodes == "LAMBDA")
+
+			var/servertime = "[time2text(world.timeofday,"hh")]" // Текущий час сервера
+
+			if (servertime == "20" || servertime == "21" || servertime == "22" || servertime == "23" || servertime == "24" || servertime == "00" || servertime == "01" || servertime == "02" || servertime == "03" || servertime == "04" || servertime == "05" || servertime == "06") // Проверка на ночное время
+				epochs = list(
+					"Chad Mode" = 15,
+					"Pre-Firearms (3000 B.C-1650 A.D.)" = 10,
+					"Early Fire Arms (1650-1930)" = 10,
+					"World War II (1931-1948)" = 10,
+					"Modern Fire Arms (1949-2021)" = 10,
+					"HRP TDM (Gulag, Voyage, Occupation, etc)" = 10,
+					"Civilization 13 (Nomads)" = 0,
+					"Civilization 13 (Colony & Pioneers)" = 5,
+					"Civilization 13 (Others)" = 5,
+					"Battle Royale" = 6,
+					"Fiction" = 10,
+				)
+				world << "<big>Режим голосования - Ночной</big>"
+			else
+				epochs = list(
+					"Избранное" = 50,
+					"Chad Mode" = 15,
+					"Pre-Firearms (3000 B.C-1650 A.D.)" = 0,
+					"Early Fire Arms (1650-1930)" = 0,
+					"World War II (1931-1948)" = 0,
+					"Modern Fire Arms (1949-2021)" = 0,
+					"HRP TDM (Gulag, Voyage, Occupation, etc)" = 10,
+					"Civilization 13 (Nomads)" = 30,
+					"Civilization 13 (Colony & Pioneers)" = 20,
+					"Civilization 13 (Others)" = 15,
+					"Battle Royale" = 0,
+					"Fiction" = 0,
+				)
+				world << "<big>Режим голосования - Дневной</big>"
 		ready = FALSE
 		vote.initiate_vote("epoch", "EpochSwap Process", TRUE, list(src, "swap"))
 
@@ -125,6 +161,8 @@
 				MAP_HILL_3234 = 12,
 				MAP_ALLEYWAY = 0,
 				MAP_WACO = 0,
+				MAP_MAGISTRAL = 10,
+				MAP_ARAB_TOWN_RU = 0,
 				MAP_YELTSIN = 6,
 				MAP_GROZNY = 6,
 				MAP_BANK_ROBBERY = 0,
@@ -134,6 +172,8 @@
 				MAP_ARAB_TOWN_2 = 0,
 				MAP_HOSTAGES = 0,
 				MAP_CAPITOL_HILL = 6,
+				MAP_PERVOMAISK_CROSSING = 10,
+				MAP_WACO = 0,
 			)
 		else if (epoch == "World War II (1931-1948)")
 	// 1943 - TDM
@@ -235,25 +275,26 @@
 				MAP_NOMADS_MEDITERRANEAN = 0,
 //				MAP_NOMADS_ISLAND = 0,
 				MAP_NOMADS_KARAFUTO = 0,
-				MAP_NOMADS_EUROPE = 10,
+				MAP_NOMADS_EUROPE = 10
 			)
 		else if (epoch == "Civilization 13 (Colony & Pioneers)")
 			maps = list(
+				MAP_COLONY_CONTINENTAL = 0,
 				MAP_COLONY = 0,
-				MAP_JUNGLE_COLONY = 4,
+				MAP_JUNGLE_COLONY = 5,
 				MAP_PIONEERS = 5,
-				MAP_PIONEERS_WASTELAND_2 = 0,
+				MAP_PIONEERS_WASTELAND_2 = 10,
 				MAP_BOHEMIA = 10,
 				MAP_FOUR_COLONIES = 20,
 			)
 		else if (epoch == "Civilization 13 (Others)")
 			maps = list(
-				MAP_TRIBES = 12,
+				MAP_TRIBES = 15,
 				MAP_HUNT = 0,
 				MAP_LITTLE_CREEK = 10,
-				MAP_THE_ART_OF_THE_DEAL = 10,
+				MAP_THE_ART_OF_THE_DEAL = 6,
 				MAP_FOUR_KINGDOMS = 0,
-				MAP_GULAG13 = 0,
+				MAP_GULAG13 = 10,
 //				MAP_ABASHIRI = 6,
 //				MAP_RIVER_KWAI = 0,
 				MAP_OCCUPATION = 10,
@@ -268,6 +309,18 @@
 			maps = list(
 				MAP_TANTIVEIV = 0,
 				MAP_WHITERUN = 10,)
+		else if (epoch == "New Russian Map Pack")
+			maps = list(
+				MAP_LOBBY = 0,
+				MAP_BOHEMIARU = 5,
+				MAP_NOMADS_WASTELAND_RU = 5,
+				MAP_NOMADS_FLY = 228, //Not work, 400x400x3, please fix ~~sanecman
+				MAP_NOMADS_WASTELAND_SCARLET_PLAGUE = 5,)
+		else if (epoch == "Избранное")
+			maps = list(
+				MAP_COLONY = 0,
+				MAP_KURSK = 0,
+				MAP_CAPITOL_HILL = 0)
 		spawn(10)
 			vote.initiate_vote("map", "MapSwap Process", TRUE, list(src, "swap"))
 			return
@@ -295,6 +348,11 @@
 	if (!done)
 		processes.python.execute("mapswap.py", list(winner))
 		done = TRUE
+		sleep(300)
+		world << "<span class = 'danger'>Меняем карту!</span> <span class='notice'>Нажми сюда что бы переподключиться (обычно нажимают если не сработало переподключение): <b>byond://[world.internet_address]:[world.port]</b></span>"
+	if (config.discordurl)
+		world << "<span class='notice'>Наш дискорд: <b>[config.discordurl]</b></span>"
+
 
 /process/gamemode
 	var/ready = TRUE
@@ -577,26 +635,43 @@
 		map.civf_research = list(customresearch,customresearch,customresearch,null)
 		return
 	/// TDM MODES ///
+		//Easy Mode - damage mod 0.5, no delay, no fov, no medals//
+	else if (vote.voted_gamemode == "Easy")
+		world << "<font color='blue'><big>Лёгкий Режим</big><br>Без ограничений по респавну, 0.5 урон.</big></font>"
+		config.disable_fov = TRUE
+		config.no_respawn_delays = TRUE
+		map.gamemode = "Easy"
+		global_damage_modifier = 0.5
+		return
 	else if (vote.voted_gamemode == "Normal")
-		world << "<font color='green'><big>Normal Mode</big><br>No respawn delays.</big></font>"
+		world << "<font color='green'><big>Нормальный Режим</big><br>Без ограничений по респавну.</big></font>"
 		config.disable_fov = TRUE
 		config.no_respawn_delays = TRUE
 		map.gamemode = "Normal"
 		global_damage_modifier = 1
 		return
 	else if (vote.voted_gamemode == "Competitive")
-		world << "<font color='yellow'><big>Competitive Mode</big><br>Respawn delay enabled, increased damage.</big></font>"
+		world << "<font color='yellow'><big>Соревновательный Режим</big><br>1.25 урон, время по респавну.</big></font>"
 		config.disable_fov = TRUE
 		config.no_respawn_delays = FALSE
 		map.gamemode = "Competitive"
 		global_damage_modifier = 1.15
 		return
 	else if (vote.voted_gamemode == "Hardcore")
-		world << "<font color='red'><big>HARDCORE Mode</big><br>No respawns, increased damage. Field of View enabled. Awards active.</big></font>"
+		world << "<font color='red'><big>ХАРДКОРНЫЙ режим</big><br>Респавн отключён, 1.50 урон, ограничение на обзор включён, включены медали.</big></font>"
 		config.disable_fov = FALSE
 		config.no_respawn_delays = FALSE
 		map.gamemode = "Hardcore"
 		global_damage_modifier = 1.30
+		return
+		//Really Life - damage modifer 3.0, no hud, medals//
+	else if (vote.voted_gamemode == "RealLive")
+		world << "<font color='white'><big>Режим реальной жизни</big><br>Худ отключён, трёхкратный урон, ограничение на обзор включён, респавн отключён, включены медали.</big></font>"
+		config.disable_fov = FALSE
+		config.no_respawn_delays = FALSE
+		map.gamemode = "RealLive"
+		global_damage_modifier = 3
+		map.disablehud = TRUE
 		return
 	/// CAPITOL MODES //
 	else if (vote.voted_gamemode == "Siege")

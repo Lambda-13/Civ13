@@ -20,3 +20,13 @@ for pid in pids:
 			os.kill(int(pid), signal.SIGKILL)
 	except IOError:
 		continue
+
+handle = open(os.path.join(currdir, "token.txt"))
+token = handle.read()
+print("Announce...")
+handle.close()
+
+from discord import Webhook, RequestsWebhookAdapter
+
+webhook = Webhook.from_url(token, adapter=RequestsWebhookAdapter())
+webhook.send("Server shutdown.")

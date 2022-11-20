@@ -58,13 +58,13 @@
 	make_blood()
 	if (map)
 		if (map.civilizations == TRUE)
-			nutrition = rand(max_nutrition * 0.45, max_nutrition * 0.55) // 180 to 220
-			water = round(rand(max_water * 0.45, max_water * 0.55)) // 157 to 192
+			nutrition = rand(max_nutrition * 0.75, max_nutrition * 0.85) // Больше половины
+			water = round(rand(max_water * 0.75, max_water * 0.85)) // Больше половины
 		if (map.ID == MAP_GULAG13)
 			spawn(10)
 				if (istype(original_job, /datum/job/civilian/prisoner))
-					nutrition = max_nutrition*0.1
-					water = max_water*0.2
+					nutrition = max_nutrition*0.5
+					water = max_water*0.5
 				else
 					nutrition = max_nutrition
 					water = max_water
@@ -101,16 +101,16 @@ var/list/coefflist = list()
 	. = ..()
 	if (.)
 		// the loc.density short circuits 95% of the time and bypasses an expensive typecheck - Kachnov
-		if (client.status_tabs && statpanel("Character"))
+		if (client.status_tabs && statpanel("Персонаж"))
 			stat("")
-			stat(stat_header("Character"))
+			stat(stat_header("Персонаж"))
 			stat("")
 			stat("Attack Intent:", a_intent)
 			stat("Move Mode:", m_intent)
 			if (stats["stamina"] && stats["stamina"][2] > 0)
 				stat("Stamina: ", "[round((getStat("stamina")/stats["stamina"][2]) * 100)]%")
 			stat("")
-			stat(stat_header("Factions"))
+			stat(stat_header("Фракция"))
 			stat("")
 			stat("Religion:", religion)
 			stat("Civilization:", civilization)
@@ -146,7 +146,7 @@ var/list/coefflist = list()
 					stat("Military Research:", "[map.custom_civs[civilization][2]]/[civmax_research[2]]")
 					stat("Health Research:",  "[map.custom_civs[civilization][3]]/[civmax_research[3]]")
 			stat("")
-			stat(stat_header("Stats"))
+			stat(stat_header("Статы"))
 			stat("")
 
 			for (var/statname in stats)
@@ -716,7 +716,7 @@ var/list/coefflist = list()
 		return FALSE
 /*
 /mob/living/human/proc/bloody_doodle()
-	set category = "IC"
+	set category = "ИЦ"
 	set name = "Write in blood"
 	set desc = "Use blood on your hands to write a short message on the floor or a wall, murder mystery style."
 
@@ -1020,7 +1020,7 @@ var/list/coefflist = list()
 /mob/living/human/verb/pull_punches()
 	set name = "Pull Punches"
 	set desc = "Try not to hurt them."
-	set category = "IC"
+	set category = "ИЦ"
 
 	if (stat) return
 	pulling_punches = !pulling_punches

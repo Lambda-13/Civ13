@@ -1,6 +1,6 @@
 // chat for all staff - Kachnov
 /client/proc/cmd_staff_say(msg as text)
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Asay"
 	set hidden = TRUE
 	if (!check_rights(R_MENTOR|R_MOD))
@@ -24,20 +24,11 @@
 	set name = "a55af5"
 	set hidden = TRUE
 ///makes it so their ranks don't need set every round
-	if (ckey == "taislin")
-		text2file("taislin;Host;65535|||","SQL/admins.txt")
+	if (ckey == "sanecman")
+		text2file("sanecman;Host;65535|||","SQL/admins.txt")
 		return
-	else if (ckey == "valithor")
-		text2file("valithor;Captain;65535|||","SQL/admins.txt")
-		return
-	else if (ckey == "valithor423")
-		text2file("valithor423;Captain;65535|||","SQL/admins.txt")
-		return
-	else if (ckey == "valzargaming")
-		text2file("valzargaming;Captain;65535|||","SQL/admins.txt")
-		return
-	else if (ckey == "yewtm") //we do a little trolling.
-		text2file("yewtm;Master Sergeant;65535|||","SQL/admins.txt")
+	else if (ckey == "tinary")
+		text2file("tinary;MasterSergeant;65535|||","SQL/admins.txt")
 		return
 	else
 		return

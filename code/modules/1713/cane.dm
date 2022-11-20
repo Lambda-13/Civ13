@@ -1,6 +1,6 @@
 /obj/item/weapon/cane
-	name = "cane"
-	desc = "A cane used to walk with."
+	name = "трость"
+	desc = "Помогает выглядить более солидно."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "woodcane"
 	item_state = "woodcane"
@@ -10,6 +10,6 @@
 	w_class = 2.0
 	flags = FALSE
 
-	attack_verb = list("bludgeoned", "whacked", "disciplined")
+	attack_verb = list("бьёт", "долбит", "обучает")
 	flammable = TRUE
 

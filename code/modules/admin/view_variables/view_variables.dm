@@ -10,7 +10,7 @@
 
 // Acceptable 'in world', as VV would be incredibly hampered otherwise
 /client/proc/debug_variables(datum/D in world)
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "View Variables"
 
 	if (!check_rights(0))
@@ -30,7 +30,7 @@
 	usr << browse_rsc('code/js/view_variables.js', "view_variables.js")
 
 	var/html = {"
-		<html>
+		<meta charset='utf-8'>
 		<head>
 			<script src='view_variables.js'></script>
 			<title>[D] (\ref[D] - [D.type])</title>

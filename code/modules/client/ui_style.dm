@@ -7,7 +7,7 @@
 
 /client/verb/change_ui()
 	set name = "ChangeHUD"
-	set category = "OOC"
+	set category = "ООС"
 	set desc = "Configure your user interface."
 
 	if (!ishuman(usr))
@@ -32,7 +32,7 @@
 
 /client/verb/change_cursor()
 	set name = "Change Cursor"
-	set category = "OOC"
+	set category = "ООС"
 	set desc = "Configure your mouse cursor."
 //	set hidden = TRUE
 

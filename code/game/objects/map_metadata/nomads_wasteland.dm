@@ -133,4 +133,91 @@
 
 /obj/map_metadata/nomads_wasteland/two/proc/zombies(var/start = TRUE)
 	for(var/obj/effect/spawner/mobspawner/zombies/special/S in world)
-		S.activated = start
+
+/*/obj/map_metadata/nomads_wasteland/two/ru //чутка сломалось
+	ID = MAP_NOMADS_WASTELAND_RU
+	title = "Wasteland RU"
+	gamemode = "Russian Wasteland"
+	is_zombie = TRUE
+	mission_start_message = "<big>Миру давно пришёл конец, сможете ли вы построить новую цивилизацию на остатках прошлых лет?</big><br><b>Вики https://civ13.github.io/civ13-wiki/Civilizations_and_Nomads</b>"
+	ambience = list('sound/ambience/desert.ogg')*/
+
+//Отдельная карта от вастеланда имеющая код вастеланда
+//
+//
+//
+/*/obj/map_metadata/nomads_scarlet_plague //сломалось
+	ID = MAP_NOMADS_WASTELAND_SCARLET_PLAGUE
+	title = "Scarlet Plague (Nomads)"
+//	lobby_icon_state = "scarlet_plague"
+	lobby_icon_state = "civ13"
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
+	respawn_delay = 6000 // 10 minutes!
+	has_hunger = TRUE
+	no_winner = "The round is proceeding normally."
+
+	faction_organization = list(
+		CIVILIAN,)
+
+	roundend_condition_sides = list(
+		list(CIVILIAN) = /area/caribbean/british
+		)
+	age = "3021 A.D."
+	civilizations = TRUE
+	var/tribes_nr = 1
+	faction_distribution_coeffs = list(CIVILIAN = 1)
+//	battle_name = "the civilizations"
+	battle_name = "Fallen Future"
+	mission_start_message = "<big>Мир поглотила чума, что уничтожила цивилизацию и превратила расцветающий мир в руины...</b>"
+	ambience = list(
+		'sound/ambience/scarlet_plague/desert.ogg',
+		'sound/ambience/scarlet_plague/ambigen19.ogg',
+		'sound/ambience/scarlet_plague/ambigen22.ogg',
+		'sound/ambience/scarlet_plague/ambigen23.ogg',
+		'sound/ambience/scarlet_plague/ambigen24.ogg',,
+		'sound/ambience/scarlet_plague/ambigen3.ogg',
+		'sound/ambience/scarlet_plague/ambigen4.ogg',
+		'sound/ambience/scarlet_plague/ambigen5.ogg',
+		'sound/ambience/scarlet_plague/Cave4.ogg',,
+		'sound/ambience/scarlet_plague/caves3.ogg',
+		'sound/ambience/scarlet_plague/cave_ambient2.ogg',
+		)
+	faction1 = CIVILIAN
+	availablefactions = list("Nomad")
+	songs = list(
+		"Ravenheart Fortress:1" = 'sound/music/menu5.ogg',
+		"Wurmigstein Prison:2" = 'sound/music/wanderlust.ogg',)
+	research_active = TRUE
+	nomads = TRUE
+	gamemode = "Classic (Stone Age Start)"
+	var/list/arealist_r = list()
+	var/list/arealist_g = list()
+/obj/map_metadata/nomads_scarlet_plague/New()
+	..()
+	spawn(2500)
+		for (var/i = 1, i <= 65, i++)
+			var/turf/areaspawn = safepick(get_area_turfs(/area/caribbean/sea/sea))
+			new/obj/structure/fish(areaspawn)
+	spawn(2500)
+		for (var/i = 1, i <= 30, i++)
+			var/turf/areaspawn = safepick(get_area_turfs(/area/caribbean/nomads/forest/Jungle/river))
+			new/obj/structure/piranha(areaspawn)
+	spawn(18000)
+		seasons()
+
+/obj/map_metadata/nomads_scarlet_plague/faction2_can_cross_blocks()
+	return (ordinal_age >= 2)
+
+/obj/map_metadata/nomads_scarlet_plague/faction1_can_cross_blocks()
+	return (ordinal_age >= 2)
+
+/obj/map_metadata/nomads_scarlet_plague/cross_message(faction)
+	if (faction == CIVILIAN)
+		return "<big><b>As the world technological level advances, new shipbuilding techniques make us at last be able to navigate the oceans...</b></big>"
+
+
+/obj/map_metadata/nomads_scarlet_plague/job_enabled_specialcheck(var/datum/job/J)
+	if (J.is_nomad == TRUE)
+		. = TRUE
+	else
+		. = FALSE*/

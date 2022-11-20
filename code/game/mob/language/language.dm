@@ -5,14 +5,14 @@
 */
 
 /datum/language
-	var/name = "an unknown language"  // Fluff name of language if any.
-	var/desc = "A language."		  // Short description for 'Check Languages'.
+	var/name = "???"  // Fluff name of language if any.
+	var/desc = "Странный язык."		  // Short description for 'Check Languages'.
 	var/difficulty = 175			  // Difficulty of a language. If you wanted Japanese to be harder than English, for example
-	var/speech_verb = "says"		  // 'says', 'hisses', 'farts'.
-	var/ask_verb = "asks"			 // Used when sentence ends in a ?
-	var/exclaim_verb = "exclaims"	 // Used when sentence ends in a !
-	var/whisper_verb = "whispers"	 // Optional. When not specified speech_verb + quietly/softly is used instead.
-	var/signlang_verb = list("signs") // list of emotes that might be displayed if this language has NONVERBAL or SIGNLANG flags
+	var/speech_verb = "говорит"		  // 'says', 'hisses', 'farts'.
+	var/ask_verb = "спрашивает"			 // Used when sentence ends in a ?
+	var/exclaim_verb = "восклицает"	 // Used when sentence ends in a !
+	var/whisper_verb = "шепчет"	 // Optional. When not specified speech_verb + quietly/softly is used instead.
+	var/signlang_verb = list("показывает") // list of emotes that might be displayed if this language has NONVERBAL or SIGNLANG flags
 	var/colour = "body"			   // CSS style to use for strings in this language.
 	var/key = "x"					 // Character used to speak in language eg. :o for Unathi.
 	var/flags = 0					 // Various language flags.
@@ -741,7 +741,7 @@
 //TBD
 /mob/verb/check_languages()
 	set name = "Check Known Languages"
-	set category = "IC"
+	set category = "ИЦ"
 	set src = usr
 
 	var/dat = "<b><font size = 5>Known Languages</font></b><br/><br/>"

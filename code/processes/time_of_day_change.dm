@@ -3,6 +3,7 @@
 	var/admincaller = null
 	var/announce = TRUE
 	var/setup_lighting = FALSE
+	var/times_of_day_ru = null
 
 /process/time_of_day_change/setup()
 	name = "time of day change process"
@@ -56,6 +57,20 @@
 
 		CHECK_TICK
 
+	switch(time_of_day)
+		if ("Early Morning")
+			times_of_day_ru = "восход"
+		if ("Morning") //07-11
+			times_of_day_ru = "утро"
+		if ("Midday") //11-15
+			times_of_day_ru = "день"
+		if ("Afternoon") //15-19
+			times_of_day_ru = "полдник"
+		if ("Evening") //19-23
+			times_of_day_ru = "вечер"
+		if ("Night") //23-03
+			times_of_day_ru = "ночь"
+
 	if (announce)
 		for (var/M in player_list)
-			M << "<font size=3><span class = 'notice'>It's <b>[lowertext(capitalize(time_of_day))]</b>.</span></font>"
+			M << "<font size=3><span class = 'notice'>Наступает <b>[lowertext(capitalize(times_of_day_ru))]</b>.</span></font>"

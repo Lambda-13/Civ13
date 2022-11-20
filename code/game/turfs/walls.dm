@@ -151,7 +151,7 @@ var/list/global/wall_cache = list()
 	. = ..(user)
 
 	if (!damage && material)
-		user << "<span class='notice'>It looks fully intact.</span>"
+		user << "<span class='notice'>Выглядит целым.</span>"
 	else
 		if (material)
 			var/dam = damage / material.integrity

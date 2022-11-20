@@ -2,7 +2,7 @@
 /////////////////////////////TELEPHONE/////////////////////////////////////
 /obj/item/weapon/telephone
 	name = "telephone"
-	desc = "Used to communicate with other telephones. No number."
+	desc = "Используется для связи с другими телефонами. Не подключён."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "telephone"
 	flammable = FALSE
@@ -104,7 +104,7 @@ var/list/global/phone_numbers = list()
 	else
 		phonenumber = tempnum
 		phone_numbers += tempnum
-		desc = "Used to communicate with other telephones. Number: [phonenumber]."
+		desc = "Используется для связи с другими телефонами. Номер: [phonenumber]."
 		return
 
 /obj/item/weapon/telephone/proc/ringproc(var/origin,var/obj/item/weapon/telephone/ocall)
@@ -141,9 +141,9 @@ var/list/global/phone_numbers = list()
 	if (ringing)
 		playsound(loc, 'sound/machines/telephone.ogg', 65)
 		if (!origin)
-			visible_message("<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Ringing!")
+			visible_message("<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Дзынь!")
 		else
-			visible_message("<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Incoming call: <b>[orname]</b> ([origin])")
+			visible_message("<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Входящий звонок: <b>[orname]</b> ([origin])")
 	else
 		return
 
@@ -166,7 +166,7 @@ var/list/global/phone_numbers = list()
 
 /obj/item/weapon/telephone/attack_self(var/mob/user as mob)
 	if (!connected && !ringing)
-		var/input = input(user, "Choose the number to call: (4 digits, no decimals)") as num
+		var/input = input(user, "Введите номер (4 цифры, без пробелов)") as num
 		if (!input)
 			return
 		var/tgtnum = 0
@@ -180,11 +180,11 @@ var/list/global/phone_numbers = list()
 			for (var/obj/structure/phoneline/PL in range(2,loc))
 				PL.ring_phone(tgtnum,phonenumber, src)
 				ringing = TRUE
-				visible_message("<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Ringing [tgtnum]...")
+				visible_message("<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Звоним [tgtnum]...")
 				spawn(200)
 					if (!connected)
 						ringing = FALSE
-						visible_message("<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Nobody picked up the phone at [tgtnum].")
+						visible_message("<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Никто не ответил на номере [tgtnum].")
 						return
 		else
 			var/found_tower = TRUE
@@ -194,17 +194,17 @@ var/list/global/phone_numbers = list()
 				ring_phone(tgtnum,phonenumber, src, user)
 				spawn(200)
 					if (!connected)
-						user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Nobody picked up the phone at [tgtnum]."
+						user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Никто не ответил на номере [tgtnum]."
 						connected = FALSE
 						origincall = null
 						return
 			else
-				user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>No signal."
+				user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Нет сигнала."
 				return
 	else if (connected)
 		connected = FALSE
 		if (origincall)
-			user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>You hang up the phone."
+			user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Отключаюсь."
 			if (ishuman(origincall.loc))
 				origincall.loc << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Someone hangs up the phone."
 			else
@@ -213,7 +213,7 @@ var/list/global/phone_numbers = list()
 			origincall.origincall = null
 			origincall = null
 	else if (ringing && !ringingnum)
-		user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>You hang up the phone."
+		user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Нажимаю ответить."
 		ringing = FALSE
 		if (origincall)
 			if (ishuman(origincall.loc))
@@ -230,7 +230,7 @@ var/list/global/phone_numbers = list()
 			origincall.connected = phonenumber
 			origincall.ringing = FALSE
 			origincall.origincall = src
-			user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>You pick up the phone."
+			user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Поднимаю трубку."
 			if (ishuman(origincall.loc))
 				origincall.loc << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Someone picks up the phone."
 			else
@@ -245,7 +245,7 @@ var/list/global/phone_numbers = list()
 /////////////////////////////MOBILE PHONE/////////////////////////////////////
 /obj/item/weapon/telephone/mobile
 	name = "cellphone"
-	desc = "Used to communicate with other telephones. No number."
+	desc = "Используется для связи с другими телефонами. Не подключён."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "cellphone"
 	force = WEAPON_FORCE_WEAK+3
@@ -306,18 +306,18 @@ var/list/global/phone_numbers = list()
 					ring_phone(tgtnum,phonenumber, src, user)
 					spawn(200)
 						if (!connected)
-							user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Nobody picked up the phone at [tgtnum]."
+							user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Никто не ответил на номере [tgtnum]."
 							ringing = FALSE
 							return
 				else
-					user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>No signal."
+					user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(src)] [src]:</b> </font>Нет сигнала."
 					return
 	else
 		..()
 /////////////////////////////CELLPHONE TOWER/////////////////////////////////////
 /obj/structure/cell_tower
 	name = "cell tower"
-	desc = "A steel tower used to relay mobile communications."
+	desc = "Даёт возможность говорить по мобильному телефону."
 	icon = 'icons/obj/obj32x64.dmi'
 	icon_state = "radio_powered"
 	flammable = TRUE
@@ -349,17 +349,17 @@ var/list/global/phone_numbers = list()
 					TLG.ringproc(origin, originphone)
 					if (user)
 						if (targetc != "")
-							user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(originphone)] [originphone]:</b> </font>Ringing <b>[targetc]</b> ([target])..."
+							user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(originphone)] [originphone]:</b> </font>Звоним <b>[targetc]</b> ([target])..."
 						else
-							user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(originphone)] [originphone]:</b> </font>Ringing [target]..."
+							user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(originphone)] [originphone]:</b> </font>Звоним [target]..."
 				else
-					user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(originphone)] [originphone]:</b> </font>Number occupied."
+					user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(originphone)] [originphone]:</b> </font>Неправильный номер."
 					return
 		if (!found)
-			user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(originphone)] [originphone]:</b> </font>Number not found."
+			user << "<b><font size=2 color=#FFAE19>\icon[getFlatIcon(originphone)] [originphone]:</b> </font>Номер не найден."
 /obj/item/weapon/telephone/wireless
 	name = "telephone"
-	desc = "Used to communicate with other telephones. No number."
+	desc = "Используется для связи с другими телефонами. Не подключён."
 	icon_state = "telephone"
 	connected = TRUE
 	wireless = TRUE
@@ -367,7 +367,7 @@ var/list/global/phone_numbers = list()
 
 /obj/item/weapon/telephone/mobile/police
 	name = "911 terminal"
-	desc = "Emergency calls will be received here."
+	desc = "Сюда приходят срочные звонки."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "police_intercom"
 	phonenumber = 911
@@ -398,23 +398,23 @@ var/list/global/phone_numbers = list()
 /obj/item/weapon/telephone/mobile/faction/red
 	name = "Red phone"
 	phonenumber = 1111
-	desc = "Used to communicate with other telephones. Number is 1111."
+	desc = "Используется для звонков. Номер: 1111."
 /obj/item/weapon/telephone/mobile/faction/blue
 	name = "Blue phone"
 	phonenumber = 2222
-	desc = "Used to communicate with other telephones. Number is 2222."
+	desc = "Используется для звонков. Номер: 2222."
 /obj/item/weapon/telephone/mobile/faction/green
 	name = "Green phone"
 	phonenumber = 3333
-	desc = "Used to communicate with other telephones. Number is 3333."
+	desc = "Используется для звонков. Номер: 3333."
 /obj/item/weapon/telephone/mobile/faction/yellow
 	name = "Yellow phone"
 	phonenumber = 4444
-	desc = "Used to communicate with other telephones. Number is 4444."
+	desc = "Используется для звонков. Номер: 4444."
 /obj/item/weapon/telephone/mobile/faction/mckellen
 	name = "McKellen Entreprises phone"
 	phonenumber = 5555
-	desc = "Used to communicate with other telephones. Number is 5555."
+	desc = "Используется для звонков. Номер: 5555."
 
 /obj/item/weapon/telephone/mobile/faction/red/New()
 	..()
@@ -440,7 +440,7 @@ var/list/global/phone_numbers = list()
 //ROBERTS CELLPHONES//
 /obj/item/weapon/telephone/mobile/mobilefaction
 	name = "Corporate cellphone"
-	desc = "Used to communicate with other telephones."
+	desc = "Используется для связи."
 
 /obj/item/weapon/telephone/mobile/mobilefaction/New()
 	..()
@@ -454,26 +454,26 @@ var/list/global/phone_numbers = list()
 				contacts += list(list(F.name,F.phonenumber))
 /obj/item/weapon/telephone/mobile/mobilefaction/blue
 	name = "Corporate cellphone"
-	desc = "Used to communicate with other telephones, intended for CEOs. Number: 2229."
+	desc = "Используется для звонков, обычно находится у главы. Номер: 2229."
 	phonenumber = 2229
 	color = "#0000FF"
 
 /obj/item/weapon/telephone/mobile/mobilefaction/green
-	desc = "Used to communicate with other telephones, intended for CEOs. Number: 3339."
+	desc = "Используется для звонков, обычно находится у главы. Номер: 3339."
 	phonenumber = 3339
 	color = "#00FF00"
 
 /obj/item/weapon/telephone/mobile/mobilefaction/red
-	desc = "Used to communicate with other telephones, intended for CEOs. Number: 1119."
+	desc = "Используется для звонков, обычно находится у главы. Номер: 1119."
 	phonenumber = 1119
 	color = "#FF0000"
 
 /obj/item/weapon/telephone/mobile/mobilefaction/yellow
-	desc = "Used to communicate with other telephones, intended for CEOs. Number: 4449."
+	desc = "Используется для звонков, обычно находится у главы. Номер: 4449."
 	phonenumber = 4449
 	color = "#FFFF00"
 
 /obj/item/weapon/telephone/mobile/mobilefaction/mckellen
-	desc = "Used to communicate with other telephones, intended for CEOs. Number: 5559."
+	desc = "Используется для звонков, обычно находится у главы. Номер: 5559."
 	phonenumber = 5559
 	color = "#FF7A00"

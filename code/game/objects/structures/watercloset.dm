@@ -697,10 +697,10 @@
 
 
 /obj/structure/sink
-	name = "sink"
+	name = "умывальник"
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "sink"
-	desc = "A sink used for washing one's hands and face."
+	desc = "Тут можно помыть руки или налить воду."
 	anchored = TRUE
 	var/busy = FALSE 	//Something's being washed at the moment
 	var/sound = 'sound/effects/sink.ogg'
@@ -744,10 +744,10 @@
 	if (!usr.Adjacent(src))
 		return ..()
 	if (!thing.reagents || thing.reagents.total_volume == FALSE)
-		usr << "<span class='warning'>\The [thing] is empty.</span>"
+		usr << "<span class='warning'>[thing] пустой.</span>"
 		return
 	// Clear the vessel.
-	visible_message("<span class='notice'>\The [usr] tips the contents of \the [thing] into \the [src].</span>")
+	visible_message("<span class='notice'>[usr] [pick("моет", "чистит", "очищает")] [thing] в [src].</span>")
 	if (thing && reagents)
 		thing.reagents.splash(src, reagents.total_volume)
 		thing.reagents.clear_reagents()
@@ -756,7 +756,7 @@
 /obj/structure/sink/attack_hand(mob/user as mob)
 
 	if (src.dry || src.volume <= 0)
-		user << "<span class='warning'>\The [src] is dry!</span>"
+		user << "<span class='warning'>[src] высох!</span>"
 		return
 	if (!Adjacent(user))
 		return
@@ -769,7 +769,7 @@
 			user << "<span class='notice'>You try to move your [temp.name], but cannot!</span>"
 			return
 		if (H.a_intent == I_GRAB)
-			H << "You start drinking some water from \the [src]..."
+			H << "Пью воду из [src]..."
 			if (do_after(H,50,src))
 				var/watertype = "water"
 				if (radiation>0)
@@ -790,16 +790,16 @@
 					H.water += rand(40,50)
 				H.water += 75
 				H.bladder += 25
-				H << "You drink some water from \the [src]."
+				H << "Выпил немного воды из [src]."
 				playsound(H.loc, 'sound/items/drink.ogg', rand(10, 50), TRUE)
 				return
 			else
 				return
 	if (busy && busy != user)
-		user << "<span class='warning'>Someone's already washing here.</span>"
+		user << "<span class='warning'>Тут уже кто-то пьёт.</span>"
 		return
 
-	user << "<span class='notice'>You start washing your hands.</span>"
+	user << "<span class='notice'>Начинаю мыть свои руки.</span>"
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	if (sound)
@@ -815,14 +815,14 @@
 	if (ishuman(user))
 		user:update_inv_gloves()
 	for (var/mob/V in viewers(src, null))
-		V.show_message("<span class='notice'>[user] washes their hands using \the [src].</span>")
+		V.show_message("<span class='notice'>[user] моет свои руки в [src].</span>")
 
 /obj/structure/sink/attackby(obj/item/O as obj, mob/living/user as mob)
 	if (busy && busy != user)
-		user << "<span class='warning'>Someone's already washing here.</span>"
+		user << "<span class='warning'>Тут уже кто-то моет свои руки.</span>"
 		return
 	if (dry || volume <= 0)
-		user << "<span class='warning'>\The [src] is dry!</span>"
+		user << "<span class='warning'>[src] иссох!</span>"
 		return
 	var/obj/item/weapon/reagent_containers/RG = O
 	var/watertype = "water"
@@ -842,7 +842,7 @@
 				volume = 0
 				spawn(3)
 					update_icon()
-				user.visible_message("<span class='notice'>[user] fills \the [RG] using \the [src].</span>","<span class='notice'>You fill \the [RG] using \the [src].</span>")
+				user.visible_message("<span class='notice'>[user] наполняет [RG] из [src].</span>","<span class='notice'>Наливаю в [RG] из [src].</span>")
 				playsound(loc, 'sound/effects/watersplash.ogg', 100, TRUE)
 				user.setClickCooldown(5)
 				return TRUE
@@ -864,7 +864,7 @@
 					volume -= min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this)
 				spawn(3)
 					update_icon()
-				user.visible_message("<span class='notice'>[user] fills \the [RG] using \the [src].</span>","<span class='notice'>You fill \the [RG] using \the [src].</span>")
+				user.visible_message("<span class='notice'>[user] наполняет [RG] из [src].</span>","<span class='notice'>Наполняю [RG] из [src].</span>")
 				playsound(loc, 'sound/effects/watersplash.ogg', 100, TRUE)
 				user.setClickCooldown(5)
 				return TRUE
@@ -872,7 +872,7 @@
 
 	else if (istype(O, /obj/item/weapon/mop))
 		O.reagents.add_reagent(watertype, 5)
-		user << "<span class='notice'>You wet \the [O] in \the [src].</span>"
+		user << "<span class='notice'>Смочил [O] из [src].</span>"
 		playsound(loc, 'sound/effects/slosh.ogg', 25, TRUE)
 		return
 
@@ -882,7 +882,7 @@
 	var/obj/item/I = O
 	if (!I || !istype(I,/obj/item)) return
 
-	usr << "<span class='notice'>You start washing \the [I].</span>"
+	usr << "<span class='notice'>Начинаю мыть [I].</span>"
 
 	busy = TRUE
 	sleep(40)
@@ -899,8 +899,8 @@
 		C.dirtyness = 0
 		C.fleas = FALSE
 	user.visible_message( \
-		"<span class='notice'>[user] washes \a [I] using \the [src].</span>", \
-		"<span class='notice'>You wash \a [I] using \the [src].</span>")
+		"<span class='notice'>[user] помыл [I] в [src].</span>", \
+		"<span class='notice'>Помыл [I] в [src].</span>")
 
 /obj/structure/sink/AltClick(var/mob/living/user)
 	var/H = user.get_active_hand()
@@ -908,15 +908,15 @@
 		var/obj/item/weapon/reagent_containers/O = user.get_active_hand()
 		if (O.reagents && O.reagents.total_volume)
 			O.reagents.clear_reagents()
-			user << "<span class='notice'>You empty the [O] into the [src].</span>"
+			user << "<span class='notice'>Опустошаю [O] в [src].</span>"
 
 
 /obj/structure/sink/kitchen
-	name = "kitchen sink"
+	name = "кухонная раковина"
 	icon_state = "sink_alt"
 
 /obj/structure/sink/puddle	//splishy splashy ^_^
-	name = "puddle"
+	name = "лужа"
 	icon_state = "puddle"
 	sound = 'sound/effects/watersplash.ogg'
 	max_volume = 500
@@ -926,7 +926,7 @@
 	mosquito_limit = 0
 
 /obj/structure/sink/well
-	name = "well"
+	name = "колодец"
 	icon_state = "well1"
 	sound = 'sound/effects/watersplash.ogg'
 	max_volume = 750
@@ -934,14 +934,14 @@
 	mosquito_limit = 0
 
 /obj/structure/sink/well/sandstone
-	name = "sandstone well"
+	name = "колодец"
 	icon_state = "sandstone_well1"
 	sound = 'sound/effects/watersplash.ogg'
 	max_volume = 750
 	volume = 750
 
 /obj/structure/sink/well/marble
-	name = "marble well"
+	name = "колодец"
 	icon_state = "marble_well1"
 	sound = 'sound/effects/watersplash.ogg'
 	max_volume = 750

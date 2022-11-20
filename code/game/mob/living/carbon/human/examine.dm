@@ -28,7 +28,7 @@
 	if (wear_mask)
 		skipface |= wear_mask.flags_inv & HIDEFACE
 
-	var/msg = "<span class='info'>*---------*\nThis is "
+	var/msg = "<span class='info'>*---------*\nЭто "
 
 	var/datum/gender/T = gender_datums[gender]
 	if (skipjumpsuit && skipface) //big suits/masks/helmets make it hard to tell their gender
@@ -54,105 +54,105 @@
 			var/obj/item/clothing/under/U = w_uniform
 			if (U.accessories.len)
 				if (!wear_suit)
-					tie_msg += ". Attached to it is [lowertext(english_list(U.accessories))]"
+					tie_msg += ". На одежде видно [lowertext(russian_list(U.accessories))]"
 		if (w_uniform.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[w_uniform] [w_uniform.gender==PLURAL?"some":"a"] [(w_uniform.blood_color != "#030303") ? "blood" : "oil"]-stained [w_uniform.name][tie_msg]!</span>\n"
+			msg += "<span class='warning'>[T.He_ru] носит \icon[w_uniform] [w_uniform.gender==PLURAL?"some":"a"] [w_uniform.name][(w_uniform.blood_color != "#030303") ? "(в крови)" : "(в масле)"][tie_msg]!</span>\n"
 		else
-			msg += "[T.He] [T.is] wearing \icon[w_uniform] \a [w_uniform][tie_msg].\n"
+			msg += "[T.He_ru] носит \icon[w_uniform] [w_uniform][tie_msg].\n"
 
 	//head
 	if (head)
 		if (head.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[head] [head.gender==PLURAL?"some":"a"] [(head.blood_color != "#030303") ? "blood" : "oil"]-stained [head.name] on [T.his] head!</span>\n"
+			msg += "<span class='warning'>На голове \icon[head] [head.gender==PLURAL?"some":"a"] [head.name] [(head.blood_color != "#030303") ? "(в крови)" : "(в масле)"]!</span>\n"
 		else
-			msg += "[T.He] [T.is] wearing \icon[head] \a [head] on [T.his] head.\n"
+			msg += "На голове \icon[head] [head].\n"
 
 	//suit/armor
 	if (wear_suit)
 		if (wear_suit.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[wear_suit] [wear_suit.gender==PLURAL?"some":"a"] [(wear_suit.blood_color != "#030303") ? "blood" : "oil"]-stained [wear_suit.name]!</span>\n"
+			msg += "<span class='warning'>[T.He_ru] одет[T.he=="he"?"":"а"] в \icon[wear_suit] [wear_suit.gender==PLURAL?"some":"a"] [wear_suit.name] [(wear_suit.blood_color != "#030303") ? "(в крови)" : "(в масле)"]!</span>\n"
 		else
-			msg += "[T.He] [T.is] wearing \icon[wear_suit] \a [wear_suit].\n"
+			msg += "[T.He_ru] одет[T.he=="he"?"":"а"] в \icon[wear_suit] [wear_suit].\n"
 
 	//back
 	if (back)
 		if (back.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.has] \icon[back] [back.gender==PLURAL?"some":"a"] [(back.blood_color != "#030303") ? "blood" : "oil"]-stained [back] on [T.his] back.</span>\n"
+			msg += "<span class='warning'>На спине висит \icon[back] [back.gender==PLURAL?"some":"a"] [back] [(back.blood_color != "#030303") ? "(в крови)" : "(в масле)"].</span>\n"
 		else
-			msg += "[T.He] [T.has] \icon[back] \a [back] on [T.his] back.\n"
+			msg += "На спине висит \icon[back] [back].\n"
 
 	//shoulder
 	if (shoulder)
 		if (shoulder.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.has] \icon[shoulder] [shoulder.gender==PLURAL?"some":"a"] [(shoulder.blood_color != "#030303") ? "blood" : "oil"]-stained [shoulder] on [T.his] shoulder.</span>\n"
+			msg += "<span class='warning'>На плече висит \icon[shoulder] [shoulder.gender==PLURAL?"some":"a"] [shoulder] [(shoulder.blood_color != "#030303") ? "(в крови)" : "(в масле)"].</span>\n"
 		else
-			msg += "[T.He] [T.has] \icon[shoulder] \a [shoulder] on [T.his] shoulder.\n"
+			msg += "На плече висит \icon[shoulder] [shoulder].\n"
 
 
 	//left hand
 	if (l_hand)
 		if (l_hand.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.is] holding \icon[l_hand] [l_hand.gender==PLURAL?"some":"a"] [(l_hand.blood_color != "#030303") ? "blood" : "oil"]-stained [l_hand.name] in [T.his] left hand!</span>\n"
+			msg += "<span class='warning'>В левой руке у [T.his_ru] \icon[l_hand] [l_hand.gender==PLURAL?"some":"a"] [l_hand.name] [(l_hand.blood_color != "#030303") ? "(в крови)" : "(в масле)"]!</span>\n"
 		else
-			msg += "[T.He] [T.is] holding \icon[l_hand] \a [l_hand] in [T.his] left hand.\n"
+			msg += "В левой руке у [T.his_ru] \icon[l_hand] [l_hand].\n"
 
 	//right hand
 	if (r_hand)
 		if (r_hand.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.is] holding \icon[r_hand] [r_hand.gender==PLURAL?"some":"a"] [(r_hand.blood_color != "#030303") ? "blood" : "oil"]-stained [r_hand.name] in [T.his] right hand!</span>\n"
+			msg += "<span class='warning'>В правой руке у [T.his_ru] \icon[r_hand] [r_hand.gender==PLURAL?"some":"a"] [r_hand.name] [(r_hand.blood_color != "#030303") ? "(в крови)" : "(в масле)"]!</span>\n"
 		else
-			msg += "[T.He] [T.is] holding \icon[r_hand] \a [r_hand] in [T.his] right hand.\n"
+			msg += "В правой руке у [T.his_ru] \icon[r_hand] [r_hand].\n"
 
 	//gloves
 	if (gloves && !skipgloves)
 		if (gloves.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.has] \icon[gloves] [gloves.gender==PLURAL?"some":"a"] [(gloves.blood_color != "#030303") ? "blood" : "oil"]-stained [gloves.name] on [T.his] hands!</span>\n"
+			msg += "<span class='warning'>На [T.his_ru] руках \icon[gloves] [gloves.gender==PLURAL?"some":"a"] [gloves.name] [(gloves.blood_color != "#030303") ? "(в крови)" : "(в масле)"]!</span>\n"
 		else
-			msg += "[T.He] [T.has] \icon[gloves] \a [gloves] on [T.his] hands.\n"
+			msg += "На [T.his_ru] руках \icon[gloves] [gloves].\n"
 	else if (blood_DNA)
-		msg += "<span class='warning'>[T.He] [T.has] [(hand_blood_color != "#030303") ? "blood" : "oil"]-stained hands!</span>\n"
+		msg += "<span class='warning'>[T.His_ru] руки [(hand_blood_color != "#030303") ? "в крови" : "в масле"]!</span>\n"
 
 	//handcuffed?
 	if (handcuffed)
-		msg += "<span class='warning'>[T.He] [T.is] \icon[handcuffed] handcuffed!</span>\n"
+		msg += "<span class='warning'>[T.He_ru] \icon[handcuffed] в наручниках!</span>\n"
 
 	//buckled
 	if (buckled)
-		msg += "<span class='warning'>[T.He] [T.is] \icon[buckled] buckled to [buckled]!</span>\n"
+		msg += "<span class='warning'>[T.He_ru] сидит на \icon[buckled] [buckled]!</span>\n"
 
 	//belt
 	if (belt)
 		if (belt.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.has] \icon[belt] [belt.gender==PLURAL?"some":"a"] [(belt.blood_color != "#030303") ? "blood" : "oil"]-stained [belt.name] about [T.his] waist!</span>\n"
+			msg += "<span class='warning'>На [T.his_ru] поясе висит \icon[belt] [belt.gender==PLURAL?"some":"a"] [belt.name] [(belt.blood_color != "#030303") ? "(в крови)" : "(в масле)"]!</span>\n"
 		else
-			msg += "[T.He] [T.has] \icon[belt] \a [belt] about [T.his] waist.\n"
+			msg += "На [T.his_ru] поясе висит \icon[belt] [belt].\n"
 
 	//shoes
 	if (shoes && !skipshoes)
 		if (shoes.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[shoes] [shoes.gender==PLURAL?"some":"a"] [(shoes.blood_color != "#030303") ? "blood" : "oil"]-stained [shoes.name] on [T.his] feet!</span>\n"
+			msg += "<span class='warning'>На ногах у н[T.his_ru] \icon[shoes] [shoes.gender==PLURAL?"some":"a"] [shoes.name] [(shoes.blood_color != "#030303") ? "(в крови)" : "(в масле)"]!</span>\n"
 		else
-			msg += "[T.He] [T.is] wearing \icon[shoes] \a [shoes] on [T.his] feet.\n"
+			msg += "На ногах у н[T.his_ru] \icon[shoes] [shoes].\n"
 	else if (feet_blood_DNA)
-		msg += "<span class='warning'>[T.He] [T.has] [(feet_blood_color != "#030303") ? "blood" : "oil"]-stained feet!</span>\n"
+		msg += "<span class='warning'>[T.His_ru] ноги [(feet_blood_color != "#030303") ? "в крови" : "в масле"] feet!</span>\n"
 
 	//mask
 	if (wear_mask && !skipmask)
-		var/descriptor = "on [T.his] face"
+		var/descriptor = "на лице"
 		if (istype(wear_mask, /obj/item/weapon/grenade))
-			descriptor = "in [T.his] mouth"
+			descriptor = "в зубах"
 		if (wear_mask.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.has] \icon[wear_mask] [wear_mask.gender==PLURAL?"some":"a"] [(wear_mask.blood_color != "#030303") ? "blood" : "oil"]-stained [wear_mask.name] [descriptor]!</span>\n"
+			msg += "<span class='warning'>А так-же \icon[wear_mask] [wear_mask.gender==PLURAL?"some":"a"] [wear_mask.name]  [(wear_mask.blood_color != "#030303") ? "(в крови)" : "(в масле)"] [descriptor]!</span>\n"
 		else
-			msg += "[T.He] [T.has] \icon[wear_mask] \a [wear_mask] [descriptor].\n"
+			msg += ">А так-же \icon[wear_mask] [wear_mask] [descriptor].\n"
 
 	//left ear
 	if (l_ear && !skipears)
-		msg += "[T.He] [T.has] \icon[l_ear] \a [l_ear] on [T.his] left ear.\n"
+		msg += "На [T.his_ru] висит \icon[l_ear] [l_ear].\n"
 
 	//right ear
 	if (r_ear && !skipears)
-		msg += "[T.He] [T.has] \icon[r_ear] \a [r_ear] on [T.his] right ear.\n"
+		msg += "На [T.his_ru] висит \icon[r_ear] [r_ear].\n"
 
 	//ID
 	if (wear_id)
@@ -164,47 +164,47 @@
 			var/obj/item/weapon/card/id/idcard = wear_id
 			id = idcard.registered_name
 		if (id && (id != real_name) && (get_dist(src, usr) <= 1) && prob(10))
-			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[wear_id] \a [wear_id] yet something doesn't seem right...</span>\n"
+			msg += "<span class='warning'>[T.He_ru] [T.is] wearing \icon[wear_id] \a [wear_id] yet something doesn't seem right...</span>\n"
 		else*/
-		msg += "[T.He] [T.is] wearing \icon[wear_id] \a [wear_id].\n"
+		msg += "У [T.his_ru] на груди висит \icon[wear_id] [wear_id].\n"
 
 	//Jitters
 	if (is_jittery)
 		if (jitteriness >= 300)
-			msg += "<span class='warning'><b>[T.He] [T.is] convulsing violently!</b></span>\n"
+			msg += "<span class='warning'><b>[T.He_ru] в конвульсиях!</b></span>\n"
 		else if (jitteriness >= 200)
-			msg += "<span class='warning'>[T.He] [T.is] extremely jittery.</span>\n"
+			msg += "<span class='warning'>[T.He_ru] дёргается.</span>\n"
 		else if (jitteriness >= 100)
-			msg += "<span class='warning'>[T.He] [T.is] twitching ever so slightly.</span>\n"
+			msg += "<span class='warning'>[T.He_ru] немного подёргивается.</span>\n"
 
 	//splints
 	for (var/organ in list("l_leg","r_leg","l_arm","r_arm"))
 		var/obj/item/organ/external/o = get_organ(organ)
 		if (o && o.status & ORGAN_SPLINTED)
-			msg += "<span class='warning'>[T.He] [T.has] a splint on [T.his] [o.name]!</span>\n"
+			msg += "<span class='warning'>[T.His_ru] [o.name] перебинтована!</span>\n"
 
 
 	var/distance = get_dist(usr,src)
 	if (isghost(usr) || usr.stat == DEAD) // ghosts can see anything
 		distance = TRUE
 	if (stat)
-		msg += "<span class='warning'>[T.He] [T.is]n't responding to anything around [T.him] and seems to be asleep.</span>\n"
+		msg += "<span class='warning'>Похоже [T.he_ru] без сознания.</span>\n"
 		if ((stat == DEAD || losebreath) && distance <= 3)
-			msg += "<span class='warning'>[T.He] [T.does] not appear to be breathing.</span>\n"
+			msg += "<span class='warning'>[T.He_ru] не дышит.</span>\n"
 
 	if (fire_stacks)
-		msg += "[T.He] [T.is] covered in some liquid.\n"
+		msg += "[T.He_ru] покрыт чем-то горючим.\n"
 	if (on_fire)
-		msg += "<span class='warning'>[T.He] [T.is] on fire!</span>\n"
+		msg += "<span class='warning'>[T.He_ru] горит!</span>\n"
 	msg += "<span class='warning'>"
 
 	msg += "</span>"
 
 	if (species.show_ssd && (!species.has_organ["brain"] || has_brain()) && stat != DEAD)
 		if (!key)
-			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd]. It doesn't look like [T.he] [T.is] waking up anytime soon.</span>\n"
+			msg += "<span class='deadsay'>[T.He_ru] [species.show_ssd]. Похоже [T.he_ru] не скоро придёт в себя.</span>\n"
 		else if (!client)
-			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd].</span>\n"
+			msg += "<span class='deadsay'>[T.He_ru] [species.show_ssd].</span>\n"
 
 	var/list/wound_flavor_text = list()
 	var/list/is_bleeding = list()
@@ -218,13 +218,13 @@
 		health_percentage = (health/H.species.total_health) * 100
 
 	if (health_percentage <= 75 && health_percentage > 50)//Is the person a little hurt?
-		msg += "<span class='warning'><b>[T.He] looks somewhat wounded.\n</b></span>"
+		msg += "<span class='warning'><b>[T.He_ru] легко ранен.\n</b></span>"
 
 	if (health_percentage <= 50 && health_percentage > 25)//Hurt.
-		msg += "<span class='warning'><b>[T.He] looks wounded.</b></span>\n"
+		msg += "<span class='warning'><b>[T.He_ru] сильно ранен.</b></span>\n"
 
 	if (health_percentage <= 25)//Or incredibly hurt.
-		msg += "<span class='warning'><b>[T.He] looks incredibly wounded.</b>\n</span>"
+		msg += "<span class='warning'><b>[T.He_ru] смертельно ранен.</b>\n</span>"
 
 	for (var/organ_tag in species.has_limbs)
 
@@ -232,9 +232,9 @@
 		var/organ_descriptor = organ_data["descriptor"]
 		var/obj/item/organ/external/E = organs_by_name[organ_tag]
 		if (!E)
-			wound_flavor_text["[organ_descriptor]"] = "<span class='warning'><b>[T.He] [T.is] missing [T.his] [organ_descriptor].</b></span>\n"
+			wound_flavor_text["[organ_descriptor]"] = "<span class='warning'><b>У [T.his_ru] отсутствует [organ_descriptor].</b></span>\n"
 		else if (E.is_stump())
-			wound_flavor_text["[organ_descriptor]"] = "<span class='warning'><b>[T.He] [T.has] a stump where [T.his] [organ_descriptor] should be.</b></span>\n"
+			wound_flavor_text["[organ_descriptor]"] = "<span class='warning'><b>У [T.his_ru] обрубок [organ_descriptor].</b></span>\n"
 		else
 			continue
 
@@ -243,18 +243,18 @@
 			if (temp.wounds.len > 0 || temp.open)
 				/*if (temp.is_stump() && temp.parent_organ && organs_by_name[temp.parent_organ])
 					var/obj/item/organ/external/parent = organs_by_name[temp.parent_organ]
-					wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] [temp.get_wounds_desc()] on [T.his] [parent.name].</span><br>"
+					wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He_ru] [T.has] [temp.get_wounds_desc()] on [T.his] [parent.name].</span><br>"
 				else
-					wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] [temp.get_wounds_desc()] on [T.his] [temp.name].</span><br>"
+					wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He_ru] [T.has] [temp.get_wounds_desc()] on [T.his] [temp.name].</span><br>"
 				*///Removing because they're unneeded bloat descriptions.
 				if (temp.status & ORGAN_BLEEDING)
-					is_bleeding["[temp.name]"] = "<span class='danger'>[T.His] [temp.name] is bleeding!</span><br>"
+					is_bleeding["[temp.name]"] = "<span class='danger'>[T.His_ru] [temp.name] кровоточит!</span><br>"
 			else
 				wound_flavor_text["[temp.name]"] = ""
 			if (temp.dislocated == 2)
-				wound_flavor_text["[temp.name]"] += "<span class='warning'>[T.His] [temp.joint] is dislocated!</span><br>"
+				wound_flavor_text["[temp.name]"] += "<span class='warning'>[T.His_ru] [temp.joint] вывихнута!</span><br>"
 			if (((temp.status & ORGAN_BROKEN) && temp.brute_dam > temp.min_broken_damage) || (temp.status & ORGAN_MUTATED))
-				wound_flavor_text["[temp.name]"] += "<span class='warning'>[T.His] [temp.name] is shattered!</span><br>"
+				wound_flavor_text["[temp.name]"] += "<span class='warning'>[T.His] [temp.name] сломана!</span><br>"
 
 	//Handles the text strings being added to the actual description.
 	//If they have something that covers the limb, and it is not missing, put flavortext.  If it is covered but bleeding, add other flavortext.
@@ -268,11 +268,11 @@
 	for (var/implant in get_visible_implants(0))
 		msg += "<span class='danger'>[src] [T.has] \a [implant] sticking out of [T.his] flesh!</span>\n"
 	if (gender == MALE && circumcised && !w_uniform && !wear_suit)
-		msg += "<span class='danger'>[src] is circumcised!</span>\n"
+		msg += "<span class='danger'>[src] обрезан!</span>\n"
 
 	var/obj/item/organ/external/head/O = locate(/obj/item/organ/external/head) in organs
 	if (O && O.get_teeth() < O.max_teeth)
-		msg += "<span class='warning'>[O.get_teeth() <= 0 ? "All" : "[O.max_teeth - O.get_teeth()]"] of [T.his] teeth are missing!</span>\n"
+		msg += "<span class='warning'>[O.get_teeth() <= 0 ? "32" : "[O.max_teeth - O.get_teeth()]"] of [T.his] зуб выбито!</span>\n"
 
 	if (print_flavor_text()) msg += "[print_flavor_text()]\n"
 
@@ -280,7 +280,7 @@
 	if (pose)
 		if ( findtext(pose,".",length(pose)) == FALSE && findtext(pose,"!",length(pose)) == FALSE && findtext(pose,"?",length(pose)) == FALSE )
 			pose = addtext(pose,".") //Makes sure all emotes end with a period.
-		msg += "\n[T.He] [T.is] [pose]"
+		msg += "\n[T.He_ru] [T.is] [pose]"
 	if (map && !map.civilizations && map.ID != MAP_LITTLE_CREEK && map.ID != MAP_GULAG13 && map.ID != MAP_THE_ART_OF_THE_DEAL && map.ID != MAP_OCCUPATION)
 		if (original_job)
 			if (ishuman(user) && user != src)
@@ -294,7 +294,7 @@
 					else // examining someone on another team
 
 			else if (isobserver(user))
-				msg += "<br><i>[T.He] [T.is] a [original_job.title].</i>"
+				msg += "<br><i>[T.He_ru] [T.is] a [original_job.title].</i>"
 	else if (map.ID == MAP_LITTLE_CREEK)
 		if (ishuman(user) && user != src)
 			var/mob/living/human/H = user
@@ -319,13 +319,13 @@
 		if (ishuman(user) && user != src)
 			var/mob/living/human/H = user
 			if (H.civilization == "Sheriff Office" && src.civilization == "Sheriff Office")
-				msg += "<br><i>[T.He] is a member of the Sheriff Office.</i>"
+				msg += "<br><i>[T.He_ru] is a member of the Sheriff Office.</i>"
 			if (H.civilization == "Government" && src.civilization == "Sheriff Office")
-				msg += "<br><i>[T.He] is a member of the Sheriff Office.</i>"
+				msg += "<br><i>[T.He_ru] is a member of the Sheriff Office.</i>"
 			if (src.civilization == "Government")
-				msg += "<br><i>[T.He] is a member of the Government.</i>"
+				msg += "<br><i>[T.He_ru] is a member of the Government.</i>"
 			if (src.gun_permit && H.civilization == "Sheriff Office")
-				msg += "<br><b>[T.He] has a valid gun permit.</b></b>"
+				msg += "<br><b>[T.He_ru] has a valid gun permit.</b></b>"
 	else if (map.ID == MAP_OCCUPATION)
 		if (ishuman(user) && user != src)
 			var/mob/living/human/H = user
@@ -351,9 +351,9 @@
 
 				else
 					if (original_job_title == "Civilization A Citizen")
-						msg += "<br><font color='red'><i>[T.He] is a citizen of the <b>[civname_a]</b>.</font></i>"
+						msg += "<br><font color='red'><i>[T.He_ru] is a citizen of the <b>[civname_a]</b>.</font></i>"
 					else
-						msg += "<br><font color='red'><i>[T.He] is a citizen of the <b>[civname_b]</b>.</font></i>"
+						msg += "<br><font color='red'><i>[T.He_ru] is a citizen of the <b>[civname_b]</b>.</font></i>"
 			if (H.religion == religion && religion_style == "Cultists" && religious_clergy == "Cultists")
 				msg += "<br><i>You recognize [T.him] as an ordained <b>Cultist</b> of your cult, <b>[religion]</b>.</i>"
 			else if (H.religion == religion && religion_style == "Cultists" && religious_clergy != "Cultists")
@@ -363,12 +363,12 @@
 				msg += "<br><i>You recognize [T.him] as a member of your faction, <b>[civilization]</b>.</i>"
 				if (map.custom_civs[H.civilization][4] != null)
 					if (map.custom_civs[H.civilization][4].real_name == real_name)
-						msg += "<br><b>[T.He] is the leader of your faction.</b>"
+						msg += "<br><b>[T.He_ru] is the leader of your faction.</b>"
 
 			else if (civilization == "none")
-				msg += "<br><i>[T.He] is a nomad. [T.He] has no faction</b>.</i>"
+				msg += "<br><i>[T.He_ru] is a nomad. [T.He_ru] has no faction</b>.</i>"
 			else
-				msg += "<br><i>[T.He] [T.is] a member of <b>[civilization]</b>.</i>"
+				msg += "<br><i>[T.He_ru] [T.is] a member of <b>[civilization]</b>.</i>"
 			if (user.find_trait("Empathetic"))
 				var/md
 				switch(mood)
@@ -382,12 +382,12 @@
 						md = "seems to be in a good mood."
 					if(80 to 10000)
 						md = "seems to be in an excellent mood!"
-				msg += "<br><i>[T.He] [md]</b>.</i>"
+				msg += "<br><i>[T.He_ru] [md]</b>.</i>"
 		else if (isobserver(user))
 			if (civilization != "none")
-				msg += "<br><i>[T.He] [T.is] a member of <b>[civilization]</b>.</i>"
+				msg += "<br><i>[T.He_ru] [T.is] a member of <b>[civilization]</b>.</i>"
 			else
-				msg += "<br><i>[T.He] is a nomad. [T.He] has no faction</b>.</i>"
+				msg += "<br><i>[T.He_ru] is a nomad. [T.He_ru] has no faction</b>.</i>"
 
 		else if (ishuman(user) && user == src)
 			var/mob/living/human/H = user
@@ -398,7 +398,7 @@
 		if (left_factions.len && ishuman(user))
 			for (var/i in left_factions)
 				if (i[2]>world.realtime)
-					msg += "<br><font color='red'>[T.He] has abandoned <b>[i[1]]</b> recently!</font>"
+					msg += "<br><font color='red'>[T.He_ru] has abandoned <b>[i[1]]</b> recently!</font>"
 	for (var/v in TRUE to embedded.len)
 		msg += "<a href='?src=\ref[user];remove_embedded=[v]'>Remove [embedded[v]]</a>"
 

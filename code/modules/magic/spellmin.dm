@@ -6,7 +6,7 @@ var/list/admin_verbs_magic = list(
 /client/proc/list_spells()
 	set name = "List Spells"
 	set desc = "List all the spells."
-	set category = "Admin"
+	set category = "Админ"
 	set src = usr
 
 	if (!holder)	return
@@ -22,7 +22,7 @@ var/list/admin_verbs_magic = list(
 /client/proc/addrem_spells()
 	set name = "Add/Rem Spells"
 	set desc = "Add or Remove spells from a mob."
-	set category = "Admin"
+	set category = "Админ"
 	set src = usr
 
 	if (!holder)	return

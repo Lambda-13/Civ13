@@ -1,8 +1,8 @@
 // 2017-07-08: Created with essentials -- Irra
 
 /obj/item/weapon/doctor_handbook
-	name = "doctor's handbook"
-	desc = "A book the size of your hand, containing a compact encyclopedia of the dark wonders of war - diseases, conditions, and documentation of all degrees of injury."
+	name = "справочник лекаря"
+	desc = "Книга размером с вашу ладонь, содержащая компактную энциклопедию темных чудес войны - болезни, состояния и документацию всех степеней травм."
 	icon = 'icons/obj/library.dmi'
 	icon_state = "book1"
 	item_state = "bible" // I couldn't find any better placeholder for now
@@ -12,7 +12,7 @@
 	w_class = 2.0
 	throw_speed = 5
 	throw_range = 10
-	attack_verb = list("slapped", "whacked")
+	attack_verb = list("шлёпает", "бьёт")
 	flammable = TRUE
 	var/list/severity_adj = list("minor", "moderate", "serious", "severe", "critical") // do not touch this
 	var/sev_factor
@@ -23,7 +23,7 @@
 		return ..()
 
 	var/datum/gender/G = gender_datums[victim.gender]
-	user.visible_message("<span class='notice'>[user] glances through [src], inspecting [victim]'s [victim.stat == DEAD ? "corpse" : "body"].</span>")
+	user.visible_message("<span class='notice'>[user] [pick("проводит осмотр", "осматривает", "анализирует")] с помощью [src], [victim.stat == DEAD ? "труп" : "тело"] [victim].</span>")
 
 	if (ishuman(victim))
 		var/mob/living/human/H = victim

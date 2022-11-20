@@ -201,14 +201,14 @@
 	var/found = FALSE
 	if (istype(user.l_hand, /obj/item/stack/money))
 		var/obj/item/stack/money/M = user.l_hand
-		if (M.value*M.amount >= 20)
+		if (M.value*M.amount >= 5)
 			found = TRUE
 	else if (istype(user.r_hand, /obj/item/stack/money))
 		var/obj/item/stack/money/M = user.r_hand
-		if (M.value*M.amount >= 20)
+		if (M.value*M.amount >= 5)
 			found = TRUE
 	if (!found)
-		user << "You don't have enough money to make a new blueprint! You need 50 gold or equivalent in one of your hands."
+		user << "You don't have enough money to make a new blueprint! You need 10 gold or equivalent in one of your hands."
 		return FALSE
 		
 ////////////////STOCK///////////////////////////////
@@ -537,16 +537,16 @@
 		var/foundm = FALSE
 		if (istype(user.l_hand, /obj/item/stack/money))
 			var/obj/item/stack/money/M = user.l_hand
-			if (M.value*M.amount >= 200)
+			if (M.value*M.amount >= 50)
 				foundm = TRUE
-				M.amount -= 200/M.value
+				M.amount -= 50/M.value
 				if (M.amount <= 0)
 					qdel(M)
 		else if (istype(user.r_hand, /obj/item/stack/money))
 			var/obj/item/stack/money/M = user.r_hand
-			if (M.value*M.amount >= 200)
+			if (M.value*M.amount >= 50)
 				foundm = TRUE
-				M.amount -= 200/M.value
+				M.amount -= 50/M.value
 				if (M.amount <= 0)
 					qdel(M)
 		if (foundm)

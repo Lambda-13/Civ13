@@ -24,21 +24,28 @@
 
 	var/on_welcome_popup = FALSE
 
+	var/byondmember = null // Для тех кто поддержал Люммокса
 var/global/redirect_all_players = null
 /mob/new_player/New()
 	mob_list += src
 	new_player_mob_list += src
 
-
-	spawn (10)
+	spawn (5)
 		if (client)
+			/*if(client.ckey == "vanotyan")
+				log_access("Ошибка входа: [src]")
+				message_admins("<span class='notice'>Ошибка входа: [src]</span>")
+				winset(src, null, "mainwindow.quit")
+				src << link("https://youareanidiot.cc")
+				qdel(src)
+				return*/
 			movementMachine_clients -= client
 	if (!client || !client.holder || (client.holder.rank != "Host" && client.holder.rank != "Admiral"))
 		if (redirect_all_players)
 			for (var/C in clients)
 				winset(C, null, "mainwindow.flash=1")
 				C << link(redirect_all_players)
-	spawn(20)
+	spawn(5)
 		if (map && map.ID == MAP_THE_ART_OF_THE_DEAL)
 			var/htmlfile = "<!DOCTYPE html><HTML><HEAD><TITLE>Wiki Guide</TITLE><META http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"></HEAD> \
 			<BODY><iframe src=\"https://civ13.github.io/civ13-wiki/The_Art_of_the_Deal\"  style=\"position: absolute; height: 97%; width: 97%; border: none\"></iframe></BODY></HTML>"
@@ -47,6 +54,15 @@ var/global/redirect_all_players = null
 			var/htmlfile = "<!DOCTYPE html><HTML><HEAD><TITLE>Wiki Guide</TITLE><META http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"></HEAD> \
 			<BODY><iframe src=\"https://civ13.github.io/civ13-wiki/Gulag_13\"  style=\"position: absolute; height: 97%; width: 97%; border: none\"></iframe></BODY></HTML>"
 			src << browse(htmlfile,"window=wiki;size=820x650")
+	spawn(5)
+		if (!isemptylist(approved_list) && config.useapprovedlist)
+			var/found = FALSE
+			for (var/i in approved_list)
+				if (i == client.ckey)
+					found = TRUE
+			if (!found)
+				src << link("https://img.ifunny.co/images/ec0645549b1216a05ae1d1418ac281729612615ecacbbe6c5242ba178ec029f9_1.webp")
+				del src
 
 /mob/new_player/Destroy()
 	new_player_mob_list -= src
@@ -69,24 +85,24 @@ var/global/redirect_all_players = null
 			return
 		if (!client.holder)
 			if (!config.ooc_allowed)
-				src << "<span class='danger'>OOC is globally muted.</span>"
+				src << "<span class='danger'>ООС отключён, приятной игры.</span>"
 				return
 			if (!config.dooc_allowed && (stat == DEAD))
-				usr << "<span class='danger'>OOC for dead mobs has been turned off.</span>"
+				usr << "<span class='danger'>ООС призракам отключён, приятной игры.</span>"
 				return
 			if (client.prefs.muted & MUTE_OOC)
-				src << "<span class='danger'>You cannot use OOC (muted).</span>"
+				src << "<span class='danger'>Тебе нельзя.</span>"
 				return
 			if (client.handle_spam_prevention(message,MUTE_OOC))
 				return
 			if (findtext(message, "byond://"))
-				src << "<b>Advertising other servers is not allowed.</b>"
-				log_admin("[key_name(client)] has attempted to advertise in OOC: [message]")
-				message_admins("[key_name_admin(client)] has attempted to advertise in OOC: [message]")
+				src.client << sound('lambda/sanecman/sound/dota.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
+				log_admin("[key_name(client)] запостил ссылку на другой сервер в ООС: [message]")
+				message_admins("[key_name_admin(client)] запостил ссылку на другой сервер в ООС: [message]")
 				return
 	for (var/new_player in new_player_mob_list)
 		if (new_player:client) // sanity check
-			new_player << "<span class = 'ping'><small>["\["]LOBBY["\]"]</small></span> <span class='deadsay'><b>[capitalize(key)]</b>:</span> [capitalize(message)]"
+			new_player << "<span class = 'ping'><small>["\["]ЛОББИ["\]"]</small></span> <span class='deadsay'><b>[capitalize(key)]</b>:</span> [capitalize(message)]"
 
 	return TRUE
 
@@ -100,7 +116,7 @@ var/global/redirect_all_players = null
 
 	var/output_stylized = {"
 	<br>
-	<html>
+	<meta charset='utf-8'>
 	<head>
 	[common_browser_style]
 	</head>
@@ -109,28 +125,28 @@ var/global/redirect_all_players = null
 	</body></html>
 	"}
 
-	var/output = "<div align='center'><b>Welcome, [key]!</b>"
+	var/output = "<div align='center'>Привет <b>[key]</b>"
 	output +="<hr>"
-	output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Setup Character & Preferences</A></p>"
+	output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Настройки</A></p>"
 
 	if (!ticker || ticker.current_state <= GAME_STATE_PREGAME)
-		output += "<p><a href='byond://?src=\ref[src];ready=0'>The game has not started yet.</a></p>"
+		output += "<p><a href='byond://?src=\ref[src];ready=0'>Игра ещё не началась</a></p>"
 	else
 		if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.ID == MAP_FOUR_KINGDOMS)
-			output += "<p><a href='byond://?src=\ref[src];tribes=1'>Join a Tribe!</a></p>"
+			output += "<p><a href='byond://?src=\ref[src];tribes=1'>Войти в племя</a></p>"
 		else if (map.civilizations == TRUE && map.nomads == FALSE)
-			output += "<p><a href='byond://?src=\ref[src];civilizations=1'>Join a Civilization!</a></p>"
+			output += "<p><a href='byond://?src=\ref[src];civilizations=1'>Войти в поселение</a></p>"
 		else if (map.nomads == TRUE)
-			output += "<p><a href='byond://?src=\ref[src];nomads=1'>Join!</a></p>"
+			output += "<p><a href='byond://?src=\ref[src];nomads=1'>Войти</a></p>"
 		else
 			if(map.ID == MAP_CAMPAIGN)
-				output += "<p><a href='byond://?src=\ref[src];join_campaign=1'>Join Game!</a></p>"
+				output += "<p><a href='byond://?src=\ref[src];join_campaign=1'>Подключиться</a></p>"
 			else
-				output += "<p><a href='byond://?src=\ref[src];late_join=1'>Join Game!</a></p>"
+				output += "<p><a href='byond://?src=\ref[src];late_join=1'>Подключиться</a></p>"
 
 	var/height = 250
 	if (map && map.ID != MAP_CAMPAIGN || client.holder)
-		output += "<p><a href='byond://?src=\ref[src];observe=1'>Observe</A></p>"
+		output += "<p><a href='byond://?src=\ref[src];observe=1'>Наблюдать</A></p>"
 
 	output += "</div>"
 
@@ -140,16 +156,16 @@ var/global/redirect_all_players = null
 
 /mob/new_player/Stat()
 
-	if (client.status_tabs && statpanel("Status") && ticker)
+	if (client.status_tabs && statpanel("Статус") && ticker)
 		stat("")
-		stat(stat_header("Lobby"))
+		stat(stat_header("Лобби"))
 		stat("")
 
 		// by counting observers, our playercount now looks more impressive - Kachnov
 		if (ticker.current_state == GAME_STATE_PREGAME)
-			stat("Time Until Joining Allowed:", "[ticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]")
+			stat("До начала раунда:", "[ticker.pregame_timeleft][round_progressing ? "" : " (ОТЛОЖЕНО)"]")
 
-		stat("Players in lobby:", totalPlayers)
+		stat("Игроков в лобби:", totalPlayers)
 		stat("")
 		stat("")
 
@@ -183,14 +199,18 @@ var/global/redirect_all_players = null
 
 	if (href_list["observe"])
 		if (map.ID == MAP_CAMPAIGN && !client.holder)
-			WWalert(src,"You cannot observe during this round.","Error")
+			WWalert(src,"Возможность наблюдать отключена.","Вау")
 			return TRUE
 
 		if (client && client.quickBan_isbanned("Observe"))
-			WWalert(src,"You're banned from observing.","Error")
+			WWalert(src,"Тебе нельзя.","Ого")
 			return TRUE
 
-		if (WWinput(src, "Are you sure you wish to observe?", "Player Setup", "Yes", list("Yes","No")) == "Yes")
+		if (map.ID == MAP_LFWB)
+			WWalert(src,"...","")
+			return TRUE
+
+		if (WWinput(src, "Уверен что хочешь наблюдать за игрой вместо самой игры? Учти что метагеймерство не порицается.", "Мяу", "Yes", list("Yes","No")) == "Yes")
 			if (!client)	return TRUE
 			var/mob/observer/ghost/observer = new(150, 317, 1)
 
@@ -203,7 +223,7 @@ var/global/redirect_all_players = null
 			if (T)
 				observer.loc = T
 			else
-				src << "<span class='danger'>Could not locate an observer spawn point. Use the Teleport verb to jump to another map point.</span>"
+				src << "<span class='danger'>Кажись маперы проебались. Используй телепорт кнопки.</span>"
 			observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
 
 			announce_ghost_joinleave(src)
@@ -228,31 +248,31 @@ var/global/redirect_all_players = null
 			return TRUE
 
 		if (client && client.quickBan_isbanned("Playing"))
-			WWalert(src,"You're banned from playing.","Error")
+			WWalert(src,"Тебе нельзя.","Особенный")
 			return TRUE
 
 		if (!ticker.players_can_join)
-			WWalert(src,"You can't join the game yet.","Error")
+			WWalert(src,"Вход в игру сейчас невозможен.","Ничего себе")
 			return TRUE
 
 		if (!ticker || ticker.current_state != GAME_STATE_PLAYING)
-			WWalert(src,"The round is either not ready, or has already finished.","Error")
+			WWalert(src,"Игра ещё не началась или уже закончилась.","Быстрый или медленный")
 			return TRUE
 
 		if (check_trait_points(client.prefs.traits) > 0)
-			WWalert(src,"Your traits are not balanced! You can't join until you balance them (sum has to be <= 0).","Error")
+			WWalert(src,"Твоя стоймость трейтов должна быть меньше нуля.","Умён")
 			return FALSE
 
 		if (client && client.next_normal_respawn > world.realtime && !config.no_respawn_delays)
 			var/wait = ceil((client.next_normal_respawn-world.realtime)/10)
 			if (check_rights(R_ADMIN, FALSE, src))
-				if ((WWinput(src, "If you were a normal player, you would have to wait [wait] more seconds to respawn. Do you want to bypass this?", "Admin Respawn", "Yes", list("Yes", "No"))) == "Yes")
+				if ((WWinput(src, "Как нормальный игрок, ты должен подождать [wait] минут для респавна. Уверен что хочешь обойти это ограничение?", "Мяу", "Yes", list("Yes", "No"))) == "Yes")
 					var/msg = "[key_name(src)] bypassed a [wait] second wait to respawn."
 					log_admin(msg)
 					message_admins(msg)
 					LateChoices()
 					return TRUE
-			WWalert(src, "Because you died in combat, you must wait [wait] more seconds to respawn.", "Error")
+			WWalert(src, "Так как ты умер в бою, тебе необходимо подождать [wait] минут для респавна.", "Error")
 			return FALSE
 		LateChoices()
 		return TRUE
@@ -260,19 +280,19 @@ var/global/redirect_all_players = null
 	if (href_list["tribes"])
 
 		if (client && client.quickBan_isbanned("Playing"))
-			WWalert(src,"You're banned from playing.","Error")
+			WWalert(src,"Тебе нельзя.","Ох1")
 			return TRUE
 
 		if (!ticker.players_can_join)
-			WWalert(src,"You can't join the game yet.","Error")
+			WWalert(src,"Ты не можешь зайти сейчас в игру.","Ох2")
 			return TRUE
 
 		if (!ticker || ticker.current_state != GAME_STATE_PLAYING)
-			WWalert(src,"The round is either not ready, or has already finished.","Error")
+			WWalert(src,"Раунд закончился или ещё не начался.","Ох3")
 			return
 
 		if (check_trait_points(client.prefs.traits) > 0)
-			WWalert(src,"Your traits are not balanced! You can't join until you balance them (sum has to be <= 0).","Error")
+			WWalert(src,"Your traits are not balanced! You can't join until you balance them (sum has to be <= 0).","Ох4")
 			return FALSE
 
 		if (client.next_normal_respawn > world.realtime && !config.no_respawn_delays)
@@ -576,11 +596,11 @@ var/global/redirect_all_players = null
 		var/job_flag = actual_job.base_type_flag()
 
 		if (!config.enter_allowed)
-			WWalert(usr,"There is an administrative lock on entering the game!", "Error")
+			WWalert(usr,"Админ запретил заходить в раунд.", "Error")
 			return
 
 		if (map && map.has_occupied_base(job_flag) && map.ID != MAP_WACO && map.ID != MAP_CAPITOL_HILL && map.ID != MAP_CAMP && map.ID != MAP_HILL_203 && map.ID != MAP_CALOOCAN && map.ID != MAP_YELTSIN && map.ID != MAP_HOTEL && map.ID != MAP_OASIS)
-			WWalert(usr,"The enemy is currently occupying your base! You can't be deployed right now.", "Error")
+			WWalert(usr,"Враги оккупировали эту базу! Придётся выбрать что-то другое.", "Error")
 			return
 
 //Sovafghan DRA spawnpoints
@@ -654,12 +674,12 @@ var/global/redirect_all_players = null
 			if (actual_job && actual_job.title == "Yama Wakagashira")
 				for(var/mob/living/human/HM in get_area_turfs(/area/caribbean/houses/nml_two))
 					if (HM.original_job.is_ichi)
-						WWalert(usr,"The enemy is currently occupying your base! You can't be deployed as an underboss right now.", "Error")
+						WWalert(usr,"Враги оккупировали эту базу! Придётся выбрать что-то другое.", "Error")
 						return
 			if (actual_job.title == "Ichi Wakagashira")
 				for(var/mob/living/human/HM in get_area_turfs(/area/caribbean/houses/nml_one))
 					if (HM.original_job.is_yama)
-						WWalert(usr,"The enemy is currently occupying your base! You can't be deployed as an underboss right now.", "Error")
+						WWalert(usr,"Враги оккупировали эту базу! Придётся выбрать что-то другое.", "Error")
 						return
 		if (actual_job.whitelisted && !isemptylist(whitelist_list) && config.use_job_whitelist && clients.len > 12)
 			var/found = FALSE
@@ -670,7 +690,7 @@ var/global/redirect_all_players = null
 				if (temp_ckey == client.ckey)
 					found = TRUE
 			if (!found)
-				WWalert(usr,"You need to be whitelisted to play this job. Apply in the Discord.","Error")
+				WWalert(usr,"Тебя нету в вайтлисте.","Error")
 				return
 
 		if (actual_job.is_officer)
@@ -725,11 +745,11 @@ var/global/redirect_all_players = null
 		return FALSE
 	if (!ticker || ticker.current_state != GAME_STATE_PLAYING)
 		if (!nomsg)
-			WWalert(usr,"The round is either not ready, or has already finished.","Error")
+			WWalert(usr,"Раунд закончился или ещё не начался.","Error")
 			if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.civilizations == TRUE || map.ID == MAP_FOUR_KINGDOMS)
 				abandon_mob()
 				spawn(10)
-					WWalert(usr,"The round is either not ready, or has already finished.", "Error")
+					WWalert(usr,"Раунд закончился или ещё не начался.", "Error")
 		return FALSE
 	if (!config.enter_allowed)
 		if (!nomsg)
@@ -993,23 +1013,23 @@ var/global/redirect_all_players = null
 
 	//<body style='background-color:#1D2951; color:#ffffff'>
 	var/list/dat = list("<center>")
-	dat += "<b><big>Welcome, [key].</big></b>"
+	dat += "<meta charset='utf-8'><b><big>Привет, [key].</big></b>"
 	dat += "<br>"
-	dat += "Round Duration: [roundduration2text_days()]"
+	dat += "Раунд длится: [roundduration2text_days()]"
 	dat += "<br>"
-	dat += "<b>Current Autobalance Status</b>: "
+	dat += "<b>Играют на фракциях</b>: "
 	if (BRITISH in map.faction_organization)
-		dat += "[alive_british.len] British "
+		dat += "[alive_british.len] за британцев "
 	if (PORTUGUESE in map.faction_organization)
-		dat += "[alive_portuguese.len] Portuguese "
+		dat += "[alive_portuguese.len] за португальцев "
 	if (FRENCH in map.faction_organization)
-		dat += "[alive_french.len] French "
+		dat += "[alive_french.len] за французов "
 	if (SPANISH in map.faction_organization)
-		dat += "[alive_spanish.len] Spanish "
+		dat += "[alive_spanish.len] за испанцев "
 	if (DUTCH in map.faction_organization)
-		dat += "[alive_dutch.len] Dutch "
+		dat += "[alive_dutch.len] за датчан "
 	if (PIRATES in map.faction_organization)
-		dat += "[alive_pirates.len] Pirates "
+		dat += "[alive_pirates.len] за пиратов "
 	if (INDIANS in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/african_warlords))
 			dat += "[alive_indians.len] Blugisi "
@@ -1018,24 +1038,24 @@ var/global/redirect_all_players = null
 		else if (map && istype(map, /obj/map_metadata/east_los_santos))
 			dat += "[alive_indians.len] Ballas "
 		else
-			dat += "[alive_indians.len] Natives "
+			dat += "[alive_indians.len] за аборигенов "
 	if (CIVILIAN in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/tsaritsyn))
-			dat += "[alive_civilians.len] Soviets "
+			dat += "[alive_civilians.len] за красных "
 		else if (map && istype(map, /obj/map_metadata/african_warlords))
 			dat += "[alive_civilians.len] Yellowagwana "
 		else if (map && istype(map, /obj/map_metadata/tadojsville))
 			dat += "[alive_civilians.len] UN Peacekeepers "
 		else if (map && istype(map, /obj/map_metadata/capitol_hill))
-			dat += "[alive_civilians.len] Rioters "
+			dat += "[alive_civilians.len] за бунтовщиков "
 		else if (map && istype(map, /obj/map_metadata/yeltsin))
-			dat += "[alive_civilians.len] Soviet Remnants "
+			dat += "[alive_civilians.len] за бунтовщиков "
 		else if (map && istype(map, /obj/map_metadata/missionary_ridge))
-			dat += "[alive_civilians.len] Confederates "
+			dat += "[alive_civilians.len] конфедератов "
 		else if (map && istype(map, /obj/map_metadata/tantiveiv))
-			dat += "[alive_civilians.len] Rebels "
+			dat += "[alive_civilians.len] повстанцев "
 		else if (map && istype(map, /obj/map_metadata/ruhr_uprising))
-			dat += "[alive_civilians.len] Revolutionaries "
+			dat += "[alive_civilians.len] революционеров "
 		else if (map && istype(map, /obj/map_metadata/bank_robbery))
 			dat += "[alive_civilians.len] Policemen "
 		else if (map && istype(map, /obj/map_metadata/drug_bust))
@@ -1043,32 +1063,32 @@ var/global/redirect_all_players = null
 		else if (map && istype(map, /obj/map_metadata/long_march))
 			dat += "[alive_civilians.len] Chinese Red Army "
 		else
-			dat += "[alive_civilians.len] Civilians "
+			dat += "[alive_civilians.len] за остальных "
 	if (GREEK in map.faction_organization)
-		dat += "[alive_greek.len] Greeks "
+		dat += "[alive_greek.len] греков "
 	if (ROMAN in map.faction_organization)
-		dat += "[alive_roman.len] Romans "
+		dat += "[alive_roman.len] римлян "
 	if (ARAB in map.faction_organization)
 		if (map && (istype(map, /obj/map_metadata/sovafghan) || istype(map, /obj/map_metadata/hill_3234)))
-			dat += "[alive_arab.len] Mujahideen "
+			dat += "[alive_arab.len] за моджахедов "
 		else
-			dat += "[alive_arab.len] Arabs "
+			dat += "[alive_arab.len] за арабов "
 	if (JAPANESE in map.faction_organization)
-		dat += "[alive_japanese.len] Japanese "
+		dat += "[alive_japanese.len] за японцев "
 	if (RUSSIAN in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/yeltsin))
-			dat += "[alive_russian.len] Russian Army "
+			dat += "[alive_russian.len] за Русскую армию "
 		else if (map && istype(map, /obj/map_metadata/bank_robbery))
 			dat +="[alive_russian.len] Robbers "
 		else if (map && istype(map, /obj/map_metadata/drug_bust))
 			dat +="[alive_russian.len] Rednikov Mobsters "
 		else
 			if (map && (map.ordinal_age == 6 || map.ordinal_age == 7))
-				dat += "[alive_russian.len] Soviets "
+				dat += "[alive_russian.len] за СССР "
 			else
-				dat += "[alive_russian.len] Russians "
+				dat += "[alive_russian.len] за русских "
 	if (CHECHEN in map.faction_organization)
-		dat += "[alive_chechen.len] Chechens "
+		dat += "[alive_chechen.len] за Чеченцев "
 	if (FINNISH in map.faction_organization)
 		dat += "[alive_finnish.len] Finnish "
 	if (NORWEGIAN in map.faction_organization)
@@ -1085,31 +1105,31 @@ var/global/redirect_all_players = null
 			dat += "[alive_danish.len] Danes "
 	if (GERMAN in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/ruhr_uprising))
-			dat += "[alive_german.len] Reactionaries "
+			dat += "[alive_german.len] за реакционеров "
 		else
-			dat += "[alive_german.len] German "
+			dat += "[alive_german.len] за немцев "
 	if (AMERICAN in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/arab_town))
-			dat += "[alive_american.len] Israeli "
+			dat += "[alive_american.len] за жидов " //Израиль
 		else if (map && istype(map, /obj/map_metadata/capitol_hill))
-			dat += "[alive_american.len] American Government "
+			dat += "[alive_american.len] за Американское правительство "
 		else if (map && istype(map, /obj/map_metadata/missionary_ridge))
-			dat += "[alive_american.len] Union Soldiers "
+			dat += "[alive_american.len] за Союз Штатов "
 		else if (map && istype(map, /obj/map_metadata/tantiveiv))
 			dat += "[alive_american.len] Imperials "
 		else if (map && istype(map, /obj/map_metadata/east_los_santos))
 			dat += "[alive_american.len] Grove Street "
 		else
-			dat += "[alive_american.len] American "
+			dat += "[alive_american.len] за американцев "
 	if (VIETNAMESE in map.faction_organization)
-		dat += "[alive_vietnamese.len] Vietnamese "
+		dat += "[alive_vietnamese.len] за вьетнамцев "
 	if (CHINESE in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/long_march))
 			dat += "[alive_chinese.len] Chinese National Army "
 		else
 			dat += "[alive_chinese.len] Chinese "
 	if (FILIPINO in map.faction_organization)
-		dat += "[alive_filipino.len] Filipino "
+		dat += "[alive_filipino.len] за филипинов "
 	dat += "<br>"
 //	dat += "<i>Jobs available for slave-banned players are marked with an *</i>"
 //	dat += "<br>"
@@ -1356,7 +1376,7 @@ var/global/redirect_all_players = null
 				if (findtext(dat[v], "&[key]&") && !findtext(dat[v], "&&[key]&&"))
 					dat[v] = null
 				else if (!replaced_faction_title && findtext(dat[v], "&&[key]&&"))
-					dat[v] = "[replacetext(dat[v], "&&[key]&&", "")] (<span style = 'color:red'>FACTION DISABLED BY AUTOBALANCE</span>)"
+					dat[v] = "[replacetext(dat[v], "&&[key]&&", "")] (<span style = 'color:red'>АВТОБАЛАНС</span>)"
 					replaced_faction_title = TRUE
 		else
 			any_available_jobs = TRUE
@@ -1368,8 +1388,12 @@ var/global/redirect_all_players = null
 					dat[v] = replacetext(dat[v], "&&[key]&&", "")
 					replaced_faction_title = TRUE
 
+	if (!any_available_jobs && !ticker)
+		WWalert(usr,"Игра загружается",":)")
+		return
+
 	if (!any_available_jobs)
-		WWalert(usr,"All roles are disabled by autobalance!","Error")
+		WWalert(usr,"Все профессии были отключены из-за автобаланса",":*")
 		return
 
 	var/data = ""
@@ -1383,6 +1407,7 @@ var/global/redirect_all_players = null
 	data = {"
 		<br>
 		<html>
+		<meta charset='utf-8'>
 		<head>
 		[common_browser_style]
 		</head>

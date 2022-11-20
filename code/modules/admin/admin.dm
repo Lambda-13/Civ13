@@ -41,7 +41,7 @@ proc/admin_notice(var/message, var/rights)
 		usr << "Error: you are not an admin!"
 		return
 
-	var/body = "<html>[common_browser_style]<head><title>Options for [M.key]</title></head>"
+	var/body = "<meta charset='utf-8'>[common_browser_style]<head><title>Options for [M.key]</title></head>"
 	body += "<body>Options panel for <b>[M]</b>"
 	if (M.client)
 		body += " played by <b>[M.client]</b> "
@@ -62,6 +62,7 @@ proc/admin_notice(var/message, var/rights)
 		<b>Mob type</b> = [M.type]<br><br>
 		<A href='?src=\ref[src];boot2=\ref[M]'>Kick</A> |
 		<A href='?_src_=holder;warn=[M.ckey]'>Warn</A> |
+		<A href='?_src_=holder;pripeklon=[M.ckey]'>Butthurt</A> |
 		<A href='?src=\ref[src];notes=show;mob=\ref[M]'>Notes</A>
 	"}
 
@@ -150,7 +151,7 @@ proc/admin_notice(var/message, var/rights)
 
 #define PLAYER_NOTES_ENTRIES_PER_PAGE 50
 /datum/admins/proc/PlayerNotes()
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Player Notes"
 	if (!istype(src,/datum/admins))
 		src = usr.client.holder
@@ -209,14 +210,14 @@ proc/admin_notice(var/message, var/rights)
 	else return TRUE
 
 /datum/admins/proc/show_player_info(var/key as text)
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Show Player Info"
 	if (!istype(src,/datum/admins))
 		src = usr.client.holder
 	if (!istype(src,/datum/admins))
 		usr << "Error: you are not an admin!"
 		return
-	var/dat = "<html>[common_browser_style]<head><title>Info on [key]</title></head>"
+	var/dat = "<meta charset='utf-8'>[common_browser_style]<head><title>Info on [key]</title></head>"
 	dat += "<body>"
 
 	var/p_age = "unknown"
@@ -289,7 +290,7 @@ proc/admin_notice(var/message, var/rights)
 
 
 /datum/admins/proc/restart()
-	set category = "Server"
+	set category = "Сервер"
 	set name = "Restart"
 	set desc="Restarts the world"
 	if (!usr.client.holder)
@@ -308,7 +309,7 @@ proc/admin_notice(var/message, var/rights)
 		world.Reboot()
 
 /datum/admins/proc/announce()
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Announce"
 	set desc="Announce your desires to the world"
 	if (!check_rights(0))	return
@@ -319,11 +320,11 @@ proc/admin_notice(var/message, var/rights)
 			message = sanitize(message, 500, extra = FALSE)
 		message = replacetext(message, "\n", "<br>") // required since we're putting it in a <p> tag
 		if (usr && usr.client)
-			world << "<big><span class=notice><b>[usr.client.holder.fakekey ? "Administrator" : usr.key] Announces:</b></big><p style='text-indent: 50px'>[message]</p></span>"
+			world << "<big><span class=notice><b>[usr.client.holder.fakekey ? "Администрация проекта" : usr.key] сообщает:</b></big><p style='text-indent: 50px'>[message]</p></span>"
 			log_admin("Announce: [key_name(usr)] : [message]")
 
 /datum/admins/proc/ic_announce()
-	set category = "Special"
+	set category = "Особенное"
 	set name = "IC Announcement"
 	set desc="Announce events"
 	if (!check_rights(0))	return
@@ -338,7 +339,7 @@ proc/admin_notice(var/message, var/rights)
 
 
 /datum/admins/proc/toggleooc()
-	set category = "Server"
+	set category = "Сервер"
 	set desc="Globally Toggles OOC"
 	set name="Toggle OOC"
 
@@ -347,14 +348,14 @@ proc/admin_notice(var/message, var/rights)
 
 	config.ooc_allowed = !(config.ooc_allowed)
 	if (config.ooc_allowed)
-		world << "<b>The OOC channel has been globally enabled!</b>"
+		world << "<b>ООС включён.</b>"
 	else
-		world << "<b>The OOC channel has been globally disabled!</b>"
+		world << "<b>ООС отключён.</b>"
 	log_and_message_admins("toggled OOC.")
 
 
 /datum/admins/proc/togglelooc()
-	set category = "Server"
+	set category = "Сервер"
 	set desc="Globally Toggles LOOC"
 	set name="Toggle LOOC"
 
@@ -363,15 +364,15 @@ proc/admin_notice(var/message, var/rights)
 
 	config.looc_allowed = !(config.looc_allowed)
 	if (config.looc_allowed)
-		world << "<b>The LOOC channel has been globally enabled!</b>"
+		world << "<b>ЛООС включён.</b>"
 	else
-		world << "<b>The LOOC channel has been globally disabled!</b>"
+		world << "<b>ЛООС отключён.</b>"
 	log_and_message_admins("toggled LOOC.")
 
 
 
 /datum/admins/proc/toggledsay()
-	set category = "Server"
+	set category = "Сервер"
 	set desc="Globally Toggles DSAY"
 	set name="Toggle DSAY"
 
@@ -388,7 +389,7 @@ proc/admin_notice(var/message, var/rights)
 
 
 /datum/admins/proc/toggleoocdead()
-	set category = "Server"
+	set category = "Сервер"
 	set desc="Toggle Dead OOC."
 	set name="Toggle Dead OOC"
 
@@ -400,7 +401,7 @@ proc/admin_notice(var/message, var/rights)
 	message_admins("[key_name_admin(usr)] toggled Dead OOC.", TRUE)
 
 /datum/admins/proc/startnow()
-	set category = "Server"
+	set category = "Сервер"
 	set desc="Start the round immediately"
 	set name="Start Now"
 	if (!ticker)
@@ -419,7 +420,7 @@ proc/admin_notice(var/message, var/rights)
 		return FALSE
 
 /datum/admins/proc/toggleenter()
-	set category = "Server"
+	set category = "Сервер"
 	set desc="People can't enter"
 	set name="Toggle Entering"
 	config.enter_allowed = !(config.enter_allowed)
@@ -433,7 +434,7 @@ proc/admin_notice(var/message, var/rights)
 
 
 /datum/admins/proc/toggleaban()
-	set category = "Server"
+	set category = "Сервер"
 	set desc="Respawn basically"
 	set name="Toggle Respawn"
 	config.abandon_allowed = !(config.abandon_allowed)
@@ -446,7 +447,7 @@ proc/admin_notice(var/message, var/rights)
 	world.update_status()
 
 /datum/admins/proc/delay()
-	set category = "Server"
+	set category = "Сервер"
 	set desc="Delay the game start/end"
 	set name="Delay"
 
@@ -462,17 +463,17 @@ proc/admin_notice(var/message, var/rights)
 			ticker.pregame_timeleft += round(GAMETICKER_PREGAME_TIME/2)
 			ticker.pregame_timeleft = min(ticker.pregame_timeleft, GAMETICKER_PREGAME_TIME)
 			round_progressing = TRUE
-			world << "<b>The game start has been delayed by 90 seconds.</b>"
+			world << "<b>Игра начнётся через 90 секунд.</b>"
 			log_admin("[key_name(usr)] delayed the game by 90 seconds.")
 		else
-			world << "<b>The game start has been delayed.</b>"
+			world << "<b>Начало игры остановлено.</b>"
 			log_admin("[key_name(usr)] delayed the game.")
 	else
-		world << "<b>The game will start soon.</b>"
+		world << "<b>Игра начнётся скоро.</b>"
 		log_admin("[key_name(usr)] removed the roundstart delay.")
 
 /datum/admins/proc/adjump()
-	set category = "Server"
+	set category = "Сервер"
 	set desc="Toggle admin jumping"
 	set name="Toggle Jump"
 	config.allow_admin_jump = !(config.allow_admin_jump)
@@ -480,7 +481,7 @@ proc/admin_notice(var/message, var/rights)
 
 
 /datum/admins/proc/adspawn()
-	set category = "Server"
+	set category = "Сервер"
 	set desc="Toggle admin spawning"
 	set name="Toggle Spawn"
 	config.allow_admin_spawning = !(config.allow_admin_spawning)
@@ -488,7 +489,7 @@ proc/admin_notice(var/message, var/rights)
 
 
 /datum/admins/proc/adrev()
-	set category = "Server"
+	set category = "Сервер"
 	set desc="Toggle admin revives"
 	set name="Toggle Revive"
 	config.allow_admin_rev = !(config.allow_admin_rev)
@@ -496,7 +497,7 @@ proc/admin_notice(var/message, var/rights)
 
 
 /datum/admins/proc/immreboot()
-	set category = "Server"
+	set category = "Сервер"
 	set desc="Reboots the server post haste"
 	set name="Immediate Reboot"
 	if (!usr.client.holder)	return
@@ -506,12 +507,21 @@ proc/admin_notice(var/message, var/rights)
 	log_admin("[key_name(usr)] initiated an immediate reboot.")
 	world.Reboot()
 /datum/admins/proc/set_research()
-	set category = "Special"
+	set category = "Особенное"
 	set desc="Activates or Deactivates research."
 	set name="Toggle Research"
 	if ((!map.civilizations && !map.nomads) || map.ID == MAP_TRIBES || map.ID == MAP_FOUR_KINGDOMS || map.ID == MAP_THREE_TRIBES)
-		usr << "<font color='red'>Error: This is only available on Civ/Nomads modes.</font>"
-		return
+		if (WWinput(usr, "Вы уверены в своём выборе? Этот параметр не рекомендуется менять если вы не в режиме цивилизации/номандов", "Изучение", "Continue", list("Continue", "Stop")) == "Continue")
+			if (!(map.research_active))
+				map.research_active = TRUE
+				world << "<big>Research has been <b>activated.</b></big>"
+				log_admin("[key_name(usr)] has activated the Research.")
+				return
+			else
+				map.research_active = FALSE
+				world << "<big>Research has been <b>deactivated.</b></big>"
+				log_admin("[key_name(usr)] has deactivated the Research.")
+				return
 	if (!(map.research_active))
 		map.research_active = TRUE
 		world << "<big>Research has been <b>activated.</b></big>"
@@ -523,7 +533,7 @@ proc/admin_notice(var/message, var/rights)
 		log_admin("[key_name(usr)] has deactivated the Research.")
 		return
 /datum/admins/proc/redirect_all_players()
-	set category = "Debug"
+	set category = "Дебаг"
 	set desc="Redirects all players to another server."
 	set name="Server Redirection"
 	if (!usr.client.holder)
@@ -538,11 +548,22 @@ proc/admin_notice(var/message, var/rights)
 	else
 		return
 /datum/admins/proc/set_research_speed()
-	set category = "Special"
+	set category = "Особенное"
 	set desc="Changes research speed in Auto-Research mode."
 	set name="Set Research Speed"
 	if (!map.civilizations && !map.nomads)
-		usr << "<font color='red'>Error: This is only available on Civ/Nomads modes.</font>"
+		if (WWinput(usr, "Вы уверены в своём выборе? Этот параметр не рекомендуется менять если вы не в режиме цивилизации/номандов", "Изучение", "Continue", list("Continue", "Stop")) == "Continue")
+			var/customresearchsp = input("How many Research Points to increase per minute?", "Auto-Research Multiplier") as num|null
+			if (customresearchsp == null)
+				return
+			if (customresearchsp < 0)
+				customresearchsp = 0
+			if (customresearchsp > 230)
+				customresearchsp = 230
+			map.autoresearch_mult = customresearchsp
+			world << "<big>Research increase per minute has been changed to <b>[map.autoresearch_mult]</b></big>"
+			log_admin("[key_name(usr)] has changed the research modifier to [map.autoresearch_mult].")
+			return
 	if (!(map.autoresearch))
 		usr << "<font color='red'>Error: This is only available within the Auto-Research Gamemode.</font>"
 		return
@@ -559,13 +580,43 @@ proc/admin_notice(var/message, var/rights)
 		log_admin("[key_name(usr)] has changed the research modifier to [map.autoresearch_mult].")
 		return
 
+/datum/admins/proc/set_custom_gamemode()
+	set category = "Особенное"
+	set desc="Set Custom Gamemode this map."
+	set name="Set Custom Gamemode"
+	if (WWinput(usr, "Вы уверены в своём выборе? Этот параметр не рекомендуется менять если вы не в режиме цивилизации/номандов", "Изучение", "Continue", list("Continue", "Stop")) == "Continue")
+		var/customgamemode =input("Пиши какой гейммод:", "Кастомный гейммод", "Secret")
+		if (customgamemode == null)
+			return
+		map.gamemode = customgamemode
+		world << "<big><b>Custom gamemode set to '[map.gamemode]'</b></big>"
+		log_admin("[key_name(usr)] has changed gamemode name to [map.gamemode].")
+	return
+
 /datum/admins/proc/set_custom_research()
-	set category = "Special"
+	set category = "Особенное"
 	set desc="Changes the research."
 	set name="Set Custom Research"
 	if (!map.civilizations && !map.nomads && map.ID != MAP_TRIBES && map.ID != MAP_FOUR_KINGDOMS && map.ID != MAP_THREE_TRIBES)
-		usr << "<font color='red'>Error: This is only available on Civ/Nomads modes.</font>"
-		return
+		if (WWinput(usr, "Вы уверены в своём выборе? Этот параметр не рекомендуется менять если вы не в режиме цивилизации/номандов", "Изучение", "Continue", list("Continue", "Stop")) == "Continue")
+			var/customresearch = input("What do you want the research to be?", "Custom Research") as num|null
+			if (customresearch == null)
+				return
+			if (customresearch <= 0)
+				customresearch = 0
+			if (customresearch >= 280)
+				customresearch = 280
+
+			map.default_research = customresearch
+			map.civa_research = list(customresearch,customresearch,customresearch,null)
+			map.civb_research = list(customresearch,customresearch,customresearch,null)
+			map.civc_research = list(customresearch,customresearch,customresearch,null)
+			map.civd_research = list(customresearch,customresearch,customresearch,null)
+			map.cive_research = list(customresearch,customresearch,customresearch,null)
+			map.civf_research = list(customresearch,customresearch,customresearch,null)
+			world << "<big>The research has been set to  <b>[customresearch]</b>.</big>"
+			log_admin("[key_name(usr)] set the research to [customresearch].")
+			return
 	else
 		var/customresearch = input("What do you want the research to be?", "Custom Research") as num|null
 		if (customresearch == null)
@@ -586,12 +637,112 @@ proc/admin_notice(var/message, var/rights)
 		log_admin("[key_name(usr)] set the research to [customresearch].")
 		return
 /datum/admins/proc/set_custom_age()
-	set category = "Special"
+	set category = "Особенное"
 	set desc="Changes the starting age."
 	set name="Set Custom Age"
 	if (!map.civilizations && !map.nomads && map.ID != MAP_TRIBES && map.ID != MAP_THREE_TRIBES && map.ID != MAP_FOUR_KINGDOMS)
-		usr << "<font color='red'>Error: This is only available on Civ/Nomads modes.</font>"
-		return
+		if (WWinput(usr, "Вы уверены в своём выборе? Этот параметр не рекомендуется менять если вы не в режиме цивилизации/номандов", "Изучение", "Continue", list("Continue", "Stop")) == "Continue")
+			var/customage = WWinput(src, "Choose the starting age:", "Starting Age", "5000 B.C.", list("5000 B.C.", "313 B.C.", "1013", "1713", "1873", "1903","1943","1969","2013", "Cancel"))
+			if (customage == "Cancel")
+				return
+			else if (customage == "5000 B.C.")
+				map.ordinal_age = 0
+				map.age = "5000 B.C."
+				world << "<big>The Epoch has been changed to <b>[map.age]</b>.</big>"
+				log_admin("[key_name(usr)] changed the map's epoch to [map.age].")
+				return
+			else if (customage == "313 B.C.")
+				map.ordinal_age = 1
+				map.age = "313 B.C."
+				map.age1_done = TRUE
+				map.default_research = 35
+				world << "<big>The Epoch has been changed to <b>[map.age]</b>.</big>"
+				log_admin("[key_name(usr)] changed the map's epoch to [map.age].")
+				return
+			else if (customage == "1013")
+				map.ordinal_age = 2
+				map.age = "1013"
+				map.age1_done = TRUE
+				map.age2_done = TRUE
+				map.default_research = 50
+				world << "<big>The Epoch has been changed to <b>[map.age]</b>.</big>"
+				log_admin("[key_name(usr)] changed the map's epoch to [map.age].")
+				return
+			else if (customage == "1713")
+				map.ordinal_age = 3
+				map.age = "1713"
+				map.age1_done = TRUE
+				map.age2_done = TRUE
+				map.age3_done = TRUE
+				map.default_research = 90
+				world << "<big>The Epoch has been changed to <b>[map.age]</b></big>"
+				log_admin("[key_name(usr)] changed the map's epoch to [map.age].")
+				return
+			else if (customage == "1873")
+				map.ordinal_age = 4
+				map.age = "1873"
+				map.age1_done = TRUE
+				map.age2_done = TRUE
+				map.age3_done = TRUE
+				map.age4_done = TRUE
+				map.default_research = 105
+				world << "<big>The Epoch has been changed to <b>[map.age]</b></big>"
+				log_admin("[key_name(usr)] changed the map's epoch to [map.age].")
+				return
+			else if (customage == "1903")
+				map.ordinal_age = 5
+				map.age = "1903"
+				map.age1_done = TRUE
+				map.age2_done = TRUE
+				map.age3_done = TRUE
+				map.age4_done = TRUE
+				map.age5_done = TRUE
+				map.default_research = 135
+				world << "<big>The Epoch has been changed to <b>[map.age]</b></big>"
+				log_admin("[key_name(usr)] changed the map's epoch to [map.age].")
+				return
+			else if (customage == "1943")
+				map.ordinal_age = 6
+				map.age = "1943"
+				map.age1_done = TRUE
+				map.age2_done = TRUE
+				map.age3_done = TRUE
+				map.age4_done = TRUE
+				map.age5_done = TRUE
+				map.age6_done = TRUE
+				map.default_research = 152
+				world << "<big>The Epoch has been changed to <b>[map.age]</b></big>"
+				log_admin("[key_name(usr)] changed the map's epoch to [map.age].")
+				return
+			else if (customage == "1969")
+				map.ordinal_age = 7
+				map.age = "1969"
+				map.age1_done = TRUE
+				map.age2_done = TRUE
+				map.age3_done = TRUE
+				map.age4_done = TRUE
+				map.age5_done = TRUE
+				map.age6_done = TRUE
+				map.age7_done = TRUE
+				map.default_research = 185
+				world << "<big>The Epoch has been changed to <b>[map.age]</b></big>"
+				log_admin("[key_name(usr)] changed the map's epoch to [map.age].")
+				return
+			else if (customage == "2013")
+				map.ordinal_age = 8
+				map.age = "2013"
+				map.age1_done = TRUE
+				map.age2_done = TRUE
+				map.age3_done = TRUE
+				map.age4_done = TRUE
+				map.age5_done = TRUE
+				map.age6_done = TRUE
+				map.age7_done = TRUE
+				map.age8_done = TRUE
+				map.default_research = 230
+				world << "<big>The Epoch has been changed to <b>[map.age]</b></big>"
+				log_admin("[key_name(usr)] changed the map's epoch to [map.age].")
+				return
 	else
 		var/customage = WWinput(src, "Choose the starting age:", "Starting Age", "5000 B.C.", list("5000 B.C.", "313 B.C.", "1013", "1713", "1873", "1903","1943","1969","2013", "Cancel"))
 		if (customage == "Cancel")
@@ -715,7 +866,7 @@ proc/admin_notice(var/message, var/rights)
 
 	/*
 /datum/admins/proc/spawn_custom_item()
-	set category = "Debug"
+	set category = "Дебаг"
 	set desc = "Spawn a custom item."
 	set name = "Spawn Custom Item"
 
@@ -734,7 +885,7 @@ proc/admin_notice(var/message, var/rights)
 
 /datum/admins/proc/check_custom_items()
 
-	set category = "Debug"
+	set category = "Дебаг"
 	set desc = "Check the custom item list."
 	set name = "Check Custom Items"
 
@@ -757,7 +908,7 @@ proc/admin_notice(var/message, var/rights)
 
 var/list/atom_types = null
 /datum/admins/proc/spawn_atom(var/object as text)
-	set category = "Debug"
+	set category = "Дебаг"
 	set desc = "(atom path) Spawn an atom"
 	set name = "Spawn"
 
@@ -792,7 +943,7 @@ var/list/atom_types = null
 	log_and_message_admins("spawned [chosen] at ([usr.x],[usr.y],[usr.z])")
 
 /datum/admins/proc/spawn_player_as_job()
-	set category = "Admin"
+	set category = "Админ"
 	set desc = "Spawn a player in as a job"
 	set name = "Spawn Player"
 	if (!check_rights(R_SPAWN))	return
@@ -822,7 +973,7 @@ var/list/atom_types = null
 
 /*
 /datum/admins/proc/toggletintedweldhelmets()
-	set category = "Debug"
+	set category = "Дебаг"
 	set desc="Reduces view range when wearing welding helmets"
 	set name="Toggle tinted welding helmets."
 	config.welder_vision = !( config.welder_vision )
@@ -836,7 +987,7 @@ var/list/atom_types = null
 */
 
 /datum/admins/proc/toggleguests()
-	set category = "Server"
+	set category = "Сервер"
 	set desc="Guests can't enter"
 	set name="Toggle guests"
 	config.guests_allowed = !(config.guests_allowed)
@@ -852,7 +1003,7 @@ var/list/atom_types = null
 	return FALSE
 
 /client/proc/update_mob_sprite(mob/living/human/H as mob)
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Update Mob Sprite"
 	set desc = "Should fix any mob sprite update errors."
 
@@ -961,7 +1112,7 @@ var/list/atom_types = null
 	return TRUE
 
 /datum/admins/proc/paralyze_mob(mob/living/H as mob)
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Toggle Paralyze"
 	set desc = "Paralyzes a player and the area around. Or unparalyses them."
 
@@ -992,7 +1143,7 @@ var/list/atom_types = null
 				msg = "has unparalyzed [key_name(H)]."
 		log_and_message_admins(msg)
 /datum/admins/proc/punish(mob/living/human/H as mob)
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Punish"
 	set desc = "Punishes a player."
 
@@ -1014,11 +1165,11 @@ var/list/atom_types = null
 
 /client/proc/reload_admins()
 	set name = "Reload Lists"
-	set category = "Debug"
+	set category = "Дебаг"
 
 	if (!check_rights(R_SERVER))	return
 
-	message_admins("[key_name(usr)] manually reloaded admins, whitelists and approved lists.")
+	message_admins("[key_name(usr)] manually reloaded admins, whitelists, donaters and approved lists.")
 
 	load_admins(1)
 
@@ -1050,9 +1201,17 @@ var/list/atom_types = null
 				else if (current[2] == "blue")
 					faction_list_blue += current[1]
 
+	var/F6 = file("SQL/donatelist.txt")
+	if (fexists(F6))
+		var/list/donate_temp = file2list(F6,"\n")
+		for (var/i in donate_temp)
+			if (findtext(i, "="))
+				var/list/current = splittext(i, "=")
+				donate_list += current[1]
+
 /client/proc/reload_bans()
 	set name = "Update Bans"
-	set category = "Debug"
+	set category = "Дебаг"
 
 	if (!check_rights(R_SERVER))	return
 
@@ -1061,7 +1220,7 @@ var/list/atom_types = null
 
 /client/proc/start_forcelife()
 	set name = "Start Forcelife"
-	set category = "Debug"
+	set category = "Дебаг"
 
 	if (!check_rights(R_SERVER))	return
 
@@ -1072,7 +1231,7 @@ var/list/atom_types = null
 
 /client/proc/reload_craft_list()
 	set name = "Reload Crafting"
-	set category = "Debug"
+	set category = "Дебаг"
 
 	if (!check_rights(R_SERVER))	return
 
@@ -1081,7 +1240,7 @@ var/list/atom_types = null
 
 /client/proc/load_voyage_event()
 	set name = "Load Event"
-	set category = "Debug"
+	set category = "Дебаг"
 
 	if (!check_rights(R_SERVER))	return
 	if (!map || map.ID != MAP_VOYAGE)
@@ -1134,7 +1293,7 @@ var/list/atom_types = null
 
 client/proc/debug_variables_map()
 	set name = "Debug Map Variables"
-	set category = "Debug"
+	set category = "Дебаг"
 
 	if (!check_rights(R_SERVER))	return
 
@@ -1163,7 +1322,7 @@ client/proc/debug_variables_map()
 		map.load_new_recipes()
 	world.log << "Finished loading recipes."
 /datum/admins/proc/toggle_ores()
-	set category = "Special"
+	set category = "Особенное"
 	set desc="Toggle ore spawners on and off"
 	set name="Toggle Ore Spawners"
 
@@ -1209,7 +1368,7 @@ client/proc/debug_variables_map()
 
 //Radiation/Pollution stuff
 /datum/admins/proc/get_world_values()
-	set category = "Debug"
+	set category = "Дебаг"
 	set desc="Display some of the global vars."
 	set name="Display Worldvars"
 
@@ -1227,7 +1386,7 @@ client/proc/debug_variables_map()
 	src << "Bears: [bear_count.len]"
 
 /datum/admins/proc/set_world_radiation()
-	set category = "Debug"
+	set category = "Дебаг"
 	set desc="Change the radiation level of the world."
 	set name="Change World Radiation"
 
@@ -1238,7 +1397,7 @@ client/proc/debug_variables_map()
 	world.log << "[usr] set the worlds radiation to [num]."
 
 /datum/admins/proc/set_world_pollution()
-	set category = "Debug"
+	set category = "Дебаг"
 	set desc="Change the pollution level of the world."
 	set name="Change World Pollution"
 
@@ -1249,7 +1408,7 @@ client/proc/debug_variables_map()
 	world.log << "[usr] set the worlds pollution to [num]."
 
 /datum/admins/proc/zombiemechanic()
-	set category = "Fun"
+	set category = "Веселье"
 	set desc="toggle zombie mechanic in the current round."
 	set name="Zombie mechanic"
 
@@ -1262,7 +1421,7 @@ client/proc/debug_variables_map()
 	return
 
 /datum/admins/proc/fantasy_races()
-	set category = "Fun"
+	set category = "Веселье"
 	set desc="Enable fantasy race selection in the current round."
 	set name="Fantasy race selection"
 

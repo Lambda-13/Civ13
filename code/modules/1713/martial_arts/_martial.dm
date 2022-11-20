@@ -15,7 +15,7 @@
 /mob/living/human/verb/martial_arts_help()
 	set name = "Check Intent Behavior"
 	set desc = "Check what HELP, DISARM, GRAB and HARM intents do."
-	set category = "IC"
+	set category = "ИЦ"
 
 	if (mind && mind.martial_art)
 		to_chat(usr, mind.martial_art.help_verb_text)

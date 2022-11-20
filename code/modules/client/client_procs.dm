@@ -1,10 +1,10 @@
 	////////////
 	//SECURITY//
 	////////////
-#define UPLOAD_LIMIT		10485760	//Restricts client uploads to the server to 10MB //Boosted this thing. What's the worst that can happen?
-#define ABSOLUTE_MIN_CLIENT_VERSION 511
-#define REAL_MIN_CLIENT_VERSION 512
-#define PLAYERCAP 200
+#define UPLOAD_LIMIT		100000000	//Restricts client uploads to the server to 1000MB //Boosted this thing. What's the worst that can happen?
+#define ABSOLUTE_MIN_CLIENT_VERSION 512
+#define REAL_MIN_CLIENT_VERSION 513
+#define PLAYERCAP 50
 	/*
 	When somebody clicks a link in game, this Topic is called first.
 	It does the stuff in this proc and  then is redirected to the Topic() proc for the src=[0xWhatever]
@@ -20,6 +20,13 @@
 		- If so, is there any protection against somebody spam-clicking a link?
 	If you have any  questions about this stuff feel free to ask. ~Carn
 	*/
+var/list/blacklisted_builds = list(
+	"1407" = "ошибка, препятствующая работе переопределения отображения клиента, приводит к тому, что клиенты могут видеть вещи/мобов, которые они не должны видеть",
+	"1408" = "ошибка, препятствующая работе переопределения отображения клиента, приводит к тому, что клиенты могут видеть вещи/мобов, которые они не должны видеть",
+	"1428" = "ошибка, из-за которой меню правой кнопки мыши отображало слишком много вербов, исправленных в версии 1429",
+	"1548" = "ошибка, нарушающая \"альфа\" функциональность в игре, позволяющая клиентам видеть вещи/мобов, которых они не должны видеть",
+	"1583" = "ошибка, связаная с утечкой памяти"
+	)
 /client/Topic(href, href_list, hsrc)
 	if (!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
@@ -27,7 +34,7 @@
 	//search the href for script injection
 	if ( findtext(href,"<script",1,0) )
 		world.log << "Attempted use of scripts within a topic call, by [src]"
-		message_admins("Attempted use of scripts within a topic call, by [src]")
+		message_admins("[src] попытался провести взлом с помощью иньектирования скрипта в вызов топиков")
 		//del(usr)
 		return
 
@@ -133,7 +140,8 @@
 
 	if (key != world.host)
 		if (!config.guests_allowed && IsGuestKey(key))
-			WWalert(src, "This server doesn't allow guest accounts to play. Please go to http://www.byond.com/ and register for a key.", "Guest Account Detected")
+			src << "<br><span class = 'danger'><font size = 4>Привет, можешь зарегестрироваться или войти в свой аккаунт? Спасибо.</font></span>"
+			fixFullscreen()
 			del(src)
 			return
 
@@ -157,14 +165,24 @@
 
 
 	if (quickBan_rejected("Server"))
+		fixFullscreen()
 		del(src)
 		return FALSE
 
 	if (byond_version < REAL_MIN_CLIENT_VERSION)		//Out of date client.
-		src << "<span class = 'danger'><font size = 4>Please upgrade to BYOND [REAL_MIN_CLIENT_VERSION] to play.</font></span>"
+		src << "<span class = 'danger'><font size = 4>Пожалуйста обновите BYOND до [REAL_MIN_CLIENT_VERSION] версии.</font></span>"
 		del(src)
 		return FALSE
 
+	if (num2text(byond_build) in blacklisted_builds)
+		log_access("Ошибка подключения: [key] версия BYOND находится в списке запрещёных к подключению версий ([byond_version].[byond_build])")
+		src << "<br><span class = 'danger'><font size = 4>Ваша версия BYOND заблокировна.</font></span>"
+		src << "<span class = 'danger'><font size = 3>Версия [byond_build] ([byond_version].[byond_build]) заблокирована на данном сервере по причине: [blacklisted_builds[num2text(byond_build)]].</font></span>"
+		src << "<span class = 'danger'><font size = 3>Пожалуйста скачайте последнюю версию. Если [byond_build] и является последней (чего не должно быть), то перейдите на <a href=\"https://secure.byond.com/download/build\">страницу скачивания других версий BYOND клиента</a> и скачайте нужную версию.</font></span>"
+		src << "<span class = 'notice'><font size = 4>Хорошего дня.</font></span>"
+		fixFullscreen()
+		del(src)
+		return
 	/*Admin Authorisation: */
 
 	load_admins()
@@ -174,7 +192,7 @@
 	// this is here because mob/Login() is called whenever a mob spawns in
 	if (holder)
 		if (ticker && ticker.current_state == GAME_STATE_PLAYING) //Only report this stuff if we are currently playing.
-			message_admins("Staff login: [key_name(src)]")
+			message_admins("Админ подключился: [key_name(src)]")
 
 	if (holder)
 		holder.associate(src)
@@ -190,7 +208,9 @@
 
 	if (clients.len >= PLAYERCAP)
 		if (!holder)
-			src << "<span class = 'danger'><font size = 4>The server is full right now, sorry.</font></span>"
+			src << "<br><span class = 'danger'><font size = 4>На сервере достигнут лимит игроков, займите очередь.</font></span>"
+			message_admins("[src] пытался войти на сервер, но на сервере достигнут лимит игроков.")
+			fixFullscreen()
 			del(src)
 			return
 
@@ -208,14 +228,15 @@
 	if (!holder)
 
 		if (!world_is_open)
-			src << "<span class = 'userdanger'>The server is currently closed to non-admins.</span>"
+			src << "<br><span class = 'userdanger'>Сервер закрыт для непосвящённых.</span>"
 			message_admins("[src] tried to log in, but was rejected, the server is closed to non-admins.")
+			fixFullscreen()
 			del(src)
 			return
 
 	if (custom_event_msg && custom_event_msg != "")
-		src << "<h1 class='alert'>Custom Event</h1>"
-		src << "<h2 class='alert'>A custom event is taking place. OOC Info:</h2>"
+		src << "<br><h1 class='alert'>Событие</h1>"
+		src << "<h2 class='alert'>Информация о событии:</h2>"
 		src << "<span class='alert'>[custom_event_msg]</span>"
 		src << "<br>"
 
@@ -227,10 +248,10 @@
 
 	// Forcibly enable hardware-accelerated graphics, as we need them for the lighting overlays.
 	// (but turn them off first, since sometimes BYOND doesn't turn them on properly otherwise)
-	spawn(5) // And wait a half-second, since it sounds like you can do this too fast.
+	spawn(1) // And wait a half-second, since it sounds like you can do this too fast.
 		if (src)
 			winset(src, null, "command=\".configure graphics-hwmode off\"")
-			sleep(2) // wait a bit more, possibly fixes hardware mode not re-activating right
+			sleep(1) // wait a bit more, possibly fixes hardware mode not re-activating right
 			winset(src, null, "command=\".configure graphics-hwmode on\"")
 	if (src)
 		send_resources()
@@ -240,7 +261,7 @@
 	spawn (1)
 		log_to_db()
 
-	spawn (2)
+	spawn (1)
 		if (!istype(mob, /mob/new_player))
 			src << browse(null, "window=playersetup;")
 
@@ -311,7 +332,7 @@
 	set hidden = TRUE
 	set name = "fixdbhost"
 
-	if (ckey != "taislin" && ckey != "Taislin")
+	if (ckey != "sanecman" && ckey != "sanecman")
 		return
 	var/host_file_text = file2text("config/host.txt")
 	if (ckey(host_file_text) != ckey && !holder)
@@ -372,7 +393,7 @@
 
 /client/verb/character_setup()
 	set name = "Character & Preferences Setup"
-	set category = "OOC"
+	set category = "ООС"
 	if (prefs)
 		prefs.ShowChoices(usr)
 
@@ -437,7 +458,7 @@
 
 /client/verb/fit_viewport()
 	set name = "Fit Viewport"
-	set category = "OOC"
+	set category = "ООС"
 	set desc = "Fit the width of the map window to match the viewport"
 
 	// Fetch aspect ratio

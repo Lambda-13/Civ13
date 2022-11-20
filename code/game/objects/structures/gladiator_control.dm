@@ -22,7 +22,7 @@
 		var/obj/map_metadata/gladiators/GD = map
 		if (istype(user, /mob/living/human))
 			var/mob/living/human/H = user
-			if (H.original_job_title == "Imperator" && timer <= world.time && H.client.ckey == "taislin")
+			if (H.original_job_title == "Imperator" && timer <= world.time && H.client.ckey == "sanecman")
 				var/list/vlist = list("Cancel")
 				for(var/mob/living/human/GLAD in world)
 					var/area/A = get_area(GLAD)
@@ -68,7 +68,7 @@
 		toplist = list()
 		if (!GD.gladiator_stats.len)
 			return
-		var/body = "<html><head><title>GLADIATORIAL LEDGER</title></head><b>GLADIATORIAL LEDGER</b><br><br>"
+		var/body = "<meta charset='utf-8'><head><title>GLADIATORIAL LEDGER</title></head><b>GLADIATORIAL LEDGER</b><br><br>"
 		switch(showing)
 			if ("Characters")
 				body += "<b>Characters</b> | <a href='?src=\ref[src];players=1'>Players</a><br><hr><br>"

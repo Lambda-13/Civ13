@@ -1,7 +1,7 @@
 /client/var/showed_adminhelp_popup = FALSE
 
 /client/verb/adminhelp()
-	set category = "Help!"
+	set category = "Админ"
 	set name = "Adminhelp"
 
 	if (say_disabled)	//This is here to try to identify lag problems

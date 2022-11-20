@@ -169,9 +169,9 @@
 			food_m *= 1.5
 			water_m *= 5
 
-		if (inducedSSD) //if sleeping in SSD mode = takes ~72 hours to starve
-			nutrition -= ((0.0025) * HUNGER_THIRST_MULTIPLIER * food_m)
-			water -= ((0.0025) * HUNGER_THIRST_MULTIPLIER * water_m)
+		if (inducedSSD) //если ты прожал слип то твоя еда и вода не будет уменьшатся
+			nutrition -= ((0) * HUNGER_THIRST_MULTIPLIER * food_m)
+			water -= ((0) * HUNGER_THIRST_MULTIPLIER * water_m)
 
 		else if (istype(buckled, /obj/structure/bed) && stat == UNCONSCIOUS && !inducedSSD) //if sleeping in a bed (buckled!) takes ~20 hours to starve
 			nutrition -= ((0.01) * HUNGER_THIRST_MULTIPLIER * food_m)
@@ -1349,34 +1349,33 @@
 		return
 
 	if (shock_stage == 10)
-		src << "<span class='danger'>[pick("It hurts so much", "You really need some painkillers", "Dear god, the pain")]!</span>"
+		src << "<span class='danger'>[pick("Очень больно!", "Больно!", "Боже ну и боль!")]!</span>"
 
 	if (shock_stage >= 55)
-		if (shock_stage == 30) emote("me",1,"is having trouble keeping their eyes open.")
+		if (shock_stage == 30) emote("me",1,"падает в обморок!")
 		eye_blurry = max(2, eye_blurry)
 		stuttering = max(stuttering, 5)
 
 	if (shock_stage == 50)
-		src << "<span class='danger'>[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!</span>"
+		src << "<span class='danger'>[pick("Неприятная боль", "Боже останови эту боль", "Я чувствую что со мной что-то не так")]!</span>"
 
 	if (shock_stage >= 70)
-		if (shock_stage == 90) emote("me",1,"'s body becomes limp.")
 		if (prob(2))
-			src << "<span class='danger'>[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!</span>"
+			src << "<span class='danger'>[pick("Чертовски больно", "Больно пиздец", "Мне херово")]!</span>"
 			Weaken(20)
 
 	if (shock_stage >= 80)
 		if (prob(5))
-			src << "<span class='danger'>[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!</span>"
+			src << "<span class='danger'>[pick("Бля-я-я-я", "Очень больно", "Мне адски плохо")]!</span>"
 			Weaken(20)
 
 	if (shock_stage >= 120)
 		if (prob(2))
-			src << "<span class='danger'>[pick("You black out", "You feel like you could die any moment now", "You're about to lose consciousness")]!</span>"
+			src << "<span class='danger'>[pick("Темнеет", "Я могу умереть в любой момент!", "Теряю контроль")]!</span>"
 			Paralyse(5)
 
 	if (shock_stage == 150)
-		emote("me",1,"can no longer stand, collapsing!")
+		emote("me",1,"падает!")
 		Weaken(20)
 
 	if (shock_stage >= 150)
@@ -1388,6 +1387,12 @@
 			if (getBruteLoss() >= 150)
 				death()
 /mob/living/human/proc/handle_hud_list()
+	if (map.disablehud == TRUE)
+		hud_list[BASE_FACTION].icon_state = ""
+		hud_list[BASE_FACTION].overlays.Cut()
+		hud_list[FACTION_TO_ENEMIES].icon_state = ""
+		hud_list[FACTION_TO_ENEMIES].overlays.Cut()
+
 	if (stat == DEAD)
 		hud_list[BASE_FACTION].icon_state = ""
 		hud_list[BASE_FACTION].overlays.Cut()
@@ -1491,7 +1496,7 @@
 					else
 						holder2.icon_state = "jp_basic"
 				if (RUSSIAN)
-					if (map.ID == MAP_YELTSIN || map.ID == MAP_GROZNY || map.ID == MAP_FACTORY)
+					if (map.ID == MAP_YELTSIN || map.ID == MAP_GROZNY || map.ID == MAP_FACTORY || map.ID == MAP_FACTORY_AW || map.ID == MAP_PERVOMAISK_CROSSING || map.ID == MAP_COD_MW_WW3 || map.ID == MAP_FACTORY_RU)
 						holder2.icon_state = "ru_basic"
 					else if (map.ID == MAP_BANK_ROBBERY)
 						holder2.icon_state = "robbers"
@@ -1548,6 +1553,8 @@
 						holder2.icon_state = "un"
 					else if (map.ID == MAP_TSARITSYN || map.ID == MAP_YELTSIN || map.ID == MAP_LONG_MARCH)
 						holder2.icon_state = "sov_basic"
+					else if (map.ID == MAP_FACTORY || map.ID == MAP_FACTORY_AW || map.ID == MAP_PERVOMAISK_CROSSING || map.ID == MAP_COD_MW_WW3 || map.ID == MAP_FACTORY_RU)
+						holder2.icon_state = "ukr_basic"
 					else if (map.ID == MAP_GULAG13)
 						if(nationality == "Polish")
 							holder2.icon_state = "pol_basic"

@@ -14,8 +14,8 @@
 	age = "1989"
 	ordinal_age = 8
 	faction_distribution_coeffs = list(JAPANESE = 1)
-	battle_name = "Yama-ichi gang fight"
-	mission_start_message = "<font size=4>The <b>Yamaguchi-Gumi Clan</b> and <b>Ichiwa-Kai Clan</b> are facing each other the streets of Kobe!</font>"
+	battle_name = "Война банд"
+	mission_start_message = "<font size=4><b>Клан Ямагути-Гуми</b> и <b>Клан Ичива-Кай</b> стоят лицом друг к другу на улицах Кобэ!</font>"
 	faction1 = JAPANESE
 	valid_weather_types = list(WEATHER_WET, WEATHER_NONE, WEATHER_EXTREME)
 	songs = list(

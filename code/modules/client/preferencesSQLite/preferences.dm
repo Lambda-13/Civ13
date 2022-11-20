@@ -70,7 +70,7 @@ var/list/preferences_datums = list()
 
 	var/list/preferences_enabled = list("CHAT_OVERLAY","CHAT_TIPS","SOUND_MIDI", "SOUND_LOBBY", "SOUND_AMBIENCE",
 		"CHAT_GHOSTEARS", "CHAT_GHOSTSIGHT", "CHAT_GHOSTRADIO", "CHAT_SHOWICONS",
-		"SHOW_TYPING", "CHAT_OOC", "CHAT_LOOC", "CHAT_DEAD", "SHOW_PROGRESS",
+		"SHOW_TYPING", "CHAT_OOC", "CHAT_LOOC", "CHAT_DEAD", "SHOW_PROGRESS", "FIT_VIEWPORT",
 		"CHAT_DEBUGLOGS", "CHAT_PRAYER", "SOUND_ADMINHELP")
 
 	var/list/preferences_disabled = list("CHAT_TTS")
@@ -103,16 +103,16 @@ var/list/preferences_datums = list()
 	if (!user || !user.client)	return
 
 	if (!get_mob_by_key(client_ckey))
-		user << "<span class='danger'>No mob exists for the given client!</span>"
+		user << "<span class='danger'>Для данного клиента моб не существует!</span>"
 		return
 
 	var/dat = {"
 	<br>
-	<html>
+	<meta charset='utf-8'>
 	<head>
 	[common_browser_style]
 	</head>
-	<body><center><big><b>PREFERENCES<br><br>
+	<body><center><big><b>Настройки<br><br>
 	"}
 	dat += player_setup.header()
 	dat += "</big></b><br><HR></center>"
@@ -193,7 +193,7 @@ var/list/preferences_datums = list()
 	//Debugging report to track down a bug, which randomly assigned the plural gender to people.
 	if (character.gender in list(PLURAL, NEUTER))
 		if (isliving(src)) //Ghosts get neuter by default
-			message_admins("[character] ([character.ckey]) has spawned with their gender as plural or neuter. Please notify coders.")
+			message_admins("[character] ([character.ckey]) появился с неопределённым полом. Пожалуйста, сообщите кодерам.")
 			character.gender = MALE
 
 /proc/globalprefsanitize(str)

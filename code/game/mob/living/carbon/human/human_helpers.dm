@@ -79,7 +79,7 @@
 
 /mob/living/human/verb/mob_sleep()
 	set name = "Sleep"
-	set category = "IC"
+	set category = "ИЦ"
 
 	if(map && map.ID == MAP_VOYAGE)
 		WWalert("You cannot use this function on this map.","Disabled",usr)
@@ -110,9 +110,9 @@
 	if (!found)
 		usr << "<span class = 'red'>You need to be over a bed.</span>"
 		return
-	if (WWinput(src, "Are you sure you want to sleep for a while? This will protect you when disconnected, but you must stay ingame for 2 minutes for it to take effect.", "Sleep", "Yes", list("Yes","No")) == "Yes")
-		usr << "You will start sleeping in two minutes."
-		spawn(1200)
+	if (WWinput(src, "Ты уверен что хочешь уйти спать? Через 1 минуту тебя перенесёт в безопасное место и ты сможешь отключиться.", "Sleep", "Yes", list("Yes","No")) == "Yes")
+		usr << "Через минуту ты попадёшь в безопасное место."
+		spawn(600)
 			if (usr.sleeping)
 				return
 			else
@@ -132,10 +132,15 @@
 					usr.drop_item()
 					sleep_update()
 					usr.forceMove(locate(1,1,1))
+					usr << "Ты перенесён в безопасное место"
+					usr << "Что-бы встать и появиться на прежнем месте нажми Wake Up во вкладке IC"
+					usr << 'sound/effects/special_toggle.ogg'
+					message_admins("[name]([key]) уснул на кровати и был перенесён в сейф зону")
+					log_game("[name]([key]) уснул на кровати и был перенесён в сейф зону")
 					return
 /mob/living/human/verb/mob_wakeup()
 	set name = "Wake Up"
-	set category = "IC"
+	set category = "ИЦ"
 
 	if (!usr.sleeping && !inducedSSD)
 		usr << "<span class = 'red'>You are already awake.</span>"
@@ -143,12 +148,17 @@
 	if (!inducedSSD)
 		usr << "<span class = 'red'>You aren't asleep that deeply, just wait.</span>"
 		return
-	if (inducedSSD && WWinput(src, "Are you sure you want to wake up? This will take 30 seconds.", "Wake Up", "Yes", list("Yes","No")) == "Yes")
-		usr << "You will wake up in 30 seconds."
+	if (WWinput(src, "Проснуться? Это займёт 30 секунд", "Wake Up", "Yes", list("Yes","No")) == "Yes")
+		usr << "Просыпаюсь"
 		spawn(300)
 			usr.forceMove(locate(lastx,lasty,lastz))
 			usr.sleeping = 0 //Short nap
 			inducedSSD = FALSE
+			usr << "Ты появился на прежнем месте"
+			usr << "В случае обнаружения грифа на месте появления прошу отрепортить админам в дискорд"
+			usr << 'sound/effects/special_toggle.ogg'
+			message_admins("[name]([key]) проснулся и был вернут обратно на место сна")
+			log_game("[name]([key]) проснулся и был вернут обратно на место сна")
 			return
 
 //to keep the character sleeping

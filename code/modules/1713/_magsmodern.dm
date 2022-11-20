@@ -1,5 +1,5 @@
 /obj/item/ammo_magazine/ak47
-	name = "AK Magazine (7.62x39mm)"
+	name = "AK магазин (7.62x39mm)"
 	icon_state = "ak47"
 	mag_type = MAGAZINE
 	caliber = "a762x39"
@@ -9,12 +9,12 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/ak47/drum
-	name = "AK Drum Magazine (7.62x39mm)"
+	name = "AK барабанный магазин (7.62x39mm)"
 	icon_state = "tommydrum"
 	max_ammo = 75
 
 /obj/item/ammo_magazine/sksm
-	name = "SKS-M Magazine (7.62x39mm)"
+	name = "SKS-M магазин (7.62x39mm)"
 	icon_state = "sksm"
 	mag_type = MAGAZINE
 	caliber = "a762x39"
@@ -24,7 +24,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/ak74
-	name = "AK-74 Magazine (5.45x39mm)"
+	name = "AK-74 магазин (5.45x39mm)"
 	icon_state = "ak74"
 	mag_type = MAGAZINE
 	caliber = "a545x39"
@@ -34,7 +34,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/ak74/rubber
-	name = "AK-74 Magazine (5.45x39mm Rubber)"
+	name = "AK-74 магазин (5.45x39mm Rubber)"
 	icon_state = "ak74"
 	mag_type = MAGAZINE
 	caliber = "a545x39"
@@ -44,12 +44,12 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/ak74/drum
-	name = "AK-74 Drum Magazine (5.45x39mm)"
+	name = "AK-74 барабанный магазин (5.45x39mm)"
 	max_ammo = 75
 	icon_state = "tommydrum"
 
 /obj/item/ammo_magazine/ak101
-	name = "AK-101 Magazine (5.46x45mm)"
+	name = "AK-101 магазин (5.46x45mm)"
 	icon_state = "ak47"
 	mag_type = MAGAZINE
 	caliber = "a556x45"
@@ -59,16 +59,16 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/ak101/drum
-	name = "AK-101 Drum Magazine (5.46x45mm)"
+	name = "AK-101 барабанный магазин (5.46x45mm)"
 	icon_state = "tommydrum"
 	max_ammo = 75
 
 /obj/item/ammo_magazine/ak74/ak74m
-	name = "AK-74M Magazine (5.45x39mm)"
+	name = "AK-74M магазин (5.45x39mm)"
 	icon_state = "ak74m"
 
 /obj/item/ammo_magazine/ak74/ak74m/drum
-	name = "AK-74M Drum Magazine (5.45x39mm)"
+	name = "AK-74M барабанный магазин (5.45x39mm)"
 	icon_state = "tommydrum"
 	max_ammo = 75
 
@@ -83,7 +83,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/ak47/makeshift
-	name = "Makeshift AK-47 magazine (7.62x39mm)"
+	name = "самодельный магазин для AK-47 (7.62x39mm)"
 	icon_state = "ak74"
 	mag_type = MAGAZINE
 	caliber = "a762x39"
@@ -93,7 +93,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/m16
-	name = "STANAG magazine (5.56x45mm)"
+	name = "STANAG магазин (5.56x45mm)"
 	icon_state = "m16"
 	mag_type = MAGAZINE
 	caliber = "a556x45"
@@ -103,7 +103,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/m16/box
-	name = "magazine box (5.56x45mm)"
+	name = "патронная коробка (5.56x45mm)"
 	icon_state = "556x45"
 	mag_type = MAGAZINE
 	caliber = "a556x45"
@@ -114,7 +114,7 @@
 	is_box = TRUE
 
 /obj/item/ammo_magazine/ar10
-	name = "AR-10 magazine (7.62x51mm)"
+	name = "AR-10 магазин (7.62x51mm)"
 	icon_state = "m16"
 	mag_type = MAGAZINE
 	caliber = "a762x51"
@@ -124,7 +124,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/m14
-	name = "M14 Magazine (7.62x51mm)"
+	name = "M14 магазин (7.62x51mm)"
 	icon_state = "m14"
 	mag_type = MAGAZINE
 	caliber = "a762x51"
@@ -134,7 +134,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/m14box
-	name = "magazine box (7.62x51mm)"
+	name = "патронная коробка (7.62x51mm)"
 	icon_state = "762x51"
 	mag_type = MAGAZINE
 	caliber = "a762x51"
@@ -145,7 +145,7 @@
 	is_box = TRUE
 
 /obj/item/ammo_magazine/hk
-	name = "G3 Magazine (7.62x51mm)"
+	name = "G3 магазин (7.62x51mm)"
 	icon_state = "hk"
 	mag_type = MAGAZINE
 	caliber = "a762x51"
@@ -155,7 +155,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/fal
-	name = "FN Fal Magazine (7.62x51mm)"
+	name = "FN Fal магазин (7.62x51mm)"
 	icon_state = "fal"
 	mag_type = MAGAZINE
 	caliber = "a762x51"
@@ -165,7 +165,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/mk18
-	name = "MK18 magazine (5.56mm NATO)"
+	name = "MK18 магазин (5.56mm NATO)"
 	icon_state = "hk"
 	mag_type = MAGAZINE
 	caliber = "a556x45"
@@ -175,7 +175,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/scarh
-	name = "SCAR-H magazine (7.62x51mm)"
+	name = "SCAR-H магазин (7.62x51mm)"
 	icon_state = "scarh"
 	mag_type = MAGAZINE
 	caliber = "a762x51"
@@ -185,7 +185,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/ar12
-	name = "AR-12 magazine (12gauge)"
+	name = "AR-12 магазин (12gauge)"
 	icon_state = "scarh"
 	mag_type = MAGAZINE
 	caliber = "12gauge"
@@ -195,7 +195,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/saiga12
-	name = "Saiga-12K magazine (12gauge buckshot)"
+	name = "Saiga-12K магазин (12gauge buckshot)"
 	icon_state = "type99redtape"
 	mag_type = MAGAZINE
 	caliber = "12gauge"
@@ -205,13 +205,13 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/saiga12/slug
-	name = "Saiga-12K magazine (12gauge slug)"
+	name = "Saiga-12K магазин (12gauge slug)"
 	icon_state = "type99"
 	ammo_type = /obj/item/ammo_casing/shotgun/slug
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/pkm
-	name = "PKM ammo belt (7.62x54mmR)"
+	name = "PKM пулемётная лента (7.62x54mmR)"
 	icon_state = "maximbelt"
 	mag_type = MAGAZINE
 	caliber = "a762x54_weak"
@@ -224,7 +224,7 @@
 
 
 /obj/item/ammo_magazine/pkm/c100
-	name = "PKM ammo belt (7.62x54mmR)"
+	name = "PKM пулемётная лента (7.62x54mmR)"
 	icon_state = "b762x54"
 	mag_type = MAGAZINE
 	caliber = "a762x54_weak"
@@ -235,7 +235,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/rpd
-	name = "RPD drum (7.62x39)"
+	name = "RPD барабанный (7.62x39)"
 	icon_state = "rpd"
 	mag_type = MAGAZINE
 	caliber = "a762x39"
@@ -246,7 +246,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/rpk74
-	name = "RPK-74 magazine (7.62x39)"
+	name = "RPK-74 магазин (7.62x39)"
 	icon_state = "rpk74mag"
 	mag_type = MAGAZINE
 	caliber = "a545x39"
@@ -257,7 +257,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/rpk74/drum
-	name = "RPK-74 drum (5.45x39)"
+	name = "RPK-74 барабанный (5.45x39)"
 	icon_state = "rpk74"
 	mag_type = MAGAZINE
 	caliber = "a545x39"
@@ -268,7 +268,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/m9beretta
-	name = "Beretta M9 magazine (9x19mm)"
+	name = "Beretta M9 магазин (9x19mm)"
 	icon_state = "m9beretta"
 	mag_type = MAGAZINE
 	caliber = "a9x19"
@@ -279,7 +279,7 @@
 
 
 /obj/item/ammo_magazine/m9beretta/box
-	name = "magazine box (9x19mm)"
+	name = "патронная коробка (9x19mm)"
 	icon_state = "ammo"
 	mag_type = MAGAZINE
 	caliber = "a9x19"
@@ -290,7 +290,7 @@
 	is_box = TRUE
 
 /obj/item/ammo_magazine/jericho
-	name = "Jericho 941 magazine (9x19mm)"
+	name = "Jericho 941 магазин (9x19mm)"
 	icon_state = "m9beretta"
 	mag_type = MAGAZINE
 	caliber = "a9x19"
@@ -310,7 +310,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/m24
-	name = "clip (7.62x51mm)"
+	name = "клипса (7.62x51mm)"
 	icon_state = "clip"
 
 	ammo_type = /obj/item/ammo_casing/a762x51
@@ -321,7 +321,7 @@
 	clip = TRUE
 
 /obj/item/ammo_magazine/p90
-	name = "P90 Magazine (5.7x28mm)"
+	name = "P90 магазин (5.7x28mm)"
 	icon_state = "p90"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/a57x28
@@ -340,8 +340,18 @@
 	weight = 0.33
 	multiple_sprites = TRUE
 
+/obj/item/ammo_magazine/glock17/victor
+	name = "Vector магазин (9x19mm)"
+	icon_state = "glock17"
+	mag_type = MAGAZINE
+	caliber = "a9x19"
+	ammo_type = /obj/item/ammo_casing/a9x19
+	max_ammo = 33
+	weight = 0.33
+	multiple_sprites = TRUE
+
 /obj/item/ammo_magazine/sti2011
-	name = "STI 2011 magazine (9x19mm)"
+	name = "STI 2011 магазин (9x19mm)"
 	icon_state = "sti2011"
 	mag_type = MAGAZINE
 	caliber = "a45acp"
@@ -351,7 +361,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/sig250
-	name = "SIG 250 magazine (9x19mm)"
+	name = "SIG 250 магазин (9x19mm)"
 	icon_state = "glock17"
 	mag_type = MAGAZINE
 	caliber = "a9x19"
@@ -381,7 +391,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/uzi
-	name = "Uzi magazine (9x19mm Parabellum)"
+	name = "Uzi магазин (9x19mm Parabellum)"
 	icon_state = "uzi"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/a9x19
@@ -391,7 +401,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/mac10
-	name = "MAC-10 magazine (.45 ACP)"
+	name = "MAC-10 магазин (.45 ACP)"
 	icon_state = "mac10"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/a45acp
@@ -411,7 +421,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/skorpion
-	name = "Skorpion magazine (9x19mm Parabellum)"
+	name = "Skorpion магазин (9x19mm Parabellum)"
 	icon_state = "skorpion"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/a9x19
@@ -471,7 +481,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/ar15
-	name = "AR15 magazine (5.56x45mm)"
+	name = "AR15 магазин (5.56x45mm)"
 	icon_state = "m16"
 	mag_type = MAGAZINE
 	caliber = "a556x45"
@@ -481,7 +491,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/sks
-	name = "clip (7.62x39mm)"
+	name = "клипса (7.62x39mm)"
 	icon_state = "clip"
 	caliber = "a762x39"
 	ammo_type = /obj/item/ammo_casing/a762x39
@@ -491,7 +501,7 @@
 	clip = TRUE
 
 /obj/item/ammo_magazine/vintorez
-	name = "VSS Vintorez magazine (9x39mm)"
+	name = "VSS Vintorez магазин (9x39mm)"
 	icon_state = "g43"
 	caliber = "a9x39"
 	mag_type = MAGAZINE
@@ -559,7 +569,7 @@
 	belt = TRUE
 
 /obj/item/ammo_magazine/qbz95
-	name = "QBZ-95 Magazine (5.8x42mm)"
+	name = "QBZ-95 магазин (5.8x42mm)"
 	icon_state = "type99"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/a58x42

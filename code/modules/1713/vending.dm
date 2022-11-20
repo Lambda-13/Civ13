@@ -976,7 +976,7 @@ obj/structure/vending/hezammo
 		/obj/item/clothing/accessory/holster/armpit = 15,
 		/obj/item/stack/medical/bruise_pack/bint = 10,
 		/obj/item/weapon/material/shovel/trench = 10,
-		/obj/item/flashlight/militarylight/alt = 15,
+		/obj/item/weapon/attachment/scope/adjustable/binoculars/binoculars = 15,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/canteen/full = 30,
 		/obj/item/weapon/reagent_containers/food/snacks/MRE/generic/russian = 50,
 	)

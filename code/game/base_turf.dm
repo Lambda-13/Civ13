@@ -14,7 +14,7 @@ proc/get_base_turf_by_area(var/turf/T)
 	return get_base_turf(T.z)
 
 /client/proc/set_base_turf()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Set Base Turf"
 	set desc = "Set the base turf for a z-level."
 

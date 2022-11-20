@@ -1,7 +1,7 @@
 //TODO: rewrite and standardise all controller datums to the datum/controller type
 //TODO: allow all controllers to be deleted for clean restarts (see WIP master controller stuff) - MC done - lighting done
 /client/proc/restart_controller()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Restart Process"
 	set desc = "Restart one of the various periodic loop controllers for the game (be careful!)"
 
@@ -18,7 +18,7 @@
 
 var/list/special_globalobjects = list("processScheduler", "Master", "Ticker", "Configuration", "Observation","Whitelists", "Job Master")
 /client/proc/debug_controller()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Debug Controller/GlobalObjects"
 	set desc = "Debug various objects and loops for the game (be careful!)"
 

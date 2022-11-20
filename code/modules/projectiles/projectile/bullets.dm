@@ -141,6 +141,58 @@
 /obj/item/projectile/bullet/pistol/strong //revolvers and matebas
 	damage = 60
 
+/obj/item/projectile/bullet/pellet/poo
+	name = "говно"
+	damage = 0
+	armor_penetration = 1000
+	penetrating = 1000
+	move_tiles = 1000
+	icon = 'icons/effects/pooeffect.dmi'
+	icon_state = "poop2"
+	item_state = "poop"
+
+
+/obj/item/projectile/bullet/pellet/poo/on_hit(var/atom/target, var/blocked = FALSE)
+	if (isturf(target))
+		playsound(src.loc, "sound/effects/squishy.ogg", 40, 1)
+		var/turf/T = src.loc
+		new /obj/effect/decal/cleanable/poo(T)
+	..()
+
+/obj/item/projectile/bullet/pellet/a50cal
+	damage = DAMAGE_OH_GOD + 95
+	penetrating = 10
+	armor_penetration = 5
+
+/obj/item/projectile/bullet/pellet/a50cal_ap
+	damage = DAMAGE_MEDIUM + 5
+	penetrating = 100
+	armor_penetration = 80
+
+/obj/item/projectile/bullet/pellet/a50cal_he
+	damage = DAMAGE_LOW + 20
+	penetrating = 12
+	armor_penetration = 15
+	atype = "HE"
+
+/obj/item/projectile/bullet/pellet/a50cal_he/on_impact(var/atom/A) 	//Dont ask how, it works
+	impact_effect(effect_transform)
+	playsound(src, "ric_sound", 50, TRUE, -2)
+	if (istype(A, /turf))
+		var/turf/T = A
+		if (atype == "HE")
+			if (!istype(T, /turf/floor/beach) && !istype(T, /turf/floor/broken_floor))
+				T.ChangeTurf(/turf/floor/dirt/burned)
+			explosion(T, 1, 0, 2, 1)
+		else
+			if (!istype(T, /turf/floor/beach) && !istype(T, /turf/floor/broken_floor))
+				T.ChangeTurf(/turf/floor/dirt/burned)
+			explosion(T, 1, 0, 1, 1)
+	spawn(50)
+		if (src)
+			qdel(src)
+	return TRUE
+
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
 	check_armor = "melee"

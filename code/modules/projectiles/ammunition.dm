@@ -128,7 +128,7 @@
 	pouch = TRUE
 
 /obj/item/ammo_magazine/emptyclip
-	name = "clip (5)"
+	name = "клипса (5)"
 	clip = TRUE
 	icon_state = "clip"
 	ammo_type = null
@@ -158,7 +158,7 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/emptymagazine
-	name = "drum magazine (65)"
+	name = "drum магазин (65)"
 	mag_type = MAGAZINE
 	icon_state = "ppsh"
 	ammo_type = null
@@ -178,7 +178,7 @@
 	weight = 0.25
 	multiple_sprites = TRUE
 /obj/item/ammo_magazine/emptymagazine/pistol
-	name = "pistol magazine (15)"
+	name = "pistol магазин (15)"
 	mag_type = MAGAZINE
 	icon_state = "m9beretta"
 	ammo_type = null
@@ -189,14 +189,14 @@
 
 
 /obj/item/ammo_magazine/emptymagazine/pistol/filled
-	name = "pistol magazine (9mm)"
+	name = "pistol магазин (9mm)"
 	caliber = "a9x19"
 	ammo_type = /obj/item/ammo_casing/a9x19
 	max_ammo = 17
 	weight = 0.34
 
 /obj/item/ammo_magazine/emptymagazine/pistol/a45
-	name = "pistol magazine (8)"
+	name = "pistol магазин (8)"
 	mag_type = MAGAZINE
 	icon_state = "waltherp"
 	ammo_type = null
@@ -218,7 +218,7 @@
 	belt = TRUE
 
 /obj/item/ammo_magazine/emptymagazine/p90
-	name = "P90 magazine (50)"
+	name = "P90 магазин (50)"
 	mag_type = MAGAZINE
 	icon_state = "p90"
 	ammo_type = null
@@ -309,7 +309,7 @@
 		if (clip)
 			if (stored_ammo.len == FALSE)
 				caliber = null
-				name = "clip ([max_ammo])"
+				name = "клипса ([max_ammo])"
 		else if (belt)
 			if (stored_ammo.len == FALSE)
 				caliber = null
@@ -353,7 +353,7 @@
 		stored_ammo.Insert(1, C) //add to the head of the list
 		if (caliber == null)
 			caliber = C.caliber
-			name = "[C] magazine ([max_ammo])"
+			name = "[C] магазин ([max_ammo])"
 			if (pouch)
 				name = "[C] ammo pouch"
 			if (clip)

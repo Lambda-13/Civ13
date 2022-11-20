@@ -1,7 +1,7 @@
 
 
 /mob/living/human/verb/toggle_hotkey_verbs()
-	set category = "OOC"
+	set category = "ООС"
 	set name = "Toggle hotkey buttons"
 	set desc = "This disables or enables the user interface buttons which can be used with hotkeys."
 

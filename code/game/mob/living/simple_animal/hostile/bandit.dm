@@ -35,10 +35,24 @@
 
 	New()
 		..()
-		messages["injured"] = list("!!I am injured!","!!I'm hit!!")
-		messages["backup"] = list("!!Over here!", "!!Come here!!")
-		messages["enemy_sighted"] = list("!!I see one!", "!!HEY YOU!!")
-		messages["grenade"] = list("!!GRENADE!")
+		messages["injured"] = list("!!Ааай мля!","!!Ух е")
+		messages["backup"] = list(
+		" !!Ннууу. Даставай вадяру. Помянем жмуров свеженьких.", 
+		" !!Ну че тупим?! Всее. Погудели.", 
+		" !!Харре фтыкать. Шухер уехал", 
+		" !!Э э ээ. Рано валыны чехлить, пацаны", 
+		" !!у че, ждем еще лашков", 
+		" !!НЫКАЙСЯ, НЫКАЙСЯ пацаны", 
+		" !!Не фтыкать! ЩА фраера припрутся", 
+		" !!ЗЫРИТЬ в ОБА!")
+		messages["enemy_sighted"] = list(
+		" !!Опаньки...", 
+		" !!Так собрались. У нас гости", 
+		" !!Тихо! Идет", 
+		" !!Пажааловал лошок...", 
+		" !!Тссс! За дело!", 
+		)
+		messages["grenade"] = list("!!Гранаца пацаны!","!!Лимонка!")
 		if (prob(65))
 			gun = new/obj/item/weapon/gun/projectile/pistol/glock17/standardized(src)
 		else

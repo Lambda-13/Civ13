@@ -17,7 +17,7 @@
 		if (H.hand)
 			temp = H.organs_by_name["l_hand"]
 		if (!temp || !temp.is_usable())
-			H << "<span class = 'red'>You can't use your hand.</span>"
+			H << "<span class = 'red'>Не могу!</span>"
 			return
 	var/tgt = H.targeted_organ
 	if (H.targeted_organ == "random")
@@ -42,16 +42,16 @@
 			if (I_HELP)
 				if (H != src && istype(H) && health < config.health_threshold_crit && health > config.health_threshold_dead && !on_fire)
 					if (!H.check_has_mouth())
-						H << "<span class='danger'>You don't have a mouth, you cannot perform CPR!</span>"
+						H << "<span class='danger'>У меня нет рта!</span>"
 						return
 					if (!check_has_mouth())
-						H << "<span class='danger'>They don't have a mouth, you cannot perform CPR!</span>"
+						H << "<span class='danger'>Не могу - у него нет рта!</span>"
 						return
 					if ((H.head && (H.head.body_parts_covered & FACE)) || (H.wear_mask && (H.wear_mask.body_parts_covered & FACE)))
-						H << "<span class='notice'>Remove your mask!</span>"
+						H << "<span class='notice'>Надо снять маску сначала!</span>"
 						return FALSE
 					if ((head && (head.body_parts_covered & FACE)) || (wear_mask && (wear_mask.body_parts_covered & FACE)))
-						H << "<span class='notice'>Remove [src]'s mask!</span>"
+						H << "<span class='notice'>[src] мешает провести исскуственное дыхание!</span>"
 						return FALSE
 
 					if (!cpr_time)
@@ -61,17 +61,17 @@
 					spawn(30)
 						cpr_time = TRUE
 
-					H.visible_message("<span class='danger'>\The [H] is trying perform CPR on \the [src]!</span>")
+					H.visible_message("<span class='danger'>[H] проводит исскуственное дыхание [src]!</span>")
 
 					if (!do_after(H, 30, src))
 						return
 
 					adjustOxyLoss(-(min(getOxyLoss(), 5)))
 					updatehealth()
-					H.visible_message("<span class='danger'>\The [H] performs CPR on \the [src]!</span>")
+					H.visible_message("<span class='danger'> [H] проводит исскуственное дыхание [src]!</span>")
 					if (stat != DEAD)
-						src << "<span class='notice'>You feel a breath of fresh air enter your lungs. It feels good.</span>"
-					H << "<span class='warning'>Repeat at least every 7 seconds.</span>"
+						src << "<span class='notice'>Дышать стало лучше.</span>"
+					H << "<span class='warning'>Подожди 7 секунд!</span>"
 					if(is_asystole())
 						if(prob(5/H.getStatCoeff("medical")))
 							var/obj/item/organ/external/chest = get_organ("chest")
@@ -86,23 +86,23 @@
 							resuscitate()
 
 					if(!H.check_has_mouth())
-						to_chat(H, "<span class='warning'>You don't have a mouth, you cannot do mouth-to-mouth resuscitation!</span>")
+						to_chat(H, "<span class='warning'>У меня нет рта, я не могу делать реанимацию рот в рот!</span>")
 						return
 					if(!check_has_mouth())
-						to_chat(H, "<span class='warning'>They don't have a mouth, you cannot do mouth-to-mouth resuscitation!</span>")
+						to_chat(H, "<span class='warning'>У него нет рта, я не могу делать реанимацию рот в рот!</span>")
 						return
 					if((H.head && (H.head.body_parts_covered & FACE)) || (H.wear_mask && (H.wear_mask.body_parts_covered & FACE)))
-						to_chat(H, "<span class='warning'>You need to remove your mouth covering for mouth-to-mouth resuscitation!</span>")
+						to_chat(H, "<span class='warning'>Надо снять маску сначала!</span>")
 						return 0
 					if((head && (head.body_parts_covered & FACE)) || (wear_mask && (wear_mask.body_parts_covered & FACE)))
-						to_chat(H, "<span class='warning'>You need to remove \the [src]'s mouth covering for mouth-to-mouth resuscitation!</span>")
+						to_chat(H, "<span class='warning'>[src] на моём лице мешает провести реанимацию рот в рот!</span>")
 						return 0
 					if (!H.internal_organs_by_name["lungs"])
-						to_chat(H, "<span class='danger'>You need lungs for mouth-to-mouth resuscitation!</span>")
+						to_chat(H, "<span class='danger'>А как дышать?</span>")
 						return
 					var/obj/item/organ/lungs/L = internal_organs_by_name["lungs"]
 					if(L)
-						to_chat(src, "<span class='notice'>You feel a breath of fresh air enter your lungs. It feels good.</span>")
+						to_chat(src, "<span class='notice'>Дышать стало лучше.</span>")
 				help_shake_act(M)
 				return TRUE
 
@@ -123,7 +123,7 @@
 						return FALSE
 
 					if(organ.applied_pressure)
-						var/message = "<span class='warning'>[ismob(organ.applied_pressure)? "Someone" : "\A [organ.applied_pressure]"] is already applying pressure to [src == src? "your [organ.name]" : "[src]'s [organ.name]"].</span>"
+						var/message = "<span class='warning'>[ismob(organ.applied_pressure)? "Кто-то" : "\A [organ.applied_pressure]"] is already applying pressure to [src == src? "your [organ.name]" : "[src]'s [organ.name]"].</span>"
 						M << "[message]"
 						return FALSE
 					apply_pressure(src, tgt)
@@ -133,14 +133,14 @@
 						return
 				for (var/obj/item/weapon/grab/G in grabbed_by)
 					if (G.assailant == M)
-						M << "<span class='notice'>You already grabbed [src].</span>"
+						M << "<span class='notice'>Я уже схватил [src].</span>"
 						return
 				if (w_uniform)
 					w_uniform.add_fingerprint(M)
 
 				var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(M, src)
 				if (buckled)
-					M << "<span class='notice'>You cannot grab [src], \he is buckled in!</span>"
+					M << "<span class='notice'>Надо бы отстегнуть сначала!</span>"
 				if (!G)	//the grab will delete itself in New if affecting is anchored
 					return
 				M.put_in_active_hand(G)
@@ -149,7 +149,7 @@
 
 				H.do_attack_animation(src)
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
-				visible_message("<span class='warning'>[M] has grabbed [src] passively!</span>")
+				visible_message("<span class='warning'>[M] хватает [src]!</span>")
 				return TRUE
 			if (I_HARM)
 				var/tgtm = M.targeted_organ
@@ -158,11 +158,11 @@
 				if (tgtm == "mouth" && wear_mask && istype(wear_mask, /obj/item/weapon/grenade))
 					var/obj/item/weapon/grenade/G = wear_mask
 					if (!G.active)
-						visible_message("<span class='danger'>\The [M] pulls the pin from \the [src]'s [G.name]!</span>")
+						visible_message("<span class='danger'>[M] снимает с [src] [G.name]!</span>")
 						G.activate(M)
 						update_inv_wear_mask()
 					else
-						M << "<span class='warning'>\The [G] is already primed! Run!</span>"
+						M << "<span class='warning'>[G] уже взведена! Беги!</span>"
 					return
 
 				if (!istype(H))
@@ -179,7 +179,7 @@
 				var/obj/item/organ/external/affecting = get_organ(hit_zone)
 
 				if (!affecting || affecting.is_stump())
-					M << "<span class='danger'>They are missing that limb!</span>"
+					M << "<span class='danger'>Конечности нет!</span>"
 					return TRUE
 
 				switch(a_intent)
@@ -232,10 +232,10 @@
 						hit_zone = ran_zone(hit_zone)
 					if (prob(15) && hit_zone != "chest") // Missed!
 						if (!lying)
-							attack_message = "[H] attempted to strike [src], but missed!"
+							attack_message = "[H] бьёт [src], но промахивается!"
 							adaptStat("dexterity", 1)
 						else
-							attack_message = "[H] attempted to strike [src], but \he rolled out of the way!"
+							attack_message = "[H] бьёт [src], но [hesheit(src.gender)] уворачивается!"
 							adaptStat("dexterity", 1)
 							set_dir(pick(cardinal))
 						miss_type = TRUE
@@ -248,8 +248,8 @@
 				if (istype(affecting, /obj/item/organ/external/head) && prob(hitcheck * (hit_zone == "mouth" ? 5 : TRUE))) //MUCH higher chance to knock out teeth if you aim for mouth
 					var/obj/item/organ/external/head/U = affecting
 					if (U.knock_out_teeth(get_dir(H, src), round(rand(28, 38) * ((hitcheck*2)/100))))
-						visible_message("<span class='danger'>Some of [src]'s teeth sail off in an arc!</span>", \
-											"<span class='userdanger'>Some of [src]'s teeth sail off in an arc!</span>")
+						visible_message("<span class='danger'>Зубы [src] вылетают!</span>", \
+											"<span class='userdanger'>Зубы [src] вылетают!</span>")
 
 				// See what attack they use
 				var/datum/unarmed_attack/attack = H.get_unarmed_attack(src, hit_zone)
@@ -322,9 +322,9 @@
 					apply_effect(3, WEAKEN, armor_check)
 					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 					if (armor_check < 2)
-						visible_message("<span class='danger'>[M] has pushed [src]!</span>")
+						visible_message("<span class='danger'>[M] толкает [src]!</span>")
 					else
-						visible_message("<span class='warning'>[M] attempted to push [src]!</span>")
+						visible_message("<span class='warning'>[M] попытался толкнуть [src]!</span>")
 					return
 
 				if (randn <= 60)
@@ -337,12 +337,12 @@
 					for (var/obj/item/I in holding)
 						if (I)
 							drop_from_inventory(I)
-							visible_message("<span class='danger'>[M] has disarmed [src]!</span>")
+							visible_message("<span class='danger'>[M] ложит на лопатки [src]!</span>")
 							playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 							return
 
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
-				visible_message("<span class = 'red'><b>[M] attempted to disarm [src]!</b></span>")
+				visible_message("<span class = 'red'><b>[M] обезоруживает [src]!</b></span>")
 	return
 /mob/living/human/proc/resuscitate()
 	if(!is_asystole())
@@ -354,9 +354,9 @@
 		if(L)
 			active_breaths = L.active_breathing
 		if(active_breaths)
-			visible_message("\The [src] jerks and gasps for breath!")
+			visible_message("\The [src] дёргается и задыхается!")
 		else
-			visible_message("\The [src] twitches a bit as \his heart restarts!")
+			visible_message("\The [src] дёргается - похоже он оживает!")
 		shock_stage = min(shock_stage, 100) // 120 is the point at which the heart stops.
 		if(getOxyLoss() >= 75)
 			setOxyLoss(75)
@@ -407,10 +407,10 @@
 	if (!organ || organ.is_dislocated() || organ.dislocated == -1)
 		return FALSE
 
-	user.visible_message("<span class='warning'>[user] begins to dislocate [src]'s [organ.joint]!</span>")
+	user.visible_message("<span class='warning'>[user] выворачивает [skloname(organ.organ_ru_name, VINITELNI, "female")] [src]!</span>")
 	if (do_after(user, 100, progress = FALSE))
 		organ.dislocate(1)
-		visible_message("<span class='danger'>[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!</span>")
+		visible_message("<span class='danger'>[organ.organ_ru_name] [src] [pick("встаёт в неприятное положение","повисат","хрустит")]!</span>")
 		return TRUE
 	return FALSE
 

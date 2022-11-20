@@ -189,7 +189,7 @@
 
 /*atom/verb/Interact()
 	set name = "Interact"
-	set category = "IC"
+	set category = "ИЦ"
 
 	set src in view(1)
 	var/mob/user = usr
@@ -200,7 +200,7 @@
 
 /mob/verb/interact(atom/A as mob|obj|turf in view(1))
 	set name = "Interact"
-	set category = "IC"
+	set category = "ИЦ"
 	if (ishuman(src))
 		if(A in range(1,src))
 			src.ClickOn(A)
@@ -210,10 +210,10 @@
 //mob verbs are faster than object verbs. See http://www.byond.com/forum/?post=1326139&page=2#comment8198716 for why this isn't atom/verb/examine()
 /mob/verb/examinate(atom/A as mob|obj|turf in view())
 	set name = "Examine"
-	set category = "IC"
+	set category = "ИЦ"
 
 	if ((is_blind(src) || stat) && !isobserver(src))
-		src << "<span class='notice'>Something is there but you can't see it.</span>"
+		src << "<span class='notice'>Я не вижу.</span>"
 		return TRUE
 
 	// changing direction counts as a movement, so don't do it unless we have to - Kachnov
@@ -258,7 +258,7 @@
 
 /mob/verb/mode()
 	set name = "Activate Held Object"
-	set category = null
+	set category = "ИЦ"
 	set src = usr
 	if (ishuman(src))
 		var/mob/living/human/H = src
@@ -338,6 +338,22 @@
 			update_inv_r_hand()
 	return
 
+
+/mob/verb/secondary_action()
+	set name = "Activate Secondary Object"
+	set category = "ИЦ"
+	set src = usr
+	if (hand)
+		var/obj/item/W = l_hand
+		if (W)
+			W.secondary_attack_self(src)
+			update_inv_l_hand()
+	else
+		var/obj/item/W = r_hand
+		if (W)
+			W.secondary_attack_self(src)
+			update_inv_r_hand()
+	return
 /*
 /mob/verb/dump_source()
 
@@ -351,7 +367,7 @@
 
 /mob/verb/memory()
 	set name = "Notes"
-	set category = "IC"
+	set category = "ИЦ"
 	if (mind)
 		mind.show_memory(src)
 	else
@@ -360,7 +376,7 @@
 
 /mob/verb/add_memory(msg as message)
 	set name = "Add Note"
-	set category = "IC"
+	set category = "ИЦ"
 
 	msg = replacetext(msg, "<i>", "")
 	msg = replacetext(msg, "</i>", "")
@@ -443,7 +459,7 @@
 
 /mob/verb/abandon_mob()
 	set name = "Respawn"
-	set category = "IC"
+	set category = "ИЦ"
 
 	if (!( config.abandon_allowed ))
 		usr << "<span class='notice'>Respawn is disabled.</span>"
@@ -485,7 +501,7 @@
 
 /mob/verb/observe()
 	set name = "Observe"
-	set category = "OOC"
+	set category = "ООС"
 	var/is_admin = FALSE
 
 	if (client.holder && (client.holder.rights & R_ADMIN))
@@ -539,7 +555,7 @@
 
 	if (href_list["flavor_more"])
 		if (src in view(usr))
-			usr << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", name, replacetext(flavor_text, "\n", "<BR>")), text("window=[];size=500x200", name))
+			usr << browse(text("<meta charset='utf-8'><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", name, replacetext(flavor_text, "\n", "<BR>")), text("window=[];size=500x200", name))
 			onclose(usr, "[name]")
 	if (href_list["flavor_change"])
 		update_flavor_text()
@@ -570,7 +586,7 @@
 /mob/verb/stop_pulling()
 
 	set name = "Stop Pulling"
-	set category = "IC"
+	set category = "ИЦ"
 
 	if (pulling)
 		pulling.pulledby = null
@@ -674,13 +690,13 @@
 	..()
 	. = (is_client_active(10 MINUTES))
 	if (.)
-		if (client.status_tabs && statpanel("Status") && ticker)
+		if (client.status_tabs && statpanel("Статус") && ticker)
 			stat("")
-			stat(stat_header("Server"))
+			stat(stat_header("Сервер"))
 			stat("")
-			stat("Players Online (Playing, Observing, Lobby):", "[clients.len] ([human_clients_mob_list.len], [clients.len-human_clients_mob_list.len-new_player_mob_list.len], [new_player_mob_list.len])")
-			stat("Round Duration:", roundduration2text_days())
-			stat("Game ID:", "<b>[game_id]</b>")
+			stat("Игроков Онлайн (Играет, Наблюдает, Лобби):", "[clients.len] ([human_clients_mob_list.len], [clients.len-human_clients_mob_list.len-new_player_mob_list.len], [new_player_mob_list.len])")
+			stat("Длительность Раунда:", roundduration2text_days())
+			stat("АйДи Раунда:", "<b>[game_id]</b>")
 			stat("")
 
 			if (map && !map.civilizations)
@@ -697,28 +713,32 @@
 							grace_period_string += "[faction_const2name(faction,map.ordinal_age)] may not cross"
 					else
 						if (map.last_crossing_block_status[faction])
-							grace_period_string += "The grace wall has been removed."
+							grace_period_string += "Подготовка завершена."
 						else
-							grace_period_string += "The grace wall is in effect."
+							grace_period_string += "Подготовка в процессе."
 
-				stat("Grace Period Status:", grace_period_string)
-				stat("Round End Condition:", map.current_stat_message())
+				stat("Подготовка к атаке:", grace_period_string)
+				stat("Конец раунда через:", map.current_stat_message())
 			if (map)
 				var/gmd = map.gamemode
 				switch(map.gamemode)
+					if ("Easy")
+						gmd = "<font color='blue'>Лёгкий</font>"	
 					if ("Normal")
-						gmd = "<font color='green'>Normal</font>"
+						gmd = "<font color='green'>Нормальный</font>"
 					if ("Competitive")
-						gmd = "<font color='yellow'>Competitive</font>"
+						gmd = "<font color='yellow'>Соревновательный</font>"
 					if ("Hardcore")
-						gmd = "<font color='red'>Hardcore</font>"
-				stat("Map:", map.title)
-				stat("Mode:", gmd)
-				stat("Epoch:", map.age)
-				stat("Season:", get_season())
-				stat("Wind:", map.winddesc)
+						gmd = "<font color='red'>Хардкор</font>"
+					if ("RealLive")
+						gmd = "<font color='white'>Настоящий</font>"
+				stat("Карта:", map.title)
+				stat("Режим:", gmd)
+				stat("Год:", map.age)
+				stat("Сезон:", get_season_ru())
+				stat("Ветер:", map.winddesc)
 //				stat("Weather:", get_weather())
-				stat("Time of Day:", time_of_day)
+				stat("Дневное время:", time_of_day)
 
 
 			// give the client some information about how the server is running
@@ -727,13 +747,13 @@
 				var/avg_ping = ceil(processes.ping_track.avg)
 				if (clients.len == 1)
 					avg_ping = our_ping
-				stat("Ping (Average):", "[our_ping] ms ([avg_ping] ms)")
-			stat("Time Dilation (Average):", processes.time_track ? "[ceil(processes.time_track.dilation)]% ([ceil(processes.time_track.stored_averages["dilation"])]%)" : "0% (0%)")
+				stat("Пинг (Обычно):", "[our_ping] ms ([avg_ping] ms)")
+			stat("Time Dilation (Обычно):", processes.time_track ? "[ceil(processes.time_track.dilation)]% ([ceil(processes.time_track.stored_averages["dilation"])]%)" : "0% (0%)")
 
 		if (client.holder && client.status_tabs)
-			if (statpanel("Status"))
+			if (statpanel("Статус"))
 				stat("")
-				stat(stat_header("Developer"))
+				stat(stat_header("МС"))
 				stat("")
 				if (processes.time_track && movementMachine)
 					stat("CPU (Average) (Movement Scheduler (Average)):","[world.cpu]% ([ceil(processes.time_track.stored_averages["cpu"])]%) ([ceil(movementMachine.last_cpu)]% ([ceil(movementMachine.average_cpu)]%))")
@@ -749,7 +769,7 @@
 			if (!TurfAdjacent(listed_turf))
 				listed_turf = null
 			else
-				if (statpanel("Turf"))
+				if (statpanel("Пол"))
 					stat(listed_turf)
 					for (var/atom/A in listed_turf)
 						if (!A.mouse_opacity)
@@ -1048,7 +1068,7 @@ mob/proc/yank_out_object()
 /mob/verb/face_direction()
 
 	set name = "Face Direction"
-	set category = "IC"
+	set category = "ИЦ"
 	set src = usr
 
 	set_face_dir()

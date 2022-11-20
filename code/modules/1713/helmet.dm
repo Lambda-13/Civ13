@@ -1,6 +1,6 @@
 /obj/item/clothing/head/helmet
-	name = "helmet"
-	desc = "What the fuck is this"
+	name = "шлем"
+	desc = "Блядь"
 	icon_state = "helmet"
 	item_state_slots = list(
 		slot_l_hand_str = "helmet",

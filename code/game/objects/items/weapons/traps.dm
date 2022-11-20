@@ -1,11 +1,11 @@
 /obj/item/weapon/beartrap
-	name = "mechanical trap"
+	name = "капкан"
 	throw_speed = 2
 	throw_range = TRUE
 	gender = PLURAL
 	icon = 'icons/obj/items.dmi'
 	icon_state = "beartrap0"
-	desc = "A mechanically activated leg trap. Low-tech, but reliable. Looks like it could really hurt if you set it off."
+	desc = "Ловит медведей и ломает ноги. Использовать с осторожностью."
 	throwforce = WEAPON_FORCE_WEAK
 	w_class = 3
 	var/deployed = FALSE
@@ -23,16 +23,16 @@
 	..()
 	if (!deployed && can_use(user))
 		user.visible_message(
-			"<span class='danger'>[user] starts to deploy \the [src].</span>",
-			"<span class='danger'>You begin deploying \the [src]!</span>",
-			"You hear the slow creaking of a spring."
+			"<span class='danger'>[user] разворачивает [src].</span>",
+			"<span class='danger'>Начинаю взводить [src]!</span>",
+			"Слышу щелчки."
 			)
 
 		if (do_after(user, 60, src))
 			user.visible_message(
-				"<span class='danger'>\The [user] has deployed \the [src].</span>",
-				"<span class='danger'>You have deployed \the [src]!</span>",
-				"You hear a latch click loudly."
+				"<span class='danger'>\The [user] развернул [src].</span>",
+				"<span class='danger'>Взвёл [src]!</span>",
+				"Слышу сильный щелчок."
 				)
 
 			deployed = TRUE
@@ -43,23 +43,23 @@
 /obj/item/weapon/beartrap/attack_hand(mob/user as mob)
 	if (buckled_mob && can_use(user))
 		user.visible_message(
-			"<span class='notice'>[user] begins freeing [buckled_mob] from \the [src].</span>",
-			"<span class='notice'>You carefully begin to free [buckled_mob] from \the [src].</span>",
+			"<span class='notice'>[user] освобождает [buckled_mob] из [src].</span>",
+			"<span class='notice'>Пытаюсь освободить [buckled_mob] из [src].</span>",
 			)
 		if (do_after(user, 60, src))
-			user.visible_message("<span class='notice'>[buckled_mob] has been freed from \the [src] by [user].</span>")
+			user.visible_message("<span class='notice'>[user] освободил [buckled_mob] из [src].</span>")
 			unbuckle_mob()
 			anchored = FALSE
 	else if (deployed && can_use(user))
 		user.visible_message(
-			"<span class='danger'>[user] starts to disarm \the [src].</span>",
-			"<span class='notice'>You begin disarming \the [src]!</span>",
-			"You hear a latch click followed by the slow creaking of a spring."
+			"<span class='danger'>[user] сворачивает [src].</span>",
+			"<span class='notice'>Начинаю обезвреживать [src]!</span>",
+			"Слышу щелчки и переключение механизмов."
 			)
 		if (do_after(user, 60, src))
 			user.visible_message(
-				"<span class='danger'>[user] has disarmed \the [src].</span>",
-				"<span class='notice'>You have disarmed \the [src]!</span>"
+				"<span class='danger'>[user] свернул [src].</span>",
+				"<span class='notice'>Обезвредил [src]!</span>"
 				)
 			deployed = FALSE
 			anchored = FALSE
@@ -89,7 +89,7 @@
 		set_dir(L.dir)
 		can_buckle = TRUE
 		buckle_mob(L)
-		L << "<span class='danger'>The steel jaws of \the [src] bite into you, trapping you in place!</span>"
+		L << "<span class='danger'>Стальные зубья [src] кусают тебя, не давая двигаться!</span>"
 		deployed = FALSE
 		can_buckle = initial(can_buckle)
 
@@ -97,9 +97,9 @@
 	if (deployed && isliving(AM))
 		var/mob/living/L = AM
 		L.visible_message(
-			"<span class='danger'>[L] steps on \the [src].</span>",
-			"<span class='danger'>You step on \the [src]!</span>",
-			"<b>You hear a loud metallic snap!</b>"
+			"<span class='danger'>[L] наступает на [src].</span>",
+			"<span class='danger'>Я наступаю на [src]!</span>",
+			"<b>Слышу щелчок и схлопывание!</b>"
 			)
 		attack_mob(L)
 		if (!buckled_mob)
@@ -118,13 +118,13 @@
 
 
 /obj/item/weapon/punji_sticks
-	name = "punji sticks trap"
+	name = "ловушка панджи"
 	throw_speed = 2
 	throw_range = TRUE
 	gender = PLURAL
 	icon = 'icons/obj/items.dmi'
 	icon_state = "punji0"
-	desc = "A simple hole with sharp sticks inside, covered with leaves. Deadly."
+	desc = "Простая дыра с острыми палками внутри, прикрытая листьями."
 	throwforce = WEAPON_FORCE_WEAK
 	w_class = 3
 	flammable = TRUE
@@ -138,14 +138,14 @@
 	..()
 	if (!deployed && can_use(user))
 		user.visible_message(
-			"<span class='danger'>[user] starts to deploy \the [src].</span>",
-			"<span class='danger'>You begin deploying \the [src]!</span>",
+			"<span class='danger'>[user] ставит [src].</span>",
+			"<span class='danger'>Вкапываю [src] в землю!</span>",
 			)
 
 		if (do_after(user, 120, src))
 			user.visible_message(
-				"<span class='danger'>\The [user] has deployed \the [src].</span>",
-				"<span class='danger'>You have deployed \the [src]!</span>",
+				"<span class='danger'>[user] поставил [src].</span>",
+				"<span class='danger'>Вкопал [src] в землю!</span>",
 				)
 
 			deployed = TRUE
@@ -156,22 +156,22 @@
 /obj/item/weapon/punji_sticks/attack_hand(mob/user as mob)
 	if (buckled_mob && can_use(user))
 		user.visible_message(
-			"<span class='notice'>[user] begins freeing [buckled_mob] from \the [src].</span>",
-			"<span class='notice'>You carefully begin to free [buckled_mob] from \the [src].</span>",
+			"<span class='notice'>[user] вытаскивает [buckled_mob] из [src].</span>",
+			"<span class='notice'>Начинаю вытаскивать [buckled_mob] из [src].</span>",
 			)
 		if (do_after(user, 120, src))
-			user.visible_message("<span class='notice'>[buckled_mob] has been freed from \the [src] by [user].</span>")
+			user.visible_message("<span class='notice'>[buckled_mob] высвободился из [src] благодаря [user].</span>")
 			unbuckle_mob()
 			anchored = FALSE
 	else if (deployed && can_use(user))
 		user.visible_message(
-			"<span class='danger'>[user] starts to disarm \the [src].</span>",
-			"<span class='notice'>You begin disarming \the [src]!</span>",
+			"<span class='danger'>[user] убирает [src].</span>",
+			"<span class='notice'>Выкапываю [src]!</span>",
 			)
 		if (do_after(user, 90, src))
 			user.visible_message(
-				"<span class='danger'>[user] has disarmed \the [src].</span>",
-				"<span class='notice'>You have disarmed \the [src]!</span>"
+				"<span class='danger'>[user] убрал [src].</span>",
+				"<span class='notice'>Выкопал [src]!</span>"
 				)
 			deployed = FALSE
 			anchored = FALSE
@@ -194,7 +194,7 @@
 	set_dir(L.dir)
 	can_buckle = TRUE
 	buckle_mob(L)
-	L << "<span class='danger'>You fall into the punji sticks trap, and are stuck!</span>"
+	L << "<span class='danger'>Падаю прямо на колья! Ловушка!</span>"
 	deployed = FALSE
 	can_buckle = initial(can_buckle)
 
@@ -202,8 +202,8 @@
 	if (deployed && isliving(AM))
 		var/mob/living/L = AM
 		L.visible_message(
-			"<span class='danger'>[L] falls into \the [src].</span>",
-			"<span class='danger'>You fall into \the [src]!</span>",
+			"<span class='danger'>[L] падает в [src].</span>",
+			"<span class='danger'>Падаю в [src]!</span>",
 			)
 		if (istype(L, /mob/living/simple_animal))
 			var/mob/living/simple_animal/SA = L

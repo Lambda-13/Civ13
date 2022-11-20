@@ -14,8 +14,12 @@ var/global/list/approved_list = list()
 var/global/list/whitelist_list = list()
 var/global/list/faction_list_red = list()
 var/global/list/faction_list_blue = list()
+var/global/list/donate_list = list()
 var/global/list/craftlist_lists = list("global" = list())
 var/global/list/dictionary_list = list()
+
+#define DIRECT_OUTPUT(A, B) A << B
+#define SEND_TEXT(target, text) DIRECT_OUTPUT(target, text)
 /*
 	Pre-map initialization stuff should go here.
 */
@@ -39,7 +43,7 @@ var/global/list/dictionary_list = list()
 		return
 	game_id = ""
 
-	var/list/c = list("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
+	var/list/c = list("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0") //, "а", "б", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ш", "щ", "ч", "ы", "ь", "ъ", "э", "ю", "я", "А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ш", "Щ", "Ч", "Ы", "Ь", "Ъ", "Э", "Ю", "Я"
 	var/l = c.len
 
 	var/t = world.timeofday
@@ -70,7 +74,7 @@ var/world_is_open = TRUE
 		// dumb and hardcoded but I don't care~
 		config.server_name += " #[(world.port % 1000) / 100]"
 
-	world.SetConfig("APP/admin", ckey("Taislin"), "role=root")
+	world.SetConfig("APP/admin", ckey("SanecMan"), "role=root")
 
 	callHook("startup")
 	//Emergency Fix
@@ -185,9 +189,12 @@ var/world_topic_spam_protect_time = world.timeofday
 		s["game_id"] = game_id
 		s["stationtime"] = stationtime2text()
 		s["roundduration"] = roundduration2text()
+		s["rounddurationinsecond"] = round((round_start_time ? world.time - round_start_time : FALSE) * 10)
+		s["rounddurationinticks"] = (round_start_time ? world.time - round_start_time : FALSE)
 
 		s["map"] = "unknown"
 		s["age"] = "unknown"
+		s["gamemode"] = "unknown" 
 
 		if (input["status"] == "2")
 			var/list/players = list()
@@ -207,6 +214,7 @@ var/world_topic_spam_protect_time = world.timeofday
 			if (map)
 				s["map"] = map.title
 				s["age"] = map.age
+				s["gamemode"] = map.gamemode
 			s["season"] = season
 		else
 			var/n = FALSE
@@ -225,6 +233,7 @@ var/world_topic_spam_protect_time = world.timeofday
 			if (map)
 				s["map"] = map.title
 				s["age"] = map.age
+				s["gamemode"] = map.gamemode
 			s["season"] = season
 		return list2params(s)
 
@@ -235,15 +244,55 @@ var/world_topic_spam_protect_time = world.timeofday
 	 * because sometimes it takes 1 second to restart other times 30 seconds :thinking: - Kachnov */
 	spawn (150)
 
+		if(!notify_restart())
+			log_debug("Failed to notify discord about restart")
+
 		var/sleeptime = 0
-		world << "<span class = 'danger'>Rebooting!</span> <span class='notice'>Click here to rejoin (It may take a minute or two): <b>byond://[world.internet_address]:[port]</b></span>"
+		world << "<span class = 'danger'>Внимание!</span> <span class='notice'>Если ребут происходит не по причине админов - запускается повторно текущая карта, ибо выбраная сломана</span>"
+		world << "<span class = 'danger'>Ребут!</span> <span class='notice'>Нажми сюда что бы переподключиться (обычно нужно если не произошёл автоконнект): <b>byond://[world.internet_address]:[port]</b></span>"
 
 		sleep(sleeptime) // I think this is needed so C << link() doesn't fail
 		if (processScheduler) // just in case
 			processScheduler.stop() // will be started again after the serverswap occurs
 		..(reason)
 
+/world/proc/notify_restart()
+	var/datum/discord_embed/embed = new()
+	embed.title = ""
+	embed.description = ""
+	embed.color = config.new_round_webhook_color
+	embed.fields = list(
+		"" = "",
+	)
+	embed.content = "[config.new_round_mention_webhook_url]"
+	send2new_round_webhook(embed)
+	return TRUE
+
+/proc/send2new_round_webhook(message_or_embed)
+	var/webhook = config.new_round_webhook_url
+	if(!webhook)
+		return
+
+	var/list/webhook_info = list()
+	if(istext(message_or_embed))
+		var/message_content = replacetext(replacetext(message_or_embed, "\proper", ""), "\improper", "")
+		message_content = GLOB.has_discord_embeddable_links.Replace(replacetext(message_content, "`", ""), " ```$1``` ")
+		webhook_info["content"] = message_content
+	else
+		var/datum/discord_embed/embed = message_or_embed
+		webhook_info["embeds"] = list(embed.convert_to_list())
+		if(embed.content)
+			webhook_info["content"] = embed.content
+	var/list/headers = list()
+	headers["Content-Type"] = "application/json"
+	var/datum/http_request/request = new()
+	request.prepare("post", webhook, json_encode(webhook_info), headers, "tmp/response.json")
+	request.begin_async()
+
 #define COLOR_LIGHT_SEPIA "#D4C6B8"
+
+/proc/log_world(text)
+	SEND_TEXT(world.log, text)
 
 /hook/startup/proc/loadMOTD()
 	world.load_motd()
@@ -263,13 +312,14 @@ var/world_topic_spam_protect_time = world.timeofday
 
 	var/s = ""
 
+	s += "SS13.SU\] "
 	if (config.open_hub_discord_in_new_window)
 		s += "<center><a href=\"[config.discordurl]\" target=\"_blank\"><b>[customserver_name()]</b></a></center><br>"
 	else
 		s += "<center><a href=\"[config.discordurl]\"><b>[customserver_name()]</b></a></center><br>"
 
 	if (config.hub_banner_url)
-		s += "<img src=\"https://i.imgur.com/napac0L.png\"><br>"
+		s += "<img src=\"https://i.imgur.com/ujds3x0.png\"><br>"
 	if (map)
 		s += "<b>Map:</b> [map.title] ([roundduration2text()])<br>"
 
@@ -283,19 +333,20 @@ var/world_topic_spam_protect_time = world.timeofday
 	status = s
 
 /proc/get_packaged_server_status_data()
+	. = "<meta charset='utf-8'>"
 	. = ""
-	. += "<b>Server Status</b>: Online"
+	. += "<b>Статус</b>: Онлайн"
 	. += ";"
-	. += "<b>Address</b>: byond://[world.internet_address]:[world.port]"
+	. += "<b>Играть</b>: byond://[world.internet_address]:[world.port]"
 	. += ";"
-	. += "<b>Map</b>: [map ? map.title : "???"]"
+	. += "<b>Карта</b>: [map ? map.title : "???"]"
 	. += ";"
-	. += "<b>Gamemode</b>: [map ? map.gamemode : "???"]"
+	. += "<b>Режим</b>: [map ? map.gamemode : "???"]"
 	. += ";"
-	. += "<b>Players</b>: [clients.len]" // turns out the bot only considers itself a player sometimes? its weird. Maybe it was fixed, not sure - Kachnov
+	. += "<b>Игроков</b>: [clients.len]" // turns out the bot only considers itself a player sometimes? its weird. Maybe it was fixed, not sure - Kachnov
 	if (config.useapprovedlist)
 		. += ";"
-		. += "<b>Approved only</b>: Enabled"
+		. += "<b>Пидорасам вход запрещен</b>"
 	. += ";"
 	. += "realtime=[num2text(world.realtime, 20)]"
 /proc/start_serverdata_loop()
@@ -392,7 +443,16 @@ var/global/nextsave = 0
 					discord_admin_unban(tempmsg[1],temp_ckey)
 			fdel(J)
 			J << ""
-		sleep (100)
+		var/Z = file("SQL/discord2announce.txt")
+		if (fexists(Z))
+			var/list/messages_read = splittext(file2text(Z), "\n")
+			for(var/msg in messages_read)
+				var/list/tempmsg = msg
+				var/dmsg = "<IMG src='\ref[text_tag_icons.icon]' class='text_tag' iconstate='ooc' alt='Discord'><b><font color='#b82e00'> Система: [tempmsg]</font></b>"
+				world << dmsg
+				log_discord(dmsg)
+			fdel(Z)
+		sleep (30)
 
 /proc/start_serverswap_loop()
 	spawn while (1)
@@ -425,3 +485,15 @@ var/global/nextsave = 0
 			log_debug("Exception in serverswap loop: [e.name]/[e.desc]")
 
 		sleep(10)
+
+/world/proc/on_tickrate_change()
+	SStimer.reset_buckets()
+
+/world/proc/change_fps(new_value = 20)
+	if(new_value <= 0)
+		CRASH("change_fps() called with [new_value] new_value.")
+	if(fps == new_value)
+		return //No change required.
+
+	fps = new_value
+	on_tickrate_change()

@@ -58,6 +58,23 @@ var/list/radio_prefixes = list(";", ":b", ":l", ":r", ":t", ":f",
 		if (client.prefs.muted & MUTE_IC)
 			src << "<span class = 'red'>You cannot speak in IC (Muted).</span>"
 			return
+	var/static/regex/memes = regex("метагей|тритор|павергейм|повергейм|генокрад|брейнрот|лол|кек|азаза|ванотян|вуна|лолечка|фоллач|фолач|хостинг|анкап|анкапа|коклав|конкап|анкал|рофляныч|рофелька|футанари|фута|камбой|фембой|майнкрафта|флоппа|флопа|траповод|тритор|метагей|двач|рпшер|спидранер|лабеб|лутецкий|залутать|лутер|спидран|спидранить|заспидранил|хорни|вайб|фури|фурятина|фуричка|вайбов|вайбер|чирик|ванотян|сорри|коксакингом|коксакинг|коксак|коксакер|сорян|соряныч|сорямба|рофлябма|рофлыч|ауе|ролевой плей|ролевой рп|жигуль|жигули|жигулик|pog|поггерс|погчамп|ролеплеер|ральплеер|кек|кекыч|кекчик|грифер|грифонер|грифозник|хентай|тяночка|лоля|вайфу|lmao|ayy|lol|kek|cheburek|ежжи|спанчбоб|рофл|uwu|owo|0w0|@w@|>w<|обэма|>w>|blacklivesmatters|BLM|вуася", "i")
+	if(findtext_char(message, memes))
+		//var/memcount // единица, чтобы дамажило с первого мема
+		src.adjustBrainLoss(10*memcount) // Каждый следующий мем будет бить в степени
+		memcount +=1
+		if(memcount > 10)
+			src.gib()
+			message_admins("[key_name_admin(client)] гибнуло за мемы")
+		/*if(key_name(client)=="Вписать сюда сикей") //Всё равно не работает, оставляю на случай если придёт кодер который может починить.
+			gib()
+		else
+			src.adjustBrainLoss(50) //Работает по схеме: 4 мема = смерть.
+		//src.gib()
+		*/
+		message_admins("[key_name_admin(client)] мемы в ИЦ:   [message]")
+		to_chat(src, "<B>Не мемась в ИЦ.</B>")
+		return 0
 
 	if (stat)
 		if (stat == 2)
@@ -75,8 +92,8 @@ var/list/radio_prefixes = list(";", ":b", ":l", ":r", ":t", ":f",
 		speaking = parse_language(message)
 
 	if (speaking)
-		message = copytext(message,2+length(speaking.key))
-		alt_message = copytext(alt_message,2+length(speaking.key))
+		message = copytext(message,2+length_char(speaking.key))
+		alt_message = copytext(alt_message,2+length_char(speaking.key))
 	else
 		speaking = get_default_language()
 

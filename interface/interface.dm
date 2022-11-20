@@ -74,7 +74,7 @@ Any-Mode: (hotkey doesn't need to be on)\n  \
 
 /client/verb/donate()
 	set name = "donate"
-	set desc = "Support the server via paypal."
+	set desc = "Support the server via qiwi."
 	set hidden = TRUE
 	if (config.donationurl)
 		if (WWinput(src, "This will open the donation link in your browser. Are you sure?", "Donations", "Yes", list("Yes", "No")) == "No")
@@ -124,7 +124,7 @@ Any-Mode: (hotkey doesn't need to be on)\n  \
 
 /client/verb/hotkeys_help()
 	set name = "Hotkeys Help"
-	set category = "OOC"
+	set category = "ООС"
 
 	src << HOTKEY_MODE_OPTIONS
 

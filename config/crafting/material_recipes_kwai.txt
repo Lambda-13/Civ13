@@ -184,7 +184,6 @@ RECIPE: /material/wood/,book,/obj/item/weapon/book,4,75,0,1,paper & printing,45,
 RECIPE: /material/wood/,grey folder,/obj/item/weapon/folder,1,75,0,1,paper & printing,120,0,0,8,null
 RECIPE: /material/wood/,yellow folder,/obj/item/weapon/folder/yellow,1,75,0,1,paper & printing,120,0,0,8,null
 RECIPE: /material/wood/,red folder,/obj/item/weapon/folder/red,1,75,0,1,paper & printing,120,0,0,8,null
-RECIPE: /material/wood/,torch mount,/obj/structure/torch_stand,1,35,1,1,furniture,25,0,0,6,null
 
 RECIPE: /material/rags/,bandages,/obj/item/stack/medical/bruise_pack/bint,2,30,0,1,none,0,0,0,8,null
 RECIPE: /material/cloth/,light brown outfit,/obj/item/clothing/under/modern1,4,75,0,1,clothing,112,0,0,8,null
@@ -217,7 +216,7 @@ RECIPE: /material/iron/,rail rotator platform,/obj/structure/rails/rotate,3,50,1
 RECIPE: /material/iron/,train lever,/obj/structure/train_lever,1,50,1,1,trains,93,0,0,8,null
 RECIPE: /material/iron/,iron bullet (x3),/obj/item/stack/ammopart/bullet,1,25,0,1,projectiles,0,92,0,8,null
 RECIPE: /material/iron/,revolver speedloader (6),/obj/item/ammo_magazine/emptyspeedloader,1,45,0,1,magazines,100,0,0,8,null
-RECIPE: /material/iron/,pistol magazine (8),/obj/item/ammo_magazine/emptymagazine/pistol/a45,2,45,0,1,magazines,105,0,0,8,null
+RECIPE: /material/iron/,pistol магазин (8),/obj/item/ammo_magazine/emptymagazine/pistol/a45,2,45,0,1,magazines,105,0,0,8,null
 RECIPE: /material/iron/,pocket watch,/obj/item/weapon/watch/pocket,6,200,0,1,none,105,61,0,8,null
 RECIPE: /material/iron/,splints,/obj/item/stack/medical/splint,2,75,0,1,healthcare,35,0,44,8,null
 RECIPE: /material/iron/,retractor,/obj/item/weapon/surgery/retractor,2,50,0,1,healthcare,35,0,55,8,null

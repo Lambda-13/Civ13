@@ -239,17 +239,17 @@ var/global/FREQM = rand(101,120)
 	return
 
 /obj/structure/radio/proc/do_html(var/mob/m)
-	var/style = "Radio Receiver/Transmitter"
+	var/style = "Радио"
 	if (receiver && !transmitter)
-		style = "Radio Receiver"
+		style = "Радиоприёмник"
 	if (!receiver && transmitter)
-		style = "Radio Transmitter"
+		style = "Радиопередатчик"
 	if (m)
 		if (check_power() == FALSE && powerneeded > 0)
 			m << browse({"
 
 			<br>
-			<html>
+			<meta charset='utf-8'>
 
 			<head>
 			[common_browser_style]
@@ -267,7 +267,7 @@ var/global/FREQM = rand(101,120)
 
 			<center>
 			<font size=3><b>[style]</b></font><br><br>
-			<b><font size=2 color=#8b0000>POWER OFF</a><br><br>
+			<b><font size=2 color=#8b0000>НЕТ ПИТАНИЯ</a><br><br>
 			</center>
 			</font></b><br>
 			</body>
@@ -280,7 +280,7 @@ var/global/FREQM = rand(101,120)
 				m << browse({"
 
 				<br>
-				<html>
+				<meta charset='utf-8'>
 
 				<head>
 				[common_browser_style]
@@ -299,9 +299,9 @@ var/global/FREQM = rand(101,120)
 				<center>
 				<font size=3><b>[style]</b></font><br><br>
 				</center>
-				<b><font size=2>Frequency: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
-				Transmitter: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
-				Receiver: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
+				<b><font size=2>Частота: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
+				Микрофон: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
+				Динамик: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
 				</font></b><br>
 				</body>
 				</html>
@@ -311,7 +311,7 @@ var/global/FREQM = rand(101,120)
 				m << browse({"
 
 				<br>
-				<html>
+				<meta charset='utf-8'>
 
 				<head>
 				[common_browser_style]
@@ -330,8 +330,8 @@ var/global/FREQM = rand(101,120)
 				<center>
 				<font size=3><b>[style]</b></font><br><br>
 				</center>
-				<b><font size=2>Frequency: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
-				Receiver: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
+				<b><font size=2>Частота: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
+				Динамик: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
 				</font></b><br>
 				</body>
 				</html>
@@ -341,7 +341,7 @@ var/global/FREQM = rand(101,120)
 				m << browse({"
 
 				<br>
-				<html>
+				<meta charset='utf-8'>
 
 				<head>
 				[common_browser_style]
@@ -360,8 +360,8 @@ var/global/FREQM = rand(101,120)
 				<center>
 				<font size=3><b>[style]</b></font><br><br>
 				</center>
-				<b><font size=2>Frequency: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
-				Transmitter: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
+				<b><font size=2>Частота: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
+				Микрофон: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
 				</font></b><br>
 				</body>
 				</html>
@@ -617,7 +617,7 @@ var/global/FREQM = rand(101,120)
 		m << browse({"
 
 		<br>
-		<html>
+		<meta charset='utf-8'>
 
 		<head>
 		[common_browser_style]
@@ -636,9 +636,8 @@ var/global/FREQM = rand(101,120)
 		<center>
 		<font size=3><b>[style]</b></font><br><br>
 		</center>
-		<b><font size=2>Frequency: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
-		Transmitter: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
-		Receiver: <a href='?src=\ref[src];receiver=1'>[receiver_on ? "ON" : "OFF"]</a><br><br>
+		<b><font size=2>Частота: <a href='?src=\ref[src];set_frequency=1'>[freq][multifreq ? "" : "kHz"]</a><br><br>
+		Микрофон: <a href='?src=\ref[src];transmitter=1'>[transmitter_on ? "ON" : "OFF"]</a><br><br>
 		</font></b><br>
 		</body>
 		</html>
@@ -883,31 +882,31 @@ var/global/FREQM = rand(101,120)
 	switch(tcode)
 		if ("0")
 			converted = TRUE
-			dmessage = "10-0: <b>On my way</b>, currently at [speaker.get_coded_loc(speaker)] ([speaker.x],[speaker.y])."
+			dmessage = "10-0: <b>Я в пути</b>, сейчас нахожу на [speaker.get_coded_loc(speaker)] ([speaker.x],[speaker.y])."
 		if ("1")
 			converted = TRUE
-			dmessage = "10-1: Reporting in, current location is [speaker.get_coded_loc(speaker)] ([speaker.x],[speaker.y])."
+			dmessage = "10-1: Сообщаю, нахожусь на [speaker.get_coded_loc(speaker)] ([speaker.x],[speaker.y])."
 		if ("2")
 			converted = TRUE
-			dmessage = "10-2: Reporting in, currently available."
+			dmessage = "10-2: Сообщаю, доступен."
 		if ("3")
 			converted = TRUE
-			dmessage = "10-3: Reporting in, currently busy."
+			dmessage = "10-3: Сообщаю, занят."
 		if ("4")
 			converted = TRUE
-			dmessage = "10-4: Affirmative!"
+			dmessage = "10-4: Принято!"
 		if ("5")
 			converted = TRUE
-			dmessage = "10-5: Negative!"
+			dmessage = "10-5: Отказ!"
 		if ("6")
 			converted = TRUE
-			dmessage = "10-6: Returning to the station."
+			dmessage = "10-6: Возращаюсь на базу."
 		if ("7")
 			converted = TRUE
-			dmessage = "10-7: Prisoner in custody."
+			dmessage = "10-7: Заключёный под стражей."
 		if ("8")
 			converted = TRUE
-			dmessage = "10-8: NEED IMMEDIATE ASSISTANCE AT [speaker.get_coded_loc()] ([speaker.x],[speaker.y])!"
+			dmessage = "10-8: НУЖНА НЕМЕДЛЕННАЯ ПОДДЕРЖКА В [speaker.get_coded_loc()] ([speaker.x],[speaker.y])!"
 
 	if (converted)
 		return dmessage

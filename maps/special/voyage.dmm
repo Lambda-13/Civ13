@@ -74,7 +74,6 @@
 "bv" = (/obj/covers/repairedfloor/ship,/obj/effect/landmark/npctarget/faction/all,/obj/structure/voyage/voicepipe/kitchen{dir = 4},/turf/floor/beach/water/deep/saltwater,/area/caribbean/pirates/ship/voyage/lower/storage/kitchen)
 "bw" = (/obj/covers/repairedfloor/ship,/obj/structure/table/wood,/obj/structure/closet/cabinet/ceiling{name = "cloth and rope"},/obj/item/stack/material/cloth,/obj/item/stack/material/cloth,/obj/item/stack/material/cloth,/obj/item/stack/material/cloth,/obj/item/stack/material/rope{amount = 10},/turf/floor/broken_floor,/area/caribbean/pirates/ship/voyage/lower/storage)
 "bx" = (/obj/structure/table/wood,/obj/covers/repairedfloor/ship,/obj/structure/voyage/tablemap{dir = 4; icon_state = "globe"},/turf/floor/broken_floor,/area/caribbean/pirates/ship/voyage/upper/inside)
-"by" = (/obj,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/sea)
 "bz" = (/obj/covers/repairedfloor/ship,/obj/item/stack/ore/coal,/obj/item/stack/ore/coal,/obj/item/stack/ore/coal,/obj/item/stack/ore/coal,/turf/floor/beach/water/deep/saltwater,/area/caribbean/pirates/ship/voyage/lower/storage/kitchen)
 "bA" = (/obj/structure/barricade/ship/wall2{dir = 4},/obj/item/flashlight/lantern/on/anchored,/obj/covers/repairedfloor/ship,/obj/effect/floor_decal/spline/fancy/wood,/turf/floor/beach/water/deep/saltwater,/area/caribbean/pirates/ship/voyage/lower)
 "bB" = (/obj/structure/barricade/ship/wood/a2,/obj/covers/repairedfloor/ship,/obj/item/flashlight/lantern/on/anchored,/turf/floor/broken_floor,/area/caribbean/pirates/ship/voyage/upper/inside)
@@ -305,7 +304,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaagcgcgcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaagcgcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaagcgcgcgcgcgcbygcgcgcgcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagcgcgcgcgcgcgcgcgcgcgcgcgcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaagcgcgcgcgcgcaagcgcgcgcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagcgcgcgcgcgcgcgcgcgcgcgcgcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaalabananababababababajgcgcgcgcgcgcgcgcgcgcgcgcgcgcgcgcalabababababababababababajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaatclGagsfaQRfafjTjTcTaiababababababadababadababadababadaeRfaoCFjBCFaoRfaprTrTahKnajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaatcagiNagCQRfRfCFCFCFCFbdizafRfflCFkXCFCFkXCFackXCFdKkXCFRfaoCFbfCFaoRfaqkwrTrTrTeqajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -351,7 +350,6 @@ ZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZn
 ZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZn
 ZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZnZn
 "}
-
 (1,1,2) = {"
 PqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPq
 PqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPqPq

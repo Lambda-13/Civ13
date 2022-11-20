@@ -153,7 +153,7 @@
 	src << browse(null, "window=latechoices")
 
 	var/list/dat = list("<center>")
-	dat += "<b><big>Welcome, [key].</big></b>"
+	dat += "<meta charset='utf-8'><b><big>Welcome, [key].</big></b>"
 	dat += "<br>"
 	dat += "Round Duration: [roundduration2text_days()]"
 	dat += "<br>"

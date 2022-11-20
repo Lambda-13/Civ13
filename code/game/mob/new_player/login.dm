@@ -10,7 +10,7 @@
 	if (join_motd)
 		spawn (1)
 			if (client)
-				src << "<div class='info'>Game ID: <div class='danger'>[game_id]</div></div>"
+				src << "<div class='info'>АйДи раунда: <div class='danger'>[game_id]</div></div>"
 				see_personalized_MOTD()
 
 	if (!mind)
@@ -26,6 +26,8 @@
 
 	new_player_panel()
 
-	spawn (10)
+	spawn (1)
 		if (client)
 			client.playtitlemusic()
+			if (client.is_preference_enabled(/datum/client_preference/fit_viewport))
+				client.fit_viewport()

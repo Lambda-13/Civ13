@@ -218,7 +218,26 @@
 	if (prob(100))
 		var/idx = rand(1,999999)
 		var/list/chosen = list()
-		chosen = list(list(/obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98k,rand(2200,3500)),list(/obj/item/weapon/gun/projectile/boltaction/mosin/m30,rand(1600,1900)),list(/obj/item/weapon/gun/projectile/shotgun/pump,rand(1400,1700)),list(/obj/item/weapon/gun/projectile/pistol/waltherp38,rand(800,1200)), list(/obj/item/weapon/material/sword/katana,rand(1000,2500)))
+		chosen = list(list(/obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98k,rand(1200,1500)),
+		list(/obj/item/weapon/gun/projectile/boltaction/mosin/m30,rand(1200,1500)),
+		list(/obj/item/weapon/gun/projectile/shotgun/pump,rand(1400,1700)),
+		list(/obj/item/weapon/gun/projectile/pistol/waltherp38,rand(300,500)), 
+		list(/obj/item/weapon/material/sword/katana,rand(300,500)),
+		list(/obj/item/weapon/gun/projectile/boltaction/m24,rand(2000,2500)),
+		list(/obj/item/weapon/gun/projectile/submachinegun/ak74m,rand(1000,2000)),
+		list(/obj/item/weapon/gun/projectile/pistol/makarov,rand(200,500)),
+		list(/obj/item/weapon/gun/launcher/rocket/rpg7,rand(20000,50000)),
+		list(/obj/item/weapon/gun/projectile/shotgun/pump,rand(5000,15000)),
+		list(/obj/item/weapon/gun/projectile/pistol/tt30,rand(500,1000)),
+		list(/obj/item/weapon/gun/projectile/automatic/pkm,rand(5000,60000)),
+		list(/obj/item/weapon/gun/projectile/semiautomatic/svd,rand(5000,30000)),
+		list(/obj/item/weapon/gun/projectile/semiautomatic/vintorez,rand(5000,30000)),
+		list(/obj/item/weapon/gun/projectile/revolver/magnum44,rand(500,1000)),
+		list(/obj/item/weapon/gun/projectile/submachinegun/p90,rand(3000,50000)),
+		list(/obj/item/weapon/gun/projectile/submachinegun/saiga12,rand(1000,20000)),
+		list(/obj/item/weapon/gun/projectile/submachinegun/ar12,rand(5000,20000)),
+		list(/obj/item/weapon/gun/projectile/boltaction/singleshot/a50cal,rand(50000,100000)),
+		)
 		var/chosen1 = pick(chosen)
 		if (ispath(chosen1[1]))
 			var/pt = chosen1[1]
@@ -232,7 +251,30 @@
 	for(var/i, i<=num, i++)
 		var/idx = rand(1,999999)
 		var/list/chosen = list()
-		chosen = list(list(/obj/item/weapon/reagent_containers/pill/cocaine,rand(150,250)),list(/obj/item/weapon/disk/program/squadtracker,rand(250,350)),list(/obj/item/weapon/attachment/scope/adjustable/sniper_scope,rand(150,200)),list(/obj/item/weapon/attachment/silencer/pistol,rand(180,250)),list(/obj/item/weapon/plastique/c4,rand(750,950)),list(/obj/item/clothing/glasses/nvg,rand(140,180)),list(/obj/item/clothing/accessory/armor/nomads/civiliankevlar,rand(400,500)))
+		chosen = list(list(/obj/item/weapon/reagent_containers/pill/cocaine,rand(150,250)),
+		list(/obj/item/weapon/disk/program/squadtracker,rand(250,350)),
+		list(/obj/item/weapon/attachment/scope/adjustable/sniper_scope,rand(150,200)),
+		list(/obj/item/weapon/attachment/silencer/pistol,rand(180,250)),
+		list(/obj/item/weapon/plastique/c4,rand(750,950)),
+		list(/obj/item/clothing/glasses/nvg,rand(140,180)),
+		list(/obj/item/clothing/accessory/armor/nomads/civiliankevlar,rand(400,500)),
+		list(/obj/item/ammo_casing/rocket/pg7v,rand(500,1000)),
+		list(/obj/item/ammo_casing/rocket/og7v,rand(500,1000)),
+		list(/obj/item/weapon/grenade/modern/f1,rand(500,950)),
+		list(/obj/structure/closet/crate/ww1/grenades_french,rand(2000,5000)),
+		list(/obj/item/weapon/storage/firstaid/adv,rand(150,250)),
+		list(/obj/item/weapon/storage/firstaid/combat,rand(150,250)),
+		list(/obj/item/weapon/storage/pill_bottle/penicillin,rand(150,250)),
+		list(/obj/item/weapon/storage/firstaid/surgery,rand(150,250)),
+		list(/obj/item/football,rand(13,37)),
+		list(/obj/item/weapon/reagent_containers/glass/barrel/jerrycan/diesel,rand(50,100)),
+		list(/obj/item/weapon/reagent_containers/glass/barrel/jerrycan/gasoline,rand(50,100)),
+		list(/obj/structure/closet/crate/airdrops/food,rand(500,750)),
+		list(/obj/structure/closet/crate/airdrops/medicine,rand(750,1250)),
+		list(/obj/structure/closet/crate/airdrops/military,rand(1250,2400)),
+		list(/obj/structure/closet/crate/airdrops/supplies,rand(2400,3600)),
+		list(/obj/structure/closet/crate/airdrops/weapons,rand(3600,4800))
+		)
 		var/chosen1 = pick(chosen)
 		if (ispath(chosen1[1]))
 			var/pt = chosen1[1]
@@ -244,7 +286,25 @@
 	for(var/i, i<=num, i++)
 		var/idx = rand(1,999999)
 		var/list/chosen = list()
-		chosen = list(list(/obj/item/ammo_magazine/gewehr98,rand(100,120)),list(/obj/item/ammo_magazine/mosin,rand(80,120)),list(/obj/item/ammo_magazine/shellbox,rand(120,180)),list(/obj/item/ammo_magazine/walther,rand(60,90)))
+		chosen = list(list(/obj/item/ammo_magazine/gewehr98,rand(100,120)),
+		list(/obj/item/ammo_magazine/mosin,rand(100,120)),
+		list(/obj/item/ammo_magazine/shellbox,rand(120,180)),
+		list(/obj/item/ammo_magazine/walther,rand(60,90)),
+		list(/obj/item/ammo_magazine/m24,rand(100,120)),
+		list(/obj/item/ammo_magazine/ak74/ak74m,rand(100,120)),
+		list(/obj/item/ammo_magazine/makarov,rand(100,120)),
+		list(/obj/item/ammo_casing/rocket/pg7v,rand(100,120)),
+		list(/obj/item/ammo_magazine/tt30,rand(100,120)),
+		list(/obj/item/ammo_magazine/pkm/c100,rand(150,200)),
+		list(/obj/item/ammo_magazine/svd,rand(100,120)),
+		list(/obj/item/ammo_magazine/vintorez,rand(100,120)),
+		list(/obj/item/ammo_magazine/c44magnum,rand(100,120)),
+		list(/obj/item/ammo_magazine/p90,rand(100,120)),
+		list(/obj/item/ammo_magazine/saiga12,rand(120,180)),
+		list(/obj/item/ammo_magazine/ar12,rand(120,180)),
+		list(/obj/item/ammo_magazine/a50cal_ap,rand(500,750)),
+		list(/obj/item/ammo_magazine/a50cal_he,rand(1000,2000))
+		)
 		var/chosen1 = pick(chosen)
 		if (ispath(chosen1[1]))
 			var/pt = chosen1[1]
@@ -516,7 +576,7 @@
 		arn = rand(1000,9999)
 		icon_state = "police_record"
 		spawn(10)
-			info = "<center>DEPARTMENT OF JUSTICE<hr><large><b>Arrest Warrant No. [arn]</b></large><hr><br>Law Enforcement Agencies are hereby authorized and directed to detain <b>[tgt]</b>, working for <b><i>[tgtcmp]</i></b>, for the following reasons:<br><br><i>- [reason]</i><br><br>They will disregard any claims of immunity or privilege by the Suspect or agents acting on the Suspect's behalf. Law Enforcement Agencies shall bring <b>[tgt]</b> forthwith to the local station.<br><br><small><center><i>Form Model 13-B</i><center></small><hr>"
+			info = "<center>ДЕПАРТАМЕНТ ЮСТИЦИИ<hr><large><b>Ордер на арест № [arn]</b></large><hr><br>Правоохранительные органы настоящим уполномочены и обязаны задержать < b>[tgt]</b>, работает на <b><i>[tgtcmp]</i></b> по следующим причинам:<br><br><i>- [reason]</ i><br><br>Они не будут принимать во внимание любые претензии Подозреваемого или агентов, действующих от имени Подозреваемого, на иммунитет или привилегии. Правоохранительные органы должны немедленно доставить <b>[tgt]</b> в местную резидентуру.< br><br><small><center><i>Форма модели 13-B</i><center></small><hr>"
 		spawn(100)
 			if (spawntimer)
 				spawn(spawntimer)
@@ -532,10 +592,10 @@
 		arn = rand(100,999)
 		icon_state = "police_warrant"
 		spawn(10)
-			info = "<center>DEPARTMENT OF JUSTICE<hr><large><b>Search Warrant No. [arn]</b></large><hr><br>Law Enforcement Agencies are hereby authorized and directed to search all and every property owned by <b>[cmp]</b>. They will disregard any claims of immunity or privilege by the Suspect or agents acting on the Suspect's behalf.<br><br><small><center><i>Form Model 13-C1</i></center></small><hr>"
+			info = "<center>ДЕПАРТАМЕНТ ЮСТИЦИИ<hr><large><b>Ордер на обыск № [arn]</b></large><hr><br>Настоящим правоохранительным органам разрешается обыскивать все и любое имущество, принадлежащее <b>[cmp]</b>. Они не будут принимать во внимание любые заявления об иммунитете или привилегиях со стороны подозреваемого или агентов, действующих от имени подозреваемого.<br><br><small><center><i >Форма модели 13-C1</i></center></small><hr>"
 //////////////////SCREEN HELPERS////////////////////////////
 /obj/screen/areashow_aod
-	maptext = "<center><font color='yellow'>Unknown Area</font></center>"
+	maptext = "<center><font color='yellow'>Неизвестное место</font></center>"
 	maptext_width = 32*8
 	maptext_x = (32*8 * -0.5)+32
 	maptext_y = 32*0.75
@@ -587,14 +647,14 @@
 /mob/living/human/var/hidden_name = ""
 
 /mob/living/human/proc/undercover()
-	set category = "IC"
+	set category = "ИЦ"
 	set name = "Toggle Undercover"
 	set desc="Hide your identity for undercover police operations."
 
 	if (findtext(name, "Deputy"))
 		real_name = replacetext(real_name, "Deputy ", "")
 		hidden_name = real_name
-		var/chosen_name = WWinput(src, "Which ethnicity do you want your name to be?","Choose Name","Cancel",list("Cancel","Russian","Jewish","Italian","Japanese"))
+		var/chosen_name = WWinput(src, "Под какую национальность маскируемся?","Choose Name","Cancel",list("Cancel","Russian","Jewish","Italian","Japanese"))
 		switch(chosen_name)
 			if ("Cancel")
 				return
@@ -609,13 +669,15 @@
 		name = chosen_name
 		real_name = chosen_name
 		voice = chosen_name
-		src << "<b><big>You go undercover.</big></b>"
+		usr.client << sound('lambda/sanecman/sound/tf2/spy_disguise.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
+		src << "<b><big>Скрываю личность.</big></b>"
 		return
 	else
 		real_name = "Deputy [hidden_name]"
 		name = "Deputy [hidden_name]"
 		voice = "Deputy [hidden_name]"
-		src << "<b><big>You are now revealing your identity again.</big></b>"
+		usr.client << sound('lambda/sanecman/sound/tf2/spy_uncloak.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
+		src << "<b><big>Раскрываю себя.</big></b>"
 		return
 
 /obj/item/clothing/accessory/armband/policebadge

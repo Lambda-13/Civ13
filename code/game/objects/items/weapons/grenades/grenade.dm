@@ -1,6 +1,6 @@
 /obj/item/weapon/grenade
-	name = "grenade"
-	desc = "A hand held grenade, with a 5 second fuse."
+	name = "граната"
+	desc = "Ручная граната с 5-секундным запалом."
 	w_class = 2.0
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "grenade_old"
@@ -12,6 +12,7 @@
 	var/active = FALSE
 	var/det_time = 50
 	var/loadable = TRUE
+	var/armsound = 'sound/weapons/armbomb.ogg'
 	flammable = TRUE
 	value = 5
 	var/explosion_sound = 'sound/weapons/Explosives/HEGrenade.ogg'
@@ -19,13 +20,13 @@
 /obj/item/weapon/grenade/examine(mob/user)
 	if (..(user, FALSE))
 		if (det_time > 1)
-			user << "The timer is set to [det_time/10] seconds."
+			user << "Таймер установлен на [det_time/10] секунд."
 			return
 
 
 /obj/item/weapon/grenade/attack_self(mob/user as mob)
 	if (!active)
-		user << "<span class='warning'>You light \the [name]! [det_time/10] seconds!</span>"
+		user << "<span class='warning'>Активирую [name]! [det_time/10] секунд до взрыва!</span>"
 		firer = user
 		activate(user)
 		add_fingerprint(user)
@@ -41,14 +42,15 @@
 		return
 
 	if (user)
-		msg_admin_attack("[user.name] ([user.ckey]) primed \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+		message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) активировал \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
+		log_game("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) активировал \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 		firer = user
 	icon_state = initial(icon_state) + "_active"
 	active = TRUE
-	playsound(loc, 'sound/weapons/armbomb.ogg', 75, TRUE, -3)
+	playsound(loc, armsound, 75, TRUE, -3)
 
 	spawn(det_time)
-		visible_message("<span class = 'warning'>\The [src] goes off!</span>")
+//		visible_message("<span class = 'warning'>[src] выгорает!</span>")
 		prime()
 		return
 
@@ -68,19 +70,19 @@
 // grenades set off other grenades, but only ones on the same turf
 /obj/item/weapon/grenade/ex_act(severity)
 	switch (severity)
-		if (1.0)
+		if (8.0)
 			fast_activate()
-		if (2.0, 3.0)
+		if (10.0, 13.0)
 			return // infinite recursive grenades are gone
 
 /obj/item/weapon/grenade/bullet_act(var/obj/item/projectile/proj)
 	if (proj && !proj.nodamage)
-		return ex_act(1.0)
+		return ex_act(3.0)
 	return FALSE
 
 /obj/item/weapon/grenade/old_grenade
-	name = "grenade"
-	desc = "A hand held grenade, with a 5 second fuse."
+	name = "бомба"
+	desc = "Ручная маленькая бомба с 5-секундным запалом."
 	var/explosion_size = 2
 
 /obj/item/weapon/grenade/old_grenade/prime()
@@ -96,8 +98,8 @@
 
 
 /obj/item/weapon/grenade/bomb
-	name = "gunpowder barrel bomb"
-	desc = "A gunpowder barrel, with a loose gunpowder fuse. Should take about 10 seconds to detonate, but it's not very fiable."
+	name = "пороховая бочкобомба"
+	desc = "Плотно закрытая пороховая бочка. У неё виднеется фитиль на 10 секунд, возможно."
 	icon_state = "bomb"
 	var/explosion_size = 3
 	nothrow = TRUE
@@ -122,8 +124,8 @@
 
 
 /obj/item/weapon/grenade/dynamite
-	name = "empty dynamite stick"
-	desc = "Light it and run."
+	name = "пустая динамитная шашка"
+	desc = "В ней ничего нет."
 	icon_state = "dynamite0"
 	det_time = 40
 	explosion_sound = 'sound/weapons/Explosives/Dynamite.ogg'
@@ -156,7 +158,8 @@
 			firer = user
 			activate(user)
 			add_fingerprint(user)
-			name = "lighted dynamite stick"
+			name = "зажжённая динамитная шашка"
+			desc = "НАХУЙ ТЫ ЭТО ОСМАТРИВАЕШЬ? БРОСАЙ БЛЯДЬ!"
 			state = 3
 			icon_state = "dynamite3"
 
@@ -172,17 +175,19 @@
 		else
 			R.amount -= 1
 		state = 2
-		user << "You attach the wick to \the [src]."
-		name = "dynamite stick"
+		user << "Приделал верёвку как фитиль к [src]."
+		name = "динамитная шашка"
+		desc = "Шашка которая взрывается если дёрнуть фитиль."
 		icon_state = "dynamite2"
 		return
 	else if (state == 0 && istype(W, /obj/item/weapon/reagent_containers))
 		var/obj/item/weapon/reagent_containers/RG = W
 		if (RG.reagents.has_reagent("nitroglycerin",2))
 			RG.reagents.remove_reagent("nitroglycerin",2)
-			user << "You fill \the [src] with the explosive charge."
+			user << "Заполняю [src] взрывной смесью."
 			state = 1
-			name = "filled dynamite stick"
+			name = "заполненая динамитная шашка"
+			desc = "Шашка которая не взорвётся без фитиля."
 			icon_state = "dynamite1"
 			return
 	else
@@ -190,7 +195,8 @@
 
 /obj/item/weapon/grenade/dynamite/ready
 	state = 2
-	name = "dynamite stick"
+	name = "динамитная шашка"
+	desc = "Шашка которая взрывается если дёрнуть фитиль."
 	icon_state = "dynamite2"
 	update_icon()
 
@@ -203,16 +209,16 @@
 
 	icon_state = "dynamite3"
 	active = TRUE
-	playsound(loc, 'sound/weapons/armbomb.ogg', 75, TRUE, -3)
+	playsound(loc, armsound, 75, TRUE, -3)
 	update_icon()
 	spawn(det_time)
-		visible_message("<span class = 'warning'>\The [src] goes off!</span>")
+		visible_message("<span class = 'warning'>Фитиль [src] сгорает!</span>")
 		prime()
 		return
 
 /obj/item/weapon/grenade/modern
-	name = "grenade"
-	desc = "A hand held grenade, with a 5 second fuse."
+	name = "граната"
+	desc = "Ручная граната с 5-секундным запалом."
 	var/explosion_size = 2
 	var/fragment_type = /obj/item/projectile/bullet/pellet/fragment
 	var/num_fragments = 30  //total number of fragments produced by the grenade
@@ -251,95 +257,137 @@
 	spawn (5)
 		qdel(src)
 
+/obj/item/weapon/grenade/modern/fart
+	name = "говнограната"
+	desc = "Эти гранаты были изобретены в альтернативной вселенной где Советский Союз захватил весь мир."
+	icon_state = "mills"
+	explosion_size = 0
+	fragment_type = /obj/item/projectile/bullet/pellet/poo
+	num_fragments = 30  //total number of fragments produced by the grenade
+	det_time = 70
+	throw_range = 7
+	explosion_sound = 'sound/weapons/Explosives/FTGrenade.ogg'
+
+/obj/item/weapon/grenade/coldwar/a50cal
+	name = "антиматериальная граната"
+	desc = "Граната изобретённая на сверхсекретной базе Соединёных Штат Америки и начинена патронами .50 калибра."
+	icon_state = "m26"
+	fragment_type = /obj/item/projectile/bullet/pellet/a50cal
+	det_time = 50
+	throw_range = 9
+	num_fragments = 30
+	explosion_sound = 'sound/weapons/Explosives/FragGrenade.ogg'
+
+/obj/item/weapon/grenade/coldwar/a50cal/ap
+	name = "антиматериальная \"проникающая\" граната"
+	desc = "Граната изобретённая на сверхсекретной базе Соединёных Штат Америки и начинена патронами .50 калибра пробивающая любую броню кроме танков."
+	icon_state = "mk2"
+	num_fragments = 30
+	fragment_type = /obj/item/projectile/bullet/pellet/a50cal_ap
+
+/obj/item/weapon/grenade/coldwar/a50cal/he
+	name = "антиматериальная \"взрывная\" граната"
+	desc = "Граната изобретённая на сверхсекретной базе Соединёных Штат Америки и начинена патронами .50 калибра разрывающая человека на части."
+	icon_state = "m67"
+	num_fragments = 30
+	fragment_type = /obj/item/projectile/bullet/pellet/a50cal_he
+
+/obj/item/weapon/grenade/coldwar/a50cal/he/OHSHIT
+	name = "антиматериальная \"взрывная\" усиленая граната"
+	desc = "Граната изобретённая на сверхсекретной базе Соединёных Штат Америки и начинена патронами .50 калибра разрывающая всё на части. <b>Виднеется этикетка: НЕ ИСПОЛЬЗОВАТЬ - НЕСТАБИЛЬНЫЙ ОБРАЗЕЦ!</b>"
+	icon_state = "m67"
+	num_fragments = 120
+	fragment_type = /obj/item/projectile/bullet/pellet/a50cal_he
+
 /obj/item/weapon/grenade/modern/mills
-	name = "mills bomb no. 5"
-	desc = "A British early XXth century grenade."
+	name = "граната No.5"
+	desc = "Граната Миллса изобретённая в Британии в 20 веке."
 	icon_state = "mills"
 	det_time = 70
 	throw_range = 7
 	explosion_sound = 'sound/weapons/Explosives/FragGrenade.ogg'
 
 /obj/item/weapon/grenade/ww2/mills2
-	name = "mills bomb no. 36M"
-	desc = "A British early XXth century grenade, with a reduced timer to 4 seconds."
+	name = "граната No.36M"
+	desc = "Граната Миллса изобретённая в Британии в 20 веке с 4-секундным запалом."
 	icon_state = "mills"
 	det_time = 40
 	throw_range = 7
 
 /obj/item/weapon/grenade/modern/f1
-	name = "F1 grenade"
-	desc = "A French early XXth century grenade, also used by Russia."
+	name = "граната F1"
+	desc = "Французская граната начала 20 века, также использовавшаяся в России."
 	icon_state = "f1"
 	det_time = 40
 	throw_range = 8
 
 /obj/item/weapon/grenade/modern/stg1915
-	name = "M1915 Stielhandgranate"
-	desc = "A German early XXth century design."
+	name = "ручная граната M1915"
+	desc = "Немецкая граната начала 20 века."
 	icon_state = "stgnade"
 	det_time = 45
 	throw_range = 10
 /obj/item/weapon/grenade/ww2/stg1924
-	name = "M1924 Stielhandgranate"
-	desc = "A German design, to replace the M1915."
+	name = "ручная граната M1924"
+	desc = "Немецкая граната, замена ручной гранате M1915."
 	icon_state = "stgnade"
 	det_time = 45
 	throw_range = 11
 
 /obj/item/weapon/grenade/modern/thermaldetonator
-	name = "Thermal Detonator"
-	desc = "A grenade-like weapon popular among military personnel, criminals, bountyhunters, and mercenaries."
+	name = "термограната"
+	desc = "Созданый по заказу БласТех Индастриз, данная термальная граната может уничтожить всё вокруг себя в довольно большом радиусе."
 	icon_state = "detonator"
 	det_time = 35
 	throw_range = 12
 
 /obj/item/weapon/grenade/modern/t68
-	name = "Type68 grenade"
-	desc = "An advanced grenade modeled after the Type 67 hand grenade used by the Chinese."
+	name = "граната Type68"
+	desc = "Усовершенствованная модель гранаты Type67 используемая Китайской армией."
 	icon_state = "t68"
 	det_time = 35
 	throw_range = 12
 
 /obj/item/weapon/grenade/ww2/rgd33
-	name = "RGD-33 grenade"
-	desc = "A Soviet fragmentation grenade."
+	name = "граната РГД-33"
+	desc = "Граната созданая на основе гранаты Рдултовского образца 1914/30 года используемая Советской армией."
 	icon_state = "rgd33"
 	det_time = 50
 	throw_range = 9
 
 /obj/item/weapon/grenade/ww2/mk2
-	name = "Mk2 grenade"
-	desc = "An American grenade introduced in 1918."
+	name = "граната марк 2"
+	desc = "Американская оборонительная ручная граната 1918 года."
 	icon_state = "mk2"
 	det_time = 50
 	throw_range = 8
 
 /obj/item/weapon/grenade/ww2/type97
-	name = "Type-97 grenade"
-	desc = "A japanese grenade introduced in the second sino-japanese war. Blows up at 5 seconds."
+	name = "граната Type97"
+	desc = "Японская граната, появившаяся во время второй китайско-японской войны. Взрывается через 5 секунд."
 	icon_state = "type97"
 	det_time = 50
 	throw_range = 10
 
 /obj/item/weapon/grenade/ww2/type91
-	name = "Type-91 grenade"
-	desc = "A japanese grenade introduced in the second sino-japanese war. Blows up at 8 seconds."
+	name = "граната Type91"
+	desc = "Японская граната, появившаяся во время второй китайско-японской войны. Взрывается на 8 секунде."
 	icon_state = "type91"
 	det_time = 80
 	throw_range = 10
 	explosion_sound = 'sound/weapons/Explosives/FragGrenade.ogg'
 
 /obj/item/weapon/grenade/coldwar/m26
-	name = "M26 grenade"
-	desc = "An American grenade introduced in the 1950's."
+	name = "граната M26"
+	desc = "Американская граната, созданая в 1950-х годах."
 	icon_state = "m26"
 	det_time = 50
 	throw_range = 9
 	explosion_sound = 'sound/weapons/Explosives/FragGrenade.ogg'
 
 /obj/item/weapon/grenade/coldwar/stinger
-	name = "Stinger grenade"
-	desc = "A less then lethal  grenade that Explodes into a burst of rubber balls."
+	name = "травматическая граната"
+	desc = "Менее смертоносная граната, которая взрывается взрывом резиновых шариков."
 	icon_state = "sting"
 	det_time = 50
 	throw_range = 10
@@ -348,15 +396,15 @@
 	explosion_size = 0
 
 /obj/item/weapon/grenade/coldwar/m67
-	name = "M67 grenade"
-	desc = "An American grenade introduced as a replacement for the M26."
+	name = "граната M67"
+	desc = "Американская граната, созданая для замены M26."
 	icon_state = "m67"
 	det_time = 50
 	throw_range = 10
 
 /obj/item/weapon/grenade/coldwar/rgd5
 	name = "RGD-5 grenade"
-	desc = "A Soviet fragmentation grenade designed in the 1950's."
+	desc = "Советская наступательная ручная граната изобретённая в 1950-х годах."
 	icon_state = "rgd5"
 	det_time = 50
 	throw_range = 11
@@ -420,8 +468,8 @@
 		qdel(src)
 
 /obj/item/weapon/grenade/coldwar/nonfrag/m26
-	name = "M26 explosive grenade"
-	desc = "An American grenade introduced in the 1950's. This one has no shrapnel."
+	name = "взрывная граната M26"
+	desc = "Американская граната, созданая в 1950-х годах без шрапнели."
 	icon_state = "m26_explosive"
 	det_time = 50
 	throw_range = 10
@@ -464,12 +512,16 @@
 
 /obj/item/weapon/grenade/secondary_attack_self(mob/living/human/user)
 	if (secondary_action)
-		var/inp = WWinput(user, "Are you sure you wan't to place a booby trap here?", "Booby Trapping", "No", list("Yes","No"))
+		var/inp = WWinput(user, "Создать импровизированную растяжку?", "Минируем?", "No", list("Yes","No"))
 		if (inp == "Yes")
-			user << "Placing the booby trap..."
+			message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) минирует тайл под собой \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
+			log_game("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) минирует тайл под собой \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
+			user << "Ставлю растяжку..."
 			if (do_after(user, 100, src))
 				if (src)
-					user << "You successfully place the booby trap here using \the [src]."
+					message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) заминировал тайл под собой с помощью \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
+					log_game("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) заминировал тайл под собой с помощью \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
+					user << "Успешно сделал растяжку использовав [src]."
 					var/obj/item/mine/boobytrap/BT = new /obj/item/mine/boobytrap(get_turf(user))
 					BT.origin = src.type
 					firer = user
@@ -494,8 +546,8 @@
 
 
 /obj/item/weapon/grenade/suicide_vest
-	name = "suicide vest"
-	desc = "An IED suicide vest. Deadly!"
+	name = "пояс смертника"
+	desc = "Самодельный пояс смертинка. الله أكبر!"
 	icon_state = "suicide_vest"
 	nothrow = TRUE
 	throw_speed = 1
@@ -541,29 +593,29 @@
 
 /obj/item/weapon/grenade/suicide_vest/attack_self(mob/user as mob)
 	if (!active && armed == "armed")
-		user << "<span class='warning'>You switch \the [name]!</span>"
+		user << "<span class='warning'>Активирую [name]!</span>"
 		activate(user)
 		add_fingerprint(user)
 
 /obj/item/weapon/grenade/suicide_vest/attack_hand(mob/user as mob)
 	if (!active && armed == "armed" && loc == user)
-		user << "<span class='warning'>You switch \the [name]!</span>"
+		user << "<span class='warning'>Активирую [name]!</span>"
 		activate(user)
 		add_fingerprint(user)
 	else
 		..()
 
 /obj/item/weapon/grenade/suicide_vest/verb/arm()
-	set category = null
-	set name = "Arm/Disarm"
+	set category = "Умения"
+	set name = "Переключить пояс"
 	set src in range(1, usr)
 
 	if (armed == "armed")
-		usr << "You disarm \the [src]."
+		usr << "Переключаю [src]. Теперь он не взорвётся."
 		armed = "disarmed"
 		return
 	else
-		usr << "<span class='warning'>You arm \the [src]!</span>"
+		usr << "<span class='warning'>Переключаю [src]! Теперь он готов взорваться!</span>"
 		armed = "armed"
 		return
 
@@ -572,21 +624,21 @@
 		return
 
 	if (user)
-		msg_admin_attack("[user.name] ([user.ckey]) primed \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+		msg_admin_attack("[user.name] ([user.ckey]) активирует [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
 
 	if (user && user.faction_text == ARAB)
 		user.emote("charge")
 	active = TRUE
-	playsound(loc, 'sound/weapons/armbomb.ogg', 75, TRUE, -3)
+	playsound(loc, armsound, 75, TRUE, -3)
 
 	spawn(det_time)
-		visible_message("<span class = 'warning'>\The [src] goes off!</span>")
+		visible_message("<span class = 'warning'>[src] сейчас взорвётся!</span>")
 		prime()
 		return
 
 /obj/item/weapon/grenade/suicide_vest/kamikaze
-	name = "kamikaze vest"
-	desc = "An Antitank Mine Suicide Vest, deadly!"
+	name = "пояс камикадзе"
+	desc = "Противотанковый пояс камикадзе. バンザイ！"
 	icon_state = "kamikaze_vest"
 	nothrow = TRUE
 	throw_speed = 1
@@ -604,14 +656,14 @@
 
 /obj/item/weapon/grenade/suicide_vest/kamikaze/attack_self(mob/user as mob)
 	if (!active && armed1 == "armed")
-		user << "<span class='warning'>You switch \the [name]!</span>"
+		user << "<span class='warning'>Активирую [name]!</span>"
 		firer = user
 		activate(user)
 		add_fingerprint(user)
 
 /obj/item/weapon/grenade/suicide_vest/kamikaze/attack_hand(mob/user as mob)
 	if (!active && armed1 == "armed" && loc == user)
-		user << "<span class='warning'>You switch \the [name]!</span>"
+		user << "<span class='warning'>Активирую [name]!</span>"
 		firer = user
 		activate(user)
 		add_fingerprint(user)
@@ -619,17 +671,17 @@
 		..()
 
 /obj/item/weapon/grenade/suicide_vest/kamikaze/verb/arm1()
-	set category = null
-	set name = "Arm/Disarm"
+	set category = "Умения"
+	set name = "Переключить пояс"
 	set src in range(1, usr)
 
 	if (armed1 == "armed")
-		usr << "You disarm \the [src]."
+		usr << "Переключаю [src]. Теперь он не взорвётся!"
 		armed1 = "disarmed"
 		firer = null
 		return
 	else
-		usr << "<span class='warning'>You arm \the [src]!</span>"
+		usr << "<span class='warning'>Переключаю [src]! Теперь он готов взорваться!</span>"
 		armed1 = "armed"
 		return
 
@@ -638,15 +690,15 @@
 		return
 
 	if (user)
-		msg_admin_attack("[user.name] ([user.ckey]) primed \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+		msg_admin_attack("[user.name] ([user.ckey]) активирует [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
 
 	if (user && user.faction_text == JAPANESE)
 		user.emote("charge")
 	active = TRUE
-	playsound(loc, 'sound/weapons/armbomb.ogg', 75, TRUE, -3)
+	playsound(loc, armsound, 75, TRUE, -3)
 
 	spawn(det_time)
-		visible_message("<span class = 'warning'>\The [src] goes off!</span>")
+		visible_message("<span class = 'warning'>[src] сейчас взорвётся!</span>")
 		prime()
 		return
 
@@ -719,57 +771,57 @@
 		qdel(src)
 
 /obj/item/weapon/grenade/coldwar/nonfrag/custom
-	name = "explosive grenade"
-	desc = "An explosive grenade with no shrapnel."	//This is a plain lie
+	name = "взрывная граната"
+	desc = "Взрывная граната без шрапнели."	//This is a plain lie
 	icon_state = "m26"
 	det_time = 50
 	throw_range = 9
 
 /obj/item/weapon/grenade/antitank/custom
-	name = "anti-tank grenade"
-	desc = "An anti-tank grenade with no shrapnel."
+	name = "противотанковая граната"
+	desc = "Противотанковая граната без шрапнели."
 	icon_state = "rpg40"
 	det_time = 50
 	throw_range = 3
 	heavy_armor_penetration = 18
 
 /obj/item/weapon/grenade/modern/custom
-	name = "shrapnel grenade"
-	desc = "A grenade filled with metallic shrapnel."
+	name = "осколочная граната"
+	desc = "Граната начинёная осколками."
 	icon_state = "mk2"
 	det_time = 50
 	throw_range = 10
 
 /obj/item/weapon/grenade/antitank
-	name = "anti-tank grenade"
-	desc = "A powerful grenade, useful against armored vehicles."
+	name = "противотанковая граната"
+	desc = "Мощная граната, разрывающая обшивки танков."
 	icon_state = "rpg40"
 	det_time = 50
 	throw_range = 5
 	heavy_armor_penetration = 22
 
 /obj/item/weapon/grenade/antitank/rpg40
-	name = "RPG-40"
+	name = "РПГ-40"
 	icon_state = "rpg40"
 	det_time = 50
 	throw_range = 5
 
 /obj/item/weapon/grenade/antitank/type99
-	name = "Type 99 AT mine"
+	name = "противотанковая мина Type99"
 	icon_state = "type99"
-	desc = "A japanese anti-tank mine that can also be used as a grenade"
+	desc = "Японская противотанковая мина которую можно использовать как гранату."
 	det_time = 50
 	throw_range = 8
 	secondary_action = TRUE
 
 /obj/item/weapon/grenade/antitank/type99/secondary_attack_self(mob/living/human/user)
 	if (secondary_action)
-		var/inp = WWinput(user, "Are you sure you wan't to place a mine here?", "Mining", "No", list("Yes","No"))
+		var/inp = WWinput(user, "Заложить мину?", "Минирование", "No", list("Yes","No"))
 		if (inp == "Yes")
-			user << "Placing the mine..."
+			user << "Ставлю мину..."
 			if (do_after(user, 60, src))
 				if (src)
-					user << "You successfully place the mine here using \the [src]."
+					user << "Успешно поставил [src]."
 					var/obj/item/mine/at/armed/BT = new /obj/item/mine/at/armed(get_turf(user))
 					BT.origin = src.type
 					firer = user

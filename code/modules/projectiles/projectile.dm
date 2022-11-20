@@ -113,6 +113,9 @@
 	if (isanimal(target))	return FALSE
 	var/mob/living/L = target
 	L.apply_effects(stun, weaken, paralyze, irradiate, stutter, eyeblur, drowsy, agony, poisonous, blocked)
+	if (map.csssfx == TRUE)
+		if(def_zone == "head")
+			playsound(src,'lambda/sanecman/sound/SFX/csSFX/headshot.wav', 100, 5, pressure_affected = FALSE)
 	return TRUE
 
 /obj/item/projectile/proc/on_impact(var/atom/A)

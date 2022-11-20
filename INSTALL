@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo WELCOME TO CIV13!
+echo Ну чё погнали нахуй!
 echo -----------------
-echo Prepairing the system...
+echo Таак пажжи ёпт...
 sudo dpkg --add-architecture i386
 sudo apt update
 sudo apt upgrade

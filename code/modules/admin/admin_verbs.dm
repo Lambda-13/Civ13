@@ -52,6 +52,7 @@ var/list/admin_verbs_admin = list(
 	/datum/admins/proc/get_world_values,
 	/datum/admins/proc/set_world_radiation,
 	/datum/admins/proc/set_world_pollution,
+	/datum/admins/proc/set_custom_gamemode,
 	/datum/admins/proc/PlayerNotes,
 	/datum/admins/proc/show_player_info,
 	/client/proc/free_slot,			//frees slot for chosen job,
@@ -102,7 +103,8 @@ var/list/admin_verbs_trialadmin = list(
 var/list/admin_verbs_sounds = list(
 	/client/proc/play_local_sound,
 	/client/proc/play_sound,
-	/client/proc/play_server_sound
+	/client/proc/play_server_sound,
+	/client/proc/play_world_sound
 	)
 var/list/admin_verbs_fun = list(
 	/client/proc/object_talk,
@@ -110,6 +112,9 @@ var/list/admin_verbs_fun = list(
 	/client/proc/cmd_admin_crush_self,
 	/datum/admins/proc/fantasy_races,
 	/datum/admins/proc/zombiemechanic,
+	/client/proc/nuke,
+	/client/proc/nukeT90,
+	/client/proc/fakenuke,
 	/client/proc/make_sound,
 	/client/proc/editappear,
 	/client/proc/show_custom_roundstart_tip,
@@ -180,6 +185,8 @@ var/list/admin_verbs_debug = list(
 	/client/proc/ticklag,
 	/client/proc/load_voyage_event,
 	/client/proc/debug_variables_map,
+	/client/proc/fuck_pie,
+	/client/proc/debug_links,
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -224,9 +231,12 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/cmd_admin_crush_self,
 	/client/proc/drop_bomb,
 	/client/proc/nuke,
+	/client/proc/nukeT90,
+	/client/proc/fakenuke,
 	/datum/admins/proc/get_world_values,
 	/datum/admins/proc/set_world_radiation,
 	/datum/admins/proc/set_world_pollution,
+	/datum/admins/proc/set_custom_gamemode,
 	/client/proc/radiation_emission,
 	/client/proc/make_sound,
 	/client/proc/ToRban,
@@ -359,7 +369,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/hide_most_verbs()//Allows you to keep some functionality while hiding some verbs
 	set name = "Adminverbs - Hide Most"
-	set category = "Admin"
+	set category = "Админ"
 
 	verbs.Remove(/client/proc/hide_most_verbs, admin_verbs_hideable)
 	verbs += /client/proc/show_verbs
@@ -370,7 +380,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/hide_verbs()
 	set name = "Adminverbs - Hide All"
-	set category = "Admin"
+	set category = "Админ"
 
 	remove_admin_verbs()
 	verbs += /client/proc/show_verbs
@@ -381,7 +391,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/show_verbs()
 	set name = "Adminverbs - Show"
-	set category = "Admin"
+	set category = "Админ"
 
 	verbs -= /client/proc/show_verbs
 	add_admin_verbs()
@@ -390,7 +400,7 @@ var/list/admin_verbs_host = list(
 
 
 /client/proc/admin_ghost()
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Aghost"
 	if (!holder)	return
 	if (isghost(mob))
@@ -424,7 +434,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/invisimin()
 	set name = "Invisimin"
-	set category = "Admin"
+	set category = "Админ"
 	set desc = "Toggles ghost-like invisibility (Don't abuse this)"
 	if (holder && mob)
 		if (istype(mob, /mob/observer))
@@ -442,7 +452,7 @@ var/list/admin_verbs_host = list(
 /client/var/visible_in_who = TRUE
 /client/proc/who_invisimin()
 	set name = "Toggle Staffwho Visibility"
-	set category = "Admin"
+	set category = "Админ"
 	set desc = "Toggle your visibility in Staffwho."
 	if (holder && mob)
 		visible_in_who = !visible_in_who
@@ -453,7 +463,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/player_panel()
 	set name = "Player Panel"
-	set category = "Admin"
+	set category = "Админ"
 	if (holder)
 		holder.player_panel_old()
 
@@ -461,7 +471,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/player_panel_new()
 	set name = "Player Panel New"
-	set category = "Admin"
+	set category = "Админ"
 	if (holder)
 		holder.player_panel_new()
 
@@ -469,13 +479,13 @@ var/list/admin_verbs_host = list(
 
 /client/proc/game_panel()
 	set name = "Game Panel"
-	set category = "Admin"
+	set category = "Админ"
 	if (holder)
 		holder.game_panel()
 	return
 
 /client/proc/colorooc()
-	set category = "Fun"
+	set category = "Веселье"
 	set name = "OOC Text Color"
 	if (!holder)	return
 	var/response = WWinput(src, "Please choose a distinct color that is easy to read and doesn't mix with all the other chat and radio frequency colors.", "Change own OOC color", "Pick new color", list("Pick new color", "Reset to default", "Cancel"))
@@ -489,7 +499,7 @@ var/list/admin_verbs_host = list(
 	return
 
 /client/proc/stealth()
-	set category = "Admin"
+	set category = "Админ"
 	set name = "Stealth Mode"
 	if (holder)
 		if (holder.fakekey)
@@ -505,7 +515,7 @@ var/list/admin_verbs_host = list(
 
 
 /client/proc/drop_bomb() // Some admin dickery that can probably be done better -- TLE
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Drop Bomb"
 	set desc = "Cause an explosion of varying strength at your location."
 	if (!check_rights(R_SPAWN))
@@ -543,7 +553,7 @@ var/list/admin_verbs_host = list(
 	message_admins("[key] creating an admin explosion at [epicenter.loc].")
 
 /client/proc/make_sound(var/obj/O in range(7)) // -- TLE
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Make Sound"
 	set desc = "Display a message to everyone who can hear the target"
 	if (O)
@@ -557,7 +567,7 @@ var/list/admin_verbs_host = list(
 
 
 /client/proc/object_talk(var/msg as text) // -- TLE
-	set category = "Special"
+	set category = "Особенное"
 	set name = "oSay"
 	set desc = "Display a message to everyone who can hear the target"
 	if (mob.control_object)
@@ -568,7 +578,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/readmin_self()
 	set name = "Re-Admin self"
-	set category = "Admin"
+	set category = "Админ"
 
 	if (deadmin_holder)
 		deadmin_holder.reassociate()
@@ -578,7 +588,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/deadmin_self()
 	set name = "De-admin self"
-	set category = "Admin"
+	set category = "Админ"
 
 	if (holder)
 		if (WWinput(src, "Confirm self-deadmin for the round? You can re-admin yourself at any time.", "Deadmin Self", "Yes", list("Yes","No")) == "Yes")
@@ -589,7 +599,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/toggle_log_hrefs()
 	set name = "Toggle href logging"
-	set category = "Server"
+	set category = "Сервер"
 	if (!holder)	return
 	if (config)
 		if (config.log_hrefs)
@@ -602,7 +612,7 @@ var/list/admin_verbs_host = list(
 /client/proc/change_human_appearance_admin()
 	set name = "Change Mob Appearance - Admin"
 	set desc = "Allows you to change the mob appearance"
-	set category = "Admin"
+	set category = "Админ"
 
 	if (!check_rights(R_FUN)) return
 
@@ -616,7 +626,7 @@ var/list/admin_verbs_host = list(
 /client/proc/change_human_appearance_self()
 	set name = "Change Mob Appearance - Self"
 	set desc = "Allows the mob to change its appearance"
-	set category = "Admin"
+	set category = "Админ"
 
 	if (!check_rights(R_FUN)) return
 
@@ -640,7 +650,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/mod_panel()
 	set name = "Moderator Panel"
-	set category = "Admin"
+	set category = "Админ"
 /*	if (holder)
 		holder.mod_panel()*/
 
@@ -648,7 +658,7 @@ var/list/admin_verbs_host = list(
 
 /client/proc/editappear()
 	set name = "Edit Appearance"
-	set category = "Fun"
+	set category = "Веселье"
 
 	if (!check_rights(R_FUN))	return
 
@@ -708,13 +718,13 @@ var/list/admin_verbs_host = list(
 
 /client/proc/playernotes()
 	set name = "Show Player Info"
-	set category = "Admin"
+	set category = "Админ"
 	if (holder)
 		holder.PlayerNotes()
 
 /client/proc/free_slot()
 	set name = "Free Job Slot"
-	set category = "Admin"
+	set category = "Админ"
 	if (holder)
 		var/list/jobs = list()
 		for (var/datum/job/J in job_master.occupations)
@@ -733,7 +743,7 @@ var/global/list/global_colour_matrix = null
 
 /client/proc/change_colour_filter()
 	set name = "Color Filter"
-	set category = "Debug"
+	set category = "Дебаг"
 	set desc = "Apply cool colour filter to players' screens."
 	var/input = input("Choose filter", "Filter") in list("normal", "black and white", "bloody", "bloody2", "sepia", "special")
 	switch(input)
@@ -783,7 +793,7 @@ var/global/list/global_colour_matrix = null
 
 /client/proc/enable_approved_only()
 	set name = "Enable Approved Only"
-	set category = "Server"
+	set category = "Сервер"
 
 	if (config.useapprovedlist == TRUE)
 		src << "Server is already \"Approved Only\"."
@@ -796,11 +806,13 @@ var/global/list/global_colour_matrix = null
 	if (conf_1 == "No")
 		return
 	else
+		message_admins("ВНИМАНИЕ: [key] включает паник бункер.")
+		log_game("ВНИМАНИЕ: [key] включает паник бункер.")
 		config.useapprovedlist = TRUE
 
 /client/proc/disable_approved_only()
 	set name = "Disable Approved Only"
-	set category = "Server"
+	set category = "Сервер"
 
 	if (config.useapprovedlist == FALSE)
 		src << "Server is already open to everyone."
@@ -813,11 +825,13 @@ var/global/list/global_colour_matrix = null
 	if (conf_1 == "No")
 		return
 	else
+		message_admins("ВНИМАНИЕ: [key] отключает паник бункер.")
+		log_game("ВНИМАНИЕ: [key] отключает паник бункер.")
 		config.useapprovedlist = FALSE
 
 /client/proc/enable_whitelist()
 	set name = "Enable Job Whitelists"
-	set category = "Server"
+	set category = "Сервер"
 
 	if (config.use_job_whitelist == TRUE)
 		src << "Whitelisted Jobs are already restricted."
@@ -834,7 +848,7 @@ var/global/list/global_colour_matrix = null
 
 /client/proc/disable_whitelist()
 	set name = "Disable Job Whitelists"
-	set category = "Server"
+	set category = "Сервер"
 
 	if (config.use_job_whitelist == FALSE)
 		src << "Whitelisted jobs are already open to everyone."
@@ -852,7 +866,7 @@ var/global/list/global_colour_matrix = null
 
 /client/proc/enable_fov()
 	set name = "Enable FOV"
-	set category = "Special"
+	set category = "Особенное"
 
 	if (config.disable_fov == FALSE)
 		src << "Field of View mechanic is already enabled."
@@ -866,7 +880,7 @@ var/global/list/global_colour_matrix = null
 	return
 /client/proc/disable_fov()
 	set name = "Disable FOV"
-	set category = "Special"
+	set category = "Особенное"
 
 	if (config.disable_fov == TRUE)
 		src << "Field of View mechanic is already disabled."
@@ -881,7 +895,7 @@ var/global/list/global_colour_matrix = null
 
 /client/proc/remove_dead_bodies()
 	set name = "Remove Dead Bodies"
-	set category = "Special"
+	set category = "Особенное"
 
 	if (!check_rights(R_ADMIN))
 		src << "<span class = 'danger'>You don't have the permissions.</span>"
@@ -896,7 +910,7 @@ var/global/list/global_colour_matrix = null
 	return
 
 /client/proc/radiation_emission()
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Radiation Emission"
 	set desc = "Emits radiation for a set duration."
 	if (!check_rights(R_SPAWN))
@@ -919,32 +933,45 @@ var/global/list/global_colour_matrix = null
 	log_game("[key] created a radiation emission with size ([range]) and severity [severity] mSv in area [epicenter.loc.name], for [duration].")
 
 /client/proc/nuke()
-	set category = "Special"
+	set category = "Особенное"
 	set name = "Nuke the Map"
 	set desc = "Spawns a large explosion and turns the whole map into a wasteland."
 	if (!check_rights(R_SPAWN))
 		return
+
+	message_admins("ВНИМАНИЕ: [key] готовится взорвать нюку.")
+	log_game("ВНИМАНИЕ: [key] отовится взорвать нюку.")
 	var/conf_1 = input("Are you absolutely positively sure you want to NUKE THE WHOLE MAP? This is irreversible!") in list ("Yes", "No")
 	if (conf_1 == "No")
+		message_admins("ВНИМАНИЕ: [key] не взрывает нюку.")
+		log_game("ВНИМАНИЕ: [key] не взрывает нюку.")
 		return
 
 	var/conf_2 = input("Seriously? THIS WILL LAG THE GAME FOR A WHILE!") in list ("Yes", "No")
 	if (conf_2 == "No")
+		message_admins("ВНИМАНИЕ: [key] не взрывает нюку.")
+		log_game("ВНИМАНИЕ: [key] не взрывает нюку.")
 		return
 	var/warning = input("Do you want to give a 30 second warning before the nuke hits?") in list ("Yes", "No")
 
 	if (!mob || !mob.loc)
 		src << "<span class = 'warning'>You can't create a radiation emission here.</span>"
+		message_admins("ВНИМАНИЕ: [key] не взрывает нюку так как он в лобби.")
+		log_game("ВНИМАНИЕ: [key] не взрывает нюку так как он в лобби.")
 		return
 
 	if (!processes.explosion || !processes.explosion.fires_at_gamestates.Find(ticker.current_state))
 		src << "<span class = 'warning'>You can't create a radiation emission now.</span>"
+		message_admins("ВНИМАНИЕ: [key] не взрывает нюку - процесс занят.")
+		log_game("ВНИМАНИЕ: [key] не взрывает нюку - процесс занят.")
 		return
 
 	var/turf/epicenter = mob.loc
 	var/warningtimer = 5
 	if (warning == "Yes")
 		world << "<font size=3 color='red'><center>ATTENTION<br>A nuclear missile is incoming! Take cover!</center></font>"
+		message_admins("ВНИМАНИЕ: [key] активирует 30 секунд до взрыва нюки.")
+		log_game("ВНИМАНИЕ: [key] активирует 30 секунд до взрыва нюки.")
 		var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
 		for (var/mob/M in player_list)
 			M.client << warning_sound
@@ -955,6 +982,97 @@ var/global/list/global_colour_matrix = null
 		message_admins("[key] nuked the map at ([epicenter.x],[epicenter.y],[epicenter.z]) in area [epicenter.loc.name].")
 		log_game("[key] nuked the map at ([epicenter.x],[epicenter.y],[epicenter.z]) in area [epicenter.loc.name].")
 
+/client/proc/nukeT90()
+	set category = "Особенное"
+	set name = "Nuke the Map (T90)"
+	set desc = "Spawns a large explosion and turns the whole map into a wasteland. Sound by SCP:CB."
+
+	message_admins("ВНИМАНИЕ: [key] готовится взорвать нюку с таймером в 90 секунд.")
+	log_game("ВНИМАНИЕ: [key] готовится взорвать нюку с таймером в 90 секунд.")
+	var/conf_1 = input("Ты реально хочешь ебануть нюку со звуком из сцп?") in list ("Yes", "No")
+	if (conf_1 == "No")
+		message_admins("ВНИМАНИЕ: [key] не взрывает нюкус таймером в 90 секунд.")
+		log_game("ВНИМАНИЕ: [key] не взрывает нюку с таймером в 90 секунд.")
+		return
+
+	var/conf_2 = input("Всё залагает, точно?") in list ("Yes", "No")
+	if (conf_2 == "No")
+		message_admins("ВНИМАНИЕ: [key] не взрывает нюку с таймером в 90 секунд.")
+		log_game("ВНИМАНИЕ: [key] не взрывает нюку с таймером в 90 секунд.")
+		return
+
+	if (!mob || !mob.loc)
+		src << "<span class = 'warning'>You can't create a radiation emission here.</span>"
+		message_admins("ВНИМАНИЕ: [key] не взрывает нюку с таймером в 90 секунд так как он в лобби.")
+		log_game("ВНИМАНИЕ: [key] не взрывает нюку с таймером в 90 секунд так как он в лобби.")
+		return
+
+	if (!processes.explosion || !processes.explosion.fires_at_gamestates.Find(ticker.current_state))
+		src << "<span class = 'warning'>You can't create a radiation emission now.</span>"
+		message_admins("ВНИМАНИЕ: [key] не взрывает нюку с таймером в 90 секунд - процесс занят.")
+		log_game("ВНИМАНИЕ: [key] не взрывает нюку с таймером в 90 секунд - процесс занят.")
+		return
+
+	var/turf/epicenter = mob.loc
+	var/warningtimer = 777
+	var/alarm_sound = sound('sound/misc/Alarm3.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+	var/announce_sound = sound('sound/misc/DetonatingAlphaWarheads.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+	var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+	message_admins("ВНИМАНИЕ: [key] активирует 90 секунд до взрыва нюки.")
+	log_game("ВНИМАНИЕ: [key] активирует 90 секунд до взрыва нюки.")
+	for (var/mob/M in player_list)
+		M.client << alarm_sound
+	spawn(44)
+		for (var/mob/M in player_list)
+			M.client << announce_sound
+		world << "<font size=3 color='red'><center>Automatic Air Raid<br>We're detonating the Alpha Warhead in T-Minus ninety seconds. All personnel are advised to board the nearest helicopter or enter the nearest blast shelter immediately.</center></font>"
+	spawn(660)
+		world << "<font size=3 color='red'><center>ATTENTION<br>A nuclear missile is incoming! Take cover!</center></font>"
+		for (var/mob/M in player_list)
+			M.client << warning_sound
+		warningtimer = 777
+	spawn(warningtimer)
+		world << "<font size=3 color='red'>A nuclear explosion has happened! <br><i>(Game might freeze/lag for a while while processing, please wait)</i></font>"
+		nuke_map(epicenter, 200, 180, 0)
+		message_admins("[key] nuked the map at ([epicenter.x],[epicenter.y],[epicenter.z]) in area [epicenter.loc.name].")
+		log_game("[key] nuked the map at ([epicenter.x],[epicenter.y],[epicenter.z]) in area [epicenter.loc.name].")
+
+
+/client/proc/fakenuke()
+	set category = "Веселье"
+	set name = "Fake Nuke the Map"
+	set desc = "Fake nuke bomb. No fallout."
+
+	message_admins("ВНИМАНИЕ: [key] готовится взорвать ФЕЙКОВУЮ нюку.")
+	log_game("ВНИМАНИЕ: [key] готовится взорвать ФЕЙКОВУЮ нюку.")
+	var/conf_1 = input("Ты уверен что хочешь это сделать? Ржака конечно будет но ты подумай") in list ("Yes", "No")
+	if (conf_1 == "No")
+		message_admins("ВНИМАНИЕ: [key] не взрывает ФЕЙКОВУЮ нюку.")
+		log_game("ВНИМАНИЕ: [key] не взрывает ФЕЙКОВУЮ нюку.")
+		return
+
+	var/conf_2 = input("Реально? Игроки будут оскорблять тебя") in list ("Yes", "No")
+	if (conf_2 == "No")
+		message_admins("ВНИМАНИЕ: [key] не взрывает ФЕЙКОВУЮ нюку.")
+		log_game("ВНИМАНИЕ: [key] не взрывает ФЕЙКОВУЮ нюку.")
+		return
+	var/warning = input("Ставим таймер 30 секунд?") in list ("Yes", "No")
+
+	var/warningtimer = 5
+	if (warning == "Yes")
+		message_admins("ВНИМАНИЕ: [key] активирует 30 секунд до взрыва ФЕЙКОВОЙ нюки.")
+		log_game("ВНИМАНИЕ: [key] активирует 30 секунд до взрыва ФЕЙКОВОЙ нюки.")
+		world << "<font size=3 color='red'><center>ATTENTION<br>A nuclear missile is incoming! Take cover!</center></font>"
+		var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+		for (var/mob/M in player_list)
+			M.client << warning_sound
+		warningtimer = 330
+	spawn(warningtimer)
+		world << "<font size=3 color='red'>A nuclear explosion has happened! <br><i>(Game might freeze/lag for a while while processing, please wait)</i></font>"
+		message_admins("[key] взорвал ЛОЖНУЮ нюку.")
+		log_game("[key] взорвал ЛОЖНУЮ нюку.")
+		sleep(4)
+		world << 'sound/weapons/Explosives/Dynamite.ogg'
 
 ///////////////////////GC STUFF////////////////////////////////
 
@@ -1002,7 +1120,7 @@ var/global/gc_helper_on = FALSE
 	return
 
 /client/proc/toggle_gc_helper()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Toggle GC Helper"
 	if (!check_rights(R_DEBUG))	return
 
@@ -1014,14 +1132,14 @@ var/global/gc_helper_on = FALSE
 		start_gc_helper()
 
 /client/proc/run_gc_helper()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Run GC Helper"
 	if (!check_rights(R_DEBUG))	return
 
 	gc_helper()
 
 /client/proc/check_null_atoms()
-	set category = "Debug"
+	set category = "Дебаг"
 	set name = "Check null Atoms"
 	if (!check_rights(R_DEBUG))	return
 
@@ -1031,3 +1149,31 @@ var/global/gc_helper_on = FALSE
 		return
 	else
 		gc_helper(result)
+
+/*/client/proc/swapmap()
+	set category = "Дебаг"
+	set name = "Swap Map"
+	if (!check_rights(R_PERMISSIONS))	return
+
+	if (WWinput(usr, "Ты точно хочешь сменить карту? Учти что это может повлечь за собой ошибки.", "Мяу", "Меняем карту", list("Меняем карту", "Я передумал")) == "Я передумал")	return
+
+	var/nigger = null
+	nigger = input("Напиши название карты как в билде без .dmm/nУчти что в случае ошибки карта не будет загружена а смена карт будет заблокирована на 90 секунд. Для отмени ничего не вводи.","Картоеб") as text
+		if (nigger == null || nigger == "")
+			return
+
+		message_admins("[key_name(src)] ставит карту [nigger].")
+		log_admin("[key_name(src)] ставит карту [nigger].")
+
+//		if (!processes.mapswap.done)
+		processes.python.execute("mapswap.py", nigger)
+		processes.mapswap.done = TRUE
+		sleep(300)
+
+		world << "<span class = 'danger'>Меняем карту!</span> <span class='notice'>Нажми сюда что бы переподключиться (обычно нажимают если не сработало переподключение): <b>byond://[world.internet_address]:[world.port]</b></span>"
+*/
+/*		sleep(600)  //Не дает сделать авторазблокировку выдает ошибку
+			processes.mapswap.done = FALSE
+			message_admins("Смена карт разблокирована автоматически.")
+			log_admin("Смена карт разблокирована автоматически.")
+			world << "<span class = 'danger'>Оставляем!</span> <span class='notice'>Администраторы решили не менять карту.</span>"*/

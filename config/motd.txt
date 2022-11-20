@@ -1,11 +1,12 @@
-<h2><small><span style = "font-size: 1.20em;">Welcome to <b><span style = "font-size: 1.20em;">Civilization 13<span style = "color: #CD4C6C"> - Beta Edition</span></span></b></span></small></h2>
+<h2><small><span style = "font-size: 1.20em;">Добро пожаловать на <b><span style = "font-size: 1.20em;">Цивилизацию 13<span style = "color: #00D678"> - Alpha Edition</span></span></b></span></small></h2>
 <i>
-The current map is <b>{server_map}</b>.
+Сейчас на сервере стоит <b>{server_map}</b> карта.
 <br>
-This server is running {server_version}, and you are running {client_version}.
-<h2>RULES: http://civ13.com/rules</h2>
+Этот сервер работает на {server_version} версии, в то время как ваш клиент находится на {client_version} версии.
+<h2>Правила находятся на нашем дискорд сервере и обязательны к прочтению!</h2>
 
-<h2><small>Github: https://github.com/civ13/civ13</small></h2>
-<h2><small>Discord: https://civ13.com/discord</small></h2>
-<h2><small>Wiki: https://civ13.github.io/civ13-wiki</small></h2>
+<h2><small>Гитхаб: https://github.com/Lambda-13/Civ13/</small></h2>
+<h2><small>Дискорд: https://discord.gg/HQjz7YKRAJ</small></h2>
+<h2><small>Вики (Английская): https://civ13.github.io/civ13-wiki</small></h2>
+<h2><small>Вики (Русская): https://tsivilizatsiya-13.fandom.com/ru/wiki/Цивилизация_13_Вики<small></h2>
 </i>

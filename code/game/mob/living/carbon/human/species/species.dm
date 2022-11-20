@@ -28,7 +28,7 @@
 	var/race_key = FALSE	   								 // Used for mob icon cache string.
 	var/icon/icon_template							   // Used for mob icon generation for non-32x32 species.
 	var/mob_size	= MOB_MEDIUM
-	var/show_ssd = "fast asleep"
+	var/show_ssd = "в апатии"
 	var/virus_immune
 	var/blood_volume = 560							   // Initial blood volume.
 	var/hunger_factor = DEFAULT_HUNGER_FACTOR			// Multiplier for hunger.
@@ -422,9 +422,9 @@
 /datum/species/proc/get_random_chechen_name(var/gender)
 	if (!name_language)
 		if (gender == FEMALE)
-			return capitalize(pick(first_names_male_chechen)) + " " + capitalize(pick(last_names_chechen) + "a") //will have to changed in case chechen female names get added
+			return capitalize(pick(first_names_male_arab)) + " " + capitalize(pick(first_names_female_arab) + "a") //will have to changed in case chechen female names get added
 		else
-			return capitalize(pick(first_names_male_chechen)) + " " + capitalize(pick(last_names_chechen))
+			return capitalize(pick(first_names_male_arab)) + " " + capitalize(pick(first_names_female_arab))
 
 /datum/species/proc/get_random_hebrew_name(var/gender)
 	if (!name_language)

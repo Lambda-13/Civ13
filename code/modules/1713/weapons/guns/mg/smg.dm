@@ -1653,7 +1653,7 @@
 	caliber = "a9x19"
 	fire_sound = 'sound/weapons/guns/fire/pistol.ogg'
 	magazine_type = /obj/item/ammo_magazine/glock17
-	good_mags = list(/obj/item/ammo_magazine/glock17)
+	good_mags = list(/obj/item/ammo_magazine/glock17, /obj/item/ammo_magazine/glock17/victor)
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_ADV_SCOPE
 	weight = 3
 	equiptimer = 4

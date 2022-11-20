@@ -47,7 +47,7 @@ var/map_storage/map_storage = new("SS13")
 	return round(0.1 * (TimeOfGame - wh), 0.1)
 
 /proc/log_startup_progress(var/message)
-	to_chat(world, "<span class='danger'>[message]</span>")
+	world.log << "<span class='danger'>[message]</span>"
 
 //Key thing that stops lag. Cornerstone of performance in ss13, Just sitting here, in unsorted.dm.
 /proc/stoplag()
@@ -165,20 +165,25 @@ map_storage
 
 /datum/controller/gameticker/proc/savemap()
 	var/watch = start_watch()
-	to_chat(world, "<FONT color='yellow'><B>SAVING THE MAP! THIS USUALLY TAKES UNDER A MINUTE</B></FONT>")
+	to_chat(world, "<FONT color='yellow'><B>Сохраняем мир...</B></FONT>")
 	sleep(5)
 	map_storage.Save_World()
 	log_startup_progress("	Saved the map in [stop_watch(watch)]s.")
+	to_chat(world, "<FONT color='yellow'><B>Мир сохранён.</B></FONT>")
 	return 1
 
 /datum/controller/gameticker/proc/loadmap()
 	var/watch = start_watch()
 	var/started = 0
 	log_startup_progress("Starting map load...")
+	to_chat(world, "<FONT color='yellow'><B>Загружаем мир...</B></FONT>")
 	sleep(1)
+	to_chat(world, "<FONT color='yellow'><B>Очищаем карту...</B></FONT>")
 	map_storage.ClearMap()
 	sleep(1)
+	to_chat(world, "<FONT color='yellow'><B>Загружаем карту...</B></FONT>")
 	map_storage.Load_World()
 	if(started)
 		log_startup_progress("	Loaded the map in [stop_watch(watch)]s.")
+		to_chat(world, "<FONT color='yellow'><B>Мир загружен.</B></FONT>")
 	return 1

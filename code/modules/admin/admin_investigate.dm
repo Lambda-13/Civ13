@@ -30,7 +30,7 @@
 //ADMINVERBS
 /client/proc/investigate_show( subject in list("hrefs","notes","singulo","telesci") )
 	set name = "Investigate"
-	set category = "Admin"
+	set category = "Админ"
 	if (!holder)	return
 	switch(subject)
 		if ("singulo", "telesci")			//general one-round-only stuff

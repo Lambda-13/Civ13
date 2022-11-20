@@ -8,7 +8,7 @@
 ///////////////////////RELIGION/////////////////////////
 /mob/living/human/proc/create_religion()
 	set name = "Create Religion"
-	set category = "Faction"
+	set category = "Фракция"
 	var/mob/living/human/U
 
 	if (istype(src, /mob/living/human))
@@ -100,7 +100,7 @@
 
 /mob/living/human/proc/abandon_religion()
 	set name = "Abandon Religion"
-	set category = "Faction"
+	set category = "Фракция"
 	var/mob/living/human/U
 
 	if (istype(src, /mob/living/human))
@@ -129,7 +129,7 @@
 
 /mob/living/human/proc/clergy()
 	set name = "Join the Clergy"
-	set category = "Faction"
+	set category = "Фракция"
 	var/mob/living/human/U
 
 	if (istype(src, /mob/living/human))
@@ -546,10 +546,10 @@ obj/structure/altar/iron
 
 /mob/proc/religion_list()
 	set name = "Check Religion List"
-	set category = "Faction"
+	set category = "Фракция"
 	if (map && map.civilizations)
 
-		var/body = "<html><head><title>Religion List</title></head><b>RELIGION LIST</b><br><br>"
+		var/body = "<meta charset='utf-8'><head><title>Religion List</title></head><b>RELIGION LIST</b><br><br>"
 		for (var/rel in map.custom_religions)
 			body += "<b>[rel]</b>: [map.custom_religions[rel][3]] points.</br>"
 		body += {"<br>

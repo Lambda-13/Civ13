@@ -5,7 +5,7 @@
 		job_master = new /datum/controller/occupations()
 		job_master.SetupOccupations()
 	//	job_master.LoadJobs("config/jobs.txt")
-		admin_notice("<span class='danger'>Job setup complete.</span>", R_DEBUG)
+		admin_notice("<span class='danger'>Настройка профессий завершена.</span>", R_DEBUG)
 
 	// ticklag
 
@@ -13,18 +13,18 @@
 
 	// objects
 
-	admin_notice("<span class='danger'>Initializing objects...</span>", R_DEBUG)
+	admin_notice("<span class='danger'>Загружаю обьекты...</span>", R_DEBUG)
 	sleep(-1)
 	for (var/atom/movable/object in world)
 		if (!object.gcDestroyed)
 			object.initialize()
 
-	admin_notice("<span class='danger'>Initializing areas...</span>", R_DEBUG)
+	admin_notice("<span class='danger'>Загружаю зоны...</span>", R_DEBUG)
 	sleep(-1)
 	for (var/area/area in area_list)
 		area.initialize()
 
-	admin_notice("<span class='danger'>Initializing approved list...</span>", R_DEBUG)
+	admin_notice("<span class='danger'>Загружаю лист разрешённых игроков...</span>", R_DEBUG)
 	sleep(-1)
 	var/F = file("SQL/approved.txt")
 	if (fexists(F))
@@ -34,9 +34,9 @@
 				var/list/current = splittext(i, "=")
 				approved_list += current[1]
 	else
-		admin_notice("<span class='danger'>Failed to load approved list!</span>", R_DEBUG)
+		admin_notice("<span class='danger'>Ошибка загрузки листа разрешённых игроков!</span>", R_DEBUG)
 
-	admin_notice("<span class='danger'>Initializing whitelistlist...</span>", R_DEBUG)
+	admin_notice("<span class='danger'>Загружаю белый лист...</span>", R_DEBUG)
 	sleep(-1)
 	var/F2 = file("SQL/whitelist.txt")
 	if (fexists(F2))
@@ -46,9 +46,9 @@
 				var/list/current = splittext(i, "=")
 				whitelist_list += current[1]
 	else
-		admin_notice("<span class='danger'>Failed to load whitelist!</span>", R_DEBUG)
+		admin_notice("<span class='danger'>Ошибка загрузки белого листа!</span>", R_DEBUG)
 
-	admin_notice("<span class='danger'>Initializing factionlist...</span>", R_DEBUG)
+	admin_notice("<span class='danger'>Загружаю фракционный лист...</span>", R_DEBUG)
 	sleep(-1)
 	var/F6 = file("SQL/factionlist.txt")
 	if (fexists(F6))
@@ -61,14 +61,14 @@
 				else if (current[2] == "blue")
 					faction_list_blue += current[1]
 	else
-		admin_notice("<span class='danger'>Failed to load factionlist!</span>", R_DEBUG)
-	admin_notice("<span class='danger'>Initializing ban list...</span>", R_DEBUG)
+		admin_notice("<span class='danger'>Ошибка загрузки фракционного листа!</span>", R_DEBUG)
+	admin_notice("<span class='danger'>Загружаю баны...</span>", R_DEBUG)
 	sleep(-1)
 	if (load_bans())
 	else
-		admin_notice("<span class='danger'>Failed to load ban list!</span>", R_DEBUG)
+		admin_notice("<span class='danger'>Ошибка загрузки банов!</span>", R_DEBUG)
 
-	admin_notice("<span class='danger'>Initializing crafting recipes...</span>", R_DEBUG)
+	admin_notice("<span class='danger'>Загружаю рецепты крафтов...</span>", R_DEBUG)
 	sleep(-1)
 
 	var/all_craft_lists = flist("config/crafting/")
@@ -88,9 +88,9 @@
 					if (current.len != 13)
 						world.log << "Error! Recipe [current[2]] has a length of [current.len] (should be 13) ([current_list])."
 		else
-			admin_notice("<span class='danger'>Failed to load crafting recipes!</span>", R_DEBUG)
+			admin_notice("<span class='danger'>Ошибка загрузки рецептов крафтов!</span>", R_DEBUG)
 
-	admin_notice("<span class='danger'>Initializing dictionary...</span>", R_DEBUG)
+	admin_notice("<span class='danger'>Загружаю словарь...</span>", R_DEBUG)
 	sleep(-1)
 	var/F4 = file("config/dictionary.txt")
 	if (fexists(F4))
@@ -102,8 +102,21 @@
 				if (current.len != 2)
 					world.log << "Error! Dictionary entry [current[1]] has a length of [current.len] (should be 2)."
 	else
-		admin_notice("<span class='danger'>Failed to load the dictionary!</span>", R_DEBUG)
+		admin_notice("<span class='danger'>Ошибка загрузки словаря!</span>", R_DEBUG)
 	sleep(-1)
+
+	admin_notice("<span class='danger'>Загружаю донаты...</span>", R_DEBUG)
+	sleep(-1)
+/*	var/F6 = file("SQL/donatelist.txt")
+	if (fexists(F6))
+		var/list/donate_temp = file2list(F6,"\n")
+		for (var/i in donate_temp)
+			if (findtext(i, "="))
+				var/list/current = splittext(i, "=")
+				donate_list += current[1]
+	else
+		admin_notice("<span class='danger'>Failed to load donate!</span>", R_DEBUG)
+	sleep(-1)*/
 /////////////////PERSISTENCE STUFF/////////////////////
 /*	var/Fp = file("set_persistent.py")
 	if (fexists(Fp))
@@ -137,8 +150,8 @@
 			map.default_research = 19
 		map.gamemode = "Persistent (Auto-Research)"
 		config.allow_vote_restart = FALSE
-		world << "<big><b>The current round has been set as a Persistent Round.</b></big>"
+		world << "<big><b>Данный раунд теперь Продолжительный.</b></big>"
 
 	//////////////////////////////////////////////////////
-	admin_notice("<span class='danger'>Initializations complete.</span>", R_DEBUG)
+	admin_notice("<span class='danger'>Инициализация завершена.</span>", R_DEBUG)
 	sleep(-1)

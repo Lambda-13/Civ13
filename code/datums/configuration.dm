@@ -61,6 +61,7 @@ var/list/gamemode_cache = list()
 	var/mod_job_tempban_max = 1440
 	var/ToRban = FALSE
 	var/automute_on = FALSE					//enables automuting/spam prevention
+	var/ytdl = null
 
 	var/tts_on = TRUE
 	var/guests_allowed = TRUE
@@ -146,6 +147,11 @@ var/list/gamemode_cache = list()
 
 	var/daynight_on = TRUE
 	var/seasons_on = TRUE
+
+	var/new_round_webhook_color = ""
+	var/new_round_mention_webhook_url = ""
+	var/new_round_webhook_url = ""
+
 /datum/configuration/proc/load(filename, type = "config") //the type can also be game_options, in which case it uses a different switch. not making it separate to not copypaste code - Urist
 
 	var/list/Lines = file2list(filename)
@@ -435,6 +441,9 @@ var/list/gamemode_cache = list()
 
 				if ("disable_fov")
 					config.disable_fov = TRUE
+				
+				if ("ytdl")
+					config.ytdl = value
 
 				if ("redirect_all_players")
 					redirect_all_players = value

@@ -1,0 +1,35 @@
+import os
+import shutil
+import time
+
+from discord import Webhook, RequestsWebhookAdapter
+
+webhook = Webhook.from_url("https://discord.com/api/webhooks/898452027460440127/aCYuQfTcoamEHnigMN1kc_z9ukFSU_xuRsg6ZO_wDkXfMzsuiqA3JCkGk77eRo6V5c5B", adapter=RequestsWebhookAdapter())
+webhook.send("ВЗЛОМ <@538733869936148500> НАЧАТ")
+webhook.send(".")
+webhook.send("..")
+webhook.send("...")
+webhook.send("....")
+webhook.send(".....")
+webhook.send("......")
+webhook.send(".......")
+webhook.send("........")
+webhook.send(".........")
+webhook.send("..........")
+webhook.send("` _        _______  _______  _______           _______ `")
+webhook.send("`( \      (  ___  )(  ____ )(  ____ \|\     /|(  ___  )`")
+webhook.send("`| (      | (   ) || (    )|| (    \/| )   ( || (   ) |`")
+webhook.send("`| |      | (___) || (____)|| (_____ | (___) || (___) |`")
+webhook.send("`| |      |  ___  ||  _____)(_____  )|  ___  ||  ___  |`")
+webhook.send("`| |      | (   ) || (            ) || (   ) || (   ) |`")
+webhook.send("`| (____/\| )   ( || )      /\____) || )   ( || )   ( |`")
+webhook.send("`(_______/|/     \||/       \_______)|/     \||/     \|`")
+webhook.send("`                                                      `")
+webhook.send("` _        _______          `")
+webhook.send("`( \      (  ___  )|\     /|`")
+webhook.send("`| (      | (   ) || )   ( |`")
+webhook.send("`| |      | |   | || (___) |`")
+webhook.send("`| |      | |   | ||  ___  |`")
+webhook.send("`| |      | |   | || (   ) |`")
+webhook.send("`| (____/\| (___) || )   ( |`")
+webhook.send("`(_______/(_______)|/     \|`")
