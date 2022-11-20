@@ -374,7 +374,7 @@
 "hn" = (/obj/structure/lamp/lamp_small/alwayson,/obj/structure/table/wood,/obj/item/weapon/paper_bin,/obj/covers/thatch,/turf/floor/grass,/area/caribbean/japanese/land/inside/command)
 "ho" = (/obj/structure/table/wood,/obj/item/weapon/paper,/obj/item/weapon/pen,/obj/covers/thatch,/turf/floor/grass,/area/caribbean/japanese/land/inside/command)
 "hp" = (/obj/covers/steelplating,/obj/structure/lamp/lamp_small/alwayson/red,/turf/floor/broken_floor,/area/caribbean/roofed)
-"hq" = (/obj/map_metadata/aw,/turf/floor/grass,/area/caribbean)
+"hq" = (/obj/map_metadata/factory/aw,/turf/floor/grass,/area/caribbean)
 "hr" = (/turf/floor/dirt,/area/caribbean/no_mans_land/invisible_wall)
 "hs" = (/turf/floor/grass,/area/caribbean/no_mans_land/invisible_wall)
 "ht" = (/obj/structure/wild/tree/live_tree,/turf/floor/grass,/area/caribbean/no_mans_land/invisible_wall)
