@@ -380,6 +380,7 @@
 	attack_sound = 'sound/weapons/punch1.ogg'
 	health = 60
 	maxHealth = 60
+	can_ride = TRUE
 	melee_damage_lower = 2
 	melee_damage_upper = 6
 	stop_automated_movement_when_pulled = 1
@@ -410,6 +411,7 @@
 	response_harm   = "kicks"
 	attacktext = "kicked"
 	health = 60
+	can_ride = TRUE
 	var/piglet = FALSE
 	var/datum/reagents/udder = null
 	var/pregnant = FALSE
