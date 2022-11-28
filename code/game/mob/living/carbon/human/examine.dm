@@ -56,35 +56,35 @@
 				if (!wear_suit)
 					tie_msg += ". На одежде видно [lowertext(russian_list(U.accessories))]"
 		if (w_uniform.blood_DNA)
-			msg += "<span class='warning'>[T.He_ru] носит \icon[w_uniform] [w_uniform.gender==PLURAL?"some":"a"] [w_uniform.name][(w_uniform.blood_color != "#030303") ? "(в крови)" : "(в масле)"][tie_msg]!</span>\n"
+			msg += "<span class='warning'>[T.He_ru] носит \icon[w_uniform] [w_uniform.name][(w_uniform.blood_color != "#030303") ? "(в крови)" : "(в масле)"][tie_msg]!</span>\n"
 		else
 			msg += "[T.He_ru] носит \icon[w_uniform] [w_uniform][tie_msg].\n"
 
 	//head
 	if (head)
 		if (head.blood_DNA)
-			msg += "<span class='warning'>На голове \icon[head] [head.gender==PLURAL?"some":"a"] [head.name] [(head.blood_color != "#030303") ? "(в крови)" : "(в масле)"]!</span>\n"
+			msg += "<span class='warning'>На голове \icon[head] [head.name] [(head.blood_color != "#030303") ? "(в крови)" : "(в масле)"]!</span>\n"
 		else
 			msg += "На голове \icon[head] [head].\n"
 
 	//suit/armor
 	if (wear_suit)
 		if (wear_suit.blood_DNA)
-			msg += "<span class='warning'>[T.He_ru] одет[T.he=="he"?"":"а"] в \icon[wear_suit] [wear_suit.gender==PLURAL?"some":"a"] [wear_suit.name] [(wear_suit.blood_color != "#030303") ? "(в крови)" : "(в масле)"]!</span>\n"
+			msg += "<span class='warning'>[T.He_ru] одет[T.he=="he"?"":"а"] в \icon[wear_suit] [wear_suit.name] [(wear_suit.blood_color != "#030303") ? "(в крови)" : "(в масле)"]!</span>\n"
 		else
 			msg += "[T.He_ru] одет[T.he=="he"?"":"а"] в \icon[wear_suit] [wear_suit].\n"
 
 	//back
 	if (back)
 		if (back.blood_DNA)
-			msg += "<span class='warning'>На спине висит \icon[back] [back.gender==PLURAL?"some":"a"] [back] [(back.blood_color != "#030303") ? "(в крови)" : "(в масле)"].</span>\n"
+			msg += "<span class='warning'>На спине висит \icon[back] [back] [(back.blood_color != "#030303") ? "(в крови)" : "(в масле)"].</span>\n"
 		else
 			msg += "На спине висит \icon[back] [back].\n"
 
 	//shoulder
 	if (shoulder)
 		if (shoulder.blood_DNA)
-			msg += "<span class='warning'>На плече висит \icon[shoulder] [shoulder.gender==PLURAL?"some":"a"] [shoulder] [(shoulder.blood_color != "#030303") ? "(в крови)" : "(в масле)"].</span>\n"
+			msg += "<span class='warning'>На плече висит \icon[shoulder] [shoulder] [(shoulder.blood_color != "#030303") ? "(в крови)" : "(в масле)"].</span>\n"
 		else
 			msg += "На плече висит \icon[shoulder] [shoulder].\n"
 
@@ -92,21 +92,21 @@
 	//left hand
 	if (l_hand)
 		if (l_hand.blood_DNA)
-			msg += "<span class='warning'>В левой руке у [T.his_ru] \icon[l_hand] [l_hand.gender==PLURAL?"some":"a"] [l_hand.name] [(l_hand.blood_color != "#030303") ? "(в крови)" : "(в масле)"]!</span>\n"
+			msg += "<span class='warning'>В левой руке у [T.his_ru] \icon[l_hand] [l_hand.name] [(l_hand.blood_color != "#030303") ? "(в крови)" : "(в масле)"]!</span>\n"
 		else
 			msg += "В левой руке у [T.his_ru] \icon[l_hand] [l_hand].\n"
 
 	//right hand
 	if (r_hand)
 		if (r_hand.blood_DNA)
-			msg += "<span class='warning'>В правой руке у [T.his_ru] \icon[r_hand] [r_hand.gender==PLURAL?"some":"a"] [r_hand.name] [(r_hand.blood_color != "#030303") ? "(в крови)" : "(в масле)"]!</span>\n"
+			msg += "<span class='warning'>В правой руке у [T.his_ru] \icon[r_hand] [r_hand.name] [(r_hand.blood_color != "#030303") ? "(в крови)" : "(в масле)"]!</span>\n"
 		else
 			msg += "В правой руке у [T.his_ru] \icon[r_hand] [r_hand].\n"
 
 	//gloves
 	if (gloves && !skipgloves)
 		if (gloves.blood_DNA)
-			msg += "<span class='warning'>На [T.his_ru] руках \icon[gloves] [gloves.gender==PLURAL?"some":"a"] [gloves.name] [(gloves.blood_color != "#030303") ? "(в крови)" : "(в масле)"]!</span>\n"
+			msg += "<span class='warning'>На [T.his_ru] руках \icon[gloves] [gloves.name] [(gloves.blood_color != "#030303") ? "(в крови)" : "(в масле)"]!</span>\n"
 		else
 			msg += "На [T.his_ru] руках \icon[gloves] [gloves].\n"
 	else if (blood_DNA)
@@ -123,14 +123,14 @@
 	//belt
 	if (belt)
 		if (belt.blood_DNA)
-			msg += "<span class='warning'>На [T.his_ru] поясе висит \icon[belt] [belt.gender==PLURAL?"some":"a"] [belt.name] [(belt.blood_color != "#030303") ? "(в крови)" : "(в масле)"]!</span>\n"
+			msg += "<span class='warning'>На [T.his_ru] поясе висит \icon[belt] [belt.name] [(belt.blood_color != "#030303") ? "(в крови)" : "(в масле)"]!</span>\n"
 		else
 			msg += "На [T.his_ru] поясе висит \icon[belt] [belt].\n"
 
 	//shoes
 	if (shoes && !skipshoes)
 		if (shoes.blood_DNA)
-			msg += "<span class='warning'>На ногах у н[T.his_ru] \icon[shoes] [shoes.gender==PLURAL?"some":"a"] [shoes.name] [(shoes.blood_color != "#030303") ? "(в крови)" : "(в масле)"]!</span>\n"
+			msg += "<span class='warning'>На ногах у н[T.his_ru] \icon[shoes] [shoes.name] [(shoes.blood_color != "#030303") ? "(в крови)" : "(в масле)"]!</span>\n"
 		else
 			msg += "На ногах у н[T.his_ru] \icon[shoes] [shoes].\n"
 	else if (feet_blood_DNA)
@@ -142,7 +142,7 @@
 		if (istype(wear_mask, /obj/item/weapon/grenade))
 			descriptor = "в зубах"
 		if (wear_mask.blood_DNA)
-			msg += "<span class='warning'>А так-же \icon[wear_mask] [wear_mask.gender==PLURAL?"some":"a"] [wear_mask.name]  [(wear_mask.blood_color != "#030303") ? "(в крови)" : "(в масле)"] [descriptor]!</span>\n"
+			msg += "<span class='warning'>А так-же \icon[wear_mask] [wear_mask.name]  [(wear_mask.blood_color != "#030303") ? "(в крови)" : "(в масле)"] [descriptor]!</span>\n"
 		else
 			msg += ">А так-же \icon[wear_mask] [wear_mask] [descriptor].\n"
 
