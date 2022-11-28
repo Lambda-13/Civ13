@@ -11,6 +11,7 @@
 
 /obj/effect/decal/cleanable/cum/New()
 	..()
+	icon_state = pick(random_icon_states)
 	for(var/obj/effect/decal/cleanable/cum/jizz in src.loc)
 		if(jizz != src)
 			qdel(jizz)

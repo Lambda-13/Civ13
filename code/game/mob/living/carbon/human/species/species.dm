@@ -35,6 +35,8 @@
 	var/taste_sensitivity = TASTE_NORMAL				 // How sensitive the species is to minute tastes.
 
 	var/teeth_type = /obj/item/stack/teeth/generic 		 //What sort of teeth do the species have
+	var/genitals = 0						  //For erp
+	var/anus = 0							  //Also for erp
 
 	var/min_age = 18
 	var/max_age = 75
