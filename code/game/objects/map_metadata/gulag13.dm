@@ -267,7 +267,7 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 			for (var/mob/M in player_list)
 				M.client << warning_sound
 			G13.siren = TRUE
-			spawn(300)
+			spawn(30)
 				if (G13.siren)
 					G13.alarm_proc()
 				return
@@ -330,7 +330,7 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 			M.client << warning_sound
 		world << "<font size=3 color='red'><center><b>ВНИМАНИЕ</b><br>Тревога еще поднята!</center></font>"
 
-		spawn(150)
+		spawn(30)
 			if (siren)
 				alarm_proc()
 			return
