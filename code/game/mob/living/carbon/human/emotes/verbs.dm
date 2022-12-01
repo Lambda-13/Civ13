@@ -78,10 +78,6 @@
 	set category = "Действия"
 	emote("look")
 
-/mob/living/human/verb/moan()
-	set category = "Действия"
-	emote("moan")
-
 /mob/living/human/verb/mumble()
 	set category = "Действия"
 	emote("mumble")

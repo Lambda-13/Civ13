@@ -697,3 +697,11 @@ div.notice
 }
 </style>
 "}
+
+//Counters for the end of the round.
+var/global/times_came = 0
+var/global/shit_left = 0
+var/global/piss_left = 0
+var/global/deaths_in_space = 0
+var/global/total_deaths = 0
+var/global/teeth_lost = 0

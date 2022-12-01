@@ -1102,6 +1102,8 @@
 #include "interface\skin.dmf"
 #include "lambda\sanecman\code\_globalvars\text.dm"
 #include "lambda\sanecman\code\serverside\hesheit.dm"
+#include "lambda\sanecman\code\erp\interactions.dm"
+#include "lambda\sanecman\code\game\objects\effects\decals\cleanable\misc.dm"
 #include "lambda\sanecman\code\serverside\lists.dm"
 #include "lambda\sanecman\code\serverside\padezhi.dm"
 #include "lambda\sanecman\code\serverside\debug.dm"
