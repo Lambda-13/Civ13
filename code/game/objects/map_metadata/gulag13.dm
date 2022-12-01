@@ -1,8 +1,8 @@
 
 /obj/map_metadata/gulag13
 	ID = MAP_GULAG13
-	title = "GULAG 13"
-	no_winner ="The round is proceeding normally."
+	title = "ГУЛАГ 13"
+	no_winner ="Раунд окончен."
 	lobby_icon = "icons/lobby/gulag.png"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/tundra, /area/caribbean/no_mans_land/invisible_wall/one)
 	respawn_delay = 3600
@@ -26,7 +26,7 @@
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET, WEATHER_EXTREME)
 	songs = list(
 		"Red Army Choir - Slavery and Suffering:1" = "sound/music/slavery_and_suffering.ogg")
-	gamemode = "Prison Simulation"
+	gamemode = "Симулятор тюрьмы"
 	var/list/points = list(
 		list("Guards",0,0),
 		list("German",0,0),
@@ -131,7 +131,7 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 /obj/map_metadata/gulag13/proc/check_points_msg()
 	check_points()
 	spawn(1)
-		world << "<font size = 4><span class = 'notice'><b>Current Score:</b></font></span>"
+		world << "<font size = 4><span class = 'notice'><b>На данный момент:</b></font></span>"
 		for (var/i=1,i<=points.len,i++)
 			world << "<br><font size = 3><span class = 'notice'>[points[i][1]]: <b>[points[i][2]+points[i][3]]</b></span></font>"
 		var/donecheck = FALSE
@@ -162,8 +162,8 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 
 
 /obj/item/weapon/prisoner_passport
-	name = "Prisoner's Documents"
-	desc = "The identification papers of a prisoner."
+	name = "документы заключённого"
+	desc = "Паспорт заключённого."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "passport"
 	item_state = "paper"
@@ -187,9 +187,9 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 				var/mob/living/human/H = loc
 				document_name = H.real_name
 				owner = H
-				name = "[document_name] prisoner documents"
-				desc = "The identification papers of <b>[document_name]</b>."
-				var/crimereason = "Криминальное Отродье"
+				name = "документы заключённого [document_name]"
+				desc = "Это паспорт <b>[document_name]</b>."
+				var/crimereason = "Криминальное отродье"
 				if (istype(H.original_job, /datum/job/civilian/prisoner))
 					var/datum/job/civilian/prisoner/P = H.original_job
 					switch(H.nationality)
@@ -198,7 +198,7 @@ obj/map_metadata/gulag13/job_enabled_specialcheck(var/datum/job/J)
 						if ("German")
 							crimereason = "Воевал на стороне фашистских захватчиков в годы Великой Отечественной войны."
 						if ("Ukrainian")
-							crimereason = "Помогал Бандеровцаи под [pick("Львовом","Терноплем", "Лутском", "Челмы")]."
+							crimereason = "Помогал Бандеровцам под [pick("Львовом","Терноплем", "Лутском", "Челмы")]."
 						if ("Polish")
 							crimereason = "Помогал Войску Крайова под [pick("Гродно","Вроклавом", "Лодзом", "Львовом")]."
 						if ("Japanese")
