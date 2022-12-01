@@ -161,12 +161,24 @@
 
 /obj/map_metadata/abashiri/proc/alarm_proc()
 	if (siren)
-		var/warning_sound = sound('sound/misc/siren.ogg', repeat = FALSE, wait = TRUE, volume = 50, channel = 777)
+		var/warning_sound = sound('lambda/sanecman/sound/alarm/border-alarm.ogg', repeat = FALSE, wait = TRUE, volume = 50, channel = 777)
+		for (var/mob/M in player_list)
+			M.client << warning_sound
+		sleep(30)
+		for (var/mob/M in player_list)
+			M.client << warning_sound
+		sleep(30)
+		for (var/mob/M in player_list)
+			M.client << warning_sound
+		sleep(30)
+		for (var/mob/M in player_list)
+			M.client << warning_sound
+		sleep(30)
 		for (var/mob/M in player_list)
 			M.client << warning_sound
 		world << "<font size=3 color='red'><center><b>ВНИМАНИЕ</b><br>Тревога еще работает!</center></font>"
 
-		spawn(285)
+		spawn(150)
 			if (siren)
 				alarm_proc()
 			return
