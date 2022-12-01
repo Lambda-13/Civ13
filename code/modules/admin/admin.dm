@@ -337,6 +337,30 @@ proc/admin_notice(var/message, var/rights)
 		world << "<big><span class=notice><b>[messaget]</b></big><p style='text-indent: 30px'>[message]</p></span>"
 		log_admin("Announce: [key_name(usr)] - [messaget] : [message]")
 
+///datum/admins/proc/new_ic_announce()
+//	set category = "Особенное"
+//	set name = "New IC Announcement"
+//	set desc = "Оповещение от чего-то"
+//	if (!check_rights(0))	return
+//	var/messaget = input("Сообщение от кого:", "IC Announcement", "Сообщение от коммандующего", null)
+//	var/message = input("Собственно само сообщение:", "IC Announcement", "Внимание", null)
+//	var/sound = 'lambda/sanecman/sound/announce/tgstyle.ogg'
+//	var/messagesound = WWinput(src, "Выбери звук анонса:", "Свистоперделка", "ТГ - Сообщение", list("ТГ - Сообщение", "ТГ - Сообщение при красном коде", "Бумаги, пожалуйста", "LifeWeb - Тюрьма"))
+//		if (messagesound == "ТГ - Сообщение")
+//			sound = 'lambda/sanecman/sound/announce/tgstyle.ogg'
+//		if (messagesound == "ТГ - Сообщение при красном коде")
+//			sound = 'lambda/sanecman/sound/announce/tgstyle.ogg'
+//		if (messagesound == "Бумаги, пожалуйста")
+//			sound = 'lambda/sanecman/sound/announce/tgstyle.ogg'
+//		if (messagesound == "LifeWeb - Тюрьма")
+//			sound = 'lambda/sanecman/sound/announce/tgstyle.ogg'
+//	if (message)
+//		if (!check_rights(R_SERVER,0))
+//			message = sanitize(message, 500, extra = FALSE)
+//		message = replacetext(message, "\n", "<br>") // required since we're putting it in a <p> tag
+//		world << "<big><span class=notice><b>[messaget]</b></big><p style='text-indent: 30px'>[message]</p></span>"
+//		world << sound
+//		log_admin("Announce: [key_name(usr)] - [messaget] : [message]")
 
 /datum/admins/proc/toggleooc()
 	set category = "Сервер"
