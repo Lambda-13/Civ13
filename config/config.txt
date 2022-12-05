@@ -12,7 +12,7 @@ ALLOWED_GAMEMODES ALL
 #HUB_BODY Как станция, только без космоса
 
 ## Use a link to a banner on your hub message? Comment out if not
-HUB_BANNER_URL https://i.imgur.com/napac0L.png
+HUB_BANNER_URL https://i.imgur.com/1TyrlhR.png
 
 ## Open the hub discord link in a new window? 1 = yes, 0 = no
 OPEN_HUB_DISCORD_IN_NEW_WINDOW 1

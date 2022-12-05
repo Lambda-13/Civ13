@@ -319,14 +319,14 @@ var/world_topic_spam_protect_time = world.timeofday
 		s += "<center><a href=\"[config.discordurl]\"><b>[customserver_name()]</b></a></center><br>"
 
 	if (config.hub_banner_url)
-		s += "<img src=\"https://i.imgur.com/ujds3x0.png\"><br>"
-	if (map)
-		s += "<b>Map:</b> [map.title] ([roundduration2text()])<br>"
+		s += "<img src=\"https://i.imgur.com/1TyrlhR.png\"><br>"
+//	if (map)
+//		s += "<b>Map:</b> [map.title] ([roundduration2text()])<br>"
 
 	// we can't execute code in config settings, so this is a workaround.
 	config.hub_body = replacetext(config.hub_body, "ROUNDTIME", capitalize(lowertext(roundduration2text())))
-	if (map)
-		s += "<b>Gamemode:</b> [map.gamemode]"
+//	if (map)
+//		s += "<b>Gamemode:</b> [map.gamemode]"
 	if (config.hub_body)
 		s += config.hub_body
 
