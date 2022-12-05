@@ -63,8 +63,7 @@
 	receiver = TRUE
 	receiver_on = TRUE
 	transmitter_on = FALSE
-	not_movable = FALSE
-	not_disassemblable = TRUE
+	anchored = TRUE
 	powerneeded = 0
 
 /obj/item/weapon/radio/walkietalkie/lfwb/castle/inmachine
@@ -73,8 +72,7 @@
 	receiver = TRUE
 	receiver_on = TRUE
 	transmitter_on = FALSE
-	not_movable = FALSE
-	not_disassemblable = TRUE
+	anchored = TRUE
 	powerneeded = 0
 
 /obj/item/weapon/radio/walkietalkie/lfwb/castle/intercom
@@ -85,8 +83,7 @@
 	receiver = TRUE
 	receiver_on = TRUE
 	transmitter_on = TRUE
-	not_movable = FALSE
-	not_disassemblable = TRUE
+	anchored = TRUE
 	powerneeded = 0
 
 //Командование
@@ -98,8 +95,7 @@
 	receiver = TRUE
 	receiver_on = TRUE
 	transmitter_on = FALSE
-	not_movable = FALSE
-	not_disassemblable = TRUE
+	anchored = TRUE
 	powerneeded = 0
 
 /obj/item/weapon/radio/walkietalkie/lfwb/command/intercom
@@ -110,8 +106,7 @@
 	receiver = TRUE
 	receiver_on = TRUE
 	transmitter_on = TRUE
-	not_movable = FALSE
-	not_disassemblable = TRUE
+	anchored = TRUE
 	powerneeded = 0
 
 //Захватчик
@@ -161,8 +156,7 @@
 	receiver = TRUE
 	receiver_on = TRUE
 	transmitter_on = TRUE
-	not_movable = FALSE
-	not_disassemblable = TRUE
+	anchored = TRUE
 	powerneeded = 0
 
 /obj/item/weapon/radio/walkietalkie/lfwb/station/mintercom
@@ -173,8 +167,7 @@
 	receiver = TRUE
 	receiver_on = TRUE
 	transmitter_on = FALSE
-	not_movable = FALSE
-	not_disassemblable = TRUE
+	anchored = TRUE
 	powerneeded = 0
 
 //Душегубы
