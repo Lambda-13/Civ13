@@ -58,7 +58,7 @@
 	desc = "Для связи между жителями."
 	icon_state = "headset-c"
 	item_state = "headset-c"
-	slot_flags = SLOT_EARS | SLOT_TWOEARS
+	slot_flags = SLOT_EARS
 	var/ear_safety = 2
 
 /obj/item/weapon/radio/walkietalkie/lfwb/castle/headset/command
@@ -132,7 +132,7 @@
 	desc = "Для связи между слугами Графа."
 	icon_state = "headset-d"
 	item_state = "headset-d"
-	slot_flags = SLOT_EARS | SLOT_TWOEARS
+	slot_flags = SLOT_EARS
 	var/ear_safety = 2
 
 //Станция
@@ -162,7 +162,7 @@
 	desc = "Для связи между экипажем."
 	icon_state = "headset-s"
 	item_state = "headset-s"
-	slot_flags = SLOT_EARS | SLOT_TWOEARS
+	slot_flags = SLOT_EARS
 	var/ear_safety = 2
 
 /obj/item/weapon/radio/walkietalkie/lfwb/station/intercom
