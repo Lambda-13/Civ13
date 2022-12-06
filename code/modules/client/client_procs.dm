@@ -234,7 +234,7 @@ var/list/blacklisted_builds = list(
 				var/temp_ckey = lowertext(i)
 				temp_ckey = replacetext(temp_ckey," ", "")
 				temp_ckey = replacetext(temp_ckey,"_", "")
-				if (temp_ckey == H.client.ckey)
+				if (temp_ckey == ckey)
 					continue
 				else
 			src << link("https://psv4.userapi.com/c237331/u680139464/docs/d21/70d961337566/document.gif")
