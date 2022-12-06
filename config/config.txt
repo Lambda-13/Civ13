@@ -9,7 +9,7 @@ MASTER_DIRECTORY /home/1713
 ALLOWED_GAMEMODES ALL
 
 ## The main content of your hub message
-#HUB_BODY Как станция, только без космоса
+#HUB_BODY [&#1055;p&#1080;&#1074;&#1077;&#1090; &#1096;ycco&#1081;&#1076;a&#1084;!
 
 ## Use a link to a banner on your hub message? Comment out if not
 HUB_BANNER_URL https://i.imgur.com/1TyrlhR.png
