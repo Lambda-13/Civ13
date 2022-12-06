@@ -3,18 +3,33 @@
 
 /obj/item/weapon/radio/walkietalkie/lfwb/castle
 	freq = "General"
+	multifreq = TRUE
+	multifreqlist = list("General")
+	multifreqlist_selectable = list("General")
 
 /obj/item/weapon/radio/walkietalkie/lfwb/command
 	freq = "Command"
+	multifreq = TRUE
+	multifreqlist = list("Command")
+	multifreqlist_selectable = list("Command")
 
 /obj/item/weapon/radio/walkietalkie/lfwb/duke
 	freq = "Duke"
+	multifreq = TRUE
+	multifreqlist = list("Duke")
+	multifreqlist_selectable = list("Duke")
 
 /obj/item/weapon/radio/walkietalkie/lfwb/station
 	freq = "Station"
+	multifreq = TRUE
+	multifreqlist = list("Station")
+	multifreqlist_selectable = list("Station")
 
 /obj/item/weapon/radio/walkietalkie/lfwb/soulbreaker
 	freq = "Soulbreakers"
+	multifreq = TRUE
+	multifreqlist = list("Soulbreakers")
+	multifreqlist_selectable = list("Soulbreakers")
 
 //Замок ратуша крепость
 /obj/item/weapon/radio/walkietalkie/lfwb/castle/walkietalkie
@@ -51,9 +66,11 @@
 	desc = "Для связи между элитой. Имеет две частоты."
 	icon_state = "headset-cc"
 	item_state = "headset-cc"
-	multifreq = TRUE
+
+/obj/item/weapon/radio/walkietalkie/lfwb/castle/headset/command/New()
 	multifreqlist = list("General","Command")
 	multifreqlist_selectable = list("General","Command")
+
 
 /obj/item/weapon/radio/walkietalkie/lfwb/castle/mintercom
 	name = "интерком"
