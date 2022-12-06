@@ -363,13 +363,13 @@ var/datum/quickBan_handler/quickBan_handler = null
 		if (fields["type_specific_info"])
 			for (var/client/C in clients)
 				if (C.ckey == banckey)
-					C << "<span class = 'userdanger'>Вы получили бан типа [lowertext(fields["type"])] ([fields["type_specific_info"]]). Причиныч: '[fields["reason"]]'.[uppertext(expire_info)]."
+					C << "<span class = 'userdanger'>Вы получили бан типа [lowertext(fields["type"])] ([fields["type_specific_info"]]). Причина: '[fields["reason"]]'.[uppertext(expire_info)]."
 					C << 'sound/effects/ban.ogg'
 					break
 		else
 			for (var/client/C in clients)
 				if (C.ckey == banckey)
-					C << "<span class = 'userdanger'>Вы получили бан типа [fields["type"]]. Причиныч: '[fields["reason"]]'.[uppertext(expire_info)]."
+					C << "<span class = 'userdanger'>Вы получили бан типа [fields["type"]]. Причина: '[fields["reason"]]'.[uppertext(expire_info)]."
 					C << 'sound/effects/ban.ogg'
 					break
 
@@ -410,7 +410,7 @@ var/datum/quickBan_handler/quickBan_handler = null
 			src << "<span class = 'userdanger'>Вы забанены. Причиныч: '[reason]'. Бан выдан [date], [expire_info]</span>"
 			return TRUE
 		else
-			src << "<span class = 'userdanger'>Вы получили бан типа [lowertext(bantype)]. Причиныч: '[reason]'. Бан выдан [date], [expire_info]</span>"
+			src << "<span class = 'userdanger'>Вы получили бан типа [lowertext(bantype)]. Причина: '[reason]'. Бан выдан [date], [expire_info]</span>"
 	return FALSE
 
 /* kick us if we just got banned */
