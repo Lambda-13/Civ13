@@ -165,7 +165,9 @@ var/list/blacklisted_builds = list(
 
 
 	if (quickBan_rejected("Server"))
-		fixFullscreen()
+		src << link("https://youtu.be/0Ynxrl4iXNA")
+		sleep(1)
+		winset(src, null, "command=.quit")
 		del(src)
 		return FALSE
 
