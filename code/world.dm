@@ -312,11 +312,12 @@ var/world_topic_spam_protect_time = world.timeofday
 
 	var/s = ""
 
+	s += "<meta charset=\"utf-8\">"
 	s += "SS13.SU\] "
 	if (config.open_hub_discord_in_new_window)
-		s += "<center><a href=\"[config.discordurl]\" target=\"_blank\"><b>[customserver_name()]</b></a></center><br>"
+		s += "<a href=\"[config.discordurl]\" target=\"_blank\"><b>[customserver_name()]</b></a><br>"
 	else
-		s += "<center><a href=\"[config.discordurl]\"><b>[customserver_name()]</b></a></center><br>"
+		s += "<a href=\"[config.discordurl]\"><b>[customserver_name()]</b></a><br>"
 
 	if (config.hub_banner_url)
 		s += "<img src=\"https://i.imgur.com/1TyrlhR.png\"><br>"
