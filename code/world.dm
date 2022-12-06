@@ -56,7 +56,7 @@ var/global/list/dictionary_list = list()
 		game_id = "[c[(t % l) + 1]][game_id]"
 		t = round(t / l)
 
-var/world_is_open = TRUE
+var/world_is_open = FALSE
 
 /world
 	mob = /mob/new_player
