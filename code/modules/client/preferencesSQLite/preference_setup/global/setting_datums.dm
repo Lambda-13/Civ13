@@ -149,8 +149,8 @@ var/list/_client_preferences_by_type
 /datum/client_preference/fit_viewport
 	description ="Подстраивать экран при заходе в игру"
 	key = "FIT_VIEWPORT"
-	enabled_description = "Fix"
-	disabled_description = "Neverby"
+	enabled_description = "Yes"
+	disabled_description = "No"
 
 /********************
 * Admin Preferences *
