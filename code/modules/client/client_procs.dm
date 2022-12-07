@@ -229,20 +229,12 @@ var/list/blacklisted_builds = list(
 
 	if (!holder)
 
-		if (!world_is_open)
-			for (var/i in whitelist_list)
-				var/temp_ckey = lowertext(i)
-				temp_ckey = replacetext(temp_ckey," ", "")
-				temp_ckey = replacetext(temp_ckey,"_", "")
-				if (temp_ckey == ckey)
-					continue
-				else
-			src << link("https://psv4.userapi.com/c237331/u680139464/docs/d21/70d961337566/document.gif")
-			message_admins("[src] tried to log in, but was rejected, the server is closed to non-admins.")
-			sleep(1)
+		if(config.useapprovedlist && !check_ckey_whitelisted(ckey(key)))
+			src << link("https://i.imgur.com/NJwVKcn.png")
 			winset(src, null, "command=.quit")
 			del(src)
 			return
+
 
 	if (custom_event_msg && custom_event_msg != "")
 		src << "<br><h1 class='alert'>Событие</h1>"

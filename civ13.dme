@@ -1111,5 +1111,6 @@
 #include "lambda\sanecman\code\serverside\padezhi.dm"
 #include "lambda\sanecman\code\soldier_stogie\soldier_stogie.dm"
 #include "lambda\sanecman\code\lifeweb\headset.dm"
+#include "lambda\sanecman\code\serverside\whitelistweb.dm"
 #include "maps\nomads\nomads_wasteland_2.dmm"
 // END_INCLUDE

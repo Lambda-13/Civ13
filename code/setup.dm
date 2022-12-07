@@ -105,6 +105,9 @@
 		admin_notice("<span class='danger'>Ошибка загрузки словаря!</span>", R_DEBUG)
 	sleep(-1)
 
+	admin_notice("<span class='danger'>Загружаю новый вайтлист...</span>", R_DEBUG)
+	load_ckey_whitelist()
+
 	admin_notice("<span class='danger'>Загружаю донаты...</span>", R_DEBUG)
 	sleep(-1)
 /*	var/F6 = file("SQL/donatelist.txt")

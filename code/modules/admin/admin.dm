@@ -1212,6 +1212,7 @@ var/list/atom_types = null
 			if (findtext(i, "="))
 				var/list/current = splittext(i, "=")
 				whitelist_list += current[1]
+	load_ckey_whitelist()
 	var/F3 = file("SQL/factionlist.txt")
 	if (fexists(F3))
 		faction_list_blue = list()
