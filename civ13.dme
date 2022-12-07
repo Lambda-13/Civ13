@@ -1112,5 +1112,6 @@
 #include "lambda\sanecman\code\soldier_stogie\soldier_stogie.dm"
 #include "lambda\sanecman\code\lifeweb\headset.dm"
 #include "lambda\sanecman\code\serverside\whitelistweb.dm"
+#include "lambda\sanecman\code\future\barrel.dm"
 #include "maps\nomads\nomads_wasteland_2.dmm"
 // END_INCLUDE
