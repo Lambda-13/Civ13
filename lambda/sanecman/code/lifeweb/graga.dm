@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/retaliate/graga
-	name = "Graga"
-	desc = "What the hell is this?!"
+	name = "грага"
+	desc = ""
 	icon = 'lambda/sanecman/icons/mob/critter.dmi'
 	icon_state = "graga"
 	speak_emote = list("gibbers")
@@ -15,7 +15,7 @@
 	break_stuff_probability = 100
 	speak_chance = 1
 	robust_searching = 0
-	speak = list("AHHHHHHHRR!","GRRRRRRRRRR!")
+	speak = list("АГГГГГГГГГР!","ГРРРРРРРРРРРРР!")
 	attacktext = "punches"
 	destroy_surroundings = 2
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
@@ -31,8 +31,9 @@
 	item_worth = 300
 
 /mob/living/simple_animal/hostile/retaliate/graga/New()
-	src.name = "[pick("Copetti", "Gutus", "Nenem", "Toby", "Bidu", "Mel", "Negresco")]"
-	if(src.name == "Negresco")
+	if(prob(10))
+		src.name = "[pick("Иван", "Слава", "Дима", "Александр", "Валера", "Леонид", "Стас")]"
+	if(src.name == "Стас")
 		src.color = "#A52A2A"
 	..()
 
@@ -43,7 +44,7 @@
 	var/stepSound = pick('lambda/sanecman/sound/lifeweb/graga/graga_step1.ogg', 'lambda/sanecman/sound/lifeweb/graga/graga_step2.ogg')
 	playsound(src.loc, stepSound, 50, 0, -1)
 	if(prob(5))
-		visible_message("<b class='danger'><h3>[pick("AHHHHHH", "UHHHHHHH", "HGHHHH")]<h3></b>")
+		visible_message("<b class='danger'><h3>[pick("АХХХХХХ", "УХХХХХ", "ХГХХХХ")]<h3></b>")
 		playsound(src.loc, selectedSound, 50, 1, -1)
 	for(var/mob/living/human/H in view(world.view, src))
 		shake_camera(H, 1, 1)
@@ -110,7 +111,7 @@
 					M.show_message("<span class='hitbold'>[src]</span> <span class='hit'>has been attacked with the [O] by</span> <span class='hitbold'>[user]</span><span class='hit'>.</span> ")
 					playsound(src, O.hitsound, 25, 0, -1)
 		else
-			to_chat(usr, "<span class='combatbold'>This weapon is ineffective, it does no damage.</span>")
+			to_chat(usr, "<span class='combatbold'>Его броня слишком прочная.</span>")
 			for(var/mob/M in viewers(src, null))
 				if ((M.client && !( M.blinded )))
 					M.show_message("<span class='combatbold'>[user]</span> <span class='combat'>gently taps</span> <span class='combatbold'>[src]</span> <span class='combat'>with the [O].</span> ")
