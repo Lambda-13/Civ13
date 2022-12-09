@@ -59,3 +59,6 @@
 	var/tactic = "charge"
 	var/life_forced = FALSE
 	var/datum/language/default_language
+
+	var/wall_smash = 0 //if they can smash walls
+	var/deals_blunt = 0
