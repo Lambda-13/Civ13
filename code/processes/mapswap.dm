@@ -76,33 +76,35 @@
 
 			if (servertime == "20" || servertime == "21" || servertime == "22" || servertime == "23" || servertime == "24" || servertime == "00" || servertime == "01" || servertime == "02" || servertime == "03" || servertime == "04" || servertime == "05" || servertime == "06") // Проверка на ночное время
 				epochs = list(
-					"Chad Mode" = 15,
-					"Pre-Firearms (3000 B.C-1650 A.D.)" = 10,
-					"Early Fire Arms (1650-1930)" = 10,
-					"World War II (1931-1948)" = 10,
-					"Modern Fire Arms (1949-2021)" = 10,
-					"HRP TDM (Gulag, Voyage, Occupation, etc)" = 10,
-					"Civilization 13 (Nomads)" = 0,
-					"Civilization 13 (Colony & Pioneers)" = 5,
-					"Civilization 13 (Others)" = 5,
-					"Battle Royale" = 6,
-					"Fiction" = 10,
+					"Выживание (Режим Чада)" = 15,
+					"Каменный век (? - 3000 до н. э.)" = 10,
+					"Бронзовый век и средневековье (3000 до н.э. - 1650 н.э.)" = 10,
+					"Эра империализма (1650 - 1930)" = 10,
+					"Вторая мировая война (1931 - 1948)" = 10,
+					"Эра современности (1949 - 2021)" = 10,
+					"Командный бой и ролевая игра (ГУЛАГ, Воядж, Оккупация...)" = 5,
+					"Выживание (Номады)" = 0,
+					"Выживание (Колония, Пионеры, Богемия...)" = 5,
+					"Другое" = 5,
+					"Королевская битва" = 6,
+					"Альтернативная история" = 10,
 				)
 				world << "<big>Режим голосования - Ночной</big>"
 			else
 				epochs = list(
 					"Избранное" = 50,
-					"Chad Mode" = 15,
-					"Pre-Firearms (3000 B.C-1650 A.D.)" = 0,
-					"Early Fire Arms (1650-1930)" = 0,
-					"World War II (1931-1948)" = 0,
-					"Modern Fire Arms (1949-2021)" = 0,
-					"HRP TDM (Gulag, Voyage, Occupation, etc)" = 10,
-					"Civilization 13 (Nomads)" = 30,
-					"Civilization 13 (Colony & Pioneers)" = 20,
-					"Civilization 13 (Others)" = 15,
-					"Battle Royale" = 0,
-					"Fiction" = 0,
+					"Выживание (Режим Чада)" = 15,
+					"Каменный век (? - 3000 до н. э.)" = 0,
+					"Бронзовый век и средневековье (3000 до н.э. - 1650 н.э.)" = 0,
+					"Эра империализма (1650 - 1930)" = 0,
+					"Вторая мировая война (1931 - 1948)" = 0,
+					"Эра современности (1949 - 2021)" = 0,
+					"Командный бой и ролевая игра (ГУЛАГ, Воядж, Оккупация...)" = 10,
+					"Выживание (Номады)" = 15,
+					"Выживание (Колония, Пионеры, Богемия...)" = 10,
+					"Другое" = 10,
+					"Королевская битва" = 0,
+					"Альтернативная история" = 0,
 				)
 				world << "<big>Режим голосования - Дневной</big>"
 		ready = FALSE
@@ -150,7 +152,7 @@
 	if (is_ready())
 		ready = FALSE
 		epoch = vote.voted_epoch
-		if (epoch == "Modern Fire Arms (1949-2021)")
+		if (epoch == "Modern Fire Arms (1949-2021)" || epoch == "Эра современности (1949 - 2021)")
 	// 2013 - TDM
 			maps = list(
 				MAP_RETREAT = 6,
@@ -175,7 +177,7 @@
 				MAP_PERVOMAISK_CROSSING = 10,
 				MAP_WACO = 0,
 			)
-		else if (epoch == "World War II (1931-1948)")
+		else if (epoch == "World War II (1931-1948)" || epoch == "Вторая мировая война (1931 - 1948)")
 	// 1943 - TDM
 			maps = list(
 				MAP_REICHSTAG = 0,
@@ -200,7 +202,7 @@
 				MAP_NANJING = 14,
 			)
 
-		else if (epoch == "Early Fire Arms (1650-1930)")
+		else if (epoch == "Early Fire Arms (1650-1930)" || epoch == "Эра империализма (1650 - 1930)")
 	// 1903 - TDM
 			maps = list(
 				MAP_HILL_203 = 0,
@@ -222,17 +224,17 @@
 				MAP_ROBUSTA = 15,
 				MAP_SEKIGAHARA = 6,
 			)
-		else if (epoch == "Stone Age (?-3000 B.C.)")
+		else if (epoch == "Stone Age (?-3000 B.C.)" || epoch == "Каменный век (? - 3000 до н. э.)")
 			maps = list(
 				MAP_FOUR_KINGDOMS = 0,
 				MAP_TRIBES = 0,
 			)
-		else if (epoch == "Chad Mode")
+		else if (epoch == "Chad Mode" || epoch == "Выживание (Режим Чада)")
 	// chad mode group for TDM
 			maps = list(
 				MAP_JUNGLE_OF_THE_CHADS = 0,
 			)
-		else if (epoch == "Pre-Firearms (3000 B.C-1650 A.D.)")
+		else if (epoch == "Pre-Firearms (3000 B.C-1650 A.D.)" || epoch == "Бронзовый век и средневековье (3000 до н.э. - 1650 н.э.)")
 	//	1013 - TDM
 			maps = list(
 				MAP_KARAK = 0,
@@ -246,7 +248,7 @@
 				MAP_TEUTOBURG = 8,
 				MAP_HERACLEA = 8,
 			)
-		else if (epoch == "HRP TDM (Gulag, Voyage, Occupation, etc)")
+		else if (epoch == "HRP TDM (Gulag, Voyage, Occupation, etc)" || epoch == "Командный бой и ролевая игра (ГУЛАГ, Воядж, Оккупация...)")
 			maps = list(
 //				MAP_FOOTBALL = 8,
 				MAP_GULAG13 = 0,
@@ -259,7 +261,7 @@
 				MAP_THE_ART_OF_THE_DEAL = 20,
 
 			)
-		else if (epoch == "Civilization 13 (Nomads)")
+		else if (epoch == "Civilization 13 (Nomads)" || epoch == "Выживание (Номады)")
 			maps = list(
 //				MAP_CIVILIZATIONS = 0,
 				MAP_NOMADS = 0,
@@ -277,7 +279,7 @@
 				MAP_NOMADS_KARAFUTO = 0,
 				MAP_NOMADS_EUROPE = 10
 			)
-		else if (epoch == "Civilization 13 (Colony & Pioneers)")
+		else if (epoch == "Civilization 13 (Colony & Pioneers)" || epoch == "Выживание (Колония, Пионеры, Богемия...)")
 			maps = list(
 				MAP_COLONY_CONTINENTAL = 0,
 				MAP_COLONY = 0,
@@ -287,7 +289,7 @@
 				MAP_BOHEMIA = 10,
 				MAP_FOUR_COLONIES = 20,
 			)
-		else if (epoch == "Civilization 13 (Others)")
+		else if (epoch == "Civilization 13 (Others)" || epoch == "Другое")
 			maps = list(
 				MAP_TRIBES = 15,
 				MAP_HUNT = 0,
@@ -299,23 +301,16 @@
 //				MAP_RIVER_KWAI = 0,
 				MAP_OCCUPATION = 10,
 			)
-		else if (epoch == "Battle Royale")
+		else if (epoch == "Battle Royale" || epoch == "Королевская битва")
 			maps = list(
 				MAP_BATTLEROYALE_MEDIEVAL = 0,
 				MAP_BATTLEROYALE_IMPERIAL = 0,
 				MAP_BATTLEROYALE_WILDWEST = 0,
 				MAP_BATTLEROYALE_MODERN = 0,)
-		else if (epoch == "Fiction")
+		else if (epoch == "Fiction" || epoch == "Альтернативная история")
 			maps = list(
 				MAP_TANTIVEIV = 0,
 				MAP_WHITERUN = 10,)
-		else if (epoch == "New Russian Map Pack")
-			maps = list(
-				MAP_LOBBY = 0,
-				MAP_BOHEMIARU = 5,
-				MAP_NOMADS_WASTELAND_RU = 5,
-				MAP_NOMADS_FLY = 228, //Not work, 400x400x3, please fix ~~sanecman
-				MAP_NOMADS_WASTELAND_SCARLET_PLAGUE = 5,)
 		else if (epoch == "Избранное")
 			maps = list(
 				MAP_COLONY = 0,
