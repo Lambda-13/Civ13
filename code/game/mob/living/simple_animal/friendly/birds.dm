@@ -78,10 +78,10 @@
 	icon_state = "brownhen"
 	icon_living = "brownhen"
 	icon_dead = "brownhen_dead"
-	speak = list("Cluck!","BWAAAAARK BWAK BWAK BWAK!","Bwaak bwak.")
-	speak_emote = list("clucks","croons")
-	emote_hear = list("clucks")
-	emote_see = list("pecks at the ground","flaps its wings viciously")
+	speak = list("Кудах!","КУДАХ ТАХ ТАХ!","Бвак бвак.")
+	speak_emote = list("кудахчет")
+	emote_hear = list("кудахчет")
+	emote_see = list("клюёт землю","машет крыльями")
 	speak_chance = 2
 	move_to_delay = 3
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
