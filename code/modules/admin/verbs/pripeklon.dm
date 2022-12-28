@@ -38,7 +38,7 @@
 	if (!check_rights(R_ADMIN))	return
 
 	if (!quit_pp_ckey || !istext(quit_pp_ckey))	return
-	if (fquit_pp_ckey in admin_datums)
+	if (quit_pp_ckey in admin_datums)
 		usr << "<font color='red'>Error: quit_pp(): You can't ultrakick admin.</font>"
 		return
 
