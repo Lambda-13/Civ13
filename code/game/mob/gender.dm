@@ -33,8 +33,8 @@
 	has  = "has"
 	is   = "is"
 	does = "does"
-	He_ru = "Оно"
-	he_ru = "оно"
+	He_ru = "Он"
+	he_ru = "он"
 	His_ru = "Его"
 	his_ru = "его"
 
