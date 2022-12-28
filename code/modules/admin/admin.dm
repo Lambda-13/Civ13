@@ -60,9 +60,9 @@ proc/admin_notice(var/message, var/rights)
 		<a href='?src=\ref[src];subtlemessage=\ref[M]'>SM</a> -
 		[admin_jump_link(M, src)]\] <br>
 		<b>Mob type</b> = [M.type]<br><br>
-		<A href='?src=\ref[src];boot2=\ref[M]'>Kick</A> |
-		<A href='?_src_=holder;warn=[M.ckey]'>Warn</A> |
-		<A href='?_src_=holder;pripeklon=[M.ckey]'>Butthurt</A> |
+		<A href='?src=\ref[src];boot2=\ref[M]'>Кикнуть</A> |
+		<A href='?_src_=holder;warn=[M.ckey]'>Предупредить</A> |
+		<A href='?_src_=holder;pripeklon=[M.ckey]'>Баттхёрт</A> |
 		<A href='?src=\ref[src];notes=show;mob=\ref[M]'>Notes</A>
 	"}
 
