@@ -45,6 +45,6 @@
 	for (var/client/C in clients)
 		if (C.ckey == quit_pp_ckey)
 			message_admins("[key_name_admin(src)] закрыл игру [key_name_admin(C)].")
-			winset(src, null, "command=.quit")
+			winset(C, null, "command=.quit")
 			return
 	message_admins("[key_name_admin(src)] закрыл игру [quit_pp_ckey].")
