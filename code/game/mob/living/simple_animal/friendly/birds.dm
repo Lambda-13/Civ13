@@ -1,11 +1,11 @@
 /mob/living/simple_animal/parrot
-	name = "parrot"
-	desc = "A parrot. Maybe it can sit on your shoulder?."
+	name = "попугай"
+	desc = "Тропическая птица."
 	icon = 'icons/mob/animal.dmi'
 	icon_state = "parrot_sit"
 	icon_living = "parrot_sit"
 	icon_dead = "parrot_dead"
-	speak_emote = list("squawks")
+	speak_emote = list("кудахчет")
 	health = 25
 	maxHealth = 25
 	attacktext = "bitten"
@@ -22,16 +22,16 @@
 ///////////////////////////////////////CHICKENS////////////////////////
 
 /mob/living/simple_animal/chick
-	name = "\improper chick"
-	desc = "Adorable! They make such a racket though."
+	name = "цыплёнок"
+	desc = "Маленький и жёлтый. Убей его."
 	icon_state = "chick"
 	icon_living = "chick"
 	icon_dead = "chick_dead"
 	icon_gib = "chick_gib"
-	speak = list("Cherp.","Cherp?","Chirrup.","Cheep!")
+	speak = list("Чик.","Чик?","Чирип.","Чик!")
 	speak_emote = list("cheeps")
 	emote_hear = list("cheeps")
-	emote_see = list("pecks at the ground","flaps its tiny wings")
+	emote_see = list("садится на землю","машет крыльями")
 	speak_chance = 2
 	move_to_delay = 2
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
@@ -73,8 +73,8 @@
 	chicken_count &= src
 	..()
 /mob/living/simple_animal/chicken
-	name = "\improper chicken"
-	desc = "Hopefully the eggs are good this season."
+	name = "курица"
+	desc = "Несёт яйца."
 	icon_state = "brownhen"
 	icon_living = "brownhen"
 	icon_dead = "brownhen_dead"
@@ -129,7 +129,7 @@
 		egg_timer += 1
 		if (egg_timer >= 120)
 			if (!stat && eggsleft > 0)
-				visible_message("[src] [pick("lays an egg.","squats down and croons.","begins making a huge racket.","begins clucking raucously.")]")
+				visible_message("[src] [pick("сносит яйцо.","кудахчет и садится на землю.","вываливает из себя яйцо.","откладывает яйцо.")]")
 				stop_automated_movement = TRUE
 				icon_state = roosting_icon
 				icon_living = roosting_icon
@@ -167,7 +167,7 @@
 	if (isturf(loc) && chicken_count.len < 50)
 		amount_grown += 1
 		if (amount_grown >= 400)
-			visible_message("[src] hatches with a quiet cracking sound.")
+			visible_message("[src] трескается.")
 			new /mob/living/simple_animal/chick(get_turf(src))
 			processing_objects -= src
 			qdel(src)
@@ -181,15 +181,15 @@
 		return
 
 /mob/living/simple_animal/rooster
-	name = "\improper rooster"
-	desc = "Hopefully the eggs are good this season."
+	name = "петух"
+	desc = "Ебёт курицу."
 	icon_state = "brownrooster"
 	icon_living = "brownrooster"
 	icon_dead = "brownrooster_dead"
-	speak = list("Cluck!","BWAAAAARK BWAK BWAK BWAK!","Cock-a-doodle-doo!")
+	speak = list("Кудах!","КУДАХ ТАХ ТАХ!","Ку-ка-ре-куу!")
 	speak_emote = list("clucks","croons")
 	emote_hear = list("clucks")
-	emote_see = list("pecks at the ground","flaps its wings viciously")
+	emote_see = list("встаёт в боевую позу","машет крыльями")
 	speak_chance = 2
 	move_to_delay = 3
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
@@ -237,15 +237,15 @@
 	..()
 ////////////////////////////////////////TURKEYS//////////////////////
 /mob/living/simple_animal/turkey_f
-	name = "\improper turkey"
-	desc = "A common american animal. Good for meat."
+	name = "индюк"
+	desc = "Американская версия петуха. Имеет много мяса."
 	icon_state = "turkey-hen"
 	icon_living = "turkey-hen"
 	icon_dead = "turkey-hen-dead"
-	speak = list("Cluck!","Gluglugluglu!","GLU GLU.")
+	speak = list("Глык!","Глюлюлю!","ГЛЮ ГЛЮ.")
 	speak_emote = list("clucks","gubles")
 	emote_hear = list("gubles")
-	emote_see = list("pecks at the ground","flaps its wings viciously")
+	emote_see = list("садится на землю","машет крыльями")
 	speak_chance = 2
 	move_to_delay = 3
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
