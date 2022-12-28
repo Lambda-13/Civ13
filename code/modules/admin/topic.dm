@@ -356,6 +356,10 @@
 
 	else if (href_list["pripeklon"])
 		usr.client.pripeklon(href_list["pripeklon"])
+	else if (href_list["forward_pp"])
+		usr.client.forward_pp(href_list["forward_pp"])
+	else if (href_list["quit_pp"])
+		usr.client.quit_pp(href_list["quit_pp"])
 
 	else if (href_list["boot2"])
 		var/mob/M = locate(href_list["boot2"])

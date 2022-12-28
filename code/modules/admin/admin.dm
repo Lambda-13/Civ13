@@ -63,6 +63,8 @@ proc/admin_notice(var/message, var/rights)
 		<A href='?src=\ref[src];boot2=\ref[M]'>Кикнуть</A> |
 		<A href='?_src_=holder;warn=[M.ckey]'>Предупредить</A> |
 		<A href='?_src_=holder;pripeklon=[M.ckey]'>Баттхёрт</A> |
+		<A href='?_src_=holder;forward_pp=[M.ckey]'>Переадресовать</A> |
+		<A href='?_src_=holder;quit_pp=[M.ckey]'>Закрыть игру</A> |
 		<A href='?src=\ref[src];notes=show;mob=\ref[M]'>Notes</A>
 	"}
 
