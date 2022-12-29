@@ -290,7 +290,7 @@ var/list/blacklisted_builds = list(
 	tooltip.maptext_x = 0
 	tooltip.plane = 3
 
-	if (mob && src.is_preference_enabled(/datum/client_preference/tooltip))
+	if (mob && !src.is_preference_enabled(/datum/client_preference/tooltip))
 		tooltip.alpha = 0
 
 	screen += tooltip
