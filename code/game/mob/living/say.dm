@@ -72,7 +72,7 @@ var/list/radio_prefixes = list(";", ":b", ":l", ":r", ":t", ":f",
 			src.adjustBrainLoss(50) //Работает по схеме: 4 мема = смерть.
 		//src.gib()
 		*/
-		message_admins("[key_name_admin(client)] мемы в ИЦ:   [message]")
+		message_admins("[key_name_admin(client)] мемы в ИЦ: [message]")
 		to_chat(src, "<B>Не мемась в ИЦ.</B>")
 		return 0
 
