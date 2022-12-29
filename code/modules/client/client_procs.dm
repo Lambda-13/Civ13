@@ -281,6 +281,38 @@ var/list/blacklisted_builds = list(
 
 	movementMachine_clients += src
 
+	// Maptext tooltip
+	tooltip = new()
+	tooltip.icon = 'icons/effects/static.dmi'
+	tooltip.icon_state = "blank"
+	tooltip.screen_loc = "NORTH,WEST+25%"
+	tooltip.maptext_width = 256
+	tooltip.maptext_x = 0
+	tooltip.plane = 3
+
+	if (mob && src.is_preference_enabled(/datum/client_preference/tooltip))
+		tooltip.alpha = 0
+
+	screen += tooltip
+
+/client/MouseEntered(atom/object, location, control, params)
+	if (tooltip)
+		screen |= tooltip
+		tooltip.maptext = ""
+
+		if(ticker.current_state >= GAME_STATE_SETTING_UP)
+			if(ishuman(object))
+//				var/mob/living/human/H = object //Это и дальше закоменченный код с вахабилда который сделан на ис12
+//				if(H.warfare_faction)
+//					if(H.warfare_faction == RED_TEAM)
+//						tooltip.maptext = "<center style=\"text-shadow: 1px 1px 2px black;\"><font color='#b27676'>[uppertext(object.name)]</font></center>"
+//					else
+//						tooltip.maptext = "<center style=\"text-shadow: 1px 1px 2px black;\"><font color='#76abb2'>[uppertext(object.name)]</font></center>"
+//				else
+				tooltip.maptext = "<center style=\"text-shadow: 1px 1px 2px black;\">[uppertext(object.name)]</center>" //Убрал лишний дополнительный пробел
+			else
+				tooltip.maptext = "<center style=\"text-shadow: 1px 1px 2px black;\">[uppertext(object.name)]</center>"
+
 	//////////////
 	//DISCONNECT//
 	//////////////

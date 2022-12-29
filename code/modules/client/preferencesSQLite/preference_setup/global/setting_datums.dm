@@ -152,6 +152,18 @@ var/list/_client_preferences_by_type
 	enabled_description = "Yes"
 	disabled_description = "No"
 
+/datum/client_preference/tooltip
+	description = "Отображать текст над головой"
+	key = "TOOLTIP"
+	enabled_description = "Yes"
+	disabled_description = "No"
+
+/datum/client_preference/tooltip/toggled(var/mob/preference_mob, var/enabled)
+	if (enabled)
+		preference_mob.client.tooltip.alpha = 255
+	else
+		preference_mob.client.tooltip.alpha = 0
+
 /********************
 * Admin Preferences *
 ********************/
