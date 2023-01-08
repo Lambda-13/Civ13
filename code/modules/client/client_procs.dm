@@ -309,9 +309,9 @@ var/list/blacklisted_builds = list(
 //					else
 //						tooltip.maptext = "<center style=\"text-shadow: 1px 1px 2px black;\"><font color='#76abb2'>[uppertext(object.name)]</font></center>"
 //				else
-				tooltip.maptext = "<center style=\"text-shadow: 1px 1px 2px black;\">[uppertext(object.name)]</center>" //Убрал лишний дополнительный пробел
+				tooltip.maptext = "<h2><font face='1 Papyrus'><center style=\"text-shadow: 1px 1px 2px black;\">[uppertext(object.name)]</center></font></h2>" //Убрал лишний дополнительный пробел
 			else
-				tooltip.maptext = "<center style=\"text-shadow: 1px 1px 2px black;\">[uppertext(object.name)]</center>"
+				tooltip.maptext = "<h2><font face='1 Papyrus'><center style=\"text-shadow: 1px 1px 2px black;\">[uppertext(object.name)]</center></font></h2>"
 
 	//////////////
 	//DISCONNECT//

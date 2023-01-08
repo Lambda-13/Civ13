@@ -1,0 +1,1 @@
+GLOBAL_LIST_INIT(font_resources, list('lambda/sanecman/fonts/1 Papyrus Regular/1 Papyrus Regular.ttf'))
