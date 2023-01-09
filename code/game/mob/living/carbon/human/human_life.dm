@@ -1499,7 +1499,7 @@
 					else
 						holder2.icon_state = "jp_basic"
 				if (RUSSIAN)
-					if (map.ID == MAP_YELTSIN || map.ID == MAP_GROZNY || map.ID == MAP_FACTORY || map.ID == MAP_OPERATION_FACLON) // map.ID == MAP_FACTORY_AW || map.ID == MAP_PERVOMAISK_CROSSING || map.ID == MAP_COD_MW_WW3 || map.ID == MAP_FACTORY_RU)
+					if (map.ID == MAP_YELTSIN || map.ID == MAP_GROZNY || map.ID == MAP_FACTORY || map.ID == MAP_OPERATION_FACLON || map.ID == MAP_FACTORY_AW || map.ID == MAP_PERVOMAISK_CROSSING || map.ID == MAP_COD_MW_WW3 || map.ID == MAP_FACTORY_RU)
 						holder2.icon_state = "ru_basic"
 					else if (map.ID == MAP_BANK_ROBBERY)
 						holder2.icon_state = "robbers"

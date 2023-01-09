@@ -290,7 +290,7 @@
 				MAP_OCCUPATION = 10,
 				MAP_THE_ART_OF_THE_DEAL = 18,
 			)
-		else if (epoch == "PvE (Voyage, Hunt, Colony, Wasteland, etc)" || epoch == "ПвЕ (Воядж, Охота, Колония, Пустошь..."))
+		else if (epoch == "PvE (Voyage, Hunt, Colony, Wasteland, etc)" || epoch == "ПвЕ (Воядж, Охота, Колония, Пустошь...)")
 			maps = list(
 				MAP_HUNT = 0,
 				MAP_CURSED_ISLAND = 0,
