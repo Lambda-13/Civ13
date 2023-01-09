@@ -2,7 +2,7 @@
 
 /obj/item/weapon/covers
 	name = "floor cover"
-	desc = "Use this to cover holes."
+	desc = "Используй это для заделывания дыр и создания моста."
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "wood_ship_repaired2"
 	w_class = 2.0
@@ -11,8 +11,8 @@
 	flags = FALSE
 	
 /obj/covers/repairedfloor
-	name = "repaired floor"
-	desc = "a repaired wood floor."
+	name = "покрытие"
+	desc = "Грубо положеное покрытие."
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "wood_ship_repaired"
 	layer = 1.98
@@ -31,8 +31,8 @@
 // Floors
 
 /obj/covers/repairedfloor/ship
-	name = "ship floor"
-	desc = "a wooden ship floor."
+	name = "корабельный пол"
+	desc = "Пол корабля. Или лодки."
 	icon_state = "wood_ship"
 	material = "Wood"
 	passable = TRUE
@@ -47,12 +47,12 @@
 
 /obj/covers/repairedfloor/ship/try_destroy()
 	if (health <= 50)
-		name = "weak floor"
-		desc = "a weakened ship floor."
+		name = "поломаный пол"
+		desc = "Пол корабля. Или лодки. Выглядит ненадёжно."
 		maxhealth = 50
 		icon_state = "wood_ship_repaired"
 	if (health <= 0)
-		visible_message("<span class='danger'>\The [src] is broken into pieces!</span>")
+		visible_message("<span class='danger'>[src] ломается!</span>")
 		Destroy()
 
 /obj/covers/repairedfloor/ship/Destroy()
@@ -75,8 +75,8 @@
 	icon_state = "boat_floor_south1"
 
 /obj/covers/repairedfloor/rope
-	name = "grappling hook rope"
-	desc = "a piece of rope attached to a grappling hook"
+	name = "верёвка"
+	desc = "Верёвка по которой можно ходить."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "grapplehook_line_bridge"
 	flammable = FALSE
@@ -110,7 +110,7 @@
 		loc.Entered(M)
 	..()
 /obj/covers/wood
-	name = "wood floor"
+	name = "деревянный пол"
 	icon = 'icons/turf/flooring/wood.dmi'
 	icon_state = "wood"
 	passable = TRUE
@@ -119,7 +119,7 @@
 	material = "Wood"
 
 /obj/covers/thatch
-	name = "thatch floor"
+	name = "соломенный пол"
 	icon = 'icons/turf/flooring/wood.dmi'
 	icon_state = "thatch1"
 	passable = TRUE
@@ -128,7 +128,7 @@
 	material = "Wood"
 
 /obj/covers/thatch2
-	name = "thatch floor"
+	name = "соломенный пол"
 	icon = 'icons/turf/flooring/wood.dmi'
 	icon_state = "thatch2"
 	passable = TRUE
@@ -137,7 +137,7 @@
 	material = "Wood"
 
 /obj/covers/fancywood
-	name = "wood floor"
+	name = "деревянный пол"
 	icon = 'icons/turf/flooring/wood.dmi'
 	icon_state = "fancywood"
 	passable = TRUE
@@ -146,7 +146,7 @@
 	material = "Wood"
 
 /obj/covers/wood/stairs
-	name = "wood stairs"
+	name = "деревянные ступеньки"
 	icon = 'icons/obj/stairs.dmi'
 	icon_state = "wood2_stairs"
 	material = "Wood"
@@ -154,7 +154,7 @@
 /* Bamboo*/
 
 /obj/covers/tatami
-	name = "horizontal tatami floor"
+	name = "горизонтальный пол татами"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "tatami0"
 	passable = TRUE
@@ -163,7 +163,7 @@
 	material = "Bamboo"
 
 /obj/covers/tatami_vertical
-	name = "vertical tatami floor"
+	name = "вертикальный пол татами"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "tatami1"
 	passable = TRUE
@@ -172,7 +172,7 @@
 	material = "Bamboo"
 
 /obj/covers/tatami_dark
-	name = "horizontal tatami floor"
+	name = "горизонтальный пол татами"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "tatami_dark0"
 	passable = TRUE
@@ -181,7 +181,7 @@
 	material = "Bamboo"
 
 /obj/covers/tatami_dark_vertical
-	name = "vertical tatami floor"
+	name = "вертикальный пол татами"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "tatami_dark1"
 	passable = TRUE
@@ -192,8 +192,8 @@
 /* Stone Floors*/
 
 /obj/covers/slate
-	name = "slatestone wall"
-	desc = "A slate wall."
+	name = "сланцевая стена"
+	desc = "Грубо выглядящая стена."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "slate"
 	passable = TRUE
@@ -212,7 +212,7 @@
 	buildstack = /obj/item/stack/material/stone
 
 /obj/covers/cobblestone
-	name = "cobblestone floor"
+	name = "булыжный пол"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "cobble_vertical_dark"
 	passable = TRUE
@@ -226,13 +226,13 @@
 	buildstack = /obj/item/stack/material/stone
 
 /obj/covers/cobblestone/stairs
-	name = "stone stairs"
+	name = "каменные ступеньки"
 	icon = 'icons/obj/stairs.dmi'
 	icon_state = "rampup"
 	material = "Stone"
 
 /obj/covers/road
-	name = "road"
+	name = "дорога"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "road_1"
 	passable = TRUE
@@ -250,7 +250,8 @@
 	base_icon_state = icon_state
 
 /obj/covers/romanroad
-	name = "roman road"
+	name = "дорога"
+	desc = "Выглядит в стиле римлян."
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "roman_road"
 	passable = TRUE
@@ -264,7 +265,7 @@
 	buildstack = /obj/item/stack/material/stone
 
 /obj/covers/stone/slab/decorative
-	name = "stone decorative slab floor"
+	name = "каменная декоративная плитка для пола"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "decorative_stone_slab"
 	passable = TRUE
@@ -278,7 +279,7 @@
 	buildstack = /obj/item/stack/material/stone
 
 /obj/covers/stonebrickfloor
-	name = "stone brick floor"
+	name = "каменный кирпичный пол"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "stone_bricks"
 	passable = TRUE
@@ -294,7 +295,7 @@
 /* Marble Floors starts here*/
 
 /obj/covers/marblefloor
-	name = "marble floor"
+	name = "мраморный пол"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "marble"
 	passable = TRUE
@@ -308,7 +309,7 @@
 	buildstack = /obj/item/stack/material/stone
 
 /obj/covers/ornatemarblefloor
-	name = "ornate marble floor"
+	name = "изысканный мраморный пол"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "ornate_marble"
 	passable = TRUE
@@ -322,7 +323,7 @@
 	buildstack = /obj/item/stack/material/stone
 
 /obj/covers/raw_marblefloor
-	name = "raw marble floor"
+	name = "необработанный мраморный пол"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "raw_marble0"
 	passable = TRUE
@@ -342,7 +343,7 @@
 	update_icon()
 
 /obj/covers/marbletile
-	name = "marble tiles"
+	name = "мраморная плитка"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "marble_tile0"
 	passable = TRUE
@@ -362,7 +363,7 @@
 	update_icon()
 
 /obj/covers/ornate_marbletile
-	name = "ornate marble tile"
+	name = "богато украшенная мраморная плитка"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "ornate_marble"
 	passable = TRUE
@@ -376,7 +377,7 @@
 	buildstack = /obj/item/stack/material/stone
 
 /obj/covers/decorative_marbletile
-	name = "decorative marble tile"
+	name = "декоративная мраморная плитка"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "decorative_marble_tile0"
 	passable = TRUE
@@ -396,7 +397,7 @@
 	update_icon()
 
 /obj/covers/marble_checkerboard
-	name = "marble checkerboard floor"
+	name = "мраморный пол в шахматном порядке"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "marble_checkerboard"
 	passable = TRUE
@@ -410,11 +411,11 @@
 	buildstack = /obj/item/stack/material/stone
 
 /obj/covers/marble_checkerboard/reverse
-	name = "reverse marble checkerboard floor"
+	name = "перевернутый мраморный пол в шахматном порядке"
 	icon_state = "marble_checkerboard_reverse"
 
 /obj/covers/marble_grid
-	name = "marble grid tile floor"
+	name = "пол из плитки из мраморной сетки"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "marble_grid"
 	passable = TRUE
@@ -430,12 +431,12 @@
 /* Black Marble Floors*/
 
 /obj/covers/ornatemarblefloor/black
-	name = "ornate black marble tile"
+	name = "богато украшенная черная мраморная плитка"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "ornate_black_marble"
 
 /obj/covers/decorative_marbletile/black
-	name = "decorative black marble tile"
+	name = "декоративная плитка из черного мрамора"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "decorative_black_marble_tile0"
 
@@ -446,7 +447,7 @@
 	update_icon()
 
 /obj/covers/raw_marblefloor/black
-	name = "raw black marble floor"
+	name = "необработанный черный мраморный пол"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "black_marble0"
 
@@ -457,7 +458,7 @@
 	update_icon()
 
 /obj/covers/marbletile/black
-	name = "black marble tiles"
+	name = "черная мраморная плитка"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "black_marble_tile0"
 
@@ -470,7 +471,7 @@
 /* Pink Marble Floors*/
 
 /obj/covers/raw_marblefloor/pink
-	name = "raw pink marble floor"
+	name = "необработанный розовый мраморный пол"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "pink_marble0"
 
@@ -481,7 +482,7 @@
 	update_icon()
 
 /obj/covers/decorative_marbletile/pink
-	name = "decorative pink marble tile"
+	name = "декоративная плитка из розового мрамора"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "decorative_pink_marble_tile0"
 
@@ -492,7 +493,7 @@
 	update_icon()
 
 /obj/covers/marbletile/pink
-	name = "pink marble tiles"
+	name = "розовая мраморная плитка"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "pink_marble_tile0"
 
@@ -503,19 +504,19 @@
 	update_icon()
 
 /obj/covers/marble_checkerboard/pink
-	name = "pink marble checkerboard floor"
+	name = "пол в шахматном порядке из розового мрамора"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "pink_marble_checkerboard"
 
 /obj/covers/marble_checkerboard/pink/reverse
-	name = "reverse pink marble checkerboard floor"
+	name = "обратный розовый мраморный пол в шахматном порядке"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "pink_marble_checkerboard_reverse"
 
 /* Marble Floors -End*/
 
 /obj/covers/slatefloor
-	name = "slate floor"
+	name = "сланцевый пол"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "slatefloor"
 	passable = TRUE
@@ -532,7 +533,7 @@
 /* Sandstone Floors*/
 
 /obj/covers/sandstone
-	name = "sandstone floor"
+	name = "пол из песчаника"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "sandstone_floor"
 	passable = TRUE
@@ -545,7 +546,7 @@
 	material = "Stone"
 
 /obj/covers/sandstone/stairs
-	name = "sandstone stairs"
+	name = "ступеньки из песчаника"
 	icon = 'icons/obj/stairs.dmi'
 	icon_state = "sandstone_stairs"
 	material = "Stone"
@@ -554,33 +555,33 @@
 	buildstack = /obj/item/stack/material/sandstone
 
 /obj/covers/sandstone/brick
-	name = "sandstone brick floor"
+	name = "кирпичный пол из песчаника"
 	icon_state = "sandstone_brick"
 
 /obj/covers/sandstone/slab
-	name = "sandstone slab floor"
+	name = "пол из плит песчаника"
 	icon_state = "sandstone_slab"
 
 /obj/covers/sandstone/slab/red
-	name = "red sandstone slab floor"
+	name = "пол из плит красного песчаника"
 	icon_state = "red_sandstone_slab"
 
 /obj/covers/sandstone/tile
-	name = "sandstone tile"
+	name = "плитка из песчаника"
 	icon_state = "sandstone_tile"
 
 /obj/covers/sandstone/tile/decorative
-	name = "sandstone decorative tile"
+	name = "декоративная плитка из песчаника"
 	icon_state = "sandstone_decorative_tile"
 
 /obj/covers/sandstone/tile/decorative/red
-	name = "red sandstone decorative tile"
+	name = "декоративная плитка из красного песчаника"
 	icon_state = "red_sandstone_decorative_tile"
 
 /* Metal Floors*/
 
 /obj/covers/steelplating
-	name = "steel floor"
+	name = "стальной пол"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "floor"
 	passable = TRUE
@@ -594,7 +595,7 @@
 	buildstack = /obj/item/stack/material/steel
 
 /obj/covers/steelplating/white
-	name = "white floor"
+	name = "белый пол"
 	icon_state = "white"
 	material = "Steel"
 
@@ -602,7 +603,7 @@
 /* Concrete Floors*/
 
 /obj/covers/concretefloor
-	name = "concrete floor"
+	name = "бетонный пол"
 	icon_state = "concrete6"
 	passable = TRUE
 	not_movable = TRUE
@@ -620,7 +621,7 @@
 	base_icon_state = icon_state
 
 /obj/covers/sidewalk
-	name = "sidewalk"
+	name = "тротуар"
 	icon_state = "sidewalk"
 	passable = TRUE
 	not_movable = TRUE
@@ -634,7 +635,7 @@
 /* Vehicle Floors*/
 
 /obj/covers/wood_ship
-	name = "wood floor"
+	name = "деревянный пол"
 	icon_state = "wood_ship"
 	passable = TRUE
 	not_movable = TRUE
@@ -645,8 +646,8 @@
 //Carpets - To be Expanded upon Later
 
 /obj/covers/carpet/
-	name = "Carpet"
-	desc = "Fluffy and Flammable!"
+	name = "ковёр"
+	desc = "Мягкий и огнеопасный!"
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "carpet"
 	passable = TRUE
@@ -657,8 +658,8 @@
 	flammable = TRUE
 
 /obj/covers/carpet/pinkcarpet
-	name = "Pink Carpet"
-	desc = "Fluffy and Flammable!"
+	name = "розовый ковер"
+	desc = "Мягкий и огнеопасный!"
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "gaycarpet"
 	passable = TRUE
@@ -669,8 +670,8 @@
 	flammable = TRUE
 
 /obj/covers/carpet/redcarpet
-	name = "Red Carpet"
-	desc = "Fluffy and Flammable!"
+	name = "красный ковёр"
+	desc = "Мягкий и огнеопасный!"
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "carpet"
 	passable = TRUE
@@ -681,8 +682,8 @@
 	flammable = TRUE
 
 /obj/covers/carpet/orangecarpet
-	name = "Orange Carpet"
-	desc = "Fluffy and Flammable!"
+	name = "оранжевый ковёр"
+	desc = "Мягкий и огнеопасный!"
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "oracarpet"
 	passable = TRUE
@@ -693,8 +694,8 @@
 	flammable = TRUE
 
 /obj/covers/carpet/purplecarpet
-	name = "Purple Carpet"
-	desc = "Fluffy and Flammable!"
+	name = "розовый ковёр"
+	desc = "Мягкий и огнеопасный!"
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "purcarpet"
 	passable = TRUE
@@ -705,8 +706,8 @@
 	flammable = TRUE
 
 /obj/covers/carpet/bluecarpet
-	name = "Blue Carpet"
-	desc = "Fluffy and Flammable!"
+	name = "синий ковёр"
+	desc = "Мягкий и огнеопасный!"
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "blucarpet"
 	passable = TRUE
@@ -717,8 +718,8 @@
 	flammable = TRUE
 
 /obj/covers/carpet/tealcarpet
-	name = "Teal Carpet"
-	desc = "Fluffy and Flammable!"
+	name = "бирюзовый ковер"
+	desc = "Мягкий и огнеопасный!"
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "sblucarpet"
 	passable = TRUE
@@ -729,8 +730,8 @@
 	flammable = TRUE
 
 /obj/covers/carpet/greencarpet
-	name = "Green Carpet"
-	desc = "Fluffy and Flammable!"
+	name = "зелёный ковёр"
+	desc = "Мягкий и огнеопасный!"
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "turcarpet"
 	passable = TRUE
@@ -741,8 +742,8 @@
 	flammable = TRUE
 
 /obj/covers/carpet/blackcarpet
-	name = "Black Carpet"
-	desc = "Fluffy and Flammable!"
+	name = "чёрный ковёр"
+	desc = "Мягкий и огнеопасный!"
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "bcarpet"
 	passable = TRUE
@@ -753,8 +754,8 @@
 	flammable = TRUE
 
 /obj/covers/carpet/whitecarpet
-	name = "White Carpet"
-	desc = "Fluffy and Flammable!"
+	name = "белый ковёр"
+	desc = "Мягкий и огнеопасный!"
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "wcarpet"
 	passable = TRUE
@@ -765,8 +766,8 @@
 	flammable = TRUE
 
 /obj/covers/catwalk
-	name = "catwalk"
-	desc = "A cat wouldn't like this"
+	name = "помост"
+	desc = "По нему ходят."
 	icon_state = "catwalk_plated"
 	material = "Steel"
 	passable = TRUE
@@ -775,8 +776,8 @@
 	layer = 1.99
 
 /obj/covers/catwalk/white
-	name = "white catwalk"
-	desc = "A cat wouldn't like this"
+	name = "белый помост"
+	desc = "По нему ходят."
 	icon_state = "catwalk_platedwhite"
 	material = "Steel"
 	passable = TRUE
@@ -785,8 +786,8 @@
 	layer = 1.99
 
 /obj/covers/catwalk/dark
-	name = "white catwalk"
-	desc = "A cat wouldn't like this"
+	name = "тёмный помост"
+	desc = "По нему ходят."
 	icon_state = "catwalk_plateddark"
 	material = "Steel"
 	passable = TRUE

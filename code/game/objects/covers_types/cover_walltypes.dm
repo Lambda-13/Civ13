@@ -62,8 +62,8 @@
 /* Wood Walls*/
 
 /obj/covers/wood_wall
-	name = "soft wood wall"
-	desc = "A wood wall."
+	name = "деревянная стена"
+	desc = "Стена из мягкого дерева."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "b_wood_wall"
 	passable = FALSE
@@ -102,29 +102,29 @@
 		if (istype(W,i))
 			return TRUE
 /obj/covers/wood_wall/medieval
-	name = "medieval wall"
-	desc = "A dark-ages wall."
+	name = "стена"
+	desc = "Выглядит по средневековски."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "medieval_wall"
 	health = 330
 
 /obj/covers/wood_wall/medieval/x
-	name = "medieval wall crossbeam"
-	desc = "A dark-ages wall with an x shaped support."
+	name = "стена"
+	desc = "Средневековая стена с Х-образной опорой."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "medieval_wall_x"
 	health = 335
 
 /obj/covers/wood_wall/medieval/y/r
-	name = "medieval wall crossbeam"
-	desc = "A dark-ages wall with an slanted support."
+	name = "стена"
+	desc = "Средневековая стена с наклонной опорой."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "medieval_wall_y1"
 	health = 335
 
 /obj/covers/wood_wall/medieval/y/l
-	name = "medieval wall crossbeam"
-	desc = "A dark-ages wall with an slanted support."
+	name = "стена"
+	desc = "Средневековая стена с наклонной опорой."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "medieval_wall_y2"
 	health = 335
@@ -132,21 +132,22 @@
 /* Asia-Themed Walls - End*/
 
 /obj/covers/wood_wall/oriental
-	name = "oriental wall"
-	desc = "A east-oriental style wall."
+	name = "стена"
+	desc = "Стена в восточном стиле."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "oriental"
 	health = 330
 
 /obj/covers/wood_wall/oriental/b
-	name = "braced oriental wall"
+	name = "стена"
+	desc = "Раскосая стена в восточном стиле."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "orientalb"
 	health = 335
 
 /obj/covers/wood_wall/oriental/doorway
-	name = "oriental doorway"
-	desc = "A east-oriental style doorway."
+	name = "дверной проём"
+	desc = "Дверной проём в восточном стиле."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "oriental-door"
 	density = FALSE
@@ -154,25 +155,29 @@
 	health = 335
 
 /obj/covers/wood_wall/oriental/twop
-	name = "two panelled oriental wall"
+	name = "стена"
+	desc = "Стена в восточном стиле из двух панелей."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "oriental_twop"
 	health = 330
 
 /obj/covers/wood_wall/oriental/twop/b
-	name = "two panelled braced oriental wall"
+	name = "стена"
+	desc = "Двухпанельная раскосная стена в восточном стиле."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "oriental_twopb"
 	health = 335
 
 /obj/covers/wood_wall/oriental/threep
-	name = "three panelled oriental wall"
+	name = "стена"
+	desc = "Стена в восточном стиле из трех панелей."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "oriental_threep"
 	health = 330
 
 /obj/covers/wood_wall/oriental/threep/b
-	name = "three panelled braced oriental wall"
+	name = "стена"
+	desc = "Стена в восточном стиле из трех раскосных панелей."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "oriental_threepb"
 	health = 335

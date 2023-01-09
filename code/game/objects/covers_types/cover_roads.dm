@@ -1,5 +1,5 @@
 /obj/covers/roads
-	name = "road"
+	name = "дорожка"
 	icon = 'icons/turf/roads.dmi'
 	icon_state = "road"
 	passable = TRUE
@@ -15,27 +15,28 @@
 	var/roadtype = "road"
 
 /obj/covers/roads/modern
-	name = "modern road"
+	name = "современная дорожка"
 	icon_state = "tarmac"
 	roadtype = "tarmac"
 
 /obj/covers/roads/dirt
-	name = "dirt road"
+	name = "земляная дорожка"
 	icon_state = "d_road"
 	roadtype = "d_road"
 
 /obj/covers/roads/roman
-	name = "roman road"
+	name = "дорожка"
+	desc = "Дорожка в стиле римлян."
 	icon_state = "r_road"
 	roadtype = "r_road"
 
 /obj/covers/roads/cobble
-	name = "cobble street"
+	name = "булыжная дорожка"
 	icon_state = "street"
 	roadtype = "street"
 
 /obj/covers/roads/sandstone
-	name = "sandstone road"
+	name = "песчаниковая дорожка"
 	icon_state = "s_stone"
 	roadtype = "s_stone"
 
@@ -162,105 +163,105 @@
 /obj/covers/roads/modern/attackby(obj/O as obj, mob/living/human/user as mob)
 	if (istype(O,/obj/item/weapon/material/pickaxe/bone))
 		playsound(src, 'sound/effects/pickaxe.ogg', 85, 1)
-		user << "<span class='notice'>You begin breaking apart \the [src].</span>"
+		user << "<span class='notice'>Начинаю ломать [src].</span>"
 		if (do_after(user,65,src))
-			user << "<span class='notice'>You break apart \the [src].</span>"
+			user << "<span class='notice'>Сломал [src].</span>"
 			new /obj/item/stack/material/stone(loc)
 			qdel(src)
 	else if (istype(O,/obj/item/weapon/material/pickaxe))
 		playsound(src, 'sound/effects/pickaxe.ogg', 85, 1)
-		user << "<span class='notice'>You begin breaking apart \the [src].</span>"
+		user << "<span class='notice'>Начинаю ломать [src].</span>"
 		if (do_after(user,45,src))
-			user << "<span class='notice'>You break apart \the [src].</span>"
+			user << "<span class='notice'>Сломал [src].</span>"
 			new /obj/item/stack/material/stone(loc)
 			qdel(src)
 	else if (istype(O,/obj/item/weapon/material/pickaxe/jackhammer))
 		playsound(src, 'sound/effects/pickaxe.ogg', 85, 1)
-		user << "<span class='notice'>You begin breaking apart \the [src].</span>"
+		user << "<span class='notice'>Начинаю ломать [src].</span>"
 		if (do_after(user,25,src))
-			user << "<span class='notice'>You break apart \the [src].</span>"
+			user << "<span class='notice'>Сломал [src].</span>"
 			new /obj/item/stack/material/stone(loc)
 			qdel(src)
 
 /obj/covers/roads/dirt/attackby(obj/O as obj, mob/living/human/user as mob)
 	if (istype(O, /obj/item/weapon/material/shovel/bone))
 		playsound(src, 'sound/effects/shovelling.ogg', 85, 1)
-		user << "<span class='notice'>You begin filling over in the earth of \the [src].</span>"
+		user << "<span class='notice'>Начинаю убирать лопатой [src].</span>"
 		if (do_after(user,60,src))
-			user << "<span class='notice'>You finish filling over \the [src].</span>"
+			user << "<span class='notice'>Раскопал [src].</span>"
 			qdel(src)
 	else if (istype(O, /obj/item/weapon/material/shovel))
 		playsound(src, 'sound/effects/shovelling.ogg', 85, 1)
-		user << "<span class='notice'>You begin filling over in the earth of \the [src].</span>"
+		user << "<span class='notice'>Начинаю убирать лопатой [src].</span>"
 		if (do_after(user,30,src))
-			user << "<span class='notice'>You finish filling over \the [src].</span>"
+			user << "<span class='notice'>Раскопал [src].</span>"
 			qdel(src)
 
 /obj/covers/roads/roman/attackby(obj/O as obj, mob/living/human/user as mob)
 	if (istype(O,/obj/item/weapon/material/pickaxe/bone))
 		playsound(src, 'sound/effects/pickaxe.ogg', 85, 1)
-		user << "<span class='notice'>You begin breaking apart \the [src].</span>"
+		user << "<span class='notice'>Начинаю ломать [src].</span>"
 		if (do_after(user,65,src))
-			user << "<span class='notice'>You break apart \the [src].</span>"
+			user << "<span class='notice'>Сломал [src].</span>"
 			new /obj/item/stack/material/stone(loc)
 			qdel(src)
 	else if (istype(O,/obj/item/weapon/material/pickaxe))
 		playsound(src, 'sound/effects/pickaxe.ogg', 85, 1)
-		user << "<span class='notice'>You begin breaking apart \the [src].</span>"
+		user << "<span class='notice'>Начинаю ломать [src].</span>"
 		if (do_after(user,45,src))
-			user << "<span class='notice'>You break apart \the [src].</span>"
+			user << "<span class='notice'>Сломал [src].</span>"
 			new /obj/item/stack/material/stone(loc)
 			qdel(src)
 	else if (istype(O,/obj/item/weapon/material/pickaxe/jackhammer))
 		playsound(src, 'sound/effects/pickaxe.ogg', 85, 1)
-		user << "<span class='notice'>You begin breaking apart \the [src].</span>"
+		user << "<span class='notice'>Начинаю ломать [src].</span>"
 		if (do_after(user,25,src))
-			user << "<span class='notice'>You break apart \the [src].</span>"
+			user << "<span class='notice'>Сломал [src].</span>"
 			new /obj/item/stack/material/stone(loc)
 			qdel(src)
 
 /obj/covers/roads/cobble/attackby(obj/O as obj, mob/living/human/user as mob)
 	if (istype(O,/obj/item/weapon/material/pickaxe/bone))
 		playsound(src, 'sound/effects/pickaxe.ogg', 85, 1)
-		user << "<span class='notice'>You begin breaking apart \the [src].</span>"
+		user << "<span class='notice'>Начинаю ломать [src].</span>"
 		if (do_after(user,65,src))
-			user << "<span class='notice'>You break apart \the [src].</span>"
+			user << "<span class='notice'>Сломал [src].</span>"
 			new /obj/item/stack/material/stone(loc)
 			qdel(src)
 	else if (istype(O,/obj/item/weapon/material/pickaxe))
 		playsound(src, 'sound/effects/pickaxe.ogg', 85, 1)
-		user << "<span class='notice'>You begin breaking apart \the [src].</span>"
+		user << "<span class='notice'>Начинаю ломать [src].</span>"
 		if (do_after(user,45,src))
-			user << "<span class='notice'>You break apart \the [src].</span>"
+			user << "<span class='notice'>Сломал [src].</span>"
 			new /obj/item/stack/material/stone(loc)
 			qdel(src)
 	else if (istype(O,/obj/item/weapon/material/pickaxe/jackhammer))
 		playsound(src, 'sound/effects/pickaxe.ogg', 85, 1)
-		user << "<span class='notice'>You begin breaking apart \the [src].</span>"
+		user << "<span class='notice'>Начинаю ломать [src].</span>"
 		if (do_after(user,25,src))
-			user << "<span class='notice'>You break apart \the [src].</span>"
+			user << "<span class='notice'>Сломал [src].</span>"
 			new /obj/item/stack/material/stone(loc)
 			qdel(src)
 
 /obj/covers/roads/sandstone/attackby(obj/O as obj, mob/living/human/user as mob)
 	if (istype(O,/obj/item/weapon/material/pickaxe/bone))
 		playsound(src, 'sound/effects/pickaxe.ogg', 85, 1)
-		user << "<span class='notice'>You begin breaking apart \the [src].</span>"
+		user << "<span class='notice'>Начинаю ломать [src].</span>"
 		if (do_after(user,65,src))
-			user << "<span class='notice'>You break apart \the [src].</span>"
+			user << "<span class='notice'>Сломал [src].</span>"
 			new /obj/item/stack/material/sandstone(loc)
 			qdel(src)
 	else if (istype(O,/obj/item/weapon/material/pickaxe))
 		playsound(src, 'sound/effects/pickaxe.ogg', 85, 1)
-		user << "<span class='notice'>You begin breaking apart \the [src].</span>"
+		user << "<span class='notice'>Начинаю ломать [src].</span>"
 		if (do_after(user,45,src))
-			user << "<span class='notice'>You break apart \the [src].</span>"
+			user << "<span class='notice'>Сломал [src].</span>"
 			new /obj/item/stack/material/sandstone(loc)
 			qdel(src)
 	else if (istype(O,/obj/item/weapon/material/pickaxe/jackhammer))
 		playsound(src, 'sound/effects/pickaxe.ogg', 85, 1)
-		user << "<span class='notice'>You begin breaking apart \the [src].</span>"
+		user << "<span class='notice'>Начинаю ломать [src].</span>"
 		if (do_after(user,25,src))
-			user << "<span class='notice'>You break apart \the [src].</span>"
+			user << "<span class='notice'>Сломал [src].</span>"
 			new /obj/item/stack/material/sandstone(loc)
 			qdel(src)
