@@ -274,12 +274,11 @@
 		list(name="full auto", burst=3, burst_delay=1.8, fire_delay=1.8, dispersion=list(0.9, 0.9, 1.1, 1.1, 1), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/laser
-	is_hmg = TRUE
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/laser/update_icon()
 	if (ammo_magazine)
 		icon_state = base_icon
 	else
-		icon_state = "[base_icon]_open"
+		icon_state = "[base_icon]_empty"
 	update_held_icon()
 	return
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/laser/handle_post_fire()
@@ -300,7 +299,6 @@
 		list(name="full auto", burst=5, burst_delay=1.8, fire_delay=1.8, dispersion=list(0.9, 0.9, 1.1, 1.1, 1), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/laser
-	is_hmg = TRUE
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/laser/eweb
 	name = "E-WEB Heavy Repeating blaster"
@@ -315,7 +313,6 @@
 		list(name="full auto", burst=5, burst_delay=1.8, fire_delay=1.8, dispersion=list(0.9, 0.9, 1.1, 1.1, 1), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/laser
-	is_hmg = TRUE
 
 /obj/item/weapon/gun/projectile/automatic/laser
 	name = "laser minigun"

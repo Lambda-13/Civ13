@@ -140,8 +140,10 @@
 #define MAP_BANK_ROBBERY "BANK_ROBBERY"
 #define MAP_DRUG_BUST "DRUG_BUST"
 #define MAP_EAST_LOS_SANTOS "EAST_LOS_SANTOS"
-#define MAP_FACTORY_AW "FACTORY_AW"
-#define MAP_FACTORY_RU "FACTORY_RU"
+#define MAP_OPERATION_FACLON "OPERATION_FALCON"
+//Ниже идут карты по войне на Украине которые перестали работать после удаления основоного кода у оффов (офицальной цивы 13)
+//#define MAP_FACTORY_AW "FACTORY_AW" //Первая карта по войне на Украине
+//#define MAP_FACTORY_RU "FACTORY_RU" //Вторая карта по войне на Украине
 
 #define MAP_EFT_FACTORY "EFT_FACTORY"
 

@@ -238,6 +238,8 @@
 				message_admins("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) поджёг \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 				log_game("<span class = 'warning'>!!!</span> [user.name] ([user.ckey]) поджёг \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>) <span class = 'warning'>!!!</span>")
 				start_fire()
+				message_admins("[user.name] ([user.ckey]) started a fire with a torch at [src.name] ([src.x],[src.y],[src.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+				log_game("[user.name] ([user.ckey]) started a fire with a torch at [src.name] ([src.x],[src.y],[src.z])")
 		if (istype(W, /obj/item/stack))
 			var/obj/item/stack/S = W
 			if (S.amount <= 0)

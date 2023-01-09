@@ -13,12 +13,13 @@
 		//"Imperial Age (1650-1780)" = 0,
 		//"Industrial Age (1850-1895)" = 0,
 		//"Early Modern Era (1896-1930)" = 0,
+		"PvE (Voyage, Hunt, Colony, Wasteland, etc)" = 0,
 		"Early Fire Arms (1650-1930)" = 0,
 		"World War II (1931-1948)" = 0,
 		//"Cold War Era (1949-1984)" = 0,
 		//"Modern Era (1985-2020)" = 0,
 		"Modern Fire Arms (1949-2021)" = 0,
-		"HRP TDM (Gulag, Voyage, Occupation, etc)" = 10,
+		"HRP TDM (Gulag, Occupation, AOTD, etc)" = 10,
 		"Civilization 13 (Nomads)" = 0,
 		"Civilization 13 (Colony & Pioneers)" = 0,
 		//"Civilization 13 (Prison Camps)" = 15,
@@ -47,16 +48,45 @@
 			var/obj/map_metadata/voyage/nmap = map
 			nmap.show_stats()
 		if (config.allowedgamemodes == "TDM")
-			epochs = list(
-				"Pre-Firearms (3000 B.C-1650 A.D.)" = 0,
-				"Early Fire Arms (1650-1930)" = 0,
-				"World War II (1931-1948)" = 0,
-				"Modern Fire Arms (1949-2021)" = 0,
-				"HRP TDM (Gulag, Voyage, Occupation, etc)" = 10,
-//				"Chad Mode" = 0,
-				"Fiction" = 0,
-				"Battle Royale" = 10,
-			)
+			if (clients.len >= 25) // Temporary solution
+				var/moderator_present = FALSE
+				for (var/client/C in admins)
+					if(R_MOD||R_ADMIN & C.holder.rights)
+						moderator_present = TRUE
+						break
+				if (moderator_present == TRUE)
+					epochs = list(
+						"Pre-Firearms (3000 B.C-1650 A.D.)" = 0,
+						"Early Fire Arms (1650-1930)" = 0,
+						"World War II (1931-1948)" = 0,
+						"Modern Fire Arms (1949-2021)" = 0,
+						"Fiction" = 0,
+						"Battle Royale" = 6,
+						"HRP TDM (Gulag, Occupation, AOTD, etc)" = 10,
+						"PvE (Voyage, Hunt, Colony, Wasteland, etc)" = 0,
+					)
+				else
+					epochs = list(
+						"Pre-Firearms (3000 B.C-1650 A.D.)" = 0,
+						"Early Fire Arms (1650-1930)" = 0,
+						"World War II (1931-1948)" = 0,
+						"Modern Fire Arms (1949-2021)" = 0,
+						"Fiction" = 0,
+						"Battle Royale" = 6,
+						"Chad Mode" = 30,
+					)
+			else
+				epochs = list(
+					"Pre-Firearms (3000 B.C-1650 A.D.)" = 0,
+					"Early Fire Arms (1650-1930)" = 0,
+					"World War II (1931-1948)" = 0,
+					"Modern Fire Arms (1949-2021)" = 0,
+					"Fiction" = 0,
+					"Battle Royale" = 6,
+					"HRP TDM (Gulag, Occupation, AOTD, etc)" = 10,
+					"PvE (Voyage, Hunt, Colony, Wasteland, etc)" = 0,
+//					"Chad Mode" = 0,
+				)
 		else if (config.allowedgamemodes == "RP")
 			epochs = list(
 				//"The Art of the Deal" = 10,
@@ -82,11 +112,12 @@
 					"Эра империализма (1650 - 1930)" = 10,
 					"Вторая мировая война (1931 - 1948)" = 10,
 					"Эра современности (1949 - 2021)" = 10,
-					"Командный бой и ролевая игра (ГУЛАГ, Воядж, Оккупация...)" = 5,
+					"Командный бой и ролевая игра (ГУЛАГ, Оккупация, Исскуство сделки...)" = 5,
 					"Выживание (Номады)" = 0,
 					"Выживание (Колония, Пионеры, Богемия...)" = 5,
 					"Другое" = 5,
 					"Королевская битва" = 6,
+                    "ПвЕ (Воядж, Охота, Колония, Пустошь..." = 0,
 					"Альтернативная история" = 10,
 				)
 				world << "<big>Режим голосования - Ночной</big>"
@@ -99,11 +130,12 @@
 					"Эра империализма (1650 - 1930)" = 0,
 					"Вторая мировая война (1931 - 1948)" = 0,
 					"Эра современности (1949 - 2021)" = 0,
-					"Командный бой и ролевая игра (ГУЛАГ, Воядж, Оккупация...)" = 10,
+					"Командный бой и ролевая игра (ГУЛАГ, Оккупация, Исскуство сделки...)" = 10,
 					"Выживание (Номады)" = 15,
 					"Выживание (Колония, Пионеры, Богемия...)" = 10,
 					"Другое" = 10,
 					"Королевская битва" = 0,
+                    "ПвЕ (Воядж, Охота, Колония, Пустошь..." = 0,
 					"Альтернативная история" = 0,
 				)
 				world << "<big>Режим голосования - Дневной</big>"
@@ -159,6 +191,8 @@
 				MAP_ROAD_TO_DAK_TO = 0,
 				MAP_COMPOUND = 6,
 				MAP_HUE = 15,
+				MAP_AFRICAN_WARLORDS = 6,
+				MAP_TADOJSVILLE = 12,
 				MAP_MAGISTRAL = 10,
 				MAP_HILL_3234 = 12,
 				MAP_ALLEYWAY = 0,
@@ -169,8 +203,6 @@
 				MAP_GROZNY = 6,
 				MAP_BANK_ROBBERY = 0,
 				MAP_DRUG_BUST = 0,
-				//MAP_FACTORY = 15,
-				//MAP_AFRICAN_WARLORDS = 10,
 				MAP_ARAB_TOWN = 0,
 				MAP_ARAB_TOWN_2 = 0,
 				MAP_HOSTAGES = 0,
@@ -194,9 +226,9 @@
 				MAP_KURSK = 10,
 				MAP_STALINGRAD = 10,
 				MAP_OMAHA = 20,
-//				MAP_IWO_JIMA = 70,
+//				MAP_IWO_JIMA = 40,
 				MAP_FOREST = 20,
-//				MAP_KARELINA = 14,
+//				MAP_KARELIA = 14,
 				MAP_INTRAMUROS = 14,
 				MAP_WAKE_ISLAND = 14,
 				MAP_BERLIN = 20,
@@ -217,7 +249,6 @@
 				MAP_MISSIONARY_RIDGE = 10,
 				MAP_NAVAL = 0,
 		//		MAP_SKULLISLAND = 0,
-				MAP_CURSED_ISLAND = 0,
 				MAP_SUPPLY_RAID = 0,
 				MAP_BRIDGE = 0,
 				MAP_RECIFE = 10,
@@ -249,20 +280,31 @@
 				MAP_TEUTOBURG = 8,
 				MAP_HERACLEA = 8,
 			)
-		else if (epoch == "HRP TDM (Gulag, Voyage, Occupation, etc)" || epoch == "Командный бой и ролевая игра (ГУЛАГ, Воядж, Оккупация...)")
+		else if (epoch == "HRP TDM (Gulag, Occupation, AOTD, etc)" || epoch == "Командный бой и ролевая игра (ГУЛАГ, Оккупация, Исскуство сделки...)")
 			maps = list(
 //				MAP_FOOTBALL = 8,
-				MAP_GULAG13 = 0,
-				MAP_HUNT = 0,
+				MAP_GULAG13 = 6,
 //				MAP_ABASHIRI = 6,
-				MAP_VOYAGE = 6,
 //				MAP_RIVER_KWAI = 0,
-				MAP_LITTLE_CREEK = 10,
+				MAP_LITTLE_CREEK = 6,
 				MAP_OCCUPATION = 10,
-				MAP_THE_ART_OF_THE_DEAL = 20,
-
+				MAP_THE_ART_OF_THE_DEAL = 18,
 			)
-		else if (epoch == "Civilization 13 (Nomads)" || epoch == "Выживание (Номады)")
+		else if (epoch == "PvE (Voyage, Hunt, Colony, Wasteland, etc)" || epoch == "ПвЕ (Воядж, Охота, Колония, Пустошь..."))
+			maps = list(
+				MAP_HUNT = 0,
+				MAP_CURSED_ISLAND = 0,
+				MAP_COLONY = 0,
+				MAP_JUNGLE_COLONY = 0,
+				MAP_PIONEERS = 0,
+				MAP_PIONEERS_WASTELAND_2 = 0,
+				MAP_NOMADS_WASTELAND = 0,
+				MAP_NOMADS_WASTELAND_2 = 0,
+				MAP_VOYAGE = 6,
+				MAP_BOHEMIA = 10,
+//				MAP_FOUR_COLONIES = 20,
+			)
+		else if (epoch == "Civilization 13 (Nomads)")
 			maps = list(
 //				MAP_CIVILIZATIONS = 0,
 				MAP_NOMADS = 0,

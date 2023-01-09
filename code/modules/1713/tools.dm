@@ -34,10 +34,35 @@
 	usespeed = 2.1
 	flags = CONDUCT
 
-/obj/item/weapon/mortar
-	var/mortar
+/obj/item/weapon/foldable
+	var/path
 
-/obj/item/weapon/mortar/type89_mortar
+/obj/item/weapon/foldable/attack_self(var/mob/user as mob)
+	var/target = get_step(user, user.dir)
+	if (target)
+		visible_message("<span class = 'warning'>[user] starts to deploy \the [src].</span>")
+		if (do_after(user, 25, get_turf(user)))
+			visible_message("<span class = 'warning'>[user] deploys \the [src].</span>")
+			var/atom/A = new path(get_turf(src))
+			A.dir = user.dir
+			user.remove_from_mob(src)
+			qdel(src)
+
+/obj/item/weapon/foldable/generic
+	name = "Foldable Mortar"
+	desc = "A light-weight portable mortar"
+	icon_state = "mortar"
+	force = 12.0
+	throwforce = 6.0
+	item_state = "type89"
+	w_class = 6.0
+	attack_verb = list("bashed", "bludgeoned")
+	sharp = FALSE
+	edge = FALSE
+	slot_flags = null
+	path = /obj/structure/cannon/mortar/foldable/generic
+
+/obj/item/weapon/foldable/type89_mortar
 	name = "Type 89 Mortar"
 	desc = "A light-weight portable mortar"
 	icon_state = "type89"
@@ -47,34 +72,23 @@
 	w_class = 6.0
 	attack_verb = list("bashed", "bludgeoned")
 	sharp = FALSE
-	edge = TRUE
-	slot_flags = SLOT_BACK|SLOT_BELT
-	mortar = /obj/structure/cannon/mortar/foldable/type89
+	edge = FALSE
+	slot_flags = null
+	path = /obj/structure/cannon/mortar/foldable/type89
 
-/obj/item/weapon/mortar/generic
-	name = "Foldable Mortar"
-	desc = "A light-weight portable mortar"
-	icon_state = "mortar"
+/obj/item/weapon/foldable/atgm
+	name = "Anti-Tank Guided Missile system"
+	desc = "A light-weight portable ATGM"
+	icon_state = "atgm"
 	force = 12.0
 	throwforce = 6.0
-	item_state = "mortar"
-	w_class = 6.0
+	item_state = "atgm"
+	w_class = 8.0
 	attack_verb = list("bashed", "bludgeoned")
 	sharp = FALSE
-	edge = TRUE
-	slot_flags = SLOT_BACK|SLOT_BELT
-	mortar = /obj/structure/cannon/mortar/foldable/generic
-
-/obj/item/weapon/mortar/attack_self(var/mob/user as mob)
-	var/target = get_step(user, user.dir)
-	if (target)
-		visible_message("<span class = 'warning'>[user] starts to deploy a [src].</span>")
-		if (do_after(user, 10, get_turf(user)))
-			visible_message("<span class = 'warning'>[user] deploys a [src].</span>")
-			user.remove_from_mob(src)
-			qdel(src)
-			var/atom/A = new mortar
-			A.dir = user.dir
+	edge = FALSE
+	slot_flags = null
+	path = /obj/item/weapon/gun/projectile/automatic/stationary/atgm/foldable
 
 /obj/item/weapon/material/shovel
 	name = "shovel"
@@ -111,12 +125,52 @@
 	health = 7.5
 	maxhealth = 7.5
 
+// Foldable shovels
+/obj/item/weapon/material/shovel/spade/foldable
+	name = "foldable shovel"
+	icon_state = "trench_shovel"
+	item_state = "lopata"
+	usespeed = 0.9
+	var/path = /obj/item/weapon/foldable_shovel
+	secondary_action = TRUE
+
+/obj/item/weapon/material/shovel/spade/foldable/secondary_attack_self(mob/living/human/user)
+	if (secondary_action)
+		if (do_after(user, 10, src))
+			usr << "You fold your [src] closed."
+			qdel(src)
+			usr.put_in_any_hand_if_possible(new path, prioritize_active_hand = TRUE)
+
 /obj/item/weapon/material/shovel/trench
 	name = "entrenching tool"
 	desc = "A shovel used specifically for digging trenches."
-	icon_state = "german_shovel2"
+	icon_state = "trench_shovel"
 	var/dig_speed = 7
 	usespeed = 0.8
+
+/obj/item/weapon/material/shovel/trench/foldable
+	name = "foldable entrenching tool"
+	desc = "A foldable shovel used specifically for digging trenches."
+	icon_state = "trench_shovel"
+	dig_speed = 8
+	usespeed = 0.8
+	var/path = /obj/item/weapon/foldable_shovel/trench
+	secondary_action = TRUE
+
+/obj/item/weapon/material/shovel/trench/foldable/etool
+	name = "foldable entrenching tool"
+	desc = "A foldable shovel used specifically for digging trenches."
+	icon_state = "etool"
+	dig_speed = 8
+	usespeed = 0.8
+	path = /obj/item/weapon/foldable_shovel/trench/etool
+
+/obj/item/weapon/material/shovel/trench/foldable/secondary_attack_self(mob/living/human/user)
+	if (secondary_action)
+		if (do_after(user, 10, src))
+			usr << "You fold your [src] closed."
+			qdel(src)
+			usr.put_in_any_hand_if_possible(new path, prioritize_active_hand = TRUE)
 
 /obj/item/weapon/material/shovel/spade
 	name = "spade"
@@ -135,11 +189,40 @@
 	material = "wood"
 	icon_state = "spadem"
 
-/obj/item/weapon/material/shovel/spade/foldable
+// Foldable shovel items
+/obj/item/weapon/foldable_shovel
 	name = "foldable shovel"
-	icon_state = "german_shovel2"
+	icon = 'icons/obj/items.dmi'
+	desc = "A foldable shovel which is currently, folded"
+	icon_state = "trench_shovel_folded"
 	item_state = "lopata"
-	usespeed = 0.9
+	edge = FALSE
+	sharp = FALSE
+	force = 1.0
+	var/path = /obj/item/weapon/material/shovel/spade/foldable
+	secondary_action = TRUE
+	w_class = 2
+
+/obj/item/weapon/foldable_shovel/trench
+	name = "foldable entrenching tool"
+	desc = "A foldable entrenching tool which is currently, folded"
+	icon_state = "trench_shovel_folded"
+	item_state = "lopata"
+	path = /obj/item/weapon/material/shovel/trench/foldable
+
+/obj/item/weapon/foldable_shovel/trench/etool
+	name = "foldable entrenching tool"
+	desc = "A foldable entrenching tool which is currently, folded"
+	icon_state = "etool_folded"
+	item_state = "lopata"
+	path = /obj/item/weapon/material/shovel/trench/foldable/etool
+
+/obj/item/weapon/foldable_shovel/secondary_attack_self(mob/living/human/user)
+	if (secondary_action)
+		if (do_after(user, 5, src))
+			usr << "You quickly snap your [src] open."
+			qdel(src)
+			usr.put_in_any_hand_if_possible(new path, prioritize_active_hand = TRUE)
 
 /obj/item/weapon/material/shovel/spade/small
 	name = "small shovel"

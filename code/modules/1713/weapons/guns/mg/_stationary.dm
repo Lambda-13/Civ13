@@ -37,6 +37,7 @@
 	var/mob/last_user = null
 
 	var/zoom_amount = 10
+	is_hmg = TRUE
 
 	var/hardness = 10 
 
@@ -82,7 +83,8 @@
 
 /obj/item/weapon/gun/projectile/automatic/stationary/proc/usedby(mob/user, atom/A, params)
 	if (A == src)
-		switch_firemodes(user)
+		if (src != /obj/item/weapon/gun/projectile/automatic/stationary/autocannon/atgm)
+			switch_firemodes(user)
 
 	if (check_direction(user, A))
 		afterattack(A, user, FALSE, params)
@@ -196,6 +198,6 @@
 	if (ammo_magazine)
 		icon_state = base_icon
 	else
-		icon_state = "[base_icon][0]"
+		icon_state = "[base_icon]_empty"
 	update_held_icon()
 	return
