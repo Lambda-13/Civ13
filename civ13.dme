@@ -1118,6 +1118,5 @@
 #include "lambda\sanecman\code\future\barrel.dm"
 #include "lambda\sanecman\code\power\power_cells.dm"
 #include "lambda\sanecman\code\lifeweb\graga.dm"
-#include "lambda\sanecman\code\lifeweb\retaliate.dm"
 #include "maps\nomads\nomads_wasteland_2.dmm"
 // END_INCLUDE
