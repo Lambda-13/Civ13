@@ -1,4 +1,4 @@
-/mob/living/simple_animal/hostile/retaliate/graga
+/mob/living/simple_animal/hostile/graga
 	name = "грага"
 	desc = ""
 	icon = 'lambda/sanecman/icons/mob/critter.dmi'
@@ -30,14 +30,14 @@
 	stance = HOSTILE_STANCE_ATTACK
 	item_worth = 300
 
-/mob/living/simple_animal/hostile/retaliate/graga/New()
+/mob/living/simple_animal/hostile/graga/New()
 	if(prob(10))
 		src.name = "[pick("Иван", "Слава", "Дима", "Александр", "Валера", "Леонид", "Стас")]"
 	if(src.name == "Стас")
 		src.color = "#A52A2A"
 	..()
 
-/mob/living/simple_animal/hostile/retaliate/graga/Move()
+/mob/living/simple_animal/hostile/graga/Move()
 	if(stat != 0)
 		return
 	var/selectedSound = pick('lambda/sanecman/sound/lifeweb/graga/graga_life1.ogg', 'lambda/sanecman/sound/lifeweb/graga/graga_life2.ogg', 'lambda/sanecman/sound/lifeweb/graga/graga_life3.ogg')
@@ -50,22 +50,14 @@
 		shake_camera(H, 1, 1)
 	return ..()
 
-/mob/living/simple_animal/hostile/retaliate/graga/ListTargets()
+/mob/living/simple_animal/hostile/graga/ListTargets()
 	return view(12, src) - src
 
-/mob/living/simple_animal/hostile/retaliate/graga/Retaliate()
-	..()
-	// src.visible_message("<span class='combatbold'>[src]</span> <span class='combat'>looks alert.</span>")
-/*
-/mob/living/simple_animal/hostile/retaliate/graga/movement_delay()
-	var/tally = 0
-	return tally + 8
-*/
-/mob/living/simple_animal/hostile/retaliate/graga/movement_delay()
+/mob/living/simple_animal/hostile/graga/movement_delay()
 	var/tally = 25 //Incase I need to add stuff other than "speed" later
 	return tally
 
-/mob/living/simple_animal/hostile/retaliate/graga/AttackingTarget()
+/mob/living/simple_animal/hostile/graga/AttackingTarget()
 	..()
 	if(ishuman(target))
 		var/mob/living/human/H = target
@@ -75,7 +67,7 @@
 		H.apply_damage(500, BRUTE, chosenOrgan)
 		return H
 
-/mob/living/simple_animal/hostile/retaliate/graga/attackby(var/obj/item/O as obj, var/mob/user as mob)  //Marker -Agouri
+/mob/living/simple_animal/hostile/graga/attackby(var/obj/item/O as obj, var/mob/user as mob)  //Marker -Agouri
 	if(istype(O, /obj/item/stack/medical))
 
 		if(stat != DEAD)
