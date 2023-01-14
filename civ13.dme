@@ -1104,7 +1104,6 @@
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
 #include "lambda\sanecman\code\_globalvars\text.dm"
-#include "lambda\sanecman\code\erp\interactions.dm"
 #include "lambda\sanecman\code\factory_aw\map_metadata\factory_aw.dm"
 #include "lambda\sanecman\code\game\objects\effects\decals\cleanable\misc.dm"
 #include "lambda\sanecman\code\lifeweb\room_alarm.dm"
