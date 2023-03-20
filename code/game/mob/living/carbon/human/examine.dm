@@ -269,6 +269,8 @@
 		msg += "<span class='danger'>[src] [T.has] \a [implant] sticking out of [T.his] flesh!</span>\n"
 	if (gender == MALE && circumcised && !w_uniform && !wear_suit)
 		msg += "<span class='danger'>Крайняя плоть [src] обрезана!</span>\n"
+	if(is_nude() && gender == MALE)// && species.genitals)//Interactions
+		msg += "<B>Размер танцора: [potenzia]см.</B>\n"
 
 	var/obj/item/organ/external/head/O = locate(/obj/item/organ/external/head) in organs
 	if (O && O.get_teeth() < O.max_teeth)
