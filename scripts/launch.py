@@ -58,4 +58,4 @@ handle.close()
 from discord import Webhook, RequestsWebhookAdapter
 
 webhook = Webhook.from_url(token, adapter=RequestsWebhookAdapter())
-webhook.send("Server is up, join <byond://play.lambda13.ru:{}/>".format(port))
+webhook.send("Server is up, join <byond://cmi-ss13.ru:{}/>".format(port))
