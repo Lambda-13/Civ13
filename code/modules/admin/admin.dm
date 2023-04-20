@@ -1222,7 +1222,7 @@ var/list/atom_types = null
 	else
 		message_admins("<span class='danger'>Ошибка загрузки вайтлиста!</span>")
 		message_admins("<span class='danger'>Загружаю вайтлист по другому</span>")
-        load_ckey_whitelist()
+		load_ckey_whitelist()
 	var/F3 = file("SQL/factionlist.txt")
 	if (fexists(F3))
 		faction_list_blue = list()
@@ -1424,7 +1424,7 @@ client/proc/debug_variables_map()
 
 
 /datum/admins/proc/set_radiation()
-	set category = "Fun"
+	set category = "Веселье"
 	set desc = "Set the radiation level of the world."
 	set name = "Set World Radiation"
 

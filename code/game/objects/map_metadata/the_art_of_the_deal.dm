@@ -237,7 +237,6 @@
 		list(/obj/item/weapon/gun/projectile/submachinegun/p90,rand(3000,50000)),
 		list(/obj/item/weapon/gun/projectile/submachinegun/saiga12,rand(1000,20000)),
 		list(/obj/item/weapon/gun/projectile/submachinegun/ar12,rand(5000,20000)),
-		list(/obj/item/weapon/gun/projectile/boltaction/singleshot/a50cal,rand(50000,100000)),
 		)
 		var/chosen1 = pick(chosen)
 		if (ispath(chosen1[1]))

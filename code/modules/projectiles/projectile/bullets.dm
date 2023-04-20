@@ -142,7 +142,7 @@
 	damage = 0
 	armor_penetration = 1000
 	penetrating = 1000
-	move_tiles = 1000
+	spread_step = 1000
 	icon = 'icons/effects/pooeffect.dmi'
 	icon_state = "poop2"
 	item_state = "poop"
