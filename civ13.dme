@@ -792,6 +792,7 @@
 #include "code\modules\1713\jobs\ru.dm"
 #include "code\modules\1713\jobs\ruhr_uprising.dm"
 #include "code\modules\1713\jobs\russian.dm"
+#include "code\modules\1713\jobs\russoukrainewar.dm"
 #include "code\modules\1713\jobs\samurai.dm"
 #include "code\modules\1713\jobs\skyrim.dm"
 #include "code\modules\1713\jobs\sovafghan.dm"
@@ -1137,6 +1138,5 @@
 #include "lambda\sanecman\code\future\barrel.dm"
 #include "lambda\sanecman\code\power\power_cells.dm"
 #include "lambda\sanecman\code\lifeweb\graga.dm"
-#include "maps\nomads\nomads_wasteland_2.dmm"
-#include "maps\campaign2\campaign3.dmm"
+#include "maps\ru\pervomaisk_crossing.dmm"
 // END_INCLUDE
