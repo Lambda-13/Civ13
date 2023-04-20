@@ -7,7 +7,7 @@
 	icon_state = "pill_canister"
 	icon = 'icons/obj/chemical.dmi'
 	item_state = "contsolid"
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	can_hold = list(/obj/item/weapon/reagent_containers/pill,/obj/item/weapon/dice,/obj/item/weapon/paper)
 	allow_quick_gather = TRUE
 	use_to_pickup = TRUE
@@ -42,9 +42,29 @@
 		new /obj/item/weapon/reagent_containers/pill/antitox( src )
 		new /obj/item/weapon/reagent_containers/pill/antitox( src )
 
-/obj/item/weapon/storage/pill_bottle/
-	name = "bottle of  pills"
-	desc = "Contains pills used to stabilize patients."
+/obj/item/weapon/storage/pill_bottle/paracetamol
+	name = "bottle of paracetamol pills"
+	desc = "Contains pills used to counter mild to moderate pain."
+
+	New()
+		..()
+		new /obj/item/weapon/reagent_containers/pill/paracetamol(src)
+		new /obj/item/weapon/reagent_containers/pill/paracetamol(src)
+		new /obj/item/weapon/reagent_containers/pill/paracetamol(src)
+		new /obj/item/weapon/reagent_containers/pill/paracetamol(src)
+		new /obj/item/weapon/reagent_containers/pill/paracetamol(src)
+		new /obj/item/weapon/reagent_containers/pill/paracetamol(src)
+		new /obj/item/weapon/reagent_containers/pill/paracetamol(src)
+		new /obj/item/weapon/reagent_containers/pill/paracetamol(src)
+		new /obj/item/weapon/reagent_containers/pill/paracetamol(src)
+		new /obj/item/weapon/reagent_containers/pill/paracetamol(src)
+		new /obj/item/weapon/reagent_containers/pill/paracetamol(src)
+		new /obj/item/weapon/reagent_containers/pill/paracetamol(src)
+		new /obj/item/weapon/reagent_containers/pill/paracetamol(src)
+		new /obj/item/weapon/reagent_containers/pill/paracetamol(src)
+		new /obj/item/weapon/reagent_containers/pill/paracetamol(src)
+		new /obj/item/weapon/reagent_containers/pill/paracetamol(src)
+
 
 /obj/item/weapon/storage/pill_bottle/penicillin
 	name = "bottle of penicillin pills"

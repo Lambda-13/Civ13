@@ -8,7 +8,7 @@
 	force = 4.0
 	throwforce = 3.0
 	item_state = "plough"
-	w_class = 3.0
+	w_class = ITEM_SIZE_NORMAL
 	flags = FALSE
 
 	attack_verb = list("bashed", "bludgeoned", "whacked")
@@ -35,6 +35,13 @@
 	flags = CONDUCT
 
 /obj/item/weapon/foldable
+	force = 12
+	nothrow = TRUE
+	w_class = ITEM_SIZE_GARGANTUAN
+	sharp = FALSE
+	edge = FALSE
+	slot_flags = null
+	attack_verb = list("bashed", "bludgeoned")
 	var/path
 
 /obj/item/weapon/foldable/attack_self(var/mob/user as mob)
@@ -52,43 +59,35 @@
 	name = "Foldable Mortar"
 	desc = "A light-weight portable mortar"
 	icon_state = "mortar"
-	force = 12.0
-	throwforce = 6.0
 	item_state = "type89"
-	w_class = 6.0
-	attack_verb = list("bashed", "bludgeoned")
-	sharp = FALSE
-	edge = FALSE
-	slot_flags = null
 	path = /obj/structure/cannon/mortar/foldable/generic
 
 /obj/item/weapon/foldable/type89_mortar
 	name = "Type 89 Mortar"
 	desc = "A light-weight portable mortar"
 	icon_state = "type89"
-	force = 12.0
-	throwforce = 6.0
 	item_state = "type89"
-	w_class = 6.0
-	attack_verb = list("bashed", "bludgeoned")
-	sharp = FALSE
-	edge = FALSE
-	slot_flags = null
 	path = /obj/structure/cannon/mortar/foldable/type89
 
 /obj/item/weapon/foldable/atgm
 	name = "Anti-Tank Guided Missile system"
 	desc = "A light-weight portable ATGM"
 	icon_state = "atgm"
-	force = 12.0
-	throwforce = 6.0
 	item_state = "atgm"
-	w_class = 8.0
-	attack_verb = list("bashed", "bludgeoned")
-	sharp = FALSE
-	edge = FALSE
-	slot_flags = null
 	path = /obj/item/weapon/gun/projectile/automatic/stationary/atgm/foldable
+
+/obj/item/weapon/foldable/pkm
+	name = "Foldable PKM machine gun"
+	desc = "A soviet machinegun chambered in 7.62x54mmR rounds."
+	icon_state = "foldable_pkm"
+	item_state = "foldable_pkm"
+	force = 20
+	throwforce = 30
+	weight = 9.5
+	w_class = ITEM_SIZE_HUGE
+	slowdown = 0.3
+	slot_flags = SLOT_SHOULDER|SLOT_BACK
+	path = /obj/item/weapon/gun/projectile/automatic/stationary/modern/foldable/pkm
 
 /obj/item/weapon/material/shovel
 	name = "shovel"
@@ -99,7 +98,7 @@
 	force = 8.0
 	throwforce = 4.0
 	item_state = "shovel"
-	w_class = 3.0
+	w_class = ITEM_SIZE_NORMAL
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked")
 	sharp = FALSE
 	edge = TRUE
@@ -146,6 +145,7 @@
 	desc = "A shovel used specifically for digging trenches."
 	icon_state = "trench_shovel"
 	var/dig_speed = 7
+	force = 35
 	usespeed = 0.8
 
 /obj/item/weapon/material/shovel/trench/foldable
@@ -179,7 +179,7 @@
 	item_state = "spade"
 	force = 15.0
 	throwforce = 20.0
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	weight = 1.18
 	usespeed = 0.8
 
@@ -201,7 +201,7 @@
 	force = 1.0
 	var/path = /obj/item/weapon/material/shovel/spade/foldable
 	secondary_action = TRUE
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 
 /obj/item/weapon/foldable_shovel/trench
 	name = "foldable entrenching tool"
@@ -236,7 +236,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "pickaxe"
 	flags = CONDUCT
-	w_class = 3.0
+	w_class = ITEM_SIZE_NORMAL
 	item_state = "pickaxe"
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked")
 	sharp = FALSE
@@ -279,7 +279,7 @@
 	force = 12.0
 	flags = CONDUCT
 	throwforce = 1.0
-	w_class = 6.0
+	w_class = ITEM_SIZE_GARGANTUAN
 	item_state = "jackhammer"
 	attack_verb = list("drilled", "bludgeoned", "stabbed", "whacked")
 	sharp = FALSE
@@ -313,7 +313,7 @@
 	force = 2.0
 	throwforce = 1.0
 	item_state = "berriesgatherer"
-	w_class = 1.0
+	w_class = ITEM_SIZE_TINY
 	attack_verb = list("bashed", "bludgeoned", "whacked")
 	sharp = FALSE
 	edge = FALSE
@@ -327,7 +327,7 @@
 	icon_state = "chisel"
 	force = 2.0
 	throwforce = 1.0
-	w_class = 1.0
+	w_class = ITEM_SIZE_TINY
 	attack_verb = list("bashed", "bludgeoned", "whacked")
 	sharp = FALSE
 	edge = FALSE
@@ -363,7 +363,7 @@
 	icon_state = "chisel_metal"
 	force = 2.25
 	throwforce = 1.25
-	w_class = 1.0
+	w_class = ITEM_SIZE_TINY
 	attack_verb = list("bashed", "bludgeoned", "whacked")
 	sharp = FALSE
 	edge = FALSE

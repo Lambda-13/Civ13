@@ -5,7 +5,7 @@
  * Utensils
  */
 /obj/item/weapon/material/kitchen/utensil
-	w_class = TRUE
+	w_class = ITEM_SIZE_TINY
 	thrown_force_divisor = TRUE
 	attack_verb = list("attacked", "stabbed", "poked")
 	sharp = TRUE
@@ -133,7 +133,7 @@
 	icon_state = "razorblade"
 	item_state = "knife"
 	force_divisor = 0.2
-	w_class = 1.0
+	w_class = ITEM_SIZE_TINY
 
 /obj/item/weapon/material/kitchen/utensil/knife/attack_self(mob/user)
 	..()
@@ -252,7 +252,7 @@
 	hitsound = null
 	attack_verb = list("patted", "tapped")
 	force_divisor = 0.05
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 5
@@ -260,36 +260,42 @@
 	drawsound = 'sound/weapons/hiddenblade_deploy.ogg'
 	var/active = FALSE
 
+/obj/item/weapon/material/kitchen/utensil/knife/switchblade/update_icon()
+	if(active)
+		icon_state = "switchblade_open"
+		item_state = "knife"
+	else
+		icon_state = "switchblade"
+		item_state = null
+
 /obj/item/weapon/material/kitchen/utensil/knife/switchblade/update_force()
+	..()
 	if(active)
 		edge = TRUE
 		sharp = TRUE
-		..() //Updates force.
 		throwforce = 5
 		hitsound = 'sound/weapons/bladeslice.ogg'
-		icon_state += "_open"
-		item_state = "switchblade_ext"
-		w_class = 3
+		w_class = ITEM_SIZE_NORMAL
 		force_divisor = 0.7
 		attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	else
 		edge = FALSE
 		sharp = FALSE
 		hitsound = initial(hitsound)
-		icon_state = initial(icon_state)
-		item_state = initial(item_state)
 		w_class = initial(w_class)
 		force_divisor = initial(force_divisor)
 		attack_verb = initial(attack_verb)
 
 /obj/item/weapon/material/kitchen/utensil/knife/switchblade/secondary_attack_self(mob/living/human/user)
-	active = !active
-	if(active)
+	if(!active)
 		visible_message("<span class='warning'>With a simple press, [user] extends the blade on their switchblade knife.</span>", 3)
 		playsound(loc, 'sound/weapons/switchblade.ogg', 15, 1)
+		active = TRUE
 	else
 		visible_message("<span class='notice'>\The [user] retracts the blade on their switchblade knife.</span>", 3)
+		active = FALSE
 	update_force()
+	update_icon()
 	add_fingerprint(user)
 
 /obj/item/weapon/material/kitchen/utensil/knife/fancy

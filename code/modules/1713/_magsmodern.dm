@@ -53,7 +53,7 @@
 	icon_state = "ak74"
 	mag_type = MAGAZINE
 	caliber = "a545x39"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	ammo_type = /obj/item/ammo_casing/a545x39
 	max_ammo = 65
 	multiple_sprites = TRUE
@@ -118,7 +118,7 @@
 	icon_state = "556x45"
 	mag_type = MAGAZINE
 	caliber = "a556x45"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	ammo_type = /obj/item/ammo_casing/a556x45
 	max_ammo = 65
 	multiple_sprites = TRUE
@@ -149,7 +149,7 @@
 	icon_state = "762x51"
 	mag_type = MAGAZINE
 	caliber = "a762x51"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	ammo_type = /obj/item/ammo_casing/a762x51
 	max_ammo = 65
 	multiple_sprites = TRUE
@@ -226,7 +226,7 @@
 	icon_state = "maximbelt"
 	mag_type = MAGAZINE
 	caliber = "a762x54_weak"
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 
 	ammo_type = /obj/item/ammo_casing/a762x54/weak
 	max_ammo = 250
@@ -239,18 +239,39 @@
 	icon_state = "b762x54"
 	mag_type = MAGAZINE
 	caliber = "a762x54_weak"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 
 	ammo_type = /obj/item/ammo_casing/a762x54/weak
 	max_ammo = 100
 	multiple_sprites = TRUE
+
+/obj/item/ammo_magazine/ammo127
+	name = "Ammo can (12.7x108mm)"
+	icon_state = "b127"
+	mag_type = MAGAZINE
+	caliber = "a127"
+	w_class = ITEM_SIZE_NORMAL
+	ammo_type = /obj/item/ammo_casing/a127
+	max_ammo = 50
+	multiple_sprites = TRUE
+
+/obj/item/ammo_magazine/ammo127/box
+	name = "Ammo Box (12.7x108mm)"
+	icon_state = "ab127"
+	mag_type = MAGAZINE
+	caliber = "a127"
+	w_class = ITEM_SIZE_NORMAL
+	ammo_type = /obj/item/ammo_casing/a127
+	max_ammo = 100
+	multiple_sprites = TRUE
+	pouch = TRUE
 
 /obj/item/ammo_magazine/rpd
 	name = "RPD барабанный (7.62x39)"
 	icon_state = "rpd"
 	mag_type = MAGAZINE
 	caliber = "a762x39"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 
 	ammo_type = /obj/item/ammo_casing/a762x39
 	max_ammo = 100
@@ -262,7 +283,7 @@
 	mag_type = MAGAZINE
 	caliber = "a545x39"
 
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	ammo_type = /obj/item/ammo_casing/a545x39
 	max_ammo = 45
 	multiple_sprites = TRUE
@@ -272,9 +293,30 @@
 	icon_state = "rpk74"
 	mag_type = MAGAZINE
 	caliber = "a545x39"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 
 	ammo_type = /obj/item/ammo_casing/a545x39
+	max_ammo = 75
+	multiple_sprites = TRUE
+
+/obj/item/ammo_magazine/rpk47
+	name = "RPK-47 magazine (7.62x39mm)"
+	icon_state = "rpk47mag"
+	mag_type = MAGAZINE
+
+	w_class = ITEM_SIZE_SMALL
+	caliber = "a762x39"
+	ammo_type = /obj/item/ammo_casing/a762x39
+	max_ammo = 45
+	multiple_sprites = TRUE
+
+/obj/item/ammo_magazine/rpk47/drum
+	name = "RPK-47 drum (7.62x39mm)"
+	icon_state = "rpk47"
+	mag_type = MAGAZINE
+	caliber = "a762x39"
+	ammo_type = /obj/item/ammo_casing/a762x39
+	w_class = ITEM_SIZE_NORMAL
 	max_ammo = 75
 	multiple_sprites = TRUE
 
@@ -294,9 +336,9 @@
 	icon_state = "ammo"
 	mag_type = MAGAZINE
 	caliber = "a9x19"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	ammo_type = /obj/item/ammo_casing/a9x19
-	max_ammo = 65
+	max_ammo = 60
 	multiple_sprites = TRUE
 	is_box = TRUE
 
@@ -315,7 +357,7 @@
 	icon_state = "b762"
 	mag_type = MAGAZINE
 	caliber = "a556x45"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	ammo_type = /obj/item/ammo_casing/a556x45
 	max_ammo = 150
 	multiple_sprites = TRUE
@@ -521,6 +563,36 @@
 	weight = 0.32
 	multiple_sprites = TRUE
 
+/obj/item/ammo_magazine/srm
+	name = "SR-3 magazine (9x39mm)"
+	icon_state = "srm"
+	caliber = "a9x39"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a9x39
+	max_ammo = 30
+	weight = 0.45
+	multiple_sprites = TRUE
+
+/obj/item/ammo_magazine/srm/box
+	name = "Ammo Box (9x39mm)"
+	icon_state = "srm"
+	ammo_type = /obj/item/ammo_casing/a9x39
+	caliber = "a9x39"
+	max_ammo = 100
+	weight = 0.8
+	multiple_sprites = TRUE
+	is_box = TRUE
+
+/obj/item/ammo_magazine/srm/srms
+	name = "SR-3 small magazine (9x39mm)"
+	icon_state = "srms"
+	caliber = "a9x39"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a9x39
+	max_ammo = 20
+	weight = 0.39
+	multiple_sprites = TRUE
+
 /obj/item/ammo_magazine/a50cal
 	name = "heavy bullet pouch (.50 BMG)"
 	icon_state = "pouch_closed"
@@ -550,6 +622,46 @@
 	weight = 0.8
 	multiple_sprites = TRUE
 	pouch = TRUE
+
+/obj/item/ammo_magazine/barrett
+	name = "magazine (.50 BMG)"
+	icon_state = "a50cal"
+	mag_type = MAGAZINE
+	w_class = ITEM_SIZE_LARGE
+	caliber = "a50cal"
+	ammo_type = /obj/item/ammo_casing/a50cal
+	max_ammo = 10
+	multiple_sprites = TRUE
+
+/obj/item/ammo_magazine/bamr_ap
+	name = "BAM AP magazine (15x115mm)"
+	icon_state = "bamgreen"
+	mag_type = MAGAZINE
+	w_class = ITEM_SIZE_LARGE
+	caliber = "a15115"
+	ammo_type = /obj/item/ammo_casing/a15115_ap
+	max_ammo = 5
+	multiple_sprites = TRUE
+
+/obj/item/ammo_magazine/bamr_aphe
+	name = "BAM HE magazine (15x115mm)"
+	icon_state = "bamred"
+	mag_type = MAGAZINE
+	w_class = ITEM_SIZE_LARGE
+	caliber = "a15115"
+	ammo_type = /obj/item/ammo_casing/a15115_aphe
+	max_ammo = 5
+	multiple_sprites = TRUE
+
+/obj/item/ammo_magazine/bamr
+	name = "BAM magazine (15x115mm)"
+	icon_state = "bam"
+	mag_type = MAGAZINE
+	w_class = ITEM_SIZE_LARGE
+	caliber = "a15115"
+	ammo_type = /obj/item/ammo_casing/a15115
+	max_ammo = 5
+	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/ptrd_pouch
 	name = "heavy bullet pouch (14.5x114mm)"
@@ -591,6 +703,46 @@
 	multiple_sprites = TRUE
 	is_box = TRUE
 
+/obj/item/ammo_magazine/pzb_case
+	name = "7.92x94mm case"
+	icon_state = "pzb39"
+	ammo_type = /obj/item/ammo_casing/a792x94
+	mag_type = MAGAZINE
+	caliber = "a792x94"
+	max_ammo = 10
+	weight = 0.8
+	multiple_sprites = TRUE
+
+/obj/item/ammo_magazine/pzb_case_ap
+	name = "7.92x94mm AP case"
+	icon_state = "pzb39"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a792x94_ap
+	caliber = "a792x94_ap"
+	max_ammo = 10
+	weight = 0.8
+	multiple_sprites = TRUE
+
+/obj/item/ammo_magazine/pzb_pouch
+	name = "heavy bullet pouch (7.92x94mm)"
+	icon_state = "pouch_closed"
+	ammo_type = /obj/item/ammo_casing/a792x94
+	caliber = "a792x94"
+	max_ammo = 6
+	weight = 0.8
+	multiple_sprites = TRUE
+	pouch = TRUE
+
+/obj/item/ammo_magazine/pzb_pouch_ap
+	name = "heavy bullet pouch (7.92x94mm AP)"
+	icon_state = "pouch_closed"
+	ammo_type = /obj/item/ammo_casing/a792x94_ap
+	caliber = "a792x94"
+	max_ammo = 6
+	weight = 0.8
+	multiple_sprites = TRUE
+	pouch = TRUE
+
 /obj/item/ammo_magazine/a50cal_can
 	name = ".50 BMG ammo can"
 	icon_state = "b762x51"
@@ -608,10 +760,10 @@
 	icon_state = "maximbelt"
 	mag_type = MAGAZINE
 	caliber = "a762x51"
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_BELT|SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a762x51
-	max_ammo = 100
+	max_ammo = 110
 	multiple_sprites = TRUE
 	belt = TRUE
 
@@ -620,10 +772,10 @@
 	icon_state = "b762x51"
 	mag_type = MAGAZINE
 	caliber = "a762x51"
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_BELT|SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a762x51
-	max_ammo = 200
+	max_ammo = 220
 	multiple_sprites = TRUE
 	belt = TRUE
 
@@ -637,28 +789,125 @@
 	weight = 0.045
 	multiple_sprites = TRUE
 
-/obj/item/ammo_magazine/a3ubr6
+/obj/item/ammo_magazine/autocannon_ap
 	name = "3UBR6 AP ammo belt"
 	icon_state = "maximbelt"
 	worn_state = "maximbelt"
 	mag_type = MAGAZINE
 	caliber = "a30"
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_SHOULDER
-	ammo_type = /obj/item/ammo_casing/a3ubr6
+	ammo_type = /obj/item/ammo_casing/a30mm_ap
 	max_ammo = 16
 	multiple_sprites = TRUE
 	belt = TRUE
 
-/obj/item/ammo_magazine/a3uor6
+/obj/item/ammo_magazine/autocannon_ap/small
+	max_ammo = 10
+
+/obj/item/ammo_magazine/autocannon_he
 	name = "3UOR6 HE ammo belt"
 	icon_state = "maximbelt"
 	worn_state = "maximbelt"
 	mag_type = MAGAZINE
 	caliber = "a30"
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_SHOULDER
-	ammo_type = /obj/item/ammo_casing/frag/a3uor6
+	ammo_type = /obj/item/ammo_casing/frag/a30mm_he
 	max_ammo = 16
 	multiple_sprites = TRUE
 	belt = TRUE
+
+/obj/item/ammo_magazine/autocannon_he/small
+	max_ammo = 10
+
+/obj/item/ammo_magazine/flare
+	name = "flare casing pouch (.50 BMG)"
+	icon_state = "pouch_closed"
+	ammo_type = /obj/item/ammo_casing/flare
+	caliber = "flare"
+	max_ammo = 8
+	weight = 0.8
+	multiple_sprites = TRUE
+	pouch = TRUE
+
+/obj/item/flare_pouch
+	name = "flare pouch"
+	desc = "A pouch for holding flares."
+	icon = 'icons/obj/ammo.dmi'
+	icon_state = "flarepouch"
+	w_class = ITEM_SIZE_SMALL
+	slot_flags = SLOT_POCKET|SLOT_BELT
+	var/max = 6
+	var/initial_amount = null
+	var/opened = FALSE
+	var/flare_type = null
+	var/list/stored = list()
+
+/obj/item/flare_pouch/verb/toggle_open()
+	set category = null
+	set src in view(1)
+	set name = "Toggle Open"
+	if (opened)
+		opened=FALSE
+		usr << "You close the [src]."
+	else
+		opened=TRUE
+		usr << "You open the [src]."
+	update_icon()
+	return
+
+/obj/item/flare_pouch/attack_hand(mob/user as mob)
+	if (opened)
+		if (stored.len > 0)
+			var/obj/item/flashlight/flare/C = stored[stored.len]
+			stored.len--
+			user.put_in_hands(C)
+			visible_message("[user] removes \a [C] from [src].", "<span class='notice'>You remove \a [C] from [src].</span>")
+			update_icon()
+			return
+		else
+			user << "<span class='warning'>[src] is empty.</span>"
+			update_icon()
+	else
+		return ..()
+	desc = "A pouch for holding flares. It currently holds [stored.len] flares."
+
+/obj/item/flare_pouch/update_icon()
+	if (!opened)
+		icon_state = "[initial(icon_state)]"
+	else
+		if (stored.len > 0)
+			icon_state = "[initial(icon_state)]-[stored.len]"
+		else
+			icon_state = "flarepouch-0"
+
+/obj/item/flare_pouch/attackby(var/obj/item/W, mob/user as mob)
+	if (W == src)
+		return
+	if (istype(W, flare_type))
+		if (stored.len >= max)
+			user << "<span class='warning'>[src] is full!</span>"
+			return
+		user.remove_from_mob(W)
+		W.loc = src
+		stored.Insert(1, W)
+		update_icon()
+	desc = "A pouch for holding flares. It currently holds [stored.len] flares."
+
+/obj/item/flare_pouch/New()
+	..()
+	if (isnull(initial_amount) && flare_type != null)
+		initial_amount = max
+
+	if (initial_amount && flare_type != null)
+		for (var/i in TRUE to initial_amount)
+			stored += new flare_type(src)
+	update_icon()
+
+/obj/item/flare_pouch/normal_full
+	flare_type = /obj/item/flashlight/flare
+
+/obj/item/flare_pouch/white_full
+	icon_state = "flarepouchW"
+	flare_type = /obj/item/flashlight/flare/white

@@ -42,6 +42,7 @@ var/global/datum/controller/occupations/job_master
 		job_master.faction_organized_occupations |= faction_organized_occupations_separate_lists[CHINESE]
 		job_master.faction_organized_occupations |= faction_organized_occupations_separate_lists[AMERICAN]
 		job_master.faction_organized_occupations |= faction_organized_occupations_separate_lists[FILIPINO]
+		job_master.faction_organized_occupations |= faction_organized_occupations_separate_lists[POLISH]
 	else
 		for (var/faction in map.faction_organization)
 			if (job_master)
@@ -134,8 +135,10 @@ var/global/datum/controller/occupations/job_master
 	var/autobalance_for_players = round(max(_clients, clients.len))
 
 	if (map && map.civilizations && map.ID != MAP_TRIBES && map.ID != MAP_FOUR_KINGDOMS && map.ID != MAP_THREE_TRIBES)
-		if (map.ID == MAP_CIVILIZATIONS || map.ID == MAP_NATIONSRP)
-			set_factions2(15)
+		if (map.ID == MAP_CIVILIZATIONS || map.ID == MAP_NATIONSRP || map.ID == MAP_NATIONSRPMED || map.ID == MAP_NATIONSRP_WW2 || map.ID == MAP_NATIONSRP_COLDWAR || map.ID == MAP_NATIONSRP_COLDWAR_CAMPAIGN)
+			set_factions2(16)
+		else if (map.ID == MAP_NATIONSRP_TRIPLE)
+			set_factions2(24)
 		else
 			set_factions2(autobalance_for_players)
 	spawn(10)
@@ -383,7 +386,7 @@ var/global/datum/controller/occupations/job_master
 		// Add loadout items. spawn(SAFE_SPAWN_TIME) so it happens after our pockets are filled with default job item
 		spawn (SAFE_SPAWN_TIME*2)
 			for (var/obj/item/weapon/gun/projectile/gun in H.contents)
-				if (gun.w_class == 5 && gun.gun_type == GUN_TYPE_MG) // MG
+				if (gun.w_class == ITEM_SIZE_HUGE && gun.gun_type == GUN_TYPE_MG) // MG
 					if (H.back && istype(H.back, /obj/item/weapon/storage/backpack))
 						for (var/v in 1 to 3)
 							H.back.contents += new gun.magazine_type(H)
@@ -428,7 +431,7 @@ var/global/datum/controller/occupations/job_master
 		job.assign_faction(H)
 
 		if(map.ID == MAP_CAMPAIGN)
-			if(istype(job,/datum/job/pirates/redfaction))
+			if(istype(job, /datum/job/pirates/redfaction))
 				H.remove_language("English")
 				H.add_language("Redmenian",FALSE)
 				for (var/datum/language/redmenian/A in H.languages)
@@ -439,7 +442,18 @@ var/global/datum/controller/occupations/job_master
 				H.add_language("Blugoslavian",FALSE)
 				for (var/datum/language/blugoslavian/A in H.languages)
 					H.default_language = A
-
+		if(map.ID == MAP_FOOTBALL_CAMPAIGN)
+			if(istype(job, /datum/job/civilian/football_red_campaign) || istype(job, /datum/job/civilian/football_red_campaign/goalkeeper))
+				H.remove_language("English")
+				H.add_language("Redmenian",FALSE)
+				for (var/datum/language/redmenian/A in H.languages)
+					H.default_language = A
+			else if (istype(job, /datum/job/civilian/football_blue_campaign) || istype(job, /datum/job/civilian/football_blue_campaign/goalkeeper))
+				H.remove_language("English")
+				H.add_language("Blugoslavian",FALSE)
+				for (var/datum/language/blugoslavian/A in H.languages)
+					H.default_language = A
+					
 		// removed /mob/living/job since it was confusing; it wasn't a job, but a job title
 		H.original_job = job
 		H.original_job_title = H.original_job.title
@@ -512,6 +526,8 @@ var/global/datum/controller/occupations/job_master
 					spawn_location = "JoinLateRN"
 				if (FILIPINO)
 					spawn_location = "JoinLateFP"
+				if (POLISH)
+					spawn_location = "JoinLatePOL"
 		// fixes spawning at 1,1,1
 
 		if (!spawn_location)
@@ -535,6 +551,8 @@ var/global/datum/controller/occupations/job_master
 				spawn_location = "JoinLateGR"
 			else if (findtext(H.original_job.spawn_location, "JoinLateAR"))
 				spawn_location = "JoinLateAR"
+			else if (findtext(H.original_job.spawn_location, "JoinLatePOL"))
+				spawn_location = "JoinLatePOL"
 		H.job_spawn_location = spawn_location
 
 		if (H.mind)
@@ -601,6 +619,7 @@ var/global/datum/controller/occupations/job_master
 	var/vietnamese = alive_n_of_side(VIETNAMESE)
 	var/chinese = alive_n_of_side(CHINESE)
 	var/filipino = alive_n_of_side(FILIPINO)
+	var/polish = alive_n_of_side(POLISH)
 
 	// by default no sides are hardlocked
 	var/max_british = INFINITY
@@ -626,6 +645,7 @@ var/global/datum/controller/occupations/job_master
 	var/max_vietnamese = INFINITY
 	var/max_chinese = INFINITY
 	var/max_filipino = INFINITY
+	var/max_polish = INFINITY
 
 	// see job_data.dm
 	var/relevant_clients = clients.len
@@ -699,6 +719,8 @@ var/global/datum/controller/occupations/job_master
 			max_chinese = ceil(relevant_clients * map.faction_distribution_coeffs[CHINESE])
 		if (map.faction_distribution_coeffs.Find(FILIPINO))
 			max_filipino = ceil(relevant_clients * map.faction_distribution_coeffs[FILIPINO])
+		if (map.faction_distribution_coeffs.Find(POLISH))
+			max_polish = ceil(relevant_clients * map.faction_distribution_coeffs[POLISH])
 	switch (side)
 		if (CIVILIAN)
 			if (civilians_forceEnabled)
@@ -833,5 +855,11 @@ var/global/datum/controller/occupations/job_master
 			if (filipino_forceEnabled)
 				return FALSE
 			if (filipino >= max_filipino)
+				return TRUE
+
+		if (POLISH)
+			if (polish_forceEnabled)
+				return FALSE
+			if (polish >= max_polish)
 				return TRUE
 	return FALSE

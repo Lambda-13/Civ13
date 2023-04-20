@@ -4,12 +4,12 @@
 	name = "справочник лекаря"
 	desc = "Книга размером с вашу ладонь, содержащая компактную энциклопедию темных чудес войны - болезни, состояния и документацию всех степеней травм."
 	icon = 'icons/obj/library.dmi'
-	icon_state = "book1"
+	icon_state = "bookmed"
 	item_state = "bible" // I couldn't find any better placeholder for now
 	slot_flags = SLOT_BELT | SLOT_POCKET
 	force = TRUE
 	throwforce = TRUE
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	throw_speed = 5
 	throw_range = 10
 	attack_verb = list("шлёпает", "бьёт")

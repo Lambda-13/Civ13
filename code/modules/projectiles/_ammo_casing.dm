@@ -366,7 +366,7 @@
 	value = 1
 	weight = 0.15
 	max_amount = 5
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	flags = FALSE
 
 /obj/item/stack/ammopart/musketball
@@ -588,6 +588,16 @@
 	caliber = "a145"
 	value = 7
 
+/obj/item/ammo_casing/a127
+	name = "12.7x108 cartridge"
+	desc = "A big heavy brass casing designed to penetrate armor."
+	icon_state = "big-bullet"
+	spent_icon = "big-casing"
+	weight = 0.06
+	projectile_type = /obj/item/projectile/bullet/rifle/a127
+	caliber = "a127"
+	value = 6
+
 /obj/item/ammo_casing/a145_ap
 	name = "14.5x114 AP cartridge"
 	desc = "A big heavy brass casing designed to penetrate armor."
@@ -597,6 +607,56 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a145_ap
 	caliber = "a145"
 	value = 7
+
+/obj/item/ammo_casing/a15115
+	name = "15x115 cartridge"
+	desc = "A big heavy brass casing designed to penetrate armor."
+	icon_state = "big-bullet"
+	spent_icon = "big-casing"
+	weight = 0.10
+	projectile_type = /obj/item/projectile/bullet/rifle/a15115
+	caliber = "a15115"
+	value = 25
+
+/obj/item/ammo_casing/a15115_ap
+	name = "15x115 AP cartridge"
+	desc = "A big heavy brass casing designed to penetrate armor."
+	icon_state = "big-bullet"
+	spent_icon = "big-casing"
+	weight = 0.10
+	projectile_type = /obj/item/projectile/bullet/rifle/a15115_ap
+	caliber = "a15115"
+	value = 30
+
+/obj/item/ammo_casing/a15115_aphe
+	name = "15x115 APHE cartridge"
+	desc = "A big heavy brass casing designed to explode after penetrating armor."
+	icon_state = "big-bullet"
+	spent_icon = "big-casing"
+	weight = 0.12
+	projectile_type = /obj/item/projectile/bullet/rifle/a15115_aphe
+	caliber = "a15115"
+	value = 35
+
+/obj/item/ammo_casing/a792x94
+	name = "7.92x94mm cartridge"
+	desc = "A big heavy brass casing designed to penetrate armor."
+	icon_state = "big-bullet"
+	spent_icon = "big-casing"
+	weight = 0.08
+	projectile_type = /obj/item/projectile/bullet/rifle/a792x94
+	caliber = "a792x94"
+	value = 7
+
+/obj/item/ammo_casing/a792x94_ap
+	name = "7.92x94mm AP cartridge"
+	desc = "A big heavy brass casing designed to penetrate armor."
+	icon_state = "big-bullet"
+	spent_icon = "big-casing"
+	weight = 0.08
+	projectile_type = /obj/item/projectile/bullet/rifle/a792x94_ap
+	caliber = "a792x94"
+	value = 12
 
 /obj/item/ammo_casing/a65x50/weak
 	projectile_type = /obj/item/projectile/bullet/rifle/a65x50/weak
@@ -770,7 +830,7 @@
 	caliber = "a792x57_weak"
 
 /obj/item/ammo_casing/a765x53
-	name = "7.65x53mm Belgian cartridge"
+	name = "7.65x53mm Mauser cartridge"
 	desc = "A brass casing."
 	icon_state = "rifle-bullet"
 	spent_icon = "rifle-casing"
@@ -1034,6 +1094,16 @@
 	caliber = "a762x39"
 	value = 2
 
+/obj/item/ammo_casing/a762x33
+	name = "7.62x33mm cartridge"
+	desc = "A brass casing."
+	icon_state = "rifle-bullet"
+	spent_icon = "rifle-casing"
+	weight = 0.05
+	projectile_type = /obj/item/projectile/bullet/rifle/a762x33
+	caliber = "a762x33"
+	value = 2
+
 /obj/item/ammo_casing/a9x39
 	name = "9x39mm cartridge"
 	desc = "A brass soviet rifle casing."
@@ -1074,23 +1144,23 @@
 	caliber = "a58x42"
 	value = 2
 
-/obj/item/ammo_casing/a3ubr6
+/obj/item/ammo_casing/a30mm_ap
 	name = "3UBR6 AP"
 	desc = "A VERY big brass casing."
 	icon_state = "huge-bullet"
 	spent_icon = "huge-casing"
 	weight = 1
-	projectile_type = /obj/item/projectile/bullet/autocannon/a3ubr6
+	projectile_type = /obj/item/projectile/bullet/autocannon/a30mm_ap
 	caliber = "a30"
 	value = 2
 
-/obj/item/ammo_casing/frag/a3uor6
+/obj/item/ammo_casing/frag/a30mm_he
 	name = "3UOR6 HE"
 	desc = "A VERY big brass casing."
 	icon_state = "huge-bullet"
 	spent_icon = "huge-casing"
 	weight = 1
-	projectile_type = /obj/item/projectile/bullet/autocannon/frag/a3uor6
+	projectile_type = /obj/item/projectile/bullet/autocannon/frag/a30mm_he
 	caliber = "a30"
 	value = 2
 
@@ -1103,7 +1173,7 @@
 /obj/item/ammo_casing/shotgun/buckshot
 	name = "buckshot shell"
 	desc = "A 12 gauge buckshot."
-	icon_state = "shell-bullet"
+	icon_state = "shell-shell"
 	spent_icon = "shell-casing"
 	projectile_type = /obj/item/projectile/bullet/pellet/buckshot
 
@@ -1130,11 +1200,18 @@
 
 
 /obj/item/ammo_casing/shotgun/incendiary
-	name = "shotgun slug"
+	name = "incendiary shotgun slug"
 	desc = "A 12 gauge incendiary slug."
 	icon_state = "dragons-breath-shell"
 	spent_icon = "dragons-breath-spent"
 	projectile_type = /obj/item/projectile/bullet/shotgun/incendiary
+
+/obj/item/ammo_casing/flare
+	name = "flare shell"
+	desc = "A flare shell."
+	icon_state = "flaregun-shell"
+	spent_icon = "flaregun-spent"
+	projectile_type = /obj/item/projectile/flare
 
 // Lasers
 

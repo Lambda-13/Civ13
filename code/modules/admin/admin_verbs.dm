@@ -50,8 +50,8 @@ var/list/admin_verbs_admin = list(
 	/datum/admins/proc/toggleoocdead,	//toggles ooc on/off for everyone who is dead,
 	/datum/admins/proc/toggledsay,		//toggles dsay on/off for everyone,
 	/datum/admins/proc/get_world_values,
-	/datum/admins/proc/set_world_radiation,
-	/datum/admins/proc/set_world_pollution,
+	/datum/admins/proc/set_radiation,
+	/datum/admins/proc/set_pollution,
 	/datum/admins/proc/set_custom_gamemode,
 	/datum/admins/proc/PlayerNotes,
 	/datum/admins/proc/show_player_info,
@@ -59,6 +59,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/cmd_admin_change_custom_event,
 	/client/proc/allow_character_respawn,	// Allows a ghost to respawn ,
 	/datum/admins/proc/ic_announce,
+	/datum/admins/proc/custom_faction_announce, //Allows for a custom faction announcement on TDM maps.
 	/client/proc/change_human_appearance_admin,	// Allows an admin to change the basic appearance of human-based mobs ,
 	/client/proc/change_human_appearance_self,	// Allows the human-based mob itself change its basic appearance ,
 	/client/proc/view_chemical_reaction_logs,
@@ -97,6 +98,7 @@ var/list/admin_verbs_trialadmin = list(
 	/client/proc/Jump,
 	/client/proc/jumptocoord,
 	/datum/admins/proc/ic_announce,
+	/datum/admins/proc/custom_faction_announce,
 	/client/proc/start_epochswap_vote,
 	)
 
@@ -234,8 +236,8 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/nukeT90,
 	/client/proc/fakenuke,
 	/datum/admins/proc/get_world_values,
-	/datum/admins/proc/set_world_radiation,
-	/datum/admins/proc/set_world_pollution,
+	/datum/admins/proc/set_radiation,
+	/datum/admins/proc/set_pollution,
 	/datum/admins/proc/set_custom_gamemode,
 	/client/proc/radiation_emission,
 	/client/proc/make_sound,

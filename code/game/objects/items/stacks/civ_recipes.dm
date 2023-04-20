@@ -55,6 +55,11 @@
 					current_res = map.cive_research
 				else if (civ == "Civilization F Citizen")
 					current_res = map.civf_research
+					
+				else if (civ == "Redmenian Civilian")
+					current_res = map.civa_research
+				else if (civ == "Blugoslavian Civilian")
+					current_res = map.civb_research
 			if (user.s_tone <= -175 && map.ID == MAP_NOMADS_AFRICA)
 				faction = "pygmy"
 			generate_recipes_civs(current_res,faction)
@@ -83,13 +88,15 @@
 							current_res = list(210,210,210)
 				else
 					current_res = map.custom_civs[user.civilization]
+			if (map && map.override_global_recipes != "global")
+				faction = map.override_global_recipes
 			generate_recipes_civs(current_res,faction)
 	return recipes
 
 /material/proc/generate_recipes_civs(var/list/current_res = list(0,0,0), faction = "global")
 
 	recipes = list()
-	var chosen_list = craftlist_lists[faction]
+	var/chosen_list = craftlist_lists[faction]
 	if (hardness>=40 && current_res[1] > 8 && (map && map.ID != MAP_GULAG13))
 		recipes += new/datum/stack_recipe("[display_name] fork", /obj/item/weapon/material/kitchen/utensil/fork, TRUE, _on_floor = TRUE, _supplied_material = "[name]")
 		recipes += new/datum/stack_recipe("[display_name] spoon", /obj/item/weapon/material/kitchen/utensil/spoon, TRUE, _on_floor = TRUE, _supplied_material = "[name]")
@@ -111,8 +118,8 @@
 
 datum/admins/proc/print_crafting_recipes()
 	set category = "Дебаг"
-	set desc="Print all the ingame crafting recipes into a text file."
-	set name="Print Crafting Recipes"
+	set name = "Print Crafting Recipes"
+	set desc = "Print all the ingame crafting recipes into a text file."
 	var/recipe_list = file("recipes.txt")
 	if (fexists(recipe_list))
 		fdel(recipe_list)

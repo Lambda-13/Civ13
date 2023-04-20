@@ -22,6 +22,7 @@ var/civmax_research = list(230,230,230)
 	var/list/valid_weather_types = list(WEATHER_WET, WEATHER_EXTREME, WEATHER_NONE, WEATHER_SMOG)
 	var/availablefactions_run = FALSE
 	var/list/availablefactions = list("Red Goose Tribesman")
+	var/override_global_recipes = "global"
 
 	var/victory_time = 36000
 	var/grace_wall_timer = 0
@@ -41,6 +42,7 @@ var/civmax_research = list(230,230,230)
 		"Nassau Shores:1" = "sound/music/nassau_shores.ogg",)
 	var/mission_start_message = "Раунд скоро начнётся!"
 	var/is_RP = FALSE
+	var/mosinonly = FALSE
 	var/squads = 1
 	var/list/faction1_squads = list(
 		1 = list(),
@@ -201,8 +203,6 @@ var/civmax_research = list(230,230,230)
 	var/age8_top = 230
 
 	var/orespawners = 0
-
-	var/pollutionmeter = 0
 
 	var/list/globalmarketplace = list()
 	var/list/marketplaceaccounts = list()
@@ -392,12 +392,13 @@ var/civmax_research = list(230,230,230)
 
 /obj/map_metadata/proc/pollution()
 
-	if (pollutionmeter >= 1000)
+	if (global_pollution >= 1000)
 		change_weather(WEATHER_SMOG)
 		world << pick("Воздух вокруг покрывается дымкой...", "Вокруг смог...", "Дышать тяжело... Дым вокруг...", "Вокруг меня дымка...", "Туманно...", "Вокруг становится туманно...", "Смог... Или туман?", "Плохо видно... Смог...", "Дымка...")
-	pollutionmeter -= 80
-	if (pollutionmeter < 0)
-		pollutionmeter = 0
+	if (global_pollution < 0)
+		set_global_pollution(0)
+	else
+		change_global_pollution(-80)
 	spawn(9000) //every 15 mins
 		pollution()
 
@@ -438,7 +439,7 @@ var/civmax_research = list(230,230,230)
 
 
 /obj/map_metadata/proc/autoresearch_proc()
-	if (autoresearch == TRUE && default_research < 230)
+	if (autoresearch && default_research < 230)
 		spawn(600) //1 minute = 0.4 points (by default)
 			default_research += autoresearch_mult
 			if (map.ID == MAP_CIVILIZATIONS)
@@ -500,7 +501,7 @@ var/civmax_research = list(230,230,230)
 	update_win_condition()
 	check_events()
 	if (nomads)
-		if (age1_done == FALSE)
+		if (!age1_done)
 			var/count = 0
 			for(var/i = 1, i <= custom_faction_nr.len, i++)
 				count = custom_civs[custom_faction_nr[i]][1]+custom_civs[custom_faction_nr[i]][2]+custom_civs[custom_faction_nr[i]][3]
@@ -514,7 +515,7 @@ var/civmax_research = list(230,230,230)
 						default_research = 25
 					break
 
-		else if (age2_done == FALSE)
+		else if (!age2_done)
 			var/count = 0
 			for(var/i = 1, i <= custom_faction_nr.len, i++)
 				count = custom_civs[custom_faction_nr[i]][1]+custom_civs[custom_faction_nr[i]][2]+custom_civs[custom_faction_nr[i]][3]
@@ -528,7 +529,7 @@ var/civmax_research = list(230,230,230)
 						default_research = 50
 					break
 
-		else if (age3_done == FALSE)
+		else if (!age3_done)
 			var/count = 0
 			for(var/i = 1, i <= custom_faction_nr.len, i++)
 				count = custom_civs[custom_faction_nr[i]][1]+custom_civs[custom_faction_nr[i]][2]+custom_civs[custom_faction_nr[i]][3]
@@ -541,7 +542,7 @@ var/civmax_research = list(230,230,230)
 						default_research = 80
 					break
 
-		else if (age4_done == FALSE)
+		else if (!age4_done)
 			var/count = 0
 			for(var/i = 1, i <= custom_faction_nr.len, i++)
 				count = custom_civs[custom_faction_nr[i]][1]+custom_civs[custom_faction_nr[i]][2]+custom_civs[custom_faction_nr[i]][3]
@@ -553,7 +554,7 @@ var/civmax_research = list(230,230,230)
 					if (!map.chad_mode && !map.chad_mode_plus)
 						default_research = 105
 					break
-		else if (age5_done == FALSE)
+		else if (!age5_done)
 			var/count = 0
 			for(var/i = 1, i <= custom_faction_nr.len, i++)
 				count = custom_civs[custom_faction_nr[i]][1]+custom_civs[custom_faction_nr[i]][2]+custom_civs[custom_faction_nr[i]][3]
@@ -565,7 +566,7 @@ var/civmax_research = list(230,230,230)
 					if (!map.chad_mode && !map.chad_mode_plus)
 						default_research = 120
 					break
-		else if (age6_done == FALSE)
+		else if (!age6_done)
 			var/count = 0
 			for(var/i = 1, i <= custom_faction_nr.len, i++)
 				count = custom_civs[custom_faction_nr[i]][1]+custom_civs[custom_faction_nr[i]][2]+custom_civs[custom_faction_nr[i]][3]
@@ -577,7 +578,7 @@ var/civmax_research = list(230,230,230)
 					if (!map.chad_mode && !map.chad_mode_plus)
 						default_research = 145
 					break
-		else if (age7_done == FALSE)
+		else if (!age7_done)
 			var/count = 0
 			for(var/i = 1, i <= custom_faction_nr.len, i++)
 				count = custom_civs[custom_faction_nr[i]][1]+custom_civs[custom_faction_nr[i]][2]+custom_civs[custom_faction_nr[i]][3]
@@ -589,7 +590,7 @@ var/civmax_research = list(230,230,230)
 					if (!map.chad_mode && !map.chad_mode_plus)
 						default_research = 175
 					break
-		else if (age8_done == FALSE)
+		else if (!age8_done)
 			var/count = 0
 			for(var/i = 1, i <= custom_faction_nr.len, i++)
 				count = custom_civs[custom_faction_nr[i]][1]+custom_civs[custom_faction_nr[i]][2]+custom_civs[custom_faction_nr[i]][3]
@@ -633,26 +634,26 @@ var/civmax_research = list(230,230,230)
 
 /obj/map_metadata/proc/job_enabled_specialcheck(var/datum/job/J)
 	if (age == "1013" && !civilizations)
-		if (J.is_medieval == TRUE)
+		if (J.is_medieval)
 			. = TRUE
 		else
 			. = FALSE
 	else
-		if (J.is_medieval == FALSE)
+		if (!J.is_medieval)
 			. = TRUE
 		else
 			. = FALSE
 	if (civilizations)
-		if (J.is_civilizations == TRUE)
+		if (J.is_civilizations)
 			. = TRUE
 		else
 			. = FALSE
 	else if (!civilizations)
-		if (J.is_civilizations == FALSE)
+		if (!J.is_civilizations)
 			. = TRUE
 		else
 			. = FALSE
-	if (J.is_nomad == TRUE)
+	if (J.is_nomad)
 		. = FALSE
 /obj/map_metadata/proc/cross_message(faction)
 	return "<font size = 4>[faction_const2name(faction,ordinal_age)] идут в атаку!</font>"
@@ -695,7 +696,7 @@ var/civmax_research = list(230,230,230)
 		world << "<font size = 4><span class = 'notice'>[message]</span></font>"
 		win_condition_spam_check = TRUE
 		return FALSE
-	if (nomads == FALSE && is_singlefaction == FALSE)
+	if (!nomads && !is_singlefaction && map.ID != MAP_NOMADS_PERSISTENCE_BETA)
 		// German major
 		if (win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[2]]), roundend_condition_sides[1], roundend_condition_sides[2], 1.33, TRUE))
 			if (!win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[1]]), roundend_condition_sides[2], roundend_condition_sides[1], 1.33))
@@ -765,6 +766,7 @@ var/civmax_research = list(230,230,230)
 		RUSSIAN = 0,
 		CHECHEN = 0,
 		FINNISH = 0,
+		POLISH = 0,
 		NORWEGIAN = 0,
 		SWEDISH = 0,
 		DANISH = 0,
@@ -898,6 +900,8 @@ var/civmax_research = list(230,230,230)
 			return "Chinese"
 		if (FILIPINO)
 			return "Filipino"
+		if (POLISH)
+			return "Polish"
 /obj/map_metadata/proc/roundend_condition_def2army(define)
 	switch (define)
 		if (BRITISH)
@@ -950,9 +954,11 @@ var/civmax_research = list(230,230,230)
 		if (VIETNAMESE)
 			return "Vietcong group"
 		if (CHINESE)
-			return "Poeple's Liberation Army"
+			return "People's Liberation Army"
 		if (FILIPINO)
 			return "Philippine Revolutionary Army"
+		if (POLISH)
+			return "Polish Home Army"
 /obj/map_metadata/proc/army2name(army)
 	switch (army)
 		if ("British Empire")
@@ -997,6 +1003,8 @@ var/civmax_research = list(230,230,230)
 			return "Chinese"
 		if ("Philippine Revolutionary Army")
 			return "Filipino"
+		if ("Polish Home Army")
+			return "Polish"
 /obj/map_metadata/proc/special_relocate(var/mob/M)
 	return FALSE
 
@@ -1193,11 +1201,13 @@ var/civmax_research = list(230,230,230)
 
 	if (fexists(F3))
 		var/list/craftlist_temp = file2list(F3,"\n")
+		var/current_list = replacetext(F3,"material_recipes_","")
+		current_list = replacetext(current_list,".txt","")
 		for (var/i in craftlist_temp)
 			if (findtext(i, ",") && findtext(i,"RECIPE: ") && !(findtext(i,"//")))
 				var/tmpi = replacetext(i, "RECIPE: ", "")
 				var/list/current = splittext(tmpi, ",")
-				craftlist_lists["INDIANS"] += list(current)
+				craftlist_lists[current_list] += list(current)
 				if (current.len != 13)
 					world.log << "Error! Recipe [current[2]] has a length of [current.len] (should be 13)."
 /obj/map_metadata/proc/give_stock_points(tfaction = "", value = 0)

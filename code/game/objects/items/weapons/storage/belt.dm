@@ -65,7 +65,6 @@
 		/obj/item/weapon/surgery,
 		)
 
-/obj/item/weapon/storage/belt/medical/full_vc
 /obj/item/weapon/storage/belt/medical/full_vc/New()
 	..()
 	new /obj/item/stack/medical/bruise_pack/bint/medic(src)
@@ -115,7 +114,7 @@
 	new /obj/item/weapon/weldingtool(src)
 	new /obj/item/weapon/wirecutters/boltcutters(src)
 	new /obj/item/weapon/hammer(src)
-	new /obj/item/weapon/fire_extinguisher/ww2(src)
+	new /obj/item/weapon/material/shovel(src)
 	new /obj/item/weapon/material/shovel/trench(src)
 
 /obj/item/weapon/storage/belt/utility/full/New()
@@ -213,3 +212,21 @@
 	new /obj/item/weapon/material/thrown/kunai_normal(src)
 	new /obj/item/weapon/material/thrown/kunai_normal(src)
 	new /obj/item/weapon/material/thrown/kunai_normal(src)
+
+/obj/item/weapon/storage/belt/tacpouches
+	name = "Tactical Pouches"
+	desc = "A belt with 6 small pouches, that can fit items like magazines, knives, and other small things."
+	icon_state = "pouches"
+	item_state = "pouches"
+	storage_slots = 6
+	max_w_class = 3
+
+/obj/item/weapon/storage/belt/tacpouches/olive
+	icon_state = "pouches_olive"
+	item_state = "pouches_olive"
+/obj/item/weapon/storage/belt/tacpouches/white
+	icon_state = "pouches_white"
+	item_state = "pouches_white"
+/obj/item/weapon/storage/belt/tacpouches/green
+	icon_state = "pouches_green"
+	item_state = "pouches_green"

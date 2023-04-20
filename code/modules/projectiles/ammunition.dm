@@ -2,11 +2,11 @@
 	name = "bullet casing"
 	desc = "A bullet casing."
 	icon = 'icons/obj/ammo.dmi'
-	icon_state = "s-casing"
+	icon_state = "rifle-casing"
 	flags = CONDUCT
 	slot_flags = SLOT_EARS
 	throwforce = TRUE
-	w_class = TRUE
+	w_class = ITEM_SIZE_TINY
 	flammable = TRUE
 	flags = CONDUCT
 	var/leaves_residue = TRUE
@@ -73,7 +73,7 @@
 	slot_flags = SLOT_BELT
 	item_state = "syringe_kit"
 	throwforce = 5
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	throw_speed = 4
 	throw_range = 10
 	secondary_action = 1
@@ -168,15 +168,23 @@
 	multiple_sprites = TRUE
 
 
-/obj/item/ammo_magazine/emptymagazine/small
+/obj/item/ammo_magazine/emptymagazine/rifle
 	name = "magazine (30)"
 	mag_type = MAGAZINE
-	icon_state = "pps"
+	icon_state = "ak47"
 	ammo_type = null
 	caliber = null
 	max_ammo = 30
 	weight = 0.25
 	multiple_sprites = TRUE
+
+/obj/item/ammo_magazine/emptymagazine/rifle/m16
+	icon_state = "m16"
+/obj/item/ammo_magazine/emptymagazine/rifle/ak74
+	icon_state = "ak74"
+/obj/item/ammo_magazine/emptymagazine/rifle/mp40
+	icon_state = "mp40"
+
 /obj/item/ammo_magazine/emptymagazine/pistol
 	name = "pistol магазин (15)"
 	mag_type = MAGAZINE
@@ -184,9 +192,8 @@
 	ammo_type = null
 	caliber = null
 	max_ammo = 15
-	weight = 0.2
+	weight = 0.15
 	multiple_sprites = TRUE
-
 
 /obj/item/ammo_magazine/emptymagazine/pistol/filled
 	name = "pistol магазин (9mm)"
@@ -213,7 +220,7 @@
 	caliber = null
 	max_ammo = 100
 	weight = 1
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	multiple_sprites = TRUE
 	belt = TRUE
 
@@ -241,6 +248,9 @@
 		usr << "You open the [src]."
 	update_icon()
 	return
+
+/obj/item/ammo_magazine/AltClick()
+	toggle_open()
 
 /obj/item/ammo_magazine/attack_hand(mob/user as mob)
 //	if (user.get_inactive_hand() == src)

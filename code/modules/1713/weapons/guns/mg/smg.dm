@@ -62,11 +62,12 @@
 	accuracy_decrease_mod = 1.50
 	KD_chance = KD_CHANCE_HIGH+3
 	stat = "machinegun"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS
 	var/jammed_until = -1
 	var/jamcheck = 0
 	var/last_fire = -1
+	var/one_handed = FALSE
 	reload_sound = 'sound/weapons/guns/interact/AR15Reload.ogg'
 	unload_sound = 'sound/weapons/guns/interact/AR15Unload.ogg'
 
@@ -74,7 +75,7 @@
 	if (gun_safety && safetyon)
 		user << "<span class='warning'>You can't fire \the [src] while the safety is on!</span>"
 		return FALSE
-	if (!user.has_empty_hand(both = FALSE))
+	if (!user.has_empty_hand(both = FALSE) && one_handed == FALSE)
 		user << "<span class='warning'>You need both hands to fire \the [src]!</span>"
 		return FALSE
 	if (jammed_until > world.time)
@@ -91,7 +92,7 @@
 	base_icon = "stg"
 	load_method = MAGAZINE
 	slot_flags = SLOT_SHOULDER|SLOT_BELT
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	caliber = "a792x33"
 
 	fire_sound = 'sound/weapons/guns/fire/stg.ogg'
@@ -102,8 +103,8 @@
 	load_delay = 8
 	equiptimer = 15
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.8, move_delay=2, dispersion = list(0.2, 0.3, 0.3, 0.4, 0.5)),
-		list(name="full auto",	burst=1, burst_delay=1.5, move_delay=4, dispersion = list(1.2, 1.4, 1.4, 1.4, 1.7)),
+		list(name = "semi auto",	burst=1, burst_delay=0.8, move_delay=2, dispersion = list(0.2, 0.3, 0.3, 0.4, 0.5)),
+		list(name = "full auto",	burst=1, burst_delay=1.5, move_delay=4, dispersion = list(1.2, 1.4, 1.4, 1.4, 1.7)),
 		)
 
 	sel_mode = 1
@@ -156,8 +157,8 @@
 	weight = 3.4
 	fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
 	firemodes = list(
-		list(name="semi auto",    burst=1, burst_delay=0.7, recoil=0, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
-		list(name="full auto",    burst=1, burst_delay=1.2, recoil=0, move_delay=4, dispersion = list(1.1, 1.2, 1.3, 1.3, 1.5)),
+		list(name = "semi auto",    burst=1, burst_delay=0.7, recoil=0, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
+		list(name = "full auto",    burst=1, burst_delay=1.2, recoil=0, move_delay=4, dispersion = list(1.1, 1.2, 1.3, 1.3, 1.5)),
 		)
 
 /obj/item/weapon/gun/projectile/submachinegun/spas/secondary_attack_self(mob/living/human/user)
@@ -185,7 +186,7 @@
 	attachment_slots = ATTACH_BARREL
 	fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
 	firemodes = list(
-		list(name="semi auto",    burst=1, burst_delay=0.7, recoil=0, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
+		list(name = "semi auto",    burst=1, burst_delay=0.7, recoil=0, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
 		)
 
 	sel_mode = 1
@@ -205,22 +206,55 @@
 	full_auto = TRUE
 	equiptimer = 12
 	firemodes = list(
-		list(name="full auto",	burst=1, burst_delay=1.1, recoil=0, move_delay=5, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
+		list(name = "full auto",	burst=1, burst_delay=1.1, recoil=0, move_delay=3, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
 		)
 
 	sel_mode = 1
 	effectiveness_mod = 1.05
 
+/obj/item/weapon/gun/projectile/submachinegun/mp40/mp38
+	name = "MP38"
+	desc = "Early German submachinegun with an underfolding stock, chambered in 9mm Luger."
+	weight = 4.10
+	full_auto = TRUE
+	equiptimer = 13
+	firemodes = list(
+		list(name = "full auto",	burst=1, burst_delay=1.1, recoil=0, move_delay=3, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
+		)
+
+	sel_mode = 1
+	effectiveness_mod = 0.95
+
+/obj/item/weapon/gun/projectile/submachinegun/ermaemp
+	name = "Erma-Emp"
+	desc = "A very early German submachinegun produced by the ERMA factory with an wooden stock, chambered in 9mm Luger."
+	icon_state = "ermaemp"
+	item_state = "ermaemp"
+	base_icon = "ermaemp"
+	weight = 4.25
+	caliber = "a9x19"
+	fire_sound = 'sound/weapons/guns/fire/mp40.ogg'
+	magazine_type = /obj/item/ammo_magazine/mp40/erma
+	good_mags = list(/obj/item/ammo_magazine/mp40,/obj/item/ammo_magazine/mp40/erma)
+	full_auto = TRUE
+	equiptimer = 14
+	firemodes = list(
+		list(name = "full auto",	burst=1, burst_delay=1.1, recoil=0, move_delay=3, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
+		)
+
+	sel_mode = 1
+	effectiveness_mod = 1.01
+
 /obj/item/weapon/gun/projectile/submachinegun/mp40/blyskawica
 	name = "Blyskawica"
-	desc = "Polish Underground state Submachine gun, chambered in 9mm Luger."
+	desc = "Polish Underground State submachine gun, chambered in 9mm Luger."
 	icon_state = "blyskawica"
 	item_state = "blyskawica"
 	base_icon = "blyskawica"
 	weight = 4.12
 	equiptimer = 10
 	firemodes = list(
-		list(name="full auto",    burst=1.2, burst_delay=1.4, recoil=0, move_delay=5, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.4)),
+		list(name = "full auto",    burst=1.2, burst_delay=1.4, recoil=0, move_delay=4, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.6)),
 		)
 	sel_mode = 1
 	effectiveness_mod = 0.95
@@ -237,11 +271,37 @@
 	magazine_type = /obj/item/ammo_magazine/mp40/mp5
 	good_mags = list(/obj/item/ammo_magazine/mp40/mp5)
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.4, recoil=0, move_delay=1, dispersion = list(0.2, 0.4, 0.4, 0.4, 0.5)),
-		list(name="full auto",	burst=1, burst_delay=1, recoil=0, move_delay=3, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
+		list(name = "semi auto",	burst=1, burst_delay=0.08, recoil=0, move_delay=0.5, dispersion = list(0.1, 0.2, 0.1, 0.2, 0)),
+		list(name = "full auto",	burst=1, burst_delay=1, recoil=0, move_delay=3, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
 		)
 	sel_mode = 1
 	effectiveness_mod = 1.2
+
+/obj/item/weapon/gun/projectile/submachinegun/fg42
+	name = "FG42"
+	desc = "A German automatic rifle that was developed specifically for the use of the Fallschirmjäger airborne infantry, it is chambered in 7.92x57 Mauser."
+	icon_state = "fg42"
+	item_state = "fg42"
+	base_icon = "fg42"
+	weight = 4.2
+	caliber = "a792x57"
+	fire_sound = 'sound/weapons/guns/fire/mg34.ogg'
+	magazine_type = /obj/item/ammo_magazine/fg42
+	good_mags = list(/obj/item/ammo_magazine/fg42,/obj/item/ammo_magazine/fg42/small)
+	full_auto = TRUE
+	equiptimer = 12
+	firemodes = list(
+		list(name = "semi auto",	burst=1, burst_delay=0.3, recoil=0, move_delay=1, dispersion = list(0.2, 0.4, 0.4, 0.4, 0.5)),
+		list(name = "full auto",	burst=1, burst_delay=0.4, recoil=0, move_delay=3, dispersion = list(0.8, 1.3, 1.3, 1.4, 1.6)),
+		)
+	sel_mode = 1
+	effectiveness_mod = 0.95
+	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_ADV_SCOPE
+
+/obj/item/weapon/gun/projectile/submachinegun/fg42/scope/New()
+	..()
+	var/obj/item/weapon/attachment/scope/adjustable/advanced/fg42/SP = new/obj/item/weapon/attachment/scope/adjustable/advanced/fg42(src)
+	SP.attached(null,src,TRUE)
 
 /obj/item/weapon/gun/projectile/submachinegun/uzi
 	name = "Uzi"
@@ -256,11 +316,12 @@
 	magazine_type = /obj/item/ammo_magazine/uzi
 	good_mags = list(/obj/item/ammo_magazine/uzi)
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.4, recoil=0, move_delay=1, dispersion = list(0.2, 0.4, 0.4, 0.4, 0.5)),
-		list(name="full auto",	burst=1, burst_delay=0.9, recoil=0, move_delay=3, dispersion = list(1.3, 1.4, 1.5, 1.6, 1.7)),
+		list(name = "semi auto",	burst=1, burst_delay=0.4, recoil=0, move_delay=1, dispersion = list(0.2, 0.4, 0.4, 0.4, 0.5)),
+		list(name = "full auto",	burst=1, burst_delay=0.9, recoil=0, move_delay=3, dispersion = list(1.3, 1.4, 1.5, 1.6, 1.7)),
 		)
 	sel_mode = 1
-	effectiveness_mod = 1.1
+	effectiveness_mod = 1.05
+	one_handed = TRUE
 
 /obj/item/weapon/gun/projectile/submachinegun/mac10
 	name = "MAC-10"
@@ -275,11 +336,12 @@
 	magazine_type = /obj/item/ammo_magazine/mac10
 	good_mags = list(/obj/item/ammo_magazine/mac10)
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.3, recoil=0, move_delay=1, dispersion = list(0.2, 0.4, 0.4, 0.4, 0.5)),
-		list(name="full auto",	burst=1, burst_delay=0.5, recoil=0, move_delay=3, dispersion = list(1.5, 1.6, 1.7, 1.8, 1.9)),
+		list(name = "semi auto",	burst=1, burst_delay=0.3, recoil=0, move_delay=1, dispersion = list(0.2, 0.4, 0.4, 0.4, 0.5)),
+		list(name = "full auto",	burst=1, burst_delay=0.5, recoil=0, move_delay=3, dispersion = list(1.5, 1.6, 1.7, 1.8, 1.9)),
 		)
 	sel_mode = 1
-	effectiveness_mod = 0.7
+	effectiveness_mod = 0.9
+	one_handed = TRUE
 
 /obj/item/weapon/gun/projectile/submachinegun/tec9
 	name = "TEC-9"
@@ -296,12 +358,13 @@
 	equiptimer = 8
 	slot_flags = SLOT_SHOULDER | SLOT_BELT
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.2, move_delay=2, dispersion = list(0.6, 0.6, 0.7, 0.8, 0.9)),
-		list(name="full auto",	burst=1, burst_delay=0.3, move_delay=4, dispersion = list(1.6, 1.7, 1.8, 1.9, 2.0)),
+		list(name = "semi auto",	burst=1, burst_delay=0.2, move_delay=2, dispersion = list(0.6, 0.6, 0.7, 0.8, 0.9)),
+		list(name = "full auto",	burst=1, burst_delay=0.3, move_delay=4, dispersion = list(1.6, 1.7, 1.8, 1.9, 2.0)),
 		)
 	effectiveness_mod = 0.8
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS
+	one_handed = TRUE
 
 /obj/item/weapon/gun/projectile/submachinegun/skorpion
 	name = "Skorpion"
@@ -316,11 +379,12 @@
 	magazine_type = /obj/item/ammo_magazine/skorpion
 	good_mags = list(/obj/item/ammo_magazine/skorpion)
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.4, recoil=0, move_delay=1, dispersion = list(0.2, 0.4, 0.4, 0.4, 0.5)),
-		list(name="full auto",	burst=1, burst_delay=0.8, recoil=0, move_delay=3, dispersion = list(1.2, 1.3, 1.4, 1.5, 1.6)),
+		list(name = "semi auto",	burst=1, burst_delay=0.4, recoil=0, move_delay=1, dispersion = list(0.2, 0.4, 0.4, 0.4, 0.5)),
+		list(name = "full auto",	burst=1, burst_delay=0.8, recoil=0, move_delay=3, dispersion = list(1.2, 1.3, 1.4, 1.5, 1.6)),
 		)
 	sel_mode = 1
 	effectiveness_mod = 0.95
+	one_handed = TRUE
 
 /obj/item/weapon/gun/projectile/submachinegun/greasegun
 	name = "M3A1 SMG"
@@ -337,7 +401,7 @@
 	slot_flags = SLOT_BELT|SLOT_SHOULDER
 	equiptimer = 7
 	firemodes = list(
-		list(name="full auto",	burst=1, burst_delay=1.4, recoil=0, move_delay=5, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
+		list(name = "full auto",	burst=1, burst_delay=1.4, recoil=0, move_delay=3, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
 		)
 
 	sel_mode = 1
@@ -358,7 +422,7 @@
 	slot_flags = SLOT_BELT|SLOT_SHOULDER
 	equiptimer = 8
 	firemodes = list(
-		list(name="full auto",	burst=1, burst_delay=1.2, recoil=0, move_delay=5, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
+		list(name = "full auto",	burst=1, burst_delay=1.2, recoil=0, move_delay=3, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
 		)
 
 	sel_mode = 1
@@ -379,7 +443,7 @@
 	slot_flags = SLOT_BELT|SLOT_SHOULDER
 	equiptimer = 8
 	firemodes = list(
-		list(name="full auto",	burst=1, burst_delay=0.4, recoil=0, move_delay=3, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
+		list(name = "full auto",	burst=1, burst_delay=1.0, recoil=0, move_delay=3, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
 		)
 
 	sel_mode = 1
@@ -400,11 +464,34 @@
 	full_auto = TRUE
 	equiptimer = 12
 	firemodes = list(
-		list(name="full auto",	burst=1, burst_delay=1.3, recoil=0, move_delay=5, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
+		list(name = "full auto",	burst=1, burst_delay=1.3, recoil=0, move_delay=3, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
 		)
 
 	sel_mode = 1
 	effectiveness_mod = 1.04
+
+
+/obj/item/weapon/gun/projectile/submachinegun/sten
+	name = "Sten MK II"
+	desc = "A British submachinegun, chambered in 9x19 Parabellum."
+	icon_state = "sten2"
+	item_state = "sten2"
+	base_icon = "sten2"
+	weight = 3.2
+	attachment_slots = ATTACH_BARREL
+	caliber = "a9x19"
+	fire_sound = 'sound/weapons/guns/fire/Thompson.ogg'
+	magazine_type = /obj/item/ammo_magazine/sten2
+	good_mags = list(/obj/item/ammo_magazine/sten2)
+	full_auto = TRUE
+	slot_flags = SLOT_SHOULDER
+	equiptimer = 8
+	firemodes = list(
+		list(name = "full auto",	burst=1, burst_delay=1.25, recoil=0, move_delay=2, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.4)),
+		)
+
+	sel_mode = 1
+	effectiveness_mod = 0.85
 
 /obj/item/weapon/gun/projectile/submachinegun/ppsh
 	name = "PPSh-41"
@@ -420,11 +507,17 @@
 	weight = 3.63
 	equiptimer = 14
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.5, recoil=0, move_delay=1, dispersion = list(0.2, 0.4, 0.4, 0.4, 0.5)),
-		list(name="full auto",	burst=1, burst_delay=1.2, recoil=0, move_delay=5, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
+		list(name = "semi auto",	burst=1, burst_delay=0.5, recoil=0, move_delay=1, dispersion = list(0.2, 0.4, 0.4, 0.4, 0.5)),
+		list(name = "full auto",	burst=1, burst_delay=1.2, recoil=0, move_delay=3, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
 		)
 
 	sel_mode = 1
+
+/obj/item/weapon/gun/projectile/submachinegun/ppsh/chinese
+	name = "Type 50"
+	desc = "Chinese Variant of the Iconic Soviet submachinegun. Chambered in 7.62x25mm Tokarev."
+	weight = 3.61
+	equiptimer = 11
 
 /obj/item/weapon/gun/projectile/submachinegun/pps
 	name = "PPS-43"
@@ -440,10 +533,46 @@
 	weight = 3.04
 	equiptimer = 10
 	firemodes = list(
-		list(name="full auto",	burst=1, burst_delay=1.1, recoil=0, move_delay=5, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
+		list(name = "full auto",	burst=1, burst_delay=1.1, recoil=0, move_delay=3, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
 		)
 
 	sel_mode = 1
+
+/obj/item/weapon/gun/projectile/submachinegun/ppd
+	name = "PPD-40"
+	desc = "Early Soviet submachinegun. Chambered in 7.62x25mm Tokarev."
+	icon_state = "ppd"
+	item_state = "ppd"
+	base_icon = "ppd"
+	caliber = "a762x25"
+	fire_sound = 'sound/weapons/guns/fire/762x25.ogg'
+	full_auto = TRUE
+	magazine_type = /obj/item/ammo_magazine/c762x25_ppsh
+	good_mags = list(/obj/item/ammo_magazine/c762x25_ppsh, /obj/item/ammo_magazine/c762x25_pps)
+	weight = 3.7
+	equiptimer = 15
+	effectiveness_mod = 0.84
+	firemodes = list(
+		list(name = "semi auto",	burst=1, burst_delay=0.5, recoil=0, move_delay=1, dispersion = list(0.3, 0.4, 0.5, 0.5, 0.6)),
+		list(name = "full auto",	burst=1, burst_delay=1.3, recoil=0, move_delay=4, dispersion = list(0.8, 1.3, 1.4, 1.5, 1.6)),
+		)
+
+	sel_mode = 1
+///obj/item/weapon/gun/projectile/submachinegun/ppd/update_icon() //doesnt work, loading in a mag/drum makes the gun inhand sprite have no mag/drum, keeping it here though.
+//	if (ammo_magazine)
+//		if (istype(ammo_magazine, /obj/item/ammo_magazine/c762x25_ppsh))
+//			icon_state = "[base_icon]"
+//			item_state = "ppd"
+//			return
+//		else
+//			icon_state = "[base_icon]_mag"
+//			item_state = "ppd"
+//			return
+//	else
+//		icon_state = "[base_icon]_open"
+//		item_state = "ppd_open"
+//	update_held_icon()
+//	return
 
 /obj/item/weapon/gun/projectile/submachinegun/ak47
 	name = "AKM"
@@ -460,8 +589,8 @@
 	equiptimer = 15
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.8, recoil=0, move_delay=2, dispersion = list(0.3, 0.4, 0.5, 0.6, 0.7)),
-		list(name="full auto",	burst=1, burst_delay=1.3, recoil=0, move_delay=4, dispersion = list(1.2, 1.2, 1.3, 1.4, 1.8)),
+		list(name = "semi auto",	burst=1, burst_delay=0.2, recoil=0, move_delay=0.5, dispersion = list(0.1, 0.2, 0.1, 0, 0.1)),
+		list(name = "full auto",	burst=1, burst_delay=1.3, recoil=0, move_delay=4, dispersion = list(1.2, 1.2, 1.3, 1.4, 1.8)),
 		)
 	stat = "rifle"
 	effectiveness_mod = 1
@@ -519,6 +648,9 @@
 	item_state = "ak47gold"
 	base_icon = "ak47gold"
 
+/obj/item/weapon/gun/projectile/submachinegun/ak47/chinese
+	name = "Type 56 Assault Rifle"
+	desc = "Chinese 7.62x39mm rifle. It is a variant of the Soviet-designed AK-47."
 /obj/item/weapon/gun/projectile/submachinegun/ak47/akms
 	name = "AKMS"
 	desc = "Iconic Soviet assault rifle, chambered in 7.62x39mm. This one has a wire underfolding stock."
@@ -587,8 +719,8 @@
 	slot_flags = SLOT_SHOULDER
 	stat = "rifle"
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.7, recoil=0, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
-		list(name="full auto",	burst=1, burst_delay=1.2, recoil=0, move_delay=4, dispersion = list(1.1, 1.2, 1.3, 1.3, 1.5)),
+		list(name = "semi auto",	burst=1, burst_delay=0.1, recoil=0, move_delay=0.2, dispersion = list(0.1, 0, 0.2, 0, 0.1)),
+		list(name = "full auto",	burst=1, burst_delay=1.2, recoil=0, move_delay=4, dispersion = list(1.1, 1.2, 1.3, 1.3, 1.5)),
 		)
 	effectiveness_mod = 1.07
 	sel_mode = 1
@@ -860,8 +992,8 @@
 	equiptimer = 15
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.7, recoil=0, move_delay=2, dispersion = list(0.1, 0.2, 0.15, 0.2, 0.1)),
-		list(name="full auto",	burst=1, burst_delay=1.2, recoil=0, move_delay=4, dispersion = list(1.1, 1.15, 1.2, 1.15, 1.1)),
+		list(name = "semi auto",	burst=1, burst_delay=0.7, recoil=0, move_delay=2, dispersion = list(0.1, 0.2, 0.15, 0.2, 0.1)),
+		list(name = "full auto",	burst=1, burst_delay=1.2, recoil=0, move_delay=4, dispersion = list(1.1, 1.15, 1.2, 1.15, 1.1)),
 		)
 	effectiveness_mod = 1.08
 	sel_mode = 1
@@ -911,6 +1043,39 @@
 			VERY_LONG_RANGE_STILL = 36,
 			VERY_LONG_RANGE_MOVING = 23),
 	)
+/obj/item/weapon/gun/projectile/submachinegun/ak74m/ak12
+	name = "AK-12"
+	desc = "A fifth generation Modern AK variant, chambered in 5.45x39mm."
+	icon_state = "ak12"
+	item_state = "ak12"
+	base_icon = "ak12"
+	caliber = "a545x39"
+	weight = 3.05
+	effectiveness_mod = 1.13
+	equiptimer = 12
+	magazine_type = /obj/item/ammo_magazine/ak74
+	good_mags = list(/obj/item/ammo_magazine/ak74/ak74m, /obj/item/ammo_magazine/ak74, /obj/item/ammo_magazine/ak74/drum, /obj/item/ammo_magazine/ak74/ak74m/drum)
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
+	equiptimer = 12
+	sel_mode = 1
+
+/obj/item/weapon/gun/projectile/submachinegun/ak74m/ak12/ak15
+	name = "AK-15"
+	desc = "A fifth generation Modern AK variant, chambered in 7.62×39mm."
+	icon_state = "ak12"
+	item_state = "ak12"
+	base_icon = "ak12"
+	caliber = "a762x39"
+	weight = 3.07
+	effectiveness_mod = 1.13
+	equiptimer = 12
+	fire_sound = 'sound/weapons/guns/fire/AKM.ogg'
+	magazine_type = /obj/item/ammo_magazine/ak47
+	good_mags = list(/obj/item/ammo_magazine/ak47, /obj/item/ammo_magazine/ak47/drum, /obj/item/ammo_magazine/ak47/makeshift)
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
+	equiptimer = 12
+	sel_mode = 1
+
 /obj/item/weapon/gun/projectile/submachinegun/m16
 	name = "M16A1"
 	desc = "An American assault rifle, chambered in 5.56x45mm."
@@ -926,8 +1091,8 @@
 	equiptimer = 15
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.3, recoil=0, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
-		list(name="full auto",	burst=1, burst_delay=1.1, recoil=0, move_delay=4, dispersion = list(1, 1.3, 1.5, 1.7, 1.8)),
+		list(name = "semi auto",	burst=1, burst_delay=0.3, recoil=0, move_delay=2, dispersion = list(0.2, 0.1, 0.3, 0.1, 0.2)),
+		list(name = "full auto",	burst=1, burst_delay=1.1, recoil=0, move_delay=4, dispersion = list(1, 1.3, 1.5, 1.7, 1.8)),
 		)
 	effectiveness_mod = 1.07
 	sel_mode = 1
@@ -985,7 +1150,7 @@
 	item_state = "ar15"
 	full_auto = FALSE
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.3, recoil=0, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
+		list(name = "semi auto",	burst=1, burst_delay=0.3, recoil=0, move_delay=2, dispersion = list(0.1, 0, 0.2, 0, 0.1)),
 		)
 /obj/item/weapon/gun/projectile/submachinegun/ar10
 	name = "AR-10"
@@ -1005,7 +1170,7 @@
 	slot_flags = SLOT_SHOULDER
 	full_auto = FALSE
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.5, recoil=0, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
+		list(name = "semi auto",	burst=1, burst_delay=0.5, recoil=0, move_delay=2, dispersion = list(0.1, 0.2, 0.1, 0.2, 0.1)),
 		)
 	effectiveness_mod = 1.03
 	sel_mode = 1
@@ -1070,8 +1235,8 @@
 	equiptimer = 9
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.3, recoil=0, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
-		list(name="full auto",	burst=1, burst_delay=1.1, recoil=0, move_delay=4, dispersion = list(1, 1.3, 1.5, 1.7, 1.8)),
+		list(name = "semi auto",	burst=1, burst_delay=0.3, recoil=0, move_delay=2, dispersion = list(0, 0.1, 0, 0.1, 0.2)),
+		list(name = "full auto",	burst=1, burst_delay=1.1, recoil=0, move_delay=4, dispersion = list(1, 1.3, 1.5, 1.7, 1.8)),
 		)
 	effectiveness_mod = 1.08
 	sel_mode = 1
@@ -1083,8 +1248,8 @@
 	desc = "A modernized version of the M16, with burst fire instead of full auto."
 	full_auto = FALSE
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.3, recoil=0, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
-		list(name="burst fire",	burst=3, burst_delay=1.5, recoil=0, move_delay=3, dispersion = list(0.9, 1.1, 1.2, 1.3, 1.3)),
+		list(name = "semi auto",	burst=1, burst_delay=0.3, recoil=0, move_delay=2, dispersion = list(0.1, 0.3, 0.2, 0.1, 0.1)),
+		list(name = "burst fire",	burst=3, burst_delay=1.5, recoil=0, move_delay=3, dispersion = list(0.9, 1.1, 1.2, 1.3, 1.3)),
 		)
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS
 
@@ -1095,8 +1260,8 @@
 	desc = "A modernized version of the M16, with a railed upper receiver and handguard."
 	full_auto = FALSE
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.3, recoil=0, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
-		list(name="burst fire",	burst=3, burst_delay=1.5, recoil=0, move_delay=3, dispersion = list(0.9, 1.1, 1.2, 1.3, 1.3)),
+		list(name = "semi auto",	burst=1, burst_delay=0.3, recoil=0, move_delay=2, dispersion = list(0.1, 0.2, 0.1, 0, 0.1)),
+		list(name = "burst fire",	burst=3, burst_delay=1.5, recoil=0, move_delay=3, dispersion = list(0.9, 1.1, 1.2, 1.3, 1.3)),
 		)
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_ADV_SCOPE|ATTACH_UNDER
 
@@ -1162,8 +1327,8 @@
 	equiptimer = 15
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.6, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
-		list(name="full auto",	burst=1, burst_delay=1.2, move_delay=4, dispersion = list(1, 1.3, 1.5, 1.8, 1.9)),
+		list(name = "semi auto",	burst=1, burst_delay=0.6, move_delay=2, dispersion = list(0.1, 0, 0, 0.1, 0.2)),
+		list(name = "full auto",	burst=1, burst_delay=1.2, move_delay=4, dispersion = list(1, 1.3, 1.5, 1.8, 1.9)),
 		)
 	effectiveness_mod = 1.07
 	sel_mode = 1
@@ -1224,6 +1389,10 @@
 	name = "M21 SWS"
 	desc = "An American sniper rifle, chambered in 7.62x51mm."
 	effectiveness_mod = 1.12
+	sel_mode = 0
+	firemodes = list(
+		list(name = "semi auto",	burst=1, burst_delay=0.6, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
+		)
 
 /obj/item/weapon/gun/projectile/submachinegun/g3
 	name = "H&K G3"
@@ -1241,8 +1410,8 @@
 	equiptimer = 15
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.9, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.4, 0.5)),
-		list(name="full auto",	burst=1, burst_delay=1.2, move_delay=4, dispersion = list(1, 1.3, 1.5, 1.7, 1.7)),
+		list(name = "semi auto",	burst=1, burst_delay=0.9, move_delay=2, dispersion = list(0.1, 0.2, 0.1, 0, 0.1)),
+		list(name = "full auto",	burst=1, burst_delay=1.2, move_delay=4, dispersion = list(1, 1.3, 1.5, 1.7, 1.7)),
 		)
 	effectiveness_mod = 1.03
 	sel_mode = 1
@@ -1306,8 +1475,8 @@
 	equiptimer = 12
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.9, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.4, 0.5)),
-		list(name="full auto",	burst=1, burst_delay=1.2, move_delay=4, dispersion = list(1, 1.3, 1.5, 1.8, 1.8)),
+		list(name = "semi auto",	burst=1, burst_delay=0.9, move_delay=2, dispersion = list(0.1, 0.2, 0.1, 0, 0.2)),
+		list(name = "full auto",	burst=1, burst_delay=1.2, move_delay=4, dispersion = list(1, 1.3, 1.5, 1.8, 1.8)),
 		)
 	effectiveness_mod = 1.07
 	sel_mode = 1
@@ -1372,8 +1541,8 @@
 	equiptimer = 10
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.5, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
-		list(name="full auto",	burst=1, burst_delay=1.3, move_delay=3, dispersion = list(0.8, 1, 1.1, 1.1, 1.2)),
+		list(name = "semi auto",	burst=1, burst_delay=0.2, move_delay=2, dispersion = list(0.2, 0.1, 0.2, 0.3, 0.1)),
+		list(name = "full auto",	burst=1, burst_delay=1.3, move_delay=3, dispersion = list(0.8, 1, 1.1, 1.1, 1.2)),
 		)
 	effectiveness_mod = 1.08
 	sel_mode = 1
@@ -1440,8 +1609,8 @@
 	effectiveness_mod = 1.05
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.6, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
-		list(name="full auto",	burst=1, burst_delay=1.2, move_delay=4, dispersion = list(1, 1.2, 1.5, 1.6, 1.7)),
+		list(name = "semi auto",	burst=1, burst_delay=0.2, move_delay=2, dispersion = list(0.2, 0.1, 0.3, 0.2, 0.3)),
+		list(name = "full auto",	burst=1, burst_delay=1.2, move_delay=4, dispersion = list(1, 1.2, 1.5, 1.6, 1.7)),
 		)
 	effectiveness_mod = 1.06
 	sel_mode = 1
@@ -1506,9 +1675,9 @@
 	effectiveness_mod = 1.46
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.6, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
-		list(name="burst fire",	burst=3, burst_delay=1.5, move_delay=3, dispersion = list(0.9, 1.1, 1.2, 1.3, 1.3)),
-		list(name="full auto",	burst=1, burst_delay=1.2, move_delay=4, dispersion = list(1, 1.2, 1.5, 1.6, 1.7)),
+		list(name = "semi auto",	burst=1, burst_delay=0.6, move_delay=2, dispersion = list(0.2, 0.1, 0.2, 0.3, 0.2)),
+		list(name = "burst fire",	burst=3, burst_delay=1.5, move_delay=3, dispersion = list(0.9, 1.1, 1.2, 1.3, 1.3)),
+		list(name = "full auto",	burst=1, burst_delay=1.2, move_delay=4, dispersion = list(1, 1.2, 1.5, 1.6, 1.7)),
 		)
 	effectiveness_mod = 1.60
 	sel_mode = 1
@@ -1573,9 +1742,9 @@
 	equiptimer = 13
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.6, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.4, 0.5)),
-		list(name="burst fire",	burst=3, burst_delay=1.5, move_delay=3, dispersion = list(0.9, 1.2, 1.2, 1.3, 1.4)),
-		list(name="full auto",	burst=1, burst_delay=1.2, move_delay=4, dispersion = list(1, 1.3, 1.5, 1.8, 1.9)),
+		list(name = "semi auto",	burst=1, burst_delay=0.6, move_delay=2, dispersion = list(0.1, 0.2, 0.1, 0.2, 0.3)),
+		list(name = "burst fire",	burst=3, burst_delay=1.5, move_delay=3, dispersion = list(0.9, 1.2, 1.2, 1.3, 1.4)),
+		list(name = "full auto",	burst=1, burst_delay=1.2, move_delay=4, dispersion = list(1, 1.3, 1.5, 1.8, 1.9)),
 		)
 	effectiveness_mod = 1.08
 	sel_mode = 1
@@ -1638,8 +1807,8 @@
 	equiptimer = 8
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.4, move_delay=1, dispersion = list(0.2, 0.4, 0.4, 0.4, 0.5)),
-		list(name="full auto",	burst=1, burst_delay=1.0, move_delay=3, dispersion = list(1, 1.2, 1.4, 1.6, 1.8)),
+		list(name = "semi auto",	burst=1, burst_delay=0.4, move_delay=1, dispersion = list(0.1, 0.3, 0.2, 0.2, 0.1)),
+		list(name = "full auto",	burst=1, burst_delay=1.0, move_delay=3, dispersion = list(1, 1.2, 1.4, 1.6, 1.8)),
 		)
 	effectiveness_mod = 1.15
 	sel_mode = 1
@@ -1659,9 +1828,9 @@
 	equiptimer = 4
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.4, move_delay=1, dispersion = list(0.2, 0.4, 0.4, 0.4, 0.5)),
-		list(name="burst fire",	burst=3, burst_delay=1.5, move_delay=3, dispersion = list(0.9, 1.2, 1.2, 1.3, 1.4)),
-		list(name="full auto",	burst=1, burst_delay=1.0, move_delay=3, dispersion = list(1, 1.2, 1.4, 1.6, 1.8)),
+		list(name = "semi auto",	burst=1, burst_delay=0.4, move_delay=1, dispersion = list(0.1, 0.2, 0.3, 0.3, 0.2)),
+		list(name = "burst fire",	burst=3, burst_delay=1.5, move_delay=2, dispersion = list(0.9, 1.2, 1.2, 1.3, 1.4)),
+		list(name = "full auto",	burst=1, burst_delay=1.0, move_delay=3, dispersion = list(1, 1.2, 1.4, 1.6, 1.8)),
 		)
 	effectiveness_mod = 1.15
 	sel_mode = 1
@@ -1684,8 +1853,8 @@
 	effectiveness_mod = 1.05
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.6, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
-		list(name="full auto",	burst=1, burst_delay=1.2, move_delay=4, dispersion = list(1, 1.2, 1.5, 1.6, 1.7)),
+		list(name = "semi auto",	burst=1, burst_delay=0.6, move_delay=2, dispersion = list(0.1, 0.2, 0.3, 0.2, 0.2)),
+		list(name = "full auto",	burst=1, burst_delay=1.2, move_delay=4, dispersion = list(1, 1.2, 1.5, 1.6, 1.7)),
 		)
 	sel_mode = 1
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_ADV_SCOPE|ATTACH_UNDER
@@ -1749,7 +1918,7 @@
 	equiptimer = 15
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
-		list(name="full auto",	burst=1, burst_delay=1.7, move_delay=4, dispersion = list(1.2, 1.2, 1.3, 1.4, 1.8)),
+		list(name = "full auto",	burst=1, burst_delay=1.7, move_delay=4, dispersion = list(1.2, 1.2, 1.3, 1.4, 1.8)),
 		)
 	effectiveness_mod = 0.85
 	sel_mode = 1
@@ -1772,8 +1941,8 @@
 	equiptimer = 12
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.8, move_delay=2, dispersion = list(0.3, 0.4, 0.5, 0.6, 0.7)),
-		list(name="full auto",	burst=1, burst_delay=1.3, move_delay=4, dispersion = list(1.2, 1.2, 1.3, 1.4, 1.8)),
+		list(name = "semi auto",	burst=1, burst_delay=0.8, move_delay=2, dispersion = list(0.2, 0.1, 0.2, 0.3, 0.1)),
+		list(name = "full auto",	burst=1, burst_delay=1.3, move_delay=4, dispersion = list(1.2, 1.2, 1.3, 1.4, 1.8)),
 		)
 	effectiveness_mod = 1.20
 	sel_mode = 1
@@ -1800,7 +1969,7 @@
 	desc = "A Canadian Colt C7 assault rifle, chambered in 5.56x45mm."
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	icon_state = "c7"
-	item_state = "m16"
+	item_state = "c7"
 	base_icon = "c7"
 	caliber = "a556x45"
 	fire_sound = 'sound/weapons/guns/fire/M4A1.ogg'
@@ -1810,12 +1979,22 @@
 	equiptimer = 13
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.1, recoil=0, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
-		list(name="full auto",	burst=1, burst_delay=1.1, recoil=0, move_delay=4, dispersion = list(1, 1.1, 1, 1, 0.9)),
+		list(name = "semi auto",	burst=1, burst_delay=0.1, recoil=0, move_delay=2, dispersion = list(0.1, 0, 0.1, 0.2, 0)),
+		list(name = "full auto",	burst=1, burst_delay=1.1, recoil=0, move_delay=4, dispersion = list(1, 1.1, 1, 1, 0.9)),
 		)
 	effectiveness_mod = 1.20
 	sel_mode = 1
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_ADV_SCOPE|ATTACH_UNDER
+
+/obj/item/weapon/gun/projectile/submachinegun/c7/New()
+	..()
+	var/obj/item/weapon/attachment/scope/adjustable/advanced/elcan/SP = new/obj/item/weapon/attachment/scope/adjustable/advanced/elcan(src)
+	SP.attached(null,src,TRUE)
+
+/obj/item/weapon/gun/projectile/submachinegun/c7/grenade_launcher/New()
+	..()
+	var/obj/item/weapon/gun/launcher/grenade/underslung/m203/GL = new/obj/item/weapon/gun/launcher/grenade/underslung/m203(src)
+	GL.attached(null,src,TRUE)
 
 /obj/item/weapon/gun/projectile/submachinegun/c7/c8
 	name = "C8"
@@ -1823,7 +2002,89 @@
 	equiptimer = 11
 	effectiveness_mod = 1.23
 
-/obj/item/weapon/gun/projectile/submachinegun/c7/New()
-	..()
-	var/obj/item/weapon/attachment/scope/adjustable/advanced/elcan/SP = new/obj/item/weapon/attachment/scope/adjustable/advanced/elcan(src)
-	SP.attached(null,src,TRUE)
+/obj/item/weapon/gun/projectile/submachinegun/m2carbine
+	name = "M2 carbine"
+	desc = "An American Selective fire carbine using 7.62×33mm (Rimless.30 Carbine) ammunition in a external magazine."
+	icon = 'icons/obj/guns/rifles.dmi'
+	icon_state = "mcar"
+	item_state = "mcar"
+	base_icon = "mcar"
+	caliber = "a762x33"
+	fire_sound = 'sound/weapons/guns/fire/Garand.ogg'
+	ammo_type = /obj/item/ammo_casing/a762x33
+	magazine_type = /obj/item/ammo_magazine/m1carbine
+	good_mags = list(/obj/item/ammo_magazine/m1carbine, /obj/item/ammo_magazine/m1carbine/big)
+	weight = 3.4
+	equiptimer = 11
+	slot_flags = SLOT_SHOULDER
+	firemodes = list(
+		list(name = "semi auto",	burst=1, burst_delay=1, recoil=0, move_delay=3, dispersion = list(0.2, 0.4, 0.4, 0.3, 0.2)),
+		list(name = "full auto",	burst=1, burst_delay=2, recoil=0, move_delay=4, dispersion = list(1, 1.3, 1.5, 1.7, 1.8)),
+		)
+	effectiveness_mod = 1.07
+	sel_mode = 1
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
+
+/obj/item/weapon/gun/projectile/submachinegun/srm
+	name = "SR-3"
+	desc = "Russian Compact Carbine chambered in 9x39mm,comes with a compact stock."
+	slot_flags = SLOT_SHOULDER
+	icon_state = "srm"
+	item_state = "srm"
+	base_icon = "srm"
+	icon = 'icons/obj/guns/assault_rifles.dmi'
+	caliber = "a9x39"
+	ammo_type = /obj/item/ammo_casing/a9x39
+	magazine_type = /obj/item/ammo_magazine/srm
+	good_mags = list(/obj/item/ammo_magazine/srm,/obj/item/ammo_magazine/srm/srms,/obj/item/ammo_magazine/vintorez)
+	equiptimer = 12
+	var/folded = FALSE
+	weight = 2
+	firemodes = list(
+		list(name = "semi auto",	burst=1, burst_delay=1, recoil=0, move_delay=2, dispersion = list(0.2, 0.3, 0.3, 0.4, 0.4)),
+		list(name = "full auto",	burst=1, burst_delay=2, recoil=0, move_delay=3, dispersion = list(1, 1.2, 1.3, 1.4, 1.4)),
+		)
+	effectiveness_mod = 1.09
+	sel_mode = 1
+
+/obj/item/weapon/gun/projectile/submachinegun/srm/update_icon()
+	if (folded)
+		base_icon = "srm_folded"
+	else
+		base_icon = "srm"
+	if (ammo_magazine)
+		icon_state = base_icon
+		item_state = base_icon
+	else
+		icon_state = "[base_icon]_open"
+		item_state = "[base_icon]_open"
+	update_held_icon()
+
+	return
+
+/obj/item/weapon/gun/projectile/submachinegun/srm/verb/fold()
+	set name = "Toggle Stock"
+	set category = null
+	set src in usr
+	if (folded)
+		folded = FALSE
+		base_icon = "srm"
+		usr << "You extend the stock on \the [src]."
+		equiptimer = 12
+		set_stock()
+		update_icon()
+	else
+		folded = TRUE
+		base_icon = "srm_folded"
+		usr << "You collapse the stock on \the [src]."
+		equiptimer = 5
+		set_stock()
+		update_icon()
+
+/obj/item/weapon/gun/projectile/submachinegun/srm/proc/set_stock()
+	if (folded)
+		slot_flags = SLOT_SHOULDER|SLOT_BELT
+		effectiveness_mod = 0.95
+	else
+		slot_flags = SLOT_SHOULDER
+		effectiveness_mod = 1.09

@@ -29,10 +29,12 @@
 	grace_wall_timer = 4800
 /obj/map_metadata/omaha/job_enabled_specialcheck(var/datum/job/J)
 	..()
-	if (J.is_tanker == TRUE || J.is_occupation == TRUE || J.is_reichstag == TRUE || J.is_ss_panzer == TRUE || J.is_navy == TRUE || (istype(J, /datum/job/american/soldier_ww2_filipino)))
+	if (J.is_tanker == TRUE || J.is_occupation == TRUE || J.is_reichstag == TRUE || J.is_ss_panzer == TRUE || J.is_navy == TRUE || istype(J, /datum/job/american/soldier_ww2_filipino || istype(J, /datum/job/german/german_antitank) || istype(J, /datum/job/german/german_antitankassitant)))
 		. = FALSE
 	else if (J.is_ww2 == TRUE && J.is_reichstag == FALSE)
 		. = TRUE
+	else if (istype(J, /datum/job/german/german_antitank) || istype(J, /datum/job/german/german_antitankassitant))
+		. = FALSE
 	else
 		. = FALSE
 
@@ -92,7 +94,7 @@ var/no_loop_o = FALSE
 		return FALSE
 	if ((current_winner && current_loser && world.time > next_win) && no_loop_o == FALSE)
 		ticker.finished = TRUE
-		var/message = "The <b>AMericans</b> have captured the Airfield! The battle for Omaha Beach is over!"
+		var/message = "The <b>Americans</b> have captured the Airfield! The battle for Omaha Beach is over!"
 		world << "<font size = 4><span class = 'notice'>[message]</span></font>"
 		show_global_battle_report(null)
 		win_condition_spam_check = TRUE

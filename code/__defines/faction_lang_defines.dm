@@ -42,6 +42,7 @@
 #define VIETNAMESE "VIETNAMESE"
 #define KOREAN "KOREAN"
 #define FILIPINO "FILIPINO"
+#define POLISH "POLISH"
 
 /proc/faction_const2name(constant,age = 0)
 
@@ -81,6 +82,8 @@
 			return "Police Department"
 		else if (map.ID == "LONG_MARCH")
 			return "Red Army"
+		else if (map.ID == "EFT_FACTORY")
+			return "Scavs"
 		else
 			if (age >= 6)
 				return "Civilians"
@@ -207,6 +210,12 @@
 
 	if (constant == VIETNAMESE)
 		return "Vietnamese"
+
+	if (constant == POLISH)
+		if (map.ID == "WARSAW")
+			return "Polish Home Army"
+		else
+			return "Polish"
 
 	if (constant == CHINESE)
 		if (map.ID == "LONG_MARCH")

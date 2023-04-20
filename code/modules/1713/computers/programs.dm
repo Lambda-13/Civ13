@@ -1905,3 +1905,244 @@
 					return
 	sleep(0.5)
 	do_html(user)
+
+
+//////////////////////////////////////////////////////////////////////
+/////////////////////OPERATION FALCON CAR SPAWNER/////////////////////
+
+/datum/program/carspawn
+	name = "CARTRADER Platform"
+	description = "The number 1 online car dealership."
+	compatible_os = list("unga OS 94","unga OS")
+	var/faction1_loadout_points = 1600
+	var/faction2_loadout_points = 1400
+
+	var/list/dutch_choice = list("2A6 Leopard Tank (1000)","Mercedes-Benz G280 Jeep with MG (500)", "DAF YA-4442 Supply Truck (400)", "Mercedes-Benz G280 Jeep without MG (200)")
+	var/list/rus_choice = list("T-90A Tank (1000)","BMD-2 Infantry Fighting Vehicle (600)", "KamAZ-4350 Truck (300)")
+	var/list/british_choice = list("FV4034 Challenger 2 Tank (1000)","Mercedes-Benz G280 Jeep with MG (500)", "DAF YA-4442 Supply Truck (400)", "Mercedes-Benz G280 Jeep without MG (200)")
+
+/datum/program/carspawn/do_html(mob/living/human/user)
+	var/list/choice
+	switch (user.faction_text)
+		if ("DUTCH")
+			choice = dutch_choice
+		if ("RUSSIAN")
+			choice = rus_choice
+		if ("BRITISH")
+			choice = british_choice
+	mainmenu = "<h2>SUPPLY NETWORK</h2><br>"
+	if(mainbody == "---")
+		switch (user.faction_text)
+			if ("DUTCH")
+				mainbody = "Current Loadout Points: [faction1_loadout_points]<br>"
+			if ("RUSSIAN")
+				mainbody = "Current Loadout Points: [faction2_loadout_points]<br>"
+			if ("BRITISH")
+				mainbody = "Current Loadout Points: [faction1_loadout_points]<br>"
+		for (var/i in choice)
+			mainbody += "<a href='?src=\ref[src];vehiclegiver=[i]'>[i]</a><br>"
+	..()
+
+/datum/program/carspawn/Topic(href, href_list, hsrc)
+	..()
+	if (href_list["vehiclelist"])
+		var/list/choice
+		switch (user.faction_text)
+			if ("DUTCH")
+				mainbody = "Current Loadout Points: [faction1_loadout_points]<br>"
+				choice = dutch_choice
+			if ("RUSSIAN")
+				mainbody = "Current Loadout Points: [faction2_loadout_points]<br>"
+				choice = rus_choice
+			if ("BRITISH")
+				mainbody = "Current Loadout Points: [faction1_loadout_points]<br>"
+				choice = british_choice
+		for (var/i in choice)
+			mainbody += "<a href='?src=\ref[src];vehiclegiver=[i]'>[i]</a><br>"
+		sleep(0.5)
+		do_html(user)
+	if (href_list["vehiclegiver"])
+		var/found = FALSE
+		switch (user.faction_text)
+			if ("DUTCH")
+				for(var/turf/T in get_area_turfs(/area/caribbean/supply/dutch))
+					if (found)
+						break
+					for (var/obj/structure/ST in T)
+						found = TRUE
+						break
+					for (var/mob/living/human/HT in T)
+						found = TRUE
+						break
+			if ("RUSSIAN")
+				for(var/turf/T in get_area_turfs(/area/caribbean/supply/russian))
+					if (found)
+						break
+					for (var/obj/structure/ST in T)
+						found = TRUE
+						break
+					for (var/mob/living/human/HT in T)
+						found = TRUE
+						break
+			if ("BRITISH")
+				for(var/turf/T in get_area_turfs(/area/caribbean/supply/british))
+					if (found)
+						break
+					for (var/obj/structure/ST in T)
+						found = TRUE
+						break
+					for (var/mob/living/human/HT in T)
+						found = TRUE
+						break
+
+		if (found)
+			mainbody = "<h2>SUPPLY NETWORK</h2><br><font color='yellow'>Clear the supply area first.</font><br><a href='?src=\ref[src];vehiclelist=1'>Return to List</a><br>"
+			sleep(0.5)
+			do_html(user)
+			return
+		var/cost = splittext(href_list["vehiclegiver"],"(")[2]
+		cost = replacetext(cost,")","")
+		cost = text2num(cost)
+
+		var/obj/effects/premadevehicles/PV
+		var/basecolor
+		switch (user.faction_text)
+			if ("DUTCH")
+				basecolor = "#5C5C4C"
+				for(var/turf/T in get_area_turfs(/area/caribbean/supply/dutch))
+					if (found)
+						break
+					for (var/obj/structure/ST in T)
+						found = TRUE
+						break
+					for (var/mob/living/human/HT in T)
+						found = TRUE
+						break
+			if ("RUSSIAN")
+				basecolor = "#5C5C4C"
+				for(var/turf/T in get_area_turfs(/area/caribbean/supply/russian))
+					if (found)
+						break
+					for (var/obj/structure/ST in T)
+						found = TRUE
+						break
+					for (var/mob/living/human/HT in T)
+						found = TRUE
+						break
+			if ("BRITISH")
+				basecolor = "#5C5C4C"
+				for(var/turf/T in get_area_turfs(/area/caribbean/supply/british))
+					if (found)
+						break
+					for (var/obj/structure/ST in T)
+						found = TRUE
+						break
+					for (var/mob/living/human/HT in T)
+						found = TRUE
+						break
+
+		if (found)
+			mainbody = "<h2>SUPPLY NETWORK</h2><br><font color='yellow'>Clear the arrival area first.</font><br><a href='?src=\ref[src];vehiclelist=1'>Return to List</a><br>"
+			sleep(0.5)
+			do_html(user)
+			return
+		switch (user.faction_text)
+			if ("DUTCH")
+				if (faction1_loadout_points)
+					if (faction1_loadout_points >= cost)
+						faction1_loadout_points -= cost
+					else
+						mainbody = "<h2>SUPPLY NETWORK</h2><br><font color='yellow'>Not enough points!</font><br><a href='?src=\ref[src];vehiclelist=1'>Return to List</a><br>"
+						sleep(0.5)
+						do_html(user)
+						return
+				else
+					mainbody = "<h2>SUPPLY NETWORK</h2><br><font color='yellow'>Not enough points!</font><br><a href='?src=\ref[src];vehiclelist=1'>Return to List</a><br>"
+					sleep(0.5)
+					do_html(user)
+					return
+			if ("RUSSIAN")
+				if (faction2_loadout_points)
+					if (faction2_loadout_points >= cost)
+						faction2_loadout_points -= cost
+					else
+						mainbody = "<h2>SUPPLY NETWORK</h2><br><font color='yellow'>Not enough points!</font><br><a href='?src=\ref[src];vehiclelist=1'>Return to List</a><br>"
+						sleep(0.5)
+						do_html(user)
+						return
+				else
+					mainbody = "<h2>SUPPLY NETWORK</h2><br><font color='yellow'>Not enough points!</font><br><a href='?src=\ref[src];vehiclelist=1'>Return to List</a><br>"
+					sleep(0.5)
+					do_html(user)
+					return
+			if ("BRITISH")
+				if (faction1_loadout_points)
+					if (faction1_loadout_points >= cost)
+						faction1_loadout_points -= cost
+					else
+						mainbody = "<h2>SUPPLY NETWORK</h2><br><font color='yellow'>Not enough points!</font><br><a href='?src=\ref[src];vehiclelist=1'>Return to List</a><br>"
+						sleep(0.5)
+						do_html(user)
+						return
+				else
+					mainbody = "<h2>SUPPLY NETWORK</h2><br><font color='yellow'>Not enough points!</font><br><a href='?src=\ref[src];vehiclelist=1'>Return to List</a><br>"
+					sleep(0.5)
+					do_html(user)
+					return
+			else
+				user << "<h1>Your faction does not have any points pool, report this to a developer! (Bierkraan#9876)</h1>"
+
+		switch (href_list["vehiclegiver"])
+			if ("2A6 Leopard Tank (1000)")
+				PV = new /obj/effects/premadevehicles/tank/leopard(locate(origin.x+3,origin.y-5,origin.z))
+			if ("Mercedes-Benz G280 Jeep with MG (500)")
+				PV = new /obj/effects/premadevehicles/truck/mercedes/mg(locate(origin.x+3,origin.y-5,origin.z))
+			if ("DAF YA-4442 Supply Truck (400)")
+				PV = new /obj/effects/premadevehicles/truck/daf(locate(origin.x+3,origin.y-5,origin.z))
+			if ("Mercedes-Benz G280 Jeep without MG (200)")
+				PV = new /obj/effects/premadevehicles/truck/mercedes(locate(origin.x+3,origin.y-5,origin.z))
+			
+			if ("T-90A Tank (1000)")
+				PV = new /obj/effects/premadevehicles/tank/t90a(locate(origin.x+3,origin.y-5,origin.z))
+			if ("BMD-2 Infantry Fighting Vehicle (600)")
+				PV = new /obj/effects/premadevehicles/apc/bmd2(locate(origin.x+3,origin.y-5,origin.z))
+			if ("KamAZ-4350 Truck (300)")
+				PV = new /obj/effects/premadevehicles/truck/kamaz(locate(origin.x+3,origin.y-5,origin.z))
+			
+			if ("FV4034 Challenger 2 Tank (1000)")
+				PV = new /obj/effects/premadevehicles/tank/challenger2(locate(origin.x+3,origin.y-5,origin.z))
+
+		message_admins("[user.name] ([user.ckey]) ([user.faction_text]) bought a vehicle at ([origin.x],[origin.y],[origin.z])(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[origin.x];Y=[origin.y];Z=[origin.z]'>JMP</a>)")
+		log_game("[user.name] ([user.ckey]) ([user.faction_text]) bought a [href_list["vehiclegiver"]] at ([origin.x],[origin.y],[origin.z])(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[origin.x];Y=[origin.y];Z=[origin.z]'>JMP</a>)")
+		if (PV)
+			PV.custom_color = basecolor
+			switch (user.faction_text)
+				if ("DUTCH")
+					PV.doorcode = 5970
+					new /obj/item/weapon/key/dutch(src)
+				if ("RUSSIAN")
+					PV.doorcode = 4975
+					new /obj/item/weapon/key/russian(src)
+				if ("BRITISH")
+					PV.doorcode = 1990
+					new /obj/item/weapon/key/british(src)
+
+/////TRACKING SYSTEM////////
+
+/datum/program/platoontracker
+	name = "Platoon Tracking System"
+	description = "Tracks the location of your platoon."
+	compatible_os = list("unga OS 94","unga OS 94 Law Enforcement Edition")
+
+/datum/program/platoontracker/do_html(mob/living/human/user)
+	mainmenu = "<h2>PLATOON STATUS</h2><br>"
+	mainbody = ""
+	for(var/mob/living/human/H in player_list)
+		if (H.faction_text == user.faction_text)
+			var/tst = ""
+			if (H.stat == UNCONSCIOUS)
+				tst = "(Unresponsive)"
+			else if (H.stat == DEAD)
+				tst = "(Dead)"
+			mainbody += "<b>[H.name]</b> at <b>[H.get_coded_loc()]</b> ([H.x],[H.y]) <b><i>[tst]</i></b><br>"
+	..()

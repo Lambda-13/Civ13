@@ -43,24 +43,24 @@
 
 		// large body parts: chest, groin
 		"large" = list(
-			SHORT_RANGE_STILL = 70,
-			SHORT_RANGE_MOVING = 61,
+			SHORT_RANGE_STILL = 78,
+			SHORT_RANGE_MOVING = 66,
 
-			MEDIUM_RANGE_STILL = 51,
-			MEDIUM_RANGE_MOVING = 42,
+			MEDIUM_RANGE_STILL = 55,
+			MEDIUM_RANGE_MOVING = 45,
 
-			LONG_RANGE_STILL = 30,
-			LONG_RANGE_MOVING = 27,
+			LONG_RANGE_STILL = 33,
+			LONG_RANGE_MOVING = 30,
 
-			VERY_LONG_RANGE_STILL = 15,
-			VERY_LONG_RANGE_MOVING = 14),
+			VERY_LONG_RANGE_STILL = 19,
+			VERY_LONG_RANGE_MOVING = 15),
 	)
 
 	accuracy_increase_mod = 1.00
 	accuracy_decrease_mod = 2.00
 	KD_chance = KD_CHANCE_MEDIUM
 	stat = "machinegun"
-	w_class = 5
+	w_class = ITEM_SIZE_HUGE
 	heavy = TRUE
 	load_method = MAGAZINE
 	slot_flags = SLOT_SHOULDER
@@ -68,7 +68,7 @@
 	full_auto = TRUE
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS
 	firemodes = list(
-		list(name="full auto",	burst=1, burst_delay=0.8, move_delay=8, dispersion = list(0.7, 1.1, 1.1, 1.1, 1.3), recoil = 0),)
+		list(name = "full auto",	burst=1, burst_delay=0.8, move_delay=8, dispersion = list(0.7, 1.1, 1.1, 1.1, 1.2), recoil = 0),)
 
 	var/jammed_until = -1
 	var/jamcheck = 0
@@ -104,7 +104,7 @@
 	magazine_type = /obj/item/ammo_magazine/madsen
 	good_mags = list(/obj/item/ammo_magazine/madsen)
 	weight = 9.12
-
+	effectiveness_mod = 1.01
 	force = 20
 	throwforce = 30
 	slot_flags = SLOT_SHOULDER
@@ -123,6 +123,7 @@
 	throwforce = 30
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	slowdown = 0.2
+	effectiveness_mod = 1.00
 	has_telescopic = TRUE
 	slot_flags = SLOT_SHOULDER
 
@@ -140,6 +141,7 @@
 	weight = 9.12
 	force = 20
 	throwforce = 30
+	effectiveness_mod = 1.05
 	bad_magazine_types = list(/obj/item/ammo_magazine/maxim)
 /obj/item/weapon/gun/projectile/automatic/bar
 	name = "M1918A2 BAR"
@@ -155,7 +157,29 @@
 	weight = 9.12
 	force = 20
 	throwforce = 30
+	effectiveness_mod = 1.02
 	bad_magazine_types = list(/obj/item/ammo_magazine/browning)
+///////////////////////////M1919A6//////////////////////
+/obj/item/weapon/gun/projectile/automatic/browning_lmg
+	name = "M1919A6 Browning LMG"
+	desc = "An American squad support machinegun. Uses 30-06 rounds. Very heavy to carry around."
+	icon_state = "browlmg"
+	item_state = "browlmg"
+	base_icon = "browlmg"
+	heavy = TRUE
+	w_class = ITEM_SIZE_HUGE
+	slot_flags = SLOT_SHOULDER
+	caliber = "a3006"
+	fire_sound = 'sound/weapons/guns/fire/M1919.ogg'
+	magazine_type = /obj/item/ammo_magazine/browning
+	good_mags = list(/obj/item/ammo_magazine/browning)
+	weight = 12.50 //heavy piece of shit
+	force = 20
+	throwforce = 30
+	effectiveness_mod = 1.01
+/obj/item/weapon/gun/projectile/automatic/browning_lmg/update_icon()
+	icon_state = "browlmg[ammo_magazine ? round(ammo_magazine.stored_ammo.len, 50) : "_empty"]"
+
 ////////////////////////////MG34/////////////////////////////////////////
 /obj/item/weapon/gun/projectile/automatic/mg34
 	name = "MG34"
@@ -163,8 +187,6 @@
 	icon_state = "mg34"
 	item_state = "mg34"
 	base_icon = "mg34"
-	w_class = 5
-	heavy = TRUE
 	max_shells = 50
 	caliber = "a792x57_weak"
 	weight = 12.1
@@ -179,6 +201,7 @@
 	fire_sound = 	'sound/weapons/guns/fire/mg34.ogg'
 	force = 20
 	throwforce = 30
+	effectiveness_mod = 1.01
 	var/cover_open = FALSE
 
 /obj/item/weapon/gun/projectile/automatic/mg34/special_check(mob/user)
@@ -235,7 +258,7 @@
 	slot_flags = SLOT_SHOULDER
 	weight = 10.5
 	firemodes = list(
-		list(name="full auto",	burst=1, burst_delay=1.3, move_delay=8, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.5), recoil = 0),)
+		list(name = "full auto",	burst=1, burst_delay=1.3, move_delay=8, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.5), recoil = 0),)
 	slot_flags = SLOT_SHOULDER
 	force = 20
 	nothrow = TRUE
@@ -243,6 +266,7 @@
 	equiptimer = 25
 	load_delay = 50
 	slowdown = 1
+	effectiveness_mod = 1.04
 
 /obj/item/weapon/gun/projectile/automatic/m249
 	name = "M249 SAW"
@@ -257,7 +281,7 @@
 	slot_flags = SLOT_SHOULDER
 	weight = 10
 	firemodes = list(
-		list(name="full auto",	burst=1, burst_delay=1.1, move_delay=7, dispersion = list(0.6, 1, 1.2, 1.3, 1.3), recoil = 0),)
+		list(name = "full auto",	burst=1, burst_delay=1.1, move_delay=7, dispersion = list(0.6, 1, 1.2, 1.3, 1.3), recoil = 0),)
 	slot_flags = SLOT_SHOULDER
 	force = 20
 	nothrow = TRUE
@@ -265,6 +289,7 @@
 	equiptimer = 25
 	load_delay = 50
 	slowdown = 1
+	effectiveness_mod = 1.07
 
 /obj/item/weapon/gun/projectile/automatic/handle_post_fire()
 	..()
@@ -288,10 +313,10 @@
 	base_icon = "pkmp"
 	caliber = "a762x54_weak"
 	magazine_type = /obj/item/ammo_magazine/pkm/c100
-	good_mags = list(/obj/item/ammo_magazine/pkm/c100, /obj/item/ammo_magazine/maxim)
+	good_mags = list(/obj/item/ammo_magazine/pkm/c100, /obj/item/ammo_magazine/maxim, /obj/item/ammo_magazine/pkm)
 	weight = 7.5
 	firemodes = list(
-		list(name="full auto",	burst=1, burst_delay=1.3, move_delay=7, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.6), recoil = 0),)
+		list(name = "full auto",	burst=1, burst_delay=1.3, move_delay=7, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.6), recoil = 0),)
 	slot_flags = SLOT_SHOULDER
 	force = 20
 	nothrow = TRUE
@@ -299,6 +324,7 @@
 	equiptimer = 25
 	load_delay = 50
 	slowdown = 0.8
+	effectiveness_mod = 1.07
 
 /obj/item/weapon/gun/projectile/automatic/rpd
 	name = "RPD machine gun"
@@ -309,9 +335,9 @@
 	caliber = "a762x39"
 	magazine_type = /obj/item/ammo_magazine/rpd
 	good_mags = list(/obj/item/ammo_magazine/rpd)
-	weight = 5
+	weight = 7.4
 	firemodes = list(
-		list(name="full auto",	burst=1, burst_delay=1.3, move_delay=6, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.6), recoil = 0),)
+		list(name = "full auto",	burst=1, burst_delay=1.3, move_delay=6, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.6), recoil = 0),)
 	slot_flags = SLOT_SHOULDER
 	force = 20
 	nothrow = TRUE
@@ -319,6 +345,7 @@
 	equiptimer = 22
 	load_delay = 40
 	slowdown = 0.6
+	effectiveness_mod = 1.05
 
 /obj/item/weapon/gun/projectile/automatic/rpk74
 	name = "RPK-74 machine gun"
@@ -329,9 +356,9 @@
 	caliber = "a545x39"
 	magazine_type = /obj/item/ammo_magazine/rpk74
 	good_mags = list(/obj/item/ammo_magazine/rpk74, /obj/item/ammo_magazine/rpk74/drum, /obj/item/ammo_magazine/ak74)
-	weight = 5
+	weight = 5.1
 	firemodes = list(
-		list(name="full auto",	burst=1, burst_delay=1.3, move_delay=5, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.6), recoil = 0),)
+		list(name = "full auto",	burst=1, burst_delay=1.3, move_delay=5, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.6), recoil = 0),)
 	slot_flags = SLOT_SHOULDER
 	force = 20
 	nothrow = TRUE
@@ -339,6 +366,7 @@
 	equiptimer = 20
 	load_delay = 30
 	slowdown = 0.5
+	effectiveness_mod = 1.07
 
 /obj/item/weapon/gun/projectile/automatic/rpk74/update_icon()
 	if (ammo_magazine)
@@ -357,6 +385,51 @@
 	update_held_icon()
 	return
 
+/obj/item/weapon/gun/projectile/automatic/rpk47
+	name = "RPK-47 machine gun"
+	desc = "A soviet machinegun chambered in 7.62x39 rounds."
+	icon_state = "rpk47"
+	item_state = "rpk47"
+	base_icon = "rpk47"
+	caliber = "a762x39"
+	magazine_type = /obj/item/ammo_magazine/rpk47
+	good_mags = list(/obj/item/ammo_magazine/rpk47, /obj/item/ammo_magazine/rpk47/drum, /obj/item/ammo_magazine/ak47)
+	weight = 5.7
+	firemodes = list(
+		list(name = "full auto",	burst=1, burst_delay=1.3, move_delay=4, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.5), recoil = 0),)
+	slot_flags = SLOT_SHOULDER
+	force = 20
+	nothrow = TRUE
+	throwforce = 30
+	equiptimer = 21
+	load_delay = 26
+	slowdown = 0.4
+	effectiveness_mod = 1.03
+
+/obj/item/weapon/gun/projectile/automatic/rpk47/update_icon()
+	if (ammo_magazine)
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk47))
+			item_state = "rpk47"
+			icon_state = "rpk47"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk47/drum))
+			icon_state = "rpk47_drum"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/ak47))
+			icon_state = "rpk47_magak"
+	else
+		icon_state = "rpk47_open"
+		item_state = "rpk47_open"
+	update_held_icon()
+	return
+
+/obj/item/weapon/gun/projectile/automatic/rpk47/modern //too lazy to add in a new icon for now, will do it later
+	effectiveness_mod = 1.07
+	slowdown = 0.3
+	equiptimer = 18
+	load_delay = 19
+	weight = 4.7
+	name = "RPK-47M machine gun"
+	desc = "A modernized soviet machinegun chambered in 7.62x39 rounds."
+
 /obj/item/weapon/gun/projectile/automatic/negev
 	name = "IWI Negev"
 	desc = "An israeli machinegun chambered in 5.56x45mm NATO rounds."
@@ -369,7 +442,7 @@
 	slot_flags = SLOT_SHOULDER
 	weight = 8
 	firemodes = list(
-		list(name="full auto",	burst=1, burst_delay=0.9, move_delay=7, dispersion = list(0.6, 1, 1.2, 1.3, 1.3), recoil = 0),)
+		list(name = "full auto",	burst=1, burst_delay=0.9, move_delay=7, dispersion = list(0.6, 1, 1.2, 1.3, 1.3), recoil = 0),)
 	slot_flags = SLOT_SHOULDER
 	force = 20
 	nothrow = TRUE
@@ -377,6 +450,44 @@
 	equiptimer = 25
 	load_delay = 50
 	slowdown = 0.9
+	effectiveness_mod = 1.01
+////////////////////////MG13////////////////////////////////
+
+/obj/item/weapon/gun/projectile/automatic/mg13
+	name = "Maschinengewehr 13"
+	desc = "German light machine chambered in 7.92x57mm rounds."
+	icon_state = "mg13"
+	item_state = "mg13"
+	base_icon = "mg13"
+	caliber = "a792x57_weak"
+	magazine_type = /obj/item/ammo_magazine/mg13
+	good_mags = list(/obj/item/ammo_magazine/mg13, /obj/item/ammo_magazine/mg08)
+	weight = 9
+	heavy = TRUE
+	firemodes = list(
+		list(name = "full auto",	burst=1, burst_delay=1.3, move_delay=4, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.5), recoil = 0),)
+	slot_flags = SLOT_SHOULDER
+	force = 20
+	nothrow = TRUE
+	throwforce = 30
+	equiptimer = 21
+	load_delay = 21
+	slowdown = 0.5
+	effectiveness_mod = 1.01
+
+/obj/item/weapon/gun/projectile/automatic/mg13/update_icon()
+	if (ammo_magazine)
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/mg08))
+			item_state = "mg13_b"
+			icon_state = "mg13_b"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/mg13))
+			item_state = "mg13"
+			icon_state = "mg13"
+	else
+		icon_state = "mg13_open"
+		item_state = "mg13_open"
+	update_held_icon()
+	return
 
 ////////////////////////C6 GPMG/////////////////////////////
 /obj/item/weapon/gun/projectile/automatic/c6
@@ -385,9 +496,7 @@
 	icon_state = "c6"
 	item_state = "c6"
 	base_icon = "c6"
-	w_class = 5
-	heavy = TRUE
-	max_shells = 200
+	max_shells = 220
 	caliber = "a762x51"
 	weight = 8.1
 	slot_flags = SLOT_SHOULDER
@@ -402,13 +511,9 @@
 	fire_sound = 'sound/weapons/guns/fire/M60.ogg'
 	force = 20
 	throwforce = 30
-
+	effectiveness_mod = 1.07
 /obj/item/weapon/gun/projectile/automatic/c6/update_icon()
-	var/obj/item/ammo_magazine/MAG
-	if (ammo_magazine && istype(MAG, /obj/item/ammo_magazine/c6belt))
-		icon_state = "[base_icon][ammo_magazine ? round(ammo_magazine.stored_ammo.len, 25) : "0"]"
-		item_state = base_icon
-	else if (ammo_magazine && istype(MAG, /obj/item/ammo_magazine/c6can))
+	if (ammo_magazine)
 		icon_state = "[base_icon]_can[ammo_magazine ? round(ammo_magazine.stored_ammo.len, 25) : "0"]"
 		item_state = base_icon
 	else

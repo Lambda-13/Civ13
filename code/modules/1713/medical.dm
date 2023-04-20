@@ -5,7 +5,7 @@
 	name = "pill pack"
 	desc = "Pills in sterile and handy pack."
 	icon = 'icons/obj/surgery.dmi'
-	w_class = TRUE//Packed very effective
+	w_class = ITEM_SIZE_TINY//Packed very effective
 	icon_state = "pill_pack"
 	var/pill_type = null
 	var/pop_sound = 'sound/effects/pop_pill.ogg'
@@ -88,3 +88,18 @@
 	name = "potassium iodide pill pack"
 	desc = "Used for radiation emergencies."
 	pill_type = /obj/item/weapon/reagent_containers/pill/potassium_iodide
+
+/obj/item/weapon/pill_pack/aspirin
+	name = "aspirin pill pack"
+	desc = "Also known as acetylsalicylic acid. Mild painkiller."
+	pill_type = /obj/item/weapon/reagent_containers/pill/aspirin
+
+/obj/item/weapon/pill_pack/paracetamol
+	name = "paracetamol pill pack"
+	desc = "Also known as acetaminophen. Moderate painkiller."
+	pill_type = /obj/item/weapon/reagent_containers/pill/paracetamol
+
+/obj/item/weapon/pill_pack/sal_acid
+	name = "Salicyclic Acid Pill pack"
+	desc = "Stimulates Healing of bruises, Overdosing will Worser Existing Bruises."
+	pill_type = /obj/item/weapon/reagent_containers/pill/sal_acid

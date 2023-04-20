@@ -1,6 +1,6 @@
 /obj/structure/sign/map
-	desc = "A detailed area map for planning operations."
 	name = "area map"
+	desc = "A detailed area map for planning operations."
 	icon_state = "areamap"
 	var/image/img
 	var/list/overlay_list = list()
@@ -105,7 +105,9 @@
 
 /obj/structure/sign/map/attack_hand(mob/user)
 	examine(user)
+
 //////////////////////////////////////////
+
 /obj/item/weapon/map
 	desc = "A portable map of the area."
 	name = "folding map"
@@ -116,7 +118,7 @@
 	var/image/playerloc
 	throwforce = WEAPON_FORCE_HARMLESS
 	force = WEAPON_FORCE_HARMLESS
-	w_class = 1.0
+	w_class = ITEM_SIZE_TINY
 	flags = FALSE
 
 /obj/item/weapon/map/New()
@@ -138,56 +140,57 @@
 	update_icon()
 	examine(user)
 
-/obj/item/weapon/map_abashiri
+/obj/item/weapon/map_tdm
+	icon = 'icons/obj/decals.dmi'
+	icon_state = "portable_areamap"
+	throwforce = WEAPON_FORCE_HARMLESS
+	force = WEAPON_FORCE_HARMLESS
+	w_class = ITEM_SIZE_TINY
+	flags = FALSE
+	var/image/img
+
+/obj/item/weapon/map_tdm/examine(mob/user)
+	update_icon()
+	user << browse(getFlatIcon(img),"window=popup;size=630x630")
+
+/obj/item/weapon/map_tdm/attack_self(mob/user)
+	update_icon()
+	examine(user)
+
+/obj/item/weapon/map_tdm/abashiri/New()
 	desc = "A portable map of Abashiri Prison."
 	name = "abashiri prison map"
-	icon = 'icons/obj/decals.dmi'
-	icon_state = "portable_areamap"
-	throwforce = WEAPON_FORCE_HARMLESS
-	force = WEAPON_FORCE_HARMLESS
-	w_class = 1.0
-	flags = FALSE
+	img = image(icon = 'icons/minimaps.dmi', icon_state = "abashiri_map")
 
-/obj/item/weapon/map_abashiri/examine(mob/user)
-	update_icon()
-	user << browse("<img src=abashiri_map.png></img>","window=popup;size=630x630")
-
-/obj/item/weapon/map_abashiri/attack_self(mob/user)
-	update_icon()
-	examine(user)
-
-/obj/item/weapon/map_sovafghan
+/obj/item/weapon/map_tdm/sovafghan/New()
 	desc = "A portable map of the Kandahar region."
 	name = "Kandahar region map"
-	icon = 'icons/obj/decals.dmi'
-	icon_state = "portable_areamap"
-	throwforce = WEAPON_FORCE_HARMLESS
-	force = WEAPON_FORCE_HARMLESS
-	w_class = 1.0
-	flags = FALSE
+	img = image(icon = 'icons/minimaps.dmi', icon_state = "sovafghan_map")
 
-/obj/item/weapon/map_sovafghan/examine(mob/user)
-	update_icon()
-	user << browse("<img src=sovafghan_map.png></img>","window=popup;size=630x630")
+/obj/item/weapon/map_tdm/clash/New()
+	desc = "The Bear clan king has drawn battle plan on an area map."
+	name = "Area map"
+	img = image(icon = 'icons/minimaps.dmi', icon_state = "clash_map")
 
-/obj/item/weapon/map_sovafghan/attack_self(mob/user)
-	update_icon()
-	examine(user)
+///MAP BOARD///
 
-/obj/item/weapon/map_clash
-	desc = "The Bear clan king's battle plan."
-	name = "Battle plan"
-	icon = 'icons/obj/decals.dmi'
-	icon_state = "portable_areamap"
-	throwforce = WEAPON_FORCE_HARMLESS
-	force = WEAPON_FORCE_HARMLESS
-	w_class = 1.0
-	flags = FALSE
+/obj/structure/sign/map_board
+	name = "map of the area"
+	desc = "A large board with the map of the area."
+	icon_state = "map_board"
+	density = TRUE
+	var/image/img
 
-/obj/item/weapon/map_clash/examine(mob/user)
-	update_icon()
-	user << browse("<img src=clash_map.png></img>","window=popup;size=630x630")
+/obj/structure/sign/map_board/New()
+	..()
+	switch (map.ID)
+		if ("SOVAFGHAN")
+			img = image(icon = 'icons/minimaps.dmi', icon_state = "sovafghan_map")
+		if ("OPERATION_FALCON")
+			img = image(icon = 'icons/minimaps.dmi', icon_state = "operation_falcon_map")
 
-/obj/item/weapon/map_clash/attack_self(mob/user)
-	update_icon()
+/obj/structure/sign/map_board/examine(mob/user)
+	user << browse(getFlatIcon(img),"window=popup;size=630x630")
+
+/obj/structure/sign/map_board/attack_hand(mob/user)
 	examine(user)

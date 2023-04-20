@@ -39,6 +39,7 @@
 					visible_message("<span class='danger'>The roof catches fire!<span>")
 			return
 	if (istype(W, /obj/item/weapon/hammer))
+		playsound(loc, 'sound/items/Screwdriver.ogg', 75, TRUE)
 		user << "You start removing \the [src]..."
 		if (do_after(user, 60, src) && src)
 			user << "You removed \the [src]."
@@ -97,6 +98,13 @@
 	flammable = FALSE
 	overlay_state = "cement"
 	icon_state = "cement_dm"
+
+/obj/roof/glass
+	name = "glass roof"
+	desc = "A glass panel roof."
+	flammable = FALSE
+	overlay_state = "glass"
+	icon_state = "glass_dm"
 
 /obj/roof/thatch
 	name = "thatch roof"
@@ -270,7 +278,7 @@
 	desc = "Use this to build roofs."
 	icon = 'icons/turf/roofs.dmi'
 	icon_state = "roof_builder"
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	flammable = TRUE
 	var/done = FALSE
 	var/target_type = /obj/roof/wood
@@ -319,6 +327,11 @@
 	icon_state = "concrete_roof_builder"
 	flammable = FALSE
 	target_type = /obj/roof/concrete
+
+/obj/item/weapon/roofbuilder/glass
+	name = "glass panel roofing"
+	icon_state = "glass_roof_builder"
+	target_type = /obj/roof/glass
 
 /obj/item/weapon/roofbuilder/sandstone
 	name = "sandstone roofing"

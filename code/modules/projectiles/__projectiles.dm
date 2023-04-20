@@ -454,12 +454,6 @@
 	penetrating = 1
 	armor_penetration = 3
 
-/obj/item/projectile/bullet/mg/a127x108
-	damage = DAMAGE_OH_GOD + 110
-	penetrating = 7
-	armor_penetration = 75
-
-
 /obj/item/projectile/bullet/pistol/c8mmnambu
 	damage = DAMAGE_LOW + 1
 	penetrating = 1
@@ -482,6 +476,11 @@
 
 /obj/item/projectile/bullet/pistol/rubber/a762x25
 	damage = 3
+
+/obj/item/projectile/bullet/rifle/a762x33
+	damage = DAMAGE_HIGH + 10
+	penetrating = 3
+	armor_penetration = 29
 
 /obj/item/projectile/bullet/rifle/a762x39
 	damage = DAMAGE_HIGH + 12
@@ -545,9 +544,9 @@ obj/item/projectile/bullet/rifle/a556x45
 
 /obj/item/projectile/bullet/rifle/a50cal_ap
 	damage = DAMAGE_MEDIUM + 5
-	penetrating = 100
-	armor_penetration = 100
-	heavy_armor_penetration = 25
+	penetrating = 40
+	armor_penetration = 80
+	heavy_armor_penetration = 50
 
 /obj/item/projectile/bullet/rifle/a50cal_he
 	damage = DAMAGE_LOW + 20
@@ -580,17 +579,85 @@ obj/item/projectile/bullet/rifle/a556x45
 			T.ChangeTurf(/turf/floor/dirt/burned)
 		explosion(T, 1, 0, 2, 1)
 
+/obj/item/projectile/bullet/rifle/a127
+	damage = DAMAGE_OH_GOD + 65
+	penetrating = 20
+	armor_penetration = 55
+	heavy_armor_penetration = 25
+
 /obj/item/projectile/bullet/rifle/a145
 	damage = DAMAGE_OH_GOD + 90
-	penetrating = 10
-	armor_penetration = 50
-	heavy_armor_penetration = 20
+	penetrating = 20
+	armor_penetration = 65
+	heavy_armor_penetration = 45
+
+/obj/item/projectile/bullet/rifle/a15115
+	damage = DAMAGE_OH_GOD + 90
+	penetrating = 20
+	armor_penetration = 70
+	heavy_armor_penetration = 45
+
+/obj/item/projectile/bullet/rifle/a15115_ap
+	damage = DAMAGE_MEDIUM + 64
+	penetrating = 40
+	armor_penetration = 75
+	heavy_armor_penetration = 55
+
+/obj/item/projectile/bullet/rifle/a15115_aphe
+	damage = DAMAGE_LOW + 25
+	penetrating = 30
+	armor_penetration = 65
+	heavy_armor_penetration = 45
+
+/obj/item/projectile/bullet/rifle/a15115_aphe/on_impact(var/atom/A)
+	impact_effect(effect_transform)
+	playsound(src, "ric_sound", 50, TRUE, -2)
+	if (istype(A, /turf))
+		var/turf/T = A
+		if (!istype(T, /turf/floor/beach) && !istype(T, /turf/floor/broken_floor))
+			T.ChangeTurf(/turf/floor/dirt/burned)
+		explosion(T, 0, 0, 2, 1)
+	if (istype(A, /obj/structure/vehicleparts/frame))
+		var/obj/structure/vehicleparts/frame/T = A
+		var/turf/TU
+		if (!istype(TU, /turf/floor/beach) && !istype(TU, /turf/floor/broken_floor))
+			TU.ChangeTurf(/turf/floor/dirt/burned)
+		explosion(T, 1, 0, 2, 1)
+	if (istype(A, /obj/structure/simple_door))
+		var/obj/structure/simple_door/T = A
+		var/turf/TU
+		if (!istype(TU, /turf/floor/beach) && !istype(TU, /turf/floor/broken_floor))
+			TU.ChangeTurf(/turf/floor/dirt/burned)
+		explosion(T, 1, 0, 2, 1)
+	if (istype(A, /obj/item/weapon/reagent_containers/glass/barrel/fueltank))
+		var/obj/item/weapon/reagent_containers/glass/barrel/fueltank/T = A
+		var/turf/TU
+		if (!istype(TU, /turf/floor/beach) && !istype(TU, /turf/floor/broken_floor))
+			TU.ChangeTurf(/turf/floor/dirt/burned)
+		explosion(T, 1, 0, 3, 1)
+	else
+		var/turf/T = A
+		if (!istype(T, /turf/floor/beach) && !istype(T, /turf/floor/broken_floor))
+			T.ChangeTurf(/turf/floor/dirt/burned)
+		explosion(T, 0, 0, 2, 1)
 
 /obj/item/projectile/bullet/rifle/a145_ap
 	damage = DAMAGE_OH_GOD + 80
+	penetrating = 25
+	armor_penetration = 85
+	heavy_armor_penetration = 50
+
+/obj/item/projectile/bullet/rifle/a792x94
+	damage = DAMAGE_OH_GOD + 85
 	penetrating = 20
-	armor_penetration = 80
-	heavy_armor_penetration = 40
+	armor_penetration = 60
+	heavy_armor_penetration = 45
+
+/obj/item/projectile/bullet/rifle/a792x94_ap
+	damage = DAMAGE_OH_GOD + 80
+	penetrating = 25
+	armor_penetration = 85
+	heavy_armor_penetration = 55
 
 /obj/item/projectile/bullet/pistol/a44p
 	damage = DAMAGE_LOW - 20
@@ -602,13 +669,13 @@ obj/item/projectile/bullet/rifle/a556x45
 	penetrating = 5
 	armor_penetration = 42
 
-/obj/item/projectile/bullet/autocannon/a3ubr6
+/obj/item/projectile/bullet/autocannon/a30mm_ap
 	damage = DAMAGE_VERY_HIGH + 10
 	penetrating = 20
 	armor_penetration = 40
 	heavy_armor_penetration = 20
 
-/obj/item/projectile/bullet/autocannon/frag/a3uor6
+/obj/item/projectile/bullet/autocannon/frag/a30mm_he
 	damage = DAMAGE_MEDIUM
 	penetrating = 0
 	armor_penetration = 0
@@ -653,14 +720,14 @@ obj/item/projectile/bullet/rifle/a556x45
 /obj/item/projectile/bullet/pellet/buckshot
 	name = "buckshot"
 	damage = DAMAGE_VERY_HIGH + 35
-	armor_penetration = 33
+	armor_penetration = 10
 	icon_state = "buckshot"
 
 /obj/item/projectile/bullet/shotgun/slug
 	name = "shotgun slug"
 	damage = DAMAGE_MEDIUM_HIGH
 	damage = DAMAGE_VERY_HIGH + 67
-	armor_penetration = 10
+	armor_penetration = 33
 
 /obj/item/projectile/bullet/shotgun/beanbag
 	name = "beanbag"
@@ -674,14 +741,4 @@ obj/item/projectile/bullet/rifle/a556x45
 /obj/item/projectile/bullet/shotgun/incendiary
 	name = "incendiary slug"
 	damage = DAMAGE_LOW
-	armor_penetration = 10
-
-
-/obj/item/projectile/bullet/shotgun/incendiary/fire/on_impact(mob/living/human/M as mob)
-	if (prob(10))
-		M.fire_stacks += 1
-	if (M)
-		M.IgniteMob()
-	spawn (0.01)
-		qdel(src)
-	..()
+	armor_penetration = 5

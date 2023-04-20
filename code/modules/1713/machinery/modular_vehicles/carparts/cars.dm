@@ -514,6 +514,92 @@
 	speedlist = list(1=7,2=5.5,3=4.5,4=3)
 	turntimer = 9
 
+/obj/structure/vehicleparts/axis/car/daf
+	name = "DAF YA-4442 Truck"
+	desc = "A powered axis from a car."
+	icon = 'icons/obj/vehicles/vehicleparts.dmi'
+	icon_state = "axis_powered"
+	speeds = 5
+	maxpower = 800
+	speedlist = list(1=10,2=6,3=4,4=3)
+	turntimer = 8
+
+/obj/structure/vehicleparts/axis/car/mercedes
+	name = "Mercedes-Benz G280"
+	desc = "A powered axis from a car."
+	icon = 'icons/obj/vehicles/vehicleparts.dmi'
+	icon_state = "axis_powered"
+	speeds = 5
+	maxpower = 800
+	speedlist = list(1=10,2=5,3=4,4=3,5=2)
+	turntimer = 8
+
+/obj/structure/vehicleparts/axis/car/ba64
+	name = "Ba-64 armored car"
+	desc = "A powered axis from a car."
+	icon = 'icons/obj/vehicles/vehicleparts.dmi'
+	icon_state = "axis_powered"
+	speeds = 5
+	maxpower = 800
+	speedlist = list(1=10,2=6,3=4,4=3)
+	turntimer = 7
+	reg_number = ""
+	color = "#3d5931"
+	turret_type = "none"
+	vehicle_size = "2x3"
+	New()
+		..()
+		var/pickedname = pick(tank_names_soviet)
+		tank_names_soviet -= pickedname
+		name = "[name] \'[pickedname]\'"
+
+/obj/structure/vehicleparts/axis/car/t20komsomoletstractor
+	name = "T-20 Komsomolets tractor"
+	desc = "A powered axis from a car."
+	icon = 'icons/obj/vehicles/vehicleparts.dmi'
+	icon_state = "axis_powered"
+	speeds = 5
+	maxpower = 800
+	speedlist = list(1=10,2=6,3=4,4=3,5=2)
+	turntimer = 6
+	reg_number = ""
+	color = "#3d5931"
+	turret_type = "none"
+	vehicle_size = "2x4"
+	New()
+		..()
+		var/pickedname = pick(tank_names_soviet)
+		tank_names_soviet -= pickedname
+		name = "[name] \'[pickedname]\'"
+
+/obj/structure/vehicleparts/axis/car/unattr
+	name = "UN Attack Vehicle"
+	desc = "A powered axis from a car."
+	icon = 'icons/obj/vehicles/vehicleparts.dmi'
+	icon_state = "axis_powered"
+	speeds = 7
+	maxpower = 1000
+	speedlist = list(1=10,2=6,3=4,4=3)
+	turntimer = 6
+	reg_number = ""
+	color = "#ffffff"
+	turret_type = "none"
+	vehicle_size = "2x4"
+	New()
+		..()
+		var/pickedname = pick(tank_names_soviet)
+		tank_names_soviet -= pickedname
+		name = "[name] \'[pickedname]\'"
+
+/obj/structure/vehicleparts/axis/car/kamaz
+	name = "KamAZ-4350 Truck"
+	desc = "A powered axis from a car."
+	icon = 'icons/obj/vehicles/vehicleparts.dmi'
+	icon_state = "axis_powered"
+	speeds = 5
+	maxpower = 800
+	speedlist = list(1=10,2=6,3=4,4=3)
+	turntimer = 8
 
 /obj/structure/vehicleparts/axis/car/volle/ambulance
 	name = "Ubermacht Volle KW Ambulance"
@@ -528,6 +614,14 @@
 
 /obj/structure/engine/internal/gasoline/premade/quattroporte
 	enginesize = 3000
+
+/obj/structure/engine/internal/gasoline/premade/v6
+	name = "V6 gasoline engine"
+	enginesize = 7000
+
+/obj/structure/engine/internal/gasoline/premade/mik
+	name = "V12 Mikulin M-17T gasoline engine"
+	enginesize = 15000
 
 /obj/structure/engine/internal/diesel/premade/erstenklasse
 	enginesize = 5500
@@ -566,6 +660,14 @@
 	name = "BAF 12 gasoline engine"
 	enginesize = 12000
 
+/obj/structure/engine/internal/diesel/premade/v12
+	name = "V12 diesel engine"
+	enginesize = 15000
+
+/obj/structure/engine/internal/diesel/premade/v6
+	name = "V6 diesel engine"
+	enginesize = 8000
+
 /obj/structure/engine/internal/diesel/premade/mtlb
 	name = "YaMZ 238 diesel engine"
 	enginesize = 15000
@@ -577,6 +679,10 @@
 /obj/structure/engine/internal/diesel/premade/bmd2
 	name = "5D-20 15 diesel engine"
 	enginesize = 15000
+
+/obj/structure/engine/internal/diesel/premade/adrian
+	name = "Type 9 Adrian 15 diesel engine"
+	enginesize = 8000
 
 /obj/structure/emergency_lights
 	name = "emergency lights control"
@@ -636,10 +742,11 @@
 /obj/structure/emergency_lights/proc/check_sound()
 	if (world.realtime >= lastsoundcheck)
 		if (on)
-			playsound(loc,'sound/machines/police_siren.ogg',100,FALSE,15)
-			lastsoundcheck = world.realtime+55
-			spawn(55)
-				check_sound()
+			if (map.ID == MAP_DRUG_BUST || map.ID == MAP_BANK_ROBBERY)
+				playsound(loc,'sound/machines/police_siren.ogg',100,FALSE,15)
+				lastsoundcheck = world.realtime+55
+				spawn(55)
+					check_sound()
 /obj/structure/emergency_lights/proc/check_color()
 	if (on)
 		set_light(7,1,pol_color)

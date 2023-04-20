@@ -1,7 +1,7 @@
 /obj/item/weapon/grenade
 	name = "граната"
 	desc = "Ручная граната с 5-секундным запалом."
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "grenade_old"
 	item_state = "grenade"
@@ -33,9 +33,15 @@
 
 	// clicking a grenade a second time turned throw mode off, this fixes that
 	if (ishuman(user))
-		var/mob/living/human/C = user
-		C.throw_mode_on()
+		var/mob/living/human/H = user
+		if(istype(H) && !H.in_throw_mode)
+			H.throw_mode_on()
 
+/obj/item/weapon/grenade/dropped(mob/user)
+	. = ..()
+	if(ishuman(user) && active)
+		var/mob/living/human/H = user
+		H.throw_mode_off()
 
 /obj/item/weapon/grenade/proc/activate(mob/living/human/user as mob)
 	if (active)
@@ -166,8 +172,9 @@
 
 			// clicking a grenade a second time turned throw mode off, this fixes that
 			if (ishuman(user))
-				var/mob/living/human/C = user
-				C.throw_mode_on()
+				var/mob/living/human/H = user
+				if(istype(H) && !H.in_throw_mode)
+					H.throw_mode_on()
 			return
 	else if (state == 1 && istype(W, /obj/item/stack/material/rope))
 		var/obj/item/stack/material/rope/R = W
@@ -193,6 +200,12 @@
 			return
 	else
 		return
+
+/obj/item/weapon/grenade/dynamite/dropped(mob/user)
+	. = ..()
+	if(ishuman(user) && active)
+		var/mob/living/human/H = user
+		H.throw_mode_off()
 
 /obj/item/weapon/grenade/dynamite/ready
 	state = 2
@@ -359,6 +372,13 @@
 	det_time = 50
 	throw_range = 9
 
+/obj/item/weapon/grenade/ww2/rg42
+	name = "RG-42 grenade"
+	desc = "A Soviet fragmentation grenade."
+	icon_state = "rg42"
+	det_time = 50
+	throw_range = 10
+
 /obj/item/weapon/grenade/ww2/mk2
 	name = "граната марк 2"
 	desc = "Американская оборонительная ручная граната 1918 года."
@@ -403,6 +423,20 @@
 	name = "граната M67"
 	desc = "Американская граната, созданая для замены M26."
 	icon_state = "m67"
+	det_time = 50
+	throw_range = 10
+
+/obj/item/weapon/grenade/coldwar/hg85
+	name = "HG 85 grenade"
+	desc = "The HG 85 is a round fragmentation hand grenade designed for the Swiss Armed Forces."
+	icon_state = "hg85"
+	det_time = 50
+	throw_range = 10
+
+/obj/item/weapon/grenade/coldwar/hg85/l109
+	name = "L109 grenade"
+	desc = "The L109 is the British designation for the HG 85. It differs from the HG 85 in that it has a special safety clip, which is similar to the safety clip on the American M67 grenade."
+	icon_state = "l109"
 	det_time = 50
 	throw_range = 10
 
@@ -529,25 +563,11 @@
 					var/obj/item/mine/boobytrap/BT = new /obj/item/mine/boobytrap(get_turf(user))
 					BT.origin = src.type
 					firer = user
+					message_admins("[user.name] ([user.ckey]) placed a boobytrap from \a [src] at ([user.x],[user.y],[user.z])(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+					log_game("[user.name] ([user.ckey]) placed a boobytrap from \a [src] at ([user.x],[user.y],[user.z])(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
 					qdel(src)
 		else
 			return
-
-/obj/item/projectile/bullet/pellet/fragment
-	damage = 18
-	range_step = 2
-
-	base_spread = FALSE //causes it to be treated as a shrapnel explosion instead of cone
-	spread_step = 12
-
-	silenced = TRUE //embedding messages are still produced so it's kind of weird when enabled.
-	no_attack_log = TRUE
-	muzzle_type = null
-
-	embed = TRUE
-	sharp = TRUE
-
-
 
 /obj/item/weapon/grenade/suicide_vest
 	name = "пояс смертника"
@@ -813,6 +833,49 @@
 	icon_state = "rpg40"
 	det_time = 50
 	throw_range = 5
+
+/obj/item/weapon/grenade/antitank/stg24_bundle
+	name = "M1924 Stielhandgranate bundle"
+	desc = "A bundle of M1924 grenades tied together, useful against armored vehicles."
+	icon_state = "stgbundle"
+	det_time = 50
+	throw_range = 6
+	heavy_armor_penetration = 18
+
+/obj/item/weapon/grenade/antitank/n73
+	name = "N73 AT grenade"
+	desc = "A British anti-tank hand percussion grenade used during WW2. Also known as \"Thermos\". "
+	icon_state = "n73"
+	heavy_armor_penetration = 20
+
+/obj/item/weapon/grenade/antitank/n74
+	name = "N74 AT grenade"
+	desc = "A British anti-tank hand grenade used during WW2. Also known as the \"Sticky Bomb\"."
+	icon_state = "n74"
+	heavy_armor_penetration = 18
+
+/obj/item/weapon/grenade/antitank/n75
+	name = "n75 AT grenade"
+	desc = "A British anti-tank hand grenade used during WW2. Also known as the \"Hawkins grenade\". Can also be used as an AT-mine."
+	icon_state = "n75"
+	heavy_armor_penetration = 22
+	throw_range = 7
+	secondary_action = TRUE
+
+/obj/item/weapon/grenade/antitank/n75/secondary_attack_self(mob/living/human/user)
+	if (secondary_action)
+		var/inp = WWinput(user, "Are you sure you want to place an anti-tank mine here?", "Mining", "No", list("Yes","No"))
+		if (inp == "Yes")
+			user << "Placing the mine..."
+			if (do_after(user, 60, src))
+				if (src)
+					user << "You successfully place the mine here using \the [src]."
+					var/obj/item/mine/at/armed/BT = new /obj/item/mine/at/armed(get_turf(user))
+					BT.origin = src.type
+					firer = user
+					qdel(src)
+		else
+			return
 
 /obj/item/weapon/grenade/antitank/type99
 	name = "противотанковая мина Type99"

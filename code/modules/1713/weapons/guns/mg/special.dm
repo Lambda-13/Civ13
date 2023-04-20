@@ -61,7 +61,7 @@
 	accuracy_decrease_mod = 1.50
 	KD_chance = KD_CHANCE_HIGH+5
 	stat = "machinegun"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS
 	var/jammed_until = -1
 	var/jamcheck = 0
@@ -112,9 +112,9 @@
 	full_auto = TRUE
 	equiptimer = 12
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.8, move_delay=2, dispersion = list(0.3, 0.4, 0.5, 0.6, 0.7)),
-		list(name="burst fire",	burst=3, burst_delay=1.4, move_delay=3, dispersion = list(1, 1.1, 1.1, 1.3, 1.5)),
-		list(name="full auto",	burst=1, burst_delay=1.3, move_delay=4, dispersion = list(1.2, 1.2, 1.3, 1.4, 1.8)),
+		list(name = "semi auto",	burst=1, burst_delay=0.8, move_delay=2, dispersion = list(0.3, 0.4, 0.5, 0.6, 0.7)),
+		list(name = "burst fire",	burst=3, burst_delay=1.4, move_delay=3, dispersion = list(1, 1.1, 1.1, 1.3, 1.5)),
+		list(name = "full auto",	burst=1, burst_delay=1.3, move_delay=4, dispersion = list(1.2, 1.2, 1.3, 1.4, 1.8)),
 		)
 	sel_mode = 1
 	effectiveness_mod = 1.40
@@ -133,9 +133,9 @@
 	full_auto = TRUE
 	equiptimer = 12
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.8, move_delay=2, dispersion = list(0.3, 0.4, 0.5, 0.6, 0.7)),
-		list(name="burst fire",	burst=3, burst_delay=1.4, move_delay=3, dispersion = list(1, 1.1, 1.1, 1.3, 1.5)),
-		list(name="full auto",	burst=1, burst_delay=1.3, move_delay=4, dispersion = list(1.2, 1.2, 1.3, 1.4, 1.8)),
+		list(name = "semi auto",	burst=1, burst_delay=0.8, move_delay=2, dispersion = list(0.3, 0.4, 0.5, 0.6, 0.7)),
+		list(name = "burst fire",	burst=3, burst_delay=1.4, move_delay=3, dispersion = list(1, 1.1, 1.1, 1.3, 1.5)),
+		list(name = "full auto",	burst=1, burst_delay=1.3, move_delay=4, dispersion = list(1.2, 1.2, 1.3, 1.4, 1.8)),
 		)
 	sel_mode = 1
 	effectiveness_mod = 1.40

@@ -5,14 +5,17 @@
 	var/capture = FALSE
 	not_movable = TRUE
 	not_disassemblable = TRUE
+	layer = 2.98
 
 /obj/structure/barbwire/ex_act(severity)
 	switch (severity)
 		if (3.0)
 			if (prob(50))
 				qdel(src)
+				return
 		else
 			qdel(src)
+			return
 
 /obj/structure/barbwire/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	return TRUE
@@ -37,6 +40,7 @@
 		if (ishuman(M))
 			var/mob/living/human/H = M
 			if (prob (33))
+                //Тут должны были быть звуки которые пендосы спиздили у нас но я оставил свои
 				playsound(loc, pick('lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_01.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_02.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_03.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_04.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_05.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_06.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_07.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_08.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_09.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_10.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_11.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_12.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_13.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_14.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_15.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_16.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_17.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_18.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_19.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_20.ogg'), 50, TRUE)
 				var/obj/item/organ/external/affecting = H.get_organ(pick("l_foot", "r_foot", "l_leg", "r_leg"))
 				if (affecting && affecting.take_damage(5, FALSE))
@@ -54,7 +58,8 @@
 				H.updatehealth()
 				if (!(H.species && (H.species.flags)))
 					H.Weaken(1)
-				M << "<span class = 'red'><b>Моя [affecting.name] ранена [skloname(src,TVORITELNI, "male")]!</b></span>"
+				if (affecting)
+				    M << "<span class = 'red'><b>Моя [affecting.name] ранена [skloname(src,TVORITELNI, "male")]!</b></span>"
 			else
 				playsound(loc, pick('lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_01.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_02.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_03.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_04.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_05.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_06.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_07.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_08.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_09.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_10.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_11.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_12.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_13.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_14.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_15.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_16.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_17.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_18.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_19.ogg', 'lambda/sanecman/sound/barbwire/barbed_wire_bundle_drop_20.ogg'), 50, TRUE)
 				var/obj/item/organ/external/affecting = H.get_organ(pick("l_foot", "r_foot", "l_leg", "r_leg"))
@@ -63,7 +68,8 @@
 				H.updatehealth()
 				if (!(H.species && (H.species.flags)))
 					H.Weaken(1)
-				M << "<span class = 'red'><b>Моя [affecting.name] порезана [skloname(src,TVORITELNI, "male")]!</b></span>"
+				if (affecting)
+				    M << "<span class = 'red'><b>Моя [affecting.name] порезана [skloname(src,TVORITELNI, "male")]!</b></span>"
 			// stop crawling until we're up to prevent buggy crawling
 			H.scrambling = TRUE
 			spawn (35)

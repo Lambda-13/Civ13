@@ -82,7 +82,7 @@
 
 	switch (dir)
 		if (NORTH)
-			layer = MOB_LAYER - 0.01
+			layer = MOB_LAYER - 1.01
 			pixel_y = FALSE
 		if (SOUTH)
 			layer = MOB_LAYER + 2
@@ -193,18 +193,18 @@
 /obj/structure/window/barrier/attack_generic(var/mob/user, var/damage)
 	return FALSE
 
-/obj/structure/window/barrier/rotate()
+/obj/structure/window/barrier/rotate_left()
 	return
 
-/obj/structure/window/barrier/revrotate()
+/obj/structure/window/barrier/rotate_right()
 	return
 
 /obj/structure/window/barrier/is_fulltile()
 	return FALSE
 
 /obj/structure/window/barrier/update_verbs()
-	verbs -= /obj/structure/window/proc/rotate
-	verbs -= /obj/structure/window/proc/revrotate
+	verbs -= /obj/structure/window/proc/rotate_left
+	verbs -= /obj/structure/window/proc/rotate_right
 
 //merges adjacent full-tile windows into one (blatant ripoff from game/smoothwall.dm)
 /obj/structure/window/barrier/update_icon()
@@ -217,7 +217,7 @@
 	name = "dirt"
 	icon_state = "dirt_pile"
 	icon = 'icons/obj/items.dmi'
-	w_class = TRUE
+	w_class = ITEM_SIZE_TINY
 	var/sand_amount = FALSE
 	value = 0
 	flags = FALSE
@@ -270,7 +270,7 @@
 	name = "sandbag"
 	icon_state = "sandbag_new"
 	icon = 'icons/obj/items.dmi'
-	w_class = TRUE
+	w_class = ITEM_SIZE_TINY
 	sand_amount = TRUE
 	value = 0
 	maxhealth = 30

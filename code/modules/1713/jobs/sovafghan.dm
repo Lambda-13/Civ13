@@ -660,7 +660,7 @@
 /datum/job/russian/sovafghan/spez/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 //shoes
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/jackboots2(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/modern(H), slot_shoes)
 
 //clothes
 	if (prob(50))
@@ -1679,7 +1679,7 @@
 		if (3)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/combat(H), slot_shoes)
 		if (4)
-			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(H), slot_shoes)
+			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots(H), slot_shoes)
 		if (5)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/medieval/emirate(H), slot_shoes)
 //clothes
@@ -1829,7 +1829,7 @@
 		if (3)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/combat(H), slot_shoes)
 		if (4)
-			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(H), slot_shoes)
+			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots(H), slot_shoes)
 //clothes
 	var/randclothes = rand(1,6)
 	switch(randclothes)

@@ -4,7 +4,7 @@
 	opacity = FALSE
 	density = FALSE
 	layer = 3.5
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 
 /obj/structure/sign/ex_act(severity)
 	switch(severity)
@@ -37,7 +37,7 @@
 	name = "sign"
 	desc = "This sign has come loose, maybe you could fasten it somewhere."
 	icon = 'icons/obj/decals.dmi'
-	w_class = 3		//big
+	w_class = ITEM_SIZE_NORMAL		//big
 	var/sign_state = ""
 	value = 0
 /obj/item/sign/attackby(obj/item/tool as obj, mob/user as mob)	//construction
@@ -73,11 +73,32 @@
 	icon_state = "redcross"
 
 /obj/structure/sign/mcd
-	name = "MC DONALDS"
-	desc = "A sign fat people usually like."
-	icon_state = "mcd"
+	name = "Mc Dondald's"
+	desc = "The fast-food giant that guarantees to supersize your misery with every order."
+	icon_state = "mcd3"
 
-/obj/structure/sign/mcd/tfc
+/obj/structure/sign/mcd/menu
+	name = "Mc Dondald's menu"
+	desc = "Fueling the obesity epidemic, one Big Mac at a time."
+	icon_state = "mcd2"
+
+/obj/structure/sign/mcd/pole
+	name = "Mc Donald's"
+	desc = "A towering tribute to humanity's insatiable appetite for processed food and regret."
+	icon_state = "mcd-pole"
+
+/obj/structure/sign/mcd/pole/New()
+	..()
+	overlays.Cut()
+	var/image/img = image(icon='icons/obj/decals.dmi', icon_state = "mcd")
+	img.pixel_y = 32
+	overlays += img
+
+/obj/structure/sign/mcd/pole/Destroy()
+	..()
+	overlays.Cut()
+
+/obj/structure/sign/tfc
 	name = "Texas Fried Chicken"
 	desc = "A sign Texas people usually like."
 	icon_state = "tfc"
@@ -465,6 +486,11 @@
 	name = "SALE sign"
 	desc = "A sign indicating a sale."
 	icon_state = "sale"
+
+/obj/structure/sign/rent
+	name = "FOR RENT sign"
+	desc = "A sign indicating something for rent."
+	icon_state = "rent"
 
 /obj/structure/sign/deer_trophy
 	name = "hunting deer trophy"

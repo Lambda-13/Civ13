@@ -32,7 +32,7 @@ var/list/not_resolved_in_attackby_objects = list(/obj/structure/chemical_dispens
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60)
 	volume = 60
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	var/label_text = ""
 	dropsound = 'sound/effects/drop_glass.ogg'
 
@@ -396,7 +396,7 @@ var/list/not_resolved_in_attackby_objects = list(/obj/structure/chemical_dispens
 			else if (prob(75))
 				pierced_reagent_lost(25)
 	else
-		if (prob(12))
+		if (prob(16))
 			visible_message("<span class = 'warning'>\The [src] explodes!</span>")
 			explosion(loc, 1, 2, 2, 0)
 			qdel(src)
@@ -466,7 +466,7 @@ var/list/not_resolved_in_attackby_objects = list(/obj/structure/chemical_dispens
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "bucket"
 	item_state = "bucket" //TODO: need be checked!!!!!!!!!!!
-	w_class = 3.0
+	w_class = ITEM_SIZE_NORMAL
 	amount_per_transfer_from_this = 20
 	possible_transfer_amounts = list(10,20,30,60,120)
 	volume = 120
@@ -508,7 +508,7 @@ var/list/not_resolved_in_attackby_objects = list(/obj/structure/chemical_dispens
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "small_pot"
 	item_state = "bucket" //TODO: need be checked
-	w_class = 3.0
+	w_class = ITEM_SIZE_NORMAL
 	possible_transfer_amounts = list(10,20)
 	volume = 80
 	var/on_stove = FALSE
@@ -564,7 +564,7 @@ var/list/not_resolved_in_attackby_objects = list(/obj/structure/chemical_dispens
 	name = "large copper pot"
 	icon_state = "copperpot2"
 	item_state = "bucket" //TODO: need be checked
-	w_class = 4.0
+	w_class = ITEM_SIZE_LARGE
 	volume = 160
 
 /obj/item/weapon/reagent_containers/glass/small_pot/clay
@@ -585,7 +585,7 @@ var/list/not_resolved_in_attackby_objects = list(/obj/structure/chemical_dispens
 	icon = 'icons/obj/barrel.dmi'
 	icon_state = "wood_barrel1" //no sprite! re-check if reimplement back!!!
 	item_state = "bucket"
-	w_class = 4.0
+	w_class = ITEM_SIZE_LARGE
 	amount_per_transfer_from_this = 20
 	possible_transfer_amounts = list(10,20,30,60,120)
 	volume = 150
@@ -598,7 +598,7 @@ var/list/not_resolved_in_attackby_objects = list(/obj/structure/chemical_dispens
 	icon = 'icons/obj/barrel.dmi'
 	icon_state = "barrel_wood"
 	//item_state = ???? TO DO TODO or check
-	w_class = 4.0
+	w_class = ITEM_SIZE_LARGE
 	volume = 250
 	throw_speed = 1
 	throw_range = 1
@@ -795,6 +795,16 @@ var/list/not_resolved_in_attackby_objects = list(/obj/structure/chemical_dispens
 		base_name = "steel barrel"
 		reagents.add_reagent("water",350)
 
+//////////yellow barrel/////////////////////////
+/obj/item/weapon/reagent_containers/glass/barrel/modern/yellow
+	name = "yellow steel barrel"
+	desc = "A yellow steel barrel. You can put liquids inside."
+	icon = 'icons/obj/modern_structures.dmi'
+	icon_state = "barreln"
+	//item_state = ???? TO DO TODO or check
+	volume = 350
+	density = TRUE
+
 //////////Galactic Battles//////////////////////
 
 /obj/item/weapon/reagent_containers/glass/barrel/modern/bmilk
@@ -963,6 +973,21 @@ var/list/not_resolved_in_attackby_objects = list(/obj/structure/chemical_dispens
 	icon_state = "fueltank_large_tank"
 	volume = 450
 
+/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/highcap
+	name = "High capacity fueltank"
+	icon_state = "fueltank_large_tank"
+	volume = 550
+
+/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/highcap/fueled
+	New()
+		..()
+		reagents.add_reagent("diesel",550)
+
+/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/highcap/fueledgasoline
+	New()
+		..()
+		reagents.add_reagent("gasoline",550)
+
 /obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled
 	New()
 		..()
@@ -1061,7 +1086,7 @@ var/list/not_resolved_in_attackby_objects = list(/obj/structure/chemical_dispens
 	desc = "An electronic analyser, to check the ingredients of a chemical mixture."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "spectrometer"
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	slot_flags = SLOT_BELT|SLOT_ID|SLOT_POCKET
 	flammable = TRUE
 	force = WEAPON_FORCE_HARMLESS

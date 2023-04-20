@@ -554,14 +554,13 @@
 /datum/job/dutch/modern_lieutenant
 	title = "Eerste Luitenant"
 	en_meaning = "Lieutenant"
-	rank_abbreviation = "Lt"
+	rank_abbreviation = "Lt."
 	spawn_location = "JoinLateRNCap"
 
 	is_operation_falcon = TRUE
 	is_commander = TRUE
 	is_officer = TRUE
 
-	uses_squads = TRUE
 	whitelisted = TRUE
 
 	additional_languages = list("English" = 70)
@@ -571,9 +570,9 @@
 /datum/job/dutch/modern_lieutenant/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 //shoes
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/jackboots2(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/modern(H), slot_shoes)
 //clothes
-	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo_woodland(H), slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo(H), slot_w_uniform)
 //armor
 	var/obj/item/clothing/under/uniform = H.w_uniform
 	var/obj/item/clothing/accessory/armor/coldwar/plates/platecarriergreen/carrier = new /obj/item/clothing/accessory/armor/coldwar/plates/platecarriergreen(null)
@@ -590,9 +589,9 @@
 	var/obj/item/weapon/attachment/under/foregrip/FP = new/obj/item/weapon/attachment/under/foregrip(src)
 	FP.attached(null,HGUN,TRUE)
 
-	H.equip_to_slot_or_del(new /obj/item/weapon/attachment/scope/adjustable/binoculars/binoculars(H), slot_l_store)
+	H.equip_to_slot_or_del(new /obj/item/weapon/attachment/scope/adjustable/binoculars/laser_designator(H), slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/key/dutch(H), slot_r_store)
-	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/olive/m16/smoke(H), slot_belt)
+	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/olive/m16_smoke(H), slot_belt)
 
 	H.equip_to_slot_or_del(new /obj/item/weapon/radio/faction1(H), slot_back)
 	if (time_of_day == "Night" || time_of_day == "Evening" || time_of_day == "Early Morning")
@@ -611,7 +610,7 @@
 /datum/job/dutch/modern_squadleader
 	title = "Sergeant der Eerste Klasse"
 	en_meaning = "Squad Leader"
-	rank_abbreviation = "Sgt"
+	rank_abbreviation = "Sgt."
 	spawn_location = "JoinLateRN"
 
 	is_operation_falcon = TRUE
@@ -626,9 +625,9 @@
 /datum/job/dutch/modern_squadleader/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 //shoes
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/jackboots2(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/modern(H), slot_shoes)
 //clothes
-	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo_woodland(H), slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo(H), slot_w_uniform)
 //armor
 	var/obj/item/clothing/under/uniform = H.w_uniform
 	var/obj/item/clothing/accessory/armor/coldwar/plates/platecarriergreen/carrier = new /obj/item/clothing/accessory/armor/coldwar/plates/platecarriergreen(null)
@@ -638,7 +637,7 @@
 	uniform.attackby(plates1, H)
 	uniform.attackby(plates2, H)
 //equipment
-	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/pasgt/sl(H), slot_head)
+	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/pasgt(H), slot_head)
 
 	var/obj/item/weapon/gun/projectile/submachinegun/c7/c8/HGUN = new/obj/item/weapon/gun/projectile/submachinegun/c7/c8(H)
 	H.equip_to_slot_or_del(HGUN, slot_shoulder)
@@ -647,7 +646,7 @@
 
 	H.equip_to_slot_or_del(new /obj/item/weapon/attachment/scope/adjustable/binoculars/binoculars(H), slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/key/dutch(H), slot_r_store)
-	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/olive/m16/smoke(H), slot_belt)
+	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/olive/m16_smoke(H), slot_belt)
 
 	H.equip_to_slot_or_del(new /obj/item/weapon/radio/faction1(H), slot_back)
 	if (time_of_day == "Night" || time_of_day == "Evening" || time_of_day == "Early Morning")
@@ -666,7 +665,7 @@
 /datum/job/dutch/modern_medic
 	title = "Veld Arts"
 	en_meaning = "Doctor"
-	rank_abbreviation = "AR"
+	rank_abbreviation = "Ar."
 	spawn_location = "JoinLateRN"
 
 	is_operation_falcon = TRUE
@@ -681,9 +680,9 @@
 /datum/job/dutch/modern_medic/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 //shoes
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/jackboots2(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/modern(H), slot_shoes)
 //clothes
-	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo_woodland(H), slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo(H), slot_w_uniform)
 //armor
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/pasgt(H), slot_head)
 	var/obj/item/clothing/under/uniform = H.w_uniform
@@ -722,9 +721,9 @@
 	return TRUE
 
 /datum/job/dutch/modern_radioman
-	title = "Korporaal"
+	title = "Korporaal der Eerste Klasse"
 	en_meaning = "Radioman"
-	rank_abbreviation = "Kpl"
+	rank_abbreviation = "Kpl1."
 	spawn_location = "JoinLateRN"
 
 	is_operation_falcon = TRUE
@@ -739,9 +738,9 @@
 /datum/job/dutch/modern_radioman/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 //shoes
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/jackboots2(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/modern(H), slot_shoes)
 //clothes
-	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo_woodland(H), slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo(H), slot_w_uniform)
 //armor
 	var/obj/item/clothing/under/uniform = H.w_uniform
 	var/obj/item/clothing/accessory/armor/coldwar/plates/platecarriergreen/carrier = new /obj/item/clothing/accessory/armor/coldwar/plates/platecarriergreen(null)
@@ -759,7 +758,7 @@
 	FP.attached(null,HGUN,TRUE)
 
 	H.equip_to_slot_or_del(new /obj/item/weapon/grenade/smokebomb/signal/m18_red(H), slot_l_store)
-	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/olive/m16/smoke(H), slot_belt)
+	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/olive/m16_smoke(H), slot_belt)
 
 	H.equip_to_slot_or_del(new /obj/item/weapon/radio/faction1(H), slot_back)
 	if (time_of_day == "Night" || time_of_day == "Evening" || time_of_day == "Early Morning")
@@ -778,7 +777,7 @@
 /datum/job/dutch/modern_rifleman
 	title = "Soldaat der Eerste Klasse"
 	en_meaning = "Soldier First Class"
-	rank_abbreviation = "Sld1"
+	rank_abbreviation = "Sld1."
 	spawn_location = "JoinLateRN"
 
 	is_operation_falcon = TRUE
@@ -792,9 +791,9 @@
 /datum/job/dutch/modern_rifleman/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 //shoes
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/jackboots2(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/modern(H), slot_shoes)
 //clothes
-	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo_woodland(H), slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo(H), slot_w_uniform)
 //armor
 	var/obj/item/clothing/under/uniform = H.w_uniform
 	var/obj/item/clothing/accessory/armor/coldwar/plates/platecarriergreen/carrier = new /obj/item/clothing/accessory/armor/coldwar/plates/platecarriergreen(null)
@@ -812,7 +811,7 @@
 	FP.attached(null,HGUN,TRUE)
 
 	H.equip_to_slot_or_del(new /obj/item/weapon/foldable_shovel/trench/etool(H), slot_l_store)
-	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/olive/m16/smoke(H), slot_belt)
+	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/olive/m16_smoke(H), slot_belt)
 
 	if (time_of_day == "Night" || time_of_day == "Evening" || time_of_day == "Early Morning")
 		H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight/alt(H), slot_wear_id)
@@ -830,12 +829,10 @@
 /datum/job/dutch/modern_tanker
 	title = "Huzaar Cavalerie"
 	en_meaning = "Tanker"
-	rank_abbreviation = "Sgt"
+	rank_abbreviation = "Sgt."
 	spawn_location = "JoinLateRN"
 
 	is_operation_falcon = TRUE
-
-	uses_squads = TRUE
 
 	additional_languages = list("English" = 15)
 	min_positions = 1
@@ -844,9 +841,9 @@
 /datum/job/dutch/modern_tanker/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 //shoes
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/jackboots2(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/modern(H), slot_shoes)
 //clothes
-	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo_woodland(H), slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo(H), slot_w_uniform)
 //armor
 	var/obj/item/clothing/under/uniform = H.w_uniform
 	var/obj/item/clothing/accessory/armor/coldwar/plates/platecarriergreen/carrier = new /obj/item/clothing/accessory/armor/coldwar/plates/platecarriergreen(null)
@@ -857,10 +854,11 @@
 	uniform.attackby(plates2, H)
 //equipment
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/ushelmet/crewman(H), slot_head)
-	
+
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/glock17(H), slot_l_hand)
 	H.equip_to_slot_or_del(new /obj/item/weapon/key/dutch(H), slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/glock17(H), slot_r_store)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/glock17(H), slot_belt)
+	H.equip_to_slot_or_del(new /obj/item/weapon/compass/modern/tacmap(H), slot_belt)
 
 	H.equip_to_slot_or_del(new /obj/item/weapon/radio/walkietalkie/faction1(H), slot_wear_id)
 	H.setStat("strength", STAT_NORMAL)
@@ -873,3 +871,102 @@
 	give_random_name(H)
 
 	return TRUE
+
+/datum/job/dutch/emplaced_weapon_specialist
+	title = "Emplaced Wapen Specialist"
+	en_meaning = "Emplaced Weapons Specialist"
+	rank_abbreviation = "Kpl"
+	spawn_location = "JoinLateRN"
+
+	is_operation_falcon = TRUE
+
+	uses_squads = TRUE
+
+	additional_languages = list("English" = 15)
+	min_positions = 1
+	max_positions = 6
+
+/datum/job/dutch/emplaced_weapon_specialist/equip(var/mob/living/human/H)
+	if (!H)	return FALSE
+//shoes
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/modern(H), slot_shoes)
+//clothes
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo(H), slot_w_uniform)
+//armor
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	var/obj/item/clothing/accessory/armor/coldwar/plates/platecarriergreen/carrier = new /obj/item/clothing/accessory/armor/coldwar/plates/platecarriergreen(null)
+	uniform.attackby(carrier, H)
+	var/obj/item/weapon/armorplates/plates1 = new /obj/item/weapon/armorplates(null)
+	var/obj/item/weapon/armorplates/plates2 = new /obj/item/weapon/armorplates(null)
+	uniform.attackby(plates1, H)
+	uniform.attackby(plates2, H)
+//equipment
+	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/pasgt(H), slot_head)
+
+	H.equip_to_slot_or_del(new /obj/item/gunbox/emplacement(H), slot_l_hand)
+	H.equip_to_slot_or_del(new /obj/item/weapon/foldable_shovel/trench/etool(H), slot_l_store)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/glock17(H), slot_r_store)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/glock17(H), slot_belt)
+
+	if (time_of_day == "Night" || time_of_day == "Evening" || time_of_day == "Early Morning")
+		H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight/alt(H), slot_wear_id)
+	H.setStat("strength", STAT_NORMAL)
+	H.setStat("crafting", STAT_NORMAL)
+	H.setStat("rifle", STAT_NORMAL)
+	H.setStat("dexterity", STAT_NORMAL)
+	H.setStat("swords", STAT_NORMAL)
+	H.setStat("pistol", STAT_NORMAL)
+	H.setStat("bows", STAT_NORMAL)
+	give_random_name(H)
+
+	return TRUE
+
+/datum/job/dutch/weapon_specialist
+	title = "Wapen Specialist"
+	en_meaning = "Weapons Specialist"
+	rank_abbreviation = "Kpl."
+	spawn_location = "JoinLateRN"
+
+	is_operation_falcon = TRUE
+
+	uses_squads = TRUE
+
+	additional_languages = list("English" = 15)
+	min_positions = 1
+	max_positions = 10
+
+/datum/job/dutch/weapon_specialist/equip(var/mob/living/human/H)
+	if (!H)	return FALSE
+//shoes
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/modern(H), slot_shoes)
+//clothes
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo(H), slot_w_uniform)
+//armor
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	var/obj/item/clothing/accessory/armor/coldwar/plates/platecarriergreen/carrier = new /obj/item/clothing/accessory/armor/coldwar/plates/platecarriergreen(null)
+	uniform.attackby(carrier, H)
+	var/obj/item/weapon/armorplates/plates1 = new /obj/item/weapon/armorplates(null)
+	var/obj/item/weapon/armorplates/plates2 = new /obj/item/weapon/armorplates(null)
+	uniform.attackby(plates1, H)
+	uniform.attackby(plates2, H)
+//equipment
+	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/pasgt(H), slot_head)
+
+	var/obj/item/weapon/gun/projectile/submachinegun/c7/HGUN = new/obj/item/weapon/gun/projectile/submachinegun/c7(H)
+	H.equip_to_slot_or_del(HGUN, slot_shoulder)
+	var/obj/item/weapon/attachment/under/foregrip/FP = new/obj/item/weapon/attachment/under/foregrip(src)
+	FP.attached(null,HGUN,TRUE)
+
+	H.equip_to_slot_or_del(new /obj/item/gunbox/specialist(H), slot_l_hand)
+	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/olive/m16_smoke(H), slot_belt)
+
+	if (time_of_day == "Night" || time_of_day == "Evening" || time_of_day == "Early Morning")
+		H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight/alt(H), slot_wear_id)
+	H.setStat("strength", STAT_NORMAL)
+	H.setStat("crafting", STAT_NORMAL)
+	H.setStat("rifle", STAT_NORMAL)
+	H.setStat("dexterity", STAT_NORMAL)
+	H.setStat("swords", STAT_NORMAL)
+	H.setStat("pistol", STAT_NORMAL)
+	H.setStat("bows", STAT_NORMAL)
+	give_random_name(H)

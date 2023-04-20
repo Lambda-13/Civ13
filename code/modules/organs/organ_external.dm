@@ -79,7 +79,7 @@
 	var/atom/movable/applied_pressure
 	var/burn_ratio = 0
 	var/brute_ratio = 0
-	var/encased = ""
+	var/encased
 	var/cavity_name = ""
 	//Русский язык
 	var/organ_ru_name = "тело"
@@ -208,7 +208,7 @@
 			for(var/mob/living/human/NB in view(6,src))
 				if (!NB.orc)
 					NB.mood -= 9
-					NB.ptsd += 1
+					//NB.ptsd += 1
 	return
 
 
@@ -357,28 +357,28 @@
 						for(var/mob/living/human/NB in view(6,src))
 							if (!NB.orc)
 								NB.mood -= 10
-								NB.ptsd += 1
+								//NB.ptsd += 1
 				else if(burn >= max_damage / DROPLIMB_THRESHOLD_DESTROY && prob(burn/3))
 					if (prob(20))
 						droplimb(0, DROPLIMB_BURN)
 						for(var/mob/living/human/NB in view(6,src))
 							if (!NB.orc)
 								NB.mood -= 10
-								NB.ptsd += 1
+								//NB.ptsd += 1
 				else if(brute >= max_damage / DROPLIMB_THRESHOLD_DESTROY && prob(brute/3))
 					if (prob(20))
 						droplimb(0, DROPLIMB_BLUNT)
 						for(var/mob/living/human/NB in view(6,src))
 							if (!NB.orc)
 								NB.mood -= 10
-								NB.ptsd += 1
+								//NB.ptsd += 1
 				else if(brute >= max_damage / DROPLIMB_THRESHOLD_TEAROFF && prob(brute/3))
 					if (prob(20))
 						droplimb(0, DROPLIMB_BLUNT)
 						for(var/mob/living/human/NB in view(6,src))
 							if (!NB.orc)
 								NB.mood -= 10
-								NB.ptsd += 1
+								//NB.ptsd += 1
 
 	if(owner && update_damstate())
 		owner.UpdateDamageIcon()
@@ -1130,7 +1130,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	icon_name = "torso"
 	min_broken_damage = 55
 	max_damage = 101
-	w_class = 5
+	w_class = ITEM_SIZE_HUGE
 	body_part = UPPER_TORSO
 	vital = TRUE
 	amputation_point = "spine"
@@ -1150,7 +1150,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	icon_name = "groin"
 	min_broken_damage = 55
 	max_damage = 101
-	w_class = 5
+	w_class = ITEM_SIZE_HUGE
 	body_part = LOWER_TORSO
 	cannot_amputate = TRUE
 	vital = TRUE
@@ -1169,7 +1169,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	icon_name = "l_arm"
 	min_broken_damage = 40
 	max_damage = 60
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	body_part = ARM_LEFT
 	parent_organ = "chest"
 	joint = "left elbow"
@@ -1192,7 +1192,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	icon_name = "l_leg"
 	min_broken_damage = 40
 	max_damage = 70
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	body_part = LEG_LEFT
 	icon_position = LEFT
 	parent_organ = "groin"
@@ -1217,7 +1217,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	icon_name = "l_foot"
 	min_broken_damage = 35
 	max_damage = 65
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	body_part = FOOT_LEFT
 	icon_position = LEFT
 	parent_organ = "l_leg"
@@ -1246,7 +1246,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	icon_name = "l_hand"
 	min_broken_damage = 35
 	max_damage = 60
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	body_part = HAND_LEFT
 	parent_organ = "l_arm"
 	joint = "left wrist"
@@ -1273,7 +1273,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	organ_ru_name = "голова"
 	min_broken_damage = 40
 	max_damage = 60
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	body_part = HEAD
 	vital = TRUE
 	parent_organ = "chest"
@@ -1358,7 +1358,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/stack/teeth
 	name = "зубы"
 	singular_name = "зуб"
-	w_class = TRUE
+	w_class = ITEM_SIZE_TINY
 	throwforce = 2
 	max_amount = 32
 	desc = "Зубы. Целые зубы."
@@ -1398,7 +1398,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(brute_dam + force < min_broken_damage/5)	//no papercuts moving bones
 		return
 	if(internal_organs.len && prob(brute_dam + force))
-		owner.custom_pain("A piece of bone in your [name] moves painfully!", 50)
+		owner.custom_pain("A piece of bone in your [encased ? encased : name] moves painfully!", 50)
 		var/obj/item/organ/I = pick(internal_organs)
 		I.take_damage(rand(3,5))
 

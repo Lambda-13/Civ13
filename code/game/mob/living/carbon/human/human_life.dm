@@ -145,6 +145,15 @@
 			if (istype(r_hand, /obj/item/football))
 				drop_from_inventory(r_hand, loc, TRUE)
 				drop_item()
+	if (map && map.ID == MAP_FOOTBALL_CAMPAIGN && (r_hand || l_hand))
+		var/area/A = get_area(loc)
+		if (!istype(A, /area/caribbean/football/red/goalkeeper) && !istype(A, /area/caribbean/football/blue/goalkeeper))
+			if (istype(l_hand, /obj/item/football))
+				drop_from_inventory(l_hand, loc, TRUE)
+				drop_item()
+			if (istype(r_hand, /obj/item/football))
+				drop_from_inventory(r_hand, loc, TRUE)
+				drop_item()
 	// fixes invisibility while alive (from ssd?)
 	if (invisibility == 101)
 		invisibility = 0
@@ -152,7 +161,7 @@
 		var/water_m = 1
 		var/food_m = 1
 		if (find_trait("Gigantism"))
-			food_m *= 1.2
+			food_m *= 1.4
 		else if (find_trait("Dwarfism"))
 			food_m *= 0.8
 		if (orc)
@@ -1413,7 +1422,7 @@
 			holder2.plane = HUD_PLANE
 			switch (original_job.base_type_flag())
 				if (PIRATES)
-					if (map.ID == MAP_CAMPAIGN)
+					if (map.ID == MAP_CAMPAIGN || map.ID == MAP_NOMADS_PERSISTENCE_BETA)
 						holder2.icon_state = "redmenia"
 					else if (map && !map.battleroyale)
 						holder2.icon_state = "pirate_basic"
@@ -1499,12 +1508,14 @@
 					else
 						holder2.icon_state = "jp_basic"
 				if (RUSSIAN)
-					if (map.ID == MAP_YELTSIN || map.ID == MAP_GROZNY || map.ID == MAP_FACTORY || map.ID == MAP_OPERATION_FACLON || map.ID == MAP_FACTORY_AW || map.ID == MAP_PERVOMAISK_CROSSING || map.ID == MAP_COD_MW_WW3 || map.ID == MAP_FACTORY_RU)
+					if (map.ID == MAP_YELTSIN || map.ID == MAP_GROZNY || map.ID == MAP_FACTORY || map.ID == MAP_OPERATION_FALCON || map.ID == MAP_VADSO_CITY)
 						holder2.icon_state = "ru_basic"
 					else if (map.ID == MAP_BANK_ROBBERY)
 						holder2.icon_state = "robbers"
 					else if (map.ID == MAP_DRUG_BUST)
 						holder2.icon_state = "rednikov"
+					else if (map.ID == MAP_EFT_FACTORY)
+						holder2.icon_state = "none"
 					else
 						if (map.ordinal_age <= 5)
 							holder2.icon_state = "ru_basic"
@@ -1526,21 +1537,28 @@
 						holder2.icon_state = "imp_basic"
 					else if (map.ID == MAP_EAST_LOS_SANTOS)
 						holder2.icon_state = "civ2"
+					else if (map.ID == MAP_EFT_FACTORY)
+						holder2.icon_state = "none"
 					else
 						holder2.icon_state = "us_basic"
 				if (VIETNAMESE)
-					holder2.icon_state = "vc_basic"
+					if (original_job.is_nva)
+						holder2.icon_state = "vn_basic"
+					else
+						holder2.icon_state = "vc_basic"
 				if (FILIPINO)
 					holder2.icon_state = "fp_basic"
 				if (CHINESE)
-					if(map && map.ordinal_age >= 8)
+					if((map && map.ordinal_age >= 7) || map.ID == MAP_RETREAT)
 						holder2.icon_state = "sov_basic"
 					else
 						holder2.icon_state = "roc_basic"
+				if (POLISH)
+					holder2.icon_state = "pol_basic"
 				if (CIVILIAN)
 					if (map.ID == MAP_CAPITOL_HILL)
 						holder2.icon_state = "civ1"
-					else if (map.ID == MAP_CAMPAIGN)
+					else if (map.ID == MAP_CAMPAIGN || map.ID == MAP_NOMADS_PERSISTENCE_BETA)
 						holder2.icon_state = "blugoslavia"
 					else if (original_job_title == "Nomad")
 						holder2.icon_state = ""
@@ -1558,6 +1576,8 @@
 						holder2.icon_state = "sov_basic"
 					else if (map.ID == MAP_FACTORY || map.ID == MAP_FACTORY_AW || map.ID == MAP_PERVOMAISK_CROSSING || map.ID == MAP_COD_MW_WW3 || map.ID == MAP_FACTORY_RU)
 						holder2.icon_state = "ukr_basic"
+					else if (map.ID == MAP_EFT_FACTORY)
+						holder2.icon_state = "none"
 					else if (map.ID == MAP_GULAG13)
 						if(nationality == "Polish")
 							holder2.icon_state = "pol_basic"
@@ -1728,7 +1748,7 @@
 						if (stat == DEAD)
 							visible_message("[src]'s body is visibly rotten!")
 							rotting_stage = 2
-							if(map.ID != "TANTIVEIV")
+							if(map.ID != "TANTIVEIV" && map.ID != MAP_VERDUN)
 								if (isturf(loc))
 									new/mob/living/simple_animal/crow(loc)
 							spawn(20000)

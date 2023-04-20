@@ -14,7 +14,7 @@
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = null
 	volume = 15
-	w_class = TRUE
+	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
 	sharp = TRUE
 	var/mode = SYRINGE_DRAW
@@ -321,7 +321,7 @@
 	name = "Morphine injector"
 	desc = "Injector containing 5 units of morphine. Administer two of these to make someone sleep."
 	icon_state = "single_use0"
-	w_class = 1
+	w_class = ITEM_SIZE_TINY
 	volume = 5
 	amount_per_transfer_from_this = 5
 	single_use = TRUE
@@ -342,7 +342,7 @@
 	name = "sulfanomide injector"
 	desc = "Injector containing a single dose of IV sulfanomides. Used to prevent and treat systemic microbial infections."
 	icon_state = "single_use2"
-	w_class = 1
+	w_class = ITEM_SIZE_TINY
 	volume = 9
 	amount_per_transfer_from_this = 9
 	single_use = TRUE
@@ -362,7 +362,7 @@
 	name = "adrenaline injector"
 	desc = "Injector containing a single dose of adrenalin. Good to stabilize patients and help moderate shock."
 	icon_state = "single_use3"
-	w_class = 1
+	w_class = ITEM_SIZE_TINY
 	volume = 30
 	amount_per_transfer_from_this = 30
 	single_use = TRUE
@@ -382,7 +382,7 @@
 	name = "THC syringe"
 	desc = "Injector containing THC from cannabis."
 	icon_state = "single_use1"
-	w_class = 1
+	w_class = ITEM_SIZE_TINY
 	volume = 20
 	amount_per_transfer_from_this = 20
 	single_use = TRUE
@@ -397,4 +397,55 @@
 		icon_state = "single_use2"
 	else
 		icon_state = "single_use2_empty"
+		used = TRUE
+
+/obj/item/weapon/reagent_containers/syringe/combat
+	name = "combat syringe"
+	desc = "A single-use injector made to pump you full of lifesaving drugs."
+	icon_state = "single_use4"
+	w_class = ITEM_SIZE_TINY
+	volume = 50
+	amount_per_transfer_from_this = 50
+	single_use = TRUE
+
+/obj/item/weapon/reagent_containers/syringe/combat/New()
+	..()
+	reagents.add_reagent("anti_toxin", 10)
+	reagents.add_reagent("sal_acid", 10)
+	reagents.add_reagent("tramadol", 10)
+	reagents.add_reagent("adrenaline", 11)
+	reagents.add_reagent("penicillin", 9)
+	mode = SYRINGE_INJECT
+
+/obj/item/weapon/reagent_containers/syringe/combat/update_icon()
+	if (reagents.total_volume > 0)
+		icon_state = "single_use4"
+	else
+		icon_state = "single_use4_empty"
+		used = TRUE
+
+/obj/item/weapon/reagent_containers/syringe/speed
+	name = "Speed syringe"
+	desc = "A single-use injector made to pump you full of muscle stimulating drugs, making you more aware and fast."
+	icon_state = "single_use5"
+	w_class = ITEM_SIZE_TINY
+	volume = 37
+	amount_per_transfer_from_this = 37
+	single_use = TRUE
+
+/obj/item/weapon/reagent_containers/syringe/speed/New()
+	..()
+	reagents.add_reagent("coffee", 20)
+	reagents.add_reagent("pervitin", 1)
+	reagents.add_reagent("crack", 1)
+	reagents.add_reagent("dragonpowder", 5)
+	reagents.add_reagent("methylphenidate", 5)
+	reagents.add_reagent("plentiful_stamina", 5)
+	mode = SYRINGE_INJECT
+
+/obj/item/weapon/reagent_containers/syringe/speed/update_icon()
+	if (reagents.total_volume > 0)
+		icon_state = "single_use5"
+	else
+		icon_state = "single_use5_empty"
 		used = TRUE

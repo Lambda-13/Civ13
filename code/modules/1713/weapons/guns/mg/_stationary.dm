@@ -18,7 +18,7 @@
 	layer = MOB_LAYER + 3
 	anchored = TRUE
 	density = TRUE
-	w_class = 6
+	w_class = ITEM_SIZE_GARGANTUAN
 	load_method = SINGLE_CASING
 	handle_casings = REMOVE_CASINGS
 	max_shells = 6000
@@ -27,7 +27,8 @@
 	ammo_type = /obj/item/ammo_casing/a762x54
 	stat = "machinegun"
 	maxhealth = 6000
-	firemodes = list(name="full auto",	burst=1, burst_delay=1.3, move_delay=8, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.5), accuracy=list(2))
+	firemodes = list(name = "full auto",	burst=1, burst_delay=1.3, move_delay=8, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.5), accuracy=list(2))
+	full_auto = TRUE
 
 	var/maximum_use_range = FALSE // user loc at minigun's current loc (used in use_object.dm)
 
@@ -39,7 +40,7 @@
 	var/zoom_amount = 10
 	is_hmg = TRUE
 
-	var/hardness = 10 
+	var/hardness = 10
 
 	gun_type = GUN_TYPE_MG
 
@@ -56,6 +57,11 @@
 	if (!(user.using_MG == src))
 		var/grip_dir = reverse_direction(dir)
 		var/turf/T = get_step(loc, grip_dir)
+		var/obj/structure/bed/chair/drivers/DR
+		for (DR in src.loc.contents)
+			if (DR in src.loc.contents)
+				user << "<span class='notice'>There is a seat in the way.</span>"
+				return
 		if (user.loc == T)
 			if (user.has_empty_hand(both = TRUE) && !is_used_by(user))
 				if (!map || !map.check_caribbean_block(user, loc))
@@ -200,4 +206,7 @@
 	else
 		icon_state = "[base_icon]_empty"
 	update_held_icon()
+	return
+
+/obj/item/weapon/gun/projectile/automatic/stationary/kick_act() //Can't kick them
 	return

@@ -100,7 +100,7 @@
 					equip_to_slot_or_del(new /obj/item/clothing/under/medieval/leather(src), slot_w_uniform)
 
 		else if (map.ordinal_age == 3)
-			equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(src), slot_shoes)
+			equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots(src), slot_shoes)
 			if (map.ID == MAP_CIVILIZATIONS)
 				spawn(5)
 					make_nomad()
@@ -178,7 +178,7 @@
 					equip_to_slot_or_del(new /obj/item/clothing/under/civf1(src), slot_w_uniform)
 					equip_to_slot_or_del(new /obj/item/clothing/head/kerchief(src), slot_head)
 			equip_to_slot_or_del(new /obj/item/stack/money/coppercoin/twohundred(src), slot_r_store)
-			equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(src), slot_shoes)
+			equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots(src), slot_shoes)
 
 		else if (map.ordinal_age == 4)
 			if (gender == "male")
@@ -187,11 +187,11 @@
 				equip_to_slot_or_del(new /obj/item/clothing/under/civf1(src), slot_w_uniform)
 				equip_to_slot_or_del(new /obj/item/clothing/head/kerchief(src), slot_head)
 			equip_to_slot_or_del(new /obj/item/stack/money/coppercoin/twohundred(src), slot_r_store)
-			equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(src), slot_shoes)
+			equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots(src), slot_shoes)
 
 		else if (map.ordinal_age == 5)
 			if (gender == "male")
-				equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(src), slot_shoes)
+				equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots(src), slot_shoes)
 				equip_to_slot_or_del(new /obj/item/clothing/under/modern4(src), slot_w_uniform)
 			else
 				equip_to_slot_or_del(new /obj/item/clothing/under/civf1(src), slot_w_uniform)
@@ -199,14 +199,17 @@
 			equip_to_slot_or_del(new /obj/item/stack/money/coppercoin/twohundred(src), slot_r_store)
 
 		else if (map.ordinal_age == 6)
-			if (map.ID == MAP_NATIONSRP)
-				equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(src), slot_shoes)
+			if (map.ID == MAP_NATIONSRP || map.ID == MAP_NATIONSRP_TRIPLE || map.ID == MAP_NATIONSRPMED || map.ID == MAP_NATIONSRP_WW2 || map.ID == MAP_NATIONSRP_COLDWAR || map.ID == MAP_NATIONSRP_COLDWAR_CAMPAIGN)
+				equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots(src), slot_shoes)
 				spawn(5)
 					if (gender == "male")
 						if (original_job_title == "Civilization A Citizen")
 							equip_to_slot_or_del(new /obj/item/clothing/under/modern2(src), slot_w_uniform)
 							update_icons(1)
 						else if (original_job_title == "Civilization B Citizen")
+							equip_to_slot_or_del(new /obj/item/clothing/under/modern3(src), slot_w_uniform)
+							update_icons(1)
+						else if (original_job_title == "Civilization C Citizen")
 							equip_to_slot_or_del(new /obj/item/clothing/under/modern3(src), slot_w_uniform)
 							update_icons(1)
 					else
@@ -216,9 +219,12 @@
 						else if (original_job_title == "Civilization B Citizen")
 							equip_to_slot_or_del(new /obj/item/clothing/under/modern8(src), slot_w_uniform)
 							update_icons(1)
+						else if (original_job_title == "Civilization C Citizen")
+							equip_to_slot_or_del(new /obj/item/clothing/under/modern3(src), slot_w_uniform)
+							update_icons(1)
 			else
 				if (gender == "male")
-					equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(src), slot_shoes)
+					equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots(src), slot_shoes)
 					equip_to_slot_or_del(new /obj/item/clothing/under/modern4(src), slot_w_uniform)
 				else
 					equip_to_slot_or_del(new /obj/item/clothing/under/civf1(src), slot_w_uniform)
@@ -228,7 +234,7 @@
 
 		else if (map.ordinal_age == 7)
 			if (gender == "male")
-				equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(src), slot_shoes)
+				equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots(src), slot_shoes)
 				equip_to_slot_or_del(new /obj/item/clothing/under/modern4(src), slot_w_uniform)
 			else
 				equip_to_slot_or_del(new /obj/item/clothing/under/civf1(src), slot_w_uniform)
@@ -236,13 +242,23 @@
 			equip_to_slot_or_del(new /obj/item/stack/money/coppercoin/twohundred(src), slot_r_store)
 
 		else if (map.ordinal_age == 8)
-			if (gender == "male")
-				equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(src), slot_shoes)
-				equip_to_slot_or_del(new /obj/item/clothing/under/modern7(src), slot_w_uniform)
+			if (map.ID == MAP_NOMADS_PERSISTENCE_BETA)
+				equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
+				spawn(5)
+					if (original_job_title == "Civilization A Citizen")
+						equip_to_slot_or_del(new /obj/item/clothing/under/redmenia/standard/modern(src), slot_w_uniform)
+						update_icons(1)
+					else if (original_job_title == "Civilization B Citizen")
+						equip_to_slot_or_del(new /obj/item/clothing/under/blugoslavia/standard(src), slot_w_uniform)
+						update_icons(1)
 			else
-				equip_to_slot_or_del(new /obj/item/clothing/under/civf1(src), slot_w_uniform)
-				equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(src), slot_shoes)
-			equip_to_slot_or_del(new /obj/item/stack/money/coppercoin/twohundred(src), slot_r_store)
+				if (gender == "male")
+					equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots(src), slot_shoes)
+					equip_to_slot_or_del(new /obj/item/clothing/under/modern7(src), slot_w_uniform)
+				else
+					equip_to_slot_or_del(new /obj/item/clothing/under/civf1(src), slot_w_uniform)
+					equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(src), slot_shoes)
+				equip_to_slot_or_del(new /obj/item/stack/money/coppercoin/twohundred(src), slot_r_store)
 
 	else
 		if (s_tone <= -175)
@@ -521,30 +537,6 @@
 						real_name = name
 						add_note("Known Languages", "Greek")
 						return
-		else if (map.ID == MAP_NATIONSRP)
-			spawn(5)
-				//west
-				if (x<75)
-					add_language("Gaelic",TRUE)
-					remove_language("English")
-					remove_note("Known Languages","English")
-					for (var/datum/language/gaelic/A in languages)
-						default_language = A
-					name = species.get_random_gaelic_name(gender)
-					real_name = name
-					add_note("Known Languages", "Gaelic")
-					return
-				//EAST
-				else
-					add_language("Latin",TRUE)
-					remove_language("English")
-					remove_note("Known Languages","English")
-					for (var/datum/language/latin/A in languages)
-						default_language = A
-					name = species.get_random_roman_name(gender)
-					real_name = name
-					add_note("Known Languages", "Latin")
-					return
 //////////////////////////////////////////////////////
 ///////////////////Karafuta-Sakhalinsk////////////////
 //////////////////////////////////////////////////////
@@ -857,7 +849,10 @@
 
 /datum/job/civilian/civc/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	H.civilization = civname_c
+	if (map.ID == MAP_NATIONSRP_TRIPLE)
+		H.make_nation()
+	else
+		H.civilization = civname_c
 	H.give_clothes()
 
 	H.add_note("Role", "You are a <b>citizen</b>. Stick with your fellow tribesmen, build your village, and honor the Gods!")

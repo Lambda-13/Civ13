@@ -5,8 +5,6 @@
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/sea/temperate)
 	respawn_delay = 6000 // 10 minutes!
 	has_hunger = TRUE
-
-
 	faction_organization = list(
 		CIVILIAN,)
 
@@ -54,6 +52,7 @@
 	civb_research = list(default_research,default_research,default_research,null)
 	spawn(18000)
 		seasons()
+		config.no_respawn_delays = FALSE
 
 /obj/map_metadata/nationsrp/cross_message(faction)
 	return "<big><b>THE GRACE PERIOD HAS ENDED!</b></big>"
@@ -76,8 +75,6 @@
 	custom_civs += newnameb
 	civa_research = list(default_research,default_research,default_research,null)
 	civb_research = list(default_research,default_research,default_research,null)
-	spawn(18000)
-		seasons()
 
 /obj/map_metadata/nationsrp/ww2
 	ID = MAP_NATIONSRP_WW2
@@ -85,6 +82,10 @@
 	mission_start_message = "<big>Two nations rule this land. The grace wall will end in <b>30 minutes</b>. This is an RP focused map, people of both nations start friendly by default.</big><br><b>Wiki Guide: http://civ13.github.io/civ13-wiki/Civilizations_and_Nomads</b>"
 	default_research = 145
 	ordinal_age = 6
+	age1_done = TRUE
+	age2_done = TRUE
+	age3_done = TRUE
+	age4_done = TRUE
 	age5_done = TRUE
 	age6_done = TRUE
 
@@ -98,18 +99,21 @@
 	custom_civs += newnameb
 	civa_research = list(default_research,default_research,default_research,null)
 	civb_research = list(default_research,default_research,default_research,null)
-	spawn(18000)
-		seasons()
 
 /obj/map_metadata/nationsrp/coldwar
 	ID = MAP_NATIONSRP_COLDWAR
 	title = "Nations RP Cold War"
+	lobby_icon = "icons/lobby/coldwar.png"
 	mission_start_message = "<big>Two nations rule this land. The grace wall will end in <b>30 minutes</b>. This is an RP focused map, people of both nations start friendly by default.</big><br><b>Wiki Guide: http://civ13.github.io/civ13-wiki/Civilizations_and_Nomads</b>"
 	age = "the Cold War"
 	songs = list(
-		"War Never Changes:1" = "sound/music/war_never_changes.ogg",)
+		"Emma:1" = "sound/music/emma.ogg",)
 	default_research = 175
 	ordinal_age = 7
+	age1_done = TRUE
+	age2_done = TRUE
+	age3_done = TRUE
+	age4_done = TRUE
 	age5_done = TRUE
 	age6_done = TRUE
 	age7_done = TRUE
@@ -124,18 +128,21 @@
 	custom_civs += newnameb
 	civa_research = list(default_research,default_research,default_research,null)
 	civb_research = list(default_research,default_research,default_research,null)
-	spawn(18000)
-		seasons()
 
 /obj/map_metadata/nationsrp/coldwar_campaign
 	ID = MAP_NATIONSRP_COLDWAR_CAMPAIGN
 	title = "Nations RP Cold War"
+	lobby_icon = "icons/lobby/coldwar.png"
 	mission_start_message = "<big>Two nations rule this land. The grace wall will end in <b>30 minutes</b>. This is an RP focused map, people of both nations start friendly by default.</big><br><b>Wiki Guide: http://civ13.github.io/civ13-wiki/Civilizations_and_Nomads</b>"
 	age = "the Cold War"
 	songs = list(
-		"War Never Changes:1" = "sound/music/war_never_changes.ogg",)
+		"Emma:1" = "sound/music/emma.ogg",)
 	default_research = 175
 	ordinal_age = 7
+	age1_done = TRUE
+	age2_done = TRUE
+	age3_done = TRUE
+	age4_done = TRUE
 	age5_done = TRUE
 	age6_done = TRUE
 	age7_done = TRUE
@@ -145,10 +152,39 @@
 	civname_a = "Redmenian Nation"
 	civname_b = "Blugoslavian Nation"
 	var/newnamea = list("Redmenian Nation" = list(default_research,default_research,default_research,null,0,"star","#D7A326","#DA1515"))
-	var/newnameb = list("Blugoslavian Nation" = list(default_research,default_research,default_research,null,0,"sun","B5AA6C","#2A44CF"))
+	var/newnameb = list("Blugoslavian Nation" = list(default_research,default_research,default_research,null,0,"sun","#B5AA6C","#2A44CF"))
 	custom_civs += newnamea
 	custom_civs += newnameb
 	civa_research = list(default_research,default_research,default_research,null)
 	civb_research = list(default_research,default_research,default_research,null)
-	spawn(18000)
-		seasons()
+
+/obj/map_metadata/nationsrp/triple
+	ID = MAP_NATIONSRP_TRIPLE
+	title = "Triple Nations RP"
+	availablefactions = list("Civilization A Citizen", "Civilization B Citizen", "Civilization C Citizen")
+	mission_start_message = "<big>Three nations rule this land. The grace wall will end in <b>30 minutes</b>. This is an RP focused map, people of all three nations start friendly by default.</big><br><b>Wiki Guide: http://civ13.github.io/civ13-wiki/Civilizations_and_Nomads</b>"
+	default_research = 145
+	ordinal_age = 4
+	age1_done = TRUE
+	age2_done = TRUE
+	age3_done = TRUE
+	age4_done = TRUE
+	age5_done = FALSE
+	age6_done = FALSE
+	age7_done = FALSE
+	age8_done = FALSE
+
+/obj/map_metadata/nationsrp/triple/New()
+	..()
+	civname_a = "Latin Nation"
+	civname_b = "Gaelic Nation"
+	civname_c = "German Nation"
+	var/newnamea = list("Latin Nation" = list(default_research,default_research,default_research,null,0,"cross","#D4AF37","#660000"))
+	var/newnameb = list("Gaelic Nation" = list(default_research,default_research,default_research,null,0,"saltire","#C0C0C0","#006600"))
+	var/newnamec = list("German Nation" = list(default_research,default_research,default_research,null,0,"saltire","#0B5394","#B45F06"))
+	custom_civs += newnamea
+	custom_civs += newnameb
+	custom_civs += newnamec
+	civa_research = list(default_research,default_research,default_research,null)
+	civb_research = list(default_research,default_research,default_research,null)
+	civc_research = list(default_research,default_research,default_research,null)

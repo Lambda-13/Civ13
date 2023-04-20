@@ -7,7 +7,7 @@
 	icon_state = "mosin"
 	item_state = "mosin" //placeholder
 	var/base_icon = "mosin"
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	force = 10
 	throwforce = 20
 	max_shells = 5
@@ -21,6 +21,8 @@
 	good_mags = list(/obj/item/ammo_magazine)
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	fire_sound = 'sound/weapons/guns/fire/battle_rifle.ogg'
+	var/bolt_open_sound = 'sound/weapons/guns/interact/bolt_open.ogg'
+	var/bolt_close_sound = 'sound/weapons/guns/interact/bolt_close.ogg'
 	//+2 accuracy over the LWAP because only one shot
 	accuracy = TRUE
 //	scoped_accuracy = 2
@@ -108,7 +110,7 @@
 	bolt_open = !bolt_open
 	if (bolt_open)
 		if (chambered)
-			playsound(loc, 'sound/weapons/guns/interact/bolt_open.ogg', 50, TRUE)
+			playsound(loc, bolt_open_sound, 50, TRUE)
 			user << "<span class='notice'>You work the bolt open, ejecting [chambered]!</span>"
 			chambered.loc = get_turf(src)
 			chambered.randomrotation()
@@ -119,10 +121,10 @@
 					check_bolt_lock++
 					user << "<span class='notice'>The bolt is locked!</span>"
 		else
-			playsound(loc, 'sound/weapons/guns/interact/bolt_open.ogg', 50, TRUE)
+			playsound(loc, bolt_open_sound, 50, TRUE)
 			user << "<span class='notice'>You work the bolt open.</span>"
 	else
-		playsound(loc, 'sound/weapons/guns/interact/bolt_close.ogg', 50, TRUE)
+		playsound(loc, bolt_close_sound, 50, TRUE)
 		user << "<span class='notice'>You work the bolt closed.</span>"
 		bolt_open = FALSE
 	add_fingerprint(user)
@@ -301,21 +303,22 @@
 	max_shells = 1
 	load_delay = 7
 
-/obj/item/weapon/gun/projectile/boltaction/singleshot/a50cal
+/obj/item/weapon/gun/projectile/boltaction/singleshot/barrett
 	name = "Barrett M99"
 	desc = "A single-shot anti-material rifle designed by the Barrett Firearms Company."
-	icon_state = "a50calss"
-	item_state = "a50calss"
-	base_icon = "a50calss"
+	icon_state = "m99"
+	item_state = "m99"
+	base_icon = "m99"
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE
-	w_class = 4
+	w_class = ITEM_SIZE_HUGE
 	force = 10
 	throwforce = 5
 	max_shells = 1
 	KD_chance = KD_CHANCE_HIGH
 	slot_flags = null
 	caliber = "a50cal"
-	weight = 8
+	weight = 14.8
+	effectiveness_mod = 2.0
 	recoil = 3
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING
@@ -323,11 +326,11 @@
 	magazine_type = /obj/item/ammo_magazine/mosin
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	fire_sound = 'sound/weapons/guns/fire/BarrettM99.ogg'
-	accuracy = TRUE
+	bolt_open_sound = 'sound/weapons/guns/interact/barrett_bolt_open.ogg'
+	bolt_close_sound = 'sound/weapons/guns/interact/barrett_bolt_close.ogg'
 	accuracy_increase_mod = 2.00
-	accuracy_decrease_mod = 6.00
 	move_delay = 4
-	fire_delay = 4
+	fire_delay = 10
 	equiptimer = 15
 	gun_safety = TRUE
 	load_delay = 20
@@ -335,21 +338,19 @@
 	bolt_safety = FALSE
 	bolt_delay = 3
 
-/obj/item/weapon/gun/projectile/boltaction/singleshot/a50cal/sniper
-
-/obj/item/weapon/gun/projectile/boltaction/singleshot/a50cal/sniper/New()
+/obj/item/weapon/gun/projectile/boltaction/singleshot/barrett/sniper/New()
 	..()
 	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope(src)
 	SP.attached(null,src,TRUE)
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/ptrd
 	name = "PTRD-41"
-	desc = "A soviet anti-material rifle chamber in 14.5x114mm designed to take out tanks."
+	desc = "A soviet anti-material rifle chambered in 14.5x114mm designed to take out tanks."
 	icon_state = "ptrd"
 	item_state = "ptrd"
 	base_icon = "ptrd"
 	attachment_slots = ATTACH_IRONSIGHTS
-	w_class = 4
+	w_class = ITEM_SIZE_HUGE
 	force = 10
 	throwforce = 5
 	max_shells = 1
@@ -364,9 +365,41 @@
 	magazine_type = /obj/item/ammo_magazine/mosin
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	fire_sound = 'sound/weapons/guns/fire/ptrd.ogg'
-	accuracy = TRUE
 	accuracy_increase_mod = 2.00
-	accuracy_decrease_mod = 6.00
+	move_delay = 4
+	fire_delay = 10
+	equiptimer = 20
+	gun_safety = FALSE
+	load_delay = 20
+	bolt_open = FALSE
+	bolt_safety = FALSE
+	bolt_delay = 6
+
+// /obj/item/weapon/gun/projectile/boltaction/singleshot/ptrd/ptrs - To be added soon, just needs an icon change
+
+/obj/item/weapon/gun/projectile/boltaction/singleshot/pzb39
+	name = "PzB 39"
+	desc = "A German anti-tank rifle chambered in 7.92x94mm."
+	icon_state = "pzb39"
+	item_state = "pzb39"
+	base_icon = "pzb39"
+	attachment_slots = ATTACH_IRONSIGHTS
+	w_class = ITEM_SIZE_HUGE
+	force = 10
+	throwforce = 5
+	max_shells = 1
+	KD_chance = KD_CHANCE_HIGH
+	slot_flags = null
+	caliber = "a792x94"
+	weight = 8
+	recoil = 3
+	handle_casings = EJECT_CASINGS
+	load_method = SINGLE_CASING | MAGAZINE
+	ammo_type = list (/obj/item/ammo_casing/a792x94, /obj/item/ammo_casing/a792x94_ap)
+	magazine_type = /obj/item/ammo_magazine/pzb_case
+	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
+	fire_sound = 'sound/weapons/guns/fire/ptrd.ogg'
+	accuracy_increase_mod = 2.00
 	move_delay = 4
 	fire_delay = 4
 	equiptimer = 20
@@ -392,17 +425,17 @@
 	bolt_open = !bolt_open
 	if (bolt_open)
 		if (chambered)
-			playsound(loc, 'sound/weapons/guns/interact/bolt_open.ogg', 50, TRUE)
+			playsound(loc, bolt_open_sound, 50, TRUE)
 			user << "<span class='notice'>You open the breech lever, ejecting [chambered]!</span>"
 			chambered.loc = get_turf(src)
 			chambered.randomrotation()
 			loaded -= chambered
 			chambered = null
 		else
-			playsound(loc, 'sound/weapons/guns/interact/bolt_open.ogg', 50, TRUE)
+			playsound(loc, bolt_open_sound, 50, TRUE)
 			user << "<span class='notice'>You open the breech lever.</span>"
 	else
-		playsound(loc, 'sound/weapons/guns/interact/bolt_close.ogg', 50, TRUE)
+		playsound(loc, bolt_close_sound, 50, TRUE)
 		user << "<span class='notice'>You close the breech lever.</span>"
 		bolt_open = FALSE
 	add_fingerprint(user)
@@ -467,44 +500,10 @@
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
+	bolt_open_sound = 'sound/weapons/guns/interact/arisaka_open.ogg'
+	bolt_close_sound = 'sound/weapons/guns/interact/arisaka_close.ogg'
 	equiptimer = 18
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL|ATTACH_UNDER
-
-/obj/item/weapon/gun/projectile/boltaction/arisaka30/attack_self(mob/user)
-	if (!check_bolt)//Keeps people from spamming the bolt
-		check_bolt++
-		if (!do_after(user, 2, src, FALSE, TRUE, INCAPACITATION_DEFAULT, TRUE))//Delays the bolt
-			check_bolt--
-			return
-	else return
-	if (check_bolt_lock)
-		user << "<span class='notice'>The bolt won't move, the gun is empty!</span>"
-		check_bolt--
-		return
-	bolt_open = !bolt_open
-	if (bolt_open)
-		if (chambered)
-			playsound(loc, 'sound/weapons/guns/interact/arisaka_open.ogg', 50, TRUE)
-			user << "<span class='notice'>You work the bolt open, ejecting [chambered]!</span>"
-			chambered.loc = get_turf(src)
-			chambered.randomrotation()
-			loaded -= chambered
-			chambered = null
-			if (bolt_safety)
-				if (!loaded.len)
-					check_bolt_lock++
-					user << "<span class='notice'>The bolt is locked!</span>"
-		else
-			playsound(loc, 'sound/weapons/guns/interact/arisaka_open.ogg', 50, TRUE)
-			user << "<span class='notice'>You work the bolt open.</span>"
-	else
-		playsound(loc, 'sound/weapons/guns/interact/arisaka_close.ogg', 50, TRUE)
-		user << "<span class='notice'>You work the bolt closed.</span>"
-		bolt_open = FALSE
-	add_fingerprint(user)
-	update_icon()
-	check_bolt--
-
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka38
 	name = "Arisaka Type 38"
@@ -526,48 +525,14 @@
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
+	bolt_open_sound = 'sound/weapons/guns/interact/arisaka_open.ogg'
+	bolt_close_sound = 'sound/weapons/guns/interact/arisaka_close.ogg'
 	equiptimer = 18
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL|ATTACH_UNDER
 
-/obj/item/weapon/gun/projectile/boltaction/arisaka38/attack_self(mob/user)
-	if (!check_bolt)//Keeps people from spamming the bolt
-		check_bolt++
-		if (!do_after(user, 2, src, FALSE, TRUE, INCAPACITATION_DEFAULT, TRUE))//Delays the bolt
-			check_bolt--
-			return
-	else return
-	if (check_bolt_lock)
-		user << "<span class='notice'>The bolt won't move, the gun is empty!</span>"
-		check_bolt--
-		return
-	bolt_open = !bolt_open
-	if (bolt_open)
-		if (chambered)
-			playsound(loc, 'sound/weapons/guns/interact/arisaka_open.ogg', 50, TRUE)
-			user << "<span class='notice'>You work the bolt open, ejecting [chambered]!</span>"
-			chambered.loc = get_turf(src)
-			chambered.randomrotation()
-			loaded -= chambered
-			chambered = null
-			if (bolt_safety)
-				if (!loaded.len)
-					check_bolt_lock++
-					user << "<span class='notice'>The bolt is locked!</span>"
-		else
-			playsound(loc, 'sound/weapons/guns/interact/arisaka_open.ogg', 50, TRUE)
-			user << "<span class='notice'>You work the bolt open.</span>"
-	else
-		playsound(loc, 'sound/weapons/guns/interact/arisaka_close.ogg', 50, TRUE)
-		user << "<span class='notice'>You work the bolt closed.</span>"
-		bolt_open = FALSE
-	add_fingerprint(user)
-	update_icon()
-	check_bolt--
 /obj/item/weapon/gun/projectile/boltaction/arisaka38/sniper
 	name = "Arisaka Type 97"
 	desc = "Japanese bolt-action rifle chambered in 6.5x50mm Arisaka ammunition."
-	effectiveness_mod = 1.06
-	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL|ATTACH_UNDER
 /obj/item/weapon/gun/projectile/boltaction/arisaka38/sniper/New()
 	..()
 	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope(src)
@@ -594,43 +559,10 @@
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
+	bolt_open_sound = 'sound/weapons/guns/interact/arisaka_open.ogg'
+	bolt_close_sound = 'sound/weapons/guns/interact/arisaka_close.ogg'
 	equiptimer = 18
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL|ATTACH_UNDER
-
-/obj/item/weapon/gun/projectile/boltaction/arisaka99/attack_self(mob/user)
-	if (!check_bolt)//Keeps people from spamming the bolt
-		check_bolt++
-		if (!do_after(user, 2, src, FALSE, TRUE, INCAPACITATION_DEFAULT, TRUE))//Delays the bolt
-			check_bolt--
-			return
-	else return
-	if (check_bolt_lock)
-		user << "<span class='notice'>The bolt won't move, the gun is empty!</span>"
-		check_bolt--
-		return
-	bolt_open = !bolt_open
-	if (bolt_open)
-		if (chambered)
-			playsound(loc, 'sound/weapons/guns/interact/arisaka_open.ogg', 50, TRUE)
-			user << "<span class='notice'>You work the bolt open, ejecting [chambered]!</span>"
-			chambered.loc = get_turf(src)
-			chambered.randomrotation()
-			loaded -= chambered
-			chambered = null
-			if (bolt_safety)
-				if (!loaded.len)
-					check_bolt_lock++
-					user << "<span class='notice'>The bolt is locked!</span>"
-		else
-			playsound(loc, 'sound/weapons/guns/interact/arisaka_open.ogg', 50, TRUE)
-			user << "<span class='notice'>You work the bolt open.</span>"
-	else
-		playsound(loc, 'sound/weapons/guns/interact/arisaka_close.ogg', 50, TRUE)
-		user << "<span class='notice'>You work the bolt closed.</span>"
-		bolt_open = FALSE
-	add_fingerprint(user)
-	update_icon()
-	check_bolt--
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka99/sniper
 	name = "Arisaka Type 99"
@@ -670,43 +602,10 @@
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
+	bolt_open_sound = 'sound/weapons/guns/interact/arisaka_open.ogg'
+	bolt_close_sound = 'sound/weapons/guns/interact/arisaka_close.ogg'
 	equiptimer = 18
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL|ATTACH_UNDER
-
-/obj/item/weapon/gun/projectile/boltaction/arisaka99_training/attack_self(mob/user)
-	if (!check_bolt)//Keeps people from spamming the bolt
-		check_bolt++
-		if (!do_after(user, 2, src, FALSE, TRUE, INCAPACITATION_DEFAULT, TRUE))//Delays the bolt
-			check_bolt--
-			return
-	else return
-	if (check_bolt_lock)
-		user << "<span class='notice'>The bolt won't move, the gun is empty!</span>"
-		check_bolt--
-		return
-	bolt_open = !bolt_open
-	if (bolt_open)
-		if (chambered)
-			playsound(loc, 'sound/weapons/guns/interact/arisaka_open.ogg', 50, TRUE)
-			user << "<span class='notice'>You work the bolt open, ejecting [chambered]!</span>"
-			chambered.loc = get_turf(src)
-			chambered.randomrotation()
-			loaded -= chambered
-			chambered = null
-			if (bolt_safety)
-				if (!loaded.len)
-					check_bolt_lock++
-					user << "<span class='notice'>The bolt is locked!</span>"
-		else
-			playsound(loc, 'sound/weapons/guns/interact/arisaka_open.ogg', 50, TRUE)
-			user << "<span class='notice'>You work the bolt open.</span>"
-	else
-		playsound(loc, 'sound/weapons/guns/interact/arisaka_close.ogg', 50, TRUE)
-		user << "<span class='notice'>You work the bolt closed.</span>"
-		bolt_open = FALSE
-	add_fingerprint(user)
-	update_icon()
-	check_bolt--
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr71
 	name = "Gewehr 71"
@@ -831,6 +730,31 @@
 	recoil = 0
 	force = 11
 	throwforce = 25
+	handle_casings = HOLD_CASINGS
+	load_method = SINGLE_CASING | SPEEDLOADER
+	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
+	equiptimer = 15
+
+/obj/item/weapon/gun/projectile/boltaction/vg //for balance reasons this gun wont use the STG mags instead it will use just clips also i dont know how to code in mag usage by bolties
+	name = "Volkssturmgewehr"
+	desc = "A very primitive german bolt action rifle chambered in 7.92x33mm Kurz."
+	icon_state = "vg1"
+	item_state = "vg1"
+	base_icon = "vg1"
+	caliber = "a792x33"
+	fire_sound = 'sound/weapons/guns/fire/stg.ogg'
+	weight = 4.2
+	ammo_type = /obj/item/ammo_casing/a792x33
+	magazine_type = /obj/item/ammo_magazine/vgclip
+	good_mags = list(/obj/item/ammo_magazine/vgclip)
+	bolt_safety = FALSE
+	effectiveness_mod = 0.92
+	value = 100
+	slot_flags = SLOT_SHOULDER
+	recoil = 0
+	force = 15
+	throwforce = 29
+	max_shells = 10
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
@@ -1104,7 +1028,7 @@
 	caliber = "a762x54"
 	damage_modifier = 0.8
 	weight = 1.4
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	effectiveness_mod = 0.77
 	value = 60
 	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_SHOULDER

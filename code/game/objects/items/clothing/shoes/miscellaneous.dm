@@ -66,9 +66,14 @@
 /obj/item/clothing/shoes/sandal
 	desc = "A pair of rather plain, wooden sandals."
 	name = "sandals"
-	icon_state = "wizard"
+	icon_state = "sandals"
 	species_restricted = null
 	body_parts_covered = FALSE
+
+/obj/item/clothing/shoes/sandal/leather
+	name = "sandals"
+	desc = "A pair of simple, thin leather strap sandals. Covers up to the lower foot."
+	icon_state = "sandals"
 
 /obj/item/clothing/shoes/sandal/marisa
 	desc = "A pair of magic, black shoes."
@@ -85,7 +90,7 @@
 	worn_state = "slippers"
 	force = FALSE
 	species_restricted = null
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	body_parts_covered = FEET
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
@@ -97,7 +102,7 @@
 	item_state = "slippers_worn"
 	worn_state = "slippers_worn"
 	force = FALSE
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	body_parts_covered = FEET
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE

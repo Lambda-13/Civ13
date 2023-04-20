@@ -776,6 +776,15 @@
 	item_state = "swat"
 	worn_state = "swat"
 
+/obj/item/clothing/under/cleansuit
+	name = "cleansuit"
+	desc = "A white personal protective uniform against ambient radiation."
+	armor = list(melee = FALSE, arrow = FALSE, gun = FALSE, energy = 15, bomb = 10, bio = 20, rad = 20)
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
+	icon_state = "cleansuit"
+	item_state = "cleansuit"
+	worn_state = "cleansuit"
+
 /obj/item/clothing/under/swat_new
 	name = "swat outfit"
 	desc = "A uniform used by police special forces."
@@ -852,6 +861,11 @@
 	icon_state = "gorka"
 	item_state = "gorka"
 	worn_state = "gorka"
+
+/obj/item/clothing/under/gorka/frag //provides actual armor
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	armor = list(melee = 30, arrow = 30, gun = FALSE, energy = 15, bomb = 25, bio = 30, rad = 30)
+	value = 65
 
 /obj/item/clothing/under/modern8
 	name = "modern skirt"
@@ -1201,6 +1215,21 @@
 /obj/item/weapon/storage/belt/largepouches/white
 	icon_state = "largepouches_white"
 	item_state = "largepouches_white"
+/obj/item/weapon/storage/belt/largepouches/white/pkm
+/obj/item/weapon/storage/belt/largepouches/white/pkm/New()
+	..()
+	new/obj/item/ammo_magazine/pkm/c100(src)
+	new/obj/item/ammo_magazine/pkm/c100(src)
+/obj/item/weapon/storage/belt/largepouches/white/rpk
+/obj/item/weapon/storage/belt/largepouches/white/rpk/New()
+	..()
+	new/obj/item/ammo_magazine/rpk74(src)
+	new/obj/item/ammo_magazine/rpk74(src)
+/obj/item/weapon/storage/belt/largepouches/white/rpd
+/obj/item/weapon/storage/belt/largepouches/white/rpd/New()
+	..()
+	new/obj/item/ammo_magazine/rpd(src)
+	new/obj/item/ammo_magazine/rpd(src)
 /obj/item/weapon/storage/belt/smallpouches
 	name = "small pouches"
 	desc = "A belt with 4 small pouches, that can fit items like magazines, knives, and other small things."
@@ -1244,14 +1273,6 @@
 		new/obj/item/weapon/grenade/flashbang/galaxywars(src)
 		new/obj/item/weapon/grenade/flashbang/galaxywars(src)
 
-/obj/item/weapon/storage/belt/smallpouches/red
-	New()
-		..()
-		new/obj/item/stack/medical/bruise_pack/gauze(src)
-		new/obj/item/weapon/attachment/bayonet(src)
-		new/obj/item/clothing/mask/gas/military(src)
-		new/obj/item/flashlight/militarylight(src)
-
 /obj/item/weapon/storage/belt/smallpouches/rebel
 	New()
 		..()
@@ -1260,31 +1281,75 @@
 		new/obj/item/weapon/grenade/modern/thermaldetonator(src)
 		new/obj/item/weapon/grenade/modern/thermaldetonator(src)
 
+/obj/item/weapon/storage/belt/smallpouches/red
+	icon_state = "smallpouches_olive"
+	item_state = "smallpouches_olive"
+	New()
+		..()
+		new/obj/item/clothing/mask/gas/swat_new(src)
+		new/obj/item/stack/medical/bruise_pack/gauze(src)
+		new/obj/item/ammo_magazine/m16(src)
+		new/obj/item/weapon/attachment/bayonet(src)
+
 /obj/item/weapon/storage/belt/smallpouches/red/white
 	icon_state = "smallpouches_white"
 	item_state = "smallpouches_white"
+
+/obj/item/weapon/storage/belt/largepouches/redmg
+/obj/item/weapon/storage/belt/largepouches/redmg/New()
+	..()
+	new/obj/item/ammo_magazine/dp(src)
+	new/obj/item/ammo_magazine/dp(src)
+
+/obj/item/weapon/storage/belt/largepouches/redmg/white
+	icon_state = "largepouches_white"
+	item_state = "largepouches_white"
 
 /obj/item/weapon/storage/belt/smallpouches/blue
 	icon_state = "smallpouches_olive"
 	item_state = "smallpouches_olive"
 	New()
 		..()
+		new/obj/item/clothing/mask/gas/swat_new(src)
 		new/obj/item/stack/medical/bruise_pack/gauze(src)
+		new/obj/item/ammo_magazine/ak47(src)
 		new/obj/item/weapon/attachment/bayonet(src)
-		new/obj/item/clothing/mask/gas/military(src)
-		new/obj/item/flashlight/militarylight(src)
 
 /obj/item/weapon/storage/belt/smallpouches/blue/white
 	icon_state = "smallpouches_white"
 	item_state = "smallpouches_white"
 
+/obj/item/weapon/storage/belt/largepouches/bluemg
+/obj/item/weapon/storage/belt/largepouches/bluemg/New()
+	..()
+	new/obj/item/ammo_magazine/rpk47/drum(src)
+	new/obj/item/ammo_magazine/rpk47/drum(src)
+
+/obj/item/weapon/storage/belt/largepouches/bluemg/white
+	icon_state = "largepouches_white"
+	item_state = "largepouches_white"
+
 /obj/item/weapon/storage/belt/smallpouches/us_ww2_sgt
+	storage_slots = 6
 /obj/item/weapon/storage/belt/smallpouches/us_ww2_sgt/New()
 	..()
 	new/obj/item/stack/medical/bruise_pack/bint(src)
 	new/obj/item/ammo_magazine/thompson(src)
 	new/obj/item/ammo_magazine/thompson(src)
 	new/obj/item/ammo_magazine/thompson(src)
+	new/obj/item/weapon/attachment/scope/adjustable/binoculars/binoculars(src)
+	new/obj/item/weapon/whistle(src)
+
+/obj/item/weapon/storage/belt/smallpouches/us_ww2_sgtc
+	storage_slots = 6
+/obj/item/weapon/storage/belt/smallpouches/us_ww2_sgtc/New()
+	..()
+	new/obj/item/stack/medical/bruise_pack/bint(src)
+	new/obj/item/ammo_magazine/m1carbine(src)
+	new/obj/item/ammo_magazine/m1carbine(src)
+	new/obj/item/ammo_magazine/m1carbine/box(src)
+	new/obj/item/weapon/attachment/scope/adjustable/binoculars/binoculars(src)
+	new/obj/item/weapon/whistle(src)
 
 /obj/item/weapon/storage/belt/smallpouches/us_ww2_sniper
 	max_w_class = 3
@@ -1350,6 +1415,15 @@
 	new/obj/item/ammo_magazine/ak74(src)
 	new/obj/item/ammo_magazine/ak74(src)
 
+/obj/item/weapon/storage/belt/smallpouches/green/officeruni
+	storage_slots = 4
+/obj/item/weapon/storage/belt/smallpouches/green/officeruni/New()
+	..()
+	new/obj/item/weapon/attachment/scope/adjustable/binoculars/binoculars(src)
+	new/obj/item/stack/medical/bruise_pack/bint(src)
+	new/obj/item/weapon/reagent_containers/food/drinks/flask/officer/vodka(src)
+	new/obj/item/weapon/compass(src)
+
 /obj/item/weapon/storage/belt/smallpouches/green/insuroff
 /obj/item/weapon/storage/belt/smallpouches/green/insuroff/New()
 	..()
@@ -1405,15 +1479,25 @@
 	new/obj/item/weapon/grenade/coldwar/m67(src)
 	new/obj/item/stack/medical/bruise_pack/gauze(src)
 
-/obj/item/weapon/storage/belt/smallpouches/olive/m16/smoke
+/obj/item/weapon/storage/belt/smallpouches/olive/m16_smoke
 	storage_slots = 5
-/obj/item/weapon/storage/belt/smallpouches/olive/m16/smoke/New()
+/obj/item/weapon/storage/belt/smallpouches/olive/m16_smoke/New()
 	..()
-	new/obj/item/ammo_magazine/m16(src)
-	new/obj/item/ammo_magazine/m16(src)
-	new/obj/item/ammo_magazine/m16(src)
-	new/obj/item/weapon/grenade/smokebomb/m18smoke(src)
-	new/obj/item/stack/medical/advanced/sulfa/small(src)
+	new /obj/item/ammo_magazine/m16(src)
+	new /obj/item/ammo_magazine/m16(src)
+	new /obj/item/ammo_magazine/m16(src)
+	new /obj/item/weapon/grenade/smokebomb/m18smoke(src)
+	new /obj/item/stack/medical/bruise_pack/gauze(src)
+
+/obj/item/weapon/storage/belt/smallpouches/olive/m16_grenade
+	storage_slots = 5
+/obj/item/weapon/storage/belt/smallpouches/olive/m16_grenade/New()
+	..()
+	new /obj/item/ammo_magazine/m16(src)
+	new /obj/item/ammo_magazine/m16(src)
+	new /obj/item/ammo_magazine/m16(src)
+	new /obj/item/weapon/grenade/coldwar/m67(src)
+	new /obj/item/stack/medical/bruise_pack/gauze(src)
 
 /obj/item/weapon/storage/belt/smallpouches/olive/us_sgt
 	storage_slots = 5
@@ -1462,13 +1546,24 @@
 	new/obj/item/stack/medical/bruise_pack/gauze(src)
 
 /obj/item/weapon/storage/belt/smallpouches/green/ak74m_smoke
+	storage_slots = 5
 /obj/item/weapon/storage/belt/smallpouches/green/ak74m_smoke/New()
 	..()
 	new /obj/item/ammo_magazine/ak74/ak74m(src)
 	new /obj/item/ammo_magazine/ak74/ak74m(src)
 	new /obj/item/ammo_magazine/ak74/ak74m(src)
 	new /obj/item/weapon/grenade/smokebomb/rdg2(src)
-	new /obj/item/stack/medical/advanced/sulfa/small(src)
+	new /obj/item/stack/medical/bruise_pack/gauze(src)
+
+/obj/item/weapon/storage/belt/smallpouches/green/ak74m_trench
+	storage_slots = 5
+/obj/item/weapon/storage/belt/smallpouches/green/ak74m_trench/New()
+	..()
+	new /obj/item/ammo_magazine/ak74/ak74m(src)
+	new /obj/item/ammo_magazine/ak74/ak74m(src)
+	new /obj/item/ammo_magazine/ak74/ak74m(src)
+	new /obj/item/weapon/foldable_shovel/trench/etool(src)
+	new /obj/item/stack/medical/bruise_pack/gauze(src)
 
 /obj/item/clothing/under/blue_shorts
 	name = "blue shorts"
@@ -1682,3 +1777,91 @@
 	item_state = "winter_coat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
+
+//////spanish civil war
+
+/obj/item/clothing/under/spain/republican //recolored russian ww1 uniform cause they look very similiar
+	name = "Spanish Republican Uniform"
+	desc = "A Uniform used by the spanish republican forces."
+	icon_state = "spanishrepublican"
+	item_state = "spanishrepublican"
+	worn_state = "spanishrepublican"
+
+/obj/item/clothing/under/spain/nationalist
+	name = "Spanish Nationalist Uniform"
+	desc = "A Uniform used by the spanish Nationalist forces."
+	icon_state = "spanishnationalist"
+	item_state = "spanishnationalist"
+	worn_state = "spanishnationalist"
+
+/obj/item/clothing/under/spain/brigadist
+	name = "Brigadists Uniform"
+	desc = "A Cheap Blue Uniform."
+	icon_state = "intbrigadist"
+	item_state = "intbrigadist"
+	worn_state = "intbrigadist"
+
+// Blugoslavia
+/obj/item/clothing/under/blugoslavia/standard
+	name = "Blugoslavian Uniform"
+	desc = "An easy to see uniform used by Blugoslavia."
+	icon_state = "baf_standard"
+	item_state = "baf_standard"
+	worn_state = "baf_standard"
+
+/obj/item/clothing/under/blugoslavia/standard/combat
+	name = "Blugoslavian Camo Uniform"
+	desc = "A Blugoslavian combat uniform, slightly camoed."
+	icon_state = "baf_standardc"
+	item_state = "baf_standardc"
+	worn_state = "baf_standardc"
+
+/obj/item/clothing/under/blugoslavia/standard/squadlead
+	name = "Blugoslavian Camo Uniform"
+	desc = "A Blugoslavian combat uniform, used by squad leaders."
+	icon_state = "baf_standardc"
+	item_state = "baf_standardc"
+	worn_state = "baf_standardc"
+
+/obj/item/clothing/under/blugoslavia/standard/command
+	name = "Blugoslavian Ceremonial Uniform"
+	desc = "A ceremonial uniform of Blugoslavia, used by officers and commanders"
+	icon_state = "baf_command"
+	item_state = "baf_command"
+	worn_state = "baf_command"
+
+// Redmenia
+/obj/item/clothing/under/redmenia/standard
+	name = "Redmenian army uniform"
+	desc = "An easy to see uniform used by Blugoslavia."
+	icon_state = "rdf_standard"
+	item_state = "rdf_standard"
+	worn_state = "rdf_standard"
+
+/obj/item/clothing/under/redmenia/standard/combat
+	name = "Redmenian Camo Uniform"
+	desc = "A Redmenian combat uniform, slightly camoed."
+	icon_state = "rdf_standardc"
+	item_state = "rdf_standardc"
+	worn_state = "rdf_standardc"
+
+/obj/item/clothing/under/redmenia/standard/squadlead
+	name = "Redmenian Camo Uniform"
+	desc = "A Redmenian combat uniform used by squad leaders."
+	icon_state = "rdf_standardc"
+	item_state = "rdf_standardc"
+	worn_state = "rdf_standardc"
+
+/obj/item/clothing/under/redmenia/standard/command
+	name = "Redmenian Ceremonial Uniform"
+	desc = "A ceremonial uniform of Redmenia, used by officers and commanders"
+	icon_state = "rdf_command"
+	item_state = "rdf_command"
+	worn_state = "rdf_command"
+
+/obj/item/clothing/under/redmenia/standard/modern
+	name = "Redmenian Camo Uniform"
+	desc = "A Redmenian combat uniform, slightly camoed."
+	icon_state = "rdf_modern"
+	item_state = "rdf_modern"
+	worn_state = "rdf_modern"

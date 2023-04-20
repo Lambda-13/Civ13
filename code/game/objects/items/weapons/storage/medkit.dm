@@ -14,6 +14,10 @@
 	item_state = "firstaid_2"
 	throw_speed = 2
 	throw_range = 8
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand.dmi',
+		)
 	var/empty = FALSE
 	slot_flags = SLOT_BELT
 
@@ -52,6 +56,24 @@
 	new /obj/item/stack/medical/advanced/sulfa(src)
 	new /obj/item/weapon/reagent_containers/syringe/morphine(src)
 	new /obj/item/weapon/reagent_containers/syringe/morphine(src)
+	return
+
+/obj/item/weapon/storage/firstaid/early
+	name = "medicine kit"
+	desc = "Contains some drugs and a antiseptic to help someone survive."
+	icon_state = "bezerk2"
+	item_state = "bezerk2"
+	slot_flags = SLOT_BACK | SLOT_BELT | SLOT_POCKET
+
+
+/obj/item/weapon/storage/firstaid/early/New()
+	..()
+	if (empty) return
+	new /obj/item/weapon/reagent_containers/syringe(src)
+	new /obj/item/weapon/reagent_containers/glass/bottle/opium(src)
+	new /obj/item/weapon/reagent_containers/glass/bottle/adrenaline(src)
+	new /obj/item/weapon/reagent_containers/glass/bottle/antitoxin(src)
+	new /obj/item/stack/medical/advanced/sulfa(src)
 	return
 
 /obj/item/weapon/storage/firstaid/advsmall
@@ -131,3 +153,39 @@
 	new /obj/item/weapon/surgery/retractor/bronze(src)
 	new /obj/item/weapon/surgery/scalpel/bronze(src)
 	new /obj/item/stack/medical/advanced/bruise_pack(src)
+
+/obj/item/weapon/storage/firstaid/ifak
+	name = "ifak"
+	desc = "An individual first aid kit."
+	icon_state = "ifak"
+	item_state = "ifak"
+
+/obj/item/weapon/storage/firstaid/ifak/New()
+	..()
+	if (empty) return
+	new /obj/item/stack/medical/bruise_pack/gauze(src)
+	new /obj/item/stack/medical/advanced/ointment(src)
+	new /obj/item/stack/medical/splint(src)
+	new /obj/item/weapon/pill_pack/tramadol(src)
+	new /obj/item/clothing/gloves/sterile/nitrile(src)
+	return
+
+/obj/item/weapon/storage/firstaid/afak
+	name = "afak"
+	desc = "An advanced first aid kit."
+	icon_state = "afak"
+	item_state = "afak"
+
+/obj/item/weapon/storage/firstaid/afak/New()
+	..()
+	if (empty) return
+	new /obj/item/stack/medical/bruise_pack/gauze(src)
+	new /obj/item/stack/medical/advanced/ointment(src)
+	new /obj/item/stack/medical/splint(src)
+	new /obj/item/weapon/reagent_containers/syringe/morphine(src)
+	new /obj/item/weapon/pill_pack/adrenaline(src)
+	new /obj/item/weapon/pill_pack/pervitin(src)
+	new /obj/item/weapon/pill_pack/tramadol(src)
+	new /obj/item/clothing/gloves/sterile/nitrile(src)
+	new /obj/item/revival_kit(src)
+	return

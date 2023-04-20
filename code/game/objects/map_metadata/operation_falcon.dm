@@ -1,6 +1,6 @@
 
 /obj/map_metadata/operation_falcon
-	ID = MAP_OPERATION_FACLON
+	ID = MAP_OPERATION_FALCON
 	title = "Operation Falcon"
 	lobby_icon = "icons/lobby/operation_falcon.png"
 	no_winner = "The battle for the city is still going on."
@@ -15,11 +15,11 @@
 		list(DUTCH) = /area/caribbean/german/reichstag/roof/objective,
 		list(RUSSIAN) = /area/caribbean/german/reichstag/roof/objective,
 		)
-	age = "2026"
+	age = "2017"
 	ordinal_age = 8
 	faction_distribution_coeffs = list(DUTCH = 0.5, RUSSIAN = 0.5)
 	battle_name = "Operation Falcon"
-	mission_start_message = "<font size=4>Both factions have <b>5 minutes</b> to prepare before the ceasefire ends!</font><br><big>Points are added to each team for each minute they control the <b>Radio Post, Eastern Suburbs, Factory and Lumber Company</b>.<br>First team to reach <b>100</b> points wins!</font>"
+	mission_start_message = "<font size=4>Both factions have <b>10 minutes</b> to prepare before the ceasefire ends!</font><br><big>Points are added to each team for each minute they control the <b>Radio Post, North City, Factory and Lumber Company</b>.<br>First team to reach <b>70</b> points wins!</font>"
 	faction1 = DUTCH
 	faction2 = RUSSIAN
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET, WEATHER_EXTREME)
@@ -29,25 +29,31 @@
 	ambience = list('sound/ambience/battle1.ogg')
 	var/rus_points = 0
 	var/dutch_points = 0
-	var/win_points = 100 // Amount of points needed to win
+	var/win_points = 70 // Amount of points needed to win
+
+	var/faction1_flag = "netherlands"
+	var/faction2_flag = "russian"
+
 	var/a1_control = "nobody"
 	var/a1_name = "Radio Post"
 
 	var/a2_control = "nobody"
-	var/a2_name = "Eastern Suburbs"
+	var/a2_name = "North City"
 
 	var/a3_control = "nobody"
 	var/a3_name = "Factory"
 
 	var/a4_control = "nobody"
 	var/a4_name = "Lumber Company"
-	grace_wall_timer = 3000
+	grace_wall_timer = 10 MINUTES
 	no_hardcore = TRUE
 
 /obj/map_metadata/operation_falcon/New()
 	..()
 	spawn(3000)
 		points_check()
+		spawn(rand(500,800))
+			jet_flyby()
 
 /obj/map_metadata/operation_falcon/job_enabled_specialcheck(var/datum/job/J)
 	..()
@@ -209,6 +215,48 @@
 			world << "<big><b>[a4_name]</b>: <font color='[cust_color]'>[a4_control]</font></big>"
 		else
 			world << "<big><b>[a4_name]</b>: Nobody</big>"
+	
+	switch (a1_control)
+		if ("Dutch Royal Army")
+			for (var/obj/structure/flag/objective/one/F in world)
+				F.icon_state = "[faction1_flag]"
+		if ("Russian Armed Forces")
+			for (var/obj/structure/flag/objective/one/F in world)
+				F.icon_state = "[faction2_flag]"
+		else
+			for (var/obj/structure/flag/objective/one/F in world)
+				F.icon_state = "white"
+	switch (a2_control)
+		if ("Dutch Royal Army")
+			for (var/obj/structure/flag/objective/two/F in world)
+				F.icon_state = "[faction1_flag]"
+		if ("Russian Armed Forces")
+			for (var/obj/structure/flag/objective/two/F in world)
+				F.icon_state = "[faction2_flag]"
+		else
+			for (var/obj/structure/flag/objective/two/F in world)
+				F.icon_state = "white"
+	switch (a3_control)
+		if ("Dutch Royal Army")
+			for (var/obj/structure/flag/objective/three/F in world)
+				F.icon_state = "[faction1_flag]"
+		if ("Russian Armed Forces")
+			for (var/obj/structure/flag/objective/three/F in world)
+				F.icon_state = "[faction2_flag]"
+		else
+			for (var/obj/structure/flag/objective/three/F in world)
+				F.icon_state = "white"
+	switch (a4_control)
+		if ("Dutch Royal Army")
+			for (var/obj/structure/flag/objective/four/F in world)
+				F.icon_state = "[faction1_flag]"
+		if ("Russian Armed Forces")
+			for (var/obj/structure/flag/objective/four/F in world)
+				F.icon_state = "[faction2_flag]"
+		else
+			for (var/obj/structure/flag/objective/four/F in world)
+				F.icon_state = "white"
+
 	spawn(600)
 		points_check()
 		spawn(5)
@@ -254,3 +302,81 @@
 		else
 			return !faction1_can_cross_blocks()
 	return FALSE
+
+/obj/map_metadata/operation_falcon/proc/jet_flyby()
+	var/flyby_type = rand(1,4)
+	switch (flyby_type)
+		if (1)
+			var/direction = rand(1,3)
+			var/sound/uploaded_sound
+			switch (direction)
+				if (1)
+					uploaded_sound = sound('sound/effects/aircraft/f16_left-right.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+				if (2)
+					uploaded_sound = sound('sound/effects/aircraft/f16_center.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+				if (3)
+					uploaded_sound = sound('sound/effects/aircraft/f16_right-left.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+			uploaded_sound.priority = 250
+			for (var/mob/M in player_list)
+				if (!new_player_mob_list.Find(M))
+					M << SPAN_NOTICE("<font size=3>The air rumbles as a F-16 flies overhead.</font>")
+					M.client << uploaded_sound
+		if(2)
+			var/direction = rand(1,3)
+			var/sound/uploaded_sound
+			switch (direction)
+				if (1)
+					uploaded_sound = sound('sound/effects/aircraft/su25_left-right.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+				if (2)
+					uploaded_sound = sound('sound/effects/aircraft/su25_center.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+				if (3)
+					uploaded_sound = sound('sound/effects/aircraft/su25_right-left.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+			uploaded_sound.priority = 250
+			for (var/mob/M in player_list)
+				if (!new_player_mob_list.Find(M))
+					M << SPAN_NOTICE("<font size=3>The air rumbles as a Su-25 flies overhead.</font>")
+					M.client << uploaded_sound
+		if(3)
+			var/direction = rand(1,2)
+			var/sound/uploaded_sound1
+			var/sound/uploaded_sound2
+			switch (direction)
+				if (1)
+					uploaded_sound1 = sound('sound/effects/aircraft/su25_left-right.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+					if (prob(80))
+						uploaded_sound2 = sound('sound/effects/aircraft/f16_left-right_firing.ogg', repeat = FALSE, wait = TRUE, channel = 776)
+					else
+						uploaded_sound2 = sound('sound/effects/aircraft/f16_left-right.ogg', repeat = FALSE, wait = TRUE, channel = 776)
+				if (2)
+					uploaded_sound1 = sound('sound/effects/aircraft/su25_right-left.ogg', repeat = FALSE, wait = TRUE, channel = 777)
+					if (prob(80))
+						uploaded_sound2 = sound('sound/effects/aircraft/f16_right-left_firing.ogg', repeat = FALSE, wait = TRUE, channel = 776)
+					else
+						uploaded_sound2 = sound('sound/effects/aircraft/f16_right-left.ogg', repeat = FALSE, wait = TRUE, channel = 776)
+			uploaded_sound1.priority = 250
+			uploaded_sound2.priority = 250
+			for (var/mob/M in player_list)
+				if (!new_player_mob_list.Find(M))
+					M << SPAN_DANGER("<font size=4>The air lights up as a Su-25 and a pursuing F-16 fly overhead.</font>")
+					M.client << uploaded_sound1
+					spawn(5 SECONDS)
+						M.client << uploaded_sound2
+
+	spawn(rand(1600,4000))
+		jet_flyby()
+
+////////MAP SPECIFIC OBJECTS////////
+
+/obj/structure/computer/nopower/platoontracker
+	name = "Military Asset Tracking System"
+	desc = "A satellite-based system, allowing realtime tracking of your troops."
+	icon = 'icons/obj/device.dmi'
+	icon_state = "tracking"
+	powered = TRUE
+	powerneeded = FALSE
+	anchored = TRUE
+	density = TRUE
+	operatingsystem = "unga OS 94"
+	New()
+		..()
+		programs += new/datum/program/platoontracker

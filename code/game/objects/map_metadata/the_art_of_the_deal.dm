@@ -63,13 +63,13 @@
 	..()
 	spawn(3000)
 		score()
-	var/newnamea = list("Rednikov Industries" = list(230,230,230,null,0,"sun","#7F0000","#7F7F7F",0,0))
-	var/newnameb = list("Giovanni Blu Stocks" = list(230,230,230,null,0,"sun","#00007F","#7F7F7F",0,0))
-	var/newnamec = list("Kogama Kraftsmen" = list(230,230,230,null,0,"sun","#007F00","#7F7F7F",0,0))
-	var/newnamed = list("Goldstein Solutions" = list(230,230,230,null,0,"sun","#E5E500","#7F7F7F",0,0))
-	var/newnamee = list("Sheriff Office" = list(230,230,230,null,0,"star","#E5E500","#00007F",0,0))
-	var/newnamef = list("Paramedics" = list(230,230,230,null,0,"cross","#7F0000","#FFFFFF",0,0))
-	var/newnameg = list("Government" = list(230,230,230,null,0,"star","#E3E3E3", "#3e57a8",0,0))
+	var/newnamea = list("Rednikov Industries" = list(0,0,0,null,0,"sun","#7F0000","#7F7F7F",0,0))
+	var/newnameb = list("Giovanni Blu Stocks" = list(0,0,0,null,0,"sun","#00007F","#7F7F7F",0,0))
+	var/newnamec = list("Kogama Kraftsmen" = list(0,0,0,null,0,"sun","#007F00","#7F7F7F",0,0))
+	var/newnamed = list("Goldstein Solutions" = list(0,0,0,null,0,"sun","#E5E500","#7F7F7F",0,0))
+	var/newnamee = list("Sheriff Office" = list(0,0,0,null,0,"star","#E5E500","#00007F",0,0))
+	var/newnamef = list("Paramedics" = list(0,0,0,null,0,"cross","#7F0000","#FFFFFF",0,0))
+	var/newnameg = list("Government" = list(0,0,0,null,0,"star","#E3E3E3", "#3e57a8",0,0))
 	custom_civs += newnamea
 	custom_civs += newnameb
 	custom_civs += newnamec
@@ -79,6 +79,7 @@
 	custom_civs += newnameg
 	spawn(100)
 		load_new_recipes("config/crafting/material_recipes_camp.txt")
+		override_global_recipes = "camp"
 	spawn(15000)
 		spawn_disks(TRUE)
 	spawn(100)
@@ -518,8 +519,8 @@
 	/obj/item/weapon/gun/projectile/shotgun/pump/remington870 = 10,
 	/obj/item/ammo_magazine/shellbox/rubber = 10,
 	/obj/item/ammo_magazine/shellbox/beanbag = 10,
-	/obj/item/weapon/gun/launcher/grenadelauncher/M79 = 5,
-	/obj/item/ammo_casing/grenade_l/teargas = 20,
+	/obj/item/weapon/gun/launcher/grenade/standalone/m79 = 5,
+	/obj/item/weapon/grenade/chemical/ugl/teargas = 10,
 	/obj/item/weapon/grenade/flashbang = 20,
 	/obj/item/weapon/grenade/chemical/xylyl_bromide = 10,
 	/obj/item/weapon/grenade/smokebomb/m18smoke = 10,
@@ -552,7 +553,7 @@
 	attack_verb = list("bashed", "bludgeoned", "whacked")
 	sharp = FALSE
 	edge = FALSE
-	w_class = 3.0
+	w_class = ITEM_SIZE_NORMAL
 /obj/item/weapon/paper_bin/police
 	name = "incomming documents"
 	desc = "incomming documents and warrants will arrive here."
@@ -621,6 +622,9 @@
 	if (map.ID == MAP_CAMPAIGN)
 		a = ceil(x/15)
 		b = 10-Floor(y/10)
+	if (map.ID == MAP_OPERATION_FALCON)
+		a = ceil(x/40)
+		b = 10-Floor(y/40)
 
 	switch(a)
 		if (0 to 1)
@@ -650,7 +654,7 @@
 /mob/living/human/proc/undercover()
 	set category = "ИЦ"
 	set name = "Toggle Undercover"
-	set desc= "Hide your identity for undercover police operations."
+	set desc = "Hide your identity for undercover police operations."
 
 	var/jobtype = "none"
 	if (findtext(name, "Deputy") || findtext(name, "Detective"))
@@ -700,7 +704,7 @@
 	throwforce = WEAPON_FORCE_HARMLESS
 	throw_speed = TRUE
 	throw_range = 2
-	w_class = 1.0
+	w_class = ITEM_SIZE_TINY
 	flammable = FALSE
 	slot_flags = SLOT_POCKET|SLOT_BELT
 

@@ -7,7 +7,7 @@
 	maxsway = 10
 	firedelay = 30
 	maxrange = 80
-	w_class = 35
+	w_class = ITEM_SIZE_GARGANTUAN
 
 /obj/structure/cannon/modern/naval
 	name = "naval cannon"
@@ -26,6 +26,15 @@
 	caliber = 204
 	can_assemble = FALSE
 
+/obj/structure/cannon/modern/naval/attack_hand(var/mob/attacker)
+	if (ishuman(attacker) && map.ID == MAP_CAMPAIGN)
+		var/mob/living/human/H = attacker
+		if(findtext(H.original_job_title,"Marine"))
+			attacker << "<span class = 'warning'>You do not know how to operate this gun!</span>"
+			return
+	else
+		interact(attacker)
+
 /obj/structure/cannon/modern/naval/n380
 	name = "380mm naval cannon"
 	ammotype = /obj/item/cannon_ball/shell/tank
@@ -35,15 +44,6 @@
 	caliber = 380
 	density = FALSE
 
-/obj/structure/cannon/naval/n380/attack_hand(var/mob/attacker)
-	if (ishuman(attacker) && map.ID == MAP_CAMPAIGN)
-		var/mob/living/human/H = attacker
-		if(findtext(H.original_job_title,"Marine"))
-			attacker << "<span class = 'warning'>You do not know how to operate this gun!</span>"
-			return
-	else
-		interact(attacker)
-
 /obj/structure/cannon/modern/naval/n150
 	name = "150mm naval cannon"
 	ammotype = /obj/item/cannon_ball/shell/tank
@@ -52,15 +52,6 @@
 	maxrange = 60
 	caliber = 150
 	density = FALSE
-
-/obj/structure/cannon/naval/n150/attack_hand(var/mob/attacker)
-	if (ishuman(attacker) && map.ID == MAP_CAMPAIGN)
-		var/mob/living/human/H = attacker
-		if(findtext(H.original_job_title,"Marine"))
-			attacker << "<span class = 'warning'>You do not know how to operate this gun!</span>"
-			return
-	else
-		interact(attacker)
 
 /obj/structure/cannon/modern/tank
 	name = "tank cannon"
@@ -88,7 +79,7 @@
 
 /obj/structure/cannon/modern/tank/voyage
 	spritemod = TRUE
-	w_class = 5
+	w_class = ITEM_SIZE_HUGE
 	maxrange = 35
 	angle = 20
 	caliber = 75
@@ -206,6 +197,20 @@
 	maxrange = 25
 	caliber = 75
 
+/obj/structure/cannon/modern/tank/russian76/americanfield
+	name = "76.2 mm M5 gun"
+	desc = "a 76.2mm american Anti-tank cannon."
+	icon_state = "feldkanone18"
+	icon = 'icons/obj/cannon.dmi'
+	maxsway = 13
+	maxrange = 27
+	assembled = FALSE
+	can_assemble = TRUE
+	New()
+		..()
+		loader_chair = new /obj/structure/bed/chair/loader(src)
+		gunner_chair = new /obj/structure/bed/chair/gunner(src)
+
 /obj/structure/cannon/modern/tank/japanese57
 	name = "Type 90 Cannon"
 	desc = "a 57 mm japanese tank-based cannon."
@@ -238,6 +243,22 @@
 	maxrange = 35
 	caliber = 100
 
+/obj/structure/cannon/modern/tank/autoloader/t90a
+	name = "125 mm 2A46"
+	desc = "a 125 mm Russian tank-based cannon."
+	icon_state = "tank_cannon"
+	maxsway = 14
+	maxrange = 35
+	caliber = 100
+
+/obj/structure/cannon/modern/tank/leopard
+	name = "Rheinmetall 120 mm"
+	desc = "a 20 mm German tank-based cannon."
+	icon_state = "tank_cannon"
+	maxsway = 14
+	maxrange = 35
+	caliber = 100
+
 /obj/structure/cannon/modern/tank/baftkn75
 	name = "BAF TKN 75mm"
 	desc = "a 75 mm Blugoslavian tank-based cannon."
@@ -248,7 +269,7 @@
 
 /obj/structure/cannon/modern/tank/german88/field
 	name = "8.8 cm Pak 43 cannon"
-	desc = "a 88 mm german anti-tank cannon."
+	desc = "a 88 mm German anti-tank cannon."
 	icon_state = "feldkanone18"
 	icon = 'icons/obj/cannon.dmi'
 	maxsway = 18
@@ -260,21 +281,64 @@
 		loader_chair = new /obj/structure/bed/chair/loader(src)
 		gunner_chair = new /obj/structure/bed/chair/gunner(src)
 
+/obj/structure/cannon/modern/tank/russian122
+	name = "122 mm M1943 D-25T"
+	desc = "a 122 mm Russian tank-based cannon."
+	icon_state = "tank_cannon"
+	maxsway = 12
+	maxrange = 27
+	caliber = 122
+
 /obj/structure/cannon/modern/tank/russian76
 	name = "76 mm M1940 F-34"
-	desc = "a 76.2 mm russian tank-based cannon."
+	desc = "a 76.2 mm Russian tank-based cannon."
 	icon_state = "tank_cannon"
 	maxsway = 12
 	maxrange = 27
 	caliber = 76.2
 
+/obj/structure/cannon/modern/tank/russian45 //low cal but fires fast
+	name = "45 mm M1932 20-K"
+	desc = "a 45 mm Russian tank-based fast firing cannon."
+	icon_state = "tank_cannon"
+	maxsway = 12
+	maxrange = 25
+	caliber = 45
+	anchored = TRUE
+	firedelay = 20
+
+/obj/structure/cannon/modern/tank/russian45/field
+	name = "45 mm anti-tank gun model 1932"
+	desc = "A 45mm fast firing anti-tank cannon."
+	icon_state = "feldkanone18"
+	icon = 'icons/obj/cannon.dmi'
+	maxsway = 18
+	maxrange = 31
+	firedelay = 20
+	assembled = FALSE
+	can_assemble = TRUE
+	New()
+		..()
+		loader_chair = new /obj/structure/bed/chair/loader(src)
+		gunner_chair = new /obj/structure/bed/chair/gunner(src)
+
 /obj/structure/cannon/modern/tank/russian85
 	name = "85 mm M1939 D5-T"
-	desc = "a 85 mm russian tank-based cannon."
+	desc = "a 85 mm Russian tank-based cannon."
 	icon_state = "tank_cannon"
 	maxsway = 14
 	maxrange = 33
 	caliber = 85
+	anchored = TRUE
+
+/obj/structure/cannon/modern/tank/russian85/su85
+	desc = "a 85 mm SU-85 russian tank-based cannon."
+	icon_state = "tank_cannon"
+	firedelay = 35
+	maxsway = 16
+	maxrange = 35
+	caliber = 85
+	anchored = TRUE
 
 /obj/structure/cannon/modern/tank/russian85/kv1
 
@@ -310,9 +374,10 @@
 	maxrange = 40
 	maxsway = 7
 	firedelay = 12
-	w_class = 8
+	w_class = ITEM_SIZE_HUGE
 
 /obj/structure/cannon/mortar/foldable
+	anchored = TRUE
 	var/path
 
 /obj/structure/cannon/mortar/foldable/type89
@@ -324,7 +389,6 @@
 	maxrange = 30
 	maxsway = 10
 	firedelay = 8
-	w_class = 6
 	path = /obj/item/weapon/foldable/type89_mortar
 
 /obj/structure/cannon/mortar/foldable/generic
@@ -333,25 +397,28 @@
 	anchored = TRUE
 	ammotype = /obj/item/cannon_ball/mortar_shell
 	explosion = TRUE
-	maxrange = 30
+	maxrange = 35
 	maxsway = 7
 	firedelay = 12
-	w_class = 6
 	path = /obj/item/weapon/foldable/generic
 
 /obj/structure/cannon/mortar/foldable/verb/Retrieve()
-	set category = null 
+	set category = null
 	set name = "Retrieve"
 	set src in range(1, usr)
 	if (usr.l_hand && usr.r_hand)
 		usr << "<span class = 'warning'>You need to have a hand free to do this.</span>"
 		return
 	usr.face_atom(src)
-	visible_message("<span class = 'warning'>[usr] starts to get their [src] from the ground.</span>")
-	if (do_after(usr, 10, get_turf(usr)))
+	visible_message("<span class = 'warning'>[usr] starts to get the [src] from the ground.</span>")
+	if (loaded)
+		loaded.loc = get_turf(src)
+		loaded = null
+		visible_message("<span class = 'warning'>[usr] unloads the [src].</span>")
+	if (do_after(usr, 25, get_turf(usr)))
 		qdel(src)
 		usr.put_in_any_hand_if_possible(new path, prioritize_active_hand = TRUE)
-		visible_message("<span class = 'warning'>[usr] retrieves their [src] from the ground.</span>")
+		visible_message("<span class = 'warning'>[usr] retrieves the [src] from the ground.</span>")
 
 /obj/structure/cannon/mortar/foldable/attackby(obj/item/W as obj, mob/M as mob)
 	if (istype(W, ammotype))
@@ -364,12 +431,6 @@
 				M.remove_from_mob(W)
 				W.loc = src
 				loaded = W
-				if (M == usr)
-					do_html(M)
-	else if (istype(W,/obj/item/weapon/wrench))
-		playsound(loc, 'sound/items/Ratchet.ogg', 100, TRUE)
-		M << (anchored ? "<span class='notice'>You unfasten \the [src] from the floor.</span>" : "<span class='notice'>You secure \the [src] to the floor.</span>")
-		anchored = !anchored
 
 /obj/structure/cannon/davycrockett
 	name = "M29 Davy Crockett"
@@ -392,10 +453,38 @@
 	maxrange = 40
 	maxsway = 8
 	firedelay = 24
-	w_class = 8
+	w_class = ITEM_SIZE_GARGANTUAN
 
 /obj/structure/cannon/davycrockett/attackby(obj/item/W as obj, mob/M as mob)
 	if (loaded)
 		icon_state = "m29_davy_crockett_loaded"
 	else
 		icon_state = "m29_davy_crockett_empty"
+
+/obj/structure/cannon/rocket
+	name = "rocket artillery"
+	desc = "An artillery piece that fires dumb rockets, very inaccurate but deadly in numbers."
+	icon = 'icons/obj/cannon.dmi'
+	icon_state = "modern_rocket"
+	ammotype = /obj/item/cannon_ball/rocket
+	spritemod = FALSE
+	bound_height = 32
+	bound_width = 32
+	maxsway = 10
+	firedelay = 12
+	maxrange = 60
+	max_loaded = 9
+	w_class = ITEM_SIZE_GARGANTUAN
+	see_amount_loaded = TRUE
+
+/obj/structure/cannon/rocket/loaded/New()
+	..()
+	loaded += new /obj/item/cannon_ball/rocket(src)
+	loaded += new /obj/item/cannon_ball/rocket(src)
+	loaded += new /obj/item/cannon_ball/rocket(src)
+	loaded += new /obj/item/cannon_ball/rocket(src)
+	loaded += new /obj/item/cannon_ball/rocket(src)
+	loaded += new /obj/item/cannon_ball/rocket(src)
+	loaded += new /obj/item/cannon_ball/rocket(src)
+	loaded += new /obj/item/cannon_ball/rocket(src)
+	loaded += new /obj/item/cannon_ball/rocket(src)

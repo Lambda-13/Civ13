@@ -16,7 +16,7 @@
 		)
 	age = "2006"
 	ordinal_age = 8
-	no_hardcore = TRUE
+
 	faction_distribution_coeffs = list(ARAB = 0.5, AMERICAN = 0.5)
 	battle_name = "бой в городе"
 	mission_start_message = "<font size=4><b>Хезболла</b> удерживает город. Войска <b>ЦАХАЛ</b> должны захватить штаб-квартиру Хезболлы (юго-западный угол) в течение <b>40 минут</b>! </font>"
@@ -157,7 +157,7 @@ var/no_loop_arab = FALSE
 	lobby_icon = "icons/lobby/modern.png"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/desert)
 	respawn_delay = 1200
-	no_hardcore = FALSE
+	
 	faction_organization = list(
 		AMERICAN,
 		ARAB)

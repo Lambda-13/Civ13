@@ -5,7 +5,7 @@
 	desc = "Используй это для заделывания дыр и создания моста."
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "wood_ship_repaired2"
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	flammable = TRUE
 	value = 0
 	flags = FALSE
@@ -248,6 +248,19 @@
 	..()
 	icon_state = pick("road_1","road_2","road_3")
 	base_icon_state = icon_state
+
+/obj/covers/road_yellowline
+	name = "road"
+	icon = 'icons/turf/floors.dmi'
+	icon_state = "road_yellowline"
+	passable = TRUE
+	not_movable = TRUE
+	amount = 0
+	wood = FALSE
+	layer = 1.99
+	flammable = FALSE
+	explosion_resistance = 2
+	material = "Stone"
 
 /obj/covers/romanroad
 	name = "дорога"

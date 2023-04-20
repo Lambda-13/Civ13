@@ -119,7 +119,7 @@
 	icon_state = "svt"
 	item_state = "svt"
 	base_icon = "svt"
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	load_method = SINGLE_CASING|SPEEDLOADER|MAGAZINE
 	max_shells = 10
 	caliber = "a762x54"
@@ -130,7 +130,7 @@
 	weight = 3.85
 	load_delay = 8
 	firemodes = list(
-		list(name="single shot",burst=1, move_delay=2, fire_delay=6)
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=6)
 		)
 
 	gun_type = GUN_TYPE_RIFLE
@@ -145,7 +145,7 @@
 	icon_state = "avtomat"
 	item_state = "svt"
 	base_icon = "avtomat"
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	load_method = SINGLE_CASING|SPEEDLOADER|MAGAZINE
 	max_shells = 25
 	caliber = "a65x50"
@@ -156,8 +156,8 @@
 	weight = 3.85
 	load_delay = 8
 	firemodes = list(
-		list(name="single shot",	burst=1, burst_delay=0.8, recoil=0, move_delay=2, dispersion = list(0.1, 0.2, 0.1, 0.2, 0.3)),
-		list(name="full auto",	burst=1, burst_delay=1.1, recoil=0, move_delay=3, dispersion = list(1, 1.2, 1.3, 1.2, 1.3)),
+		list(name = "single shot",	burst=1, burst_delay=0.8, recoil=0, move_delay=2, dispersion = list(0.1, 0.2, 0.1, 0.2, 0.3)),
+		list(name = "full auto",	burst=1, burst_delay=1.1, recoil=0, move_delay=3, dispersion = list(1, 1.2, 1.3, 1.2, 1.3)),
 		)
 
 	gun_type = GUN_TYPE_RIFLE
@@ -172,7 +172,7 @@
 	icon_state = "remington11"
 	item_state = "remington11"
 	base_icon = "remington11"
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	load_method = SINGLE_CASING
 	max_shells = 5
 	caliber = "12gauge"
@@ -193,7 +193,7 @@
 	item_state = "mosin"
 	base_icon = "sks"
 	fire_sound = 'sound/weapons/guns/fire/SKS.ogg'
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 10
 	caliber = "a762x39"
@@ -204,7 +204,7 @@
 	good_mags = list(/obj/item/ammo_magazine/sks)
 	weight = 3.85
 	firemodes = list(
-		list(name="single shot",burst=1, move_delay=2, fire_delay=4)
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=4)
 		)
 
 	gun_type = GUN_TYPE_RIFLE
@@ -212,6 +212,11 @@
 	throwforce = 20
 	effectiveness_mod = 1.05
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
+
+/obj/item/weapon/gun/projectile/semiautomatic/sks/chinese
+	name = "Type 56 carbine"
+	desc = "Chinese variant of the Soviet semi-automatic rifle chambered in 7.62x39mm."
+	weight = 3.86
 
 /obj/item/weapon/gun/projectile/semiautomatic/sks/sksm
 	name = "SKS-M"
@@ -231,7 +236,7 @@
 	icon_state = "svd"
 	item_state = "svd"
 	base_icon = "svd"
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	load_method = SINGLE_CASING|SPEEDLOADER|MAGAZINE
 	max_shells = 10
 	caliber = "a762x54"
@@ -243,7 +248,7 @@
 	good_mags = list(/obj/item/ammo_magazine/svd)
 	weight = 3.85
 	firemodes = list(
-		list(name="single shot",burst=1, move_delay=2, fire_delay=8)
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=8)
 		)
 
 	gun_type = GUN_TYPE_RIFLE
@@ -276,7 +281,7 @@
 	icon_state = "g41"
 	item_state = "g41"
 	base_icon = "g41"
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 10
 	caliber = "a792x57"
@@ -287,7 +292,7 @@
 	good_mags = list(/obj/item/ammo_magazine/gewehr98)
 	weight = 4.9
 	firemodes = list(
-		list(name="single shot",burst=1, move_delay=2, fire_delay=6)
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=6)
 		)
 	force = 10
 	throwforce = 20
@@ -300,7 +305,7 @@
 	icon_state = "g43"
 	item_state = "g43"
 	base_icon = "g43"
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	load_method = SINGLE_CASING|SPEEDLOADER|MAGAZINE
 	max_shells = 10
 	load_delay = 8
@@ -312,12 +317,39 @@
 	good_mags = list(/obj/item/ammo_magazine/g43, /obj/item/ammo_magazine/gewehr98)
 	weight = 4.9
 	firemodes = list(
-		list(name="single shot",burst=1, move_delay=2, fire_delay=6)
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=6)
 		)
 	force = 10
 	throwforce = 20
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	effectiveness_mod = 1.06
+
+/obj/item/weapon/gun/projectile/semiautomatic/vg5
+	name = "Volkssturmkarabiner 98"
+	desc = "A very simple german semi automatic chambered in 7.92x33mm Kurz."
+	icon_state = "vg5"
+	item_state = "vg5"
+	base_icon = "vg5"
+	w_class = ITEM_SIZE_LARGE
+	load_method = SINGLE_CASING|SPEEDLOADER|MAGAZINE
+	max_shells = 30
+	load_delay = 10
+	caliber = "a792x33"
+	fire_sound = 'sound/weapons/guns/fire/stg.ogg'
+	reload_sound = 'sound/weapons/guns/interact/stg_reload.ogg'
+	slot_flags = SLOT_SHOULDER
+	ammo_type = /obj/item/ammo_casing/a792x33
+	magazine_type = /obj/item/ammo_magazine/stg
+	good_mags = list(/obj/item/ammo_magazine/stg, /obj/item/ammo_magazine/vgclip)
+	weight = 4.6
+	firemodes = list(
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=5)
+		)
+	force = 15
+	throwforce = 20
+	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
+	effectiveness_mod = 0.94
+	equiptimer = 16
 
 /obj/item/weapon/gun/projectile/semiautomatic/m1garand
 	name = "M1 Garand"
@@ -325,7 +357,7 @@
 	icon_state = "m1garand"
 	item_state = "m1garand"
 	base_icon = "m1garand"
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 8
 	caliber = "a3006"
@@ -336,14 +368,23 @@
 	good_mags = list(/obj/item/ammo_magazine/springfield,/obj/item/ammo_magazine/garand)
 	reload_sound = 'sound/weapons/guns/interact/GarandLoad.ogg'
 	unload_sound = 'sound/weapons/guns/interact/GarandUnload.ogg'
-	weight = 4.9
+	weight = 4.3
 	firemodes = list(
-		list(name="single shot",burst=1, move_delay=2, fire_delay=4)
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=4)
 		)
 	force = 10
 	throwforce = 20
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
 	effectiveness_mod = 0.95
+
+/obj/item/weapon/gun/projectile/semiautomatic/m1garand/match //Match grade weapons are built to a higher standard than service grade weapons.
+	name = "M1 Garand Match"
+	desc = "An American semi-automatic rifle using .30-06 ammunition in a 8 round internal magazine, this one was made with better quality control."
+	w_class = ITEM_SIZE_LARGE
+	weight = 4.8
+	force = 15
+	throwforce = 25
+	effectiveness_mod = 1.05
 
 /obj/item/weapon/gun/projectile/semiautomatic/ar15
 	name = "Bushmaster XM-15"
@@ -352,7 +393,7 @@
 	icon_state = "m4"
 	item_state = "m4"
 	base_icon = "m4"
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	load_method = MAGAZINE
 	load_delay = 5
 	caliber = "a556x45"
@@ -363,12 +404,36 @@
 	good_mags = list(/obj/item/ammo_magazine/ar15)
 	weight = 4.9
 	firemodes = list(
-		list(name="single shot",burst=1, move_delay=2, fire_delay=6)
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=6)
 		)
 	force = 10
 	throwforce = 20
 	attachment_slots = ATTACH_SCOPE|ATTACH_BARREL
 	effectiveness_mod = 1.07
+
+/obj/item/weapon/gun/projectile/semiautomatic/m1carbine
+	name = "M1 Carbine"
+	desc = "An American Light semi-automatic rifle using 7.62×33mm (Rimless.30 Carbine) ammunition in a external magazine."
+	icon_state = "mcar"
+	item_state = "mcar"
+	base_icon = "mcar"
+	w_class = ITEM_SIZE_LARGE
+	load_method = MAGAZINE
+	caliber = "a762x33"
+	fire_sound = 'sound/weapons/guns/fire/Garand.ogg'
+	slot_flags = SLOT_SHOULDER
+	ammo_type = /obj/item/ammo_casing/a762x33
+	magazine_type = /obj/item/ammo_magazine/m1carbine
+	good_mags = list(/obj/item/ammo_magazine/m1carbine,/obj/item/ammo_magazine/m1carbine/big)
+	reload_sound = 'sound/weapons/guns/interact/GarandLoad.ogg'
+	weight = 3.9
+	firemodes = list(
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=4)
+		)
+	force = 10
+	throwforce = 20
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
+	effectiveness_mod = 0.98
 
 /obj/item/weapon/gun/projectile/semiautomatic/vintorez
 	name = "VSS Vintorez"
@@ -380,14 +445,14 @@
 	caliber = "a9x39"
 	ammo_type = /obj/item/ammo_casing/a9x39
 	damage_modifier = 1.2
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	fire_sound = 'sound/weapons/guns/fire/silenced_pistol.ogg'
 	slot_flags = SLOT_SHOULDER
 	magazine_type = /obj/item/ammo_magazine/vintorez
 	good_mags = list(/obj/item/ammo_magazine/vintorez)
 	weight = 1.90
 	firemodes = list(
-		list(name="single shot",burst=1, move_delay=2, fire_delay=6)
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=6)
 		)
 	gun_type = GUN_TYPE_RIFLE
 	effectiveness_mod = 1.09
@@ -398,3 +463,79 @@
 	..()
 	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope(src)
 	SP.attached(null,src,TRUE)
+
+/obj/item/weapon/gun/projectile/semiautomatic/barrett
+	name = "Barrett M82"
+	desc = "The Barrett M82 is a recoil-operated, semi-automatic anti-materiel rifle developed by the American company Barrett Firearms Manufacturing. Chambered in .50 BMG."
+	icon_state = "m82"
+	item_state = "m82"
+	base_icon = "m82"
+	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE
+	w_class = ITEM_SIZE_HUGE
+	KD_chance = KD_CHANCE_HIGH
+	slot_flags = null
+	caliber = "a50cal"
+	load_method = MAGAZINE
+	ammo_type = list (/obj/item/ammo_casing/a50cal, /obj/item/ammo_casing/a50cal_ap, /obj/item/ammo_casing/a50cal_he)
+	fire_sound = 'sound/weapons/guns/fire/BarrettM99.ogg'
+	reload_sound = 'sound/weapons/guns/interact/barrett_magin.ogg'
+	unload_sound = 'sound/weapons/guns/interact/barrett_magout.ogg'
+	magazine_type = /obj/item/ammo_magazine/barrett
+	good_mags = list(/obj/item/ammo_magazine/barrett)
+	weight = 14.8
+	recoil = 3
+	firemodes = list(
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=25)
+		)
+	gun_type = GUN_TYPE_RIFLE
+	effectiveness_mod = 2.0
+	equiptimer = 15
+	accuracy_increase_mod = 2.0
+	recoil = 2
+
+/obj/item/weapon/gun/projectile/semiautomatic/barrett/sniper/New()
+	..()
+	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope(src)
+	SP.attached(null,src,TRUE)
+
+/obj/item/weapon/gun/projectile/semiautomatic/bamr
+	name = "BAMR"
+	desc = "An old blugoslavian semi-auto, anti-tank rifle chambered in 15x115. Due to smart engineering the recoil isn't as bad as it could be."
+	icon_state = "bam"
+	item_state = "bam"
+	base_icon = "bam"
+	attachment_slots = ATTACH_IRONSIGHTS
+	w_class = ITEM_SIZE_HUGE
+	force = 10
+	throwforce = 5
+	KD_chance = KD_CHANCE_HIGH
+	slot_flags = null
+	caliber = "a15115"
+	weight = 9
+	recoil = 2
+	load_method = MAGAZINE
+	ammo_type = list (/obj/item/ammo_casing/a15115, /obj/item/ammo_casing/a15115_ap, /obj/item/ammo_casing/a15115_aphe)
+	magazine_type = /obj/item/ammo_magazine/bamr
+	good_mags = list(/obj/item/ammo_magazine/bamr, /obj/item/ammo_magazine/bamr_aphe, /obj/item/ammo_magazine/bamr_ap)
+	firemodes = list(
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=15)
+		)
+	reload_sound = 'sound/weapons/guns/interact/barrett_magin.ogg'
+	unload_sound = 'sound/weapons/guns/interact/barrett_magout.ogg'
+	fire_sound = 'sound/weapons/guns/fire/ptrd.ogg'
+	accuracy_increase_mod = 2.00
+	effectiveness_mod = 1.3
+	move_delay = 3
+	fire_delay = 5
+	equiptimer = 12
+	gun_safety = FALSE
+	load_delay = 20
+
+/obj/item/weapon/gun/projectile/semiautomatic/bamr/telescope
+	name = "BAMR-T"
+	desc = "An old blugoslavian semi-auto, anti-tank rifle chambered in 15x115. This one comes with a integrated Scope."
+	icon_state = "bamt"
+	has_telescopic = TRUE
+	move_delay = 4
+	equiptimer = 14
+	weight = 10

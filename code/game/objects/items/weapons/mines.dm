@@ -8,7 +8,7 @@
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "mine"
 	force = 5.0
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	layer = OBJ_LAYER + 0.01 //because they go in crates
 	throwforce = 5.0
 	throw_range = 6
@@ -17,11 +17,7 @@
 	flags = CONDUCT
 	var/triggered = FALSE
 	var/triggertype = "explosive" //Calls that proc
-	/*
-		"explosive"
-		//"incendiary" //New bay//
-	*/
-
+	
 	// failsafe to stop a horrible mine bug - kachnov
 	var/nextCanExplode = -1
 
@@ -50,12 +46,12 @@
 		if (ishuman(user))
 			var/mob/living/human/H = user
 			if (istype(W, /obj/item/weapon/wirecutters))
-				user.visible_message("<span class = 'notice'>\The [user] starts to disarm the \the [src] with the [W].</span>")
+				user.visible_message("<span class = 'notice'>\The [user] starts to disarm \the [src] with the [W].</span>")
 				if (!do_after(user,60))
-					user.visible_message("<span class = 'notice'>\The [user] decides not to disarm the \the [src].</span>")
+					user.visible_message("<span class = 'notice'>\The [user] decides not to disarm \the [src].</span>")
 					return
-				if (prob(min(95*H.getStatCoeff("dexterity"),100)))
-					user.visible_message("<span class = 'notice'>\The [user] finishes disarming the \the [src]!</span>")
+				if (prob(min(98*H.getStatCoeff("dexterity"),100)))
+					user.visible_message("<span class = 'notice'>\The [user] finishes disarming \the [src]!</span>")
 					anchored = FALSE
 					icon_state = "mine"
 					layer = initial(layer)
@@ -63,12 +59,12 @@
 				else
 					Bumped(user)
 			else if (istype(W, /obj/item/weapon/material/kitchen/utensil/knife) || istype(W, /obj/item/weapon/attachment/bayonet))
-				user.visible_message("<span class = 'notice'>\The [user] starts to disarm the \the [src] with the [W].</span>")
-				if (!do_after(user,80))
-					user.visible_message("<span class = 'notice'>\The [user] decides not to disarm the \the [src].</span>")
+				user.visible_message("<span class = 'notice'>\The [user] starts to dig around \the [src] with the [W].</span>")
+				if (!do_after(user,120))
+					user.visible_message("<span class = 'notice'>\The [user] decides not to dig up \the [src].</span>")
 					return
 				if (prob(min(50*H.getStatCoeff("dexterity"),75)))
-					user.visible_message("<span class = 'notice'>\The [user] finishes disarming the \the [src]!</span>")
+					user.visible_message("<span class = 'notice'>\The [user] finishes digging up \the [src], disarming it!!</span>")
 					anchored = FALSE
 					icon_state = "mine"
 					layer = initial(layer)
@@ -84,12 +80,12 @@
 	if (anchored)
 		if (ishuman(user))
 			var/mob/living/human/H = user
-			user.visible_message("<span class = 'notice'>\The [user] starts to dig around the \the [src] with their bare hands!</span>")
+			user.visible_message("<span class = 'notice'>\The [user] starts to dig around \the [src] with their bare hands!</span>")
 			if (!do_after(user,100))
-				user.visible_message("<span class = 'notice'>\The [user] decides not to dig up the \the [src].</span>")
+				user.visible_message("<span class = 'notice'>\The [user] decides not to dig up \the [src].</span>")
 				return
 			if (prob(min(15*H.getStatCoeff("dexterity"),35)))
-				user.visible_message("<span class = 'notice'>\The [user] finishes digging up the \the [src], disarming it!</span>")
+				user.visible_message("<span class = 'notice'>\The [user] finishes digging up \the [src], disarming it!</span>")
 				anchored = FALSE
 				icon_state = "mine"
 				layer = initial(layer)
@@ -97,6 +93,14 @@
 			else
 				Bumped(user)
 		else
+			Bumped(user)
+	else
+		..()
+
+/obj/item/mine/kick_act(mob/user as mob)
+	if (anchored)
+		if(ishuman(user) && in_range(src, user))
+			user.visible_message("<span class = 'warning'>\The [user] kicks \the [src]! What an idiot!</span>")
 			Bumped(user)
 	else
 		..()
@@ -121,6 +125,8 @@
 	trigger(AM)
 
 /obj/item/mine/proc/trigger(atom/movable/AM)
+	if (istype(AM, /obj/item/projectile))
+		return
 	if (world.time < nextCanExplode)
 		return
 	if (istype(AM, /mob/living))
@@ -146,7 +152,7 @@
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "mine"
 	force = 10.0
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	throwforce = 5.0
 	throw_range = 6
 	throw_speed = 3
@@ -204,7 +210,7 @@
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "mine"
 	force = 12.0
-	w_class = 4.0
+	w_class = ITEM_SIZE_LARGE
 	throwforce = 2.0
 	throw_range = 3
 	throw_speed = 3
@@ -260,7 +266,7 @@
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "boobytrap_armed"
 	force = 10.0
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	throwforce = 5.0
 	throw_range = 6
 	throw_speed = 3
@@ -332,6 +338,8 @@
 		..()
 
 /obj/item/mine/boobytrap/trigger(atom/movable/AM)
+	if (istype(AM, /obj/item/projectile))
+		return
 	if (world.time < nextCanExplode)
 		return
 	if (istype(AM, /mob/living))
@@ -340,23 +348,54 @@
 		triggered = TRUE
 		visible_message("<span class = 'red'><b>Click!</b></span>")
 		explosion(get_turf(src),1,2,4)
-
-/*
-	var/turf/T = get_turf(src)
-	if(!T) return
-
-	var/list/target_turfs = getcircle(T, spread_range)
-	var/fragments_per_projectile = round(num_fragments/target_turfs.len)
-
-	for (var/turf/TT in target_turfs)
-		var/obj/item/projectile/bullet/pellet/fragment/P = new fragment_type(T)
-		P.damage = fragment_damage
-		P.pellets = fragments_per_projectile
-		P.range_step = damage_step
-		P.shot_from = name
-		P.launch_fragment(TT)
-*/
 		spawn(9)
 			if (src)
 				qdel(src)
 
+/obj/item/mine/pipe
+	name = "damaged pipe"
+	desc = "Is that safe?"
+	icon = 'icons/obj/grenade.dmi'
+	icon_state = "damaged_pipe"
+	force = 10.0
+	w_class = ITEM_SIZE_LARGE
+	anchored = TRUE
+	layer = TURF_LAYER + 0.01
+	icon_state = "mine_armed"
+	var/origin = null
+	var/explosion_size = 1
+	var/fragment_type = /obj/item/projectile/bullet/pellet/fragment
+	var/num_fragments = 5  //total number of fragments produced by the grenade
+	var/fragment_damage = 15
+	var/damage_step = 1	  //projectiles lose a fragment each time they travel this distance. Can be a non-integer.
+	var/spread_range = 4
+
+/obj/item/mine/pipe/trigger(atom/movable/AM)
+	if (prob(30))
+		if (world.time < nextCanExplode)
+			return
+		if (istype(AM, /mob/living))
+			for (var/mob/O in viewers(7, loc))
+				O << "<font color='red'>[AM] tripped over the [src]!</font>"
+			triggered = TRUE
+			visible_message("<span class = 'red'><b>SSSShh!</b></span>")
+			explosion(get_turf(src),1,2,3)
+
+
+		var/turf/T = get_turf(src)
+		if(!T) return
+
+		var/list/target_turfs = getcircle(T, spread_range)
+		var/fragments_per_projectile = round(num_fragments/target_turfs.len)
+
+		for (var/turf/TT in target_turfs)
+			var/obj/item/projectile/bullet/pellet/fragment/P = new fragment_type(T)
+			P.damage = fragment_damage
+			P.pellets = fragments_per_projectile
+			P.range_step = damage_step
+			P.shot_from = name
+			P.launch_fragment(TT)
+
+			spawn(9)
+				if (src)
+					qdel(src)

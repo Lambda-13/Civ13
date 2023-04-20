@@ -2,7 +2,7 @@
 	icon = 'icons/obj/cannon_ball.dmi'
 	name = "cannon ball"
 	icon_state = "cannon_ball"
-	w_class = 4.0
+	w_class = ITEM_SIZE_LARGE
 	value = 15
 	flags = CONDUCT
 	var/reagent_payload = null
@@ -25,19 +25,37 @@
 	subtype = /obj/item/projectile/shell/cannonball/grapeshot
 	atype = "grapeshot"
 
+/obj/item/cannon_ball/rocket
+	icon = 'icons/obj/cannon_ball.dmi'
+	name = "rocket"
+	icon_state = "rocket"
+	w_class = ITEM_SIZE_LARGE
+	value = 30
+	atype = "HE"
+
+/obj/item/cannon_ball/rocket/incendiary
+	name = "incendiary rocket"
+	icon_state = "rocket_incendiary"
+	atype = "INCENDIARY"
+
 /obj/item/cannon_ball/shell
 	icon = 'icons/obj/cannon_ball.dmi'
 	name = "artillery shell"
 	icon_state = "shell"
-	w_class = 4.0
+	w_class = ITEM_SIZE_LARGE
 	value = 20
 	atype = "HE"
+
+/obj/item/cannon_ball/shell/incendiary
+	name = "incendiary artillery shell"
+	icon_state = "shell_incendiary"
+	atype = "INCENDIARY"
 
 /obj/item/cannon_ball/shell/tank
 	icon = 'icons/obj/cannon_ball.dmi'
 	name = "cannon shell"
 	icon_state = "shellHE"
-	w_class = 5.0
+	w_class = ITEM_SIZE_HUGE
 	value = 20
 	caliber = 75
 	heavy_armor_penetration = 15
@@ -52,6 +70,24 @@
 	caliber = 57
 	heavy_armor_penetration = 15
 	damage = 225
+
+/obj/item/cannon_ball/shell/tank/AP45
+	atype = "AP"
+	caliber = 45
+	heavy_armor_penetration = 40
+	damage = 75
+
+/obj/item/cannon_ball/shell/tank/APCR45
+	atype = "APCR"
+	caliber = 45
+	heavy_armor_penetration = 60
+	damage = 90
+
+/obj/item/cannon_ball/shell/tank/HE45
+	atype = "HE"
+	caliber = 45
+	heavy_armor_penetration = 8
+	damage = 290
 
 /obj/item/cannon_ball/shell/tank/AP57
 	atype = "AP"
@@ -199,15 +235,22 @@
 	icon = 'icons/obj/cannon_ball.dmi'
 	name = "mortar shell"
 	icon_state = "shell_mortar"
-	w_class = 4.0
+	w_class = ITEM_SIZE_LARGE
 	value = 20
 
 /obj/item/cannon_ball/mortar_shell/type89
-	icon = 'icons/obj/cannon_ball.dmi'
 	name = "type 89 mortar shell"
 	icon_state = "shell_mortar_89"
-	w_class = 4.0
-	value = 20
+
+/obj/item/cannon_ball/mortar_shell/smoke
+	name = "smoke mortar shell"
+	icon_state = "shell_mortar_smoke"
+	reagent_payload = "smokescreen"
+
+/obj/item/cannon_ball/mortar_shell/incendiary
+	name = "incendiary mortar shell"
+	icon_state = "shell_mortar_incendiary"
+	atype = "INCENDIARY"
 
 // Chemical
 
@@ -243,7 +286,7 @@
 
 // Nuclear
 
-/obj/item/cannon_ball/shell/tank/nuclear/
+/obj/item/cannon_ball/shell/tank/nuclear
 	atype = "NUCLEAR"
 	New()
 		..()
@@ -251,60 +294,55 @@
 		icon_state = "shell_nuclear"
 
 /obj/item/cannon_ball/rocket/nuclear
-	icon = 'icons/obj/cannon_ball.dmi'
 	name = "Nuclear Rocket"
 	desc = "You might want to step back a bit..."
 	icon_state = "shell_nuclear_rocket"
-	w_class = 4.0
 	value = 80
+	atype = "NUCLEAR"
 
 /obj/item/cannon_ball/shell/nuclear
 	icon = 'icons/obj/cannon_ball.dmi'
 	name = "Nuclear Shell"
 	desc = "A nuclear shell"
 	icon_state = "shell_nuclear"
-	w_class = 4.0
-	value = 25
+	value = 80
+	atype = "NUCLEAR"
 
 /obj/item/cannon_ball/shell/nuclear/makeshift
 	icon = 'icons/obj/cannon_ball.dmi'
 	name = "Makeshift Nuclear Shell"
 	desc = "A makeshift nuclear shell, once the genie is out of the bottle you can't put it back in..."
 	icon_state = "shell_nuclear"
-	w_class = 4.0
-	value = 20
+	value = 60
 
 /obj/item/cannon_ball/shell/nuclear/W9
 	icon = 'icons/obj/cannon_ball.dmi'
 	name = "W9 Atomic Demolition Munition"
 	desc = "A W9 nuclear shell"
 	icon_state = "shell_nuclear"
-	w_class = 4.0
-	value = 40
+	value = 80
 
 /obj/item/cannon_ball/shell/nuclear/W19
 	icon = 'icons/obj/cannon_ball.dmi'
 	name = "W19 Katie Nuclear Shell"
 	desc = "A W19 Katie nuclear shell"
 	icon_state = "shell_nuclear"
-	w_class = 4.0
-	value = 30
+	atype = "NUCLEAR"
+	value = 80
 
 /obj/item/cannon_ball/shell/nuclear/W33
 	icon = 'icons/obj/cannon_ball.dmi'
 	name = "W33 Nuclear Shell"
 	desc = "A W33 nuclear shell"
 	icon_state = "shell_nuclear"
-	w_class = 4.0
-	value = 20
+	value = 80
 
 /obj/item/cannon_ball/shell/nuclear/W33Boosted
 	icon = 'icons/obj/cannon_ball.dmi'
 	name = "Boosted W33 Nuclear Shell"
 	desc = "A boosted nuclear shell for extra destruction"
 	icon_state = "shell_nuclear_boosted"
-	w_class = 4.0
-	value = 50
+	value = 80
 
 
 ////////////////////////////////////////////////////////
@@ -323,7 +361,7 @@
 	storage.storage_slots = 16
 	storage.max_w_class = 10
 	storage.max_storage_space = 600
-	storage.can_hold = list(/obj/item/cannon_ball/shell)
+	storage.can_hold = list(/obj/item/cannon_ball/shell,/obj/item/cannon_ball/rocket)
 	update_icon()
 
 /obj/structure/shellrack/Destroy()
@@ -362,7 +400,6 @@
 	new /obj/item/cannon_ball/shell/tank/HE57(storage)
 	new /obj/item/cannon_ball/shell/tank/HE57(storage)
 
-
 	new /obj/item/cannon_ball/shell/tank/AP57(storage)
 	new /obj/item/cannon_ball/shell/tank/AP57(storage)
 	new /obj/item/cannon_ball/shell/tank/AP57(storage)
@@ -376,6 +413,27 @@
 	new /obj/item/cannon_ball/shell/tank/APCR57(storage)
 	update_icon()
 
+/obj/structure/shellrack/full45/New()
+	..()
+	new /obj/item/cannon_ball/shell/tank/HE45(storage)
+	new /obj/item/cannon_ball/shell/tank/HE45(storage)
+	new /obj/item/cannon_ball/shell/tank/HE45(storage)
+	new /obj/item/cannon_ball/shell/tank/HE45(storage)
+	new /obj/item/cannon_ball/shell/tank/HE45(storage)
+	new /obj/item/cannon_ball/shell/tank/HE45(storage)
+
+	new /obj/item/cannon_ball/shell/tank/AP45(storage)
+	new /obj/item/cannon_ball/shell/tank/AP45(storage)
+	new /obj/item/cannon_ball/shell/tank/AP45(storage)
+	new /obj/item/cannon_ball/shell/tank/AP45(storage)
+	new /obj/item/cannon_ball/shell/tank/AP45(storage)
+
+	new /obj/item/cannon_ball/shell/tank/APCR45(storage)
+	new /obj/item/cannon_ball/shell/tank/APCR45(storage)
+	new /obj/item/cannon_ball/shell/tank/APCR45(storage)
+	new /obj/item/cannon_ball/shell/tank/APCR45(storage)
+	new /obj/item/cannon_ball/shell/tank/APCR45(storage)
+	update_icon()
 
 /obj/structure/shellrack/full75/New()
 	..()
@@ -495,4 +553,26 @@
 	new /obj/item/cannon_ball/shell/tank/APCR204(storage)
 	new /obj/item/cannon_ball/shell/tank/APCR204(storage)
 	new /obj/item/cannon_ball/shell/tank/APCR204(storage)
+	update_icon()
+
+/obj/structure/shellrack/fullrocket/New()
+	..()
+	new /obj/item/cannon_ball/rocket(storage)
+	new /obj/item/cannon_ball/rocket(storage)
+	new /obj/item/cannon_ball/rocket(storage)
+	new /obj/item/cannon_ball/rocket(storage)
+	new /obj/item/cannon_ball/rocket(storage)
+	new /obj/item/cannon_ball/rocket(storage)
+
+	new /obj/item/cannon_ball/rocket(storage)
+	new /obj/item/cannon_ball/rocket(storage)
+	new /obj/item/cannon_ball/rocket(storage)
+	new /obj/item/cannon_ball/rocket(storage)
+	new /obj/item/cannon_ball/rocket(storage)
+
+	new /obj/item/cannon_ball/rocket(storage)
+	new /obj/item/cannon_ball/rocket(storage)
+	new /obj/item/cannon_ball/rocket(storage)
+	new /obj/item/cannon_ball/rocket(storage)
+	new /obj/item/cannon_ball/rocket(storage)
 	update_icon()

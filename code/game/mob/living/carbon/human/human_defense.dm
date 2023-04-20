@@ -220,15 +220,16 @@ bullet_act
 		gib()
 		spawn (0.01)
 			qdel(P)
-	if (def_zone == "chest" && prob(30))
+	if ((def_zone == "chest" || def_zone == "groin") && prob(20))
 		if (back && istype(back, /obj/item/weapon/reagent_containers/glass/flamethrower))
 			var/obj/item/weapon/reagent_containers/glass/flamethrower/FM = back
 			if (FM.reagents.get_reagent_amount("gasoline")>10)
 				explosion(loc, 1, 2, 2, 3)
 				qdel(FM)
 				adjustFireLoss(100)
-				for(var/turf/T in range(2,src))
+				for(var/turf/T in range(1,src))
 					new/obj/effect/fire(T)
+					ignite_turf(T,15,30)
 	if (def_zone == "mouth")
 		if (wear_mask && istype(wear_mask, /obj/item/weapon/grenade))
 			var/obj/item/weapon/grenade/G = wear_mask
@@ -438,6 +439,10 @@ bullet_act
 		crush()
 	if (istype(P, /obj/item/projectile/arrow/arrow/fire))
 		if (prob(5))
+			fire_stacks += 1
+		IgniteMob()
+	if (istype(P, /obj/item/projectile/bullet/shotgun/incendiary))
+		if (prob(15))
 			fire_stacks += 1
 		IgniteMob()
 
@@ -704,7 +709,7 @@ bullet_act
 					for(var/mob/living/human/NB in view(6,src))
 						if (!NB.orc)
 							NB.mood -= 10
-							NB.ptsd += 1
+							//NB.ptsd += 1
 	var/obj/item/organ/external/head/O = locate(/obj/item/organ/external/head) in src.organs
 
 	if(I.damtype == BRUTE && !I.edge && prob(I.force * (hit_zone == "mouth" ? 6 : 0)) && O)//Knocking out teeth.

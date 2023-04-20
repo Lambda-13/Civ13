@@ -22,7 +22,7 @@ Current Defines (_defines/attachment.dm)
 	var/attachable = TRUE
 	var/attachment_type // Use the 'ATTACH_' defines above (should only use one for this)
 	var/A_attached = FALSE // Is attached?
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	var/list/fits = list("pistol", "smg", "rifle", "shotgun", "mg") // What does it fit on?
 
 /obj/item/weapon/attachment/proc/attached(mob/user, obj/item/weapon/gun/G)
@@ -69,11 +69,15 @@ Current Defines (_defines/attachment.dm)
 	if (attachments && attachments.len)
 		for (var/obj/item/weapon/attachment/A in attachments)
 			A.dropped(user)
+		for (var/obj/item/weapon/gun/launcher/grenade/underslung/G in attachments)
+			G.dropped(user)
 
 /obj/item/weapon/gun/pickup(mob/user)
 	if (attachments && attachments.len)
 		for (var/obj/item/weapon/attachment/A in attachments)
 			A.pickup(user)
+		for (var/obj/item/weapon/gun/launcher/grenade/underslung/G in attachments)
+			G.pickup(user)
 
 /obj/item/weapon/gun/verb/field_strip()
 	set name = "Field Strip"
@@ -83,6 +87,8 @@ Current Defines (_defines/attachment.dm)
 
 	for (var/obj/item/weapon/attachment/A in attachments)
 		A.removed(user, src)
+	for (var/obj/item/weapon/gun/launcher/grenade/underslung/G in attachments)
+		G.removed(user, src)
 
 // Use this under /New() of weapons if they spawn with attachments
 /obj/item/weapon/gun/proc/spawn_add_attachment(obj/item/weapon/attachment/A)
@@ -95,55 +101,61 @@ Current Defines (_defines/attachment.dm)
 	for (var/datum/action/action in actions)
 		action.Grant(user)
 
-/obj/item/weapon/gun/proc/try_attach(obj/item/weapon/attachment/A, mob/user)
-	if (!A || !user)
+/obj/item/weapon/gun/proc/try_attach(obj/item/I, mob/user)
+	if (!I || !user)
 		return
 	if (user.get_inactive_hand() != src)
 		user << "You must be holding the [src] to add attachments."
 		return
-	attach_A(A, user)
+	attach_A(I, user)
 
 // Do not use this; use try_attach instead
-/obj/item/weapon/gun/proc/attach_A(obj/item/weapon/attachment/A, mob/user)
-	switch(A.attachment_type)
-		if (ATTACH_IRONSIGHTS)
-			if (attachment_slots & ATTACH_IRONSIGHTS)
-				A.attached(user, src)
-			else
-				user << "You already have iron sights."
-		if (ATTACH_SCOPE)
-			if (attachment_slots & ATTACH_SCOPE)
-				A.attached(user, src, FALSE)
-			else
-				user << "You fumble around with the attachment."
-		if (ATTACH_STOCK)
-			if (attachment_slots & ATTACH_STOCK)
-				A.attached(user, src, FALSE)
-			else
-				user << "You fumble around with the attachment."
-		if (ATTACH_BARREL)
-			if (attachment_slots & ATTACH_BARREL)
-				A.attached(user, src, FALSE)
-			else
-				user << "You fumble around with the attachment."
-		if (ATTACH_UNDER)
-			if (attachment_slots & ATTACH_UNDER)
-				A.attached(user, src, FALSE)
-		if (ATTACH_ADV_SCOPE)
-			if (attachment_slots & ATTACH_ADV_SCOPE)
-				A.attached(user, src, FALSE)
-			else
-				user << "You fumble around with the attachment."
-		if (ATTACH_SILENCER)
-			if (gtype in A.fits)
-				if (attachment_slots & ATTACH_SILENCER)
+/obj/item/weapon/gun/proc/attach_A(obj/item/I, mob/user)
+	if (istype(I, /obj/item/weapon/attachment))
+		var/obj/item/weapon/attachment/A = I
+		switch(A.attachment_type)
+			if (ATTACH_IRONSIGHTS)
+				if (attachment_slots & ATTACH_IRONSIGHTS)
+					A.attached(user, src)
+				else
+					user << "You already have iron sights."
+			if (ATTACH_SCOPE)
+				if (attachment_slots & ATTACH_SCOPE)
 					A.attached(user, src, FALSE)
 				else
 					user << "You fumble around with the attachment."
+			if (ATTACH_STOCK)
+				if (attachment_slots & ATTACH_STOCK)
+					A.attached(user, src, FALSE)
+				else
+					user << "You fumble around with the attachment."
+			if (ATTACH_BARREL)
+				if (attachment_slots & ATTACH_BARREL)
+					A.attached(user, src, FALSE)
+				else
+					user << "You fumble around with the attachment."
+			if (ATTACH_UNDER)
+				if (attachment_slots & ATTACH_UNDER)
+					A.attached(user, src, FALSE)
+			if (ATTACH_ADV_SCOPE)
+				if (attachment_slots & ATTACH_ADV_SCOPE)
+					A.attached(user, src, FALSE)
+				else
+					user << "You fumble around with the attachment."
+			if (ATTACH_SILENCER)
+				if (gtype in A.fits)
+					if (attachment_slots & ATTACH_SILENCER)
+						A.attached(user, src, FALSE)
+					else
+						user << "You fumble around with the attachment."
+				else
+					user << "[A] cannot be attached to the [src]."
 			else
 				user << "[A] cannot be attached to the [src]."
-		else
-			user << "[A] cannot be attached to the [src]."
+	if (istype(I, /obj/item/weapon/gun/launcher/grenade/underslung))
+		var/obj/item/weapon/gun/launcher/grenade/underslung/G = I
+		if (attachment_slots & ATTACH_UNDER)
+			G.attached(user, src, FALSE)
 
 
 /////////////////MISC ATTACHMENTS//////////////////////////////
@@ -164,7 +176,6 @@ Current Defines (_defines/attachment.dm)
 	weight = 0.450
 	value = 12
 	var/attack_sound = 'sound/weapons/slice.ogg'
-	var/weakens = 0
 //	var/datum/action/bayonet/amelee
 	var/atk_mode = SLASH
 
@@ -259,15 +270,34 @@ Current Defines (_defines/attachment.dm)
 
 /////////////////OPTICS//////////////////////////////
 
+/obj/item/weapon/attachment/scope/removed(mob/user, obj/item/weapon/gun/G)
+	if (do_after(user, 15, user))
+		G.attachments -= src
+		G.actions -= actions
+		G.verbs -= verbs
+		G.attachment_slots += attachment_type
+		dropped(user)
+		A_attached = FALSE
+		loc = get_turf(src)
+		user << "You remove [src] from the [G]."
+		G.accuracy = initial(G.accuracy)
+		G.recoil = initial(G.recoil)
+	else
+		return
+
 /obj/item/weapon/attachment/scope/iron_sights
 	name = "iron sights"
 	attachment_type = ATTACH_IRONSIGHTS
 	zoom_amt = ZOOM_CONSTANT
 
+/obj/item/weapon/attachment/scope/iron_sights/removed(mob/user, obj/item/weapon/gun/G)
+	return
+
 /obj/item/weapon/attachment/scope/iron_sights/mg
 	name = "iron sights"
 	attachment_type = ATTACH_IRONSIGHTS
 	zoom_amt = ZOOM_CONSTANT + 5
+
 /obj/item/weapon/attachment/scope/iron_sights/mg/type99
 	name = "telescopic sights"
 	attachment_type = ATTACH_IRONSIGHTS
@@ -326,25 +356,6 @@ Current Defines (_defines/attachment.dm)
 				W.update_icon()
 		else
 			return
-
-/obj/item/weapon/attachment/scope/removed(mob/user, obj/item/weapon/gun/G)
-	if (do_after(user, 15, user))
-		G.attachments -= src
-		G.actions -= actions
-		G.verbs -= verbs
-		G.attachment_slots += attachment_type
-		dropped(user)
-		A_attached = FALSE
-		loc = get_turf(src)
-		user << "You remove [src] from the [G]."
-		G.accuracy = initial(G.accuracy)
-		G.recoil = initial(G.recoil)
-	else
-		return
-
-/obj/item/weapon/attachment/scope/iron_sights/removed(mob/user, obj/item/weapon/gun/G)
-	return
-
 
 /////////////////ADVANCED OPTICS//////////////////////////////
 
@@ -441,6 +452,12 @@ Current Defines (_defines/attachment.dm)
 	max_zoom = ZOOM_CONSTANT+2
 	acc_modifier = 1.1
 
+/obj/item/weapon/attachment/scope/adjustable/advanced/fg42
+	name = "FG42 sight"
+	icon_state = "fg42"
+	desc = "A 1.5x scope. Increases magnification and reduces some parallax error."
+	max_zoom = ZOOM_CONSTANT+2
+	acc_modifier = 1.1
 
 /////////////////UNDER BARREL//////////////////////////////
 
@@ -517,6 +534,43 @@ Current Defines (_defines/attachment.dm)
 	desc = "a foregrip, to increase stability when firing."
 	acc_modifier = 1.4
 	scopeonly = FALSE
+
+/obj/item/weapon/gun/launcher/grenade/underslung/proc/attached(mob/user, obj/item/weapon/gun/G, var/quick = FALSE)
+	if (quick)
+		A_attached = TRUE
+		G.attachment_slots -= ATTACH_UNDER
+		loc = G
+		G.attachments += src
+		G.launcher = src
+		G.under_ico = ongun
+		G.overlays += G.under_ico
+	else
+		if (do_after(user, 15, user))
+			user.unEquip(src)
+			A_attached = TRUE
+			G.attachment_slots -= ATTACH_UNDER
+			loc = G
+			G.attachments += src
+			G.update_attachment_actions(user)
+			user << "<span class = 'notice'>You attach [src] to the [G].</span>"
+			G.launcher = src
+			G.under_ico = ongun
+			G.overlays += G.under_ico
+		else
+			return
+
+/obj/item/weapon/gun/launcher/grenade/underslung/proc/removed(mob/user, obj/item/weapon/gun/G)
+	if (do_after(user, 15, user))
+		G.attachments -= src
+		G.attachment_slots += ATTACH_UNDER
+		dropped(user)
+		A_attached = FALSE
+		loc = get_turf(src)
+		user << "You remove [src] from the [G]."
+		G.launcher = null
+		G.overlays -= G.under_ico
+	else
+		return
 
 /obj/item/weapon/gun
 	var/silencer_ico

@@ -1,6 +1,7 @@
 //wall format (w_type var): type of wall, opacity, density, armor, current health, can open/close, is open?, doesnt get colored
 
 //tanks
+
 /obj/structure/vehicleparts/frame/panzervi
 
 /obj/structure/vehicleparts/frame/panzervi/front
@@ -85,6 +86,210 @@
 	w_left = list("c_wall",TRUE,TRUE,40,50,FALSE,FALSE)
 	w_front = list("c_armoredfront",TRUE,TRUE,50,50,FALSE,FALSE)
 
+/obj/structure/vehicleparts/frame/su85
+
+/obj/structure/vehicleparts/frame/su85/front
+	w_front = list("c_wall",TRUE,TRUE,40,40,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/su85/back
+	w_back = list("c_wall",TRUE,TRUE,40,40,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/su85/left
+	w_left = list("c_wall",TRUE,TRUE,40,40,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/su85/right
+	w_right = list("c_wall",TRUE,TRUE,40,40,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/su85/right/door
+	w_right = list("c_door",TRUE,TRUE,30,30,TRUE,TRUE)
+	doorcode = 4975
+/obj/structure/vehicleparts/frame/su85/rb
+	w_right = list("c_wall",TRUE,TRUE,40,40,FALSE,FALSE)
+	w_back = list("c_wall",TRUE,TRUE,40,35,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/su85/lb
+	w_left = list("c_wall",TRUE,TRUE,40,40,FALSE,FALSE)
+	w_back = list("c_wall",TRUE,TRUE,40,35,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/su85/rf
+	w_right = list("c_wall",TRUE,TRUE,40,50,FALSE,FALSE)
+	w_front = list("c_armoredfront",TRUE,TRUE,40,40,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/su85/lf
+	w_left = list("c_wall",TRUE,TRUE,40,40,FALSE,FALSE)
+	w_front = list("c_armoredfront",TRUE,TRUE,40,40,FALSE,FALSE)
+
+/obj/structure/vehicleparts/frame/sdfkzfront
+
+/obj/structure/vehicleparts/frame/sdfkzfront/lf
+	w_left = list("c_wall",TRUE,TRUE,15,15,FALSE,FALSE)
+	w_front = list("c_armoredfront",TRUE,TRUE,15,15,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/sdfkzfront/rf
+	w_right = list("c_wall",TRUE,TRUE,15,15,FALSE,FALSE)
+	w_front = list("c_armoredfront",TRUE,TRUE,15,15,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/sdfkzfront/right
+	w_right = list("c_wall",TRUE,TRUE,15,15,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/sdfkzfront/right/door
+	w_right = list("c_door",TRUE,TRUE,15,15,TRUE,TRUE)
+	doorcode = 11940
+
+/obj/structure/vehicleparts/frame/t20
+
+/obj/structure/vehicleparts/frame/t20/lf
+	w_left = list("c_wall",TRUE,TRUE,20,20,FALSE,FALSE)
+	w_front = list("c_armoredfront",TRUE,TRUE,30,30,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/t20/rf
+	w_right = list("c_wall",TRUE,TRUE,20,20,FALSE,FALSE)
+	w_front = list("c_armoredfront",TRUE,TRUE,20,20,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/t20/leftm
+	name = "steel frame"
+	desc = "a steel vehicle frame."
+	icon_state = "frame_steel"
+	flammable = TRUE
+	resistance = 150
+	noroof = FALSE
+	w_left = list("c_wall",TRUE,TRUE,15,15,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/t20/rightm
+	name = "steel frame"
+	desc = "a steel vehicle frame."
+	icon_state = "frame_steel"
+	flammable = TRUE
+	resistance = 150
+	noroof = FALSE
+	w_right = list("c_door",TRUE,TRUE,30,30,TRUE,TRUE)
+	doorcode = 4975
+/obj/structure/vehicleparts/frame/t20/frontlback
+	name = "wood frame"
+	desc = "a wood vehicle frame."
+	icon_state = "frame_wood"
+	flammable = TRUE
+	resistance = 120
+	noroof = TRUE
+	w_front = list("c_wall",TRUE,TRUE,20,20,FALSE,FALSE)
+	w_right = list("c_door",TRUE,TRUE,15,15,TRUE,TRUE)
+	doorcode = 4975
+/obj/structure/vehicleparts/frame/t20/frontrback
+	name = "wood frame"
+	desc = "a wood vehicle frame."
+	icon_state = "frame_wood"
+	flammable = TRUE
+	resistance = 120
+	noroof = TRUE
+	w_front = list("c_wall",TRUE,TRUE,20,20,FALSE,FALSE)
+	w_left = list("c_door",TRUE,TRUE,15,15,TRUE,TRUE)
+	doorcode = 4975
+/obj/structure/vehicleparts/frame/t20/backl
+	name = "wood frame"
+	desc = "a wood vehicle frame."
+	icon_state = "frame_wood"
+	flammable = TRUE
+	resistance = 120
+	noroof = TRUE
+	w_back = list("c_wall",TRUE,TRUE,15,15,FALSE,FALSE)
+	w_right = list("c_door",TRUE,TRUE,15,15,TRUE,TRUE)
+	doorcode = 4975
+/obj/structure/vehicleparts/frame/t20/backr
+	name = "wood frame"
+	desc = "a wood vehicle frame."
+	icon_state = "frame_wood"
+	flammable = TRUE
+	resistance = 120
+	noroof = TRUE
+	w_back = list("c_wall",TRUE,TRUE,15,15,FALSE,FALSE)
+	w_left = list("c_door",TRUE,TRUE,15,15,TRUE,TRUE)
+	doorcode = 4975
+
+/obj/structure/vehicleparts/frame/bt7
+
+/obj/structure/vehicleparts/frame/bt7/front
+	w_front = list("c_wall",TRUE,TRUE,30,30,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/bt7/back
+	w_back = list("c_wall",TRUE,TRUE,25,25,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/bt7/left
+	w_left = list("c_wall",TRUE,TRUE,25,25,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/bt7/right
+	w_right = list("c_wall",TRUE,TRUE,25,25,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/bt7/left/door
+	w_left = list("c_door",TRUE,TRUE,15,15,TRUE,TRUE)
+	doorcode = 11940
+/obj/structure/vehicleparts/frame/bt7/right/door
+	w_right = list("c_door",TRUE,TRUE,15,15,TRUE,TRUE)
+	doorcode = 11940
+/obj/structure/vehicleparts/frame/bt7/rb
+	w_right = list("c_wall",TRUE,TRUE,25,25,FALSE,FALSE)
+	w_back = list("c_wall",TRUE,TRUE,25,25,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/bt7/lb
+	w_left = list("c_wall",TRUE,TRUE,25,25,FALSE,FALSE)
+	w_back = list("c_wall",TRUE,TRUE,25,25,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/bt7/rf
+	w_right = list("c_wall",TRUE,TRUE,30,30,FALSE,FALSE)
+	w_front = list("c_armoredfront",TRUE,TRUE,30,30,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/bt7/lf
+	w_left = list("c_wall",TRUE,TRUE,30,30,FALSE,FALSE)
+	w_front = list("c_armoredfront",TRUE,TRUE,30,30,FALSE,FALSE)
+
+/obj/structure/vehicleparts/frame/unattr
+
+/obj/structure/vehicleparts/frame/unattr/lf
+	w_left = list("c_wall",TRUE,TRUE,40,40,FALSE,FALSE)
+	w_front = list("c_armoredfront",TRUE,TRUE,40,40,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/unattr/rf
+	w_right = list("c_wall",TRUE,TRUE,40,40,FALSE,FALSE)
+	w_front = list("c_armoredfront",TRUE,TRUE,40,40,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/unattr/leftm
+	name = "steel frame"
+	desc = "a steel vehicle frame."
+	icon_state = "frame_steel"
+	flammable = TRUE
+	resistance = 150
+	noroof = FALSE
+	w_left = list("c_wall",TRUE,TRUE,40,40,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/unattr/rightm
+	name = "steel frame"
+	desc = "a steel vehicle frame."
+	icon_state = "frame_steel"
+	flammable = TRUE
+	resistance = 150
+	noroof = FALSE
+	w_right = list("c_door",TRUE,TRUE,40,40,TRUE,TRUE)
+	doorcode = 4975
+/obj/structure/vehicleparts/frame/unattr/frontlback
+	name = "wood frame"
+	desc = "a wood vehicle frame."
+	icon_state = "frame_wood"
+	flammable = FALSE
+	resistance = 140
+	noroof = TRUE
+	w_front = list("c_wall",TRUE,TRUE,40,40,FALSE,FALSE)
+	w_right = list("c_door",TRUE,TRUE,40,40,TRUE,TRUE)
+	w_left = list("c_door",TRUE,TRUE,40,40,TRUE,TRUE)
+	doorcode = 4975
+/obj/structure/vehicleparts/frame/unattr/frontrback
+	name = "wood frame"
+	desc = "a wood vehicle frame."
+	icon_state = "frame_wood"
+	flammable = FALSE
+	resistance = 140
+	noroof = TRUE
+	w_front = list("c_wall",TRUE,TRUE,40,40,FALSE,FALSE)
+	w_left = list("c_door",TRUE,TRUE,40,40,TRUE,TRUE)
+	w_right = list("c_door",TRUE,TRUE,40,40,TRUE,TRUE)
+	doorcode = 4975
+/obj/structure/vehicleparts/frame/unattr/backl
+	name = "wood frame"
+	desc = "a wood vehicle frame."
+	icon_state = "frame_wood"
+	flammable = TRUE
+	resistance = 140
+	noroof = TRUE
+	w_back = list("c_wall",TRUE,TRUE,40,40,FALSE,FALSE)
+	w_right = list("c_door",TRUE,TRUE,40,40,TRUE,TRUE)
+	w_left = list("c_door",TRUE,TRUE,40,40,TRUE,TRUE)
+	doorcode = 4975
+/obj/structure/vehicleparts/frame/unattr/backr
+	name = "wood frame"
+	desc = "a wood vehicle frame."
+	icon_state = "frame_wood"
+	flammable = TRUE
+	resistance = 140
+	noroof = TRUE
+	w_back = list("c_wall",TRUE,TRUE,40,40,FALSE,FALSE)
+	w_right = list("c_door",TRUE,TRUE,40,40,TRUE,TRUE)
+	w_left = list("c_door",TRUE,TRUE,40,40,TRUE,TRUE)
+	doorcode = 4975
 
 /obj/structure/vehicleparts/frame/kv1
 
@@ -322,3 +527,85 @@
 	w_front = list("mt_front_left_frame",TRUE,TRUE,50,50,FALSE,FALSE)
 	override_roof_icon = "baf1_fl"
 	override_frame_icon = "mt_front_left_frame"
+
+///IS-3
+
+/obj/structure/vehicleparts/frame/is3
+	icon = 'icons/obj/vehicles/tankparts96x96.dmi'
+	normal_icon = 'icons/obj/vehicles/tankparts96x96.dmi'
+	pixel_x = -32
+	pixel_y = -32
+
+/// front
+
+/obj/structure/vehicleparts/frame/is3/lf
+	icon_state = "is3_frame_steel_front_left"
+	w_front = list("is3_front_left_frame",TRUE,TRUE,35,50,FALSE,FALSE)
+	w_left = list("none",TRUE,TRUE,35,50,FALSE,FALSE)
+
+/obj/structure/vehicleparts/frame/is3/front
+	icon_state = "is3_frame_steel_front_middle"
+	w_front = list("is3_front_middle_frame",TRUE,TRUE,40,50,FALSE,FALSE)
+
+/obj/structure/vehicleparts/frame/is3/rf
+	icon_state = "is3_frame_steel_front_right"
+	w_front = list("is3_front_right_frame",TRUE,TRUE,35,50,FALSE,FALSE)
+	w_right = list("none",TRUE,TRUE,35,50,FALSE,FALSE)
+
+/// middle-front
+
+/obj/structure/vehicleparts/frame/is3/lfc
+	icon_state = "is3_frame_steel_middle_front_left"
+	w_left = list("is3_middle_front_left_frame",TRUE,TRUE,35,50,FALSE,FALSE)
+
+/obj/structure/vehicleparts/frame/is3/fc
+	icon_state = "is3_frame_steel_middle_front"
+
+/obj/structure/vehicleparts/frame/is3/rfc
+	icon_state = "is3_frame_steel_middle_front_right"
+	w_right = list("is3_middle_front_right_frame",TRUE,TRUE,35,50,FALSE,FALSE)
+
+/// middle
+
+/obj/structure/vehicleparts/frame/is3/lc
+	icon_state = "is3_frame_steel_middle_left"
+	w_left = list("is3_middle_left_frame",TRUE,TRUE,35,50,FALSE,FALSE)
+
+/obj/structure/vehicleparts/frame/is3/c
+	icon_state = "is3_frame_steel_middle"
+
+/obj/structure/vehicleparts/frame/is3/rc
+	icon_state = "is3_frame_steel_middle_right"
+	w_right = list("is3_middle_right_frame",TRUE,TRUE,35,50,FALSE,FALSE)
+
+/// middle-back
+
+/obj/structure/vehicleparts/frame/is3/lbc
+	icon_state = "is3_frame_steel_middle_back_left"
+	w_left = list("is3_middle_back_left_frame",TRUE,TRUE,35,50,FALSE,FALSE)
+
+/obj/structure/vehicleparts/frame/is3/bc
+	icon_state = "is3_frame_steel_middle_back"
+
+/obj/structure/vehicleparts/frame/is3/rbc
+	icon_state = "is3_frame_steel_middle_back_right"
+	w_right = list("is3_middle_back_right_frame",TRUE,TRUE,35,50,FALSE,FALSE)
+
+/// back
+
+/obj/structure/vehicleparts/frame/is3/lb
+	icon_state = "is3_frame_steel_back_left"
+	w_back = list("is3_back_left_frame",TRUE,TRUE,35,50,FALSE,FALSE)
+	w_left = list("none",TRUE,TRUE,35,50,FALSE,FALSE)
+
+/obj/structure/vehicleparts/frame/is3/back
+	icon_state = "is3_frame_steel_back"
+	w_back = list("is3_back_middle_frame",TRUE,TRUE,35,50,FALSE,FALSE)
+
+/obj/structure/vehicleparts/frame/is3/rb
+	icon_state = "is3_frame_steel_back_right"
+	w_back = list("is3_back_right_frame",TRUE,TRUE,35,50,TRUE,TRUE)
+	w_right = list("none",TRUE,TRUE,35,50,FALSE,FALSE)
+
+
+

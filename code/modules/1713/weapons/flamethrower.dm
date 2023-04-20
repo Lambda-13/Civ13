@@ -13,18 +13,20 @@
 	force = WEAPON_FORCE_WEAK+2
 	throwforce = WEAPON_FORCE_WEAK
 	flammable = FALSE
-	w_class = 3
-	slot_flags = SLOT_BELT
+	w_class = ITEM_SIZE_LARGE
+	slot_flags = SLOT_BELT|SLOT_SHOULDER
 	var/active = FALSE
 	var/lastfire = 0
-	var/max_range = 3
+	var/max_range = 4
 	var/firing_sound = 'sound/weapons/flamethrower.ogg'
 
 /obj/item/weapon/flamethrower/update_icon()
 	if (active)
 		icon_state = "[base_icon]_on"
+		item_state = "[base_icon]_on"
 	else
 		icon_state = base_icon
+		item_state = base_icon
 
 /obj/item/weapon/flamethrower/attack_self(var/mob/living/H)
 	if (active)
@@ -40,6 +42,9 @@
 	if (!active || !H)
 		return
 	if (world.time<=lastfire)
+		return
+	if (!H.has_empty_hand(both = FALSE))
+		H << "<span class='warning'>You need both hands to fire \the [src]!</span>"
 		return
 	if (!cdir)
 		cdir = H.dir
@@ -64,17 +69,11 @@
 		cdir = user.dir
 	if (FM.reagents && FM.reagents.get_reagent_amount("gasoline") >= 5)
 		FM.reagents.remove_reagent("gasoline",5)
-		lastfire = world.time+30
+		lastfire = world.time+20
 		//message_admins("[user.name] ([user.ckey]) fired a flamethrower from: X=[user.x];Y=[user.y];Z[user.z]")
 		var/turf/source_turf = get_turf(user)
 
 		var/list/turfs = getline2(source_turf, target)
-		
-		var/turf/prev_T = source_turf
-
-		
-		if(user)
-			prev_T = user.loc
 
 		var/distance = 0
 		var/stop_at_turf = FALSE
@@ -85,39 +84,25 @@
 			if(distance > max_range)
 				break
 
-			if(istype(T, /turf/floor/dirt/space))
+			if(istype(T, /turf/floor/space))
 				break
 
 			if(T.density)
-				stop_at_turf = TRUE
+				if(!istype(T, /obj/structure/barricade) || !istype(T, /obj/structure/window/barrier))
+					stop_at_turf = TRUE
 			else
 				if (distance > 0)
-					var/obj/effect/fire/flamethrower/temp = new/obj/effect/fire/flamethrower(prev_T) //I CAST THE FLAMES OF HELL UPON THY SOUL!
-					ignite_turf(get_turf(temp))
-					var/atom/A = LinkBlocked(temp, prev_T, T)
+					ignite_turf(get_turf(T), 6, 70) // 6 second 70 damage flame
 
-					if(A)
-						if (A.flags & ON_BORDER)
-							break
-						stop_at_turf = TRUE
-
-			if(T == target.loc || (user && T == user.loc))
+			if(T == target.loc)
 				if(stop_at_turf)
 					break
-				prev_T = T
 				continue
+
 			if(stop_at_turf)
 				break
-			
-			distance++
-			prev_T = T
 
-/obj/item/weapon/flamethrower/proc/ignite_turf(turf/target)
-	for (var/mob/living/HM in target)
-		HM.adjustFireLoss(35)
-		HM.fire_stacks += rand(4,5)
-		HM.IgniteMob()
-	return
+			distance++
 
 /obj/item/weapon/reagent_containers/glass/flamethrower
 	name = "M2 Flamethrower backpack"
@@ -176,3 +161,88 @@
 	..()
 	reagents.add_reagent("gasoline",100)
 
+/obj/item/weapon/flamethrower/eins
+	name = "Einstossflammenwerfer 46 hose"
+	desc = "Single use flamethrower hose, aim carefully."
+	w_class = ITEM_SIZE_NORMAL
+	slot_flags = SLOT_BELT|SLOT_POCKET|SLOT_SHOULDER
+	max_range = 5
+	icon_state = "eins"
+	item_state = "eins"
+	base_icon = "eins"
+
+/obj/item/weapon/reagent_containers/glass/flamethrower/eins //until someone makes it so the eins is just a single item that you can fire and drop there will be a canister
+	name = "Einstossflammenwerfer 46 canister"
+	desc = "A eins single use flamethrower canister. put it on your back to use it with the hose."
+	icon_state = "eins_back"
+	item_state = "eins_back"
+	slowdown = 0.2
+	amount_per_transfer_from_this = 1
+	volume = 5
+	w_class = ITEM_SIZE_NORMAL
+
+/obj/item/weapon/reagent_containers/glass/flamethrower/eins/filled/New()
+	..()
+	reagents.add_reagent("gasoline",5)
+
+/obj/item/weapon/flamethrower/lpo
+	name = "LPO50 Flamethrower hose"
+	icon_state = "lpo_flamethrower"
+	item_state = "lpo_flamethrower"
+	base_icon = "lpo_flamethrower"
+	max_range = 5 //effective maximum range is 50m
+
+/obj/item/weapon/reagent_containers/glass/flamethrower/lpo
+	name = "LPO50 Flamethrower Canister"
+	icon_state = "lpo_flamethrower_back"
+	item_state = "lpo_flamethrower_back"
+	volume = 150
+
+/obj/item/weapon/reagent_containers/glass/flamethrower/lpo/filled/New()
+	..()
+	reagents.add_reagent("gasoline",150)
+
+/obj/item/weapon/flamethrower/roks2
+	name = "ROKS2 Flamethrower hose"
+	icon_state = "roks2_flamethrower"
+	item_state = "roks2_flamethrower"
+	base_icon = "roks2_flamethrower"
+
+/obj/item/weapon/reagent_containers/glass/flamethrower/roks2
+	name = "ROKS2 Flamethrower Canister"
+	icon_state = "roks2_flamethrower_back"
+	item_state = "roks2_flamethrower"
+
+/obj/item/weapon/reagent_containers/glass/flamethrower/roks2/filled/New()
+	..()
+	reagents.add_reagent("gasoline",100)
+
+/obj/item/weapon/reagent_containers/glass/flamethrower_mg
+	name = "Stationary Flamethrower Tank"
+	desc = "A flamethrower tank. Up to 200 liters of gasoline."
+	icon = 'icons/obj/guns/gun.dmi'
+	icon_state = "coaxflam_ammo"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand.dmi',
+		)
+	item_state = "ammo_can"
+	flags = CONDUCT
+	sharp = FALSE
+	edge = FALSE
+	nothrow = TRUE
+	flags = CONDUCT
+	attack_verb = list("bashed", "hit")
+	force = WEAPON_FORCE_WEAK
+	throwforce = WEAPON_FORCE_WEAK
+	flammable = TRUE
+	w_class = 14
+	slot_flags = null
+	throw_speed = 1
+	throw_range = 1
+	amount_per_transfer_from_this = 25
+	volume = 200
+	density = FALSE
+/obj/item/weapon/reagent_containers/glass/flamethrower_mg/filled/New()
+	..()
+	reagents.add_reagent("gasoline",200)

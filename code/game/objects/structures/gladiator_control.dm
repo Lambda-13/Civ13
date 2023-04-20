@@ -42,7 +42,7 @@
 					if (!done)
 						var/statlist = "1,1,1,1,1,1,1,1,1,1"
 						for(var/mob/living/human/GLAD1 in world)
-							if (GLAD1.original_job_title == "Gladiator" && GLAD1.stat != DEAD && GLAD1.client && GLAD1.name==splitdata[1] && GLAD1.client.ckey==splitdata[2])
+							if (GLAD1.original_job_title == "Gladiator" && GLAD1.stat != DEAD && GLAD1.client && GLAD1.name ==splitdata[1] && GLAD1.client.ckey==splitdata[2])
 								statlist = "[GLAD1.stats["strength"][1]],[GLAD1.stats["crafting"][1]],[GLAD1.stats["rifle"][1]],[GLAD1.stats["dexterity"][1]],[GLAD1.stats["swords"][1]],[GLAD1.stats["pistol"][1]],[GLAD1.stats["bows"][1]],[GLAD1.stats["medical"][1]],[GLAD1.stats["philosophy"][1]],[GLAD1.stats["machinegun"][1]],[GLAD1.stats["stamina"][1]]"
 						GD.gladiator_stats += list(list(splitdata[2],splitdata[1],statlist,0,1,1))
 					timer = world.time + 600
@@ -142,7 +142,7 @@
 	not_movable = TRUE
 	not_disassemblable = TRUE
 
-	var/active_emperor = 0
+	var/active_emperor = FALSE
 	var/arena = "Arena I"
 
 	var/combat_running = FALSE
@@ -164,14 +164,27 @@
 	spawn(1200)
 		run_proc()
 
+/obj/structure/gladiator_control/proc/pick_combat()
+	if (human_clients_mob_list.len <= 8)
+		current_style = "1 vs 1"
+		return
+	else if (human_clients_mob_list.len > 8 && human_clients_mob_list.len <= 16)
+		current_style = pick("1 vs 1","2 vs 2","4 people free-for-all")
+		return
+	else
+		current_style = pick("1 vs 1","2 vs 2","4 people free-for-all","6 people free-for-all")
+		return
+
 /obj/structure/gladiator_control/proc/run_proc()
-	active_emperor = 0
+	active_emperor = FALSE
 /*
 	for(var/mob/living/human/EMP in world)
 		if (EMP.original_job_title == "Imperator" && EMP.stat == CONSCIOUS)
-			active_emperor++
+			active_emperor = TRUE
+		else
+			active_emperor = FALSE
 */
-	if (active_emperor <= 0 || automode)
+	if (!active_emperor || automode)
 		if (combat_running == 1)
 			prepare_combat()
 		else if (combat_running == 0)
@@ -183,17 +196,6 @@
 			check_combat()
 	spawn(10)
 		run_proc()
-
-/obj/structure/gladiator_control/proc/pick_combat()
-	if (human_clients_mob_list.len <= 8)
-		current_style = "1 vs 1"
-		return
-	else if (human_clients_mob_list.len > 8 && human_clients_mob_list.len <= 16)
-		current_style = pick("1 vs 1","2 vs 2","4 people free-for-all")
-		return
-	else
-		current_style = pick("1 vs 1","2 vs 2","4 people free-for-all","6 people free-for-all")
-		return
 
 /obj/structure/gladiator_control/proc/prepare_combat()
 	count = 0

@@ -23,9 +23,22 @@
 	slot_flags = SLOT_BELT
 	force = WEAPON_FORCE_NORMAL
 	throwforce = WEAPON_FORCE_NORMAL
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 
 	attack_verb = list("прикручивает", "забивает", "избивает", "ударил")
+
+/obj/item/weapon/metalfile
+	name = "metalfile"
+	desc = "A metal file, maybe you could file through metal with this."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "metalfile"
+	flags = CONDUCT
+	slot_flags = SLOT_POCKET
+	force = WEAPON_FORCE_WEAK
+	throwforce = WEAPON_FORCE_WEAK
+	w_class = ITEM_SIZE_SMALL
+
+	attack_verb = list("bapped", "bonked", "slapped", "whacked")
 
 /*
  * Fire Extinguisher
@@ -39,7 +52,7 @@
 	slot_flags = SLOT_BELT
 	force = WEAPON_FORCE_NORMAL+5
 	throwforce = WEAPON_FORCE_NORMAL+5
-	w_class = 3.0
+	w_class = ITEM_SIZE_NORMAL
 
 	attack_verb = list("бахает", "бухает", "долбит", "ударил")
 	var/cap = 25
@@ -86,7 +99,7 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_POCKET
 	force = WEAPON_FORCE_NORMAL + 4
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	throwforce = WEAPON_FORCE_NORMAL
 	throw_speed = 5
 	throw_range = 5
@@ -103,7 +116,7 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_POCKET
 	force = WEAPON_FORCE_NORMAL + 4
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	throwforce = WEAPON_FORCE_NORMAL
 	throw_speed = 5
 	throw_range = 5
@@ -120,7 +133,7 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_POCKET
 	force = WEAPON_FORCE_NORMAL + 6
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	throwforce = WEAPON_FORCE_NORMAL
 	throw_speed = 6
 	throw_range = 5
@@ -137,7 +150,7 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	force = WEAPON_FORCE_NORMAL + 1
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	throwforce = WEAPON_FORCE_NORMAL
 	throw_speed = 5
 	throw_range = 5
@@ -160,7 +173,7 @@
 	force = WEAPON_FORCE_WEAK
 	throw_speed = 2
 	throw_range = 9
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	attack_verb = list("обкусывает", "делает кусь")
 	sharp = TRUE
 	edge = TRUE
@@ -189,7 +202,7 @@
 	force = WEAPON_FORCE_PAINFUL
 	throwforce = WEAPON_FORCE_NORMAL
 	item_state = "crowbar"
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 
 	attack_verb = list("ударил", "ломает", "бацает", "делает бонк", "ударил")
 
@@ -203,7 +216,7 @@
 	force = WEAPON_FORCE_WEAK
 	throwforce = WEAPON_FORCE_WEAK
 	item_state = "zippo"
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	flags = FALSE
 
 	attack_verb = list("бьёт", "призывает", "долбит", "хреначит", "ударил")
@@ -228,18 +241,18 @@
 	force = WEAPON_FORCE_HARMLESS
 	throwforce = WEAPON_FORCE_HARMLESS
 	item_state = "zippo"
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 
 	attack_verb = list("бьёт")
-	var/cooldown_whistle = FALSE
+	var/cooldown = FALSE
 
 /obj/item/weapon/whistle/attack_self(mob/user as mob)
-	if (cooldown_whistle == FALSE)
+	if (!cooldown)
 		playsound(loc, 'sound/effects/whistle.ogg', 100, FALSE, 5)
 		user.visible_message("<span class='warning'>[user] свистит в [name]!</span>")
-		cooldown_whistle = TRUE
-		spawn(100)
-			cooldown_whistle = FALSE
+		cooldown = TRUE
+		spawn(10 SECONDS)
+			cooldown = FALSE
 		return
 
 /obj/item/weapon/deathwhistle
@@ -252,18 +265,18 @@
 	force = WEAPON_FORCE_HARMLESS
 	throwforce = WEAPON_FORCE_HARMLESS
 	item_state = "zippo"
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 
 	attack_verb = list("attacked", "whacked")
-	var/cooldown_whistle = FALSE
+	var/cooldown = FALSE
 
 /obj/item/weapon/deathwhistle/attack_self(mob/user as mob)
-	if (cooldown_whistle == FALSE)
+	if (!cooldown)
 		playsound(loc, 'sound/effects/death-whistle.ogg', 100, FALSE, 5)
 		user.visible_message("<span class='warning'>[user] sounds the [name]!</span>")
-		cooldown_whistle = TRUE
-		spawn(100)
-			cooldown_whistle = FALSE
+		cooldown = TRUE
+		spawn(10 SECONDS)
+			cooldown = FALSE
 		return
 
 /obj/item/weapon/siegeladder
@@ -274,7 +287,7 @@
 	flags = CONDUCT
 	force = WEAPON_FORCE_WEAK
 	throwforce = WEAPON_FORCE_WEAK
-	w_class = 4.0
+	w_class = ITEM_SIZE_LARGE
 	flags = FALSE
 
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
@@ -292,7 +305,7 @@
 	flags = CONDUCT
 	force = WEAPON_FORCE_WEAK
 	throwforce = WEAPON_FORCE_WEAK
-	w_class = 4.0
+	w_class = ITEM_SIZE_LARGE
 
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 	deployed = FALSE
@@ -346,7 +359,7 @@
 	slot_flags = SLOT_BACK
 	force = WEAPON_FORCE_NORMAL
 	throwforce = WEAPON_FORCE_NORMAL
-	w_class = 3.0
+	w_class = ITEM_SIZE_NORMAL
 	flags = FALSE
 
 	attack_verb = list("bashed", "whacked")
@@ -355,7 +368,7 @@
 /obj/item/weapon/fishing/net
 	name = "сеть"
 	desc = "Для ловли морсих обитателей если вам лень рыбачить."
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	icon_state = "fishing_net"
 	force = WEAPON_FORCE_WEAK
 	throwforce = WEAPON_FORCE_WEAK
@@ -371,7 +384,7 @@
 	slot_flags = SLOT_BACK
 	force = WEAPON_FORCE_NORMAL
 	throwforce = WEAPON_FORCE_NORMAL
-	w_class = 3.0
+	w_class = ITEM_SIZE_NORMAL
 
 	attack_verb = list("bashed", "whacked")
 	flammable = TRUE
@@ -385,7 +398,7 @@
 	slot_flags = SLOT_BELT
 	force = WEAPON_FORCE_NORMAL+4
 	throwforce = WEAPON_FORCE_NORMAL-1
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 
 /*
@@ -401,7 +414,7 @@
 	flags = CONDUCT
 	force = WEAPON_FORCE_NORMAL
 	throwforce = WEAPON_FORCE_NORMAL
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 
@@ -421,7 +434,7 @@
 	throwforce = WEAPON_FORCE_WEAK
 	throw_speed = TRUE
 	throw_range = 5
-	w_class = 3.0
+	w_class = ITEM_SIZE_NORMAL
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 /*	var/welding = FALSE
 
@@ -494,7 +507,7 @@
 				T.visible_message("<span class='danger'>\The [src] turns on.</span>")
 			force = WEAPON_FORCE_PAINFUL
 			damtype = "fire"
-			w_class = 4
+			w_class = ITEM_SIZE_LARGE
 			welding = TRUE
 			update_icon()
 			set_light(l_range = 1.4, l_power = TRUE, l_color = COLOR_ORANGE)
@@ -598,7 +611,7 @@ Shinobi's unfinished welder stuff - siro*/
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	force = WEAPON_FORCE_NORMAL + 2
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	throwforce = WEAPON_FORCE_NORMAL
 	throw_speed = 5
 	throw_range = 5
@@ -613,7 +626,96 @@ Shinobi's unfinished welder stuff - siro*/
 	icon_state = "whistle"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_POCKET
-	w_class = 1.0
+	w_class = ITEM_SIZE_TINY
+
+/obj/item/weapon/compass
+	name = "compass"
+	desc = "An instrument containing a magnetized pointer which shows the direction of magnetic north and bearings from it."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "compass"
+	slot_flags = SLOT_BELT | SLOT_POCKET | SLOT_ID
+	w_class = ITEM_SIZE_TINY
+	force = WEAPON_FORCE_HARMLESS
+	throwforce = WEAPON_FORCE_HARMLESS
+	var/time = 100
+	var/max_offset = 6
+
+/obj/item/weapon/compass/attack_self(mob/user as mob)
+	var/offset = rand(-max_offset,max_offset)
+	var/pos_x = user.x + offset
+	var/pos_y = user.y + offset
+	var/lat_x = round((world.maxx)/3)
+	var/lat_y = round((world.maxy)/3)
+
+	var/pos_dir_x = "-UNKNOWN"
+	var/pos_dir_y = "UNKNOWN"
+
+	var/pos_message = "You're in the [pos_dir_y][pos_dir_x] of the area."
+	if (do_after(user,time,src))
+		if (pos_x <= lat_x)
+			pos_dir_x = "WEST"
+		else if (pos_x >= 2*lat_x)
+			pos_dir_x = "EAST"
+		else
+			pos_dir_x = ""
+
+		if (pos_y <= lat_y)
+			pos_dir_y = "SOUTH"
+		else if (pos_y >= 2*lat_y)
+			pos_dir_y = "NORTH"
+		else
+			pos_dir_y = ""
+
+		if (pos_dir_x != "" || pos_dir_y != "")
+			pos_message = "You're in the <b>[pos_dir_y][pos_dir_x]</b> of the area."
+		else
+			pos_message = "You're in the <b>CENTER</b> of the area."
+		usr << "You estimate your position to be <b>[pos_x];[pos_y]</b>. [pos_message]"
+
+/obj/item/weapon/compass/modern
+	name = "navigation tablet"
+	desc = "A tablet programmed specifically to navigate people through rough terrain and to let them know where they are."
+	icon_state = "compass_modern"
+	slot_flags = SLOT_BELT
+	time = 3
+	max_offset = 2
+	secondary_action = TRUE
+	var/on = FALSE
+
+/obj/item/weapon/compass/modern/attack_self(mob/user as mob)
+	if (!on)
+		usr << "<span class = 'warning'>You need to turn the tablet on.</span>"
+		return
+	else
+		. = ..()
+/obj/item/weapon/compass/modern/secondary_attack_self(mob/living/human/user)
+	turn_on()
+
+/obj/item/weapon/compass/modern/proc/turn_on()
+	if (!on)
+		on = TRUE
+		icon_state = "compass_modern_on"
+		update_icon()
+		return
+	else
+		on = FALSE
+		icon_state = "compass_modern"
+		update_icon()
+		return
+
+/obj/item/weapon/compass/modern/tacmap
+	name = "tactical map"
+	desc = "A tablet programmed specifically to navigate combatants through rough terrain and to let them know where they are."
+	var/image/img
+
+/obj/item/weapon/compass/modern/tacmap/New()
+	..()
+	switch (map.ID)
+		if ("OPERATION_FALCON")
+			img = image(icon = 'icons/minimaps.dmi', icon_state = "operation_falcon_map")
+
+/obj/item/weapon/compass/modern/tacmap/examine(mob/user)
+	user << browse(getFlatIcon(img),"window=popup;size=630x630")
 
 //////////////////////////////////////////LOCKPICK/////////////////////////////////////////////////////////////////////////////
 /obj/item/weapon/lockpick
@@ -625,6 +727,6 @@ Shinobi's unfinished welder stuff - siro*/
 	slot_flags = SLOT_BELT | SLOT_POCKET
 	force = 5
 	throwforce = WEAPON_FORCE_NORMAL
-	w_class = 1.0
+	w_class = ITEM_SIZE_TINY
 
 	attack_verb = list("shanked", "jabbed", "stabbed","shiv'd")

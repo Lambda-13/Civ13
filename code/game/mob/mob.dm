@@ -702,7 +702,7 @@
 			if (map && !map.civilizations)
 				var/grace_period_string = ""
 				for (var/faction in map.faction_organization)
-					if (!list(BRITISH, PIRATES, INDIANS, PORTUGUESE, SPANISH, FRENCH, DUTCH, CIVILIAN, ROMAN, GREEK, ARAB, JAPANESE, RUSSIAN, GERMAN, AMERICAN, FILIPINO, CHECHEN, CHINESE, FINNISH, NORWEGIAN, SWEDISH, DANISH, VIETNAMESE).Find(faction))
+					if (!list(BRITISH, PIRATES, INDIANS, PORTUGUESE, SPANISH, FRENCH, DUTCH, CIVILIAN, ROMAN, GREEK, ARAB, JAPANESE, RUSSIAN, GERMAN, AMERICAN, FILIPINO, CHECHEN, CHINESE, FINNISH, NORWEGIAN, SWEDISH, DANISH, VIETNAMESE, POLISH).Find(faction))
 						continue
 					if (grace_period_string)
 						grace_period_string += ", "
@@ -739,7 +739,6 @@
 				stat("Ветер:", map.winddesc)
 //				stat("Weather:", get_weather())
 				stat("Дневное время:", time_of_day)
-
 
 			// give the client some information about how the server is running
 			if (processes.ping_track && client)
@@ -822,6 +821,14 @@
 			prone = FALSE
 			update_icons()
 	for (var/obj/structure/pillory/G in get_turf(src))
+		if (G.hanging == src)
+			lying = FALSE
+			canmove = FALSE
+			anchored = TRUE
+			gallows = TRUE
+			prone = FALSE
+			update_icons()
+	for (var/obj/structure/post_execution/G in get_turf(src))
 		if (G.hanging == src)
 			lying = FALSE
 			canmove = FALSE

@@ -24,15 +24,10 @@
 	name = "fence"
 	desc = "An old wooden fence."
 	icon = 'icons/obj/fence.dmi'
-	icon_state = "1"
+	icon_state = "fence"
 	health = 16
 	hitsound = 'sound/effects/wooddoorhit.ogg'
 	flammable = TRUE
-
-/obj/structure/grille/fence/New()
-	..()
-	icon_state = "[rand(1,3)]"
-	color = "#c8c8c8"
 
 /obj/structure/grille/fence/attackby(obj/O as obj, mob/user as mob)
 	if (istype(O, /obj/item/weapon/leash))
@@ -46,20 +41,25 @@
 			return
 	else
 		..()
+	if (health >= initial(health))
+		icon_state = "[initial(icon_state)]"
+	else if (health >= initial(health)*0.6)
+		icon_state = "[initial(icon_state)]2"
+	else if (health >= initial(health)*0.3)
+		icon_state = "[initial(icon_state)]3"
 
 /obj/structure/grille/fence/picket
 	name = "picket fence"
 	desc = "A traditional wooden fence."
-	icon = 'icons/obj/fence.dmi'
-	icon_state = "p1"
+	icon_state = "picket"
 	health = 30
-	hitsound = 'sound/effects/wooddoorhit.ogg'
-	flammable = TRUE
 
-/obj/structure/grille/fence/picket/New()
-	..()
-	icon_state = "p[rand(1,3)]"
-	color = "#c8c8c8"
+/obj/structure/grille/fence/steel_picket
+	name = "metal fence"
+	desc = "A traditional metal fence."
+	icon_state = "steel_picket"
+	health = 60
+	flammable = FALSE
 
 /obj/structure/barricade/wood_pole/attackby(obj/O as obj, mob/user as mob)
 	if (istype(O, /obj/item/weapon/leash))
@@ -124,22 +124,7 @@
 	desc = "A wrought iron fence."
 	icon = 'icons/obj/fence.dmi'
 	icon_state = "iron_fence"
-	health = 50
-	hitsound = 'sound/weapons/blade_parry1.ogg'
-
-/obj/structure/grille/chainlinkfence
-	name = "chain-link fence"
-	desc = "A woven steel fence."
-	icon = 'icons/obj/fence.dmi'
-	icon_state = "chainlinkfence"
-	health = 80
-	hitsound = 'sound/weapons/blade_parry1.ogg'
-
-/obj/structure/grille/chainlinkfence/corner
-	name = "chain-link fence"
-	desc = "A woven steel fence."
-	icon_state = "chainlinkfence_corner"
-	health = 80
+	health = 70
 	hitsound = 'sound/weapons/blade_parry1.ogg'
 
 /obj/structure/grille/metalsheetfence
@@ -147,7 +132,7 @@
 	desc = "A sheet metal fence."
 	icon = 'icons/obj/fence.dmi'
 	icon_state = "metal_fence1"
-	health = 120
+	health = 80
 	opacity = TRUE
 	hitsound = 'sound/weapons/blade_parry1.ogg'
 /obj/structure/grille/metalsheetfence/blue
@@ -175,6 +160,149 @@
 	icon_state = "metal_fence_corner4"
 /obj/structure/grille/metalsheetfence/corner/yellow
 	icon_state = "metal_fence_corner5"
+
+//////////////CHAIN-LINK FENCES////////////////
+
+/obj/structure/grille/chainlinkfence
+	name = "chain-link fence"
+	desc = "A woven steel fence."
+	icon = 'icons/obj/fence.dmi'
+	icon_state = "chainlinkfence"
+	health = 50
+	hitsound = 'sound/weapons/blade_parry1.ogg'
+
+	var/cuttable = TRUE
+	var/hole_size = 0
+	var/invulnerable = FALSE
+
+/obj/structure/grille/chainlinkfence/New()
+	.=..()
+	update_cut_status()
+
+/obj/structure/grille/chainlinkfence/examine(mob/user)
+	.=..()
+	switch(hole_size)
+		if (1)
+			user.show_message("There is a small hole in \the [src].")
+		if (2)
+			user.show_message("There is a large hole in \the [src].")
+		if (3)
+			user.show_message("\The [src] has been completely cut through.")
+
+/obj/structure/grille/chainlinkfence/attackby(obj/item/W, mob/living/human/user)
+	if(istype(W, /obj/item/weapon/wirecutters))
+		if(!cuttable)
+			to_chat(user, "<span class='notice'>This section of the fence can't be cut.</span>")
+			return
+		if(invulnerable)
+			to_chat(user, "<span class='notice'>This fence is too strong to cut through.</span>")
+			return
+		var/current_stage = hole_size
+		if(current_stage >= 3)
+			to_chat(user, "<span class='notice'>This fence has been completely cut already.</span>")
+			return
+
+		user.visible_message("<span class='danger'>\The [user] starts cutting through \the [src] with \the [W].</span>",\
+		"<span class='danger'>You start cutting through \the [src] with \the [W].</span>")
+
+		if(do_after(user, (120/user.getStatCoeff("crafting")), src))
+			if(current_stage == hole_size)
+				switch(++hole_size)
+					if (1)
+						visible_message("<span class='notice'>\The [user] cuts into \the [src] some more.</span>")
+						climbable = FALSE
+					if (2)
+						visible_message("<span class='notice'>\The [user] cuts into \the [src] some more.</span>")
+						to_chat(user, "<span class='info'>You could probably fit yourself through that hole now. Although climbing through would be much faster if you made it even bigger.</span>")
+						climbable = TRUE
+					if (3)
+						visible_message("<span class='notice'>\The [user] completely cuts through \the [src].</span>")
+						to_chat(user, "<span class='info'>The hole in \the [src] is now big enough to walk through.</span>")
+						climbable = FALSE
+
+				update_cut_status()
+
+	return TRUE
+
+/obj/structure/grille/chainlinkfence/proc/update_cut_status()
+	if(!cuttable)
+		return
+	density = TRUE
+	switch(hole_size)
+		if(0)
+			icon_state = initial(icon_state)
+		if(1)
+			icon_state = "chainlinkfence_cut1"
+		if(2)
+			icon_state = "chainlinkfence_cut2"
+		if(3)
+			icon_state = "chainlinkfence_cut3"
+			density = FALSE
+
+/obj/structure/grille/chainlinkfence/cut
+	icon_state = "chainlinkfence_cut1"
+	hole_size = 1
+/obj/structure/grille/chainlinkfence/cut/larger
+	icon_state = "chainlinkfence_cut2"
+	hole_size = 2
+/obj/structure/grille/chainlinkfence/cut/larger/complete
+	icon_state = "chainlinkfence_cut3"
+	hole_size = 3
+
+/obj/structure/grille/chainlinkfence/corner
+	icon_state = "chainlinkfence_corner"
+	hitsound = 'sound/weapons/blade_parry1.ogg'
+	cuttable = FALSE
+	density = FALSE
+
+// DOOR
+
+/obj/structure/grille/chainlinkfence/door
+	name = "chain-link fence door"
+	desc = "A woven steel fence door."
+	icon_state = "chainlinkfence_door"
+	cuttable = FALSE
+	var/open = FALSE
+
+/obj/structure/grille/chainlinkfence/door/New()
+	. = ..()
+	update_door_status()
+
+/obj/structure/grille/chainlinkfence/door/opened
+	icon_state = "chainlinkfence_door_open"
+	open = TRUE
+	density = TRUE
+
+/obj/structure/grille/chainlinkfence/door/attack_hand(mob/user)
+	if(can_open(user))
+		toggle(user)
+	return TRUE
+
+/obj/structure/grille/chainlinkfence/door/proc/toggle(mob/user)
+	switch(open)
+		if(FALSE)
+			visible_message("<span class='notice'>\The [user] opens \the [src].</span>")
+			open = TRUE
+		if(TRUE)
+			visible_message("<span class='notice'>\The [user] closes \the [src].</span>")
+			open = FALSE
+
+	update_door_status()
+	playsound(src, 'sound/machines/click.ogg', 100, 1)
+
+/obj/structure/grille/chainlinkfence/door/proc/update_door_status()
+	switch(open)
+		if(FALSE)
+			density = TRUE
+			icon_state = "chainlinkfence_door"
+		if(TRUE)
+			density = FALSE
+			icon_state = "chainlinkfence_door_open"
+
+/obj/structure/grille/chainlinkfence/door/proc/can_open(mob/user)
+	return TRUE
+
+////////////////////////////////////////////////
 
 /obj/structure/wallclock
 	name = "standing clock"
@@ -251,8 +379,8 @@
 	density = TRUE
 	opacity = TRUE
 	anchored = TRUE
-	bound_width = 64
-	bound_height = 32
+	bound_width = 96
+	bound_height = 64
 
 /obj/structure/props/stove
 	name = "stove"
@@ -280,6 +408,122 @@
 	density = FALSE
 	opacity = FALSE
 	anchored = TRUE
+
+/////////Pipes/////////////////////////////
+
+/obj/structure/props/piping/pipe
+	name = "pipe"
+	desc = "A big pipe."
+	icon = 'icons/obj/machines/pipes.dmi'
+	icon_state = "s_pipe"
+	flammable = FALSE
+	not_movable = FALSE
+	not_disassemblable = TRUE
+	density = FALSE
+	opacity = FALSE
+	anchored = TRUE
+	layer = MOB_LAYER + 8
+
+/obj/structure/props/piping/pipe/under
+	layer = 1
+
+/obj/structure/props/piping/broken_pipe
+	name = "broken pipe"
+	desc = "A big broken pipe."
+	icon = 'icons/obj/machines/pipes.dmi'
+	icon_state = "pipe-b"
+	flammable = FALSE
+	not_movable = FALSE
+	not_disassemblable = TRUE
+	density = FALSE
+	opacity = FALSE
+	anchored = TRUE
+	layer = MOB_LAYER + 8
+
+/obj/structure/props/piping/broken_pipe/under
+	layer = 1
+
+/obj/structure/props/piping/pipe_up
+	name = "pipe"
+	desc = "A big pipe."
+	icon = 'icons/obj/machines/pipes.dmi'
+	icon_state = "pipe-t"
+	flammable = FALSE
+	not_movable = FALSE
+	not_disassemblable = TRUE
+	density = FALSE
+	opacity = FALSE
+	anchored = TRUE
+	layer = MOB_LAYER + 8
+
+/obj/structure/props/piping/pipe_up/under
+	layer = 1
+
+/obj/structure/props/piping/small/pipe
+	name = "small pipe"
+	desc = "A pipe."
+	icon = 'icons/obj/machines/pipes.dmi'
+	icon_state = "s_pipe2_thin"
+	flammable = FALSE
+	not_movable = FALSE
+	not_disassemblable = TRUE
+	density = FALSE
+	opacity = FALSE
+	anchored = TRUE
+	layer = MOB_LAYER + 8
+
+/obj/structure/props/piping/small/pipe/under
+	layer = 1
+
+/obj/structure/props/piping/small/pipex
+	name = "small pipe"
+	desc = "A pipe."
+	icon = 'icons/obj/machines/pipes.dmi'
+	icon_state = "s_pipe_connection4_thin"
+	flammable = FALSE
+	not_movable = FALSE
+	not_disassemblable = TRUE
+	density = FALSE
+	opacity = FALSE
+	anchored = TRUE
+	layer = MOB_LAYER + 8
+
+/obj/structure/props/piping/small/pipex/under
+	layer = 1
+
+/obj/structure/props/piping/small/pipel
+	name = "small pipe"
+	desc = "A small L-shaped pipe."
+	icon = 'icons/obj/machines/pipes.dmi'
+	icon_state = "s_pipe_turn"
+	flammable = FALSE
+	not_movable = FALSE
+	not_disassemblable = TRUE
+	density = FALSE
+	opacity = FALSE
+	anchored = TRUE
+	layer = MOB_LAYER + 8
+
+/obj/structure/props/piping/small/pipel/under
+	layer = 1
+
+/obj/structure/props/piping/small/pipet
+	name = "small pipe"
+	desc = "A small T-shaped pipe."
+	icon = 'icons/obj/machines/pipes.dmi'
+	icon_state = "s_pipe_connection3_thin"
+	flammable = FALSE
+	not_movable = FALSE
+	not_disassemblable = TRUE
+	density = FALSE
+	opacity = FALSE
+	anchored = TRUE
+	layer = MOB_LAYER + 8
+
+/obj/structure/props/piping/small/pipet/under
+	layer = 1
+
+/////////////////////////////////////////////////////////
 
 /obj/structure/props/bathtub
 	name = "bathtub"
@@ -380,6 +624,47 @@
 	density = FALSE
 	opacity = FALSE
 
+/obj/structure/props/car_wreck
+	name = "car wreck"
+	desc = "Looks like it has been here for a while."
+	icon = 'icons/obj/vehicles/wip_vehicles.dmi'
+	icon_state = "car_wreck"
+	flammable = FALSE
+	not_movable = TRUE
+	anchored = TRUE
+	not_disassemblable = TRUE
+	density = TRUE
+	bound_width = 96
+	bound_height = 64
+/obj/structure/props/car_wreck/alt
+	icon_state = "car_wreck2"
+/obj/structure/props/car_wreck/vertical
+	icon_state = "car_wreck_vert"
+	bound_width = 32
+	bound_height = 96
+/obj/structure/props/car_wreck/van
+	icon_state = "van_wreck"
+/obj/structure/props/car_wreck/van/alt
+	icon_state = "van_wreck2"
+/obj/structure/props/car_wreck/truck
+	icon_state = "truck_wreck"
+	bound_width = 128
+	bound_height = 64
+
+/obj/structure/props/watts_tower
+	name = "sculpture tower"
+	desc = "An achitectural scultpural tower."
+	icon = 'icons/obj/decals_widest.dmi'
+	icon_state = "watts_tower"
+	flammable = FALSE
+	anchored = TRUE
+	not_movable = TRUE
+	not_disassemblable = TRUE
+	density = TRUE
+	bound_width = 64
+	bound_height = 64
+	layer = MOB_LAYER+1
+
 /obj/structure/props/engineprops
 	name = "generic"
 	desc = "A generic engine prop."
@@ -430,7 +715,7 @@
 	icon_state = "aeolipile_on"
 /obj/structure/props/engineprops/reactor
 	name = "reactor housing"
-	desc = "A reactor housing for nuklear fission/fussion."
+	desc = "A reactor housing for nuclear fission/fussion."
 	icon_state = "reactor_3"
 /obj/structure/props/engineprops/big
 	name = "large engine"
@@ -643,7 +928,12 @@
 /obj/structure/flag/black
 	icon_state = "black"
 	name = "Black Flag"
-	desc = "A black flag. That's it."
+	desc = "A black flag."
+
+/obj/structure/flag/white
+	icon_state = "white"
+	name = "White Flag"
+	desc = "A white flag."
 
 /obj/structure/flag/french
 	icon_state = "french"
@@ -791,6 +1081,17 @@
 	name = "Raven Banner"
 	desc = "A Ravenclan banner."
 
+/obj/structure/flag/objective
+	icon_state = "white"
+	name = "Objective Flag"
+	desc = "An objective flag."
+
+/obj/structure/flag/objective/one
+/obj/structure/flag/objective/two
+/obj/structure/flag/objective/three
+/obj/structure/flag/objective/four
+/obj/structure/flag/objective/five
+
 /obj/structure/flag/pole/attackby(obj/item/W as obj, var/mob/living/human/H)
 	if(istype(W, /obj/item/stack/material/cloth))
 		if(W.amount >= 5)
@@ -812,10 +1113,9 @@
 	name = "Flag"
 	desc = "A flag."
 	var/uncolored = TRUE
-	var/flagcolor = null
-	var/symbol = "Moon"
-	var/symbolcolor = null
-
+	var/flagcolor
+	var/symbol
+	var/symbolcolor
 
 /obj/structure/flag/pole/custom/attackby(obj/item/W as obj, var/mob/living/human/H)
 	if(istype(W, /obj/item/weapon))
@@ -823,6 +1123,7 @@
 			H << "You tear down the flag!"
 			new/obj/structure/flag/pole(src.loc)
 			qdel(src)
+
 /obj/structure/flag/pole/custom/attack_hand(var/mob/living/human/H)
 	if (uncolored)
 		var/input = WWinput(H, "Flag Color - Choose a color:", "Flag Color" , "#FFFFFF", "color")
@@ -1225,6 +1526,13 @@
 /obj/structure/torch_stand/full/New()
 	..()
 	new /obj/item/flashlight/torch/on(src.storage)
+	update_icon()
+
+/obj/structure/torch_stand/lantern
+
+/obj/structure/torch_stand/lantern/New()
+	..()
+	new /obj/item/flashlight/lantern/on(src.storage)
 	update_icon()
 
 //////////////////////////CAMONET/////////////////////////////////

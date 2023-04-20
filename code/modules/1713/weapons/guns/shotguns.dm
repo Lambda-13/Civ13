@@ -64,7 +64,7 @@
 	icon_state = "shotgun"
 	item_state = "shotgun"
 	max_shells = 6
-	w_class = 4.0
+	w_class = ITEM_SIZE_LARGE
 	force = 10
 	flags =  CONDUCT
 	slot_flags = SLOT_SHOULDER
@@ -108,7 +108,7 @@
 	icon_state = "doublebarreled"
 	item_state = "shotgun"
 	max_shells = 2
-	w_class = 4.0
+	w_class = ITEM_SIZE_LARGE
 	force = 10
 	flags =  CONDUCT
 	slot_flags = SLOT_SHOULDER
@@ -184,10 +184,28 @@
 	name = "Remington 870 Express"
 	desc = "A pump-action shotgun with a 3in 12 gauge chamber."
 	icon_state = "remington870"
-	item_state = "shotgun"
+	item_state = "remington"
 	max_shells = 7
 	slot_flags = SLOT_SHOULDER
 	caliber = "12gauge"
+	load_method = SINGLE_CASING
+	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
+	handle_casings = HOLD_CASINGS
+	move_delay = 4
+	load_delay = 5
+
+/obj/item/weapon/gun/projectile/shotgun/pump/remington870/brown
+	icon_state = "remington870_brown"
+	item_state = "remington_brown"
+
+/obj/item/weapon/gun/projectile/shotgun/pump/ks23
+	name = "KS-23"
+	desc = "A Soviet pump-action shotgun with a 23mm caliber."
+	icon_state = "ks23"
+	item_state = "ks23"
+	max_shells = 4
+	slot_flags = SLOT_SHOULDER
+	caliber = "12gauge" // To be converted to 23mm when proper shotgun ammo is added
 	load_method = SINGLE_CASING
 	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
 	handle_casings = HOLD_CASINGS
@@ -200,7 +218,7 @@
 	icon_state = "mts225"
 	item_state = "shotgun"
 	max_shells = 5
-	w_class = 4.0
+	w_class = ITEM_SIZE_LARGE
 	force = 10
 	flags =  CONDUCT
 	slot_flags = SLOT_SHOULDER

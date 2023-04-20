@@ -355,8 +355,38 @@
 	name = "No Man's Sky"
 	icon_state = "purple1"
 	base_turf = /turf/floor/broken_floor/sky
-	var/corresponding_area_type = null
-	var/corresponding_area_allow_subtypes = FALSE
+	dynamic_lighting = FALSE
+	ambience = list("sound/effect/wind/wind_4_1.ogg")
+	var/landing_area = null
+	var/allow_area_subtypes = FALSE
+
+/area/caribbean/no_mans_land/sky/paratrooper_drop_zone
+	landing_area = /area/caribbean/forest
+	allow_area_subtypes = TRUE
+	name = "The Sky"
+
+/area/caribbean/helicopter/takeoff
+	name = "Helicopter Takeoff Pad"
+	icon_state = "blue2"
+
+/area/caribbean/helicopter/transit
+	name = "Helicopter Transit"
+	icon_state = "blue2"
+
+/area/caribbean/helicopter/landing_pad/one
+	name = "Helicopter Landing Pad 1"
+	icon_state = "blue2"
+/area/caribbean/helicopter/landing_pad/two
+	name = "Helicopter Takeoff Pad 2"
+	icon_state = "blue2"
+/area/caribbean/helicopter/landing_pad/three
+	name = "Helicopter Takeoff Pad 3"
+	icon_state = "blue2"
+
+/area/caribbean/no_mans_land/sky/paratrooper_drop_zone/plane
+	landing_area = /area/caribbean/forest
+	allow_area_subtypes = TRUE
+	name = "Plane"
 
 /area/caribbean/no_mans_land
 	name = "No Man's Land"
@@ -534,6 +564,9 @@
 /area/caribbean/no_mans_land/invisible_wall
 	name = "grace wall"
 	icon_state = "green5"
+/area/caribbean/no_mans_land/invisible_wall/not_dynamic
+	dynamic_lighting = FALSE
+
 /area/caribbean/no_mans_land/invisible_wall/tundra
 	name = "grace wall"
 	climate = "tundra"
@@ -545,6 +578,9 @@
 
 /area/caribbean/no_mans_land/invisible_wall/tundra/two
 	name = "grace wall 2"
+
+/area/caribbean/no_mans_land/invisible_wall/tundra/three
+	name = "grace wall 3"
 
 /area/caribbean/no_mans_land/invisible_wall/taiga
 	climate = "taiga"
@@ -567,6 +603,9 @@
 /area/caribbean/no_mans_land/invisible_wall/desert
 	climate = "desert"
 	base_turf = /turf/floor/beach/sand/desert
+/area/caribbean/no_mans_land/invisible_wall/desert/one
+	name = "grace wall 1"
+
 /area/caribbean/no_mans_land/invisible_wall/semiarid
 	climate = "semiarid"
 	base_turf = /turf/floor/dirt/dust
@@ -639,6 +678,9 @@
 	base_turf = /turf/floor/grass
 	climate = "temperate"
 
+/area/caribbean/forest/one
+/area/caribbean/forest/two
+
 /area/caribbean/forest/cobbleroad
 	name = "Road"
 	icon_state = "purple2"
@@ -668,6 +710,9 @@
 
 /area/caribbean/supply/dutch
 	name = "Dutch Supply Arrival"
+
+/area/caribbean/supply/russian
+	name = "Russian Supply Arrival"
 
 /area/caribbean/transport
 	name = "Boat"
@@ -1317,33 +1362,12 @@
 
 /area/caribbean/football/nopass
 	icon_state = "green1"
-	
 
-/////////////////////////////////////////////////////////////
-/////////////leben paratooper code///////////////////////////
-/*
-/area/caribbean/void/sky
-	icon_state = "purple1"
-	name = "The Sky"
-	dynamic_lighting = FALSE
-	var/corresponding_area_type = null
-	var/corresponding_area_allow_subtypes = FALSE
-
-/area/caribbean/void/sky/paratrooper_drop_zone
-	corresponding_area_type = /area/caribbean/forest
-	corresponding_area_allow_subtypes = TRUE
-	name = "The Sky"
-
-/area/caribbean/void/sky/paratrooper_drop_zone/plane
-	corresponding_area_type = /area/caribbean/forest
-	corresponding_area_allow_subtypes = TRUE
-	name = "Fallschirmjager Plane"
-*/
 
 /area/caribbean/space
 	has_gravity = FALSE
 	no_air = TRUE
-	base_turf = /turf/floor/dirt //The base turf type of the area, which can be used to override the z-level's base turf
+	base_turf = /turf/floor/space //The base turf type of the area, which can be used to override the z-level's base turf
 	sound_env = FOREST
 	icon_state = "blue1"
 	dynamic_lighting = TRUE

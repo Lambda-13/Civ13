@@ -31,10 +31,7 @@
 /datum/job/vietnamese/vietcong_officer/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 //shoes
-	if (prob(60))
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/nlfsandal1(H), slot_shoes)
-	else if (prob(40))
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/nlfsandal2(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal/leather(H), slot_shoes)
 
 //clothes
 	var/pickuni = rand(1,5)
@@ -109,10 +106,7 @@
 /datum/job/vietnamese/vietcong_doctor/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 //shoes
-	if (prob(60))
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/nlfsandal1(H), slot_shoes)
-	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/nlfsandal2(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal/leather(H), slot_shoes)
 
 //clothes
 	var/pickuni = rand(1,5)
@@ -194,10 +188,8 @@
 /datum/job/vietnamese/vietcong_comms/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 //shoes
-	if (prob(60))
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/nlfsandal1(H), slot_shoes)
-	else if (prob(40))
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/nlfsandal2(H), slot_shoes)
+	if (prob(90))
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal/leather(H), slot_shoes)
 
 //clothes
 	var/pickuni = rand(1,5)
@@ -275,10 +267,7 @@
 /datum/job/vietnamese/vietcong/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 //shoes
-	if (prob(60))
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/nlfsandal1(H), slot_shoes)
-	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/nlfsandal2(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal/leather(H), slot_shoes)
 
 //clothes
 	var/pickuni = rand(1,5)
@@ -762,7 +751,6 @@
 	if (!H)	return FALSE
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/blackboots(H), slot_shoes)
-
 //clothes
 	var/randuni2 = rand(1,4)
 	switch(randuni2)
@@ -777,13 +765,12 @@
 //head
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/ushelmet/camo/accessory(H), slot_head)
 //back
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/launcher/grenadelauncher/M79(H), slot_shoulder)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/launcher/grenade/standalone/m79(H), slot_shoulder)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/olive/us_gren(H), slot_belt)
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/m1911(H), slot_l_hand)
 	if (time_of_day == "Night" || time_of_day == "Evening" || time_of_day == "Early Morning")
 		H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight(H), slot_wear_id)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/buttpack(H), slot_back)
-
 	if (prob(45))
 		H.f_style = pick("Selleck Mustache", "3 O'clock Shadow and Mustache","5 O'clock Shadow and Mustache","7 O'clock Shadow and Mustache","3 O'clock Shadow","5 O'clock Shadow","7 O'clock Shadow", "Van Dyke Mustache","Elvis Sideburns","Goatee")
 	else
@@ -804,15 +791,15 @@
 		H.h_style = pick("Bald","Short Hair","Buzzcut","Crewcut","Combover","Skinhead","Balding Hair","Flat Top","Mulder","Gelled Back","CIA","Slick","Fade","Average Joe","Undercut")
 
 	var/obj/item/clothing/under/uniform = H.w_uniform
+	var/obj/item/clothing/accessory/storage/webbing/m79_vest/filled/vest = new /obj/item/clothing/accessory/storage/webbing/m79_vest/filled(null)
 	if (prob(15))
 		var/obj/item/clothing/accessory/armor/coldwar/flakjacket/fj = new /obj/item/clothing/accessory/armor/coldwar/flakjacket/m1969(null)
 		uniform.attackby(fj, H)
+		uniform.attackby(vest, H)
 	else
 		var/obj/item/clothing/accessory/armor/coldwar/flakjacket/fj2 = new /obj/item/clothing/accessory/armor/coldwar/flakjacket(null)
 		uniform.attackby(fj2, H)
-	var/obj/item/clothing/accessory/storage/webbing/m79_vest/filled/vest = new /obj/item/clothing/accessory/storage/webbing/m79_vest/filled(null)
-	uniform.attackby(vest, H)
-
+		uniform.attackby(vest, H)
 	give_random_name(H)
 	H.add_note("Role", "You are a <b>[title]</b>, a M79 grenade launcher specialist. Support your squad by using your main weapon, but avoid firing near them! You can holster your side-arm in your belt.")
 	H.setStat("strength", STAT_NORMAL)
@@ -1214,7 +1201,7 @@
 	if (pickboot == 1)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/blackboots(H), slot_shoes)
 	if (pickboot == 2)
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots(H), slot_shoes)
 	if (pickboot == 3)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
 	if (pickboot == 4)
@@ -1308,7 +1295,7 @@
 	if (pickboot == 1)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/blackboots(H), slot_shoes)
 	if (pickboot == 2)
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots(H), slot_shoes)
 	if (pickboot == 3)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
 	if (pickboot == 4)
@@ -1408,7 +1395,7 @@
 	is_nva = TRUE
 
 	min_positions = 2
-	max_positions = 8
+	max_positions = 4
 
 /datum/job/vietnamese/vietcong_officer_nva/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
@@ -1421,18 +1408,21 @@
 //head
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/nva_hat(H), slot_head)
 //back
-	if (prob(20))
-		H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver/nagant_revolver(H), slot_l_hand)
-	else
-		H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/tt30(H), slot_l_hand)
+	var/randpistol = rand (1,3)
+	switch(randpistol)
+		if (1)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver/nagant_revolver(H), slot_l_hand)
+		if (2)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/tt30(H), slot_l_hand)
+		if (3)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/makarov(H), slot_l_hand)
 
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/vc_officer(H), slot_belt)
 	if (time_of_day == "Night" || time_of_day == "Evening" || time_of_day == "Early Morning")
-		if (prob(70))
-			if (prob(50))
-				H.equip_to_slot_or_del(new /obj/item/flashlight/japflashlight(H), slot_wear_id)
-			else
-				H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight/alt(H), slot_wear_id)
+		if (prob(50))
+			H.equip_to_slot_or_del(new /obj/item/flashlight/japflashlight(H), slot_wear_id)
+		else
+			H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight/alt(H), slot_wear_id)
 	var/obj/item/clothing/under/uniform = H.w_uniform
 	var/obj/item/clothing/accessory/holster/hip/holsterh = new /obj/item/clothing/accessory/holster/hip(null)
 	uniform.attackby(holsterh, H)
@@ -1443,16 +1433,86 @@
 	if (H.f_style != "Shaved" && H.f_style != "Short Facial Hair" && H.f_style != "Goatee")
 		H.f_style = pick("Shaved","Short Facial Hair","Goatee")
 	H.add_note("Role", "You are a <b>[title]</b>, lead the NVA in the fight against the imperialists!")
-	H.add_note("Vietcong Mechanics", "- Press <b>C</b> to place a booby trap while holding a grenade.<br><br>- The tunnel entrances connecting to your underground compound are only accessible by fellow Vietnamese and american commandos. Americans won't be able to crawl inside.<br><br>- Drag yourself to a Jungle Tree to hide on it.")
+	H.add_note("Vietcong/PAVN Mechanics", "- Press <b>C</b> to place a booby trap while holding a grenade.<br><br>- The tunnel entrances connecting to your underground compound are only accessible by fellow Vietnamese and american commandos. Americans won't be able to crawl inside.<br><br>- Drag yourself to a Jungle Tree to hide on it.")
 	H.setStat("strength", STAT_MEDIUM_HIGH)
 	H.setStat("crafting", STAT_MEDIUM_LOW)
 	H.setStat("rifle", STAT_NORMAL)
+	H.setStat("dexterity", STAT_MEDIUM_HIGH)
+	H.setStat("swords", STAT_NORMAL)
+	H.setStat("pistol", STAT_MEDIUM_HIGH)
+	H.setStat("bows", STAT_NORMAL)
+	H.setStat("medical", STAT_MEDIUM_LOW)
+	H.setStat("machinegun", STAT_MEDIUM_LOW)
+	return TRUE
+
+/datum/job/vietnamese/vietcong_sl_nva
+	title = "NVA Trung Si"
+	en_meaning = "NVA Sergeant"
+	rank_abbreviation = "Trung Si"
+
+	spawn_location = "JoinLateJP"
+
+	is_coldwar = TRUE
+	uses_squads = TRUE
+	is_squad_leader = TRUE
+	is_nva = TRUE
+
+	min_positions = 2
+	max_positions = 12
+
+/datum/job/vietnamese/vietcong_sl_nva/equip(var/mob/living/human/H)
+	if (!H)	return FALSE
+//shoes
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/heavyboots/wrappedboots(H), slot_shoes)
+//clothes
+	if(prob(50))
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/nva/sl(H), slot_w_uniform)
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/vchelmet/two(H), slot_head)
+	else
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/vchelmet/three(H), slot_head)
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/nva/sl/green(H), slot_w_uniform)
+//gear
+	if (prob(50))
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/ak47/akms(H), slot_shoulder)
+	else
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/ak47(H), slot_shoulder)
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	var/obj/item/clothing/accessory/storage/webbing/nlfchestrig/filled_akm/akp = new /obj/item/clothing/accessory/storage/webbing/nlfchestrig/filled_akm(null)
+	uniform.attackby(akp, H)
+	H.equip_to_slot_or_del(new /obj/item/weapon/radio/faction2(H), slot_back)
+	H.equip_to_slot_or_del(new /obj/item/weapon/attachment/scope/adjustable/binoculars/binoculars(H), slot_l_store)
+	if(prob(50))
+		var/pickscarf = rand(1,2)
+		switch(pickscarf)
+			if (1)
+				var/obj/item/clothing/accessory/armband/khan_ran/black = new /obj/item/clothing/accessory/armband/khan_ran/black(null)
+				uniform.attackby(black, H)
+			if (2)
+				var/obj/item/clothing/accessory/armband/khan_ran/blue = new /obj/item/clothing/accessory/armband/khan_ran/blue(null)
+				uniform.attackby(blue, H)
+	if (time_of_day == "Night" || time_of_day == "Evening" || time_of_day == "Early Morning")
+		if (prob(50))
+			H.equip_to_slot_or_del(new /obj/item/flashlight/japflashlight(H), slot_wear_id)
+		else
+			H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight/alt(H), slot_wear_id)
+	give_random_name(H)
+	H.s_tone = rand(-32,-24)
+	if (H.f_style != "Shaved" && H.f_style != "Short Facial Hair" && H.f_style != "Goatee")
+		H.f_style = pick("Shaved","Short Facial Hair","Goatee")
+
+	H.add_note("Role", "You are a <b>[title]</b>, in charge of the communications and also acting as a squad officer. Keep the squads organized and efficient!")
+	H.add_note("Vietcong Mechanics", "- Press <b>C</b> to place a booby trap while holding a grenade.<br><br>- The tunnel entrances connecting to your underground compound are only accessible by fellow Vietnamese and american commandos. Americans won't be able to crawl inside.<br><br>- Drag yourself to a Jungle Tree to hide on it.")
+	H.setStat("strength", STAT_MEDIUM_HIGH)
+	H.setStat("crafting", STAT_NORMAL)
+	H.setStat("rifle", STAT_MEDIUM_LOW)
 	H.setStat("dexterity", STAT_MEDIUM_HIGH)
 	H.setStat("swords", STAT_NORMAL)
 	H.setStat("pistol", STAT_NORMAL)
 	H.setStat("bows", STAT_NORMAL)
 	H.setStat("medical", STAT_MEDIUM_LOW)
 	H.setStat("machinegun", STAT_MEDIUM_LOW)
+	H.setStat("stamina", STAT_VERY_HIGH)
+
 	return TRUE
 
 /datum/job/vietnamese/vietcong_doctor_nva
@@ -1497,13 +1557,8 @@
 	var/obj/item/clothing/under/uniform = H.w_uniform
 	var/obj/item/clothing/accessory/holster/hip/holsterh = new /obj/item/clothing/accessory/holster/hip(null)
 	uniform.attackby(holsterh, H)
-	var/pickscarf = rand(1,2)
-	if (pickscarf == 1)
-		var/obj/item/clothing/accessory/armband/khan_ran/black = new /obj/item/clothing/accessory/armband/khan_ran/black(null)
-		uniform.attackby(black, H)
-	else if (pickscarf == 2)
-		var/obj/item/clothing/accessory/armband/khan_ran/blue = new /obj/item/clothing/accessory/armband/khan_ran/blue(null)
-		uniform.attackby(blue, H)
+	var/obj/item/clothing/accessory/custom/armband/medicalarm = new /obj/item/clothing/accessory/armband/redcross(null)
+	uniform.attackby(medicalarm, H)
 	give_random_name(H)
 	H.s_tone = rand(-32,-24)
 	if (H.f_style != "Shaved" && H.f_style != "Short Facial Hair" && H.f_style != "Goatee")
@@ -1522,73 +1577,6 @@
 	H.setStat("machinegun", STAT_MEDIUM_LOW)
 	return TRUE
 
-/datum/job/vietnamese/vietcong_comms_nva
-	title = "NVA Tuy Phai"
-	en_meaning = "NVA Radioman/Squad Leader"
-	rank_abbreviation = "Tuy Phai"
-
-	spawn_location = "JoinLateJP"
-
-	is_coldwar = TRUE
-	uses_squads = TRUE
-	is_squad_leader = TRUE
-	is_nva = TRUE
-
-	min_positions = 2
-	max_positions = 12
-
-/datum/job/vietnamese/vietcong_comms_nva/equip(var/mob/living/human/H)
-	if (!H)	return FALSE
-//shoes
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/heavyboots/wrappedboots(H), slot_shoes)
-//clothes
-	H.equip_to_slot_or_del(new /obj/item/clothing/under/nva(H), slot_w_uniform)
-
-//head
-	if (prob(90))
-		H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/vchelmet(H), slot_head)
-	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/head/jungle_hat/khaki(H), slot_head)
-
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver/m1892(H), slot_l_hand)
-
-	H.equip_to_slot_or_del(new /obj/item/weapon/radio/faction2(H), slot_back)
-	var/obj/item/clothing/under/uniform = H.w_uniform
-	var/obj/item/clothing/accessory/holster/hip/holsterh = new /obj/item/clothing/accessory/holster/hip(null)
-	uniform.attackby(holsterh, H)
-	var/pickscarf = rand(1,2)
-	if (pickscarf == 1)
-		var/obj/item/clothing/accessory/armband/khan_ran/black = new /obj/item/clothing/accessory/armband/khan_ran/black(null)
-		uniform.attackby(black, H)
-	else if (pickscarf == 2)
-		var/obj/item/clothing/accessory/armband/khan_ran/blue = new /obj/item/clothing/accessory/armband/khan_ran/blue(null)
-		uniform.attackby(blue, H)
-	if (time_of_day == "Night" || time_of_day == "Evening" || time_of_day == "Early Morning")
-		if (prob(60))
-			if (prob(50))
-				H.equip_to_slot_or_del(new /obj/item/flashlight/japflashlight(H), slot_wear_id)
-			else
-				H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight/alt(H), slot_wear_id)
-	give_random_name(H)
-	H.s_tone = rand(-32,-24)
-	if (H.f_style != "Shaved" && H.f_style != "Short Facial Hair" && H.f_style != "Goatee")
-		H.f_style = pick("Shaved","Short Facial Hair","Goatee")
-
-	H.add_note("Role", "You are a <b>[title]</b>, in charge of the communications and also acting as a squad officer. Keep the squads organized and efficient!")
-	H.add_note("Vietcong Mechanics", "- Press <b>C</b> to place a booby trap while holding a grenade.<br><br>- The tunnel entrances connecting to your underground compound are only accessible by fellow Vietnamese and american commandos. Americans won't be able to crawl inside.<br><br>- Drag yourself to a Jungle Tree to hide on it.")
-	H.setStat("strength", STAT_MEDIUM_HIGH)
-	H.setStat("crafting", STAT_NORMAL)
-	H.setStat("rifle", STAT_MEDIUM_LOW)
-	H.setStat("dexterity", STAT_MEDIUM_HIGH)
-	H.setStat("swords", STAT_NORMAL)
-	H.setStat("pistol", STAT_NORMAL)
-	H.setStat("bows", STAT_NORMAL)
-	H.setStat("medical", STAT_MEDIUM_LOW)
-	H.setStat("machinegun", STAT_MEDIUM_LOW)
-	H.setStat("stamina", STAT_VERY_HIGH)
-
-	return TRUE
-
 /datum/job/vietnamese/vietcong_nva
 	title = "NVA Binh Ni"
 	en_meaning = "NVA Soldier"
@@ -1605,95 +1593,52 @@
 
 /datum/job/vietnamese/vietcong_nva/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-//shoes
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/heavyboots/wrappedboots(H), slot_shoes)
 //clothes
-	H.equip_to_slot_or_del(new /obj/item/clothing/under/nva(H), slot_w_uniform)
-//head
-	if (prob(90))
-		H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/vchelmet(H), slot_head)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/heavyboots/wrappedboots(H), slot_shoes)
+	if (prob(50))
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/vchelmet/two(H), slot_head)
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/nva(H), slot_w_uniform)
 	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/head/jungle_hat/khaki(H), slot_head)
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/vchelmet/three(H), slot_head)
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/nva/green(H), slot_w_uniform)
 //back
 	var/obj/item/clothing/under/uniform = H.w_uniform
-	var/pickgun = rand(1,4)
-	if (pickgun == 1)
-		H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/semiautomatic/sks(H), slot_shoulder)
-		if (prob(70))
-			var/obj/item/clothing/accessory/storage/webbing/nlfchestrig = new /obj/item/clothing/accessory/storage/webbing/nlfchestrig(null)
-			uniform.attackby(nlfchestrig, H)
-			nlfchestrig.attackby(new/obj/item/ammo_magazine/sks, H)
-			nlfchestrig.attackby(new/obj/item/ammo_magazine/sks, H)
-			nlfchestrig.attackby(new/obj/item/ammo_magazine/sks, H)
-			nlfchestrig.attackby(new/obj/item/ammo_magazine/sks, H)
-		else
-			var/obj/item/clothing/accessory/storage/webbing/nlfsmallpouches = new /obj/item/clothing/accessory/storage/webbing/nlfsmallpouches(null)
-			uniform.attackby(nlfsmallpouches, H)
-			nlfsmallpouches.attackby(new/obj/item/ammo_magazine/sks, H)
-			nlfsmallpouches.attackby(new/obj/item/ammo_magazine/sks, H)
-			nlfsmallpouches.attackby(new/obj/item/ammo_magazine/sks, H)
-			nlfsmallpouches.attackby(new/obj/item/ammo_magazine/sks, H)
-	else if (pickgun == 2)
-		if (prob(10))
-			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver/m1892(H), slot_belt)
-		else
-			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/luger(H), slot_belt)
-			if (prob(70))
-				var/obj/item/clothing/accessory/storage/webbing/nlfchestrig = new /obj/item/clothing/accessory/storage/webbing/nlfchestrig(null)
-				uniform.attackby(nlfchestrig, H)
-				nlfchestrig.attackby(new/obj/item/ammo_magazine/luger, H)
-				nlfchestrig.attackby(new/obj/item/ammo_magazine/luger, H)
-				nlfchestrig.attackby(new/obj/item/ammo_magazine/luger, H)
-				nlfchestrig.attackby(new/obj/item/ammo_magazine/luger, H)
-			else
-				var/obj/item/clothing/accessory/storage/webbing/nlfsmallpouches = new /obj/item/clothing/accessory/storage/webbing/nlfsmallpouches(null)
-				uniform.attackby(nlfsmallpouches, H)
-				nlfsmallpouches.attackby(new/obj/item/ammo_magazine/luger, H)
-				nlfsmallpouches.attackby(new/obj/item/ammo_magazine/luger, H)
-				nlfsmallpouches.attackby(new/obj/item/ammo_magazine/luger, H)
-				nlfsmallpouches.attackby(new/obj/item/ammo_magazine/luger, H)
-	else if (pickgun == 3)
-		H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/ak47/akms(H), slot_shoulder)
-		if (prob(70))
-			var/obj/item/clothing/accessory/storage/webbing/nlfchestrig = new /obj/item/clothing/accessory/storage/webbing/nlfchestrig(null)
-			uniform.attackby(nlfchestrig, H)
-			nlfchestrig.attackby(new/obj/item/ammo_magazine/ak47, H)
-			nlfchestrig.attackby(new/obj/item/ammo_magazine/ak47, H)
-			nlfchestrig.attackby(new/obj/item/ammo_magazine/ak47, H)
-			nlfchestrig.attackby(new/obj/item/ammo_magazine/ak47, H)
-		else
-			var/obj/item/clothing/accessory/storage/webbing/nlfsmallpouches = new /obj/item/clothing/accessory/storage/webbing/nlfsmallpouches(null)
-			uniform.attackby(nlfsmallpouches, H)
-			nlfsmallpouches.attackby(new/obj/item/ammo_magazine/ak47, H)
-			nlfsmallpouches.attackby(new/obj/item/ammo_magazine/ak47, H)
-			nlfsmallpouches.attackby(new/obj/item/ammo_magazine/ak47, H)
-			nlfsmallpouches.attackby(new/obj/item/ammo_magazine/ak47, H)
-	else if (pickgun == 4)
-		H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/boltaction/mosin/m30(H), slot_shoulder)
-		if (prob(70))
-			var/obj/item/clothing/accessory/storage/webbing/nlfchestrig = new /obj/item/clothing/accessory/storage/webbing/nlfchestrig(null)
-			uniform.attackby(nlfchestrig, H)
-			nlfchestrig.attackby(new/obj/item/ammo_magazine/mosin, H)
-			nlfchestrig.attackby(new/obj/item/ammo_magazine/mosin, H)
-			nlfchestrig.attackby(new/obj/item/ammo_magazine/mosin, H)
-			nlfchestrig.attackby(new/obj/item/ammo_magazine/mosin, H)
-		else
-			var/obj/item/clothing/accessory/storage/webbing/nlfsmallpouches = new /obj/item/clothing/accessory/storage/webbing/nlfsmallpouches(null)
-			uniform.attackby(nlfsmallpouches, H)
-			nlfsmallpouches.attackby(new/obj/item/ammo_magazine/mosin, H)
-			nlfsmallpouches.attackby(new/obj/item/ammo_magazine/mosin, H)
-			nlfsmallpouches.attackby(new/obj/item/ammo_magazine/mosin, H)
-			nlfsmallpouches.attackby(new/obj/item/ammo_magazine/mosin, H)
+	if (prob(90))
+		var/pickgun = rand(1,3)
+		switch(pickgun)
+			if (1)
+				H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/semiautomatic/sks(H), slot_shoulder)
+				var/obj/item/clothing/accessory/storage/webbing/nlfsmallpouches/filled_sks/sksp = new /obj/item/clothing/accessory/storage/webbing/nlfsmallpouches/filled_sks(null)
+				uniform.attackby(sksp, H)
+			if (2)
+				H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/ak47/akms(H), slot_shoulder)
+				var/obj/item/clothing/accessory/storage/webbing/nlfchestrig/filled_akm/akp = new /obj/item/clothing/accessory/storage/webbing/nlfchestrig/filled_akm(null)
+				uniform.attackby(akp, H)
+			if (3)
+				if (prob(80))
+					H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/boltaction/mosin/m30(H), slot_shoulder)
+				else
+					H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/boltaction/mosin/m30/sniper(H), slot_shoulder)
+				var/obj/item/clothing/accessory/storage/webbing/nlfsmallpouches/mosinp = new /obj/item/clothing/accessory/storage/webbing/nlfsmallpouches/filled_mosin(null)
+				uniform.attackby(mosinp, H)
+		H.setStat("machinegun", STAT_MEDIUM_LOW)
+	else
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/rpd(H), slot_shoulder)
+		var/obj/item/weapon/storage/belt/largepouches/mgbelt = new /obj/item/weapon/storage/belt/largepouches(null)
+		H.equip_to_slot_or_del(mgbelt, slot_belt)
+		mgbelt.attackby(new /obj/item/ammo_magazine/rpd, H)
+		mgbelt.attackby(new /obj/item/ammo_magazine/rpd, H)
+		H.setStat("machinegun", STAT_HIGH)
+		H.equip_to_slot_or_del(new /obj/item/stack/medical/bruise_pack/bint(H), slot_r_store)
 	if (prob(50))
 		H.equip_to_slot_or_del(new /obj/item/garrote(H), slot_l_store)
 	else
 		H.equip_to_slot_or_del(new /obj/item/weapon/attachment/bayonet(H), slot_l_store)
 	if (time_of_day == "Night" || time_of_day == "Evening" || time_of_day == "Early Morning")
-		if (prob(40))
-			if (prob(50))
-				H.equip_to_slot_or_del(new /obj/item/flashlight/japflashlight(H), slot_wear_id)
-			else
-				H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight/alt(H), slot_wear_id)
+		if (prob(50))
+			H.equip_to_slot_or_del(new /obj/item/flashlight/japflashlight(H), slot_wear_id)
+		else
+			H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight/alt(H), slot_wear_id)
 	give_random_name(H)
 	H.s_tone = rand(-32,-24)
 	if (H.f_style != "Shaved" && H.f_style != "Short Facial Hair" && H.f_style != "Goatee")
@@ -1709,6 +1654,5 @@
 	H.setStat("pistol", STAT_NORMAL)
 	H.setStat("bows", STAT_NORMAL)
 	H.setStat("medical", STAT_MEDIUM_LOW)
-	H.setStat("machinegun", STAT_MEDIUM_LOW)
 
 	return TRUE

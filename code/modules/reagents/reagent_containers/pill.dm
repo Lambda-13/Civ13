@@ -8,7 +8,7 @@
 	icon_state = null
 	item_state = "pill"
 	possible_transfer_amounts = null
-	w_class = TRUE
+	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
 	volume = 60
 
@@ -109,15 +109,31 @@
 
 /obj/item/weapon/reagent_containers/pill/paracetamol
 	name = "Paracetamol pill"
-	desc = "Tylenol! A painkiller for the ages. Chewables!"
+	desc = "Also known as acetaminophen. Used to treat fever and mild to moderate pain."
 	icon_state = "pill8"
 	New()
 		..()
 		reagents.add_reagent("paracetamol", 15)
 
+/obj/item/weapon/reagent_containers/pill/aspirin
+	name = "aspirin pill"
+	desc = "Also known as acetylsalicylic acid. Used to treat fever and mild to moderate pain."
+	icon_state = "pill8"
+	New()
+		..()
+		reagents.add_reagent("aspirin", 10)
+
+/obj/item/weapon/reagent_containers/pill/sal_acid
+	name = "Salicyclic Acid pill"
+	desc = "Stimulates the healing of severe bruises. Extremely rapidly heals severe bruising and slowly heals minor ones. Overdose will worsen existing bruising."
+	icon_state = "pill8"
+	New()
+		..()
+		reagents.add_reagent("sal_acid", 10)
+
 /obj/item/weapon/reagent_containers/pill/tramadol
 	name = "Tramadol pill"
-	desc = "A simple painkiller."
+	desc = "A moderate painkiller."
 	icon_state = "pill8"
 	New()
 		..()
@@ -125,7 +141,7 @@
 
 /obj/item/weapon/reagent_containers/pill/opium
 	name = "opium ball"
-	desc = "A ball of dried opium. A great painkiller."
+	desc = "A ball of dried opium. A strong painkiller."
 	icon = 'icons/obj/materials.dmi'
 	icon_state = "opium_extracted"
 	value = 17
@@ -241,7 +257,7 @@
 
 /obj/item/weapon/reagent_containers/pill/penicillin
 	name = "penicillin pill"
-	desc = "Contains antiviral agents."
+	desc = "Contains antimicrobial agents."
 	icon_state = "pill19"
 	New()
 		..()

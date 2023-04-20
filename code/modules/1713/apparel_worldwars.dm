@@ -345,7 +345,6 @@
 	icon_state = "biker"
 	item_state = "biker"
 	worn_state = "biker"
-	restricts_view = 1
 
 /obj/item/clothing/under/ww2/gulag_prisoner
 	name = "GULAG prisoner clothing"
@@ -550,7 +549,7 @@
 	worn_state = "japtanker"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 40, arrow = 30, gun = 10, energy = 15, bomb = 40, bio = 20, rad = FALSE)
+	armor = list(melee = 40, arrow = 30, gun = 20, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
 /obj/item/clothing/head/helmet/ww2/japhelm/bandana
 	has_headband = TRUE
@@ -1443,6 +1442,10 @@ obj/item/clothing/head/ww2/cra_cap
 	item_state = "trenchsuit"
 	worn_state = "trenchsuit"
 
+/obj/item/clothing/under/ww1/trenchsuit/poland //looks very similiar to the ww2 polish uniform so lets pretend that its the polish uniform
+	name = "polish uniform"
+	desc = "A polish uniform, used by the army."
+
 /obj/item/clothing/under/ww1/french
 	name = "french uniform"
 	desc = "A french light blue uniform, used by the French Army."
@@ -1462,6 +1465,144 @@ obj/item/clothing/head/ww2/cra_cap
 		hold.storage_slots = slots
 		hold.can_hold = list(/obj/item/ammo_casing, /obj/item/ammo_magazine, /obj/item/weapon/grenade, /obj/item/weapon/attachment/bayonet,/obj/item/weapon/material/shovel/trench,/obj/item/weapon/reagent_containers/food/drinks/bottle/canteen,/obj/item/weapon/reagent_containers/food/snacks/MRE,/obj/item/stack/medical/bruise_pack)
 
+/obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/mosin
+	New()
+		..()
+		new/obj/item/stack/medical/bruise_pack/gauze(hold)
+		new/obj/item/ammo_magazine/mosin(hold)
+		new/obj/item/ammo_magazine/mosin(hold)
+		new/obj/item/ammo_magazine/mosin(hold)
+		new/obj/item/ammo_magazine/mosin(hold)
+		new/obj/item/ammo_magazine/mosin(hold)
+
+/obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/mosinalt
+	New()
+		..()
+		new/obj/item/stack/medical/bruise_pack/gauze(hold)
+		new/obj/item/ammo_magazine/mosin(hold)
+		new/obj/item/ammo_magazine/mosin(hold)
+		new/obj/item/ammo_magazine/mosin(hold)
+		new/obj/item/weapon/grenade/modern/f1(hold)
+
+/obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/mosinbay
+	New()
+		..()
+		new/obj/item/stack/medical/bruise_pack/gauze(hold)
+		new/obj/item/ammo_magazine/mosin(hold)
+		new/obj/item/ammo_magazine/mosin(hold)
+		new/obj/item/ammo_magazine/mosin(hold)
+		new/obj/item/weapon/attachment/bayonet(hold)
+
+/obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/mosinaltsmoke
+	New()
+		..()
+		new/obj/item/stack/medical/bruise_pack/gauze(hold)
+		new/obj/item/ammo_magazine/mosin(hold)
+		new/obj/item/ammo_magazine/mosin(hold)
+		new/obj/item/ammo_magazine/mosin(hold)
+		new/obj/item/weapon/grenade/smokebomb(hold)
+
+/obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/snipermosin
+	New()
+		..()
+		new/obj/item/stack/medical/bruise_pack/gauze(hold)
+		new/obj/item/ammo_magazine/mosin(hold)
+		new/obj/item/ammo_magazine/mosin(hold)
+		new/obj/item/ammo_magazine/mosinbox(hold)
+
+/obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/svt
+	New()
+		..()
+		new/obj/item/stack/medical/bruise_pack/gauze(hold)
+		new/obj/item/ammo_magazine/svt(hold)
+		new/obj/item/ammo_magazine/svt(hold)
+		new/obj/item/ammo_magazine/svt(hold)
+		new/obj/item/ammo_magazine/svt(hold)
+		new/obj/item/ammo_magazine/svt(hold)
+
+/obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/svt/frag
+	New()
+		..()
+		new/obj/item/weapon/grenade/ww2/rgd33(hold)
+
+/obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/svtassault
+	New()
+		..()
+		new/obj/item/stack/medical/bruise_pack/gauze(hold)
+		new/obj/item/ammo_magazine/svt(hold)
+		new/obj/item/ammo_magazine/mosinbox(hold)
+		new/obj/item/ammo_magazine/svt(hold)
+		new/obj/item/weapon/grenade/smokebomb(hold)
+
+/obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/ppsh
+	New()
+		..()
+		new/obj/item/stack/medical/bruise_pack/gauze(hold)
+		new/obj/item/ammo_magazine/c762x25_ppsh(hold)
+		new/obj/item/ammo_magazine/c762x25_ppsh(hold)
+		new/obj/item/ammo_magazine/c762x25_pps(hold)
+		new/obj/item/ammo_magazine/c762x25_pps(hold)
+		new/obj/item/ammo_magazine/c762x25_pps(hold)
+
+/obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/ppsh/grenade
+	New()
+		..()
+		new/obj/item/weapon/grenade/ww2/rgd33(hold)
+
+/obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/ppshassault
+	New()
+		..()
+		new/obj/item/stack/medical/bruise_pack/gauze(hold)
+		new/obj/item/ammo_magazine/c762x25_ppsh(hold)
+		new/obj/item/ammo_magazine/c762x25_ppsh(hold)
+		new/obj/item/ammo_magazine/c762x25_ppsh(hold)
+		new/obj/item/weapon/grenade/smokebomb(hold)
+		new/obj/item/weapon/grenade/ww2/rgd33(hold)
+
+/obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/dpgun
+	New()
+		..()
+		new/obj/item/stack/medical/bruise_pack/gauze(hold)
+		new/obj/item/ammo_magazine/dp(hold)
+		new/obj/item/ammo_magazine/dp(hold)
+		new/obj/item/ammo_magazine/dp(hold)
+		new/obj/item/weapon/grenade/smokebomb(hold)
+
+/obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup
+	name = "Stormgroup Webbing"
+	desc = "Specially made webbing used by stormgroups."
+	slots = 9
+	New()
+		..()
+		hold.can_hold = list(/obj/item/ammo_casing, /obj/item/ammo_magazine, /obj/item/weapon/grenade, /obj/item/weapon/attachment/bayonet,/obj/item/weapon/material/shovel/trench,/obj/item/weapon/reagent_containers/food/drinks/bottle/canteen,/obj/item/weapon/reagent_containers/food/snacks/MRE,/obj/item/stack/medical/bruise_pack,/obj/item/weapon/gun/projectile/pistol)
+
+obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/svt
+	New()
+		..()
+		new/obj/item/stack/medical/bruise_pack/gauze(hold)
+		new/obj/item/ammo_magazine/svt(hold)
+		new/obj/item/ammo_magazine/svt(hold)
+		new/obj/item/ammo_magazine/mosinbox(hold)
+		new/obj/item/ammo_magazine/svt(hold)
+		new/obj/item/weapon/grenade/smokebomb(hold)
+		new/obj/item/weapon/grenade/ww2/rgd33(hold)
+		new/obj/item/weapon/compass(hold)
+		new/obj/item/weapon/attachment/bayonet(hold)
+
+obj/item/clothing/accessory/storage/webbing/ww1/ww2/stormgroup/Scout
+	New()
+		..()
+		new/obj/item/stack/medical/bruise_pack/gauze(hold)
+		new/obj/item/ammo_magazine/c762x25_ppsh(hold)
+		new/obj/item/ammo_magazine/c762x25_ppsh(hold)
+		new/obj/item/ammo_magazine/c762x25_ppsh(hold)
+		new/obj/item/ammo_magazine/c762x25_ppsh(hold)
+		new/obj/item/weapon/attachment/scope/adjustable/binoculars/binoculars(hold)
+		new/obj/item/weapon/grenade/ww2/rgd33(hold)
+		new/obj/item/weapon/grenade/smokebomb(hold)
+		new/obj/item/weapon/compass(hold)
+		new/obj/item/weapon/attachment/bayonet(hold)
+
 /obj/item/clothing/accessory/storage/webbing/russian
 	name = "russian webbing"
 	desc = "4 green poly pouches."
@@ -1471,6 +1612,40 @@ obj/item/clothing/head/ww2/cra_cap
 	New()
 		..()
 		hold.can_hold = list(/obj/item/ammo_casing, /obj/item/ammo_magazine, /obj/item/weapon/grenade, /obj/item/weapon/attachment/bayonet,/obj/item/weapon/material/shovel/trench,/obj/item/weapon/reagent_containers/food/drinks/bottle/canteen,/obj/item/weapon/reagent_containers/food/snacks/MRE,/obj/item/stack/medical/bruise_pack)
+
+/obj/item/clothing/accessory/storage/webbing/russian/guns
+	New()
+		..()
+		new /obj/item/stack/medical/bruise_pack/gauze(hold)
+/obj/item/clothing/accessory/storage/webbing/russian/guns/pkm
+	New()
+		..()
+		new /obj/item/ammo_magazine/pkm/c100(hold)
+		new /obj/item/ammo_magazine/pkm/c100(hold)
+		new /obj/item/ammo_magazine/pkm/c100(hold)
+		new /obj/item/ammo_magazine/pkm/c100(hold)
+		new /obj/item/weapon/grenade/coldwar/rgd5(hold)
+/obj/item/clothing/accessory/storage/webbing/russian/guns/rpk
+	New()
+		..()
+		new /obj/item/ammo_magazine/rpk74/drum(hold)
+		new /obj/item/ammo_magazine/rpk74(hold)
+		new /obj/item/ammo_magazine/rpk74(hold)
+		new /obj/item/ammo_magazine/rpk74(hold)
+		new /obj/item/weapon/grenade/coldwar/rgd5(hold)
+/obj/item/clothing/accessory/storage/webbing/russian/guns/rpd
+	New()
+		..()
+		new /obj/item/ammo_magazine/rpd(hold)
+		new /obj/item/ammo_magazine/rpd(hold)
+		new /obj/item/ammo_magazine/rpd(hold)
+		new /obj/item/weapon/grenade/coldwar/rgd5(hold)
+/obj/item/clothing/accessory/storage/webbing/russian/guns/ak47
+	New()
+		..()
+		new /obj/item/ammo_magazine/ak47(hold)
+		new /obj/item/ammo_magazine/ak47(hold)
+		new /obj/item/ammo_magazine/ak47(hold)
 
 /obj/item/clothing/accessory/storage/webbing/ww1/german
 	name = "german webbing"
@@ -1490,12 +1665,34 @@ obj/item/clothing/head/ww2/cra_cap
 		new/obj/item/ammo_magazine/gewehr98(hold)
 		new/obj/item/ammo_magazine/gewehr98(hold)
 
-/obj/item/clothing/accessory/storage/webbing/ww1/german/ww2/gewehr98/sniper
+/obj/item/clothing/accessory/storage/webbing/ww1/german/ww2/gewehr98/assault
 	New()
 		..()
 		new/obj/item/ammo_magazine/gewehr98(hold)
+		new/obj/item/weapon/grenade/modern/stg1915(hold)
+		new/obj/item/weapon/grenade/smokebomb(hold)
+
+/obj/item/clothing/accessory/storage/webbing/ww1/german/ww2/gewehr98/smoke
+	New()
+		..()
 		new/obj/item/ammo_magazine/gewehr98(hold)
+		new/obj/item/weapon/grenade/smokebomb(hold)
+
+/obj/item/clothing/accessory/storage/webbing/ww1/german/ww2/mg34
+	New()
+		..()
+		new/obj/item/ammo_magazine/mg34(hold)
+		new/obj/item/ammo_magazine/mg34(hold)
+		new/obj/item/ammo_magazine/mg34(hold)
+		new/obj/item/ammo_magazine/mg34(hold)
+		new/obj/item/weapon/grenade/smokebomb(hold)
+
+/obj/item/clothing/accessory/storage/webbing/ww1/german/ww2/gewehr98/sniper
+	New()
+		..()
 		new/obj/item/ammo_magazine/gewehr98box(hold)
+		new/obj/item/weapon/grenade/smokebomb(hold)
+
 /obj/item/clothing/accessory/storage/webbing/ww1/german/ww2/mauser
 	New()
 		..()
@@ -1512,6 +1709,24 @@ obj/item/clothing/head/ww2/cra_cap
 		new/obj/item/ammo_magazine/mp40(hold)
 		new/obj/item/ammo_magazine/mp40(hold)
 
+/obj/item/clothing/accessory/storage/webbing/ww1/german/ww2/mp40assault
+	New()
+		..()
+		new/obj/item/ammo_magazine/mp40(hold)
+		new/obj/item/ammo_magazine/mp40(hold)
+		new/obj/item/ammo_magazine/mp40(hold)
+		new/obj/item/ammo_magazine/mp40(hold)
+		new/obj/item/weapon/grenade/ww2/stg1924(hold)
+
+/obj/item/clothing/accessory/storage/webbing/ww1/german/ww2/fg42
+	New()
+		..()
+		new/obj/item/ammo_magazine/fg42(hold)
+		new/obj/item/ammo_magazine/fg42(hold)
+		new/obj/item/ammo_magazine/fg42/small(hold)
+		new/obj/item/ammo_magazine/fg42/small(hold)
+		new/obj/item/ammo_magazine/fg42/small(hold)
+
 /obj/item/clothing/accessory/storage/webbing/ww1/german/ww2/g43
 	New()
 		..()
@@ -1519,6 +1734,16 @@ obj/item/clothing/head/ww2/cra_cap
 		new/obj/item/ammo_magazine/g43(hold)
 		new/obj/item/ammo_magazine/g43(hold)
 		new/obj/item/ammo_magazine/g43(hold)
+
+/obj/item/clothing/accessory/storage/webbing/ww1/german/ww2/stg
+	New()
+		..()
+		new/obj/item/ammo_magazine/stg(hold)
+		new/obj/item/ammo_magazine/stg(hold)
+		new/obj/item/ammo_magazine/stg(hold)
+		new/obj/item/ammo_magazine/stg(hold)
+		new/obj/item/weapon/grenade/modern/stg1915(hold)
+		new/obj/item/weapon/grenade/antitank/stg24_bundle(hold)
 
 /obj/item/clothing/accessory/storage/webbing/ww1/french
 	name = "french webbing"
@@ -1560,6 +1785,47 @@ obj/item/clothing/head/ww2/cra_cap
 	armor = list(melee = 70, arrow = 90, gun = 40, energy = 12, bomb = 40, bio = 20, rad = 15)
 	value = 50
 	slowdown = 0.8
+
+///////////////other////////////////
+
+/obj/item/clothing/accessory/armor/modern/lightplate
+	name = "light breastplate body armor"
+	desc = "Wearable light armor made of steel sheets."
+	icon = 'icons/obj/clothing/ties.dmi'
+	icon_state = "modern_armorvest"
+	item_state = "modern_armorvest"
+	worn_state = "modern_armorvest"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	armor = list(melee = 50, arrow = 95, gun = 35, energy = 15, bomb = 45, bio = 20, rad = 20)
+	value = 50
+	slowdown = 0.6
+	health = 50
+
+/obj/item/clothing/accessory/armor/modern/lightplate/lead
+	name = "green lead breastplate body armor"
+	desc = "Wearable breastplate armor made out of steel sheets and lead."
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	armor = list(melee = 60, arrow = 95, gun = 35, energy = 15, bomb = 45, bio = 20, rad = 60)
+	value = 50
+	slowdown = 0.8
+	health = 50
+
+/obj/item/clothing/accessory/armor/modern/lightplate/black
+	name = "light black breastplate body armor"
+	desc = "Wearable light armor made of steel sheets."
+	icon = 'icons/obj/clothing/ties.dmi'
+	icon_state = "modern_blackvest"
+	item_state = "modern_blackvest"
+	worn_state = "modern_blackvest"
+
+/obj/item/clothing/accessory/armor/modern/lightplate/black/lead
+	name = "Lead breastplate body armor"
+	desc = "Wearable breastplate armor made out of steel sheets and lead."
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	armor = list(melee = 60, arrow = 95, gun = 35, energy = 15, bomb = 45, bio = 20, rad = 60)
+	value = 50
+	slowdown = 0.8
+	health = 50
 
 ////////////////////////////////////
 ///////////////WW2//////////////////
@@ -1750,6 +2016,35 @@ obj/item/clothing/head/ww2/cra_cap
 	new/obj/item/ammo_magazine/browning(src)
 	new/obj/item/ammo_magazine/browning(src)
 
+/obj/item/weapon/storage/ammo_can/ak74
+/obj/item/weapon/storage/ammo_can/ak74/New()
+	..()
+	new/obj/item/ammo_magazine/ak74(src)
+	new/obj/item/ammo_magazine/ak74(src)
+	new/obj/item/ammo_magazine/ak74(src)
+	new/obj/item/ammo_magazine/ak74(src)
+	new/obj/item/ammo_magazine/ak74(src)
+	new/obj/item/ammo_magazine/ak74(src)
+
+/obj/item/weapon/storage/ammo_can/stanag
+/obj/item/weapon/storage/ammo_can/stanag/New()
+	..()
+	new/obj/item/ammo_magazine/m16(src)
+	new/obj/item/ammo_magazine/m16(src)
+	new/obj/item/ammo_magazine/m16(src)
+	new/obj/item/ammo_magazine/m16/box(src)
+	new/obj/item/ammo_magazine/m16/box(src)
+
+/obj/item/weapon/storage/ammo_can/dp
+/obj/item/weapon/storage/ammo_can/dp/New()
+	..()
+	new/obj/item/ammo_magazine/dp(src)
+	new/obj/item/ammo_magazine/dp(src)
+	new/obj/item/ammo_magazine/dp(src)
+	new/obj/item/ammo_magazine/dp(src)
+	new/obj/item/ammo_magazine/dp(src)
+	new/obj/item/ammo_magazine/dp(src)
+
 /obj/item/clothing/under/ww2/soviet
 	name = "soviet uniform"
 	desc = "A soviet uniform, used by infantry in the Red Army."
@@ -1844,6 +2139,13 @@ obj/item/clothing/head/ww2/cra_cap
 	item_state = "amoeba"
 	worn_state = "amoeba"
 
+/obj/item/clothing/under/ww2/soviet_amoeba/winter
+	name = "soviet winter amoeba outfit"
+	desc = "A soviet camouflage outfit, concieved for reconnaissance units."
+	icon_state = "amoebaw"
+	item_state = "amoebaw"
+	worn_state = "amoebaw"
+
 /obj/item/clothing/shoes/jackboots/soviet
 	name = "soviet sapogi boots"
 	desc = "Jackboots of soviet origin. Also known as 'Yuftevyje sapogi'."
@@ -1916,6 +2218,35 @@ obj/item/clothing/head/ww2/cra_cap
 	item_state = "us_shirtless"
 	worn_state = "us_shirtless"
 
+/obj/item/clothing/suit/storage/coat/ww2/us_coat
+	name = "american coat"
+	desc = "A US army coat."
+	icon_state = "us_coat"
+	item_state = "us_coat"
+	worn_state = "us_coat"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
+
+/obj/item/clothing/shoes/us_ww2_boots
+	name = "brown boots"
+	desc = "Combat boots made of brown leather with a toe cap and rubber sole."
+	icon_state = "brownboots"
+	item_state = "brownboots_us_ww2"
+	worn_state = "brownboots_us_ww2"
+	force = WEAPON_FORCE_WEAK
+	armor = list(melee = 10, arrow = 20, gun = 0, energy = 25, bomb = 50, bio = 10, rad = 0)
+	item_flags = NOSLIP
+	siemens_coefficient = 0.6
+	cold_protection = FEET
+	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
+
+/obj/item/clothing/shoes/us_ww2_boots/leggings
+	name = "brown boots with leggings"
+	desc = "Combat boots made of brown leather with a toe cap and rubber sole wrapped in protective leggings."
+	icon_state = "brownboots_leggings"
+	item_state = "brownboots_us_ww2_leggings"
+	worn_state = "brownboots_us_ww2_leggings"
+
 /obj/item/clothing/accessory/storage/webbing/us_ww2
 	name = "US webbing"
 	desc = "A khaki canvas pouch rig with 10 pouches total for ammo and other various items"
@@ -1926,6 +2257,20 @@ obj/item/clothing/head/ww2/cra_cap
 		hold.storage_slots = slots
 		hold.can_hold = list(/obj/item/weapon/material/kitchen/utensil,/obj/item/weapon/key,/obj/item/ammo_casing, /obj/item/ammo_magazine, /obj/item/weapon/grenade,/obj/item/weapon/attachment,/obj/item/weapon/handcuffs,/obj/item/stack/medical/bruise_pack)
 
+/obj/item/clothing/accessory/storage/webbing/us_ww2/garand
+	New()
+		..()
+		new /obj/item/stack/medical/bruise_pack/gauze(hold)
+		new /obj/item/ammo_magazine/garand(hold)
+		new /obj/item/ammo_magazine/garand(hold)
+		new /obj/item/ammo_magazine/garand(hold)
+		new /obj/item/ammo_magazine/garand(hold)
+		new /obj/item/ammo_magazine/garand(hold)
+		new /obj/item/ammo_magazine/garand(hold)
+		new /obj/item/ammo_magazine/garand(hold)
+		new /obj/item/ammo_magazine/garand(hold)
+		new /obj/item/ammo_magazine/garand(hold)
+		new /obj/item/ammo_magazine/garand(hold)
 ////////////////////////////////////////////////////////////////////////
 /obj/item/clothing/under/ww2/finnish
 	name = "finnish uniform"
@@ -1944,19 +2289,16 @@ obj/item/clothing/head/ww2/cra_cap
 	cold_protection = UPPER_TORSO|ARM_LEFT|ARM_RIGHT
 	armor = list(melee = 10, arrow = 0, gun = FALSE, energy = 15, bomb = 5, bio = 30, rad = 25)
 	value = 65
-/*
-/obj/item/clothing/suit/storage/coat/ww2/german/New()
-	..()
-	if (map && (map.ID == MAP_STALINGRAD || map.ID == MAP_SMALLINGRAD))
-		icon_state = "gerparka_winter"
-		item_state = "gerparka_winter"
-		worn_state = "gerparka_winter"
-		item_state_slots["slot_w_uniform"] = "gerparka_winter"
-		name = "german coat"
-		desc = "A german coat, worn by soldaten in the Wehrmacht."
-		body_parts_covered = UPPER_TORSO||ARMS
-		cold_protection = UPPER_TORSO|ARM_LEFT|ARM_RIGHT|LOWER_TORSO
-*/
+
+/obj/item/clothing/suit/storage/coat/ww2/german/winter
+	icon_state = "gerparka_winter"
+	item_state = "gerparka_winter"
+	worn_state = "gerparka_winter"
+	name = "german winter coat"
+	desc = "A german coat, worn by soldaten in the Wehrmacht."
+	body_parts_covered = UPPER_TORSO||ARMS
+	cold_protection = UPPER_TORSO|ARM_LEFT|ARM_RIGHT|LOWER_TORSO
+
 /obj/item/clothing/suit/storage/coat/ww2/german/civ
 	name = "grey parka"
 	desc = "A grey parka, good for warmth in the winters."
@@ -2052,14 +2394,6 @@ obj/item/clothing/head/ww2/cra_cap
 	item_state = "usnco_cap"
 	worn_state = "usnco_cap"
 
-/obj/item/clothing/head/ww2/us_tanker
-	name = "US tanker cap"
-	desc = "A cap worn by american tankers."
-	icon_state = "ustanker"
-	item_state = "ustanker"
-	worn_state = "ustanker"
-	flags = CONDUCT
-
 /obj/item/clothing/head/ww2/us_sailor_hat
 	name = "us sailor hat"
 	desc = "A hat worn by american sailors."
@@ -2067,13 +2401,25 @@ obj/item/clothing/head/ww2/cra_cap
 	item_state = "sailor_hat"
 	worn_state = "sailor_hat"
 
+/obj/item/clothing/head/ww2/us_tanker
+	name = "US tanker cap"
+	desc = "A cap worn by american tankers."
+	icon_state = "ustanker"
+	item_state = "ustanker"
+	worn_state = "ustanker"
+	body_parts_covered = HEAD
+	flags_inv = BLOCKHEADHAIR
+	armor = list(melee = 40, arrow = 30, gun = 20, energy = 15, bomb = 40, bio = 20, rad = FALSE)
+
 /obj/item/clothing/head/ww2/german_tanker
 	name = "german tanker headset"
 	desc = "A cap and radio headset worn by german tank crewmen of the Wehrmacht."
 	icon_state = "gertanker"
 	item_state = "gertanker"
 	worn_state = "gertanker"
-	flags = CONDUCT
+	body_parts_covered = HEAD
+	flags_inv = BLOCKHEADHAIR
+	armor = list(melee = 40, arrow = 30, gun = 0, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 
 /obj/item/clothing/head/ww2/soviet_tanker
 	name = "soviet tanker cap"
@@ -2081,6 +2427,10 @@ obj/item/clothing/head/ww2/cra_cap
 	icon_state = "sovtanker"
 	item_state = "sovtanker"
 	worn_state = "sovtanker"
+	body_parts_covered = HEAD
+	flags_inv = BLOCKHEADHAIR
+	armor = list(melee = 40, arrow = 30, gun = 20, energy = 15, bomb = 40, bio = 20, rad = FALSE)
+
 /obj/item/clothing/head/ww2/soviet_tanker/New()
 	..()
 	if (map.ordinal_age >= 8)
@@ -2293,6 +2643,10 @@ obj/item/clothing/head/ww2/cra_cap
 		worn_state = "sovhelm_winter"
 		item_state_slots["sovhelm_winter"] = "sovhelm_winter"
 
+/obj/item/clothing/head/helmet/ww2/soviet/winter
+	icon_state = "sovhelm_winter"
+	item_state = "sovhelm_winter"
+	worn_state = "sovhelm_winter"
 
 /obj/item/clothing/head/helmet/ww2/usm1
 	name = "M1 Helmet"
@@ -2806,7 +3160,6 @@ obj/item/clothing/head/ww2/cra_cap
 	heat_protection = LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
 
 
-
 /obj/item/weapon/storage/belt/gulagguard/filled/New()
 	..()
 	new /obj/item/weapon/material/classic_baton(src)
@@ -2816,8 +3169,30 @@ obj/item/clothing/head/ww2/cra_cap
 	new /obj/item/weapon/handcuffs(src)
 	new /obj/item/weapon/handcuffs(src)
 	new /obj/item/weapon/whistle(src)
+	new /obj/item/weapon/pen/pencil(src)
 	new /obj/item/weapon/clipboard/full(src)
-	new /obj/item/weapon/pen(src)
+
+/obj/item/weapon/storage/belt/gulagguard/filledwar/New()
+	..()
+	new /obj/item/weapon/material/classic_baton(src)
+	new /obj/item/stack/medical/bruise_pack/bint(src)
+	new /obj/item/weapon/handcuffs(src)
+	new /obj/item/weapon/handcuffs(src)
+	new /obj/item/weapon/grenade/smokebomb(src)
+	new /obj/item/weapon/whistle(src)
+	new /obj/item/ammo_magazine/c762x25_ppsh(src)
+	new /obj/item/ammo_magazine/c762x25_ppsh(src)
+
+/obj/item/weapon/storage/belt/gulagguard/filledwarak/New()
+	..()
+	new /obj/item/weapon/material/classic_baton(src)
+	new /obj/item/stack/medical/bruise_pack/bint(src)
+	new /obj/item/weapon/handcuffs(src)
+	new /obj/item/weapon/handcuffs(src)
+	new /obj/item/weapon/whistle(src)
+	new /obj/item/ammo_magazine/ak47(src)
+	new /obj/item/ammo_magazine/ak47(src)
+	new /obj/item/ammo_magazine/ak47(src)
 
 /obj/item/weapon/storage/belt/smallpouches/gerbelt
 	icon_state = "gerbelt"

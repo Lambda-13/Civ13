@@ -11,7 +11,7 @@
 	item_state = "paper"
 	var/base_icon = "paper"
 	throwforce = FALSE
-	w_class = TRUE
+	w_class = ITEM_SIZE_TINY
 	throw_range = TRUE
 	throw_speed = TRUE
 	layer = 4
@@ -95,6 +95,7 @@
 
 /*/obj/item/weapon/paper/verb/airplane()
 	set name = "Make Paper Airplane"
+	set category = null
 	set src in usr
 	src.icon_state = "paper_plane"
 	src.throw_range = 14

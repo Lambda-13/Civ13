@@ -17,6 +17,8 @@ var/time_of_day_change_ru = "день"
 				sleep(1)
 			if (map && map.ID == MAP_FOOTBALL)
 				time_of_day = "Midday"
+			if (map && map.ID == MAP_FOOTBALL_CAMPAIGN)
+				time_of_day = "Midday"
 			if (map && map.ID == MAP_CAMPAIGN)
 				time_of_day = "Morning"
 			if (map && map.ID == MAP_DRUG_BUST)
@@ -43,8 +45,6 @@ var/time_of_day_change_ru = "день"
 							time_of_day_change_ru = "день"
 					world << "<br><font size=3><span class = 'notice'>Сейчас <b>[time_of_day_change_ru]</b>, время года <b>[lowertext(get_season_ru())]</b>.</span></font>"
 
-	// spawn mice so pirates have something to eat after they start starving
-
 	// open squad preparation doors
 	for (var/obj/structure/simple_door/key_door/keydoor in door_list)
 		if (findtext(keydoor.name, "Squad"))
@@ -54,11 +54,11 @@ var/time_of_day_change_ru = "день"
 
 // this is roundstart because we need to wait for objs to be created
 /hook/roundstart/proc/nature()
-
+	spawn(1)
 	if (map && (map.nomads && !map.override_mapgen) || map.force_mapgen)
 		spawn(10)
 			map.seed_the_map()
-	return
+	return TRUE
 
 /obj/map_metadata/proc/seed_the_map()
 	var/list/jungleriverturfs = list()

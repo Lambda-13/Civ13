@@ -221,18 +221,20 @@
 				MAP_PAVLOV_HOUSE = 0,
 				MAP_HOTEL = 0,
 				MAP_KHALKHYN_GOL = 8,
-				MAP_SMALLSIEGEMOSCOW = 8,
 				MAP_RIZAL_STADIUM = 10,
 				MAP_KURSK = 10,
 				MAP_STALINGRAD = 10,
-				MAP_OMAHA = 20,
-//				MAP_IWO_JIMA = 40,
-				MAP_FOREST = 20,
-//				MAP_KARELIA = 14,
+				MAP_LONG_MARCH = 12,
+				MAP_SMALLSIEGEMOSCOW = 12,
 				MAP_INTRAMUROS = 14,
 				MAP_WAKE_ISLAND = 14,
-				MAP_BERLIN = 20,
 				MAP_NANJING = 14,
+				MAP_OMAHA = 20,
+//				MAP_BIGSIEGEMOSCOW = 20,
+				MAP_FOREST = 20,
+//				MAP_KARELIA = 14,
+				MAP_BERLIN = 20,
+//				MAP_IWO_JIMA = 40,
 			)
 
 		else if (epoch == "Early Fire Arms (1650-1930)" || epoch == "Эра империализма (1650 - 1930)")
@@ -240,6 +242,7 @@
 			maps = list(
 				MAP_HILL_203 = 0,
 				MAP_YPRES = 0,
+				MAP_VERDUN = 0,
 				MAP_SIBERSYN = 6,
 				MAP_TSARITSYN = 6,
 				MAP_PORT_ARTHUR = 10,
@@ -248,7 +251,7 @@
 				MAP_LITTLE_CREEK_TDM = 0,
 				MAP_MISSIONARY_RIDGE = 10,
 				MAP_NAVAL = 0,
-		//		MAP_SKULLISLAND = 0,
+//				MAP_SKULLISLAND = 0,
 				MAP_SUPPLY_RAID = 0,
 				MAP_BRIDGE = 0,
 				MAP_RECIFE = 10,
@@ -262,7 +265,7 @@
 				MAP_TRIBES = 0,
 			)
 		else if (epoch == "Chad Mode" || epoch == "Выживание (Режим Чада)")
-	// chad mode group for TDM
+	//	Chad Mode - TDM
 			maps = list(
 				MAP_JUNGLE_OF_THE_CHADS = 0,
 			)
@@ -271,7 +274,6 @@
 			maps = list(
 				MAP_KARAK = 0,
 				MAP_CAMP = 0,
-				MAP_SAMMIRHAYEED = 10,
 				MAP_OASIS = 0,
 				MAP_HERACLEA = 0,
 				MAP_CLASH = 0,
@@ -279,10 +281,11 @@
 				MAP_GLADIATORS = 0,
 				MAP_TEUTOBURG = 8,
 				MAP_HERACLEA = 8,
+				MAP_SAMMIRHAYEED = 10,
 			)
 		else if (epoch == "HRP TDM (Gulag, Occupation, AOTD, etc)" || epoch == "Командный бой и ролевая игра (ГУЛАГ, Оккупация, Исскуство сделки...)")
 			maps = list(
-//				MAP_FOOTBALL = 8,
+				MAP_FOOTBALL = 8,
 				MAP_GULAG13 = 6,
 //				MAP_ABASHIRI = 6,
 //				MAP_RIVER_KWAI = 0,
@@ -349,7 +352,8 @@
 				MAP_BATTLEROYALE_MEDIEVAL = 0,
 				MAP_BATTLEROYALE_IMPERIAL = 0,
 				MAP_BATTLEROYALE_WILDWEST = 0,
-				MAP_BATTLEROYALE_MODERN = 0,)
+				MAP_BATTLEROYALE_MODERN = 0,
+				MAP_HUNGERGAMES = 0,)
 		else if (epoch == "Fiction" || epoch == "Альтернативная история")
 			maps = list(
 				MAP_TANTIVEIV = 0,
@@ -377,12 +381,11 @@
 			. = TRUE
 	return .
 
-/process/mapswap/proc/swap(var/winner = "Naval")
+/process/mapswap/proc/swap(var/winner = "Karak")
 	next_map_title = winner
 	winner = uppertext(winner)
 	if (!maps.Find(winner))
-		winner = maps[1]
-	// there used to be messages here about success and failure but they lie so they're gone - Kachnov
+		winner = maps[rand(0,1)]
 	if (!done)
 		processes.python.execute("mapswap.py", list(winner))
 		done = TRUE
@@ -771,9 +774,9 @@
 		map.is_zombie = FALSE
 		map.nonukes = TRUE
 		return
-	else if (vote.voted_gamemode == "Nuklear")
-		world << "<font color='yellow'><big>Nuklear</big><br>To make things worse sometime between 2 and 3.5 hours a nuklear missle will be hitting somewhere nearby. Can you survive?</big><br><b>Wiki Guide: https://civ13.github.io/civ13-wiki/Civilizations_and_Nomads</b>"
-		map.gamemode = "Nuklear"
+	else if (vote.voted_gamemode == "Nuclear")
+		world << "<font color='yellow'><big>Nuclear</big><br>To make things worse sometime between 2 and 3.5 hours a nuclear missle will be hitting somewhere nearby. Can you survive?</big><br><b>Wiki Guide: https://civ13.github.io/civ13-wiki/Civilizations_and_Nomads</b>"
+		map.gamemode = "Nuclear"
 		map.is_zombie = FALSE
 		map.nonukes = FALSE
 		return

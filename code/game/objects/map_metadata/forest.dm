@@ -3,7 +3,7 @@
 	title = "Forest"
 	lobby_icon = "icons/lobby/ww2.png"
 	no_winner ="The battle for the city is still going on."
-	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall, /area/caribbean/no_mans_land/invisible_wall/one, /area/caribbean/no_mans_land/invisible_wall/two)
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall,/area/caribbean/no_mans_land/invisible_wall/not_dynamic, /area/caribbean/no_mans_land/invisible_wall/one, /area/caribbean/no_mans_land/invisible_wall/two)
 	respawn_delay = 300
 	faction_organization = list(
 		GERMAN,
@@ -28,6 +28,8 @@
 /obj/map_metadata/forest/job_enabled_specialcheck(var/datum/job/J)
 	..()
 	if (istype(J, /datum/job/german/tank_crew) || istype(J, /datum/job/russian/tank_crew))
+		. = TRUE
+	else if (istype(J, /datum/job/german/paratrooper))
 		. = TRUE
 	else if (J.is_ss_panzer == TRUE)
 		. = FALSE
@@ -56,9 +58,9 @@
 
 /obj/map_metadata/forest/cross_message(faction)
 	if (faction == GERMAN)
-		return "<font size = 4>The germans may cross!,</font>"
+		return "<font size = 4>The Germans may now cross!</font>"
 	else if (faction == RUSSIAN)
-		return "<font size = 4>The soviets may cross!</font>"
+		return "<font size = 4>The Soviets may now cross!</font>"
 	else
 		return ""
 

@@ -3,6 +3,10 @@
 	desc = "It's just an ordinary box."
 	icon_state = "box"
 	item_state = "syringe_kit"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand.dmi',
+		)
 
 // BubbleWrap - A box can be folded up to make cardboard
 /obj/item/weapon/storage/box/attack_self(mob/user as mob)
@@ -319,12 +323,11 @@
 	desc = "Contains basic first-aid medicine."
 	icon_state = "advfirstaid2"
 	item_state = "advfirstaid2"
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	can_hold = list(
-		/obj/item/stack/medical/advanced/bruise_pack,
-		/obj/item/stack/medical/advanced/ointment,
-		/obj/item/stack/medical/splint,
-		/obj/item/weapon/pill_pack/tramadol
+		/obj/item/stack/medical,
+		/obj/item/weapon/pill_pack,
+		/obj/item/weapon/reagent_containers/syringe
 		)
 /obj/item/weapon/storage/box/firstaid/advsmall/New()
 	..()
@@ -334,13 +337,65 @@
 	new /obj/item/weapon/pill_pack/tramadol(src)
 	return
 
+/obj/item/weapon/storage/box/firstaid/advsmall/small
+	name = "Small Pocket medkit"
+	desc = "Contains basic first-aid medicine."
+	icon_state = "ifirstaid"
+	item_state = "ifirstaid"
+	w_class = ITEM_SIZE_SMALL
+	can_hold = list(
+		/obj/item/stack/medical,
+		/obj/item/weapon/pill_pack,
+		/obj/item/weapon/reagent_containers/syringe
+		)
+/obj/item/weapon/storage/box/firstaid/advsmall/small/New()
+	..()
+	new /obj/item/stack/medical/splint/small(src)
+	new /obj/item/stack/medical/bruise_pack/gauze(src)
+	new /obj/item/weapon/reagent_containers/syringe/adrenaline(src)
+	new /obj/item/weapon/pill_pack/paracetamol(src)
+	return
+
+/obj/item/weapon/storage/box/nbcbox
+	name = "NBC Protection Box"
+	desc = "cointains items that might increase your chances of survival against a Nuclear biological or a chemical attack."
+	icon_state = "boxnbc"
+	item_state = "boxnbc"
+	w_class = ITEM_SIZE_NORMAL
+	slot_flags = SLOT_BELT|SLOT_POCKET
+	can_hold = list(
+		/obj/item/clothing/accessory,
+		/obj/item/clothing/suit/nbcponcho,
+		/obj/item/weapon/pill_pack/potassium_iodide,
+		/obj/item/weapon/pill_pack/adrenaline,
+		/obj/item/clothing/mask/gas,
+		/obj/item/stack/medical
+		)
+/obj/item/weapon/storage/box/nbcbox/sov/New()
+	..()
+	new /obj/item/clothing/mask/gas/soviet/gp5(src)
+	new /obj/item/weapon/pill_pack/adrenaline(src)
+	new /obj/item/weapon/pill_pack/potassium_iodide(src)
+	new /obj/item/clothing/suit/nbcponcho(src)
+	new /obj/item/stack/medical/bruise_pack/gauze(src)
+	new /obj/item/stack/medical/advanced/sulfa/small(src)
+	return
+/obj/item/weapon/storage/box/nbcbox/ami/New()
+	..()
+	new /obj/item/clothing/mask/gas/modern2(src)
+	new /obj/item/weapon/pill_pack/adrenaline(src)
+	new /obj/item/weapon/pill_pack/potassium_iodide(src)
+	new /obj/item/clothing/suit/nbcponcho/white(src)
+	new /obj/item/stack/medical/bruise_pack/gauze(src)
+	new /obj/item/stack/medical/advanced/sulfa/small(src)
+	return
 /obj/item/weapon/matchbox
 	name = "matchbox"
 	desc = "A small box of premium matches."
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "matchbox"
 	item_state = "zippo"
-	w_class = TRUE
+	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_BELT
 	var/maxcap = 10
 	var/currcap = 10
@@ -382,7 +437,7 @@
 
 /obj/item/weapon/storage/box/flare
 	name = "box of flares"
-	desc = "Contains 10 red standard-issue flares."
+	desc = "Contains 10 red flares."
 	icon_state = "donk_kit"
 	New()
 		..()

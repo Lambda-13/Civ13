@@ -30,7 +30,7 @@
 
 //**| CLOTH |**| CLOTH ACCESSORIES |**| CLOTH BEDSHEETS |**| CLOTH BANNERS & FLAGS |**| CLOTH HEALTHCARE |**| CLOTH CARPETS |**| CLOTH FURNITURE |**| CLOTH SUITS, VESTS, COATS, JACKETS |**
 //******************************************************************************************************************************************************************************************
-//**| CLOTH ARMOR |**| CLOTH HATS |**| CLOTH MASKS & EYEWEAR |**| CLOTH UNIFORMS |**| CLOTH MILITARY UNIFORMS |**********************************************************************************************
+//**| CLOTH ARMOR |**| CLOTH HATS |**| CLOTH MASKS & EYEWEAR |**| CLOTH UNIFORMS |**| CLOTH MILITARY UNIFORMS |*| CLOTH STORAGE |**********************************************************************************************
 //******************************************************************************************************************************************************************************************
 
 //**| BARBWIRE |**
@@ -333,7 +333,7 @@ RECIPE: /material/leather/,arabic-style shoes,/obj/item/clothing/shoes/medieval/
 RECIPE: /material/leather/,emirate shoes,/obj/item/clothing/shoes/medieval/emirate,4,60,0,1,foot wear,0,39,0,2,null
 RECIPE: /material/leather/,black leather shoes,/obj/item/clothing/shoes/soldiershoes,2,60,0,1,foot wear,55,0,25,8,null
 RECIPE: /material/leather/,black leather boots,/obj/item/clothing/shoes/blackboots,3,80,0,1,foot wear,55,0,25,8,null
-RECIPE: /material/leather/,leather boots,/obj/item/clothing/shoes/leatherboots1,3,80,0,1,foot wear,55,0,25,8,null
+RECIPE: /material/leather/,leather boots,/obj/item/clothing/shoes/leatherboots,3,80,0,1,foot wear,55,0,25,8,null
 RECIPE: /material/leather/,black riding boots,/obj/item/clothing/shoes/riding1,3,50,0,1,foot wear,0,0,98,4,null
 RECIPE: /material/leather/,riding boots,/obj/item/clothing/shoes/riding2,3,50,0,1,foot wear,0,0,98,4,null
 RECIPE: /material/leather/,work boots,/obj/item/clothing/shoes/workboots,4,80,0,1,foot wear,120,0,112,8,null
@@ -674,6 +674,7 @@ RECIPE: /material/cloth/,purple hawaiian shirt,/obj/item/clothing/suit/hawaiian/
 RECIPE: /material/cloth/,green hawaiian shirt,/obj/item/clothing/suit/hawaiian/green,3,100,0,1,jackets & vests,0,0,165,8,null
 RECIPE: /material/cloth/,motorist jacket,/obj/item/clothing/under/motorist,6,110,0,1,jackets & vests,0,0,180,8,null
 RECIPE: /material/cloth/pimp coat,,/obj/item/clothing/suit/pimpcoat,6,109,0,1,jackets & vests,0,0,180,8,null
+
 //*****************| CLOTH ARMOR |***************************
 
 RECIPE: /material/cloth/,linothorax armor,/obj/item/clothing/suit/armor/ancient/linen,8,100,0,1,armor,0,20,23,3,null
@@ -734,11 +735,11 @@ RECIPE: /material/cloth/,tarred hat,/obj/item/clothing/head/tarred_hat,3,75,0,1,
 RECIPE: /material/cloth/,capotain,/obj/item/clothing/head/capotain,4,75,0,1,hats,0,0,80,4,null
 RECIPE: /material/cloth/,pilgrim hat,/obj/item/clothing/head/capotain/pilgrim,4,75,0,1,hats,0,0,80,4,null
 RECIPE: /material/cloth/,nurse hat,/obj/item/clothing/head/nurse,2,50,0,1,hats,0,0,88,8,null
-RECIPE: /material/cloth/,bowler hat,/obj/item/clothing/head/bowler_hat,2,55,0,1,hats,0,0,98,5,null
+RECIPE: /material/cloth/,bowler hat,/obj/item/clothing/head/bowler_hat,2,55,0,1,hats,0,0,98,8,null
 RECIPE: /material/cloth/,sombrero,/obj/item/clothing/head/sombrero,4,75,0,1,hats,0,0,98,8,null
 RECIPE: /material/cloth/,vaquero hat,/obj/item/clothing/head/vaquerohat,4,75,0,1,hats,0,0,98,4,null
 RECIPE: /material/cloth/,bandit hat,/obj/item/clothing/head/bandit,4,75,0,1,hats,0,0,98,4,null
-RECIPE: /material/cloth/,tophat,/obj/item/clothing/head/top_hat,5,95,0,1,hats,0,0,109,5,null
+RECIPE: /material/cloth/,tophat,/obj/item/clothing/head/top_hat,5,95,0,1,hats,0,0,109,8,null
 RECIPE: /material/cloth/,ten gallon hat,/obj/item/clothing/head/ten_gallon,5,95,0,1,hats,0,0,109,5,null
 RECIPE: /material/cloth/,brown flatcap,/obj/item/clothing/head/flatcap1,2,55,0,1,hats,0,0,109,8,null
 RECIPE: /material/cloth/,blue flatcap,/obj/item/clothing/head/flatcap2,2,55,0,1,hats,0,0,109,8,null
@@ -886,6 +887,10 @@ RECIPE: /material/cloth/,conquistador uniform,/obj/item/clothing/under/conquista
 RECIPE: /material/cloth/,constable outfit,/obj/item/clothing/under/constable,5,75,0,1,military & law enforcement clothes,0,0,138,8,null
 RECIPE: /material/cloth/,police outfit,/obj/item/clothing/under/traffic_police,5,75,0,1,military & law enforcement clothes,0,0,160,8,null
 RECIPE: /material/cloth/,custom camo uniform,/obj/item/clothing/under/customuniform_modern,4,100,0,1,military & law enforcement clothes,0,0,130,8,null
+
+//*****************| CLOTH STORAGE |***************************
+
+RECIPE: /material/cloth/,rucksack,/obj/item/weapon/storage/backpack/rucksack,16,105,0,1,storage,0,0,48,8,null
 
 //**************************************************************
 //*********************| BARBWIRE |*****************************
@@ -1506,6 +1511,7 @@ RECIPE: /material/rope/,garrote,/obj/item/garrote,3,120,0,1,none,0,43,0,8,null
 RECIPE: /material/glass/,fermentation jar,/obj/item/weapon/starterjar,3,50,0,1,none,0,0,0,8,null
 RECIPE: /material/glass/,vial arrowhead (x4),/obj/item/stack/arrowhead/vial,1,10,0,1,none,0,26,26,8,null
 RECIPE: /material/glass/,chemical dispenser,/obj/structure/chemical_dispenser,12,180,1,1,none,90,0,0,8,null
+RECIPE: /material/glass/,glass roof builder,/obj/item/weapon/roofbuilder/glass,1,20,0,1,none,103,0,0,8,null
 
 //*************| GLASS DRINKS |***************
 
@@ -1659,6 +1665,7 @@ RECIPE: /material/gold/,large gold double doors,/obj/structure/simple_door/key_d
 RECIPE: /material/gold/,gold crown,/obj/item/clothing/head/helmet/gold_crown,3,135,0,1,none,25,0,0,8,null
 RECIPE: /material/gold/,gold arm bangles,/obj/item/clothing/accessory/armband/armbangle/gold,2,95,0,1,none,0,0,0,8,null
 RECIPE: /material/gold/,gold watch,/obj/item/clothing/gloves/watch/goldwatch,6,200,0,1,none,110,60,0,8,null
+RECIPE: /material/gold/,gold medal,/obj/item/clothing/accessory/medal/gold,2,150,0,1,none,60,60,0,8,null
 
 //*****************| GOLD DECORATION |***************************
 
@@ -1684,6 +1691,7 @@ RECIPE: /material/silver/,large silver double doors,/obj/structure/simple_door/k
 RECIPE: /material/silver/,silver crown,/obj/item/clothing/head/helmet/silver_crown,3,135,0,1,none,0,0,0,8,null
 RECIPE: /material/silver/,silver arm bangles,/obj/item/clothing/accessory/armband/armbangle/silver,2,95,0,1,none,0,0,0,8,null
 RECIPE: /material/silver/,expensive watch,/obj/item/clothing/gloves/watch/specialwatch,6,200,0,1,none,110,60,0,8,null
+RECIPE: /material/silver/,silver medal,/obj/item/clothing/accessory/medal/silver,2,150,0,1,none,60,60,0,8,null
 
 //*****************| SILVER DECORATION |***************************
 
@@ -1919,6 +1927,7 @@ RECIPE: /material/bronze/,bronze scalpel,/obj/item/weapon/surgery/scalpel/bronze
 
 RECIPE: /material/bronze/,bronze arm bangles,/obj/item/clothing/accessory/armband/armbangle/bronze,2,95,0,1,none,0,0,0,8,null
 RECIPE: /material/bronze/,spiked bracers,/obj/item/clothing/accessory/armband/punk,3,95,0,1,none,180,0,0,8,null
+RECIPE: /material/bronze/,bronze medal,/obj/item/clothing/accessory/medal/bronze,2,150,0,1,none,60,60,0,8,null
 
 //*********************| BRONZE DECORATION & MONUMENTS |*************************
 
@@ -2375,8 +2384,10 @@ RECIPE: /material/iron/,unlocked large iron double doors,/obj/structure/simple_d
 
 RECIPE: /material/iron/,key,/obj/item/weapon/key,2,35,0,1,none,28,0,0,8,null
 
+RECIPE: /material/iron/,iron picket fence,/obj/structure/grille/fence/steel_picket,3,60,1,1,construction,50,0,0,8,null
 RECIPE: /material/iron/,iron fence,/obj/structure/grille/ironfence,2,80,1,1,construction,50,0,0,8,null
 RECIPE: /material/iron/,chainlink fence,/obj/structure/grille/chainlinkfence,3,80,1,1,construction,120,0,0,8,null
+RECIPE: /material/iron/,metal sheet fence,/obj/structure/grille/metalsheetfence,3,80,1,1,construction,145,0,0,8,null
 RECIPE: /material/iron/,barbwire,/obj/item/stack/material/barbwire,1,30,1,1,construction,120,0,0,8,null
 
 //*********************| IRON PROJECTILES & BULLETS |**************************
@@ -2389,10 +2400,10 @@ RECIPE: /material/iron/,iron bullet (x3),/obj/item/stack/ammopart/bullet,1,25,0,
 RECIPE: /material/iron/,cannon ball,/obj/item/cannon_ball,5,40,0,1,projectiles,0,80,0,5,null
 
 RECIPE: /material/iron/,revolver speedloader (6),/obj/item/ammo_magazine/emptyspeedloader,1,45,0,1,magazines,100,0,0,8,null
-RECIPE: /material/iron/,pistol магазин (8),/obj/item/ammo_magazine/emptymagazine/pistol/a45,2,45,0,1,magazines,105,0,0,8,null
-RECIPE: /material/iron/,pistol магазин (15),/obj/item/ammo_magazine/emptymagazine/pistol,3,45,0,1,magazines,105,0,0,8,null
-RECIPE: /material/iron/,magazine (30),/obj/item/ammo_magazine/emptymagazine/small,4,45,0,1,magazines,130,0,0,8,null
-RECIPE: /material/iron/,drum магазин (65),/obj/item/ammo_magazine/emptymagazine,7,45,0,1,magazines,135,0,0,8,null
+RECIPE: /material/iron/,pistol magazine (8),/obj/item/ammo_magazine/emptymagazine/pistol/a45,2,45,0,1,magazines,105,0,0,8,null
+RECIPE: /material/iron/,pistol magazine (15),/obj/item/ammo_magazine/emptymagazine/pistol,3,45,0,1,magazines,105,0,0,8,null
+RECIPE: /material/iron/,magazine (30),/obj/item/ammo_magazine/emptymagazine/rifle,4,45,0,1,magazines,130,0,0,8,null
+RECIPE: /material/iron/,drum magazine (65),/obj/item/ammo_magazine/emptymagazine,7,45,0,1,magazines,135,0,0,8,null
 
 //*********************| IRON CLOTHING & ACCESSORIES |**************************
 

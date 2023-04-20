@@ -62,39 +62,47 @@
 
 	if (!istype(usr, /mob/living))
 		return
-	usr << "You start flipping the table..."
-	if (do_after(usr, 50, src))
-		flipped = !flipped
-		if (flipped)
-			visible_message("<span class='warning'>[usr] flips the table!</span>")
-			if (istype(usr, /mob/living))
-				var/mob/living/L = usr
-				dir = L.dir
-		else
-			visible_message("[usr] puts the table back up.")
-			layer = 2.8
+	if (istype(src, /obj/structure/table/modern/billiard))
+		usr << "You can't flip the table, it's too heavy."
+		return
+	else
+		usr << "You start flipping the table..."
+		if (do_after(usr, 12, src))
+			flipped = !flipped
+			if (flipped)
+				visible_message("<span class='warning'>[usr] flips the table!</span>")
+				if (istype(usr, /mob/living))
+					var/mob/living/L = usr
+					dir = L.dir
+			else
+				visible_message("[usr] puts the table back up.")
+				layer = 2.8
+			update_icon()
 
-		update_icon()
-
-/obj/structure/table/verb/Rotate()
+/obj/structure/table/verb/rotate_left()
+	set name = "Rotate Left"
 	set category = null
-	set src in view(1)
+	set src in oview(1)
 
 	if (!istype(usr, /mob/living))
 		return
-	//rotates clockwise
-	if (flipped)
-		visible_message("[usr] rotates the table.")
-		switch(dir)
-			if (NORTH)
-				dir = EAST
-			if (SOUTH)
-				dir = WEST
-			if (WEST)
-				dir = NORTH
-			if (EAST)
-				dir = SOUTH
-		update_icon()
+
+	set_dir(turn(dir, -90))
+	update_icon()
+	return
+
+/obj/structure/table/verb/rotate_right()
+	set name = "Rotate Right"
+	set category = null
+	set src in oview(1)
+
+	if (!istype(usr, /mob/living))
+		return
+
+	set_dir(turn(dir, 90))
+	update_icon()
+	return
+
 /obj/structure/table/update_icon()
 	if (flipped)
 		icon_state = flipped_icon
@@ -116,7 +124,7 @@
 					if (1)
 						inv_direction = 2
 					if (2)
-						inv_direction = TRUE
+						inv_direction = 1
 					if (4)
 						inv_direction = 8
 					if (8)
@@ -149,9 +157,9 @@
 							if (direction == 9)
 								dir_sum += 128
 
-			var/table_type = FALSE //stand_alone table
+			var/table_type = 0 //stand_alone table
 			if (dir_sum%16 in cardinal)
-				table_type = TRUE //endtable
+				table_type = 1 //endtable
 				dir_sum %= 16
 			if (dir_sum%16 in list(3,12))
 				table_type = 2 //1 tile thick, streight table
@@ -238,7 +246,7 @@
 			else
 				dir = 2
 	else
-		..()
+		icon_state = "[initial(icon_state)]"
 /obj/structure/table/ex_act(severity, target)
 	..()
 	if (severity == 3)
@@ -531,3 +539,15 @@
 	New()
 		..()
 		update_icon()
+
+/obj/structure/table/modern/billiard
+	name = "billiard table"
+	desc = "A bounded table on which cue sports are played."
+	icon = 'icons/obj/modern_structures.dmi'
+	icon_state = "billard"
+	frame = /obj/structure/table_frame/wood
+	framestack = /obj/item/stack/material/wood
+	buildstack = /obj/item/stack/material/cloth
+	flammable = TRUE
+	flipped = FALSE
+	fixedsprite = TRUE

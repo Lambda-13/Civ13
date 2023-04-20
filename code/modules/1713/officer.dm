@@ -41,7 +41,7 @@ var/global/list/valid_coordinates = list()
 /mob/living/human/proc/find_nco()
 	set category = "Лидер"
 	set name = "Find Squad Leader"
-	set desc="Check where your squad leader is."
+	set desc = "Check where your squad leader is."
 
 	if(!original_job.uses_squads || squad < 1)
 		return
@@ -64,46 +64,51 @@ var/global/list/valid_coordinates = list()
 		TSL = map.faction2_squad_leaders[squad]
 	if (TSL)
 		var/tdist = get_dist(src,TSL)
-		var/tdir = dir2text_ru(get_dir(src,TSL))
-		src << "<big><font color='yellow'>Ваш лидер в [tdist] метрах [tdir] тебя.</font></big>"
+		var/tdir = dir2text(get_dir(src,TSL))
+		src << "<big><font color='yellow'>Твой лидер в [tdist] метрах [tdir] тебя.</font></big>"
 /mob/living/human/proc/Squad_Announcement()
 	set category = "Лидер"
 	set name = "Squad Announcement"
-	set desc="Announce to everyone in your squad."
-	var/messaget = "Сообщение лидера"
-	var/message = input("Что сообщаем:", "Сообщение группе", null, null)
-	if (message)
-		message = sanitize(message, 500, extra = FALSE)
-		message = replacetext(message, "\n", "<br>") // required since we're putting it in a <p> tag
-	for (var/mob/living/human/M)
-		if (faction_text == M.faction_text && original_job.is_squad_leader && M.squad == squad && world.time > announcement_cooldown)
-			messaget = "Сообщение от лидера группы:"
-			M.show_message("<big><span class=notice><b>[messaget]</b></big><p style='text-indent: 50px'>[message]</p></span>", 2)
-	announcement_cooldown = world.time+600
-	log_admin("Squad Announcement: [key_name(usr)] - [messaget] : [message]")
-
+	set desc = "Сообщить всем в отряде."
+	if (stat != DEAD)
+		var/messaget = "Сообщение от лидера"
+		var/message = input("Что сообщаем:", "Сообщение отряду", null, null)
+		if (message)
+			message = sanitize(message, 500, extra = FALSE)
+			message = replacetext(message, "\n", "<br>") // required since we're putting it in a <p> tag
+		for (var/mob/living/human/M)
+			if (faction_text == M.faction_text && original_job.is_squad_leader && M.squad == squad && world.time > announcement_cooldown)
+				messaget = "Лидер сообщает:"
+				M.show_message("<big><span class=notice><b>[messaget]</b></big><p style='text-indent: 50px'>[message]</p></span>", 2)
+		announcement_cooldown = world.time+600
+		log_admin("Лидер сообщает: [key_name(usr)] - [messaget] : [message]")
+	else
+		usr << "Я мёртв!"
 
 /mob/living/human/proc/Commander_Announcement()
 	set category = "Лидер"
 	set name = "Faction Announcement"
-	set desc="Announce to everyone in your faction."
-	var/messaget = "Оповещение"
-	var/message = input("Что сообщаем:", "Сообщение всем", null, null)
-	if (message && message != "")
-		message = sanitize(message, 500, extra = FALSE)
-		message = replacetext(message, "\n", "<br>") // required since we're putting it in a <p> tag
-	for (var/mob/living/human/M)
-		if (!map.civilizations)
-			if (faction_text == M.faction_text)
-				messaget = "[name] сообщает:"
-				M.show_message("<big><span class=notice><b>[messaget]</b></big><p style='text-indent: 50px'>[message]</p></span>", 2)
-			log_admin("Governor Announcement: [key_name(usr)] - [messaget] : [message]")
-		else
-			if (civilization == M.civilization && civilization != "none" && world.time > announcement_cooldown)
-				messaget = "[name] сообщает:"
-				M.show_message("<big><span class=notice><b>[messaget]</b></big><p style='text-indent: 50px'>[message]</p></span>", 2)
-	announcement_cooldown = world.time+1800
-	log_admin("Faction Announcement: [key_name(usr)] - [messaget] : [message]")
+	set desc = "Оповещение от командования."
+	if (stat != DEAD)
+		var/messaget = "Announcement"
+		var/message = input("Что сообщаем?", "Сообщение фракции", null, null)
+		if (message && message != "")
+			message = sanitize(message, 500, extra = FALSE)
+			message = replacetext(message, "\n", "<br>") // required since we're putting it in a <p> tag
+		for (var/mob/living/human/M)
+			if (!map.civilizations)
+				if (faction_text == M.faction_text)
+					messaget = "[name] сообщает:"
+					M.show_message("<big><span class=notice><b>[messaget]</b></big><p style='text-indent: 50px'>[message]</p></span>", 2)
+				log_admin("Лидер фракции сообщает: [key_name(usr)] - [messaget] : [message]")
+			else
+				if (civilization == M.civilization && civilization != "none" && world.time > announcement_cooldown)
+					messaget = "[name] сообщает:"
+					M.show_message("<big><span class=notice><b>[messaget]</b></big><p style='text-indent: 50px'>[message]</p></span>", 2)
+		announcement_cooldown = world.time+1800
+		log_admin("Лидер фракции сообщает: [key_name(usr)] - [messaget] : [message]")
+	else
+		usr << "Я мёртв!"
 
 /mob/living/human/proc/Check_Coordinates()
 	set category = "Лидер"
@@ -401,7 +406,7 @@ var/global/list/valid_coordinates = list()
 /mob/living/human/proc/find_hvt()
 	set category = "Лидер"
 	set name = "Locate HVT"
-	set desc="Check where the HVT is."
+	set desc = "Check where the HVT is."
 
 	var/count = 0
 	for (var/mob/living/human/H in player_list)

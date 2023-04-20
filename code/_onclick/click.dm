@@ -34,6 +34,9 @@
 	var/icon_y = text2num(modifiers["icon-y"])
 	if (modifiers["shift"] && modifiers["ctrl"])
 		CtrlShiftClickOn(A)
+		return
+	if (modifiers["shift"] && modifiers["middle"])
+		ShiftMiddleClickOn(A)
 		return 
 	if (modifiers["middle"])
 		MiddleClickOn(A)
@@ -91,12 +94,18 @@
 			FL.fire(H,cdir,A)
 		if (istype(H.buckled, /obj/structure/bed/chair/commander)) //TO DO TODO: move it to wheels.dm
 			var/obj/item/weapon/attachment/scope/adjustable/binoculars/periscope/P
-			if (istype(H.r_hand,/obj/item/weapon/attachment/scope/adjustable/binoculars/periscope))
-				P = H.r_hand
-				P.rangecheck(H,A)
-			else if (istype(H.l_hand,/obj/item/weapon/attachment/scope/adjustable/binoculars/periscope))
+			if (istype(H.l_hand,/obj/item/weapon/attachment/scope/adjustable/binoculars/periscope))
 				P = H.l_hand
 				P.rangecheck(H,A)
+			else if (istype(H.r_hand,/obj/item/weapon/attachment/scope/adjustable/binoculars/periscope))
+				P = H.r_hand
+				P.rangecheck(H,A)
+		if (istype(H.get_active_hand(), /obj/item/weapon/attachment/scope/adjustable/binoculars/laser_designator))
+			var/obj/item/weapon/attachment/scope/adjustable/binoculars/laser_designator/P = H.get_active_hand()
+			P.rangecheck(H,A)
+		if (istype(H.get_active_hand(), /obj/item/weapon/attachment/scope/adjustable/binoculars/laser_designator_campaign))
+			var/obj/item/weapon/attachment/scope/adjustable/binoculars/laser_designator/P = H.get_active_hand()
+			P.rangecheck(H,A)
 	for (var/obj/structure/noose/N in get_turf(src)) // can't click on anything when we're hanged
 		if (N.hanging == src)
 			return
@@ -169,7 +178,7 @@
 					else
 						can_fire = FALSE
 			if (can_fire)
-				MG.Fire(A, src, force = TRUE)
+				MG.afterattack(A, src, FALSE, params)
 	if (W && W == A) // Handle attack_self (using item in hand)
 		W.attack_self(src, icon_x, icon_y)
 		if (hand)
@@ -334,6 +343,7 @@
 /atom/proc/ShiftMiddleClick(var/mob/living/user)
 	if (istype(user, /mob/living))
 		user.pointed(src)
+	return
 
 
 // In case of use break glass
@@ -381,6 +391,7 @@
 	return
 
 /atom/proc/AltClick(var/mob/user)
+	/*
 	var/turf/T = get_turf(src)
 	if (T && user.TurfAdjacent(T))
 		if (user.listed_turf == T)
@@ -388,6 +399,7 @@
 		else
 			user.listed_turf = T
 			user.client.statpanel = "Turf"
+	*/
 	return TRUE
 
 /mob/proc/TurfAdjacent(var/turf/T)
@@ -472,6 +484,14 @@
 
 /atom/proc/middle_click_intent_check(var/mob/M)
 	if (map && map.ID == MAP_FOOTBALL)
+		if (ishuman(M))
+			var/mob/living/human/H = M
+			if (H.football)
+				H.football.owner = null
+				H.football.last_owner = H
+				H.football = null
+		jump_act(src, M)
+	if (map && map.ID == MAP_FOOTBALL_CAMPAIGN)
 		if (ishuman(M))
 			var/mob/living/human/H = M
 			if (H.football)

@@ -162,6 +162,18 @@
 		..()
 		programs += new/datum/program/cartrader
 
+/obj/structure/computer/nopower/carspawn
+	name = "Vehicle Supply Terminal"
+	desc = "A computer terminal connected to the supply network."
+	powered = TRUE
+	powerneeded = FALSE
+	anchored = TRUE
+	operatingsystem = "unga OS 94"
+	New()
+		..()
+		programs += new/datum/program/carspawn
+
+
 //////////////////////////////////////////////////////////////
 /obj/structure/computer/nopower/police
 	name = "Police Processing Terminal"
@@ -202,7 +214,7 @@
 	attack_verb = list("bashed", "bludgeoned", "whacked")
 	sharp = FALSE
 	edge = FALSE
-	w_class = 1.0
+	w_class = ITEM_SIZE_TINY
 
 	var/fake = FALSE
 	var/used = FALSE
@@ -341,7 +353,7 @@
 	icon_state = "generic_chip"
 	amount = 1
 	value = 400
-	w_class = 1.0
+	w_class = ITEM_SIZE_TINY
 	max_amount = 20
 	flags = CONDUCT
 
@@ -374,7 +386,7 @@
 	var/produces = /obj/item/stack/component
 	amount = 1
 	value = 60
-	w_class = 1.0
+	w_class = ITEM_SIZE_TINY
 	max_amount = 20
 
 /obj/item/stack/precursor/red

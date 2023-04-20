@@ -137,6 +137,7 @@
 	faction = null
 	allow_moving_outside_home = TRUE
 	attack_mode = -1
+	icon_state = "german_shepherd"
 	race = "german_shepherd"
 	tameminimum = 100
 
@@ -145,6 +146,7 @@
 	faction = null
 	allow_moving_outside_home = TRUE
 	attack_mode = -1
+	icon_state = "samoyed"
 	race = "samoyed"
 	tameminimum = 125
 
@@ -154,13 +156,13 @@
 	name = "Samoyed guard dog"
 	starves = FALSE
 
-
 /mob/living/simple_animal/complex_animal/dog/wolf
 	name = "Wild Wolf"
 	faction = null
 	allow_moving_outside_home = TRUE
 	attack_mode = -1
-	race = "wolf"
+	icon_state = "greywolf"
+	race = "greywolf"
 	tameminimum = 200
 	maxHealth = 65
 	health = 65
@@ -170,23 +172,38 @@
 	faction = null
 	allow_moving_outside_home = TRUE
 	attack_mode = -1
+	icon_state = "beagle"
 	race = "beagle"
 	tameminimum = 75
 	mob_size = MOB_SMALL
 	maxHealth = 50
-	health = 0
+	health = 50
 
 /mob/living/simple_animal/complex_animal/dog/pug
 	name = "Wild Pug"
 	faction = null
 	allow_moving_outside_home = TRUE
 	attack_mode = -1
+	icon_state = "pug"
 	race = "pug"
 	tameminimum = 70
 	maxHealth = 45
 	health = 45
 	mob_size = MOB_SMALL
-// "backend" procs
+
+/mob/living/simple_animal/complex_animal/dog/bullterrier
+	name = "Wild Bull Terrier"
+	faction = null
+	allow_moving_outside_home = TRUE
+	attack_mode = -1
+	icon_state = "bullterrier"
+	race = "bullterrier"
+	tameminimum = 100
+	maxHealth = 100
+	health = 100
+	mob_size = MOB_SMALL
+
+// "Backend" procs
 
 // parse messages that people say (WIP)
 	// needs faction, friendly, etc support

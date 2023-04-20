@@ -43,6 +43,37 @@
 	icon_state = "football_blue_gk"
 	item_state = "football_blue_gk"
 	worn_state = "football_blue_gk"
+
+// Campaign
+
+/obj/item/clothing/under/football/red_campaign
+	name = "Redmenia jersey"
+	desc = "A football jersey of the Redmenia United, U.B.U."
+	icon_state = "football_red"
+	item_state = "football_red"
+	worn_state = "football_red"
+
+/obj/item/clothing/under/football/red_campaign/goalkeeper
+	name = "Redmenia goalkeeper jersey"
+	desc = "A football jersey of the goalkeeper of Redmenia United, U.B.U."
+	icon_state = "football_red_gk"
+	item_state = "football_red_gk"
+	worn_state = "football_red_gk"
+
+/obj/item/clothing/under/football/blue_campaign
+	name = "Blugoslavia jersey"
+	desc = "A football jersey of the Blugoslavia Football Club, C.T.F.C."
+	icon_state = "football_blue"
+	item_state = "football_blue"
+	worn_state = "football_blue"
+
+/obj/item/clothing/under/football/blue_campaign/goalkeeper
+	name = "Blugoslavia goalkeeper jersey"
+	desc = "A football jersey of the goalkeeper of Blugoslavia Football Club, C.T.F.C."
+	icon_state = "football_blue_gk"
+	item_state = "football_blue_gk"
+	worn_state = "football_blue_gk"
+
 ///////////CUSTOM JERSEY//////////////
 /obj/item/clothing/under/football/custom
 	name = "football jersey"
@@ -247,7 +278,7 @@
 	throw_speed = 0.5
 	throw_range = 9
 	item_state = "football"
-	w_class = 4.0
+	w_class = ITEM_SIZE_LARGE
 	layer = 6
 	opacity = FALSE
 	density = FALSE
@@ -313,6 +344,22 @@
 			else
 				MF.scorers += list("[scorer]" = 1)
 			return
+	if (istype(A, /obj/item/football) && team)
+		if (istype(map, /obj/map_metadata/football_campaign))
+			var/obj/map_metadata/football_campaign/MF = map
+			MF.reset_ball()
+			MF.teams[team][2] += 1
+			var/obj/item/football/FB = A
+			world << "<font size=4 color='orange'>GOAL! <b>[FB.last_owner ? FB.last_owner : "Unknown"] [FB.last_owner ? "([FB.last_owner.ckey])" : ""]</b> scores for <b>[team]</b>!</font>"
+			var/scorer = " [FB.last_owner.name] ([FB.last_owner.ckey]) <b>([FB.last_owner.team])</b>"
+			FB.last_owner = null
+			FB.owner = null
+			if (MF.scorers[scorer])
+				MF.scorers[scorer] += 1
+			else
+				MF.scorers += list("[scorer]" = 1)
+			return
+
 
 /obj/effect/step_trigger/goal/red
 	name = "team 1 goalpost"
@@ -322,6 +369,9 @@
 		if (map && map.ID == MAP_FOOTBALL)
 			var/obj/map_metadata/football/FBM = map
 			team = FBM.teams[FBM.team1][1]
+		if (map && map.ID == MAP_FOOTBALL_CAMPAIGN)
+			var/obj/map_metadata/football_campaign/FBM = map
+			team = FBM.teams[FBM.team1][1]
 
 /obj/effect/step_trigger/goal/blue
 	name = "team 2 goalpost"
@@ -330,6 +380,9 @@
 	assign()
 		if (map && map.ID == MAP_FOOTBALL)
 			var/obj/map_metadata/football/FBM = map
+			team = FBM.teams[FBM.team2][1]
+		if (map && map.ID == MAP_FOOTBALL_CAMPAIGN)
+			var/obj/map_metadata/football_campaign/FBM = map
 			team = FBM.teams[FBM.team2][1]
 /////////////////TEAM CREATOR/////////////////////
 
@@ -496,7 +549,7 @@
 	throw_speed = 1.5
 	throw_range = 7
 	item_state = "basketball"
-	w_class = 4 //Stops people from hiding it in their backpack.
+	w_class = ITEM_SIZE_LARGE //Stops people from hiding it in their backpack.
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand.dmi',

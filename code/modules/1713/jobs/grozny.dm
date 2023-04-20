@@ -93,7 +93,7 @@
 	else if (randshoe2 == 3)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
 	else if (randshoe2 == 4)
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots(H), slot_shoes)
 	else if (randshoe2 == 5)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/winterboots(H), slot_shoes)
 
@@ -414,7 +414,7 @@
 
 //shoes
 	if (prob(50))
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/jackboots2(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/modern(H), slot_shoes)
 	else
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/soviet(H), slot_shoes)
 //clothes
@@ -486,7 +486,7 @@
 	if (!H)	return FALSE
 //shoes
 	if (prob(50))
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/jackboots2(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/modern(H), slot_shoes)
 	else
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/soviet(H), slot_shoes)
 
@@ -564,7 +564,7 @@
 	if (!H)	return FALSE
 //shoes
 	if (prob(50))
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/jackboots2(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/modern(H), slot_shoes)
 	else
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/soviet(H), slot_shoes)
 
@@ -660,7 +660,7 @@
 	if (!H)	return FALSE
 //shoes
 	if (prob(50))
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/jackboots2(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/modern(H), slot_shoes)
 	else
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/soviet(H), slot_shoes)
 

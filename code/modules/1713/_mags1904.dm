@@ -16,7 +16,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "mosin_ammo"
 	mag_type = MAGAZINE
 	caliber = "a762x54"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	ammo_type = /obj/item/ammo_casing/a762x54
 	max_ammo = 50
 	multiple_sprites = FALSE
@@ -27,7 +27,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "madsen"
 	mag_type = MAGAZINE
 	caliber = "a762x54"
-	w_class = 3
+	w_class = ITEM_SIZE_SMALL //most 30 round and 46 round mags have no wclass why give just madsen a wclass you cant fit it into a pouch anymore no reason anyways making it 2
 	ammo_type = /obj/item/ammo_casing/a762x54
 	max_ammo = 25
 	multiple_sprites = TRUE
@@ -37,7 +37,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "mhbox"
 	mag_type = MAGAZINE
 	caliber = "a762x54"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	ammo_type = /obj/item/ammo_casing/a762x54
 	max_ammo = 65
 	multiple_sprites = TRUE
@@ -47,7 +47,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "b762"
 	mag_type = MAGAZINE
 	caliber = "a762x51_weak"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	ammo_type = /obj/item/ammo_casing/a762x51/weak
 	max_ammo = 100
 	multiple_sprites = TRUE
@@ -57,7 +57,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "b762"
 	mag_type = MAGAZINE
 	caliber = "a556x45"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	ammo_type = /obj/item/ammo_casing/a556x45
 	max_ammo = 100
 	multiple_sprites = TRUE
@@ -78,7 +78,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "ammo"
 	mag_type = MAGAZINE
 	caliber = "a765x53"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	ammo_type = /obj/item/ammo_casing/a765x53
 	max_ammo = 50
 	multiple_sprites = FALSE
@@ -91,6 +91,16 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	ammo_type = /obj/item/ammo_casing/a792x57
 	max_ammo = 5
 	weight = 0.04
+	multiple_sprites = TRUE
+	clip = TRUE
+
+/obj/item/ammo_magazine/vgclip
+	name = "clip (7.92x33mm)"
+	icon_state = "kclip"
+	caliber = "a792x33"
+	ammo_type = /obj/item/ammo_casing/a792x33
+	max_ammo = 5
+	weight = 0.06
 	multiple_sprites = TRUE
 	clip = TRUE
 
@@ -109,7 +119,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "ammo"
 	mag_type = MAGAZINE
 	caliber = "a792x57"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	ammo_type = /obj/item/ammo_casing/a792x57
 	max_ammo = 50
 	multiple_sprites = FALSE
@@ -121,7 +131,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "ammo"
 	mag_type = MAGAZINE
 	caliber = "a7x57"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	ammo_type = /obj/item/ammo_casing/a7x57
 	max_ammo = 50
 	multiple_sprites = FALSE
@@ -131,7 +141,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	name = "ammo box (.45-70 Government)"
 	icon_state = "oldbox"
 	caliber = "a4570"
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 
 	ammo_type = /obj/item/ammo_casing/a4570
 	max_ammo = 15
@@ -142,7 +152,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	name = "ammo box (.577/450 Martini-Henry)"
 	icon_state = "mhbox"
 	caliber = "a577"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 
 	ammo_type = /obj/item/ammo_casing/a577
 	max_ammo = 12
@@ -165,7 +175,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "arisaka_ammo"
 	mag_type = MAGAZINE
 	caliber = "a65x50"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 
 	ammo_type = /obj/item/ammo_casing/a65x50
 	max_ammo = 50
@@ -188,7 +198,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "ammo"
 	mag_type = MAGAZINE
 	caliber = "a65x52"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 
 	ammo_type = /obj/item/ammo_casing/a65x52
 	max_ammo = 50
@@ -201,7 +211,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	worn_state = "maximbelt"
 	mag_type = MAGAZINE
 	caliber = "a762x54_weak"
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_BELT|SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a762x54/weak
 	max_ammo = 250
@@ -213,7 +223,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "maximbelt"
 	mag_type = MAGAZINE
 	caliber = "a792x57_weak"
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_BELT|SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a792x57/weak
 	max_ammo = 250
@@ -225,7 +235,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "maximbelt"
 	mag_type = MAGAZINE
 	caliber = "a303_weak"
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_BELT|SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a303/weak
 	max_ammo = 250
@@ -237,7 +247,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "wood_ammobox"
 	mag_type = MAGAZINE
 	caliber = "a303_weak"
-	w_class = 5
+	w_class = ITEM_SIZE_HUGE
 	ammo_type = /obj/item/ammo_casing/a303/weak
 	max_ammo = 650
 	multiple_sprites = TRUE
@@ -249,7 +259,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "maximbelt"
 	mag_type = MAGAZINE
 	caliber = "a8x50_weak"
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_BELT|SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a8x50/weak
 	max_ammo = 250
@@ -262,7 +272,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "maximbelt"
 	mag_type = MAGAZINE
 	caliber = "a65x50_weak"
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_BELT|SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a65x50/weak
 	max_ammo = 250
@@ -274,7 +284,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "maximbelt"
 	mag_type = MAGAZINE
 	caliber = "a792x57_weak"
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_BELT|SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a792x57/weak
 	max_ammo = 250
@@ -286,7 +296,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "maximbelt"
 	mag_type = MAGAZINE
 	caliber = "a762x51_weak"
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_BELT|SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a762x51/weak
 	max_ammo = 100
@@ -552,7 +562,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "arisaka_ammo"
 	mag_type = MAGAZINE
 	caliber = "a8x53"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 
 	ammo_type = /obj/item/ammo_casing/a8x53
 	max_ammo = 50
@@ -575,7 +585,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "ammo"
 	mag_type = MAGAZINE
 	caliber = "a303"
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 
 	ammo_type = /obj/item/ammo_casing/a303
 	max_ammo = 50
@@ -617,7 +627,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "shellbox"
 	mag_type = MAGAZINE
 	caliber = "12gauge"
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 
 	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
 	max_ammo = 12

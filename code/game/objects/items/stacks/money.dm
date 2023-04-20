@@ -26,7 +26,7 @@
 	amount = 10
 	max_amount = 500
 	attack_verb = list("hit")
-	w_class = 2.0 // fits in pockets
+	w_class = ITEM_SIZE_SMALL // fits in pockets
 	value = 1
 	real_value = 1
 	var/novariants = TRUE
@@ -43,10 +43,11 @@
 	name = "spanish reales"
 	desc = "A small silver coin."
 	singular_name = "real"
-	icon_state = "dollar" //Damn jerry rig
+	icon_state = "dollar" 
 	amount = 1
 	value = 1
 	flags = CONDUCT
+
 /obj/item/stack/money/real/New()
 	if (map.ordinal_age >= 4)
 		if (map.ID == MAP_BANK_ROBBERY)
@@ -83,22 +84,25 @@
 		icon_state = "silvercoin_pile"
 		value = 1
 		return ..()
+
 /obj/item/stack/money/rubles
 	name = "soviet ruble"
 	desc = "A Soviet 1 ruble banknote."
 	singular_name = "ruble"
-	icon_state = "ruble" //Damn jerry rig
+	icon_state = "ruble" 
 	amount = 1
 	value = 1
+
 /obj/item/stack/money/yen
 	name = "yen"
 	desc = "A japanese 1 yen coin."
 	singular_name = "yen"
-	icon_state = "yen" //Damn jerry rig
+	icon_state = "yen" 
 	amount = 1
 	value = 0.01
 	max_amount = 2500
 	flags = CONDUCT
+
 /obj/item/stack/money/yen/New()
 	if(amount == 2)
 		icon_state = "yen_2"
@@ -130,6 +134,7 @@
 		icon_state = "yen_500+"
 	update_icon()
 	return ..()
+
 /obj/item/stack/money/yen/update_icon()
 	if(amount == 2)
 		icon_state = "yen_2"
@@ -160,6 +165,7 @@
 		desc = "A japanese 500 yen coin with some other Yen coins."
 		icon_state = "yen_500+"
 	..()
+
 /obj/item/stack/money/dollar
 	name = "spanish dollars"
 	desc = "A silver coin, also called piece of eight, worth 8 reales."
@@ -168,6 +174,7 @@
 	amount = 1
 	value = 8
 	flags = CONDUCT
+
 /obj/item/stack/money/dollar/New()
 	if (map && map.ordinal_age >= 4)
 		if (map.ID == MAP_SOVAFGHAN)
@@ -212,6 +219,7 @@
 	icon_state = "20dollar"
 	amount = 1
 	value = 16
+
 	flags = CONDUCT
 /obj/item/stack/money/escudo/New()
 	if (map.ordinal_age >= 4) //Not being called
@@ -237,6 +245,7 @@
 		icon_state = "goldcoin_pile"
 		value = 60
 		return ..()
+
 /obj/item/stack/money/doubloon
 	name = "spanish doubloons"
 	desc = "A large gold coin, the largest in circulation. Worth 32 reales."
@@ -245,6 +254,7 @@
 	amount = 1
 	value = 32
 	flags = CONDUCT
+
 /obj/item/stack/money/doubloon/New()
 	if (map.ordinal_age >= 4)
 		name = "50 Dollar Bill"
@@ -270,6 +280,7 @@
 		icon_state = "goldcoin_pile"
 		value = 120
 		return ..()
+
 /obj/item/stack/money/goldnugget
 	name = "gold nuggets"
 	desc = "A shiny gold nugget."
@@ -355,113 +366,6 @@
 	else
 		..()
 
-/obj/structure/carriage
-	name = "Stagecoach Load"
-	desc = ""
-	icon = 'icons/obj/storage.dmi'
-	icon_state = "miningcaropen"
-	anchored = TRUE
-	opacity = FALSE
-	density = TRUE
-	flammable = FALSE
-	var/storedvalue = 0
-	var/prevent = FALSE
-	var/faction1val = 0
-	var/faction2val = 0
-	not_movable = TRUE
-	not_disassemblable = TRUE
-/obj/structure/carriage/New()
-	..()
-	desc = "West Side: [faction1val]. East Side: [faction2val]."
-	timer()
-/obj/structure/carriage/attackby(obj/item/W as obj, mob/user as mob)
-	if (istype(W,/obj/item/stack/money) || istype(W,/obj/item/stack/material/gold) || istype(W,/obj/item/stack/material/silver) || istype(W,/obj/item/stack/material/diamond))
-		if (ishuman(user))
-			var/mob/living/human/H = user
-			if (H.original_job_title == "West Side Gang")
-				faction1val += (W.value*W.amount)
-			else if (H.original_job_title == "East Side Gang")
-				faction2val += (W.value*W.amount)
-			desc = "West Side: [faction1val]. East Side: [faction2val]."
-			user << "You place \the [W] inside \the [src]."
-		qdel(W)
-		if (faction1val >= 750)
-			map.update_win_condition()
-		else if (faction2val >= 750)
-			map.update_win_condition()
-	else
-		return
-/obj/structure/carriage/proc/timer()
-	spawn(4000)
-		world << "<big>Current status: West Side Gang: <b>[faction1val]/700</b>. East Side Gang: <b>[faction2val]/700</b>."
-		timer()
-
-/obj/structure/carriage_tdm
-	name = "Stagecoach Load"
-	desc = ""
-	icon = 'icons/obj/storage.dmi'
-	icon_state = "miningcaropen"
-	anchored = TRUE
-	opacity = FALSE
-	density = TRUE
-	flammable = FALSE
-	var/storedvalue = 0
-	var/prevent = FALSE
-	not_movable = TRUE
-	not_disassemblable = TRUE
-
-/obj/structure/carriage_tdm/New()
-	..()
-	desc = "Stored Value: [storedvalue]."
-	timer()
-/obj/structure/carriage_tdm/attackby(obj/item/W as obj, mob/user as mob)
-	if (istype(W,/obj/item/stack/money) || istype(W,/obj/item/stack/material/gold) || istype(W,/obj/item/stack/material/silver) || istype(W,/obj/item/stack/material/diamond))
-		storedvalue += (W.value*W.amount)
-		desc = "Stored Value: [storedvalue]."
-		user << "You place \the [W] inside \the [src]."
-		qdel(W)
-		if (storedvalue >= 1500)
-			map.update_win_condition()
-	else
-		return
-/obj/structure/carriage_tdm/proc/timer()
-	spawn(4000)
-		world << "<big>Current status: Outlaws: <b>[storedvalue]/1500 Dollars</b></big>."
-		timer()
-
-/obj/structure/money_bag
-	name = "Money Bag"
-	desc = ""
-	icon = 'icons/obj/storage.dmi'
-	icon_state = "duffel"
-	anchored = TRUE
-	opacity = FALSE
-	density = TRUE
-	flammable = FALSE
-	var/storedvalue = 0
-	var/prevent = FALSE
-	not_movable = TRUE
-	not_disassemblable = TRUE
-
-/obj/structure/money_bag/New()
-	..()
-	desc = "Stored Value: [storedvalue]."
-	timer()
-/obj/structure/money_bag/attackby(obj/item/W as obj, mob/user as mob)
-	if (istype(W,/obj/item/stack/money) || istype(W,/obj/item/stack/material/gold) || istype(W,/obj/item/stack/material/silver) || istype(W,/obj/item/stack/material/diamond))
-		storedvalue += (W.value*W.amount)
-		desc = "Stored Value: [storedvalue]."
-		user << "You place \the [W] inside \the [src]."
-		qdel(W)
-		if (storedvalue >= 1500)
-			map.update_win_condition()
-	else
-		return
-/obj/structure/money_bag/proc/timer()
-	spawn(2100)
-		world << "<big>Stolen money: <b>[storedvalue]/10'000 Dollars</b></big>."
-		timer()
-
 /obj/item/stack/money/goldvaluables
 	name = "gold valuables"
 	desc = "A bunch of valuables."
@@ -479,7 +383,6 @@
 /obj/item/stack/money/goldvaluables/New()
 	..()
 	icon_state = "goldstuff[rand(1,3)]"
-
 
 /obj/item/stack/money/gems
 	name = "gems"
@@ -517,7 +420,7 @@
 
 /obj/item/stack/money/coppercoin
 	name = "copper coins"
-	desc = "A small copper coin. Worth 1/10th of a silver coin."
+	desc = "A small copper coin. Worth 1/10th of a silver coin or 1/40th of a gold coin."
 	singular_name = "copper coin"
 	icon_state = "coppercoin_pile"
 	amount = 1
@@ -529,7 +432,7 @@
 
 /obj/item/stack/money/silvercoin
 	name = "silver coins"
-	desc = "A small silver coin. Worth 1/4th of a gold coin."
+	desc = "A small silver coin. Worth 1/4th of a gold coin or 10 copper coins."
 	singular_name = "silver coin"
 	icon_state = "silvercoin_pile"
 	amount = 1
@@ -581,15 +484,17 @@
 	amount = 5
 
 /////////////////////////SKYRIM/////////////////////////////
+
 /obj/item/stack/money/septim
 	name = "septim"
 	desc = "A single septim coin."
 	singular_name = "septim"
-	icon_state = "septim" //Damn jerry rig
+	icon_state = "septim" 
 	amount = 1
 	value = 1
 	max_amount = 500
 	flags = CONDUCT
+
 /obj/item/stack/money/septim/New()
 	if(amount == 2)
 		icon_state = "septim_2"
@@ -615,6 +520,7 @@
 		icon_state = "septim_500+"
 	update_icon()
 	return ..()
+
 /obj/item/stack/money/septim/update_icon()
 	if(amount == 2)
 		icon_state = "septim_2"

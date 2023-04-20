@@ -558,6 +558,9 @@
 		return
 	if ((istype(target, /obj) && target.density == TRUE) || (istype(target, /turf) && target.density == TRUE))
 		return
+	for (var/obj/O in get_turf(user))
+		if (istype(get_turf(user),/obj/structure/vehicleparts/frame))
+			return
 	for (var/obj/O in get_turf(target))
 		if (O.density)
 			user << "<span class='danger'>You hit the [O]!</span>"
@@ -614,3 +617,8 @@
 	user.stats["stamina"][1] = max(user.stats["stamina"][1] - rand(20,40), 0)
 	user.throw_at(target, 5, 0.5, user)
 	user.setClickCooldown(22)
+
+/atom/proc/SetName(var/new_name)
+	var/old_name = name
+	if(old_name != new_name)
+		name = new_name

@@ -5,7 +5,7 @@
 	name = "some magical supertype of all grown foods. Why is this even here"
 	nutriment_amt = 1
 	nutriment_desc = list("fruit" = TRUE)
-	w_class = 1.0
+	w_class = ITEM_SIZE_TINY
 	value = 3
 	bitesize = 2
 	decay = 25*600
@@ -263,7 +263,7 @@
 		..()
 		reagents.add_reagent("cherryjelly", 10)
 
-/obj/item/weapon/reagent_containers/food/snacks/grown/coconut //Added proper reagents to food.
+/obj/item/weapon/reagent_containers/food/snacks/grown/coconut
 	name = "coconut"
 	icon_state = "coconut"
 	satisfaction = 3
@@ -272,9 +272,9 @@
 		..()
 		reagents.add_reagent("coconutmilk", 20)
 
-/obj/item/weapon/reagent_containers/food/snacks/grown/cocoa //Added proper reagents to food.
+/obj/item/weapon/reagent_containers/food/snacks/grown/cocoa
 	name = "cocoa beans"
-	icon_state = "coco"
+	icon_state = "cocoa"
 	satisfaction = -2
 	decay = 150*600
 	New()

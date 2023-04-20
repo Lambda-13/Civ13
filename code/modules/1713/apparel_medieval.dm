@@ -1690,6 +1690,7 @@
 	icon_state = "steppe_shaman_wool_hat"
 	item_state = "steppe_shaman_wool_hat"
 	worn_state = "steppe_shaman_wool_hat"
+	cold_protection = HEAD
 
 /obj/item/clothing/suit/storage/jacket/steppe_shaman
 	name = "steppe shaman wool coat"
@@ -2245,7 +2246,7 @@ obj/item/clothing/head/helmet/samurai/black
 	body_parts_covered = FACE|EYES
 	flags = CONDUCT
 	flags_inv = 0
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	armor = list(melee = 20, arrow = 15, gun = 5, energy = 15, bomb = 55, bio = 20, rad = FALSE) //nerfed, armor stacking bad.
 	restricts_view = 1
 
@@ -2403,7 +2404,7 @@ obj/item/clothing/head/helmet/samurai/black
 	slowdown = 0.1
 	health = 50
 
-/obj/item/clothing/shoes/tes13/dwemmer
+/obj/item/clothing/shoes/dwemmer
 	name = "dwemmer boots"
 	desc = "A pair of plated boots made of dwemmer metal."
 	icon_state = "dwoots"

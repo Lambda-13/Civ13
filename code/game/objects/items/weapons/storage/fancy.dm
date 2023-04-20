@@ -6,7 +6,7 @@
  *		TODO: Cigarette boxes should be ported to this standard
  *
  * Contains:
- *		Donut Box <-- removed at some point before this -siro
+ *		Donut Box
  *		Egg Box<-- removed at some point before this -siro
  *		Candle Box
  *		Crayon Box<-- removed at some point before this -siro
@@ -146,7 +146,7 @@
 	icon_state = "candlebox"
 	opened = 1 //no closed state
 	throwforce = 2
-	w_class = 1
+	w_class = ITEM_SIZE_TINY
 	max_storage_space = 5
 	slot_flags = SLOT_BELT
 
@@ -163,7 +163,7 @@
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "cigpacket"
 	item_state = "cigpacket"
-	w_class = 1
+	w_class = ITEM_SIZE_TINY
 	throwforce = WEAPON_FORCE_HARMLESS
 	slot_flags = SLOT_BELT
 	max_storage_space = 6
@@ -174,7 +174,7 @@
 
 	var/customcolor = "#000000"
 	var/lighter = FALSE //set to TRUE to make it spawn with a lighter inside
-
+	var/randomize = FALSE
 
 /obj/item/weapon/storage/fancy/cigarettes/New()
 	..()
@@ -184,7 +184,7 @@
 	create_reagents(15 * storage_slots)//so people can inject cigarettes without opening a packet, now with being able to inject the whole one
 
 /obj/item/weapon/storage/fancy/cigarettes/randompack
-	var/randomize = TRUE
+	randomize = TRUE
 
 /obj/item/weapon/storage/fancy/cigarettes/randompack/New()
 	..()
@@ -248,13 +248,30 @@
 	desc = "A Lucky Strike cigarette packet."
 	icon_state = "luckystrike"
 
+/obj/item/weapon/storage/fancy/cigarettes/newport
+	name = "Newport cigarette packet"
+	desc = "A Newport cigarette packet."
+	icon_state = "newports"
+
+/obj/item/weapon/storage/fancy/cigarettes/prima
+	name = "Prima cigarette packet"
+	desc = "A Prima cigarette packet."
+	icon_state = "prima"
+	startswith = list(/obj/item/clothing/mask/smokable/cigarette/unfiltered = 6)
+
+/obj/item/weapon/storage/fancy/cigarettes/papirosi
+	name = "papirosi packet"
+	desc = "An unfiltered cigarettes packet."
+	icon_state = "pachka_papiros"
+	startswith = list(/obj/item/clothing/mask/smokable/cigarette/unfiltered = 6)
+
 /obj/item/weapon/storage/fancy/cigar
 	name = "cigar case"
 	desc = "A case for holding your cigars when you are not smoking them."
 	icon_state = "cigarcase"
 	item_state = "cigarcase"
 	icon = 'icons/obj/cigarettes.dmi'
-	w_class = 1
+	w_class = ITEM_SIZE_TINY
 	max_storage_space = 6
 	throwforce = WEAPON_FORCE_HARMLESS
 	slot_flags = SLOT_BELT
@@ -276,7 +293,7 @@
 	item_state = "medalcase"
 	key_type = "medal"
 	icon = 'icons/obj/cigarettes.dmi'
-	w_class = 1
+	w_class = ITEM_SIZE_TINY
 	throwforce = WEAPON_FORCE_HARMLESS
 	slot_flags = SLOT_BELT
 	storage_slots = 14

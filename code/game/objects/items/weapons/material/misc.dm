@@ -35,7 +35,6 @@
 	default_material = "wood"
 	throw_speed = 7
 	throw_range = 7
-	allow_spin = FALSE
 	force_divisor = 0.2 // 12 with hardness 60 (steel)
 	thrown_force_divisor = 0.4 // 8 with weight 20 (steel)
 	attack_verb = list("jabbed","hit","bashed")
@@ -53,7 +52,6 @@
 	default_material = "iron"
 	throw_speed = 4
 	throw_range = 4
-	allow_spin = FALSE
 	force_divisor = 0.2 // 12 with hardness 60 (steel)
 	thrown_force_divisor = 0.2 // 8 with weight 20 (steel)
 	attack_verb = list("jabbed","hit","bashed")
@@ -127,7 +125,7 @@
 	default_material = "iron"
 	force_divisor = 0.35 // 5 with weight 20 (steel)
 	thrown_force_divisor = 0.35 // as above
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	attack_verb = list("slashed", "clawed", "forked")
 	cooldownw = 9
 
@@ -362,7 +360,7 @@
 	icon_state = "hatchet"
 	force_divisor = 0.5 // 30 with hardness 60 (steel)
 	thrown_force_divisor = 0.75 // 15 with weight 20 (steel)
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	sharp = TRUE
 	edge = TRUE
 	default_material = "iron"
@@ -399,7 +397,7 @@
 	icon_state = "machete"
 	force_divisor = 0.7 // 30 with hardness 60 (steel)
 	thrown_force_divisor = 0.75 // 15 with weight 20 (steel)
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	sharp = TRUE
 	edge = TRUE
 	material = "iron"
@@ -420,7 +418,7 @@
 	icon_state = "machete1"
 	force_divisor = 0.6 // 30 with hardness 60 (steel)
 	thrown_force_divisor = 0.75 // 15 with weight 20 (steel)
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	sharp = TRUE
 	edge = TRUE
 	material = "iron"
@@ -476,7 +474,7 @@
 	default_material = "steel"
 	force_divisor = 0.6 // 12 with hardness 60 (steel)
 	thrown_force_divisor = 0.75 // 15 with weight 20 (steel)
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	sharp = TRUE
 	edge = TRUE
 	attack_verb = list("chopped", "torn", "cut")
@@ -495,7 +493,7 @@
 	item_state = "hoe"
 	force_divisor = 0.25 // 5 with weight 20 (steel)
 	thrown_force_divisor = 0.25 // as above
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	attack_verb = list("slashed", "sliced", "cut", "clawed")
 	cooldownw = 5
 
@@ -509,7 +507,7 @@
 	edge = TRUE
 	throw_speed = TRUE
 	throw_range = 3
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_SHOULDER
 	attack_verb = list("chopped", "sliced", "cut", "reaped")
 	cooldownw = 5
@@ -524,7 +522,7 @@
 	edge = TRUE
 	throw_speed = TRUE
 	throw_range = 3
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_SHOULDER
 	attack_verb = list("chopped", "sliced", "cut", "reaped")
 	cooldownw = 5
@@ -673,19 +671,19 @@
 	var/ownerdir = NORTH
 	var/deployed = FALSE
 	block_chance = 5
-	cooldownw = 12
 
 /obj/item/weapon/material/spear/sarissa/attack_self(mob/user)
-	if (deployed)
-		deployed = FALSE
-		user << "<span class='notice'>You lift your [name] up, falling out of formation.</span>"
-		return
-	else
-		deployed = TRUE
-		user << "<span class='notice'>You turn your [name] down, forming a spear wall!</span>"
-		update_icon()
-		check_dmg()
-		return
+	if (do_after(user, 15, src, can_move = FALSE))
+		if (deployed)
+			deployed = FALSE
+			user << "<span class='notice'>You lift your [name] up, falling out of formation.</span>"
+			return
+		else
+			deployed = TRUE
+			user << "<span class='notice'>You turn your [name] down, forming a spear wall!</span>"
+			update_icon()
+			check_dmg()
+			return
 
 /obj/item/weapon/material/spear/sarissa/proc/check_dmg()
 	if (deployed)
@@ -695,6 +693,10 @@
 			var/mob/living/H = loc
 			if (H.stat == DEAD || H.stat == UNCONSCIOUS)
 				deployed = FALSE
+				return
+			if (!H.item_is_in_hands(src))
+				deployed = FALSE
+				update_icon()
 				return
 		for (var/mob/living/TARGETMOB in get_step(loc, ownerdir))
 			for (var/obj/structure/noose/N in get_turf(TARGETMOB))
@@ -958,7 +960,7 @@
 	material = "iron"
 	force_divisor = 0.6 // 30 with hardness 60 (steel)
 	thrown_force_divisor = 0.55 // 15 with weight 20 (steel)
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	sharp = TRUE
 	edge = TRUE
 	attack_verb = list("chopped", "torn", "cut")
@@ -998,7 +1000,7 @@
 	material = "bone"
 	force_divisor = 0.6 // 30 with hardness 60 (steel)
 	thrown_force_divisor = 0.55 // 15 with weight 20 (steel)
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	sharp = TRUE
 	edge = TRUE
 	attack_verb = list("chopped", "torn", "cut")
@@ -1067,8 +1069,6 @@
 	else
 		..()
 
-
-
 ////////////////////////////////////////SKYRIM//////////////////////////////////////
 /obj/item/weapon/material/tes13/mace
 	name = "mace"
@@ -1099,7 +1099,7 @@
 	material = "steel"
 	force_divisor = 0.5 // 30 with hardness 60 (steel)
 	thrown_force_divisor = 0.55 // 15 with weight 20 (steel)
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	sharp = TRUE
 	edge = TRUE
 	attack_verb = list("chopped", "torn", "cut")
@@ -1136,7 +1136,7 @@
 	force = 100
 	force_divisor = 1 // 30 with hardness 60 (steel)
 	thrown_force_divisor = 1 // 15 with weight 20 (steel)
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	sharp = TRUE
 	edge = TRUE
 	attack_verb = list("chopped", "torn", "cut")

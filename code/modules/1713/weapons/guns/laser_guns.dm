@@ -5,7 +5,7 @@
 	item_state = "DC-15A"
 	base_icon = "DC-15A"
 	fire_sound = 'sound/weapons/guns/fire/blasterdc2.ogg'
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	load_method = MAGAZINE
 	max_shells = 200
 	caliber = "laserb"
@@ -16,7 +16,7 @@
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/dc15)
 	weight = 3.85
 	firemodes = list(
-		list(name="single shot",burst=1, move_delay=0, fire_delay=2)
+		list(name = "single shot",burst=1, move_delay=0, fire_delay=2)
 		)
 
 	gun_type = GUN_TYPE_RIFLE
@@ -62,7 +62,7 @@
 	item_state = "DC-15"
 	base_icon = "DC-15"
 	fire_sound = 'sound/weapons/guns/fire/blasterdc2.ogg'
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	load_method = MAGAZINE
 	max_shells = 200
 	caliber = "laserb"
@@ -73,7 +73,7 @@
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/dc15)
 	weight = 3.85
 	firemodes = list(
-		list(name="single shot",burst=1, move_delay=0, fire_delay=2)
+		list(name = "single shot",burst=1, move_delay=0, fire_delay=2)
 		)
 
 	gun_type = GUN_TYPE_RIFLE
@@ -90,7 +90,7 @@
 	item_state = "DC-15A"
 	base_icon = "DC-15A"
 	fire_sound = 'sound/weapons/guns/fire/blasterdc1.ogg'
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	load_method = MAGAZINE
 	max_shells = 500
 	caliber = "laserb"
@@ -101,7 +101,7 @@
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/dc15a, /obj/item/ammo_magazine/tibannagas/dc15)
 	weight = 3.85
 	firemodes = list(
-		list(name="single shot",burst=1, move_delay=0, fire_delay=2)
+		list(name = "single shot",burst=1, move_delay=0, fire_delay=2)
 		)
 
 	gun_type = GUN_TYPE_RIFLE
@@ -118,7 +118,7 @@
 	item_state = "E-5"
 	base_icon = "E-5"
 	fire_sound = 'sound/weapons/guns/fire/blasterimperial.ogg'
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	load_method = MAGAZINE
 	max_shells = 100
 	caliber = "laser"
@@ -129,7 +129,7 @@
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/e5)
 	weight = 3.85
 	firemodes = list(
-		list(name="single shot",burst=1, move_delay=0, fire_delay=2)
+		list(name = "single shot",burst=1, move_delay=0, fire_delay=2)
 		)
 
 	gun_type = GUN_TYPE_RIFLE
@@ -146,7 +146,7 @@
 	item_state = "E-11"
 	base_icon = "E-11"
 	fire_sound = 'sound/weapons/guns/fire/blasterimperial2.ogg'
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	load_method = MAGAZINE
 	max_shells = 100
 	caliber = "laser"
@@ -157,7 +157,7 @@
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/e11, /obj/item/ammo_magazine/tibannagas/dc15a)
 	weight = 3.85
 	firemodes = list(
-		list(name="single shot",burst=1, move_delay=0, fire_delay=2)
+		list(name = "single shot",burst=1, move_delay=0, fire_delay=2)
 		)
 
 	gun_type = GUN_TYPE_RIFLE
@@ -174,7 +174,7 @@
 	item_state = "A280"
 	base_icon = "A280"
 	fire_sound = 'sound/weapons/guns/fire/blasterrebel.ogg'
-	w_class = 4
+	w_class = ITEM_SIZE_LARGE
 	load_method = MAGAZINE
 	max_shells = 100
 	caliber = "laser"
@@ -185,7 +185,7 @@
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/a280)
 	weight = 5.85
 	firemodes = list(
-		list(name="single shot",burst=1, move_delay=0, fire_delay=2)
+		list(name = "single shot",burst=1, move_delay=0, fire_delay=2)
 		)
 
 	gun_type = GUN_TYPE_RIFLE
@@ -200,7 +200,7 @@
 	name = "Laser pistol"
 	desc = "A generic laser shooter"
 	icon_state = "DC-17"
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	caliber = "laserb"
 	fire_sound = 'sound/weapons/guns/fire/blasterdc2.ogg'
 	magazine_type = /obj/item/ammo_magazine/tibannagas/dc17
@@ -226,7 +226,7 @@
 	name = "DL-44 blaster"
 	desc = "A DL-44 blaster pistol used by various organizations throughout the galaxy."
 	icon_state = "DL-44"
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	caliber = "laser"
 	fire_sound = 'sound/weapons/guns/fire/blasterdl44.ogg'
 	magazine_type = /obj/item/ammo_magazine/tibannagas/dl44
@@ -239,7 +239,7 @@
 	name = "DH-17 blaster"
 	desc = "A DH-17 blaster pistol used as a service pistol by the Empire and also common within the Rebel Alliance."
 	icon_state = "DH-17"
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	caliber = "laser"
 	fire_sound = 'sound/weapons/guns/fire/blasterrebel.ogg'
 	magazine_type = /obj/item/ammo_magazine/tibannagas/dh17
@@ -252,7 +252,7 @@
 	name = "Westar-34 blaster"
 	desc = "A Westar-34 blaster pistol, mostly used by those who can afford such a fancy lethal sidearm."
 	icon_state = "Westar-34"
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	caliber = "laser"
 	fire_sound = 'sound/weapons/guns/fire/blasterrebel.ogg'
 	magazine_type = /obj/item/ammo_magazine/tibannagas/westar34
@@ -271,7 +271,7 @@
 	magazine_type = /obj/item/ammo_magazine/tibannagas/repeating_blaster
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/repeating_blaster)
 	firemodes = list(
-		list(name="full auto", burst=3, burst_delay=1.8, fire_delay=1.8, dispersion=list(0.9, 0.9, 1.1, 1.1, 1), accuracy=list(2))
+		list(name = "full auto", burst=3, burst_delay=1.8, fire_delay=1.8, dispersion=list(0.9, 0.9, 1.1, 1.1, 1), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/laser
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/laser/update_icon()
@@ -296,7 +296,7 @@
 	magazine_type = /obj/item/ammo_magazine/tibannagas/repeating_blaster
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/repeating_blaster)
 	firemodes = list(
-		list(name="full auto", burst=5, burst_delay=1.8, fire_delay=1.8, dispersion=list(0.9, 0.9, 1.1, 1.1, 1), accuracy=list(2))
+		list(name = "full auto", burst=5, burst_delay=1.8, fire_delay=1.8, dispersion=list(0.9, 0.9, 1.1, 1.1, 1), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/laser
 
@@ -310,7 +310,7 @@
 	magazine_type = /obj/item/ammo_magazine/tibannagas/repeating_blaster
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/repeating_blaster)
 	firemodes = list(
-		list(name="full auto", burst=5, burst_delay=1.8, fire_delay=1.8, dispersion=list(0.9, 0.9, 1.1, 1.1, 1), accuracy=list(2))
+		list(name = "full auto", burst=5, burst_delay=1.8, fire_delay=1.8, dispersion=list(0.9, 0.9, 1.1, 1.1, 1), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/laser
 
@@ -394,7 +394,7 @@
 	name = "Dcb-2 Plasma pistol"
 	desc = "A plasma pistol used by the Chinese."
 	icon_state = "dcb2"
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	caliber = "laserb"
 	fire_sound = 'sound/weapons/guns/fire/dcb2.ogg'
 	magazine_type = /obj/item/ammo_magazine/tibannagas/dcb2
@@ -423,8 +423,8 @@
 	magazine_type = /obj/item/ammo_magazine/tibannagas/lasgun
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/lasgun)
 	firemodes = list(
-		list(name="semi auto",	burst=1, burst_delay=0.7, recoil=0, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
-		list(name="full auto",	burst=1, burst_delay=1.2, recoil=0, move_delay=4, dispersion = list(1.1, 1.2, 1.3, 1.3, 1.5)),
+		list(name = "semi auto",	burst=1, burst_delay=0.7, recoil=0, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
+		list(name = "full auto",	burst=1, burst_delay=1.2, recoil=0, move_delay=4, dispersion = list(1.1, 1.2, 1.3, 1.3, 1.5)),
 		)
 	weight = 3.08
 	force = 20
@@ -438,7 +438,7 @@
 	name = "Laspistol"
 	desc = "A laspistol used by the imperial gaurd."
 	icon_state = "laspistol"
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	caliber = "laser"
 	fire_sound = 'sound/weapons/guns/fire/lasgun.ogg'
 	magazine_type = /obj/item/ammo_magazine/tibannagas/laspistol

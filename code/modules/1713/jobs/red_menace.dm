@@ -602,7 +602,7 @@
 				give_random_name(H)
 			if (5)
 			//shoes
-				H.equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(H), slot_shoes)
+				H.equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots(H), slot_shoes)
 			//clothes
 				H.equip_to_slot_or_del(new /obj/item/clothing/under/wastelander(H), slot_w_uniform)
 			//head
@@ -692,10 +692,10 @@
 
 /datum/job/american/coldwar/ssergeant/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/jackboots2(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/modern(H), slot_shoes)
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/pasgt(H), slot_head)
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/m16/m16a2(H), slot_shoulder)
-	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo_woodland, slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo, slot_w_uniform)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/green/stanag, slot_belt)
 	H.equip_to_slot_or_del(new /obj/item/weapon/attachment/scope/adjustable/binoculars/binoculars(H), slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/grenade/smokebomb/signal(H), slot_r_store)
@@ -732,10 +732,10 @@
 
 /datum/job/american/coldwar/radop/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/jackboots2(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/modern(H), slot_shoes)
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/pasgt(H), slot_head)
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/m16/m16a2(H), slot_shoulder)
-	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo_woodland, slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo, slot_w_uniform)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/green/stanag, slot_belt)
 	if (time_of_day == "Night" || time_of_day == "Evening" || time_of_day == "Early Morning")
 		H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight(H), slot_wear_id)
@@ -768,10 +768,10 @@
 
 /datum/job/american/coldwar/dmr/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/jackboots2(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/modern(H), slot_shoes)
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/pasgt(H), slot_head)
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/m14/sniper/m21(H), slot_shoulder)
-	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo_woodland, slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo, slot_w_uniform)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/green/m14, slot_belt)
 	if (time_of_day == "Night" || time_of_day == "Evening" || time_of_day == "Early Morning")
 		H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight(H), slot_wear_id)
@@ -804,10 +804,10 @@
 
 /datum/job/american/coldwar/mgunner/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/jackboots2(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/modern(H), slot_shoes)
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/pasgt(H), slot_head)
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/m249(H), slot_shoulder)
-	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo_woodland, slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo, slot_w_uniform)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/largepouches/green/m249, slot_belt)
 	if (time_of_day == "Night" || time_of_day == "Evening" || time_of_day == "Early Morning")
 		H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight(H), slot_wear_id)
@@ -841,10 +841,10 @@
 
 /datum/job/american/coldwar/private/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/jackboots2(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/modern(H), slot_shoes)
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/pasgt(H), slot_head)
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/m16/m16a2(H), slot_shoulder)
-	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo_woodland, slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo, slot_w_uniform)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/green/stanag, slot_belt)
 	if (time_of_day == "Night" || time_of_day == "Evening" || time_of_day == "Early Morning")
 		H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight(H), slot_wear_id)
@@ -878,10 +878,10 @@
 /datum/job/american/coldwar/tanker/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 //shoes
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/jackboots2(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/modern(H), slot_shoes)
 
 //clothes
-	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo_woodland, slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_camo, slot_w_uniform)
 //head
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/ushelmet/crewman(H), slot_head)
 //back

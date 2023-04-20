@@ -5,7 +5,7 @@
 	item_flags = BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	body_parts_covered = FACE|EYES
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	item_state = "gas_alt"
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
@@ -54,6 +54,16 @@
 /obj/item/clothing/mask/gas/modern2
 	icon_state = "moderngasmask"
 	item_state = "moderngasmask"
+
+/obj/item/clothing/mask/gas/halfmask
+	blocks_scope = FALSE
+	name = "Half mask"
+	restricts_view = 1
+	icon_state = "halfmask"
+	item_state = "halfmask"
+	flags_inv = FALSE
+	armor = list(melee = 5, arrow = FALSE, gun = FALSE, energy = 15, bomb = 5, bio = 100, rad = 70)
+	body_parts_covered = FACE
 
 /obj/item/clothing/mask/gas/japanese
 	icon_state = "t99"

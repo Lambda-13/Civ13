@@ -14,6 +14,12 @@
 ## Donater донатер
 
 Mentor +MENTOR
+Squire +MOD + TRIALADMIN +REJUV
+Knight +ADMIN +REJUV +VAREDIT +POSSESS +SERVER +FUN +STEALTH +SOUNDS +DEBUG +MOD +TRIALADMIN
+Story Teller +@ +SPAWN
+Knight Commander +@ +PERMISSIONS
+Marshall +@
+Grand Master +@
 Donater
 Coder +MENTOR
 Master Mentor +MENTOR +MOD +TRIALADMIN +REJUV

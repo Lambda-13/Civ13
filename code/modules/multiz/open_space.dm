@@ -62,8 +62,99 @@ var/process/open_space/OS_controller = null
 	icon = 'icons/turf/sky.dmi'
 	icon_state = ""
 	name = "the sky"
-	opacity = FALSE
-	density = TRUE
+
+var/list/sky_drop_map = list()
+
+/turf/sky/Entered(var/atom/movable/mover)
+	if (isobserver(mover))
+		return
+	if (locate_dense_type(contents, /obj/structure))
+		return ..(mover)
+	else
+		..(mover)
+		if (locate(/obj/covers) in contents)
+			return
+		var/area/caribbean/no_mans_land/sky/A = get_area(src)
+		if (!istype(A))
+			return
+		if (!A.landing_area)
+			return
+		if (sky_drop_map.len)
+			for (var/locstr in sky_drop_map)
+				for (var/turf/T in range(5, sky_drop_map[locstr]))
+					if (locate(/mob/living) in T)
+						continue
+					if (locate_dense_type(contents, /obj/structure/wild/tree) in T)
+						continue
+					mover.forceMove(T)
+		else
+			if (A.allow_area_subtypes)
+				var/area/AA = locate(A.landing_area)
+				for (AA in area_list)
+					if (istype(AA, A.landing_area))
+						var/turf/newloc = pick((AA.get_turfs()))
+						mover.x = newloc.x
+						mover.y = newloc.y
+						mover.z = newloc.z
+						sky_drop_map["[mover.x],[mover.y],[mover.z]"] = get_turf(mover)
+						break
+			else
+				var/area/AA = locate(A.landing_area)
+				var/turf/newloc = pick((AA.get_turfs()))
+				mover.x = newloc.x
+				mover.y = newloc.y
+				mover.z = newloc.z
+				sky_drop_map["[mover.x],[mover.y],[mover.z]"] = get_turf(mover)
+
+		if (isliving(mover))
+			var/mob/living/L = mover
+			if (!ishuman(mover))
+				L << "<span class = 'good'>You land softly onto the ground.</span>"
+			else
+				var/mob/living/human/H = mover
+				if (!H.back || !istype(H.back, /obj/item/weapon/storage/backpack/paratrooper))
+					if (prob(10))
+						H << "<span class = 'userdanger'><b>You smack face first onto the ground, damn.</b></span>"
+					else
+						H << "<span class = 'userdanger'><b>You land hard on the ground!</b></span>"
+					H.adjustBruteLossByPart(300, "l_leg")
+					H.adjustBruteLossByPart(300, "r_leg")
+					if (hasorgans(H))
+						var/dam_zone = pick("l_leg", "r_leg")
+						var/obj/item/organ/external/affecting = H.get_organ(dam_zone)
+						affecting.fracture()
+					H.updatehealth()
+				else
+					H.pixel_y += 60
+					spawn (5)
+						H.client.canmove = FALSE
+						var/image/I = image(icon = 'icons/misc/parachute.dmi', H, layer = MOB_LAYER + 1.0)
+						I.pixel_x = -16
+						I.pixel_y = 16
+
+						H.overlays += I
+
+						for (var/v in 1 to 6)
+							spawn (5)
+								H.pixel_y -= 10
+
+						spawn (20)
+							I = image(icon = 'icons/misc/parachute.dmi', H, icon_state = "closing", layer = MOB_LAYER + 1.0)
+							spawn (10) // animation is over now
+								H.overlays -= I
+								H.pixel_y = 0
+								qdel(I)
+
+								spawn(10)
+									playsound(get_turf(H), 'sound/effects/thud.ogg', 80)
+									shake_camera(H, 2)
+									H.client.canmove = TRUE
+
+		// make sure we have the right ambience for our new location
+		spawn (1)
+			if (ishuman(mover))
+				var/area/H_area = get_area(mover)
+				H_area.play_ambience(mover)
 
 /turf/floor/broken_floor
 	name = "hole"

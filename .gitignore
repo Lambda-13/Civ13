@@ -35,3 +35,5 @@ maps/campaign/campaign8.dmm
 byhttp.dll
 libbyhttp.so
 config/webhooks.json
+civ13od.dme
+odcomp.bat

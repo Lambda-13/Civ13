@@ -119,6 +119,13 @@ var/global/redirect_all_players = null
 	<meta charset='utf-8'>
 	<head>
 	[common_browser_style]
+	<script>
+		document.attachEvent('onclick', function(event) {
+			if (event.shiftKey) {
+				event.returnValue = false;
+			}
+		});
+	</script>
 	</head>
 	<body><center>
 	PLACEHOLDER
@@ -134,10 +141,12 @@ var/global/redirect_all_players = null
 	else
 		if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.ID == MAP_FOUR_KINGDOMS)
 			output += "<p><a href='byond://?src=\ref[src];tribes=1'>Войти в племя</a></p>"
-		else if (map.civilizations == TRUE && map.nomads == FALSE)
-			output += "<p><a href='byond://?src=\ref[src];civilizations=1'>Войти в поселение</a></p>"
-		else if (map.nomads == TRUE)
-			output += "<p><a href='byond://?src=\ref[src];nomads=1'>Войти</a></p>"
+		else if (map.ID == MAP_NOMADS_PERSISTENCE_BETA)
+			output += "<p><a href='byond://?src=\ref[src];join_campaign=1'>Войти в игру</a></p>"
+		else if (map.civilizations && !map.nomads && map.ID != MAP_NOMADS_PERSISTENCE_BETA)
+			output += "<p><a href='byond://?src=\ref[src];civilizations=1'>Войти в цивилизацию</a></p>"
+		else if (map.nomads)
+			output += "<p><a href='byond://?src=\ref[src];nomads=1'>Играть</a></p>"
 		else
 			if(map.ID == MAP_CAMPAIGN)
 				output += "<p><a href='byond://?src=\ref[src];join_campaign=1'>Подключиться</a></p>"
@@ -266,7 +275,7 @@ var/global/redirect_all_players = null
 		if (client && client.next_normal_respawn > world.realtime && !config.no_respawn_delays)
 			var/wait = ceil((client.next_normal_respawn-world.realtime)/10)
 			if (check_rights(R_ADMIN, FALSE, src))
-				if ((WWinput(src, "Как нормальный игрок, ты должен подождать [wait] минут для респавна. Уверен что хочешь обойти это ограничение?", "Мяу", "Yes", list("Yes", "No"))) == "Yes")
+				if ((WWinput(src, "Как нормальный игрок, ты должен подождать [wait] минут для респавна. Уверен что хочешь обойти это ограничение?", "Мяу", "No", list("Yes", "No"))) == "Yes")
 					var/msg = "[key_name(src)] bypassed a [wait] second wait to respawn."
 					log_admin(msg)
 					message_admins(msg)
@@ -298,7 +307,7 @@ var/global/redirect_all_players = null
 		if (client.next_normal_respawn > world.realtime && !config.no_respawn_delays)
 			var/wait = ceil((client.next_normal_respawn-world.realtime)/600)
 			if (check_rights(R_ADMIN, FALSE, src))
-				if ((WWinput(src, "If you were a normal player, you would have to wait [wait] more minutes to respawn. Do you want to bypass this? You can still join as a reinforcement.", "Admin Respawn", "Yes", list("Yes", "No"))) == "Yes")
+				if ((WWinput(src, "If you were a normal player, you would have to wait [wait] more minutes to respawn. Do you want to bypass this? You can still join as a reinforcement.", "Admin Respawn", "No", list("Yes", "No"))) == "Yes")
 					var/msg = "[key_name(src)] bypassed a [wait] minute wait to respawn."
 					log_admin(msg)
 					message_admins(msg)
@@ -340,14 +349,14 @@ var/global/redirect_all_players = null
 		if (client.next_normal_respawn > world.realtime && !config.no_respawn_delays)
 			var/wait = ceil((client.next_normal_respawn-world.realtime)/600)
 			if (check_rights(R_ADMIN, FALSE, src))
-				if ((WWinput(src, "If you were a normal player, you would have to wait [wait] more minutes to respawn. Do you want to bypass this? You can still join as a reinforcement.", "Admin Respawn", "Yes", list("Yes", "No"))) == "Yes" && map.ID != MAP_PIONEERS_WASTELAND_2)
+				if ((WWinput(src, "If you were a normal player, you would have to wait [wait] more minutes to respawn. Do you want to bypass this? You can still join as a reinforcement.", "Admin Respawn", "No", list("Yes", "No"))) == "Yes" && map.ID != MAP_PIONEERS_WASTELAND_2)
 					var/msg = "[key_name(src)] bypassed a [wait] minute wait to respawn."
 					log_admin(msg)
 					message_admins(msg)
 					close_spawn_windows()
 					AttemptLateSpawn(pick(map.availablefactions))
 					return TRUE
-				else if ((WWinput(src, "If you were a normal player, you would have to wait [wait] more minutes to respawn. Do you want to bypass this? You can still join as a reinforcement.", "Admin Respawn", "Yes", list("Yes", "No"))) == "Yes")
+				else if ((WWinput(src, "If you were a normal player, you would have to wait [wait] more minutes to respawn. Do you want to bypass this? You can still join as a reinforcement.", "Admin Respawn", "No", list("Yes", "No"))) == "Yes")
 					var/msg = "[key_name(src)] bypassed a [wait] minute wait to respawn."
 					log_admin(msg)
 					message_admins(msg)
@@ -356,7 +365,7 @@ var/global/redirect_all_players = null
 			WWalert(src, "Because you died, you must wait [wait] more minutes to respawn.", "Error")
 			return FALSE
 
-		if (map && map.civilizations == TRUE && map.ID != MAP_PIONEERS_WASTELAND_2)
+		if (map && map.civilizations && map.ID != MAP_PIONEERS_WASTELAND_2)
 			close_spawn_windows()
 			AttemptLateSpawn(pick(map.availablefactions))
 		else if (map && map.ID == MAP_PIONEERS_WASTELAND_2)
@@ -387,7 +396,7 @@ var/global/redirect_all_players = null
 		if (client.next_normal_respawn > world.realtime && !config.no_respawn_delays)
 			var/wait = ceil((client.next_normal_respawn-world.realtime)/600)
 			if (check_rights(R_ADMIN, FALSE, src))
-				if ((WWinput(src, "If you were a normal player, you would have to wait [wait] more minutes to respawn. Do you want to bypass this? You can still join as a reinforcement.", "Admin Respawn", "Yes", list("Yes", "No"))) == "Yes")
+				if ((WWinput(src, "If you were a normal player, you would have to wait [wait] more minutes to respawn. Do you want to bypass this? You can still join as a reinforcement.", "Admin Respawn", "No", list("Yes", "No"))) == "Yes")
 					var/msg = "[key_name(src)] bypassed a [wait] minute wait to respawn."
 					log_admin(msg)
 					message_admins(msg)
@@ -399,7 +408,7 @@ var/global/redirect_all_players = null
 			WWalert(src, "Because you died, you must wait [wait] more minutes to respawn.", "Error")
 			return FALSE
 
-		if (map && map.civilizations == TRUE)
+		if (map && map.civilizations)
 			close_spawn_windows()
 			AttemptLateSpawn("Nomad")
 			return TRUE
@@ -432,14 +441,14 @@ var/global/redirect_all_players = null
 			WWalert(src, "Because you died in combat, you must wait [wait] more minutes to respawn.", "Error")
 			return FALSE
 
-		var/factjob = "null"
+		var/factjob
 		for (var/i in faction_list_red)
 			var/temp_ckey = lowertext(i)
 			temp_ckey = replacetext(temp_ckey," ", "")
 			temp_ckey = replacetext(temp_ckey,"_", "")
 			if (temp_ckey == client.ckey)
 				factjob = "RDF"
-		if (factjob == "null")
+		if (!factjob)
 			for (var/i in faction_list_blue)
 				var/temp_ckey = lowertext(i)
 				temp_ckey = replacetext(temp_ckey," ", "")
@@ -447,11 +456,13 @@ var/global/redirect_all_players = null
 				if (temp_ckey == client.ckey)
 					factjob = "BAF"
 
-		if (factjob != "null")
+		if (factjob)
 			LateChoicesCampaign(factjob)
-			//AttemptLateSpawn(factjob)
 		else
-			WWalert(src, "This round is part of an event. You need to be part of one of the two factions to participate. Check the discord for more information.")
+			if (config.discordurl)
+				WWalert(src, "This round is part of an event. You need to be part of one of the two factions to participate. Visit the discord for more information: [config.discordurl]")
+			else
+				WWalert(src, "This round is part of an event. You need to be part of one of the two factions to participate. Visit the discord for more information.")
 			return
 		return TRUE
 
@@ -488,7 +499,7 @@ var/global/redirect_all_players = null
 		if (client.next_normal_respawn > world.realtime && !config.no_respawn_delays)
 			var/wait = ceil((client.next_normal_respawn-world.realtime)/600)
 			if (check_rights(R_ADMIN, FALSE, src))
-				if ((WWinput(src, "If you were a normal player, you would have to wait [wait] more minutes to respawn. Do you want to bypass this? You can still join as a reinforcement.", "Admin Respawn", "Yes", list("Yes", "No"))) == "Yes")
+				if ((WWinput(src, "If you were a normal player, you would have to wait [wait] more minutes to respawn. Do you want to bypass this? You can still join as a reinforcement.", "Admin Respawn", "No", list("Yes", "No"))) == "Yes")
 					var/msg = "[key_name(src)] bypassed a [wait] minute wait to respawn."
 					log_admin(msg)
 					message_admins(msg)
@@ -500,86 +511,93 @@ var/global/redirect_all_players = null
 		return TRUE
 
 	if (href_list["SelectedJob"])
-		if (!findtext(href_list["SelectedJob"], "Private") && !findtext(href_list["SelectedJob"], "Machinegunner") && !findtext(href_list["SelectedJob"], "Des. Marksman") && map.ID == MAP_CAMPAIGN)
-			if ((input(src, "This is a specialist role. You should have decided with your faction on which roles you should pick. If you haven't done so, its probably better if you join as a Private instead. Are you sure you want to join in as a [href_list["SelectedJob"]]?") in list("Yes", "No")) == "No")
+		if (map.ID == MAP_CAMPAIGN)
+			if (!findtext(href_list["SelectedJob"], "Private") && !findtext(href_list["SelectedJob"], "Machinegunner") && !findtext(href_list["SelectedJob"], "Des. Marksman"))
+				if ((input(src, "This is a specialist role. You should have decided with your faction on which roles you should pick. If you haven't done so, its probably better if you join as a Private instead. Are you sure you want to join in as a [href_list["SelectedJob"]]?") in list("Yes", "No")) == "No")
+					return
+			if(findtext(href_list["SelectedJob"],"BAF"))
+				var/obj/map_metadata/campaign/MC = map
+				if(findtext(href_list["SelectedJob"],"Squad 1"))
+					if (findtext(href_list["SelectedJob"],"Sniper"))
+						MC.squad_jobs_blue["Squad 1"]["Sniper"]--
+					if (findtext(href_list["SelectedJob"],"Machinegunner"))
+						MC.squad_jobs_blue["Squad 1"]["Machinegunner"]--
+					if (findtext(href_list["SelectedJob"],"Des. Marksman"))
+						MC.squad_jobs_blue["Squad 1"]["Des. Marksman"]--
+
+				else if(findtext(href_list["SelectedJob"],"Squad 2"))
+					if (findtext(href_list["SelectedJob"],"Sniper"))
+						MC.squad_jobs_blue["Squad 2"]["Sniper"]--
+					if (findtext(href_list["SelectedJob"],"Machinegunner"))
+						MC.squad_jobs_blue["Squad 2"]["Machinegunner"]--
+					if (findtext(href_list["SelectedJob"],"Des. Marksman"))
+						MC.squad_jobs_blue["Squad 2"]["Des. Marksman"]--
+
+				else if(findtext(href_list["SelectedJob"],"Squad 3"))
+					if (findtext(href_list["SelectedJob"],"Sniper"))
+						MC.squad_jobs_blue["Squad 3"]["Sniper"]--
+					if (findtext(href_list["SelectedJob"],"Machinegunner"))
+						MC.squad_jobs_blue["Squad 3"]["Machinegunner"]--
+					if (findtext(href_list["SelectedJob"],"Des. Marksman"))
+						MC.squad_jobs_blue["Squad 3"]["Des. Marksman"]--
+
+				else if(findtext(href_list["SelectedJob"],"BAF Doctor"))
+					MC.squad_jobs_blue["none"]["Doctor"]--
+
+				else if(findtext(href_list["SelectedJob"],"BAF Officer"))
+					MC.squad_jobs_blue["none"]["Officer"]--
+				else if(findtext(href_list["SelectedJob"],"BAF Commander"))
+					MC.squad_jobs_blue["none"]["Commander"]--
+				else if(findtext(href_list["SelectedJob"],"BAF Recon"))
+					MC.squad_jobs_blue["Recon"]["Sniper"]--
+				else if(findtext(href_list["SelectedJob"],"BAF Anti-Tank"))
+					MC.squad_jobs_blue["AT"]["Anti-Tank"]--
+				else if(findtext(href_list["SelectedJob"],"BAF Armored Crew"))
+					MC.squad_jobs_blue["Armored"]["Crew"]--
+				else if(findtext(href_list["SelectedJob"],"BAF Engineer"))
+					MC.squad_jobs_blue["Engineer"]["Engineer"]--
+				AttemptLateSpawn(href_list["SelectedJob"])
 				return
-		if(findtext(href_list["SelectedJob"],"BAF"))
-			var/obj/map_metadata/campaign/MC = map
-			if(findtext(href_list["SelectedJob"],"Squad 1"))
-				if (findtext(href_list["SelectedJob"],"Sniper"))
-					MC.squad_jobs_blue["Squad 1"]["Sniper"]--
-				if (findtext(href_list["SelectedJob"],"Machinegunner"))
-					MC.squad_jobs_blue["Squad 1"]["Machinegunner"]--
-				if (findtext(href_list["SelectedJob"],"Des. Marksman"))
-					MC.squad_jobs_blue["Squad 1"]["Des. Marksman"]--
 
-			else if(findtext(href_list["SelectedJob"],"Squad 2"))
-				if (findtext(href_list["SelectedJob"],"Sniper"))
-					MC.squad_jobs_blue["Squad 2"]["Sniper"]--
-				if (findtext(href_list["SelectedJob"],"Machinegunner"))
-					MC.squad_jobs_blue["Squad 2"]["Machinegunner"]--
-				if (findtext(href_list["SelectedJob"],"Des. Marksman"))
-					MC.squad_jobs_blue["Squad 2"]["Des. Marksman"]--
+			else if (findtext(href_list["SelectedJob"],"RDF"))
+				var/obj/map_metadata/campaign/MC = map
+				if(findtext(href_list["SelectedJob"],"Squad 1"))
+					if (findtext(href_list["SelectedJob"],"Sniper"))
+						MC.squad_jobs_red["Squad 1"]["Sniper"]--
+					if (findtext(href_list["SelectedJob"],"Machinegunner"))
+						MC.squad_jobs_red["Squad 1"]["Machinegunner"]--
 
-			else if(findtext(href_list["SelectedJob"],"Squad 3"))
-				if (findtext(href_list["SelectedJob"],"Sniper"))
-					MC.squad_jobs_blue["Squad 3"]["Sniper"]--
-				if (findtext(href_list["SelectedJob"],"Machinegunner"))
-					MC.squad_jobs_blue["Squad 3"]["Machinegunner"]--
-				if (findtext(href_list["SelectedJob"],"Des. Marksman"))
-					MC.squad_jobs_blue["Squad 3"]["Des. Marksman"]--
+				else if(findtext(href_list["SelectedJob"],"Squad 2"))
+					if (findtext(href_list["SelectedJob"],"Sniper"))
+						MC.squad_jobs_red["Squad 2"]["Sniper"]--
+					if (findtext(href_list["SelectedJob"],"Machinegunner"))
+						MC.squad_jobs_red["Squad 2"]["Machinegunner"]--
 
-			else if(findtext(href_list["SelectedJob"],"BAF Medic"))
-				MC.squad_jobs_blue["none"]["Medic"]--
+				else if(findtext(href_list["SelectedJob"],"Squad 3"))
+					if (findtext(href_list["SelectedJob"],"Sniper"))
+						MC.squad_jobs_red["Squad 3"]["Sniper"]--
+					if (findtext(href_list["SelectedJob"],"Machinegunner"))
+						MC.squad_jobs_red["Squad 3"]["Machinegunner"]--
 
-			else if(findtext(href_list["SelectedJob"],"BAF Officer"))
-				MC.squad_jobs_blue["none"]["Officer"]--
-			else if(findtext(href_list["SelectedJob"],"BAF Commander"))
-				MC.squad_jobs_blue["none"]["Commander"]--
-			else if(findtext(href_list["SelectedJob"],"BAF Recon"))
-				MC.squad_jobs_blue["Recon"]["Sniper"]--
-			else if(findtext(href_list["SelectedJob"],"BAF Anti-Tank"))
-				MC.squad_jobs_blue["AT"]["Anti-Tank"]--
-			else if(findtext(href_list["SelectedJob"],"BAF Engineer"))
-				MC.squad_jobs_blue["Engineer"]["Engineer"]--
-			AttemptLateSpawn(href_list["SelectedJob"])
-			return
-		else if (findtext(href_list["SelectedJob"],"RDF"))
-			var/obj/map_metadata/campaign/MC = map
-			if(findtext(href_list["SelectedJob"],"Squad 1"))
-				if (findtext(href_list["SelectedJob"],"Sniper"))
-					MC.squad_jobs_red["Squad 1"]["Sniper"]--
-				if (findtext(href_list["SelectedJob"],"Machinegunner"))
-					MC.squad_jobs_red["Squad 1"]["Machinegunner"]--
+				else if(findtext(href_list["SelectedJob"],"RDF Doctor"))
+					MC.squad_jobs_red["none"]["Doctor"]--
 
-			else if(findtext(href_list["SelectedJob"],"Squad 2"))
-				if (findtext(href_list["SelectedJob"],"Sniper"))
-					MC.squad_jobs_red["Squad 2"]["Sniper"]--
-				if (findtext(href_list["SelectedJob"],"Machinegunner"))
-					MC.squad_jobs_red["Squad 2"]["Machinegunner"]--
+				else if(findtext(href_list["SelectedJob"],"RDF Officer"))
+					MC.squad_jobs_red["none"]["Officer"]--
+				else if(findtext(href_list["SelectedJob"],"RDF Commander"))
+					MC.squad_jobs_red["none"]["Commander"]--
 
-			else if(findtext(href_list["SelectedJob"],"Squad 3"))
-				if (findtext(href_list["SelectedJob"],"Sniper"))
-					MC.squad_jobs_red["Squad 3"]["Sniper"]--
-				if (findtext(href_list["SelectedJob"],"Machinegunner"))
-					MC.squad_jobs_red["Squad 3"]["Machinegunner"]--
+				else if(findtext(href_list["SelectedJob"],"RDF Recon"))
+					MC.squad_jobs_red["Recon"]["Sniper"]--
+				else if(findtext(href_list["SelectedJob"],"RDF Anti-Tank"))
+					MC.squad_jobs_red["AT"]["Anti-Tank"]--
+				else if(findtext(href_list["SelectedJob"],"RDF Armored Crew"))
+					MC.squad_jobs_red["Armored"]["Crew"]--
+				else if(findtext(href_list["SelectedJob"],"RDF Engineer"))
+					MC.squad_jobs_red["Engineer"]["Engineer"]--
+				AttemptLateSpawn(href_list["SelectedJob"])
+				return
 
-			else if(findtext(href_list["SelectedJob"],"RDF Medic"))
-				MC.squad_jobs_red["none"]["Medic"]--
-
-			else if(findtext(href_list["SelectedJob"],"RDF Officer"))
-				MC.squad_jobs_red["none"]["Officer"]--
-			else if(findtext(href_list["SelectedJob"],"RDF Commander"))
-				MC.squad_jobs_red["none"]["Commander"]--
-
-			else if(findtext(href_list["SelectedJob"],"RDF Recon"))
-				MC.squad_jobs_red["Recon"]["Sniper"]--
-			else if(findtext(href_list["SelectedJob"],"RDF Anti-Tank"))
-				MC.squad_jobs_red["AT"]["Anti-Tank"]--
-			else if(findtext(href_list["SelectedJob"],"RDF Engineer"))
-				MC.squad_jobs_red["Engineer"]["Engineer"]--
-			AttemptLateSpawn(href_list["SelectedJob"])
-			return
 		if(href_list["SelectedJob"] == "Company Member")
 			AttemptLateSpawn(href_list["SelectedJob"])
 			return
@@ -599,8 +617,11 @@ var/global/redirect_all_players = null
 			WWalert(usr,"Админ запретил заходить в раунд.", "Error")
 			return
 
+//Вообще похуй на то что могут быть ошибки
 		if (map && map.has_occupied_base(job_flag) && map.ID != MAP_WACO && map.ID != MAP_CAPITOL_HILL && map.ID != MAP_CAMP && map.ID != MAP_HILL_203 && map.ID != MAP_CALOOCAN && map.ID != MAP_YELTSIN && map.ID != MAP_HOTEL && map.ID != MAP_OASIS)
 			WWalert(usr,"Враги оккупировали эту базу! Придётся выбрать что-то другое.", "Error")
+		if (map && map.has_occupied_base(job_flag) && map.ID != MAP_CAPITOL_HILL && map.ID != MAP_CAMP && map.ID != MAP_HILL_203 && map.ID != MAP_CALOOCAN && map.ID != MAP_YELTSIN && map.ID != MAP_HOTEL && map.ID != MAP_OASIS)
+			WWalert(usr,"The enemy is currently occupying your base! You can't be deployed right now.", "Error")
 			return
 
 //Sovafghan DRA spawnpoints
@@ -652,6 +673,13 @@ var/global/redirect_all_players = null
 							actual_job.spawn_location = "JoinLateDRACap"
 						if (actual_job && actual_job.title == "DRA Soldier")
 							actual_job.spawn_location = "JoinLateDRA"
+
+// BANK ROBBERY - Changes Robber spawns after gracewall
+
+		if (map && map.ID == MAP_BANK_ROBBERY)
+			if (processes.ticker.playtime_elapsed >= 3000 || map.admin_ended_all_grace_periods)
+				if (actual_job && actual_job.title == "Bank Robber")
+					actual_job.spawn_location = "JoinLateRU2"
 
 //prevent boss spawns if there are enemies in the building
 		if (map && map.ID == MAP_CAPITOL_HILL)
@@ -746,7 +774,7 @@ var/global/redirect_all_players = null
 	if (!ticker || ticker.current_state != GAME_STATE_PLAYING)
 		if (!nomsg)
 			WWalert(usr,"Раунд закончился или ещё не начался.","Error")
-			if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.civilizations == TRUE || map.ID == MAP_FOUR_KINGDOMS)
+			if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.civilizations || map.ID == MAP_FOUR_KINGDOMS)
 				abandon_mob()
 				spawn(10)
 					WWalert(usr,"Раунд закончился или ещё не начался.", "Error")
@@ -754,7 +782,7 @@ var/global/redirect_all_players = null
 	if (!config.enter_allowed)
 		if (!nomsg)
 			WWalert(usr,"There is an administrative lock on entering the game!", "Error")
-			if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.civilizations == TRUE || map.ID == MAP_FOUR_KINGDOMS)
+			if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.civilizations || map.ID == MAP_FOUR_KINGDOMS)
 				abandon_mob()
 				spawn(10)
 					WWalert(usr,"There is an administrative lock on entering the game!", "Error")
@@ -762,7 +790,7 @@ var/global/redirect_all_players = null
 	if (jobBanned(rank))
 		if (!nomsg)
 			WWalert(usr,"You're banned from this role!", "Error")
-			if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.civilizations == TRUE || map.ID == MAP_FOUR_KINGDOMS)
+			if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.civilizations || map.ID == MAP_FOUR_KINGDOMS)
 				abandon_mob()
 				spawn(10)
 					WWalert(usr,"You're banned from this role!", "Error")
@@ -809,7 +837,7 @@ var/global/redirect_all_players = null
 	if (!IsJobAvailable(rank))
 		if (!nomsg)
 			WWalert(src, "'[rank]' has already been taken by someone else.", "Error")
-			if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.civilizations == TRUE || map.ID == MAP_FOUR_KINGDOMS)
+			if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.civilizations || map.ID == MAP_FOUR_KINGDOMS)
 				abandon_mob()
 				spawn(10)
 					WWalert(src, "'[rank]' has already been taken by someone else.", "Error")
@@ -820,30 +848,35 @@ var/global/redirect_all_players = null
 	if (factionBanned(job.base_type_flag(1)))
 		if (!nomsg)
 			WWalert(usr,"You're banned from this faction!","Error")
-			if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.civilizations == TRUE || map.ID == MAP_FOUR_KINGDOMS)
+			if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.civilizations || map.ID == MAP_FOUR_KINGDOMS)
 				abandon_mob()
 				spawn(10)
 					WWalert(usr,"You're banned from this faction!","Error")
 		return FALSE
 
 	if (penalBanned())
-		if (job.blacklisted == FALSE)
+		if (!job.blacklisted)
 			if (!nomsg)
 				WWalert(usr,"You're under a Penal ban, you can only play as that role!","Error")
-			if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.civilizations == TRUE || map.ID == MAP_FOUR_KINGDOMS)
+			if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.civilizations || map.ID == MAP_FOUR_KINGDOMS)
 				abandon_mob()
 				spawn(10)
 					WWalert(usr,"You're under a Penal ban, you can only play as that role!","Error")
 			return FALSE
 
 	else
-		if (job.blacklisted == TRUE)
+		if (job.blacklisted)
 			if (!nomsg)
 				WWalert(usr,"This job is reserved as a punishment for those who break server rules.","Error")
-			if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.civilizations == TRUE || map.ID == MAP_FOUR_KINGDOMS)
+			if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.civilizations || map.ID == MAP_FOUR_KINGDOMS)
 				abandon_mob()
 				spawn(10)
 					WWalert(usr,"This job is reserved as a punishment for those who break server rules.","Error")
+			return FALSE
+
+	if (job.is_paratrooper)
+		if (map && map.faction1_can_cross_blocks())
+			WWalert(usr,"This job is not available for joining after the grace period has ended","Error")
 			return FALSE
 
 	if (job.is_deathmatch)
@@ -1112,28 +1145,30 @@ var/global/redirect_all_players = null
 			dat += "[alive_german.len] за немцев "
 	if (AMERICAN in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/arab_town))
-			dat += "[alive_american.len] за жидов " //Израиль
+			dat += "[alive_american.len] за евреев "
 		else if (map && istype(map, /obj/map_metadata/capitol_hill))
 			dat += "[alive_american.len] за Американское правительство "
 		else if (map && istype(map, /obj/map_metadata/missionary_ridge))
 			dat += "[alive_american.len] за Союз Штатов "
 		else if (map && istype(map, /obj/map_metadata/tantiveiv))
-			dat += "[alive_american.len] Imperials "
+			dat += "[alive_american.len] за Галактическую Империю "
 		else if (map && istype(map, /obj/map_metadata/east_los_santos))
-			dat += "[alive_american.len] Grove Street "
+			dat += "[alive_american.len] за Улицу Зелёных Рощ "
 		else if (map && istype(map, /obj/map_metadata/eft_factory))
-			dat += "[alive_american.len] USEC PMCs "
+			dat += "[alive_american.len] за ЧВК USEC "
 		else
 			dat += "[alive_american.len] за американцев "
 	if (VIETNAMESE in map.faction_organization)
 		dat += "[alive_vietnamese.len] за вьетнамцев "
 	if (CHINESE in map.faction_organization)
 		if (map && istype(map, /obj/map_metadata/long_march))
-			dat += "[alive_chinese.len] Chinese National Army "
+			dat += "[alive_chinese.len] за Китайскую национальную армию "
 		else
-			dat += "[alive_chinese.len] Chinese "
+			dat += "[alive_chinese.len] за китайцев "
 	if (FILIPINO in map.faction_organization)
-		dat += "[alive_filipino.len] за филипинов "
+		dat += "[alive_filipino.len] за филлипинов "
+	if (POLISH in map.faction_organization)
+		dat += "[alive_swedish.len] за поляков "
 	dat += "<br>"
 //	dat += "<i>Jobs available for slave-banned players are marked with an *</i>"
 //	dat += "<br>"
@@ -1163,6 +1198,7 @@ var/global/redirect_all_players = null
 		AMERICAN = FALSE,
 		VIETNAMESE = FALSE,
 		CHINESE = FALSE,
+		POLISH = FALSE,
 		)
 
 	var/prev_side = FALSE
@@ -1249,7 +1285,11 @@ var/global/redirect_all_players = null
 
 		if (istype(job, /datum/job/vietnamese) && !vietnamese_toggled)
 			job_is_available = FALSE
+
 		if (istype(job, /datum/job/chinese) && !chinese_toggled)
+			job_is_available = FALSE
+
+		if (istype(job, /datum/job/polish) && !polish_toggled)
 			job_is_available = FALSE
 		// check if the job is admin-locked or disabled codewise
 
@@ -1274,7 +1314,7 @@ var/global/redirect_all_players = null
 					if (temp_name == "Indians")
 						temp_name = "Mercenary Warband"
 					else if (temp_name == "Civilian")
-						temp_name = "United Nations Peacepeeker"
+						temp_name = "United Nations Peacekeepers"
 				else if (map && map.ID == "MISSIONARY_RIDGE")
 					if (temp_name == "American")
 						temp_name = "Union"

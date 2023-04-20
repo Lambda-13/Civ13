@@ -7,7 +7,7 @@
 	icon_state = "beartrap0"
 	desc = "Ловит медведей и ломает ноги. Использовать с осторожностью."
 	throwforce = WEAPON_FORCE_WEAK
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	var/deployed = FALSE
 
 /obj/item/weapon/beartrap/armed
@@ -126,7 +126,7 @@
 	icon_state = "punji0"
 	desc = "Простая дыра с острыми палками внутри, прикрытая листьями."
 	throwforce = WEAPON_FORCE_WEAK
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	flammable = TRUE
 	var/deployed = FALSE
 	flags = FALSE

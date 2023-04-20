@@ -27,6 +27,9 @@
 	name = "field bed"
 	desc = "This is an easy to move field bed for sleeping while on the move."
 	icon_state = "fieldbed"
+	base_icon = "fieldbed"
+	material = "steel"
+	applies_material_colour = FALSE
 
 /obj/structure/bed/wood
 	material = "wood"
@@ -295,7 +298,7 @@
 	desc = "A collapsed roller bed that can be carried around."
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "folded"
-	w_class = 4.0 // Can't be put in backpacks. Oh well.
+	w_class = ITEM_SIZE_LARGE // Can't be put in backpacks. Oh well.
 	flags = CONDUCT
 /obj/item/roller/attack_self(mob/user)
 		var/obj/structure/bed/roller/R = new /obj/structure/bed/roller(user.loc)

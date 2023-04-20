@@ -30,7 +30,7 @@
 	item_state = "pistol"
 	flags =  CONDUCT
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	throwforce = 5
 	throw_speed = 4
 	throw_range = 5
@@ -76,6 +76,8 @@
 	var/list/dispersion = list(0)
 
 	var/obj/item/weapon/attachment/bayonet = null
+	var/obj/item/weapon/gun/launcher/grenade/underslung/launcher = null
+	var/use_launcher = FALSE
 
 	var/gun_type = GUN_TYPE_GENERIC
 
@@ -195,21 +197,21 @@
 	else
 		if (bayonet && isliving(A) && !istype(bayonet, /obj/item/weapon/attachment/bayonet/flag))
 			var/mob/living/L = A
-			var/mob/living/human/C = A
-			if (!istype(C) || !C.check_attack_throat(src, user))
-				// bayonets no longer have a miss chance, but have been balanced otherwise - Kachnov
-				var/obj/item/weapon/attachment/bayonet/a = bayonet
-				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) // No more rapid stabbing for you.
-				visible_message("<span class = 'danger'>[user] impales [L] with their gun's bayonet!</span>")
-				if (L)
-					L.apply_damage(a.force, BRUTE, def_zone)
-					L.Weaken(a.weakens)
-					if (L.stat == CONSCIOUS && prob(50))
-						L.emote("painscream")
-				playsound(get_turf(src), a.attack_sound, rand(90,100))
-			else
-				var/obj/item/weapon/attachment/bayonet/a = bayonet
-				playsound(get_turf(src), a.attack_sound, rand(90,100))
+			
+			var/obj/item/weapon/attachment/bayonet/a = bayonet
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) 
+			
+			if (L)
+				if (user != L)
+					if(L.attempt_dodge()) //Trying to dodge it before they even have the chance to miss us.
+						return
+					else
+						visible_message("<span class = 'danger'>[user] impales [L] with their gun's bayonet!</span>")
+						playsound(get_turf(src), a.attack_sound, rand(90,100))
+						L.apply_damage(a.force, BRUTE, def_zone)
+						if (ishuman(L))
+							if (L.stat == CONSCIOUS && prob(50))
+								L.emote("painscream")
 		else
 			..() //Pistolwhipping - now help intent only (or when the gun is empty)
 
@@ -282,7 +284,6 @@
 
 		if (istype(projectile, /obj/item/projectile))
 			var/obj/item/projectile/P = projectile
-
 			if (istype(P.firedfrom, /obj/item/weapon/gun/projectile))
 				var/obj/item/weapon/gun/projectile/proj = P.firedfrom
 				P.KD_chance = proj.KD_chance
@@ -375,7 +376,6 @@
 	var/obj/item/projectile/P = projectile
 	if (!istype(P))
 		return //default behaviour only applies to true projectiles
-
 	//default point blank multiplier
 	var/damage_mult = 1.33
 
@@ -628,7 +628,7 @@
 	return
 /*
 /obj/item/weapon/offhand
-	w_class = 5
+	w_class = ITEM_SIZE_HUGE
 	icon_state = "offhand"
 	name = "offhand"
 

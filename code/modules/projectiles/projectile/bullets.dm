@@ -9,8 +9,6 @@
 	sharp = TRUE
 	hitsound_wall = "ric_sound"
 	var/mob_passthrough_check = FALSE
-	var/move_tiles = -1
-	var/moved_tiles = FALSE
 
 	muzzle_type = /obj/effect/projectile/bullet/muzzle
 
@@ -50,12 +48,14 @@
 	var/chance = 0
 	if (istype(A, /turf/wall))
 		var/turf/wall/W = A
-
-		// 21% chance for rifles to penetrate a brick wall, 62% for a wood wall
-		chance = round((damage/(W.material ? W.material.integrity : 175)) * 150)
-		// 1/3rd of that for MGs, buffed since their accuracy was fixed
-		if (istype(firedfrom, /obj/item/weapon/gun/projectile/automatic/stationary))
-			chance /= 2
+		if (istype(A, /turf/wall/rockwall) || istype(A, /turf/wall/indestructable))//can't penetrate cave walls or indestructable ones
+			return FALSE
+		else
+			// 21% chance for rifles to penetrate a brick wall, 62% for a wood wall
+			chance = round((damage/(W.material ? W.material.integrity : 175)) * 150)
+			// 1/3rd of that for MGs, buffed since their accuracy was fixed
+			if (istype(firedfrom, /obj/item/weapon/gun/projectile/automatic/stationary))
+				chance /= 2
 
 	else if (istype(A, /obj/structure))
 		chance = round(damage/2) + 10
@@ -74,7 +74,7 @@
 	var/range_step = 2		//projectile will lose a fragment each time it travels this distance. Can be a non-integer.
 	var/base_spread = 90	//lower means the pellets spread more across body parts. If zero then this is considered a shrapnel explosion instead of a shrapnel cone
 	var/spread_step = 10	//higher means the pellets spread more across body parts with distance
-	move_tiles = 7 // 7 tiles
+	kill_count = 7 // Range of 7 tiles
 
 /obj/item/projectile/bullet/pellet/Bumped()
 	. = ..()
@@ -118,10 +118,6 @@
 
 /obj/item/projectile/bullet/pellet/Move()
 	. = ..()
-
-	++moved_tiles
-	if (moved_tiles >= move_tiles)
-		return
 
 	//If this is a shrapnel explosion, allow mobs that are prone to get hit, too
 	if (. && !base_spread && isturf(loc))
@@ -216,21 +212,21 @@
 
 /obj/item/projectile/bullet/pellet/rubber
 	name = "rubbershot"
-	damage = 2
+	damage = 0
 	pellets = 10
-	range_step = 1
 	spread_step = 10
+	range_step = 3
 	agony = 8.5
-	embed = 0
+	embed = FALSE
 	icon_state = "buckshot"
 
 /obj/item/projectile/bullet/pellet/rubberball
 	name = "rubber ball"
 	damage = 2
 	pellets = 12
-	range_step = 1
 	base_spread = 5
 	spread_step = 10
+	range_step = 3
 	agony = 13
 	embed = TRUE
 	icon_state = "buckshot"

@@ -215,6 +215,8 @@ DISABLE_FOV
 #if uncommented, redirects all players to the target server
 #REDIRECT_ALL_PLAYERS byond://lambda13.ru:1480
 
+#if uncommented, does not automatically save persistence rounds to file
+SKIP_PERSISTENCE_SAVING
 #if uncommented, redirects not allowed players to the target server
 #если закомменчено, редиректать игроков которые не имеют доступ на другой сервер
 #REDIRECT_NEW_PLAYERS byond://lambda13.ru:1480

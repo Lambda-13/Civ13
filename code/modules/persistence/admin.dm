@@ -1,7 +1,7 @@
 /datum/admins/proc/loadmap()
 	set category = "Сервер"
-	set desc="SAAAVE!"
-	set name="Load Map (EXPERIMENTAL!)"
+	set name = "Load Map (EXPERIMENTAL!)"
+	set desc = "SAAAVE!"
 	var/mapfile = file("map_saves/map.txt")
 	if (!fexists(mapfile))
 		usr << "The savefile does not exist or is corrupted!"
@@ -25,8 +25,8 @@
     
 /datum/admins/proc/savemap()
 	set category = "Сервер"
-	set desc="SAAAVE!"
-	set name="Save Map (EXPERIMENTAL!)"
+	set name = "Save Map (EXPERIMENTAL!)"
+	set desc = "SAAAVE!"
 	var/inp = WWinput(usr, "Are you sure you want to save the map?", "Load Map", "No", list("Yes","No"))
 	if (inp == "No")
 		return

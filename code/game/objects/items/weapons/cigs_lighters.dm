@@ -32,7 +32,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "match_unlit"
 	var/burnt = FALSE
 	var/smoketime = 5
-	w_class = 1.0
+	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
 	attack_verb = list("burnt", "singed")
 
@@ -186,11 +186,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/cigarette
 	name = "cigarette"
-	desc = "A roll of tobacco and nicotine."
+	desc = "A roll of tobacco and nicotine. This one has a filter"
 	icon_state = "cigoff"
 	throw_speed = 0.5
 	item_state = "cigoff"
-	w_class = TRUE
+	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	attack_verb = list("burnt", "singed")
 	icon_on = "cigon"  //Note - these are in masks.dmi not in cigarette.dmi
@@ -226,6 +226,23 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		user.visible_message("<span class='notice'>[user] calmly drops and treads on the lit [src], putting it out instantly.</span>")
 		die(1)
 	return ..()
+
+/obj/item/clothing/mask/smokable/cigarette/unfiltered
+	name = "unfiltered cigarette"
+	desc = "A roll of tobacco and nicotine. This one has no filter."
+	icon_state = "ucigoff"
+	item_state = "ucigoff"
+	icon_on = "ucigon"
+	icon_off ="ucigoff"
+	chem_volume = 20
+	smoketime = 400
+	type_butt = /obj/item/weapon/cigbutt/unfiltered
+
+/obj/item/clothing/mask/smokable/cigarette/unfiltered/New()
+	..()
+	reagents.add_reagent("nicotine",20)
+/obj/item/weapon/cigbutt/unfiltered
+	icon_state = "ucigbutt"
 
 ////////////
 // CIGARS //
@@ -283,7 +300,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A manky old cigarette butt."
 	icon = 'icons/obj/clothing/masks.dmi'
 	icon_state = "cigbutt"
-	w_class = TRUE
+	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
 	throwforce = TRUE
 	flags = FALSE
@@ -318,7 +335,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_off = "pipeoff"
 	smoketime = FALSE
 	chem_volume = 50
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
 	lightermes = "<span class='notice'>USER manages to light their NAME with FLAME.</span>"
 	zippomes = "<span class='rose'>With much care, USER lights their NAME with their FLAME.</span>"
@@ -479,7 +496,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon = 'icons/obj/items.dmi'
 	icon_state = "lighter-g"
 	item_state = "lighter-g"
-	w_class = TRUE
+	w_class = ITEM_SIZE_TINY
 	throwforce = 4
 	flags = CONDUCT
 	slot_flags = SLOT_BELT

@@ -147,6 +147,7 @@ var/list/gamemode_cache = list()
 
 	var/daynight_on = TRUE
 	var/seasons_on = TRUE
+	var/skip_persistence_saving = FALSE
 
 	var/new_round_webhook_color = ""
 	var/new_round_mention_webhook_url = ""
@@ -447,6 +448,10 @@ var/list/gamemode_cache = list()
 
 				if ("redirect_all_players")
 					redirect_all_players = value
+				
+				if ("skip_persistence_saving")
+					config.skip_persistence_saving = TRUE
+
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 

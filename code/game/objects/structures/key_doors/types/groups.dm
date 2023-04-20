@@ -225,6 +225,10 @@
 
 /obj/structure/closet/crate/cash_register/inn
 	name = "Inn till"
+	icon = 'icons/obj/modern_structures.dmi'
+	icon_state = "cash_register_antique"
+	icon_opened = "cash_register_antique_opened"
+	icon_closed = "cash_register_antique"
 	custom_code = CV_INN
 	locked = TRUE
 /obj/structure/closet/cabinet/ceiling/liquer
@@ -424,6 +428,11 @@
 /obj/structure/simple_door/key_door/soviet/guard
 	keyslot_type = /datum/keyslot/soviet/guard
 	unique_door_name = "GULAG locked"
+/obj/structure/simple_door/key_door/soviet/guard/chainlink
+	icon_state = "chainlink"
+	basic_icon = "chainlink"
+	override_opacity = TRUE
+	override_material = TRUE
 /obj/structure/simple_door/key_door/soviet/guard/max
 	keyslot_type = /datum/keyslot/soviet/guard/max
 	unique_door_name = "Maximum Security locked"
@@ -537,6 +546,10 @@
 	custom_code = DE_CODE
 
 /obj/structure/closet/crate/cash_register/germ
+	icon = 'icons/obj/modern_structures.dmi'
+	icon_state = "cash_register_antique"
+	icon_opened = "cash_register_antique_opened"
+	icon_closed = "cash_register_antique"
 	custom_code = DE_CODE
 	locked = TRUE
 
