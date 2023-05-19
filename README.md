@@ -14,7 +14,7 @@ Civ13 (ранее 1713) - игра, основанная на коде Space Sta
 
 
 ## Конфа
-[![discord](https://discord.com/api/guilds/896037329888764004/widget.png)](https://discord.gg/HQjz7YKRAJ)
+[![discord](https://discord.com/api/guilds/896037329888764004/widget.png)](https://discord.gg/5nagwrH78k)
 
 
 ## Сайт
