@@ -81,7 +81,7 @@
 	return chambered
 
 /obj/item/weapon/gun/launcher/grenade/handle_post_fire(mob/user)
-	message_admins("[key_name_admin(user)] fired a grenade ([chambered.name]) from a grenade launcher ([src.name]).")
+	message_admins("[key_name_admin(user)] fired a grenade ([chambered.name]) from a grenade launcher ([src.name]).", key_name_admin(user))
 	log_game("[key_name_admin(user)] used a grenade ([chambered.name]) from a grenade launcher ([src.name]).")
 	chambered = null
 	..()
@@ -217,7 +217,8 @@
 	if (!cover_opened)
 		return ..()
 	else if (chambered | cover_opened)
-		chambered.dir = src.loc.dir
+		if (ishuman(src.loc))
+			chambered.dir = src.loc.dir
 		chambered.det_time = 15
 		chambered.activate(null)
 	return chambered | cover_opened

@@ -54,6 +54,7 @@
 			var/obj/item/clothing/under/U = w_uniform
 			if (U.accessories.len)
 				if (!wear_suit)
+					//tie_msg += ". Attached to it is [english_list(U.accessories)]"
 					tie_msg += ". На одежде видно [lowertext(russian_list(U.accessories))]"
 		if (w_uniform.blood_DNA)
 			msg += "<span class='warning'>[T.He_ru] носит \icon[w_uniform] [w_uniform.name][(w_uniform.blood_color != "#030303") ? "(в крови)" : "(в масле)"][tie_msg]!</span>\n"

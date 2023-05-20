@@ -156,6 +156,7 @@
 #define MAP_FACTORY_AW "FACTORY_AW" //Первая карта по войне на Украине
 #define MAP_FACTORY_RU "FACTORY_RU" //Вторая карта по войне на Украине
 #define MAP_DETROIT "DETROIT"
+#define MAP_SYRIA "SYRIA"
 
 #define MAP_OPERATION_FALCON "OPERATION_FALCON"
 #define MAP_VADSO_CITY "VADSO_CITY"
@@ -163,6 +164,7 @@
 #define MAP_EFT_FACTORY "EFT_FACTORY"
 
 #define MAP_CAMPAIGN "CAMPAIGN"
+#define MAP_ROTSTADT "ROTSTADT"
 
 #define MAP_EVENT_CITY "EVENT_CITY"
 #define MAP_HUNGERGAMES "HUNGERGAMES"

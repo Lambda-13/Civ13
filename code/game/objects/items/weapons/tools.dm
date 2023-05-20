@@ -55,30 +55,70 @@
 	w_class = ITEM_SIZE_NORMAL
 
 	attack_verb = list("бахает", "бухает", "долбит", "ударил")
-	var/cap = 25
+	var/uses = 25
+	var/lastfire = 0
+	var/max_range = 1
 	New()
 		..()
-		desc = "Похоже в нём осталось [cap] единиц пены."
+		desc = "Похоже в нём осталось [uses] единиц пены."
 
-/obj/item/weapon/fire_extinguisher/attack_self(mob/living/human/user as mob)
-	if (!ishuman(user))
+/obj/item/weapon/fire_extinguisher/proc/fire(var/mob/living/human/H,var/cdir=null,atom/target)
+	if (!H)
 		return
-	if (cap >= 1)
-		visible_message("<span class='notice'>[user] нажимает на ручку-рычаг огнетушителя!</span>", "<span class='notice'>Нажимаю на ручку-рычаг огнетушителя!</span>")
-		cap--
-		desc = "Похоже в нём осталось [cap] единиц пены."
-		var/turf/dest = get_turf(get_step(user, user.dir))
-		if (dest)
-			for (var/obj/effect/fire/BO in dest)
-				qdel(BO)
-			for (var/mob/living/human/H in dest)
-				if (H.fire_stacks > 0)
-					H.fire_stacks = 0
-			new/obj/effect/decal/cleanable/foam(dest)
-			playsound(dest, 'sound/effects/extinguish.ogg', 100, FALSE)
-			return
+	if (world.time<=lastfire)
+		return
+	if (!H.has_empty_hand(both = FALSE))
+		H << "<span class='warning'>Надо бы освободить другую руку для использования [src]!</span>"
+		return
+	if (!cdir)
+		cdir = H.dir
 	else
-		user << "<span class='warning'>Он пуст.</span>"
+		process_foam(H,cdir,target)
+		return
+
+/obj/item/weapon/fire_extinguisher/proc/process_foam(var/mob/living/human/user, var/cdir = null, atom/target)
+	if (!cdir || !(cdir in list(NORTH,SOUTH,EAST,WEST)))
+		cdir = user.dir
+	if (uses > 0)
+		uses--
+		desc = "A fire extinguisher filled with foam. Has [uses] uses left."
+		lastfire = world.time+15
+		var/turf/source_turf = get_turf(user)
+
+		var/list/turfs = getline2(source_turf, target)
+
+		var/distance = 0
+		var/stop_at_turf = FALSE
+
+		playsound(source_turf, 'sound/effects/extinguish.ogg', 100, FALSE)
+
+		for(var/turf/T in turfs)
+			if(distance > max_range)
+				break
+
+			if(T.density)
+				if(!istype(T, /obj/structure/barricade) || !istype(T, /obj/structure/window/barrier))
+					stop_at_turf = TRUE
+			else
+				if (distance > 0)
+					new/obj/effect/decal/cleanable/foam(T)
+					for (var/obj/effect/fire/F in T)
+						qdel(F)
+					for (var/mob/living/human/H in T)
+						if (H.fire_stacks > 0)
+							H.fire_stacks = 0
+
+			if(T == target.loc)
+				if(stop_at_turf)
+					break
+				continue
+
+			if(stop_at_turf)
+				break
+
+			distance++
+	else
+		user << "<span class='warning'>\The [src] is empty.</span>"
 		return
 
 /obj/item/weapon/fire_extinguisher/ww2

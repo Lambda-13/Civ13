@@ -239,7 +239,7 @@
 					death()
 
 		if(radiation >= 100)
-			adjustFireLoss(radiation*0.002)
+			adjustBurnLoss(radiation*0.002)
 		updatehealth()
 
 		if (radiation < 0)

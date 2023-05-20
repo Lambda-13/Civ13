@@ -193,7 +193,7 @@ var/list/preferences_datums = list()
 	//Debugging report to track down a bug, which randomly assigned the plural gender to people.
 	if (character.gender in list(PLURAL, NEUTER))
 		if (isliving(src)) //Ghosts get neuter by default
-			message_admins("[character] ([character.ckey]) появился с неопределённым полом. Пожалуйста, сообщите кодерам.")
+			message_admins("[character] ([character.ckey]) появился с неопределённым полом. Свяжитесь с кодером.", character.ckey)
 			character.gender = MALE
 
 /proc/globalprefsanitize(str)

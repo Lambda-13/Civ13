@@ -49,7 +49,7 @@
 
 	if (user)
 		msg_admin_attack("[user.name] ([user.ckey]) активировал [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
-		message_admins("[user.name] ([user.ckey]) активировал [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+		message_admins("[user.name] ([user.ckey]) активировал [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)", user.ckey)
 		log_game("[user.name] ([user.ckey]) активировал [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
 		firer = user
 	icon_state = initial(icon_state) + "_active"
@@ -73,6 +73,60 @@
 	..()
 	return
 
+/obj/item/weapon/grenade/proc/damage_hull(var/turf/T)
+	for(var/obj/structure/vehicleparts/frame/F in range(1,T))
+		for (var/mob/M in F.axis.transporting)
+			shake_camera(M, 1, 1)
+		var/penloc = F.CheckPenLoc(src)
+		switch(penloc)
+			if ("left")
+				if (F.w_left[5] > 0)
+					F.w_left[5] -= heavy_armor_penetration
+					visible_message("<span class = 'danger'><big>The left hull gets damaged!</big></span>")
+			if ("right")
+				if (F.w_right[5] > 0)
+					F.w_right[5] -= heavy_armor_penetration
+					visible_message("<span class = 'danger'><big>The right hull gets damaged!</big></span>")
+			if ("front")
+				if (F.w_front[5] > 0)
+					F.w_front[5] -= heavy_armor_penetration
+					visible_message("<span class = 'danger'><big>The front hull gets damaged!</big></span>")
+			if ("back")
+				if (F.w_back[5] > 0)
+					F.w_back[5] -= heavy_armor_penetration
+					visible_message("<span class = 'danger'><big>The rear hull gets damaged!</big></span>")
+			if ("frontleft")
+				if (F.w_left[5] > 0 && F.w_front[5] > 0)
+					if (F.w_left[4] > F.w_front[4] && F.w_left[5]>0)
+						F.w_left[5] -= heavy_armor_penetration
+						visible_message("<span class = 'danger'><big>The left hull gets damaged!</big></span>")
+					else
+						F.w_front[5] -= heavy_armor_penetration
+						visible_message("<span class = 'danger'><big>The front hull gets damaged!</big></span>")
+			if ("frontright")
+				if (F.w_right[5] > 0 && F.w_front[5] > 0)
+					if (F.w_right[4] > F.w_front[4] && F.w_right[5]>0)
+						F.w_right[5] -= heavy_armor_penetration
+						visible_message("<span class = 'danger'><big>The right hull gets damaged!</big></span>")
+					else
+						F.w_front[5] -= heavy_armor_penetration
+						visible_message("<span class = 'danger'><big>The front hull gets damaged!</big></span>")
+			if ("backleft")
+				if (F.w_left[5] > 0 && F.w_back[5] > 0)
+					if (F.w_left[4] > F.w_back[4] && F.w_left[5]>0)
+						F.w_left[5] -= heavy_armor_penetration
+						visible_message("<span class = 'danger'><big>The left hull gets damaged!</big></span>")
+					else
+						F.w_back[5] -= heavy_armor_penetration
+						visible_message("<span class = 'danger'><big>The rear hull gets damaged!</big></span>")
+			if ("backright")
+				if (F.w_right[5] > 0 && F.w_back[5] > 0)
+					if (F.w_right[4] > F.w_back[4] && F.w_right[5]>0)
+						F.w_right[5] -= heavy_armor_penetration
+						visible_message("<span class = 'danger'><big>The right hull gets damaged!</big></span>")
+					else
+						F.w_back[5] -= heavy_armor_penetration
+						visible_message("<span class = 'danger'><big>The rear hull gets damaged!</big></span>")
 
 // grenades set off other grenades, but only ones on the same turf
 /obj/item/weapon/grenade/ex_act(severity)
@@ -88,21 +142,22 @@
 	return FALSE
 
 /obj/item/weapon/grenade/old_grenade
-	name = "бомба"
-	desc = "Ручная маленькая бомба с 5-секундным запалом."
+	name = "ручная бомба"
+	desc = "Маленькая ручная бомба с 5-секундным запалом."
+	heavy_armor_penetration = 5
 	var/explosion_size = 2
 
 /obj/item/weapon/grenade/old_grenade/prime()
 	set waitfor = 0
 	..()
 
-	var/turf/O = get_turf(src)
-	if(!O) return
+	var/turf/T = get_turf(src)
+	if(!T) return
 
 	if(explosion_size)
-		explosion(O,0,1,3,1,sound=explosion_sound)
+		explosion(T,1,1,3,1,sound=explosion_sound)
+		damage_hull(T)
 		qdel(src)
-
 
 /obj/item/weapon/grenade/bomb
 	name = "пороховая бочкобомба"
@@ -220,7 +275,7 @@
 
 	if (user)
 		msg_admin_attack("[user.name] ([user.ckey]) primed \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
-		message_admins("[user.name] ([user.ckey]) primed \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+		message_admins("[user.name] ([user.ckey]) primed \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)", user.ckey)
 		log_game("[user.name] ([user.ckey]) primed \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
 
 
@@ -243,6 +298,7 @@
 	var/damage_step = 2	  //projectiles lose a fragment each time they travel this distance. Can be a non-integer.
 	var/big_bomb = FALSE
 	var/spread_range = 7
+	heavy_armor_penetration = 3
 	explosion_sound = 'sound/weapons/Explosives/FragGrenade.ogg'
 /obj/item/weapon/grenade/modern/prime()
 	set waitfor = 0
@@ -252,7 +308,8 @@
 	if(!T) return
 
 	if(explosion_size)
-		explosion(T,0,1,3,1,sound=explosion_sound)
+		explosion(T,1,1,3,1,sound=explosion_sound)
+		damage_hull(T)
 	if (!ismob(loc))
 
 		var/list/target_turfs = getcircle(T, spread_range)
@@ -344,12 +401,18 @@
 	icon_state = "stgnade"
 	det_time = 45
 	throw_range = 10
-/obj/item/weapon/grenade/ww2/stg1924
+
+/obj/item/weapon/grenade/ww2/stg1924 //offensive grenade with minimal fragmentation
 	name = "ручная граната M1924"
 	desc = "Немецкая граната, замена ручной гранате M1915."
 	icon_state = "stgnade"
 	det_time = 45
 	throw_range = 11
+	explosion_size = 2
+	num_fragments = 6
+	fragment_damage = 20
+	damage_step = 1
+	spread_range = 7
 
 /obj/item/weapon/grenade/modern/thermaldetonator
 	name = "термограната"
@@ -455,7 +518,8 @@
 	if(!T) return
 
 	if(explosion_size)
-		explosion(T,0,1,3,1,sound=explosion_sound)
+		explosion(T,1,1,3,1,sound=explosion_sound)
+		damage_hull(T)
 	if (!ismob(loc))
 
 		var/list/target_turfs = getcircle(T, spread_range)
@@ -484,7 +548,8 @@
 	if(!T) return
 
 	if(explosion_size)
-		explosion(T,0,1,3,1,sound=explosion_sound)
+		explosion(T,1,1,4,1,sound=explosion_sound)
+		damage_hull(T)
 	if (!ismob(loc))
 
 		var/list/target_turfs = getcircle(T, spread_range)
@@ -524,6 +589,7 @@
 		qdel(src)
 
 /obj/item/weapon/grenade/ww2
+	heavy_armor_penetration = 5
 	var/fragment_type = /obj/item/projectile/bullet/pellet/fragment
 	var/num_fragments = 37  //total number of fragments produced by the grenade
 	var/fragment_damage = 15
@@ -537,6 +603,7 @@
 	secondary_action = TRUE
 
 /obj/item/weapon/grenade/coldwar
+	heavy_armor_penetration = 6
 	var/fragment_type = /obj/item/projectile/bullet/pellet/fragment
 	var/num_fragments = 37  //total number of fragments produced by the grenade
 	var/fragment_damage = 15
@@ -563,7 +630,7 @@
 					var/obj/item/mine/boobytrap/BT = new /obj/item/mine/boobytrap(get_turf(user))
 					BT.origin = src.type
 					firer = user
-					message_admins("[user.name] ([user.ckey]) placed a boobytrap from \a [src] at ([user.x],[user.y],[user.z])(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+					message_admins("[user.name] ([user.ckey]) placed a boobytrap from \a [src] at ([user.x],[user.y],[user.z])(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)", user.ckey)
 					log_game("[user.name] ([user.ckey]) placed a boobytrap from \a [src] at ([user.x],[user.y],[user.z])(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
 					qdel(src)
 		else
@@ -833,6 +900,16 @@
 	icon_state = "rpg40"
 	det_time = 50
 	throw_range = 5
+	heavy_armor_penetration = 23 //about 20–25 millimetres (0.79–0.98 in) of armour can be penetrated
+
+/obj/item/weapon/grenade/antitank/rpg43
+	name = "RPG-43"
+	desc = "A powerful Soviet AT grenade, useful against armored vehicles."
+	icon_state = "rpg43"
+	det_time = 50
+	throw_range = 6
+	heavy_armor_penetration = 30 //The RPG-43 had a penetration of around 75 millimetres, to not make it too op im giving it only 30
+
 
 /obj/item/weapon/grenade/antitank/stg24_bundle
 	name = "M1924 Stielhandgranate bundle"
@@ -846,7 +923,8 @@
 	name = "N73 AT grenade"
 	desc = "A British anti-tank hand percussion grenade used during WW2. Also known as \"Thermos\". "
 	icon_state = "n73"
-	heavy_armor_penetration = 20
+	heavy_armor_penetration = 27 //it was able to penetrate 2 inches (51 mm) for balance im making it 27
+	throw_range = 5
 
 /obj/item/weapon/grenade/antitank/n74
 	name = "N74 AT grenade"

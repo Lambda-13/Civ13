@@ -3,8 +3,8 @@
 	desc = "A wooden frame."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "barricade"
+	
 	anchored = TRUE
-
 	density = TRUE
 	var/health = 100
 	var/maxhealth = 100
@@ -441,13 +441,23 @@
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "debris1"
 	material = "stone"
-	health = 300
-	maxhealth = 300
+	health = 500
+	maxhealth = 500
 	material_name = "stone"
 	protection_chance = 90
 	New()
 		..()
 		icon_state = "debris[rand(1,4)]"
+
+/obj/structure/barricade/debris/brick
+	name = "brick debris"
+	icon_state = "brick1"
+	health = 450
+	maxhealth = 450
+	applies_material_colour = FALSE
+	New()
+		..()
+		icon_state = "brick[rand(1,2)]"
 
 /obj/structure/barricade/stone_h
 	name = "stone wall"
@@ -1094,8 +1104,26 @@
 	anchored = FALSE
 
 /obj/structure/barricade/steel_crowd/New()
+	..()
 	name = "steel crowd control barrier"
 	icon_state = "crowd_barrier"
+
+/obj/structure/barricade/velvet_rope
+	name = "velvet rope barrier"
+	desc = "A cushy red velvet rope strewn between two golden poles."
+	icon_state = "velvet_rope"
+	health = 20
+	maxhealth = 20
+	material = "steel"
+	material_name = "velvet"
+	protection_chance = 0
+	opacity = FALSE
+	applies_material_colour = FALSE
+
+/obj/structure/barricade/velvet_rope/New()
+	..()
+	name = "velvet rope barrier"
+	icon_state = "velvet_rope"
 
 /obj/structure/shelf
 	name = "shelf"

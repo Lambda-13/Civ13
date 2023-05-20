@@ -270,9 +270,9 @@
 		if (handle_spam_prevention(msg,MUTE_OOC))
 			return
 		if (findtext(msg, "byond://"))
-			src << sound('lambda/sanecman/sound/dota.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
-			log_admin("[key_name(src)] запостил ссылку на другой сервер в ООС: [msg]")
-			message_admins("[key_name_admin(src)] запостил ссылку на другой сервер в ООС: [msg]")
+			src << "<b>Опять постишь хуйню?</b>"
+			log_admin("[key_name(src)] попытался написать это в ООС: [msg]")
+			message_admins("[key_name_admin(src)] попытался написать это в ООС: [msg]", key_name_admin(src))
 			return
 
 	/* mentioning clients with @key or @ckey */
@@ -333,6 +333,7 @@
 				C << sound('sound/machines/ping.ogg')
 
 	log_ooc("[mob.name]/[key] : [msg]")
+	webhook_send_ooc(key, "__**\[[time_stamp()]] ([map.ID]) OOC:**__ **[mob.name]/[key]:** [msg]")
 	discord_log("[mob.name]/[key]:","[msg]")
 
 	var/ooc_style = "everyone"
@@ -404,7 +405,7 @@
 		if (findtext(msg, "byond://"))
 			src << sound('lambda/sanecman/sound/dota.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
 			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]")
-			message_admins("[key_name_admin(src)] has attempted to advertise in OOC: [msg]")
+			message_admins("[key_name_admin(src)] has attempted to advertise in OOC: [msg]", key_name_admin(src))
 			return
 
 	log_ooc("(LOCAL) [mob.name]/[key] : [msg]")

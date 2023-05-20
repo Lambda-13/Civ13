@@ -34,7 +34,7 @@ var/list/blacklisted_builds = list(
 	//search the href for script injection
 	if ( findtext(href,"<script",1,0) )
 		world.log << "Attempted use of scripts within a topic call, by [src]"
-		message_admins("[src] попытался провести взлом с помощью иньектирования скрипта в вызов топиков")
+		message_admins("Attempted use of scripts within a topic call, by [src]", src)
 		//del(usr)
 		return
 
@@ -79,7 +79,7 @@ var/list/blacklisted_builds = list(
 								for(var/L in details_lines)
 									text2file("[L]|||", bans_file)
 					log_admin("[key_name(caller)] removed a ban for '[UID]/[ckey]/[cID]/[ip]'.")
-					message_admins("[key_name(caller)] removed a ban for '[UID]/[ckey]/[cID]/[ip]'.")
+					message_admins("[key_name(caller)] removed a ban for '[UID]/[ckey]/[cID]/[ip]'.", key_name(caller))
 					for (var/client/C in clients)
 						if (C.ckey == ckey)
 							C << "<span class = 'good'>href_list["Your ban has been lifted."]</span>"
@@ -153,13 +153,18 @@ var/list/blacklisted_builds = list(
 
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
 	prefs = preferences_datums[ckey]
+	if (prefs)
+		if ((prefs.last_ip != address) || (prefs.last_id != computer_id))
+			log_admin("[ckey] has logged in from [address] with [computer_id]. (previously logged in from [prefs.last_ip] with [prefs.last_id])")
+			webhook_send_garbage(ckey, "[ckey] has logged in from [address] with [computer_id]. (previously logged in from [prefs.last_ip] with [prefs.last_id])")
 
 	if (!prefs)
 		prefs = new /datum/preferences(src)
 		preferences_datums[ckey] = prefs
 
-	prefs.last_ip = address				//these are gonna be used for banning
-	prefs.last_id = computer_id			//these are gonna be used for banning
+	//these are gonna be used for banning
+	prefs.last_ip = address
+	prefs.last_id = computer_id
 
 	. = ..()	//calls mob.Login()
 
@@ -194,7 +199,7 @@ var/list/blacklisted_builds = list(
 	// this is here because mob/Login() is called whenever a mob spawns in
 	if (holder)
 		if (ticker && ticker.current_state == GAME_STATE_PLAYING) //Only report this stuff if we are currently playing.
-			message_admins("Админ подключился: [key_name(src)]")
+			message_admins("Админ подключился: [key_name(src)]", key_name(src))
 
 	if (holder)
 		holder.associate(src)
@@ -229,7 +234,7 @@ var/list/blacklisted_builds = list(
 
 	if (!holder)
 
-		if(config.useapprovedlist && !check_ckey_whitelisted(ckey(key)))
+		if(!world_is_open && !check_ckey_whitelisted(ckey(key)))
 			src << link("https://i.imgur.com/NJwVKcn.png")
 			winset(src, null, "command=.quit")
 			del(src)
@@ -338,29 +343,40 @@ var/list/blacklisted_builds = list(
 	return md5(ckey)
 
 /client/proc/log_to_db()
-
 	if (IsGuestKey(ckey))
 		return
-
 	var/sql_ip = sql_sanitize_text(address)
-
 	if (sql_ip == null)
 		sql_ip = "HOST"
 	var/F = file("SQL/playerlogs.txt")
 	var/full_logs = file2text(F)
 	var/list/full_logs_split = splittext(full_logs, "|\n")
 	var/currentage = -1
+	var/realtime = -1
+	var/list/ips = new/list()
+	var/list/cids = new/list()
 	for(var/i=1;i<full_logs_split.len;i++)
 		var/list/full_logs_split_two = splittext(full_logs_split[i], ";")
 		if ("[full_logs_split_two[1]]" == ckey)
-			currentage = text2num(full_logs_split_two[4])
+			ips.Add(full_logs_split_two[2])
+			cids.Add(full_logs_split_two[3])
+			currentage = full_logs_split_two[4]
+			realtime = full_logs_split_two[5]
+
 	//Logging player access
 	if (currentage == -1)
-		//adding to player logs (ckey;ip;computerid;datetime;realtime|)
+    //Adding to player logs (ckey;ip;computerid;datetime;realtime|)
 		text2file("[ckey];[sql_ip];[computer_id];[num2text(world.realtime, 20)];[time2text(world.realtime,"YYYY/MMM/DD-hh:mm:ss")]|","SQL/playerlogs.txt")
 		player_age = 0
-	else
-		player_age = (text2num(num2text(world.realtime,20)) - currentage)
+		return
+	player_age = (text2num(num2text(world.realtime,20)) - text2num(currentage))
+	//Check for IP or CID changes
+	if ( (!(ips.Find(address))) || (!(cids.Find(computer_id))) )
+		text2file("[ckey];[sql_ip];[computer_id];[currentage];[realtime]|","SQL/playerlogs.txt")
+		message_admins("[ckey] has logged in with a new IP or CID, from [address] with [computer_id].", ckey)
+		log_admin("[ckey] has logged in with a new IP or CID, from [address] with [computer_id].")
+		webhook_send_garbage(ckey, "[ckey] has logged in with a new IP or CID, from [address] with [computer_id].")
+	webhook_send_login(ckey, address, computer_id)
 
 /client/verb/fixdbhost()
 	set hidden = TRUE
@@ -456,7 +472,7 @@ var/list/blacklisted_builds = list(
 	//Means it's some kind of bullshit going on, so get rid of them.
 	if(length(_key) > 50)
 		log_admin("Client [ckey] just attempted to send an invalid keypress, and was autokicked.")
-		message_admins("Client [ckey] just attempted to send an invalid keypress, and was autokicked.")
+		message_admins("Client [ckey] just attempted to send an invalid keypress, and was autokicked.", ckey)
 		QDEL_IN(src, 1)
 		return
 
@@ -480,7 +496,7 @@ var/list/blacklisted_builds = list(
 			next_keysend_trip_reset = world.time + (2 SECONDS)
 		else
 			log_admin("Client [ckey] was just autokicked for flooding keysends; likely abuse but potentially lagspike.")
-			message_admins("Client [ckey] was just autokicked for flooding keysends; likely abuse but potentially lagspike.")
+			message_admins("Client [ckey] was just autokicked for flooding keysends; likely abuse but potentially lagspike.", ckey)
 			QDEL_IN(src, 1)
 			return
 */

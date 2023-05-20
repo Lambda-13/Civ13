@@ -149,6 +149,12 @@ var/list/gamemode_cache = list()
 	var/seasons_on = TRUE
 	var/skip_persistence_saving = FALSE
 
+	// webhook stuff
+	var/webhook_can_fire = TRUE
+	var/webhook_address = null
+	var/webhook_key = null
+	
+
 	var/new_round_webhook_color = ""
 	var/new_round_mention_webhook_url = ""
 	var/new_round_webhook_url = ""
@@ -448,9 +454,16 @@ var/list/gamemode_cache = list()
 
 				if ("redirect_all_players")
 					redirect_all_players = value
-				
+
 				if ("skip_persistence_saving")
 					config.skip_persistence_saving = TRUE
+
+				if ("webhook_can_fire")
+					config.webhook_can_fire = TRUE
+				if ("webhook_address")
+					config.webhook_address = value
+				if ("webhook_key")
+					config.webhook_key = value
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
