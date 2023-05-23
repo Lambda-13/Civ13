@@ -322,6 +322,7 @@ var/list/blacklisted_builds = list(
 	//DISCONNECT//
 	//////////////
 /client/Del()
+	webhook_send_logout(ckey)
 
 	if (processes.client)
 		processes.client.logged_next_normal_respawns[ckey] = next_normal_respawn
