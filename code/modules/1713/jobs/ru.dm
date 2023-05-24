@@ -358,7 +358,7 @@
 	if (prob(33))
 		H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/sovietfacehelmet(H), slot_head)
 	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/russian_b7(H), slot_head)
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/ssh_68(H), slot_head)
 //back
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/ak74m(H), slot_shoulder)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/green/rusoff(H), slot_belt)
@@ -428,7 +428,7 @@
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/russian(H), slot_w_uniform)
 //head
 	H.equip_to_slot_or_del(new /obj/item/clothing/mask/sterile(H), slot_wear_mask)
-	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/russian_b7(H), slot_head)
+	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/ssh_68(H), slot_head)
 //back
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/adv(H), slot_back)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/combat/modern(H), slot_belt)
@@ -502,7 +502,7 @@
 
 //head
 	if (prob(70))
-		H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/russian_b7(H), slot_head)
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/modern/ssh_68(H), slot_head)
 	else
 		H.equip_to_slot_or_del(new /obj/item/clothing/head/ruscap_fed(H), slot_head)
 //back
