@@ -1,0 +1,1 @@
+var/global/list_of_arriving[0]
