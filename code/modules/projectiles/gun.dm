@@ -195,11 +195,11 @@
 	if (user.a_intent != I_HELP && !bayonet && fire) // point blank shooting
 		Fire(A, user, pointblank=1)
 	else
-		if (bayonet && isliving(A) && !istype(bayonet, /obj/item/weapon/attachment/bayonet/flag))
+		if (bayonet && isliving(A) && !istype(bayonet, /obj/item/weapon/attachment/bayonet/flag) && !user.resting && !user.lying && !user.prone)
 			var/mob/living/L = A
 
 			var/obj/item/weapon/attachment/bayonet/a = bayonet
-			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN + 8)	
 
 			if (L)
 				if (user != L)
