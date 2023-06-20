@@ -395,8 +395,8 @@
 		if (user.civilization == "Sheriff Office")
 			..()
 		else
-		 user << "You do not have access to this."
-		 return
+			user << "You do not have access to this."
+			return
 
 /obj/structure/vending/sales/business_weapons
 	name = "weapon and ammo rack"
@@ -438,14 +438,14 @@
 		if (user.gun_permit)
 			..()
 		else
-		 user << "You do not have a valid gun permit. Get one first from your local police station."
-		 return
+			user << "You do not have a valid gun permit. Get one first from your local police station."
+			return
 	attackby(obj/item/I, mob/living/human/user)
 		if (user.gun_permit)
 			..()
 		else
-		 user << "You do not have a valid gun permit. Get one first from your local police station."
-		 return
+			user << "You do not have a valid gun permit. Get one first from your local police station."
+			return
 /obj/structure/vending/police_equipment
 	name = "police equipment"
 	desc = "All the equipment to keep your officers in top shape."
@@ -483,8 +483,8 @@
 		if (user.civilization == "Sheriff Office")
 			..()
 		else
-		 user << "You do not have access to this."
-		 return
+			user << "You do not have access to this."
+			return
 
 /obj/structure/vending/police_weapons
 	name = "lethal police weapons"
@@ -507,8 +507,8 @@
 		if (user.civilization == "Sheriff Office")
 			..()
 		else
-		 user << "You do not have access to this."
-		 return
+			user << "You do not have access to this."
+			return
 
 /obj/structure/vending/police_weapons/ltl
 	name = "less than lethal police weapons"
@@ -534,8 +534,8 @@
 		if (user.civilization == "Sheriff Office")
 			..()
 		else
-		 user << "You do not have access to this."
-		 return
+			user << "You do not have access to this."
+			return
 /obj/item/weapon/package
 	name = "package"
 	desc = "Some kind of package."
@@ -592,7 +592,7 @@
 		arn = rand(100,999)
 		icon_state = "police_warrant"
 		spawn(10)
-			info = "<center>ДЕПАРТАМЕНТ ЮСТИЦИИ<hr><large><b>Ордер на обыск № [arn]</b></large><hr><br>Настоящим правоохранительным органам разрешается обыскивать все и любое имущество, принадлежащее <b>[cmp]</b>. Они не будут принимать во внимание любые заявления об иммунитете или привилегиях со стороны подозреваемого или агентов, действующих от имени подозреваемого.<br><br><small><center><i >Форма модели 13-C1</i></center></small><hr>"
+			info = "<center>ДЕПАРТАМЕНТ ЮСТИЦИИ<hr><large><b>Ордер на обыск № [arn]</b></large><hr><br>Настоящим правоохранительным органам разрешается обыскивать все и любое имущество, пренадлежащее <b>[cmp]</b>. Они не будут принимать во внимание любые заявления об иммунитете или привилегиях со стороны подозреваемого или агентов, действующих от имени подозреваемого.<br><br><small><center><i >Форма модели 13-C1</i></center></small><hr>"
 //////////////////SCREEN HELPERS////////////////////////////
 /obj/screen/areashow_aod
 	maptext = "<center><font color='yellow'>Неизвестное место</font></center>"
