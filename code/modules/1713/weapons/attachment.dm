@@ -178,7 +178,7 @@ Current Defines (_defines/attachment.dm)
 	var/attack_sound = 'sound/weapons/slice.ogg'
 //	var/datum/action/bayonet/amelee
 	var/atk_mode = SLASH
-	var/mounted_dmg = 65
+	var/mounted_dmg = 45
 
 /obj/item/weapon/attachment/bayonet/attack_self(mob/user)
 	..()

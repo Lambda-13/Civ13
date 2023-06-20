@@ -370,7 +370,7 @@
 	value = 15
 	slot_flags = SLOT_BELT
 	block_chance = 15
-	cooldownw = 5
+	cooldownw = DEFAULT_ATTACK_COOLDOWN + 2
 	chopping_speed = 1.7
 	health = 20
 	maxhealth = 20
