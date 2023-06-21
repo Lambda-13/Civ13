@@ -195,7 +195,7 @@
 	if (user.a_intent != I_HELP && !bayonet && fire) // point blank shooting
 		Fire(A, user, pointblank=1)
 	else
-		if (bayonet && isliving(A) && !istype(bayonet, /obj/item/weapon/attachment/bayonet/flag) && !user.resting && !user.lying && !user.prone)
+		if (bayonet && isliving(A) && !istype(bayonet, /obj/item/weapon/attachment/bayonet/flag))
 			var/mob/living/L = A
 
 			var/obj/item/weapon/attachment/bayonet/a = bayonet
@@ -203,6 +203,8 @@
 
 			if (L)
 				if (user != L)
+					if(user.resting || user.lying || user.prone)
+						def_zone = pick("l_leg", "r_leg")
 					if(L.attempt_dodge()) //Trying to dodge it before they even have the chance to miss us.
 						return
 					else
