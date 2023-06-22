@@ -1146,4 +1146,5 @@
 #include "lambda\sanecman\code\serverside\whitelistweb.dm"
 #include "lambda\sanecman\code\soldier_stogie\soldier_stogie.dm"
 #include "lambda\rotipik\code\chainsaw.dm"
+#include "maps\ru\pervomaisk_crossing.dmm"
 // END_INCLUDE
