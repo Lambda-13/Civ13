@@ -1515,6 +1515,11 @@
 				if (RUSSIAN)
 					if (map.ID == MAP_YELTSIN || map.ID == MAP_GROZNY || map.ID == MAP_FACTORY || map.ID == MAP_OPERATION_FALCON || map.ID == MAP_VADSO_CITY)
 						holder2.icon_state = "ru_basic"
+					else if (map.ID == MAP_ARAB_TOWN_RU)
+						if (original_job.title == "PMC Wagner Shturman")
+							holder2.icon_state = "wagner"
+						else
+							holder2.icon_state = "ru_basic"
 					else if (map.ID == MAP_BANK_ROBBERY)
 						holder2.icon_state = "robbers"
 					else if (map.ID == MAP_DRUG_BUST)
@@ -1585,6 +1590,8 @@
 						holder2.icon_state = "ukr_basic"
 					else if (map.ID == MAP_EFT_FACTORY)
 						holder2.icon_state = "none"
+					else if (map.ID == MAP_ARAB_TOWN_RU)
+						holder2.icon_state = "syria_basic"
 					else if (map.ID == MAP_GULAG13)
 						if(nationality == "Polish")
 							holder2.icon_state = "pol_basic"
