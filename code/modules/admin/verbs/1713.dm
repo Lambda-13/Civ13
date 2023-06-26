@@ -729,7 +729,7 @@ var/polish_forceEnabled = FALSE
 	else if (map.ID == MAP_CAPITOL_HILL)
 		fact3 = "Militia"
 		fact15 = "Government"
-	else if (map.ID == MAP_GROZNY || map.ID == MAP_ARAB_TOWN_RU)
+	else if (map.ID == MAP_GROZNY)
 		fact13 = "Russian Federal Forces"
 	else if (map.ID == MAP_YELTSIN)
 		fact3 = "Militia"

@@ -86,8 +86,6 @@
 			return "Red Army"
 		else if (map.ID == "EFT_FACTORY")
 			return "Scavs"
-		else if (map.ID == "ARAB_TOWN_RU")	
-			return "Syrian Armed Forces"
 		else
 			if (age >= 6)
 				return "Civilians"

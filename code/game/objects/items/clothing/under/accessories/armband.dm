@@ -68,6 +68,7 @@
 	icon_state = "polisharmband"
 	slot = "armband"
 
+
 /obj/item/clothing/accessory/armband/wagner
 	name = "red wagner armband"
 	desc = "A PMC group armband"
@@ -263,14 +264,6 @@
 	icon_state = "patch_marksman"
 	item_state = "patch_marksman"
 	worn_state = "patch_marksman"
-	slot = "armband"
-
-/obj/item/clothing/accessory/armband/wagner/alt
-	name = "PMC wagner patch"
-	desc = "A PMC Wagner Musicians patch"
-	icon_state = "wagner_patch"
-	item_state = "wagner_patch"
-	worn_state = "wagner_patch"
 	slot = "armband"
 
 /obj/item/clothing/accessory/patch/russia

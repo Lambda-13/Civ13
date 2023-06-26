@@ -157,7 +157,6 @@
 #define MAP_FACTORY_RU "FACTORY_RU" //Вторая карта по войне на Украине
 #define MAP_DETROIT "DETROIT"
 #define MAP_SYRIA "SYRIA"
-#define MAP_ARAB_TOWN_RU "BATTLE_FOR_PALMIRA" // Замена нерабочего Arab Town RU, на вполне самобытный от Лямбды
 
 #define MAP_OPERATION_FALCON "OPERATION_FALCON"
 #define MAP_VADSO_CITY "VADSO_CITY"
