@@ -170,7 +170,7 @@ var/list/blacklisted_builds = list(
 
 
 	if (quickBan_rejected("Server"))
-		src << link("https://youtu.be/0Ynxrl4iXNA")
+		src << link("https://sun9-48.userapi.com/impg/KF2TMsTfbuu6hvJ56xJ0XrfrjKuzJkQN8yW1wA/63p3lZJhRXw.jpg?size=496x337&quality=96&sign=be9618ab87e2232eddbff0c9c51d3161")
 		sleep(1)
 		winset(src, null, "command=.quit")
 		del(src)
