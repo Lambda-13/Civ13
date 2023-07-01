@@ -133,7 +133,7 @@ DONATIONURL https://qiwi.com/payment/form/99999?extra[%27accountType%27]=nicknam
 RULESURL https://github.com/Lambda-13/Civ13/wiki/Rules
 
 ## discord address
-DISCORDURL https://discord.gg/5nagwrH78k
+DISCORDURL https://vk.cc/cpakPw
 
 ## Wiki address
 WIKIURL https://civ13.github.io/civ13-wiki/
@@ -150,7 +150,7 @@ GITHUBURL https://github.com/Lambda-13/Civ13
 # GITHUBREPOID 3234987
 
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
-# BANAPPEALS https://discord.gg/5nagwrH78k
+# BANAPPEALS https://vk.cc/cpakPw
 
 ## Remove the # to show a popup 'reply to' window to every non-admin that recieves an adminPM.
 ## The intention is to make adminPMs more visible. (although I fnd popups annoying so this defaults to off)
