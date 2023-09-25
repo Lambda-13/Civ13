@@ -7,6 +7,7 @@
 	anchored = TRUE
 	display = "<b>unga OS</b>"
 	operatingsystem = "unga OS 94"
+	var/faction = "none"
 
 /obj/structure/computer/nopower/aotd/civilian/New()
 	..()
@@ -21,6 +22,8 @@
 	programs += new/datum/program/deepnet
 	programs += new/datum/program/elektra
 	programs += new/datum/program/orion_trail
+	programs += new/datum/program/swiftfix
+	faction = "Kogama Kraftsmen"
 
 /obj/structure/computer/nopower/aotd/red/New()
 	..()
@@ -28,6 +31,8 @@
 	programs += new/datum/program/deepnet
 	programs += new/datum/program/elektra
 	programs += new/datum/program/orion_trail
+	programs += new/datum/program/swiftfix
+	faction = "Rednikov Industries"
 
 /obj/structure/computer/nopower/aotd/yellow/New()
 	..()
@@ -35,6 +40,8 @@
 	programs += new/datum/program/deepnet
 	programs += new/datum/program/elektra
 	programs += new/datum/program/orion_trail
+	programs += new/datum/program/swiftfix
+	faction = "Goldstein Solutions"
 
 /obj/structure/computer/nopower/aotd/blue/New()
 	..()
@@ -42,6 +49,8 @@
 	programs += new/datum/program/deepnet
 	programs += new/datum/program/elektra
 	programs += new/datum/program/orion_trail
+	programs += new/datum/program/swiftfix
+	faction = "Giovanni Blu Stocks"
 
 /obj/structure/computer/nopower/aotd/attack_hand(var/mob/living/human/H)
 	..()
@@ -77,6 +86,9 @@
 		if (D.faction == H.civilization)
 			H << "<span class='notice'>You can't read a disk belonging to your company.</span>"
 			return
+		else if (src.faction != H.civilization)
+			H << "<span class='notice'>You can't read a disk on another's company computer.</span>"
+			return
 		else if (H.civilization == "Sheriff Office")
 			H << "<span class='notice'>You do not know how to decrypt this... You should put it in the evidence room instead.</span>"
 			return
@@ -95,6 +107,7 @@
 				if (-1)
 					if (D.fake)
 						map.scores[H.civilization] -= 100
+						map.give_stock_points(H.civilization,-100)
 						D.used = TRUE
 						qdel(D)
 						spawn(1)
@@ -113,6 +126,7 @@
 				if (0)
 					if (D.fake)
 						map.scores[H.civilization] -= 400
+						map.give_stock_points(H.civilization,-400)
 						D.used = TRUE
 						qdel(D)
 						spawn(1)
@@ -124,9 +138,21 @@
 						D.used = TRUE
 						qdel(D)
 						spawn(1)
-							WWalert(H,"This is a fake disk! Since you exchanged it with a real disk, you gain nothing and the other faction gains 200 dollars and 200 points.", "Fake Disk")
+							WWalert(H,"This is a fake disk! Since you exchanged it with a real disk, you gain nothing and the other faction gains 500 dollars and 500 points.", "Fake Disk")
 
 					else
+						map.scores[H.civilization] += 500
+						map.give_stock_points(H.civilization,500)
+						var/obj/item/stack/money/dollar/DLR = new/obj/item/stack/money/dollar(loc)
+						DLR.amount = 100
+						DLR.update_icon()
+						D.used = TRUE
+						qdel(D)
+						spawn(1)
+							WWalert(H,"This is a real disk! Since you exchanged it with a fake disk, you gain 500 dollars, 500 points and the other faction gains nothing.", "Real Disk")
+
+				if (2)
+					if (!D.fake)
 						map.scores[H.civilization] += 200
 						map.give_stock_points(H.civilization,200)
 						var/obj/item/stack/money/dollar/DLR = new/obj/item/stack/money/dollar(loc)
@@ -135,19 +161,7 @@
 						D.used = TRUE
 						qdel(D)
 						spawn(1)
-							WWalert(H,"This is a real disk! Since you exchanged it with a fake disk, you gain 200 dollars, 200 points and the other faction gains nothing.", "Real Disk")
-
-				if (2)
-					if (!D.fake)
-						map.scores[H.civilization] += 400
-						map.give_stock_points(H.civilization,400)
-						var/obj/item/stack/money/dollar/DLR = new/obj/item/stack/money/dollar(loc)
-						DLR.amount = 80
-						DLR.update_icon()
-						D.used = TRUE
-						qdel(D)
-						spawn(1)
-							WWalert(H,"This is a real disk! Since you exchanged it with a real disk too, both factions gain 400 dollars and 400 points.", "Real Disk")
+							WWalert(H,"This is a real disk! Since you exchanged it with a real disk too, both factions gain 200 dollars and 200 points.", "Real Disk")
 
 
 //////////////////////////////////////////////////////////////
@@ -188,6 +202,7 @@
 		..()
 		programs += new/datum/program/permits
 		programs += new/datum/program/warrants
+		programs += new/datum/program/bail
 
 /obj/structure/computer/nopower/police/inside
 	New()
@@ -219,7 +234,7 @@
 	var/fake = FALSE
 	var/used = FALSE
 	var/faction = null
-	var/exchange_state = -1 //0-both fake, 1-one is real, 2-both real
+	var/exchange_state = -1 //-1 inactive, 1-both fake, 2-one is real, 3-both real
 	var/datum/program/program
 /obj/item/weapon/disk/examine(mob/user)
 	..()

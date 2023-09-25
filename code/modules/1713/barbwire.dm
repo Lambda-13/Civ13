@@ -80,9 +80,9 @@
 /obj/structure/barbwire/attackby(obj/item/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/weapon/wirecutters))
 		if (anchored)
-			user.visible_message("<span class = 'notice'>[user] начинает резать [skloname(src, VINITELNI, "female")] [skloname(W, VINITELNI, "female")].</span>")
+			user.visible_message("<span class = 'notice'>[user] начинает резать [src] [W].</span>")
 			if (!do_after(user,60))
-				user.visible_message("<span class = 'notice'>[user] не смог срезать [skloname(src, VINITELNI, "female")].</span>")
+				user.visible_message("<span class = 'notice'>[user] перестаёт резать [src].</span>")
 				return
 			user.visible_message("<span class = 'notice'>[user] срезал [skloname(src, VINITELNI, "female")]!</span>")
 			playsound(loc, 'sound/items/Wirecutter.ogg', 50, TRUE)
@@ -91,7 +91,7 @@
 
 	else if (istype(W, /obj/item/weapon/material/kitchen/utensil/knife) || istype(W, /obj/item/weapon/attachment/bayonet) || istype(W, /obj/item/weapon/material/hatchet))
 		if (anchored)
-			user.visible_message("<span class = 'notice'>[user] режет [skloname(src, VINITELNI, "female")] [skloname(W, VINITELNI, "female")].</span>")
+			user.visible_message("<span class = 'notice'>[user] режет [src] [W].</span>")
 			if (!do_after(user,120))
 				user.visible_message("<span class = 'notice'>[user] не смог срезать [skloname(src, VINITELNI, "female")].</span>")
 				return

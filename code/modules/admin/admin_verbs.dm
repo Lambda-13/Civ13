@@ -846,6 +846,7 @@ var/global/list/global_colour_matrix = null
 	if (conf_1 == "No")
 		return
 	else
+		world << SPAN_NOTICE("<font size=3>Job whitelists have been <b>enabled</b>.</font>")
 		config.use_job_whitelist = TRUE
 
 /client/proc/disable_whitelist()
@@ -863,6 +864,7 @@ var/global/list/global_colour_matrix = null
 	if (conf_1 == "No")
 		return
 	else
+		world << SPAN_NOTICE("<font size=3>Job whitelists have been <b>disabled</b>.</font>")
 		config.use_job_whitelist = FALSE
 
 

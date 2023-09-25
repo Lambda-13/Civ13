@@ -1,7 +1,7 @@
-var/global/list/tank_names_german = list("Lute", "Greta", "Erika", "Sieg", "Teufel", "Charlotte")
+var/global/list/tank_names_german = list("Lute", "Greta", "Erika", "Sieg", "Teufel", "Charlotte", "Hundertmark", "Tigerkind", "Eisenschwein")
 var/global/list/tank_names_soviet = list("Slavianka", "Katya", "Rodina", "Vernyi", "Krasavets", "Grom")
 var/global/list/tank_names_japanese = list("Banzai", "Satsu-Jin", "Koroshite", "Sakura", "Chibi Chi-to", "I-Go")
-var/global/list/tank_names_usa = list("Charlie", "Alpha", "Foxtrot", "Tango", "Echo", "Zipper-maker", "Uncle Sam", "Steel Coffin")
+var/global/list/tank_names_usa = list("Charlie", "Alpha", "Foxtrot", "Tango", "Echo", "Zipper-maker", "Uncle Sam", "Steel Coffin", "Crusader")
 
 ////////AXIS: MOVEMENT LOOP/////////
 /obj/structure/vehicleparts/axis
@@ -611,6 +611,10 @@ var/global/list/tank_names_usa = list("Charlie", "Alpha", "Foxtrot", "Tango", "E
 	for(var/obj/structure/vehicleparts/VP in components)
 		VP.dir = dir
 		VP.update_icon()
+
+	for(var/mob/living/MB in transporting)
+		MB.dir = dir
+	
 	return TRUE
 
 /obj/effect/pseudovehicle
