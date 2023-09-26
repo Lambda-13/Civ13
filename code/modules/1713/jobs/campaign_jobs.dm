@@ -8,7 +8,6 @@
 	additional_languages = list("Blugoslavian" = 15)
 	min_positions = 999
 	max_positions = 999
-	selection_color = "#CC0000"
 
 /datum/job/pirates/redfaction/civilian
 	title = "Redmenian Civilian"
@@ -367,7 +366,6 @@
 	min_positions = 999
 	max_positions = 999
 	additional_languages = list("Redmenian" = 15)
-	selection_color = "#102f44"
 
 /datum/job/civilian/bluefaction/civilian
 	title = "Blugoslavian Civilian"

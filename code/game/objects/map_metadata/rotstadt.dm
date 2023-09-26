@@ -5,10 +5,10 @@
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall,/area/caribbean/no_mans_land/invisible_wall/temperate)
 	respawn_delay = 1800
 	no_winner = "The battle is still going on."
-	victory_time = 24000
-	grace_wall_timer = 4800
-	mission_start_message = "<font size=4>The Blugoslavian Armed Forces are launching an counter-insurgency operation in the occupied city of Rotstadt.<br>Their objective is to capture the RPR militia's <b>Commanding Bunker</b> in the <b>North-West corner</b> of the map.<br>The operation will begin in <b>8 minutes</b>.</font>"
-
+	victory_time = 36000
+	grace_wall_timer = 9000
+	mission_start_message = "<font size=4><b>15 minutes</b> until the battle begins.</font>"
+	
 	roundend_condition_sides = list(
 		list(CIVILIAN) = /area/caribbean/british,
 		list(PIRATES) = /area/caribbean/japanese/land/inside,
@@ -17,7 +17,7 @@
 	faction_organization = list(
 		PIRATES,
 		CIVILIAN)
-
+		
 	age = "2023"
 	ordinal_age = 8
 	faction_distribution_coeffs = list(PIRATES = 0.5, CIVILIAN = 0.5)
@@ -26,9 +26,8 @@
 	faction2 = CIVILIAN
 	valid_weather_types = list(WEATHER_WET, WEATHER_EXTREME)
 	songs = list(
-		"Noisia - Shellshock:1" = "sound/music/shellshock.ogg",)
+		"All is Lost:1" = "sound/music/allislost.ogg",)
 	artillery_count = 0
-	no_hardcore = TRUE
 	var/list/squad_jobs_blue = list(
 		"Squad 1" = list("Corpsman" = 2, "Machinegunner" = 1),
 		"Squad 2" = list("Corpsman" = 2, "Machinegunner" = 1),
@@ -47,7 +46,7 @@
 	..()
 	if (istype(J, /datum/job/civilian))
 		if (J.is_event)
-			if(findtext(J.title, "BAF"))
+			if (!istype(J, /datum/job/civilian/bluefaction/navy))
 				. = TRUE
 			else
 				. = FALSE
@@ -227,7 +226,7 @@ var/no_loop_rot = FALSE
 	last_win_condition = win_condition.hash
 	return TRUE
 
-/mob/new_player/proc/LateChoicesRotstadt()
+/mob/new_player/proc/LateChoicesRotstadt(factjob)
 	var/list/available_jobs_per_side = list(
 		CIVILIAN = FALSE,
 		PIRATES = FALSE,
@@ -247,11 +246,15 @@ var/no_loop_rot = FALSE
 		dat += "[alive_civilians.len] Blugoslavians "
 
 	dat += "<br>"
-	
+
+	if (factjob == "BAF")
+		dat +="<b><h1><big>Blugoslavian Armed Forces</big></h1></b>"
+	else if (factjob == "RDF")
+		dat +="<b><h1><big>Rotstadt's People's Republic</big></h1></b>"
 	for (var/datum/job/job in job_master.faction_organized_occupations)
 		if (!job.is_event)
 			continue
-		if (istype(job, /datum/job/civilian))
+		if (factjob == "BAF")
 			if(!findtext(job.title, "BAF"))
 				continue
 			if(findtext(job.title, "BAF Doctor") && MR.squad_jobs_blue["none"]["Doctor"]<= 0)
@@ -274,14 +277,14 @@ var/no_loop_rot = FALSE
 				continue
 			if(findtext(job.title, "BAF Squad [job.squad] Machinegunner") && MR.squad_jobs_blue["Squad [job.squad]"]["Machinegunner"]<= 0)
 				continue
-		if (istype(job, /datum/job/pirates))
+		else if (factjob == "RDF")
 			if (!job.is_rotstadt)
 				continue
 			if(findtext(job.title, "RPR Commander") && MR.squad_jobs_red["none"]["Commander"]<= 0)
 				continue
 			if(findtext(job.title, "RPR Doctor") && MR.squad_jobs_red["none"]["Doctor"]<= 0)
 				continue
-
+			
 		if (job)
 			var/active = processes.job_data.get_active_positions(job)
 			var/extra_span = "<b>"

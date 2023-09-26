@@ -446,10 +446,6 @@
 	icon_state = "duffel"
 	item_state = "duffel"
 	base_icon = "duffel"
-	item_state_slots = list(
-		slot_l_hand_str = "duffel",
-		slot_r_hand_str = "duffel",
-		)
 	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK
 	max_w_class = 3
@@ -532,8 +528,8 @@
 	New()
 		..()
 		new /obj/item/weapon/gun_cleaning_kit(src)
-		new /obj/item/ammo_magazine/box_762x51(src)
-		new /obj/item/ammo_magazine/box_762x51(src)
+		new /obj/item/ammo_magazine/m14box(src)
+		new /obj/item/ammo_magazine/m14box(src)
 		new /obj/item/weapon/material/shovel/trench(src)
 		new /obj/item/ammo_magazine/m14(src)
 		new /obj/item/ammo_magazine/m14(src)
@@ -561,8 +557,8 @@
 	New()
 		..()
 		new /obj/item/weapon/gun_cleaning_kit(src)
-		new /obj/item/ammo_magazine/box_762x51(src)
-		new /obj/item/ammo_magazine/box_762x51(src)
+		new /obj/item/ammo_magazine/m14box(src)
+		new /obj/item/ammo_magazine/m14box(src)
 		new /obj/item/weapon/material/shovel/trench(src)
 		new /obj/item/ammo_magazine/fal(src)
 		new /obj/item/ammo_magazine/fal(src)

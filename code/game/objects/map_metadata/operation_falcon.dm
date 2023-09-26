@@ -69,7 +69,6 @@
 			return "Dutch"
 		if (RUSSIAN)
 			return "Russian"
-
 /obj/map_metadata/operation_falcon/roundend_condition_def2army(define)
 	..()
 	switch (define)
@@ -86,17 +85,12 @@
 		if ("Russian Armed Forces")
 			return "Russian"
 
-/obj/map_metadata/operation_falcon/cross_message(faction)
-	var/warning_sound = sound('sound/effects/siren_once.ogg', repeat = FALSE, wait = TRUE, channel = 777)
-	for (var/mob/M in player_list)
-		M.client << warning_sound
 
-	if (faction == DUTCH)
-		return "<font size = 4>Operation Falcon has begun!</font>"
-	else if (faction == RUSSIAN)
-		return "<font size = 4>Operation Falcon has begun!</font>"
-	else
-		return ""
+/obj/map_metadata/operation_falcon/cross_message(faction)
+	return "<font size = 4>Operation Falcon has begun!</font>"
+
+/obj/map_metadata/operation_falcon/reverse_cross_message(faction)
+	return "<span class = 'userdanger'>Both teams may no longer cross the invisible wall!</span>"
 
 /obj/map_metadata/operation_falcon/proc/points_check()
 	if (processes.ticker.playtime_elapsed > 3000)
@@ -224,11 +218,9 @@
 	
 	switch (a1_control)
 		if ("Dutch Royal Army")
-			faction1_supply_points += 20
 			for (var/obj/structure/flag/objective/one/F in world)
 				F.icon_state = "[faction1_flag]"
 		if ("Russian Armed Forces")
-			faction2_supply_points += 20
 			for (var/obj/structure/flag/objective/one/F in world)
 				F.icon_state = "[faction2_flag]"
 		else
@@ -236,11 +228,9 @@
 				F.icon_state = "white"
 	switch (a2_control)
 		if ("Dutch Royal Army")
-			faction1_supply_points += 20
 			for (var/obj/structure/flag/objective/two/F in world)
 				F.icon_state = "[faction1_flag]"
 		if ("Russian Armed Forces")
-			faction2_supply_points += 20
 			for (var/obj/structure/flag/objective/two/F in world)
 				F.icon_state = "[faction2_flag]"
 		else
@@ -248,11 +238,9 @@
 				F.icon_state = "white"
 	switch (a3_control)
 		if ("Dutch Royal Army")
-			faction1_supply_points += 20
 			for (var/obj/structure/flag/objective/three/F in world)
 				F.icon_state = "[faction1_flag]"
 		if ("Russian Armed Forces")
-			faction2_supply_points += 20
 			for (var/obj/structure/flag/objective/three/F in world)
 				F.icon_state = "[faction2_flag]"
 		else
@@ -260,11 +248,9 @@
 				F.icon_state = "white"
 	switch (a4_control)
 		if ("Dutch Royal Army")
-			faction1_supply_points += 20
 			for (var/obj/structure/flag/objective/four/F in world)
 				F.icon_state = "[faction1_flag]"
 		if ("Russian Armed Forces")
-			faction2_supply_points += 20
 			for (var/obj/structure/flag/objective/four/F in world)
 				F.icon_state = "[faction2_flag]"
 		else

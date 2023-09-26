@@ -495,7 +495,6 @@
 
 	is_ww2 = TRUE
 	is_tanker = TRUE
-	is_ardennes = TRUE
 	uses_squads = FALSE
 
 	min_positions = 4
@@ -1166,8 +1165,9 @@
 /////////////////////SIBERIAD//////////////////////////////////
 
 /datum/job/american/siberiad/lt
-	title = "Coalition Commander"
-	rank_abbreviation = "Capt."
+	title = "Operation lead"
+	en_meaning = "Operation lead"
+	rank_abbreviation = "Opl."
 	spawn_location = "JoinLateFAR"
 
 	is_siberiad = TRUE
@@ -1180,7 +1180,6 @@
 	additional_languages = list("Russian" = 70)
 	min_positions = 1
 	max_positions = 1
-	selection_color = "#153043"
 
 /datum/job/american/siberiad/lt/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
@@ -1228,19 +1227,20 @@
 	return TRUE
 
 /datum/job/american/siberiad/squadlead
-	title = "Coalition Squad Leader"
-	rank_abbreviation = "Sgt."
+	title = "Infantry Squad leader"
+	en_meaning = "Infantry Squad leader"
+	rank_abbreviation = "Sl."
 	spawn_location = "JoinLateFAR"
 
 	is_siberiad = TRUE
 	is_squad_leader = TRUE
 
 	uses_squads = TRUE
+	whitelisted = FALSE
 
 	additional_languages = list("Russian" = 20)
 	min_positions = 2
 	max_positions = 8
-	selection_color = "#153043"
 
 /datum/job/american/siberiad/squadlead/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
@@ -1303,18 +1303,19 @@
 	return TRUE
 
 /datum/job/american/siberiad/heavy
-	title = "Coalition Heavy Weapons Specialist"
-	rank_abbreviation = "Cpl."
+	title = "Heavy infantry"
+	en_meaning = "Heavy infantry"
+	rank_abbreviation = "Mg."
 	spawn_location = "JoinLateFAR"
 
 	is_siberiad = TRUE
 
 	uses_squads = TRUE
+	whitelisted = FALSE
 
 	additional_languages = list("Russian" = 10)
 	min_positions = 4
 	max_positions = 8
-	selection_color = "#153043"
 
 /datum/job/american/siberiad/heavy/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
@@ -1378,18 +1379,19 @@
 	return TRUE
 
 /datum/job/american/siberiad/infantry
-	title = "Coalition Rifleman"
-	rank_abbreviation = "Pfc."
+	title = "Light Infantry"
+	en_meaning = "Light Infantry"
+	rank_abbreviation = " ."
 	spawn_location = "JoinLateFAR"
 
 	is_siberiad = TRUE
 
 	uses_squads = TRUE
+	whitelisted = FALSE
 
 	additional_languages = list("Russian" = 10)
 	min_positions = 9
 	max_positions = 90
-	selection_color = "#153043"
 
 /datum/job/american/siberiad/infantry/equip(var/mob/living/human/H)
 	if (!H)	return FALSE

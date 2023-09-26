@@ -209,9 +209,6 @@ var/global/list/valid_coordinates = list()
 	if (currfreq == 0)
 		src << "<span class='notice'>Нет радио!</span>"
 		return
-	if (src.stat == DEAD)	
-		src << SPAN_WARNING("You're dead!")
-		return
 	if (map.artillery_count > 0 && world.time >= map.artillery_last+map.artillery_timer)
 		var/list/validchoices = map.valid_artillery
 		var/valid_coords_check = FALSE

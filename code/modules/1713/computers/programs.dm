@@ -1283,146 +1283,6 @@
 		for(var/list/L in map.vehicle_registations)
 			mainbody += "<b>[L[1]]</b> - <b>[L[4]] [L[3]]</b> - registered to <b>[L[2]]</b><br>"
 	..()
-
-/datum/program/bail
-	name = "Bails"
-	description = "Pay a bail for someone in jail here."
-	compatible_os = list("unga OS 94 Law Enforcement Edition")
-
-/datum/program/bail/do_html(mob/living/human/user)
-	mainmenu = "<h2>BAIL PAYMENT INTERFACE</h2><br>"
-	mainmenu += "<a href='?src=\ref[src];bail=1'>Pay Bail</a>"
-	..()
-
-/datum/program/bail/Topic(href, href_list, hsrc)
-	..()
-	mainbody = ""
-	for(var/mob/living/human/H in world) // DEBUG: Change to player_list
-		var/area/A = get_area(H)
-		if (istype(A, /area/caribbean/prison/jail))
-			if (H.civilization != "Sheriff Office" && H.civilization != "Government")
-				if (H.bail_price > 0)
-					mainbody += "<b>[H.real_name] - [H.bail_price] dollars</b>"
-	if (href_list["bail"])
-		if (href_list["bail"] == "1")
-			var/list/available_prisoners = list("Cancel")
-			for(var/mob/living/human/H in world) // DEBUG: Change to player_list
-				var/area/A = get_area(H)
-				if (istype(A, /area/caribbean/prison/jail))
-					if (H.civilization != "Sheriff Office" && H.civilization != "Government")
-						if (H.bail_price > 0)
-							available_prisoners += H
-			var/choice = WWinput(usr, "Who do you wish to pay the bail for?","Choose a bail","Cancel",available_prisoners)
-			if (choice == "Cancel" || !choice)
-				return
-			else
-				var/mob/living/human/U
-				U = choice
-				if (istype(user.get_active_hand(),/obj/item/stack/money) || istype(user.get_inactive_hand(),/obj/item/stack/money))
-					var/obj/item/stack/money/M
-					if (istype(user.get_active_hand(),/obj/item/stack/money))
-						M = user.get_active_hand()
-					else if (istype(user.get_inactive_hand(),/obj/item/stack/money))
-						M = user.get_inactive_hand()
-					if (M && M.value*M.amount >= U.bail_price*4)
-						M.amount-=U.bail_price/5
-						if (M.amount <= 0)
-							qdel(M)
-						U.forceMove(locate(105,104,1))
-						U.bail_price = 0
-						mainbody = ""
-						mainbody += "<font color='green'>[U.real_name] has been <b>released</b> on bail.</span>"
-						available_prisoners -= U
-						map.scores["Sheriff Office"] += 200
-						sleep(0.5)
-						do_html(user)
-						return
-					else
-						mainbody = ""
-						mainbody += "<font color='red'>Not enough money! You need to have [U.bail_price] dollars in your hands to pay for the bail.</font>"
-						sleep(0.5)
-						do_html(user)
-						return
-				else
-					mainbody += "<font color='red'>You need to have [U.bail_price] dollars in your hands to pay for the bail.</span>"
-					sleep(0.5)
-					do_html(user)
-					return
-	sleep(0.5)
-	do_html(user)
-
-/datum/program/swiftfix
-	name = "SwiftFix"
-	description = "Office repairs right at your door, instantly."
-	compatible_os = list("unga OS 94")
-
-/datum/program/swiftfix/do_html(mob/living/human/user)
-	mainmenu = "<h2>S W I F T   F I X</h2><br>"
-	mainmenu += "<a href='?src=\ref[src];fix=1'>Restore doors</a>"
-	..()
-
-/datum/program/swiftfix/Topic(href, href_list, hsrc)
-	..()
-	mainbody = ""
-	if (href_list["fix"])
-		if (href_list["fix"] == "1")
-			if (user.civilization == "Goldstein Solutions" || user.civilization == "Kogama Kraftsmen" || user.civilization ==  "Rednikov Industries" || user.civilization ==  "Giovanni Blu Stocks")
-				if (istype(user.get_active_hand(),/obj/item/stack/money) || istype(user.get_inactive_hand(),/obj/item/stack/money))
-					var/obj/item/stack/money/M
-					if (istype(user.get_active_hand(),/obj/item/stack/money))
-						M = user.get_active_hand()
-					else if (istype(user.get_inactive_hand(),/obj/item/stack/money))
-						M = user.get_inactive_hand()
-					if (M && M.value*M.amount >= 100*4)
-						if(WWinput(user, "This will attempt to repair any missing doors for 100 dollars. Are you sure?", "Door Repair", "Yes", list("Yes", "No")) == "No")
-							return
-						else	
-							M.amount-=100/5
-							if (M.amount <= 0)
-								qdel(M)
-							switch(user.civilization)
-								if ("Goldstein Solutions")
-									for (var/obj/effect/spawner/objspawner/door/yellow/YD in world)
-										YD.activated = TRUE
-										spawn(100)
-										YD.activated = FALSE
-								if ("Kogama Kraftsmen")
-									for (var/obj/effect/spawner/objspawner/door/green/GD in world)
-										GD.activated = TRUE
-										spawn(100)
-										GD.activated = FALSE
-								if ("Rednikov Industries")
-									for (var/obj/effect/spawner/objspawner/door/red/RD in world)
-										RD.activated = TRUE
-										spawn(100)
-										RD.activated = FALSE
-								if ("Giovanni Blu Stocks")
-									for (var/obj/effect/spawner/objspawner/door/blue/BD in world)
-										BD.activated = TRUE
-										spawn(100)
-										BD.activated = FALSE
-							mainbody += "<font color='green'><b>Your HQ doors have been repaired</b>.</span>"
-							sleep(0.5)
-							do_html(user)
-							return
-					else
-						mainbody += "<font color='red'>Not enough money! You need to have 100 dollars in your hands to pay for the repairs.</font>"
-						sleep(0.5)
-						do_html(user)
-						return
-				else
-					mainbody += "<font color='red'>You need to have 100 dollars in your hands to pay for the repairs.</span>"
-					sleep(0.5)
-					do_html(user)
-					return
-			else
-				mainbody += "<font color='orange'>This service is for companies only.</span>"
-				sleep(0.5)
-				do_html(user)
-				return
-	sleep(0.5)
-	do_html(user)
-
 /datum/program/permits
 	name = "Gun Permit Registry"
 	description = "Connects to the main Department of Justice server for automated gun permit requests."
@@ -1484,7 +1344,6 @@
 				return
 	sleep(0.5)
 	do_html(user)
-
 /datum/program/warrants
 	name = "Warrant Terminal"
 	description = "Connects to the main Department of Justice server for up-to-date information on pending warrants."
@@ -2055,12 +1914,14 @@
 	name = "CARTRADER Platform"
 	description = "The number 1 online car dealership."
 	compatible_os = list("unga OS 94","unga OS")
+	var/global/faction1_loadout_points = 1600
+	var/global/faction2_loadout_points = 1400
 
 	var/list/dutch_choice = list(
 		"2A6 Leopard Tank (1000)", "Mercedes-Benz G280 Jeep with MG (500)", "DAF YA-4442 Supply Truck (400)", "Mercedes-Benz G280 Jeep (200)"
 		)
 	var/list/rus_choice = list(
-		"T-90A Tank (1200)", "BMD-2 Infantry Fighting Vehicle (600)", "AMN-233114 Tigr-M Humvee with MG (500)", "KamAZ-4350 Truck (300)", "AMN-233114 Tigr-M Humvee (200)"
+		"T-90A Tank (1000)", "BMD-2 Infantry Fighting Vehicle (600)", "AMN-233114 Tigr-M Humvee with MG (500)", "KamAZ-4350 Truck (300)", "AMN-233114 Tigr-M Humvee (200)"
 		)
 	var/list/british_choice = list(
 		"FV4034 Challenger 2 Tank (1000)","Mercedes-Benz G280 Jeep with MG (500)", "DAF YA-4442 Supply Truck (400)", "Mercedes-Benz G280 Jeep (200)"
@@ -2068,19 +1929,22 @@
 
 /datum/program/carspawn/do_html(mob/living/human/user)
 	var/list/choice
+	switch (user.faction_text)
+		if ("DUTCH")
+			choice = dutch_choice
+		if ("RUSSIAN")
+			choice = rus_choice
+		if ("BRITISH")
+			choice = british_choice
 	mainmenu = "<h2>SUPPLY NETWORK</h2><br>"
 	if(mainbody == "---")
-		mainbody = "Supply Points Available: "
 		switch (user.faction_text)
 			if ("DUTCH")
-				mainbody += "[faction1_supply_points]<br>"
-				choice = dutch_choice
+				mainbody = "Current Loadout Points: [faction1_loadout_points]<br>"
 			if ("RUSSIAN")
-				mainbody += "[faction2_supply_points]<br>"
-				choice = rus_choice
+				mainbody = "Current Loadout Points: [faction2_loadout_points]<br>"
 			if ("BRITISH")
-				mainbody += "[faction1_supply_points]<br>"
-				choice = british_choice
+				mainbody = "Current Loadout Points: [faction1_loadout_points]<br>"
 		for (var/i in choice)
 			mainbody += "<a href='?src=\ref[src];vehiclegiver=[i]'>[i]</a><br>"
 	..()
@@ -2089,16 +1953,15 @@
 	..()
 	if (href_list["vehiclelist"])
 		var/list/choice
-		mainbody = "Supply Points Available: "
 		switch (user.faction_text)
 			if ("DUTCH")
-				mainbody += "[faction1_supply_points]<br>"
+				mainbody = "Current Loadout Points: [faction1_loadout_points]<br>"
 				choice = dutch_choice
 			if ("RUSSIAN")
-				mainbody += "[faction2_supply_points]<br>"
+				mainbody = "Current Loadout Points: [faction2_loadout_points]<br>"
 				choice = rus_choice
 			if ("BRITISH")
-				mainbody += "[faction1_supply_points]<br>"
+				mainbody = "Current Loadout Points: [faction1_loadout_points]<br>"
 				choice = british_choice
 		for (var/i in choice)
 			mainbody += "<a href='?src=\ref[src];vehiclegiver=[i]'>[i]</a><br>"
@@ -2191,9 +2054,9 @@
 			return
 		switch (user.faction_text)
 			if ("DUTCH")
-				if (faction1_supply_points)
-					if (faction1_supply_points >= cost)
-						faction1_supply_points -= cost
+				if (faction1_loadout_points)
+					if (faction1_loadout_points >= cost)
+						faction1_loadout_points -= cost
 					else
 						mainbody = "<h2>SUPPLY NETWORK</h2><br><font color='yellow'>Not enough points!</font><br><a href='?src=\ref[src];vehiclelist=1'>Return to List</a><br>"
 						sleep(0.5)
@@ -2205,9 +2068,9 @@
 					do_html(user)
 					return
 			if ("RUSSIAN")
-				if (faction2_supply_points)
-					if (faction2_supply_points >= cost)
-						faction2_supply_points -= cost
+				if (faction2_loadout_points)
+					if (faction2_loadout_points >= cost)
+						faction2_loadout_points -= cost
 					else
 						mainbody = "<h2>SUPPLY NETWORK</h2><br><font color='yellow'>Not enough points!</font><br><a href='?src=\ref[src];vehiclelist=1'>Return to List</a><br>"
 						sleep(0.5)
@@ -2219,9 +2082,9 @@
 					do_html(user)
 					return
 			if ("BRITISH")
-				if (faction1_supply_points)
-					if (faction1_supply_points >= cost)
-						faction1_supply_points -= cost
+				if (faction1_loadout_points)
+					if (faction1_loadout_points >= cost)
+						faction1_loadout_points -= cost
 					else
 						mainbody = "<h2>SUPPLY NETWORK</h2><br><font color='yellow'>Not enough points!</font><br><a href='?src=\ref[src];vehiclelist=1'>Return to List</a><br>"
 						sleep(0.5)
@@ -2237,14 +2100,14 @@
 
 		switch (href_list["vehiclegiver"])
 			if ("2A6 Leopard Tank (1000)")
-				PV = new /obj/effects/premadevehicles/tank/leopard2a6(locate(origin.x+3,origin.y-5,origin.z))
+				PV = new /obj/effects/premadevehicles/tank/leopard(locate(origin.x+3,origin.y-5,origin.z))
 			if ("Mercedes-Benz G280 Jeep with MG (500)")
 				PV = new /obj/effects/premadevehicles/car/mercedes/mg(locate(origin.x+3,origin.y-5,origin.z))
 			if ("DAF YA-4442 Supply Truck (400)")
 				PV = new /obj/effects/premadevehicles/truck/daf(locate(origin.x+3,origin.y-5,origin.z))
 			if ("Mercedes-Benz G280 Jeep (200)")
 				PV = new /obj/effects/premadevehicles/car/mercedes(locate(origin.x+3,origin.y-5,origin.z))
-
+			
 			if ("T-90A Tank (1000)")
 				PV = new /obj/effects/premadevehicles/tank/t90a(locate(origin.x+3,origin.y-5,origin.z))
 			if ("BMD-2 Infantry Fighting Vehicle (600)")
@@ -2284,7 +2147,7 @@
 /datum/program/platoontracker/do_html(mob/living/human/user)
 	mainmenu = "<h2>PLATOON STATUS</h2><br>"
 	mainbody = ""
-	for(var/mob/living/human/H in human_mob_list)
+	for(var/mob/living/human/H in player_list)
 		if (H.faction_text == user.faction_text)
 			var/tst = ""
 			if (H.stat == UNCONSCIOUS)

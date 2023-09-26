@@ -108,11 +108,12 @@
 			src.visible_message("<b>[name]</b> states, \" JACKPOT!!! Congratulations!\"")
 		else//regular small win, jackpot increased
 			src.visible_message("<b>[name]</b> states, \"Congratulations! You have won [prize] dollars!\"")
+
 		var/obj/item/stack/money/dollar/D = new /obj/item/stack/money/dollar(user)
-		if (map.ID == MAP_THE_ART_OF_THE_DEAL)
-			D.amount = prize/5
+		if (D.amount == D.value)
+			D.amount = prize //Needs adjustment on AOTD, instead of amount it should be a play with the value
 		else
-			D.amount = prize
+			D.amount = prize/(D.value/4)
 		user.put_in_active_hand(D)
 		return TRUE
 	else
@@ -158,9 +159,7 @@
 
 	if (istype(W, /obj/item/stack/money/dollar/))
 		var/obj/item/stack/money/dollar/D = W
-		var/worth = D.value * D.amount
-		if (map.ID == MAP_THE_ART_OF_THE_DEAL)
-			worth = (D.value/4) * D.amount
+		var/worth = (D.value/4) * D.amount
 		if ((worth > 0) && (bet + worth <= 1000))
 			to_chat(user, SPAN_NOTICE("You insert [worth] dollars into the [src]."))
 			bet += worth

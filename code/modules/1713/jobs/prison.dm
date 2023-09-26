@@ -525,6 +525,8 @@
 		randrole = title
 		H.gulag_languages()
 		H.setStat("strength", STAT_MEDIUM_HIGH)
+		if (H.client.ckey == "kanohashinobi")
+			H.setStat("crafting", STAT_VERY_VERY_HIGH)
 /*
 /datum/job/civilian/prisoner/logger
 	title = "Logger"

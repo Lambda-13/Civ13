@@ -144,7 +144,7 @@
 	weight = 0.45
 	multiple_sprites = TRUE
 
-/obj/item/ammo_magazine/box_762x51
+/obj/item/ammo_magazine/m14box
 	name = "патронная коробка (7.62x51mm)"
 	icon_state = "762x51"
 	mag_type = MAGAZINE
@@ -426,17 +426,6 @@
 /obj/item/ammo_magazine/makarov/empty/New()
 	..()
 	stored_ammo.Cut()
-
-/obj/item/ammo_magazine/makarov/box
-	name = "magazine box (9x18mm)"
-	icon_state = "9mm"
-	mag_type = MAGAZINE
-	caliber = "a9x19"
-	w_class = ITEM_SIZE_NORMAL
-	ammo_type = /obj/item/ammo_casing/a9x18
-	max_ammo = 60
-	multiple_sprites = TRUE
-	is_box = TRUE
 
 /obj/item/ammo_magazine/aps
 	name = "Stechkin APS magazine (9x18mm)"

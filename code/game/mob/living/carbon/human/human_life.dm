@@ -1659,7 +1659,7 @@
 							holder2.overlays += icon(holder2.icon,"i_cpl")
 					else
 						holder2.overlays += icon(holder2.icon,"squad_[squad]")
-			if (map.ID != MAP_CAMPAIGN && map.ID != MAP_ROTSTADT)
+			if (map.ID != MAP_CAMPAIGN)
 				if (original_job.is_commander || (original_job.is_commander && original_job.is_officer) || original_job.is_vip)
 					if (faction_text == CIVILIAN && map.ID == MAP_OCCUPATION)
 						holder2.icon_state = ""
@@ -1675,20 +1675,6 @@
 						holder2.icon_state = ""
 					else
 						holder2.overlays += icon(holder2.icon,"nco")
-			if (map.ID == MAP_OPERATION_FALCON)
-				if (original_job.is_commander)
-					switch (faction_text)
-						if ("RUSSIAN")
-							world << "<font color='green' size=4>[ckey] is now the <b>Russian Army</b> Commander!</font>"
-						if ("DUTCH")
-							world << "<font color='green' size=4>[ckey] is now the <b>Dutch Army</b> Commander!</font>"
-			if (map.ID == MAP_VADSO_CITY)
-				if (original_job.is_commander)
-					switch (faction_text)
-						if ("RUSSIAN")
-							world << "<font color='green' size=4>[ckey] is now the <b>Russian Army</b> Commander!</font>"
-						if ("BRITISH")
-							world << "<font color='green' size=4>[ckey] is now the <b>British Army</b> Commander!</font>"
 			if (original_job.is_medic)
 				holder2.overlays += icon(holder2.icon,"medic")
 			hud_list[BASE_FACTION] = holder2

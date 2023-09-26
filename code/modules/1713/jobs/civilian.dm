@@ -2053,8 +2053,7 @@
 	H.setStat("bows", STAT_NORMAL)
 	H.setStat("medical", STAT_NORMAL)
 	spawn(50)
-		if (H.client)
-			H.client.screen += new/obj/screen/areashow_aod("Area Location","8,14", H, null, "")
+		H.client.screen += new/obj/screen/areashow_aod("Area Location","8,14", H, null, "")
 /datum/job/civilian/businessman/yellow
 	title = "Goldstein Solutions"
 	selection_color = "#7e7e06"
@@ -2064,7 +2063,6 @@
 
 /datum/job/civilian/businessman/yellow/CEO
 	title = "Goldstein Solutions CEO"
-	spawn_location = "JoinLateCivACEO"
 	is_officer = TRUE
 	min_positions = 1
 	max_positions = 1
@@ -2095,6 +2093,7 @@
 	H.name = H.species.get_random_hebrew_name(H.gender)
 	H.real_name = H.name
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/expensive/yellow(H), slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/weapon/key/civ/businessyellow(H), slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/radio/walkietalkie/factionyellow(H), slot_wear_id)
 	H.equip_to_slot_or_del(new /obj/item/weapon/map(H), slot_r_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/material/kitchen/utensil/knife/circumcision(H), slot_l_hand)
@@ -2111,12 +2110,6 @@
 	var/obj/item/clothing/under/uniform1 = H.w_uniform
 	var/obj/item/clothing/accessory/armband/spanish/armband = new /obj/item/clothing/accessory/armband/spanish(null)
 	uniform1.attackby(armband, H)
-	var/obj/item/weapon/storage/belt/keychain/KC = new /obj/item/weapon/storage/belt/keychain(H)
-	var/obj/item/weapon/key/civ/businessyellow/y1 = new /obj/item/weapon/key/civ/businessyellow(null)
-	var/obj/item/weapon/key/civ/businessyellow/ceo/y2 = new /obj/item/weapon/key/civ/businessyellow/ceo(null)
-	KC.attackby(y1,H)
-	KC.attackby(y2,H)
-	H.equip_to_slot_or_del(KC, slot_l_store)
 	..()
 	return TRUE
 
@@ -2132,7 +2125,6 @@
 	min_positions = 1
 	max_positions = 1
 	rank_abbreviation = "CEO"
-	spawn_location = "JoinLateCivBCEO"
 	whitelisted = TRUE
 	is_vip = TRUE
 
@@ -2156,6 +2148,7 @@
 	H.name = H.species.get_random_japanese_name(H.gender)
 	H.real_name = H.name
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/expensive/green(H), slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/weapon/key/civ/businessgreen(H), slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/radio/walkietalkie/factiongreen(H), slot_wear_id)
 	H.equip_to_slot_or_del(new /obj/item/weapon/map(H), slot_r_store)
 	var/obj/item/clothing/under/uniform1 = H.w_uniform
@@ -2166,12 +2159,6 @@
 	H.equip_to_slot_or_del(blazer, slot_wear_suit)
 	var/obj/item/clothing/accessory/armband/portuguese/armband = new /obj/item/clothing/accessory/armband/portuguese(null)
 	uniform1.attackby(armband, H)
-	var/obj/item/weapon/storage/belt/keychain/KC = new /obj/item/weapon/storage/belt/keychain(H)
-	var/obj/item/weapon/key/civ/businessgreen/g1 = new /obj/item/weapon/key/civ/businessgreen(null)
-	var/obj/item/weapon/key/civ/businessgreen/ceo/g2 = new /obj/item/weapon/key/civ/businessgreen/ceo(null)
-	KC.attackby(g1,H)
-	KC.attackby(g2,H)
-	H.equip_to_slot_or_del(KC, slot_l_store)
 	..()
 	return TRUE
 
@@ -2184,7 +2171,6 @@
 
 /datum/job/civilian/businessman/blue/CEO
 	title = "Giovanni Blu Stocks CEO"
-	spawn_location = "JoinLateCivCCEO"
 	is_officer = TRUE
 	min_positions = 1
 	max_positions = 1
@@ -2212,6 +2198,7 @@
 	H.name = H.species.get_random_italian_name(H.gender)
 	H.real_name = H.name
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/expensive/blue(H), slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/weapon/key/civ/businessblue(H), slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/radio/walkietalkie/factionblue(H), slot_wear_id)
 	H.equip_to_slot_or_del(new /obj/item/weapon/map(H), slot_r_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/material/kitchen/utensil/knife/butcher(H), slot_l_hand)
@@ -2223,12 +2210,6 @@
 	var/obj/item/clothing/under/uniform1 = H.w_uniform
 	var/obj/item/clothing/accessory/armband/french/armband = new /obj/item/clothing/accessory/armband/french(null)
 	uniform1.attackby(armband, H)
-	var/obj/item/weapon/storage/belt/keychain/KC = new /obj/item/weapon/storage/belt/keychain(H)
-	var/obj/item/weapon/key/civ/businessblue/b1 = new /obj/item/weapon/key/civ/businessblue(null)
-	var/obj/item/weapon/key/civ/businessblue/ceo/b2 = new /obj/item/weapon/key/civ/businessblue/ceo(null)
-	KC.attackby(b1,H)
-	KC.attackby(b2,H)
-	H.equip_to_slot_or_del(KC, slot_l_store)
 	..()
 	return TRUE
 
@@ -2242,7 +2223,6 @@
 /datum/job/civilian/businessman/red/CEO
 	title = "Rednikov Industries CEO"
 	is_officer = TRUE
-	spawn_location = "JoinLateCivDCEO"
 	min_positions = 1
 	max_positions = 1
 	rank_abbreviation = "CEO"
@@ -2269,6 +2249,7 @@
 	H.name = H.species.get_random_russian_name(H.gender)
 	H.real_name = H.name
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/expensive/red(H), slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/weapon/key/civ/businessred(H), slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/radio/walkietalkie/factionred(H), slot_wear_id)
 	H.equip_to_slot_or_del(new /obj/item/weapon/map(H), slot_r_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/material/kitchen/utensil/knife/bowie(H), slot_l_hand)
@@ -2280,12 +2261,6 @@
 	var/obj/item/clothing/under/uniform1 = H.w_uniform
 	var/obj/item/clothing/accessory/armband/british/armband = new /obj/item/clothing/accessory/armband/british(null)
 	uniform1.attackby(armband, H)
-	var/obj/item/weapon/storage/belt/keychain/KC = new /obj/item/weapon/storage/belt/keychain(H)
-	var/obj/item/weapon/key/civ/businessred/r1 = new /obj/item/weapon/key/civ/businessred/(null)
-	var/obj/item/weapon/key/civ/businessred/ceo/r2 = new /obj/item/weapon/key/civ/businessred/ceo(null)
-	KC.attackby(r1,H)
-	KC.attackby(r2,H)
-	H.equip_to_slot_or_del(KC, slot_l_store)
 	..()
 	return TRUE
 
@@ -2293,8 +2268,8 @@
 	title = "McKellen Staff"
 	selection_color = "#ff883e"
 	spawn_location = "JoinLateCivJ"
-	min_positions = 1
-	max_positions = 4
+	min_positions = 3
+	max_positions = 8
 	additional_languages = list("Gaelic" = 100)
 	can_be_female = TRUE
 	is_deal = TRUE
@@ -2332,16 +2307,16 @@
 		suit.attackby(mag, H)
 		H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/tommy(H), slot_l_hand)
 		H.add_note("Specialization", "You are a part of McKellen's Entreprises. You're the enforcer, the one who does what needs gettin done.")
-		H.setStat("strength", STAT_HIGH)
+		H.setStat("strength", STAT_VERY_HIGH)
 		H.setStat("crafting", STAT_NORMAL)
-		H.setStat("rifle", STAT_MEDIUM_HIGH)
-		H.setStat("dexterity", STAT_MEDIUM_HIGH)
-		H.setStat("swords", STAT_NORMAL)
-		H.setStat("pistol", STAT_HIGH)
-		H.setStat("bows", STAT_LOW)
-		H.setStat("medical", STAT_LOW)
-		H.setStat("machinegun", STAT_LOW)
-	else
+		H.setStat("rifle", STAT_VERY_HIGH)
+		H.setStat("dexterity", STAT_VERY_HIGH)
+		H.setStat("swords", STAT_VERY_HIGH)
+		H.setStat("pistol", STAT_VERY_VERY_HIGH)
+		H.setStat("bows", STAT_NORMAL)
+		H.setStat("medical", STAT_NORMAL)
+		H.setStat("machinegun", STAT_MAX)
+//clothes
 		var/randclothes = rand(1,3)
 		switch(randclothes)
 			if (1)

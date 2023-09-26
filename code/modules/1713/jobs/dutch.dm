@@ -551,10 +551,10 @@
 	return TRUE
 
 // Modern
-/datum/job/dutch/modern_commander
-	title = "Commandant"
-	en_meaning = "Commander"
-	rank_abbreviation = "Com."
+/datum/job/dutch/modern_lieutenant
+	title = "Eerste Luitenant"
+	en_meaning = "Lieutenant"
+	rank_abbreviation = "Lt."
 	spawn_location = "JoinLateRNCap"
 
 	is_operation_falcon = TRUE
@@ -567,7 +567,7 @@
 	min_positions = 1
 	max_positions = 1
 
-/datum/job/dutch/modern_commander/equip(var/mob/living/human/H)
+/datum/job/dutch/modern_lieutenant/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/modern(H), slot_shoes)
@@ -879,6 +879,8 @@
 	spawn_location = "JoinLateRN"
 
 	is_operation_falcon = TRUE
+
+	uses_squads = TRUE
 
 	additional_languages = list("English" = 15)
 	min_positions = 1

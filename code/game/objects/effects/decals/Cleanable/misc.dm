@@ -22,11 +22,10 @@
 		pixel_y = rand(-8, 8)
 
 /obj/effect/decal/cleanable/ash/attackby(obj/item/weapon/reagent_containers/glass/C as obj, mob/user as  mob )
-	if (istype(C))
-		C.reagents.add_reagent("ash", 1)
-		user << "You collect ash into the [C.name]."
-		qdel(src)
-		return
+	C.reagents.add_reagent("ash", 1)
+	user << "You collect ash into the [C.name]."
+	qdel(src)
+	return
 
 /obj/effect/decal/cleanable/ash/attack_hand(mob/user as mob)
 	user << "<span class='notice'>[src] sifts through your fingers.</span>"

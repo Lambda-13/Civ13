@@ -2363,11 +2363,10 @@
 	return TRUE
 
 // Modern
-/datum/job/russian/modern_commander
-	title = "Komandir"
-	en_meaning = "Commander"
-	rank_abbreviation = "Kom."
-	spawn_location = "JoinLateRUCap"
+/datum/job/russian/modern_lieutenant
+	title = "Starshiy Leitenant"
+	en_meaning = "1st Lieutenant"
+	rank_abbreviation = "St. Lt."
 
 	is_operation_falcon = TRUE
 	is_commander = TRUE
@@ -2379,7 +2378,7 @@
 	min_positions = 1
 	max_positions = 1
 
-/datum/job/russian/modern_commander/equip(var/mob/living/human/H)
+/datum/job/russian/modern_lieutenant/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 //shoes
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/modern(H), slot_shoes)
@@ -2701,6 +2700,8 @@
 
 	is_operation_falcon = TRUE
 
+	uses_squads = TRUE
+
 	additional_languages = list("English" = 15)
 	min_positions = 1
 	max_positions = 6
@@ -2850,8 +2851,9 @@
 /////////////////////SIBERIAD//////////////////////////////////
 
 /datum/job/russian/siberiad/lt
-	title = "Soviet Army Commander"
-	rank_abbreviation = "Kapt."
+	title = "Operatsionnyy rukovoditel"
+	en_meaning = "Operation lead"
+	rank_abbreviation = "Opr."
 	spawn_location = "JoinLateRU"
 
 	is_siberiad = TRUE
@@ -2864,8 +2866,6 @@
 	additional_languages = list("English" = 70)
 	min_positions = 1
 	max_positions = 1
-
-	selection_color = "#CC0000"
 
 /datum/job/russian/siberiad/lt/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
@@ -2918,19 +2918,20 @@
 	return TRUE
 
 /datum/job/russian/siberiad/squadlead
-	title = "Soviet Army Squad Leader"
-	rank_abbreviation = "Snr Srj."
+	title = "Komandir pekhotnogo vzvoda"
+	en_meaning = "Infantry Squad leader"
+	rank_abbreviation = "Kpv."
 	spawn_location = "JoinLateRU"
 
 	is_siberiad = TRUE
 	is_squad_leader = TRUE
 
 	uses_squads = TRUE
+	whitelisted = FALSE
 
 	additional_languages = list("English" = 20)
 	min_positions = 2
 	max_positions = 8
-	selection_color = "#CC0000"
 
 /datum/job/russian/siberiad/squadlead/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
@@ -2993,18 +2994,19 @@
 	return TRUE
 
 /datum/job/russian/siberiad/heavy
-	title = "Soviet Army Heavy Weapons Specialist"
-	rank_abbreviation = "Efr."
+	title = "Tyazhelaya pekhota"
+	en_meaning = "Heavy infantry"
+	rank_abbreviation = "H."
 	spawn_location = "JoinLateRU"
 
 	is_siberiad = TRUE
 
 	uses_squads = TRUE
+	whitelisted = FALSE
 
 	additional_languages = list("English" = 10)
 	min_positions = 4
 	max_positions = 8
-	selection_color = "#CC0000"
 
 /datum/job/russian/siberiad/heavy/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
@@ -3073,18 +3075,19 @@
 	return TRUE
 
 /datum/job/russian/siberiad/infantry
-	title = "Soviet Army Rifleman"
-	rank_abbreviation = "Ryad."
+	title = "Legkaya pekhota"
+	en_meaning = "Light Infantry"
+	rank_abbreviation = " "
 	spawn_location = "JoinLateRU"
 
 	is_siberiad = TRUE
 
 	uses_squads = TRUE
+	whitelisted = FALSE
 
 	additional_languages = list("English" = 5)
 	min_positions = 9
 	max_positions = 90
-	selection_color = "#CC0000"
 
 /datum/job/russian/siberiad/infantry/equip(var/mob/living/human/H)
 	if (!H)	return FALSE

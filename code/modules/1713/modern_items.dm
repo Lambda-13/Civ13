@@ -952,7 +952,6 @@
 	storage.attackby(W, user)
 	update_icon()
 ///////////////////////////////////////////////////////////////////////////////Katana Wall Stand////////////////////////
-
 /obj/structure/katana_stand
 	name = "katana display"
 	desc = "A display for a katana mounted to a wall."
@@ -976,7 +975,6 @@
 		icon_state = "katana_stand1"
 	else
 		icon_state = "katana_stand"
-	return
 
 /obj/structure/katana_stand/New()
 	..()
@@ -1012,8 +1010,7 @@
 
 /obj/structure/katana_stand/full/New()
 	..()
-	new /obj/item/weapon/material/sword/katana(src.storage)
-	update_icon()
+	new /obj/item/weapon/material/sword/katana(src)
 
 /obj/structure/floodlight //Works in the basic way, will need more coding for powersupply, being destroyable, etc.
 	name = "floodlight"

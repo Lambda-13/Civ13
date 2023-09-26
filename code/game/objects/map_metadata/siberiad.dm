@@ -1,11 +1,10 @@
 /obj/map_metadata/siberiad
 	ID = MAP_SIBERIAD
-	title = "Operation Siberiad"
+	title = "Secret war Siberia"
 	lobby_icon = "icons/lobby/siberiad.png"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall,/area/caribbean/no_mans_land/invisible_wall/one,/area/caribbean/no_mans_land/invisible_wall/two)
-	respawn_delay = 600
+	respawn_delay = 0
 	no_hardcore = FALSE
-	ambience = list('sound/ambience/winter.ogg')
 
 	faction_organization = list(
 		AMERICAN,
@@ -17,15 +16,14 @@
 		)
 	age = "2049"
 	faction_distribution_coeffs = list(AMERICAN = 0.5, RUSSIAN = 0.5)
-	battle_name = "Siberian Conflict"
-	mission_start_message = "<font size=4>The remnants of the <b><font color = blue>Coalition</b></font> and the <font color = red><b>Soviet Army</b></font> are fighting for the control of an <b>Industrial Complex</b> in the <b>North-Eastern sector</b> of the area.<br>Each side will win if they manage to hold the radio station for <b>5 minutes</b>.<br>The battle will start in <b>5 minutes</b>.</font>"
+	battle_name = "Secret War Siberia"
+	mission_start_message = "<font size=4>The <b>Coalition</b> and the <b>Soviets</b> are Fighting for the control of a local coal plant in the NORTHEASTERN sector of the map, Each side will win if they manage to hold the radio station for <b>6 minutes</b>.<br>The battle will start in <b>5 minutes</b>.</font>"
 	faction1 = AMERICAN
 	faction2 = RUSSIAN
-	ordinal_age = 7
+	ordinal_age = 5
 	songs = list(
-		"Audio - Emissions:1" = "sound/music/emissions.ogg")
+		"Napalm sticks to kids:1" = "sound/music/napalmsticsktokidsbycortex.ogg")
 	gamemode = "King of the Hill"
-
 /obj/map_metadata/siberiad/faction2_can_cross_blocks()
 	return (processes.ticker.playtime_elapsed >= 3600 || admin_ended_all_grace_periods)
 
@@ -66,7 +64,6 @@
 			return "American"
 		if (RUSSIAN)
 			return "Soviet"
-			
 /obj/map_metadata/siberiad/roundend_condition_def2army(define)
 	..()
 	switch (define)
@@ -85,17 +82,17 @@
 
 /obj/map_metadata/siberiad/cross_message(faction)
 	if (faction == AMERICAN)
-		return "<font size = 4>The <b><font color = blue>Coalition</b></font> may now cross the invisible wall!</font>"
+		return "<font size = 4>The Coalition may now cross the invisible wall!</font>"
 	else if (faction == RUSSIAN)
-		return "<font size = 4>The <b><font color = red>Soviets</b></font> may now cross the invisible wall!</font>"
+		return "<font size = 4>The Soviets may now cross the invisible wall!</font>"
 	else
 		return ""
 
 /obj/map_metadata/siberiad/reverse_cross_message(faction)
 	if (faction == AMERICAN)
-		return "<span class = 'userdanger'>The <b><font color = blue>Coalition</b></font> may no longer cross the invisible wall!</span>"
+		return "<span class = 'userdanger'>The Coalition may no longer cross the invisible wall!</span>"
 	else if (faction == RUSSIAN)
-		return "<span class = 'userdanger'>The <b><font color = red>Soviets</b></font> may no longer cross the invisible wall!</span>"
+		return "<span class = 'userdanger'>The Soviets may no longer cross the invisible wall!</span>"
 	else
 		return ""
 
@@ -115,7 +112,7 @@
 	else if (win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[2]]), roundend_condition_sides[1], roundend_condition_sides[2], 1.33, TRUE))
 		if (!win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[1]]), roundend_condition_sides[2], roundend_condition_sides[1], 1.33))
 			if (last_win_condition != win_condition.hash)
-				current_win_condition = "The [roundend_condition_def2army(roundend_condition_sides[1][1])] have captured the Industrial Complex! They will win in {time} minute{s}."
+				current_win_condition = "The [roundend_condition_def2army(roundend_condition_sides[1][1])] has captured the Hill! They will win in {time} minute{s}."
 				next_win = world.time + short_win_time(roundend_condition_sides[2][1])
 				announce_current_win_condition()
 				current_winner = roundend_condition_def2army(roundend_condition_sides[1][1])
@@ -124,7 +121,7 @@
 	else if (win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[2]]), roundend_condition_sides[1], roundend_condition_sides[2], 1.01, TRUE))
 		if (!win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[1]]), roundend_condition_sides[2], roundend_condition_sides[1], 1.01))
 			if (last_win_condition != win_condition.hash)
-				current_win_condition = "The [roundend_condition_def2army(roundend_condition_sides[1][1])] have captured the Industrial Complex! They will win in {time} minute{s}."
+				current_win_condition = "The [roundend_condition_def2army(roundend_condition_sides[1][1])] has captured the Hill! They will win in {time} minute{s}."
 				next_win = world.time + long_win_time(roundend_condition_sides[2][1])
 				announce_current_win_condition()
 				current_winner = roundend_condition_def2army(roundend_condition_sides[1][1])
@@ -133,7 +130,7 @@
 	else if (win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[1]]), roundend_condition_sides[2], roundend_condition_sides[1], 1.33, TRUE))
 		if (!win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[2]]), roundend_condition_sides[1], roundend_condition_sides[2], 1.33))
 			if (last_win_condition != win_condition.hash)
-				current_win_condition = "The [roundend_condition_def2army(roundend_condition_sides[2][1])] have captured the Industrial Complex! They will win in {time} minute{s}."
+				current_win_condition = "The [roundend_condition_def2army(roundend_condition_sides[2][1])] has captured the Hill! They will win in {time} minute{s}."
 				next_win = world.time + short_win_time(roundend_condition_sides[1][1])
 				announce_current_win_condition()
 				current_winner = roundend_condition_def2army(roundend_condition_sides[2][1])
@@ -142,7 +139,7 @@
 	else if (win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[1]]), roundend_condition_sides[2], roundend_condition_sides[1], 1.01, TRUE))
 		if (!win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[2]]), roundend_condition_sides[1], roundend_condition_sides[2], 1.01))
 			if (last_win_condition != win_condition.hash)
-				current_win_condition = "The [roundend_condition_def2army(roundend_condition_sides[2][1])] have captured the Industrial Complex! They will win in {time} minute{s}."
+				current_win_condition = "The [roundend_condition_def2army(roundend_condition_sides[2][1])] has captured the Hill! They will win in {time} minute{s}."
 				next_win = world.time + long_win_time(roundend_condition_sides[1][1])
 				announce_current_win_condition()
 				current_winner = roundend_condition_def2army(roundend_condition_sides[2][1])
@@ -150,7 +147,7 @@
 
 	else
 		if (current_win_condition != no_winner && current_winner && current_loser)
-			world << "<font size = 3>The [current_winner] have lost control of the Industrial Complex!</font>"
+			world << "<font size = 3>The [current_winner] has lost control of the Hill!</font>"
 			current_winner = null
 			current_loser = null
 		next_win = -1
