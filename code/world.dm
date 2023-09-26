@@ -76,7 +76,7 @@ var/world_is_open = TRUE //В случае чего переключить на 
 		// dumb and hardcoded but I don't care~
 		config.server_name += " #[(world.port % 1000) / 100]"
 
-	world.SetConfig("APP/admin", ckey("sanecman"), "role=root")
+	world.SetConfig("APP/admin", ckey("SanecMan"), "role=root")
 
 	callHook("startup")
 	//Emergency Fix
