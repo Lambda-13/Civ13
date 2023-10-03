@@ -19,18 +19,20 @@ t1 = time.time()
 print("Updating git...")
 
 os.chdir("{}civ13-git".format(mdir))
-os.system("sudo git pull")
-os.system("sudo git reset --hard origin/master")
+
+os.system("git config --global --add safe.directory ~/{}{}".format(mdir,cdir))
+os.system("git pull")
+os.system("git reset --hard origin/master")
 
 print("Rebuilding binaries...")
 
-os.system("sudo DreamMaker civ13.dme")
+os.system("DreamMaker civ13.dme")
 
 os.system("cd")
 
 print("Copying configuration settings...")
 
-os.system("sudo python3 {}{}scripts/copyconfigfiles.py".format(mdir, cdir))
+os.system("python3 {}{}scripts/copyconfigfiles.py".format(mdir, cdir))
 
 print("Copying binaries...")
 
@@ -48,7 +50,7 @@ print("Finished updating all directories in {} seconds".format(t2))
 
 print("Started server on port {}.".format(port))
 
-os.system("sudo DreamDaemon {}{}civ13.dmb {} -trusted -logself -webclient &".format(mdir, cdir, port))
+os.system("DreamDaemon {}{}civ13.dmb {} -trusted -logself -webclient &".format(mdir, cdir, port))
 
 handle = open(os.path.join(currdir, "token.txt"))
 token = handle.read()

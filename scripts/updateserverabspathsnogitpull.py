@@ -21,7 +21,7 @@ os.system("DreamMaker {}civ13-git/civ13.dme".format(mdir))
 
 print("Copying configuration settings...")
 
-os.system("sudo python3 {}{}scripts/copyconfigfiles.py".format(mdir,cdir))
+os.system("python3 {}{}scripts/copyconfigfiles.py".format(mdir,cdir))
 
 print("Copying binaries...")
 

@@ -23,6 +23,7 @@ t1 = time.time()
 print("Updating git...")
 
 os.chdir("{}civ13-git".format(mdir))
+os.system("git config --global --add safe.directory ~/{}{}".format(mdir,cdir))
 os.system("git pull")
 os.system("git reset --hard origin/master")
 

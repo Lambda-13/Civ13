@@ -15,18 +15,19 @@ cdir = all_lines[2]
 cdir = cdir.replace("\n", "")
 cdir = cdir.replace("cdir:", "")
 os.chdir(os.path.join(mdir,"civ13-git"))
-os.system("sudo git pull")
-os.system("sudo git reset --hard origin/master")
+os.system("git config --global --add safe.directory ~/{}{}".format(mdir,cdir))
+os.system("git pull")
+os.system("git reset --hard origin/master")
 
 print("Rebuilding binaries...")
 
-os.system("sudo DreamMaker civ13.dme")
+os.system("DreamMaker civ13.dme")
 
 os.system("cd")
 
 print("Copying configuration settings...")
 
-os.system("sudo python3 {}{}scripts/copyconfigfiles.py".format(mdir,cdir))
+os.system("python3 {}{}scripts/copyconfigfiles.py".format(mdir,cdir))
 
 print("Copying binaries...")
 

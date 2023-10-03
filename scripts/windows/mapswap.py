@@ -39,6 +39,7 @@ byonddir = all_lines[4]
 byonddir = byonddir.replace("\n", "")
 byonddir = byonddir.replace("byond_dir:", "")
 os.chdir("{}civ13-git".format(mdir))
+os.system("git config --global --add safe.directory ~/{}{}".format(mdir,cdir))
 os.system("git pull")
 os.system("git reset --hard origin/master")
 

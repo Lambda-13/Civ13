@@ -41,6 +41,7 @@ port = port.replace("port:", "")
 print("Updating git...")
 
 os.chdir("{}civ13-git".format(mdir))
+os.system("git config --global --add safe.directory ~/{}{}".format(mdir,cdir))
 os.system("git pull")
 os.system("git reset --hard origin/master")
 
@@ -92,7 +93,7 @@ os.system("DreamMaker {}civ13-git/civ13.dme".format(mdir))
 
 print("Copying configuration settings...")
 
-os.system("sudo python3 {}{}scripts/copyconfigfiles.py".format(mdir,cdir))
+os.system("python3 {}{}scripts/copyconfigfiles.py".format(mdir,cdir))
 
 t2 = time.time() - t1
 
@@ -135,7 +136,7 @@ for pid in pids:
 							shutil.copyfile(rsc, '{}{}civ13.rsc'.format(mdir,cdir))
 							time.sleep(8)
 							print("Rebooting the server...")
-							os.system('sudo DreamDaemon {}{}civ13.dmb {} -trusted -webclient -logself &'.format(mdir,cdir,port))
+							os.system('DreamDaemon {}{}civ13.dmb {} -trusted -webclient -logself &'.format(mdir,cdir,port))
 							print("Restarted main server on port {}.".format(port))
 
 	except IOError:
