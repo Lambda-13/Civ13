@@ -15,6 +15,7 @@
 /obj/chat_text
 	name = "overlay"
 	desc = "overlay object"
+	mouse_opacity = FALSE
 	plane = CHAT_PLANE
 	icon = null
 
@@ -54,7 +55,7 @@
 		message.maptext_width = TILE_SIZE*7
 		message.maptext_x = (maptext_width * -0.5)-TILE_SIZE*2.5
 		message.maptext_y = TILE_SIZE*1
-		message.maptext = "<center>[desired_text]</center>"
+		message.maptext = "<center><big>[desired_text]</big></center>"
 		if(target)
 			target.images += message
 			target.overlay_cleaner(message)
