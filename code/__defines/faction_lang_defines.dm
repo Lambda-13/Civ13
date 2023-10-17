@@ -60,6 +60,8 @@
 	if (constant == CIVILIAN)
 		if (map.ID == "TSARITSYN")
 			return "Red Army"
+		else if (map.ID == "SKINHEADS")
+			return "Skinheads"
 		else if (map.ID == "YELTSIN")
 			return "Militia"
 		else if (map.ID == "AFRICAN_WARLORDS")
@@ -126,6 +128,8 @@
 	if (constant == RUSSIAN)
 		if (map.ID == "YELTSIN")
 			return "Russian Army"
+		else if (map.ID == "SKINHEADS")
+			return "MVD Russian Federation"
 		else if (map.ID == "GROZNY")
 			return "Russian Federal Forces"
 		else if (map.ID == "TSARITSYN")
