@@ -65,3 +65,4 @@ var/list/floating_chat_colors = list()
 	for(var/client/C in show_to)
 		C.images -= I
 		qdel(I)
+
