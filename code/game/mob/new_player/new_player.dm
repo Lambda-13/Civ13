@@ -633,7 +633,7 @@ var/global/redirect_all_players = null
 
 		var/job_flag = actual_job.base_type_flag()
 
-		if (!config.enter_allowed)
+		if (!GLOB.enter_allowed)
 			WWalert(usr,"Админ запретил заходить в раунд.", "Error")
 			return
 
@@ -799,7 +799,7 @@ var/global/redirect_all_players = null
 				spawn(10)
 					WWalert(usr,"Раунд закончился или ещё не начался.", "Error")
 		return FALSE
-	if (!config.enter_allowed)
+	if (!GLOB.enter_allowed)
 		if (!nomsg)
 			WWalert(usr,"There is an administrative lock on entering the game!", "Error")
 			if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.civilizations || map.ID == MAP_FOUR_KINGDOMS)

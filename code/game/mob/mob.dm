@@ -461,7 +461,7 @@
 	set name = "Respawn"
 	set category = "ИЦ"
 
-	if (!( config.abandon_allowed ))
+	if (!( GLOB.abandon_allowed ))
 		usr << "<span class='notice'>Respawn is disabled.</span>"
 		return
 

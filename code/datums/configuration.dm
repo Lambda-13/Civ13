@@ -104,9 +104,6 @@ var/list/gamemode_cache = list()
 
 	var/ghost_interaction = FALSE
 
-	var/enter_allowed = TRUE
-
-	var/abandon_allowed = TRUE
 	var/ooc_allowed = TRUE
 	var/looc_allowed = TRUE
 	var/dooc_allowed = TRUE
@@ -158,6 +155,8 @@ var/list/gamemode_cache = list()
 	var/new_round_webhook_color = ""
 	var/new_round_mention_webhook_url = ""
 	var/new_round_webhook_url = ""
+
+	var/topic_filtering_whitelist = list("127.0.0.1")
 
 /datum/configuration/proc/load(filename, type = "config") //the type can also be game_options, in which case it uses a different switch. not making it separate to not copypaste code - Urist
 
@@ -361,7 +360,7 @@ var/list/gamemode_cache = list()
 					config.looc_allowed = FALSE
 
 				if ("disable_entry")
-					config.enter_allowed = FALSE
+					GLOB.enter_allowed = FALSE
 
 				if ("disable_dead_ooc")
 					config.dooc_allowed = FALSE
@@ -370,7 +369,7 @@ var/list/gamemode_cache = list()
 					config.dsay_allowed = FALSE
 
 				if ("disable_respawn")
-					config.abandon_allowed = FALSE
+					GLOB.abandon_allowed = FALSE
 
 				if ("useapprovedlist")
 					config.useapprovedlist = TRUE
