@@ -1115,7 +1115,6 @@ obj/screen/tactic
 	layer = 21
 	mouse_opacity = TRUE
 /obj/screen/full_1_tile_overlay/process()
-	update_for_view()
 	update_icon()
 	return
 
@@ -1232,7 +1231,7 @@ obj/screen/tactic
 ////////////Screen effects/////////////////////////
 /obj/screen/noise
 	icon = 'icons/effects/static.dmi'
-	icon_state = "1 moderate"
+	icon_state = "1 light"
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	layer = 17
 	alpha = 127
