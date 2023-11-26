@@ -1,9 +1,7 @@
 /client
-
-	parent_type = /datum
-		////////////////
-		//ADMIN THINGS//
-		////////////////
+	parent_type = /datum // black magic
+	preload_rsc = PRELOAD_RSC // This is 0 so we can set it to an URL once the player logs in and have them download the resources from a different server.
+	view = WORLD_VIEW
 	var/datum/admins/holder = null
 	var/datum/admins/deadmin_holder = null
 	var/buildmode		= FALSE
@@ -64,5 +62,8 @@
 
 	// Transparent image for maptext tooltip
 	var/obj/screen/tooltip = null
+
+	// right click menu no longer shows up
+	show_popup_menus = FALSE
 
 /client/authenticate = FALSE

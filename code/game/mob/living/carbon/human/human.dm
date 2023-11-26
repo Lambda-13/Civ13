@@ -1433,7 +1433,7 @@ var/list/coefflist = list()
 		animate(user.client, pixel_x = 0, pixel_y = 0, time = 2, easing = SINE_EASING)
 		user.client.pixel_x = 0
 		user.client.pixel_y = 0
-		user.client.view = world.view
+		user.client.view = WORLD_VIEW
 		look_amount = 3
 		handle_ui_visibility()
 		user.dizzycheck = FALSE

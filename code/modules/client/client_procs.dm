@@ -407,8 +407,19 @@ var/list/blacklisted_builds = list(
 	var/seconds = inactivity/10
 	return "[round(seconds / 60)] minute\s, [seconds % 60] second\s"
 
-//send resources to the client. It's here in its own proc so we can move it around easiliy if need be
+/// Send resources to the client. Sends both game resources and browser assets.
 /client/proc/send_resources()
+#if (PRELOAD_RSC == 0)
+	var/static/next_external_rsc = 0
+	var/list/external_rsc_urls = CONFIG_GET(keyed_list/external_rsc_urls)
+	if(length_char(external_rsc_urls))
+		next_external_rsc = WRAP(next_external_rsc+1, 1, external_rsc_urls.len+1)
+		preload_rsc = external_rsc_urls[next_external_rsc]
+#else
+	getFilesSlow(src, asset_cache.cache, register_asset = FALSE)
+#endif
+
+	spawn (10) //removing this spawn causes all clients to not get verbs.
 
 	getFiles(
 		'UI/images/uos94.png',
@@ -422,9 +433,13 @@ var/list/blacklisted_builds = list(
 		'UI/templates/vending_machine_taotd.tmpl',
 		)
 
-	spawn (10) //removing this spawn causes all clients to not get verbs.
-		//Precache the client with all other assets slowly, so as to not block other browse() calls
-		getFilesSlow(src, asset_cache.cache, register_asset = FALSE)
+#if (PRELOAD_RSC == 0)
+/client/proc/preload_vox()
+	for (var/name in GLOB.vox_sounds)
+		var/file = GLOB.vox_sounds[name]
+		Export("##action=load_rsc", file)
+		stoplag()
+#endif
 
 /mob/proc/MayRespawn()
 	return FALSE
