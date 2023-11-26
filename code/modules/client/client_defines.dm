@@ -64,6 +64,6 @@
 	var/obj/screen/tooltip = null
 
 	// right click menu no longer shows up
-	show_popup_menus = FALSE
+//	show_popup_menus = FALSE
 
 /client/authenticate = FALSE
