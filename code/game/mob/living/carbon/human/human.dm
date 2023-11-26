@@ -1400,11 +1400,11 @@ var/list/coefflist = list()
 			var/_y = 0
 			switch(user.dir)
 				if(NORTH)
-					_y = look_amount
+					_y = look_amount - 2
 				if(EAST)
 					_x = look_amount
 				if(SOUTH)
-					_y = -look_amount
+					_y = -look_amount + 2
 				if(WEST)
 					_x = -look_amount
 			if(look_amount > world.view && user && user.client)//So we can still see the player at the edge of the screen if the zoom amount is greater than the world view //Copied from zoom.dm
@@ -1412,11 +1412,11 @@ var/list/coefflist = list()
 				user.client.view += view_offset
 				switch(user.dir)
 					if (NORTH)
-						_y -= view_offset
+						_y -= view_offset + 2
 					if (EAST)
 						_x -= view_offset
 					if (SOUTH)
-						_y += view_offset
+						_y += view_offset - 2
 					if (WEST)
 						_x += view_offset
 				animate(user.client, pixel_x = world.icon_size*_x, pixel_y = world.icon_size*_y, time = 3, easing = SINE_EASING)
@@ -1426,7 +1426,7 @@ var/list/coefflist = list()
 				animate(user.client, pixel_x = world.icon_size*_x, pixel_y = world.icon_size*_y, time = 3, easing = SINE_EASING)
 				user.client.pixel_x = world.icon_size*_x
 				user.client.pixel_y = world.icon_size*_y
-			user.visible_message("[user] looks into the distance.")
+			user.visible_message("[user] смотрит вдаль.")
 			handle_ui_visibility()
 			user.dizzycheck = TRUE
 	else//Resets
