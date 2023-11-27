@@ -16,7 +16,7 @@
 	max_shells = FALSE
 	anchored = FALSE
 	auto_eject = TRUE
-	fire_sound = 'sound/weapons/guns/fire/Maxim.ogg'
+	fire_sound = list('sound/weapons/guns/fire/Maxim.ogg')
 	firemodes = list(
 		list(name = "full auto", burst=6, burst_delay=2, fire_delay=2, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
 		)
@@ -29,7 +29,7 @@
 	icon_state = "maxim"
 	base_icon = "maxim"
 	caliber = "a762x54_weak"
-	fire_sound = 'sound/weapons/guns/fire/Maxim.ogg'
+	fire_sound = list('sound/weapons/guns/fire/Maxim.ogg')
 	magazine_type = /obj/item/ammo_magazine/maxim
 	good_mags = list(/obj/item/ammo_magazine/maxim)
 	firemodes = list(
@@ -44,7 +44,7 @@
 	base_icon = "maxim_ww2"
 	hardness = 90
 	caliber = "a762x54_weak"
-	fire_sound = 'sound/weapons/guns/fire/Maxim.ogg'
+	fire_sound = list('sound/weapons/guns/fire/Maxim.ogg')
 	magazine_type = /obj/item/ammo_magazine/maxim
 	good_mags = list(/obj/item/ammo_magazine/maxim)
 	firemodes = list(
@@ -58,7 +58,7 @@
 	icon_state = "mg08"
 	base_icon = "mg08"
 	caliber = "a792x57_weak"
-	fire_sound = 'sound/weapons/guns/fire/Maxim.ogg'
+	fire_sound = list('sound/weapons/guns/fire/Maxim.ogg')
 	magazine_type = /obj/item/ammo_magazine/mg08
 	good_mags = list(/obj/item/ammo_magazine/mg08)
 	firemodes = list(
@@ -131,7 +131,7 @@
 	icon_state = "pkm_foldable"
 	base_icon = "pkm_foldable"
 	caliber = "a762x54_weak"
-	fire_sound = 'sound/weapons/guns/fire/Maxim.ogg'
+	fire_sound = list('sound/weapons/guns/fire/Maxim.ogg')
 	magazine_type = /obj/item/ammo_magazine/pkm
 	good_mags = list(/obj/item/ammo_magazine/pkm, /obj/item/ammo_magazine/pkm/c100, /obj/item/ammo_magazine/maxim)
 	firemodes = list(
@@ -147,7 +147,7 @@
 	icon_state = "vickers"
 	base_icon = "vickers"
 	caliber = "a303_weak"
-	fire_sound = 'sound/weapons/guns/fire/Vickers.ogg'
+	fire_sound = list('sound/weapons/guns/fire/Vickers.ogg')
 	magazine_type = /obj/item/ammo_magazine/vickers
 	good_mags = list(/obj/item/ammo_magazine/vickers)
 	firemodes = list(
@@ -181,7 +181,7 @@
 	icon_state = "type92hmg"
 	base_icon = "type92hmg"
 	caliber = "a77x58"
-	fire_sound = 'sound/weapons/guns/fire/Type92.ogg'
+	fire_sound = list('sound/weapons/guns/fire/Type92.ogg')
 	magazine_type = /obj/item/ammo_magazine/type92
 	good_mags = list(/obj/item/ammo_magazine/type92)
 	firemodes = list(
@@ -198,7 +198,7 @@
 	icon_state = "browning"
 	base_icon = "browning"
 	caliber = "a3006"
-	fire_sound = 'sound/weapons/guns/fire/M1919.ogg'
+	fire_sound = list('sound/weapons/guns/fire/M1919.ogg')
 	magazine_type = /obj/item/ammo_magazine/browning
 	good_mags = list(/obj/item/ammo_magazine/browning)
 	firemodes = list(
@@ -214,7 +214,7 @@
 	icon_state = "m2"
 	base_icon = "m2"
 	caliber = "a50cal"
-	fire_sound = 'sound/weapons/guns/fire/M1919.ogg'
+	fire_sound = list('sound/weapons/guns/fire/M1919.ogg')
 	magazine_type = /obj/item/ammo_magazine/a50cal_can
 	good_mags = list(/obj/item/ammo_magazine/a50cal_can)
 	firemodes = list(
@@ -256,7 +256,7 @@
 	icon_state = "autocannon"
 	base_icon = "autocannon"
 	caliber = "a30"
-	fire_sound = 'sound/weapons/guns/fire/30mm.ogg'
+	fire_sound = list('sound/weapons/guns/fire/30mm.ogg')
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	magazine_type = /obj/item/ammo_magazine/autocannon_ap
@@ -273,7 +273,7 @@
 	icon_state = "autocannon"
 	base_icon = "autocannon"
 	caliber = "a30"
-	fire_sound = 'sound/weapons/guns/fire/30mm.ogg'
+	fire_sound = list('sound/weapons/guns/fire/30mm.ogg')
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	magazine_type = /obj/item/ammo_magazine/autocannon_ap
@@ -289,7 +289,7 @@
 	icon_state = "autocannon"
 	base_icon = "autocannon"
 	caliber = "a30"
-	fire_sound = 'sound/weapons/guns/fire/30mm.ogg'
+	fire_sound = list('sound/weapons/guns/fire/30mm.ogg')
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	magazine_type = /obj/item/ammo_magazine/autocannon_ap
@@ -309,7 +309,7 @@
 	icon_state = "atgm_autocannon"
 	base_icon = "atgm_autocannon"
 	caliber = "a30"
-	fire_sound = 'sound/weapons/guns/fire/30mm.ogg'
+	fire_sound = list('sound/weapons/guns/fire/30mm.ogg')
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	magazine_type = /obj/item/ammo_magazine/autocannon_ap
@@ -407,7 +407,7 @@
 	icon_state = "atgm"
 	base_icon = "atgm"
 	caliber = "rocket"
-	fire_sound = 'sound/weapons/guns/fire/rpg7.ogg'
+	fire_sound = list('sound/weapons/guns/fire/rpg7.ogg')
 	load_method = SINGLE_CASING
 	handle_casings = REMOVE_CASINGS
 	magazine_type = /obj/item/ammo_magazine/mosin

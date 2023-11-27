@@ -105,7 +105,7 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE
 	effectiveness_mod = 1.07
 	caliber = "dart"
-	fire_sound = 'sound/weapons/guns/interact/garandload.ogg'
+	fire_sound = list('sound/weapons/guns/interact/garandload.ogg')
 	fire_sound_text = "a sharp metalic clack"
 	recoil = FALSE
 	magazine_type = /obj/item/ammo_magazine/chemdart
@@ -148,9 +148,9 @@
 	throwforce = 20
 	effectiveness_mod = 1.07
 	caliber = "dart"
-	fire_sound = 'sound/weapons/guns/fire/Crossbow.ogg'
+	fire_sound = list('sound/weapons/guns/fire/Crossbow.ogg')
 	fire_sound_text = "someone blowing through a tube"
-	bulletinsert_sound = 'sound/items/matchstick_hit.ogg'
+	bulletinsert_sound = list('sound/items/matchstick_hit.ogg')
 	recoil = FALSE
 	auto_eject = FALSE
 	gtype = "none"
@@ -291,7 +291,7 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE
 	effectiveness_mod = 1.07
 	caliber = "dart"
-	fire_sound = 'sound/weapons/guns/interact/garandload.ogg'
+	fire_sound = list('sound/weapons/guns/interact/garandload.ogg')
 	fire_sound_text = "a sharp metalic clack"
 	recoil = FALSE
 	auto_eject = TRUE
@@ -332,7 +332,7 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE
 	effectiveness_mod = 1.07
 	caliber = "dart"
-	fire_sound = 'sound/weapons/guns/interact/garandload.ogg'
+	fire_sound = list('sound/weapons/guns/interact/garandload.ogg')
 	fire_sound_text = "a sharp metalic clack"
 	recoil = FALSE
 	magazine_type = /obj/item/ammo_magazine/chemdart/mag

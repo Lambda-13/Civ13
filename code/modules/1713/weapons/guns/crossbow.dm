@@ -12,12 +12,12 @@
 	slot_flags = SLOT_SHOULDER
 	caliber = "bolt"
 	recoil = 1 //little shaking
-	fire_sound = 'sound/weapons/guns/fire/Crossbow.ogg'
+	fire_sound = list('sound/weapons/guns/fire/Crossbow.ogg')
 	handle_casings = REMOVE_CASINGS
 	load_method = SINGLE_CASING
 	ammo_type = /obj/item/ammo_casing/bolt
 	load_shell_sound = 'sound/weapons/pull_bow.ogg'
-	bulletinsert_sound = 'sound/weapons/pull_bow.ogg'
+	bulletinsert_sound = list('sound/weapons/pull_bow.ogg')
 	//+2 accuracy over the LWAP because only one shot
 	accuracy = TRUE
 	gun_type = GUN_TYPE_BOW
