@@ -122,7 +122,7 @@
 #define CINEMATIC_CRASH_NUKE 11
 
 #define WORLD_VIEW "19x15"
-#define WORLD_VIEW_NUM 7
+#define WORLD_VIEW_NUM 9
 #define VIEW_NUM_TO_STRING(v) "[1 + 2 * v]x[1 + 2 * v]"
 
 #define TEXT_NORTH "[NORTH]"

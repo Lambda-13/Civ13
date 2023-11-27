@@ -1400,25 +1400,25 @@ var/list/coefflist = list()
 			var/_y = 0
 			switch(user.dir)
 				if(NORTH)
-					_y = look_amount - 2
+					_y = look_amount
 				if(EAST)
-					_x = look_amount
+					_x = look_amount - 2
 				if(SOUTH)
-					_y = -look_amount + 2
+					_y = -look_amount
 				if(WEST)
-					_x = -look_amount
+					_x = -look_amount + 2
 			if(look_amount > world.view && user && user.client)//So we can still see the player at the edge of the screen if the zoom amount is greater than the world view //Copied from zoom.dm
 				var/view_offset = round((look_amount - world.view)/2, TRUE)
-				user.client.view += view_offset
+				user.client.view_num += view_offset
 				switch(user.dir)
 					if (NORTH)
-						_y -= view_offset + 2
+						_y -= view_offset
 					if (EAST)
-						_x -= view_offset
+						_x -= view_offset + 2
 					if (SOUTH)
-						_y += view_offset - 2
+						_y += view_offset
 					if (WEST)
-						_x += view_offset
+						_x += view_offset - 2
 				animate(user.client, pixel_x = world.icon_size*_x, pixel_y = world.icon_size*_y, time = 3, easing = SINE_EASING)
 				user.client.pixel_x = world.icon_size*_x
 				user.client.pixel_y = world.icon_size*_y
