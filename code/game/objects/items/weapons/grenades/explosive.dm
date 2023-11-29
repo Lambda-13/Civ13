@@ -13,6 +13,9 @@
 	embed = TRUE
 	sharp = TRUE
 
+/obj/item/projectile/bullet/pellet/fragment/short_range
+	kill_count = 4
+
 /obj/item/projectile/bullet/pellet/fragment/strong
 	damage = 30
 
@@ -47,10 +50,10 @@
 			qdel(src)
 
 
-/obj/proc/fragmentate(var/turf/T, var/fragment_number = 30, var/spreading_range = 5, var/list/fragtypes=list(/obj/item/projectile/bullet/pellet/fragment/))
+/obj/proc/fragmentate(var/turf/T, var/fragment_number = 30, var/spreading_range = 5, var/list/fragtypes=list(/obj/item/projectile/bullet/pellet/fragment/short_range = 1))
 	set waitfor = 0
 	..()
-	
+
 	if(!T) return
 
 	var/list/target_turfs = getcircle(T, spreading_range)
@@ -68,7 +71,14 @@
 
 		//Make sure to hit any mobs in the source turf
 		for(var/mob/living/M in T)
-			P.attack_mob(M, 0, 0)
+			//lying on a frag grenade while the grenade is on the ground causes you to absorb most of the shrapnel.
+			//you will most likely be dead, but others nearby will be spared the fragments that hit you instead.
+			if(M.lying && isturf(src.loc))
+				P.attack_mob(M, 0, 5)
+			else if(!M.lying && src.loc != get_turf(src)) //if it's not on the turf, it must be in the mob!
+				P.attack_mob(M, 0, 25) //you're holding a grenade, dude!
+			else
+				P.attack_mob(M, 0, 100) //otherwise, allow a decent amount of fragments to pass
 
 
 
@@ -92,7 +102,7 @@
 	throw_speed = 3
 	throw_range = 5 //heavy, can't be thrown as far
 
-	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment=1,/obj/item/projectile/bullet/pellet/fragment/strong=4)
+	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment = 1, /obj/item/projectile/bullet/pellet/fragment/strong = 4)
 	num_fragments = 200  //total number of fragments produced by the grenade
 	explosion_size = 3
 
@@ -106,7 +116,7 @@
 	desc = "Cannot be thrown as the usual grenade, by the way."
 	icon_state = "M406"
 	num_fragments = 50
-	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment)
+	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment = 1)
 	explosion_size = 2
 	throw_range = 30
 
@@ -118,6 +128,6 @@
 	desc = "Cannot be thrown as the usual grenade, by the way."
 	icon_state = "40x103mmshell"
 	num_fragments = 50
-	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment)
+	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment = 1)
 	explosion_size = 2
 	throw_range = 30

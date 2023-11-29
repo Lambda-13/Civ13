@@ -16,7 +16,7 @@
 	desc = "supports wheels."
 	icon = 'icons/obj/vehicles/vehicleparts.dmi'
 	icon_state = "axis_powered"
-	var/vehicle_size = "3x4"
+	var/tile_size = "32x32"
 	var/vehicle_type = "car"
 	var/list/wheels = list()
 	var/currentspeed = 0
@@ -42,6 +42,8 @@
 	var/matrix_h = 0
 	var/list/matrix_current_locs = list()
 	var/turret_type = "tank_turret"
+	var/turret_x = 0
+	var/turret_y = 0
 /obj/structure/vehicleparts/axis/bike
 	name = "motorcycle axis"
 	currentspeed = 0
@@ -71,6 +73,15 @@
 	reg_number = ""
 	vehicle_type = "boat"
 
+/obj/structure/vehicleparts/axis/boat/fast
+	name = "boat rudder control"
+	currentspeed = 0
+	speeds = 4
+	maxpower = 40
+	speedlist = list(1=6,2=5,3=3,4=2)
+	reg_number = ""
+	vehicle_type = "boat"
+
 /obj/structure/vehicleparts/axis/heavy
 	name = "heavy vehicle axis"
 	desc = "A heavy and slow vehicle axis."
@@ -88,7 +99,7 @@
 	reg_number = ""
 	color = "#5C5C4C"
 	turret_type = "is3_turret"
-	vehicle_size = "3x5"
+	tile_size = "96x96"
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)
@@ -102,11 +113,34 @@
 	reg_number = ""
 	color = "#3d5931"
 	turret_type = "t34_turret"
+	tile_size = "96x96"
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)
 		tank_names_soviet -= pickedname
 		name = "[name] \'[pickedname]\'"
+
+/obj/structure/vehicleparts/axis/heavy/t34/t3485
+	name = "T-34-85"
+	turret_type = "t3485_turret"
+	color = "#4a5243"
+
+/obj/structure/vehicleparts/axis/heavy/su100
+	name = "SU-100"
+	speeds = 4
+	speedlist = list(1=12,2=8,3=6,4=5)
+	reg_number = ""
+	color = "#4a5243"
+	turret_type = "su100_turret"
+	tile_size = "96x96"
+	New()
+		..()
+		var/pickedname = pick(tank_names_soviet)
+		tank_names_soviet -= pickedname
+		name = "[name] \'[pickedname]\'"
+
+/obj/structure/vehicleparts/axis/heavy/su100/su85m
+	name = "SU-85M"
 
 /obj/structure/vehicleparts/axis/heavy/bt7
 	name = "BT-7"
@@ -153,7 +187,7 @@
 	reg_number = ""
 	color = "#4a5243"
 	turret_type = "none"
-	vehicle_size = "2x4"
+	tile_size = "96x96"
 	vehicle_type = "apc"
 	New()
 		..()
@@ -167,13 +201,29 @@
 	speedlist = list(1=14,2=10,3=8)
 	reg_number = ""
 	turret_type = "none"
-	vehicle_size = "3x4"
 	color = "#939276"
 	vehicle_type = "apc"
 	New()
 		..()
 		var/pickedname = pick(tank_names_usa)
 		tank_names_usa -= pickedname
+		name = "[name] \'[pickedname]\'"
+
+/obj/structure/vehicleparts/axis/heavy/bmd1
+	name = "BMD-1"
+	speeds = 4
+	speedlist = list(1=12,2=8,3=6,4=5)
+	reg_number = ""
+	color = "#787859"
+	turret_type = "bmd1_turret"
+	tile_size = "96x96"
+	vehicle_type = "apc"
+	turret_x = 16
+	turret_y = 16
+	New()
+		..()
+		var/pickedname = pick(tank_names_soviet)
+		tank_names_soviet -= pickedname
 		name = "[name] \'[pickedname]\'"
 
 /obj/structure/vehicleparts/axis/heavy/bmd2
@@ -183,41 +233,49 @@
 	reg_number = ""
 	color = "#787859"
 	turret_type = "bmd2_turret"
-	vehicle_size = "2x4"
+	tile_size = "96x96"
 	vehicle_type = "apc"
+	turret_x = 16
+	turret_y = 16
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)
 		tank_names_soviet -= pickedname
 		name = "[name] \'[pickedname]\'"
 
-/obj/structure/vehicleparts/axis/heavy/bmd2new
-	name = "BMD-2"
-	speeds = 4
-	speedlist = list(1=12,2=8,3=6,4=5)
+/obj/structure/vehicleparts/axis/heavy/bmd2/atgm
+	turret_type = "bmd2_atgm_turret"
+
+/obj/structure/vehicleparts/axis/heavy/btr80
+	name = "BTR-80"
+	speeds = 5
+	speedlist = list(1=10,2=6,3=5,4=4,5=3)
 	reg_number = ""
 	color = "#787859"
-	turret_type = "bmd2_turret"
-	vehicle_size = "2x3"
+	turret_type = "btr_turret"
+	tile_size = "96x96"
 	vehicle_type = "apc"
+	turret_x = 16
+	turret_y = 0
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)
 		tank_names_soviet -= pickedname
 		name = "[name] \'[pickedname]\'"
 
-/obj/structure/vehicleparts/axis/heavy/t3485
-	name = "T-34-85"
-	speeds = 4
-	speedlist = list(1=12,2=8,3=6,4=5)
-	turret_type = "t3485_turret"
+/obj/structure/vehicleparts/axis/heavy/btr80/atgm
+	turret_type = "btr_atgm_turret"
+
+/obj/structure/vehicleparts/axis/heavy/cv90
+	name = "BTR-80"
+	speeds = 5
+	speedlist = list(1=10,2=6,3=5,4=4,5=3)
 	reg_number = ""
-	color = "#3d5931"
-	New()
-		..()
-		var/pickedname = pick(tank_names_soviet)
-		tank_names_soviet -= pickedname
-		name = "[name] \'[pickedname]\'"
+	color = "#5C5C4C"
+	turret_type = "cv90_turret"
+	vehicle_type = "apc"
+	turret_x = 16
+	turret_y = 16
 
 /obj/structure/vehicleparts/axis/heavy/t72
 	name = "T-72"
@@ -226,6 +284,38 @@
 	turret_type = "t72_turret"
 	reg_number = ""
 	color = "#5C5C4C"
+	turret_x = 0
+	turret_y = 16
+	New()
+		..()
+		var/pickedname = pick(tank_names_soviet)
+		tank_names_soviet -= pickedname
+		name = "[name] \'[pickedname]\'"
+
+/obj/structure/vehicleparts/axis/heavy/t72m1
+	name = "T-72M1"
+	speeds = 4
+	speedlist = list(1=10,2=7,3=5,4=4)
+	turret_type = "t72m1_turret"
+	reg_number = ""
+	color = "#5C5C4C"
+	turret_x = 0
+	turret_y = 16
+	New()
+		..()
+		var/pickedname = pick(tank_names_soviet)
+		tank_names_soviet -= pickedname
+		name = "[name] \'[pickedname]\'"
+
+/obj/structure/vehicleparts/axis/heavy/t72b3
+	name = "T-72B3"
+	speeds = 4
+	speedlist = list(1=10,2=7,3=5,4=4)
+	turret_type = "t72b3_turret"
+	reg_number = ""
+	color = "#5C5C4C"
+	turret_x = 0
+	turret_y = 16
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)
@@ -239,6 +329,8 @@
 	turret_type = "t64bm_turret"
 	reg_number = ""
 	color = "#5C5C4C"
+	turret_x = 0
+	turret_y = 16
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)
@@ -252,6 +344,8 @@
 	turret_type = "t64bv_turret"
 	reg_number = ""
 	color = "#5C5C4C"
+	turret_x = 0
+	turret_y = 16
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)
@@ -327,7 +421,7 @@
 	name = "Panzer VI Tiger"
 	speeds = 4
 	speedlist = list(1=14,2=11,3=9,4=7)
-	turret_type = "tiger_tank"
+	turret_type = "tiger_turret"
 	reg_number = ""
 	color = "#3B3F41"
 	New()
@@ -335,6 +429,14 @@
 		var/pickedname = pick(tank_names_german)
 		tank_names_german -= pickedname
 		name = "[name] \'[pickedname]\'"
+
+/obj/structure/vehicleparts/axis/heavy/l3
+	name = "L3/33"
+	speeds = 4
+	speedlist = list(1=10,2=6,3=4,4=3)
+	reg_number = ""
+	color = "#D79E57"
+	turret_type = ""
 
 /obj/structure/vehicleparts/axis/heavy/omw22_2
 	name = "OMW-22 mk. II"
@@ -359,8 +461,10 @@
 	reg_number = ""
 	color = "#555346"
 	turret_type = "bmd2_turret"
-	vehicle_size = "2x3"
+	tile_size = "96x96"
 	vehicle_type = "apc"
+	turret_x = 16
+	turret_y = 16
 
 /obj/structure/vehicleparts/axis/heavy/t90a
 	name = "T-90A"
@@ -369,6 +473,13 @@
 	reg_number = ""
 	color = "#5C5C4C"
 	turret_type = "t90a_turret"
+	turret_x = 0
+	turret_y = 16
+	New()
+		..()
+		var/pickedname = pick(tank_names_soviet)
+		tank_names_soviet -= pickedname
+		name = "[name] \'[pickedname]\'"
 
 /obj/structure/vehicleparts/axis/heavy/leopard
 	name = "Leopard 2A6"
@@ -411,6 +522,7 @@
 		var/pickedname = pick(tank_names_japanese)
 		tank_names_japanese -= pickedname
 		name = "[name] \'[pickedname]\'"
+
 /obj/structure/vehicleparts/axis/heavy/m4
 	name = "M-4 Sherman"
 	speeds = 4
@@ -639,7 +751,8 @@
 			return
 		else
 			H.driver_vehicle.vehicle_m_delay = spd
-			H << "You increase the speed."
+			if (H.driver_vehicle.axis.currentspeed < H.driver_vehicle.axis.speedlist.len+1)
+				H << "You increase the speed."
 			return
 	else
 		return
@@ -674,6 +787,7 @@
 	var/customcolor = "#FFFFFF"
 	var/maxengine = 500
 	var/maxfueltank = 100
+	var/base_icon = "motorcycle_frame"
 	density = TRUE
 	weight = 100
 	w_class = 10
@@ -691,7 +805,7 @@
 	name = "motorcycle frame"
 	desc = "a motorcycle frame. Will fit engines up to 125cc and fueltanks up to 75u."
 	icon_state = "motorcycle_frame1"
-	var/base_icon = "motorcycle_frame"
+	base_icon = "motorcycle_frame"
 	customcolor = "#FFFFFF"
 	maxengine = 125
 	maxfueltank = 75
@@ -706,14 +820,27 @@
 	desc = "a simple outrigger boat frame, with no engine or propulsion mode. Supports engines up to 400cc and fueltanks up to 150u"
 	icon = 'icons/obj/vehicles/vehicleparts64x64.dmi'
 	icon_state = "outrigger_frame1"
-	var/base_icon = "outrigger_frame"
+	base_icon = "outrigger_frame"
 	maxengine = 400
 	maxfueltank = 150
 	weight = 60
-	w_class = 7
+	w_class = ITEM_SIZE_GARGANTUAN
 	step = 1
 	maxstep = 3
 	targettype = /obj/structure/vehicle/boat
+
+/obj/item/vehicleparts/frame/boat/rhib
+	name = "rhib boat frame"
+	desc = "a rhib boat frame, with no engine or propulsion mode. Supports engines up to 600cc and fueltanks up to 200u"
+	icon = 'icons/obj/vehicles/vehicleparts64x64.dmi'
+	icon_state = "rib_frame1"
+	base_icon = "rib_frame"
+	maxengine = 600
+	maxfueltank = 200
+	weight = 60
+	step = 1
+	maxstep = 3
+	//targettype = /obj/structure/vehicle/boat/rhib // хуй знает че это потом надо будет исправить
 
 /obj/item/vehicleparts/frame/proc/do_color()
 	colorv = image("icon" = icon, "icon_state" = "[icon_state]_mask")
@@ -721,17 +848,14 @@
 	overlays += colorv
 	update_icon()
 
-/obj/item/vehicleparts/frame/bike/update_icon()
+/obj/item/vehicleparts/frame/update_icon()
 	..()
 	icon_state = "[base_icon][step]"
 
-/obj/item/vehicleparts/frame/boat/update_icon()
-	..()
-	icon_state = "[base_icon][step]"
 /obj/item/vehicleparts/frame/attackby(obj/item/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/sail) && step == 1 && istype(src, /obj/item/vehicleparts/frame/boat))
+	if (istype(W, /obj/item/sail) && istype(src, /obj/item/vehicleparts/frame/boat) && step == 1)
 		if (do_after(user,130,src) && src && W)
-			user << "<span class = 'notice'>You attach the [W] to the [src].</span>"
+			user << SPAN_NOTICE("You attach \the [W] to \the [src].")
 			user.drop_from_inventory(W)
 			qdel(W)
 			var/obj/structure/vehicle/boat/sailboat/N = new/obj/structure/vehicle/boat/sailboat(get_turf(user))
@@ -744,7 +868,7 @@
 		if (NF.reagents.maximum_volume <= maxfueltank)
 			if (do_after(user,100,src))
 				if (fueltank == null)
-					user << "<span class = 'notice'>You attach the [W] to the [src].</span>"
+					user << SPAN_NOTICE("You attach \the [W] to \the [src].")
 					user.drop_from_inventory(W)
 					fueltank = W
 					W.forceMove(src)
@@ -752,18 +876,19 @@
 					check_step()
 					return
 		else
-			user << "<span class = 'notice'>This fuel tank is too big for the [src]!</span>"
+			user << SPAN_NOTICE("This fuel tank is too big for \the [src]!")
 			return
 	else
 		..()
+
 /obj/item/vehicleparts/frame/MouseDrop_T(obj/structure/O as obj, mob/user as mob)
 	if (istype(O, /obj/structure/engine/internal) && step == 1)
 		var/obj/structure/engine/internal/NE = O
 		if (NE.enginesize <= maxengine && NE.enginesize >= maxengine/4)
-			user << "<span class = 'notice'>You start placing the [O].</span>"
+			user << SPAN_NOTICE("You start placing \the [O].")
 			if (do_after(user,130,src))
 				if (engine == null)
-					user << "<span class = 'notice'>You attach the [O] to the [src].</span>"
+					user << SPAN_NOTICE("You attach \the [O] to \the [src].")
 					engine = O
 					O.forceMove(src)
 					step = 2
@@ -771,29 +896,29 @@
 					update_icon()
 					return
 		else if (NE.enginesize > maxengine)
-			user << "<span class = 'notice'>This engine is too big for the [src]!</span>"
+			user << SPAN_NOTICE("This engine is too big for \the [src]!")
 			return
 		else if (NE.enginesize <= maxengine && NE.enginesize < maxengine/4)
-			user << "<span class = 'notice'>This engine is too small for the [src]!</span>"
+			user << SPAN_NOTICE("This engine is too small for \the [src]!")
 			return
 
 /obj/item/vehicleparts/frame/proc/check_step()
 	if (step >= maxstep)
-		var/obj/structure/vehicle/NEWBIKE = new/obj/structure/vehicle/motorcycle(get_turf(src))
-		NEWBIKE.dir = dir
-		NEWBIKE.customcolor = customcolor
-		NEWBIKE.do_color()
-		NEWBIKE.engine = engine
-		NEWBIKE.fueltank = fueltank
-		NEWBIKE.name = name
+		var/obj/structure/vehicle/NEWVEHICLE = new targettype(get_turf(src))
+		NEWVEHICLE.dir = dir
+		NEWVEHICLE.customcolor = customcolor
+		NEWVEHICLE.do_color()
+		NEWVEHICLE.engine = engine
+		NEWVEHICLE.fueltank = fueltank
+		NEWVEHICLE.name = name
 		spawn(1)
-			NEWBIKE.engine.fueltank = NEWBIKE.fueltank
-			NEWBIKE.engine.connections += NEWBIKE.axis
-			NEWBIKE.dwheel.forceMove(NEWBIKE)
+			NEWVEHICLE.engine.fueltank = NEWVEHICLE.fueltank
+			NEWVEHICLE.engine.connections += NEWVEHICLE.axis
+			NEWVEHICLE.dwheel.forceMove(NEWVEHICLE)
 			spawn(1)
-				engine.forceMove(NEWBIKE)
-				fueltank.forceMove(NEWBIKE)
-				NEWBIKE.axis.check_enginepower(NEWBIKE.engine.enginesize)
+				engine.forceMove(NEWVEHICLE)
+				fueltank.forceMove(NEWVEHICLE)
+				NEWVEHICLE.axis.check_enginepower(NEWVEHICLE.engine.enginesize)
 				qdel(src)
 				return
 	else
@@ -809,19 +934,19 @@
 
 /obj/item/vehicleparts/frame/boat/check_step()
 	if (step >= maxstep)
-		var/obj/structure/vehicle/NEWBOAT = new/obj/structure/vehicle/boat(get_turf(src))
-		NEWBOAT.dir = dir
-		NEWBOAT.engine = engine
-		NEWBOAT.fueltank = fueltank
-		NEWBOAT.name = name
+		var/obj/structure/vehicle/NEWVEHICLE = new targettype(get_turf(src))
+		NEWVEHICLE.dir = dir
+		NEWVEHICLE.engine = engine
+		NEWVEHICLE.fueltank = fueltank
+		NEWVEHICLE.name = name
 		spawn(1)
-			NEWBOAT.engine.fueltank = NEWBOAT.fueltank
-			NEWBOAT.engine.connections += NEWBOAT.axis
-			NEWBOAT.dwheel.forceMove(NEWBOAT)
+			NEWVEHICLE.engine.fueltank = NEWVEHICLE.fueltank
+			NEWVEHICLE.engine.connections += NEWVEHICLE.axis
+			NEWVEHICLE.dwheel.forceMove(NEWVEHICLE)
 			spawn(1)
-				engine.forceMove(NEWBOAT)
-				fueltank.forceMove(NEWBOAT)
-				NEWBOAT.axis.check_enginepower(NEWBOAT.engine.enginesize)
+				engine.forceMove(NEWVEHICLE)
+				fueltank.forceMove(NEWVEHICLE)
+				NEWVEHICLE.axis.check_enginepower(NEWVEHICLE.engine.enginesize)
 				qdel(src)
 				return
 		return
@@ -829,15 +954,19 @@
 ///////////////////////EXTRA STUFF//////////////////////
 
 /obj/item/sail
-	name = "small sail"
-	desc = "a small sail. Will fit a minor boat."
+	name = "small cloth sail"
+	desc = "A small cloth sail. Will fit a minor boat."
 	icon = 'icons/obj/vehicles/vehicleparts.dmi'
 	icon_state = "sailing0"
 	anchored = FALSE
 	flammable = TRUE
 	w_class = ITEM_SIZE_LARGE
 
-/obj/item/tank_systems
+/obj/item/sail/wool
+	name = "small wool sail"
+	desc = "A small cloth sail. Will fit a minor boat."
+
+/obj/item/tank_system
 	name = "Tank System"
 	desc = "Base parent object, DO NOT USE."
 	icon = 'icons/obj/vehicles/vehicleparts.dmi'
@@ -848,7 +977,7 @@
 	opacity = FALSE
 	density = FALSE
 
-/obj/item/tank_systems/ecms
+/obj/item/tank_system/ecms
 	name = "ECMS"
 	desc = "An Electromagnetic Counter-Mine System."
 	New()
@@ -856,32 +985,42 @@
 		spawn(5)
 		explode_mines()
 
-/obj/item/tank_systems/ecms/proc/explode_mines()
+/obj/item/tank_system/ecms/proc/explode_mines()
 	if (src)
 		for (var/obj/item/mine/M in range(5, src))
 			if (M.anchored)
 				M.trigger(src)
-				for (var/mob/O in viewers(7, loc))
-					O << "<font color='red'>\The [src] explodes the [M]!</font>"
+				for (var/mob/O in viewers(7, get_turf(src)))
+					to_chat(O, SPAN_DANGER("\The [src] explodes the [M]!"))
 		sleep(6 SECONDS)
 		explode_mines()
 	else return
 
-/obj/item/tank_systems/iars
-	name = "IARS"
-	desc = "An Infrared Anti-Rocket System."
+/obj/item/tank_system/aps
+	name = "Active Protection System"
+	desc = "A hard-kill active protection system for defense against Rocket-Propelled Grenades and Anti-Tank Guided Missiles."
+	var/uses = 12
 	New()
 		..()
 		spawn(5)
 		explode_missiles()
 
-/obj/item/tank_systems/iars/proc/explode_missiles()
+/obj/item/tank_system/aps/proc/explode_missiles()
 	if (src)
-		for (var/obj/item/missile/M in range(6, src))
-			if (M)
-				M.throw_impact(get_turf(M))
-				for (var/mob/O in viewers(7, loc))
-					O << "<font color='red'>\The [src] explodes the rocket!</font>"
+		if (uses > 0)
+			for (var/obj/item/missile/M in range(6, src))
+				if (M)
+					M.throw_impact(get_turf(M))
+					--uses
+					for (var/mob/O in viewers(7, get_turf(src)))
+						to_chat(O, SPAN_DANGER("<big>\The [src] explodes the rocket!</big>"))
 		sleep(1 SECONDS)
 		explode_missiles()
 	else return
+
+/obj/item/tank_system/aps/examine(mob/user)
+	..()
+	to_chat(user, SPAN_NOTICE("It has [uses] uses left."))
+
+/obj/item/tank_system/aps/ironfist
+	name = "Iron Fist APS"

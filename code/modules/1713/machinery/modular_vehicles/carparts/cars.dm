@@ -556,7 +556,6 @@
 	reg_number = ""
 	color = "#3d5931"
 	turret_type = "none"
-	vehicle_size = "2x3"
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)
@@ -575,7 +574,6 @@
 	reg_number = ""
 	color = "#3d5931"
 	turret_type = "none"
-	vehicle_size = "2x4"
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)
@@ -594,7 +592,6 @@
 	reg_number = ""
 	color = "#ffffff"
 	turret_type = "none"
-	vehicle_size = "2x4"
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)
