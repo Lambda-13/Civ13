@@ -67,6 +67,8 @@
 /datum/job/var/is_redka = FALSE
 /datum/job/var/is_blugi = FALSE
 /datum/job/var/is_yellowag = FALSE
+/datum/job/var/is_skinhead = FALSE
+/datum/job/var/is_mvd = FALSE
 /datum/job/var/is_un = FALSE
 /datum/job/var/is_capitol = FALSE
 /datum/job/var/is_paratrooper = FALSE
