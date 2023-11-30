@@ -59,7 +59,7 @@
 
 
 /obj/item/weapon/material/bust
-	name = "stone bust"
+	name = "bust"
 	sharp = FALSE
 	edge = FALSE
 	desc = "A stone bust of a person"
@@ -77,7 +77,7 @@
 	cooldownw = 7
 
 /obj/item/weapon/material/hippocratic
-	name = "stone bust of hippocrates"
+	name = "bust of hippocrates"
 	sharp = FALSE
 	edge = FALSE
 	desc = "A stone bust of hippocrates"
@@ -370,7 +370,7 @@
 	value = 15
 	slot_flags = SLOT_BELT
 	block_chance = 15
-	cooldownw = DEFAULT_ATTACK_COOLDOWN + 2
+	cooldownw = 5
 	chopping_speed = 1.7
 	health = 20
 	maxhealth = 20
@@ -673,7 +673,7 @@
 	block_chance = 5
 
 /obj/item/weapon/material/spear/sarissa/attack_self(mob/user)
-	if (do_after(user, 15, src, can_move = FALSE))
+	if (do_after(user, 15, src, can_move = TRUE))
 		if (deployed)
 			deployed = FALSE
 			user << "<span class='notice'>You lift your [name] up, falling out of formation.</span>"
@@ -765,8 +765,8 @@
 // yes, i know this is horrible shitcode. Pls no bully
 	if (!istype(loc, /mob/living/human))
 		deployed = FALSE
-		item_state = "dory"
-		worn_state = "dory"
+		item_state = initial(item_state)
+		worn_state = initial(worn_state)
 	else
 		var/mob/living/human/US = loc
 		if (deployed)
@@ -814,8 +814,8 @@
 			US.overlays += standing
 		else if (!deployed)
 			US.overlays -= standing
-			item_state = "dory"
-			worn_state = "dory"
+			item_state = initial(item_state)
+			worn_state = initial(worn_state)
 		spawn(1)
 			update_icon()
 
@@ -1052,18 +1052,64 @@
 
 /obj/structure/vehicleparts/frame/attackby(var/obj/item/I, var/mob/living/human/H)
 	if (istype(I, /obj/item/weapon/lungemine))
-		visible_message("The lunge mine hits \the [src]!")
+		visible_message(SPAN_DANGER("<big>[H] jabs \the [src] with a [I] causing it to explode!</big>"))
 		message_admins("[H] used a lunge mine on a vehicle at [x], [y], [z].")
 		log_admin("[H] used a lunge mine on a vehicle at [x], [y], [z].")
+		var/penloc = CheckPenLoc(get_turf(H))
 		explosion(H.loc, 1, 3, 2, 0)
+
 		for (var/mob/M in axis.transporting)
 			shake_camera(M, 4, 4)
 
-		w_left[5] -= 55
-		w_right[5] -= 55
-		w_front[5] -= 55
-		w_back[5] -= 55
-		try_destroy()
+		switch(penloc)
+			if ("left")
+				if (w_left[5] > 0)
+					w_left[5] -= heavy_armor_penetration
+					visible_message("<span class = 'danger'><big>The left hull gets damaged!</big></span>")
+			if ("right")
+				if (w_right[5] > 0)
+					w_right[5] -= heavy_armor_penetration
+					visible_message("<span class = 'danger'><big>The right hull gets damaged!</big></span>")
+			if ("front")
+				if (w_front[5] > 0)
+					w_front[5] -= heavy_armor_penetration
+					visible_message("<span class = 'danger'><big>The front hull gets damaged!</big></span>")
+			if ("back")
+				if (w_back[5] > 0)
+					w_back[5] -= heavy_armor_penetration
+					visible_message("<span class = 'danger'><big>The rear hull gets damaged!</big></span>")
+			if ("frontleft")
+				if (w_left[5] > 0 && w_front[5] > 0)
+					if (w_left[4] > w_front[4] && w_left[5]>0)
+						w_left[5] -= heavy_armor_penetration
+						visible_message("<span class = 'danger'><big>The left hull gets damaged!</big></span>")
+					else
+						w_front[5] -= heavy_armor_penetration
+						visible_message("<span class = 'danger'><big>The front hull gets damaged!</big></span>")
+			if ("frontright")
+				if (w_right[5] > 0 && w_front[5] > 0)
+					if (w_right[4] > w_front[4] && w_right[5]>0)
+						w_right[5] -= heavy_armor_penetration
+						visible_message("<span class = 'danger'><big>The right hull gets damaged!</big></span>")
+					else
+						w_front[5] -= heavy_armor_penetration
+						visible_message("<span class = 'danger'><big>The front hull gets damaged!</big></span>")
+			if ("backleft")
+				if (w_left[5] > 0 && w_back[5] > 0)
+					if (w_left[4] > w_back[4] && w_left[5]>0)
+						w_left[5] -= heavy_armor_penetration
+						visible_message("<span class = 'danger'><big>The left hull gets damaged!</big></span>")
+					else
+						w_back[5] -= heavy_armor_penetration
+						visible_message("<span class = 'danger'><big>The rear hull gets damaged!</big></span>")
+			if ("backright")
+				if (w_right[5] > 0 && w_back[5] > 0)
+					if (w_right[4] > w_back[4] && w_right[5]>0)
+						w_right[5] -= heavy_armor_penetration
+						visible_message("<span class = 'danger'><big>The right hull gets damaged!</big></span>")
+					else
+						w_back[5] -= heavy_armor_penetration
+						visible_message("<span class = 'danger'><big>The rear hull gets damaged!</big></span>")
 		if (H)
 			H.awards["tank"]+=(heavy_armor_penetration/200)
 	else
