@@ -1167,5 +1167,5 @@
 #include "lambda\sanecman\code\serverside\whitelistweb.dm"
 #include "lambda\sanecman\code\soldier_stogie\soldier_stogie.dm"
 #include "lambda\rotipik\code\chainsaw.dm"
-#include "maps\1943\smallingrad.dmm"
+#include "maps\1943\gulag13.dmm"
 // END_INCLUDE
