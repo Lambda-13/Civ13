@@ -43,17 +43,16 @@
 	if (prob(10))
 		playsound(t, 'sound/effects/smoke.ogg', 10, TRUE, -3)
 		explosion(t,0,1,1,2)
-		visible_message("<span class = 'warning'>\The [src] is hit by a projectile causing it to explode!</span>")
-		spawn(5)
-			qdel(src)
+		visible_message(SPAN_DANGER("<big>\The [src] is hit by a projectile causing it to explode!</big>"))
+		qdel(src)
 
 /obj/item/cannon_ball/rocket/fire_act(temperature)
 	var/turf/t = get_turf(src)
 	if (temperature > T0C+500)
-		explosion(t,1,1,1,2)
-		visible_message("<span class = 'warning'>\The [src] cooks off and explodes!</span>")
-		qdel(src)
-	return ..()
+		if (prob(20))
+			explosion(t,1,1,1,2)
+			visible_message(SPAN_DANGER("<big>\The [src] cooks-off and explodes!</big>"))
+			qdel(src)
 
 /obj/item/cannon_ball/rocket/incendiary
 	name = "incendiary rocket"
@@ -78,17 +77,16 @@
 	if (prob(20))
 		playsound(t, 'sound/effects/smoke.ogg', 20, TRUE, -3)
 		explosion(t,1,1,2,5)
-		visible_message("<span class = 'warning'>\The [src] is hit by a projectile causing it to explode!</span>")
-		spawn(5)
-			qdel(src)
+		visible_message(SPAN_DANGER("<big>\The [src] is hit by a projectile causing it to explode!</big>"))
+		qdel(src)
 
 /obj/item/cannon_ball/shell/fire_act(temperature)
 	var/turf/t = get_turf(src)
 	if (temperature > T0C+500)
-		explosion(t,1,1,2,5) //cook off makes it explode less
-		visible_message("<span class = 'warning'>\The [src] cooks off and explodes!</span>")
-		qdel(src)
-	return ..()
+		if (prob(20))
+			explosion(t,1,1,2,5) //cook off makes it explode less
+			visible_message(SPAN_DANGER("<big>\The [src] cooks-off and explodes!</big>"))
+			qdel(src)
 
 /obj/item/cannon_ball/shell/incendiary
 	name = "incendiary artillery shell"
@@ -109,36 +107,32 @@
 		name = "[caliber]mm [atype] shell"
 		icon_state = "shell[atype]"
 
-/obj/item/cannon_ball/shell/tank/HE57
+/obj/item/cannon_ball/shell/tank/HE45
 	atype = "HE"
-	caliber = 57
-	heavy_armor_penetration = 15
-	damage = 225
-
+	caliber = 45
+	heavy_armor_penetration = 8
+	damage = 290
 /obj/item/cannon_ball/shell/tank/AP45
 	atype = "AP"
 	caliber = 45
 	heavy_armor_penetration = 40
 	damage = 75
-
 /obj/item/cannon_ball/shell/tank/APCR45
 	atype = "APCR"
 	caliber = 45
 	heavy_armor_penetration = 60
 	damage = 90
 
-/obj/item/cannon_ball/shell/tank/HE45
+/obj/item/cannon_ball/shell/tank/HE57
 	atype = "HE"
-	caliber = 45
-	heavy_armor_penetration = 8
-	damage = 290
-
+	caliber = 57
+	heavy_armor_penetration = 15
+	damage = 225
 /obj/item/cannon_ball/shell/tank/AP57
 	atype = "AP"
 	caliber = 57
 	heavy_armor_penetration = 52
 	damage = 95
-
 /obj/item/cannon_ball/shell/tank/APCR57
 	atype = "APCR"
 	caliber = 57
@@ -150,13 +144,11 @@
 	caliber = 75
 	heavy_armor_penetration = 15
 	damage = 250
-
 /obj/item/cannon_ball/shell/tank/AP75
 	atype = "AP"
 	caliber = 75
 	heavy_armor_penetration = 52
 	damage = 100
-
 /obj/item/cannon_ball/shell/tank/APCR75
 	atype = "APCR"
 	caliber = 75
@@ -168,31 +160,59 @@
 	caliber = 100
 	heavy_armor_penetration = 20
 	damage = 333
-
 /obj/item/cannon_ball/shell/tank/AP100
 	atype = "AP"
 	caliber = 100
 	heavy_armor_penetration = 70
 	damage = 133
-
 /obj/item/cannon_ball/shell/tank/APCR100
 	atype = "APCR"
 	caliber = 100
 	heavy_armor_penetration = 100
 	damage = 100
 
+/obj/item/cannon_ball/shell/tank/HE120
+	atype = "HE"
+	caliber = 120
+	heavy_armor_penetration = 20
+	damage = 333
+/obj/item/cannon_ball/shell/tank/AP120
+	atype = "AP"
+	caliber = 120
+	heavy_armor_penetration = 110
+	damage = 140
+/obj/item/cannon_ball/shell/tank/APCR120
+	atype = "APCR"
+	caliber = 120
+	heavy_armor_penetration = 130
+	damage = 100
+
+/obj/item/cannon_ball/shell/tank/HE125
+	atype = "HE"
+	caliber = 125
+	heavy_armor_penetration = 20
+	damage = 333
+/obj/item/cannon_ball/shell/tank/AP125
+	atype = "AP"
+	caliber = 125
+	heavy_armor_penetration = 115
+	damage = 140
+/obj/item/cannon_ball/shell/tank/APCR125
+	atype = "APCR"
+	caliber = 125
+	heavy_armor_penetration = 135
+	damage = 100
+
 /obj/item/cannon_ball/shell/tank/HE88
 	atype = "HE"
 	caliber = 88
-	heavy_armor_penetration = 22
+	heavy_armor_penetration = 20
 	damage = 350
-
 /obj/item/cannon_ball/shell/tank/AP88
 	atype = "AP"
 	caliber = 88
 	heavy_armor_penetration = 110
 	damage = 145
-
 /obj/item/cannon_ball/shell/tank/APCR88
 	atype = "APCR"
 	caliber = 88
@@ -204,13 +224,11 @@
 	caliber = 85
 	heavy_armor_penetration = 20
 	damage = 330
-
 /obj/item/cannon_ball/shell/tank/AP85
 	atype = "AP"
 	caliber = 85
 	heavy_armor_penetration = 110
 	damage = 140
-
 /obj/item/cannon_ball/shell/tank/APCR85
 	atype = "APCR"
 	caliber = 85
@@ -222,13 +240,11 @@
 	caliber = 76.2
 	heavy_armor_penetration = 16
 	damage = 250
-
 /obj/item/cannon_ball/shell/tank/AP76
 	atype = "AP"
 	caliber = 76.2
 	heavy_armor_penetration = 55
 	damage = 100
-
 /obj/item/cannon_ball/shell/tank/APCR76
 	atype = "APCR"
 	caliber = 76.2
@@ -240,13 +256,11 @@
 	caliber = 204
 	heavy_armor_penetration = 100
 	damage = 500
-
 /obj/item/cannon_ball/shell/tank/AP204
 	atype = "AP"
 	caliber = 204
 	heavy_armor_penetration = 150
 	damage = 400
-
 /obj/item/cannon_ball/shell/tank/APCR204
 	atype = "APCR"
 	caliber = 204
@@ -293,17 +307,16 @@
 	if (prob(5))
 		playsound(t, 'sound/effects/smoke.ogg', 10, TRUE, -3)
 		explosion(t,0,1,1,1)
-		visible_message("<span class = 'warning'>\The [src] is hit by a projectile causing it to explode!</span>")
-		spawn(5)
-			qdel(src)
+		visible_message(SPAN_DANGER("<big>\The [src] is hit by a projectile causing it to explode!</big>"))
+		qdel(src)
 
 /obj/item/cannon_ball/mortar_shell/fire_act(temperature)
 	var/turf/t = get_turf(src)
 	if (temperature > T0C+500)
-		explosion(t,0,1,1,1)
-		qdel(src)
-		visible_message("<span class = 'warning'>\The [src] cooks off and explodes!</span>")
-	return ..()
+		if (prob(20))
+			explosion(t,0,1,1,1)
+			visible_message(SPAN_DANGER("<big>\The [src] cooks-off and explodes!</big>"))
+			qdel(src)
 
 
 /obj/item/cannon_ball/mortar_shell/type89
@@ -323,7 +336,7 @@
 // Chemical
 
 /obj/item/cannon_ball/shell/gas/chlorine
-	reagent_payload = "chlorine_gas"
+	reagent_payload = "chlorine"
 	name = "Chlorine Shell"
 	icon_state = "shell_chlorine"
 
@@ -376,10 +389,10 @@
 	value = 80
 	atype = "NUCLEAR"
 
-/obj/item/cannon_ball/shell/nuclear/makeshift
+/obj/item/cannon_ball/shell/nuclear/nomads
 	icon = 'icons/obj/cannon_ball.dmi'
-	name = "Makeshift Nuclear Shell"
-	desc = "A makeshift nuclear shell, once the genie is out of the bottle you can't put it back in..."
+	name = "Nuclear Shell"
+	desc = "A nuclear shell, once the genie is out of the bottle you can't put it back in..."
 	icon_state = "shell_nuclear"
 	value = 60
 
@@ -417,6 +430,7 @@
 /obj/structure/shellrack
 	icon = 'icons/obj/structures.dmi'
 	name = "shell rack"
+	desc = "A rack for storage your explosive goods."
 	icon_state = "shellrack0"
 	w_class = 10.0
 	var/obj/item/weapon/storage/internal/storage
@@ -459,188 +473,141 @@
 	if (storage)
 		icon_state = "shellrack[storage.contents.len]"
 
+/obj/structure/shellrack/autoloader
+	name = "shell rack"
+	desc = "A rack for storage your explosive goods. This one designed to feed into an autoloader, neat!"
+	anchored = TRUE
+	not_movable = TRUE
+	not_disassemblable = TRUE
+
+/obj/structure/shellrack/autoloader/full100/New()
+	..()
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/HE100(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/AP100(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/APCR100(storage)
+	update_icon()
+
+/obj/structure/shellrack/autoloader/full125/New()
+	..()
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/HE125(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/AP125(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/APCR125(storage)
+	update_icon()
+
 /obj/structure/shellrack/full57/New()
 	..()
-	new /obj/item/cannon_ball/shell/tank/HE57(storage)
-	new /obj/item/cannon_ball/shell/tank/HE57(storage)
-	new /obj/item/cannon_ball/shell/tank/HE57(storage)
-	new /obj/item/cannon_ball/shell/tank/HE57(storage)
-	new /obj/item/cannon_ball/shell/tank/HE57(storage)
-	new /obj/item/cannon_ball/shell/tank/HE57(storage)
-
-	new /obj/item/cannon_ball/shell/tank/AP57(storage)
-	new /obj/item/cannon_ball/shell/tank/AP57(storage)
-	new /obj/item/cannon_ball/shell/tank/AP57(storage)
-	new /obj/item/cannon_ball/shell/tank/AP57(storage)
-	new /obj/item/cannon_ball/shell/tank/AP57(storage)
-
-	new /obj/item/cannon_ball/shell/tank/APCR57(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR57(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR57(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR57(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR57(storage)
+	for (var/i=1, i<=6, i++)
+		new /obj/item/cannon_ball/shell/tank/HE57(storage)
+	for (var/i=1, i<=5, i++)
+		new /obj/item/cannon_ball/shell/tank/AP57(storage)
+	for (var/i=1, i<=5, i++)
+		new /obj/item/cannon_ball/shell/tank/APCR57(storage)
 	update_icon()
 
 /obj/structure/shellrack/full45/New()
 	..()
-	new /obj/item/cannon_ball/shell/tank/HE45(storage)
-	new /obj/item/cannon_ball/shell/tank/HE45(storage)
-	new /obj/item/cannon_ball/shell/tank/HE45(storage)
-	new /obj/item/cannon_ball/shell/tank/HE45(storage)
-	new /obj/item/cannon_ball/shell/tank/HE45(storage)
-	new /obj/item/cannon_ball/shell/tank/HE45(storage)
-
-	new /obj/item/cannon_ball/shell/tank/AP45(storage)
-	new /obj/item/cannon_ball/shell/tank/AP45(storage)
-	new /obj/item/cannon_ball/shell/tank/AP45(storage)
-	new /obj/item/cannon_ball/shell/tank/AP45(storage)
-	new /obj/item/cannon_ball/shell/tank/AP45(storage)
-
-	new /obj/item/cannon_ball/shell/tank/APCR45(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR45(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR45(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR45(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR45(storage)
+	for (var/i=1, i<=6, i++)
+		new /obj/item/cannon_ball/shell/tank/HE45(storage)
+	for (var/i=1, i<=5, i++)
+		new /obj/item/cannon_ball/shell/tank/AP45(storage)
+	for (var/i=1, i<=5, i++)
+		new /obj/item/cannon_ball/shell/tank/APCR45(storage)
 	update_icon()
 
 /obj/structure/shellrack/full75/New()
 	..()
-	new /obj/item/cannon_ball/shell/tank/HE75(storage)
-	new /obj/item/cannon_ball/shell/tank/HE75(storage)
-	new /obj/item/cannon_ball/shell/tank/HE75(storage)
-	new /obj/item/cannon_ball/shell/tank/HE75(storage)
-
-	new /obj/item/cannon_ball/shell/tank/AP75(storage)
-	new /obj/item/cannon_ball/shell/tank/AP75(storage)
-	new /obj/item/cannon_ball/shell/tank/AP75(storage)
-	new /obj/item/cannon_ball/shell/tank/AP75(storage)
-
-	new /obj/item/cannon_ball/shell/tank/APCR75(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR75(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR75(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR75(storage)
-	update_icon()
-
-/obj/structure/shellrack/full100/New()
-	..()
-	new /obj/item/cannon_ball/shell/tank/HE100(storage)
-	new /obj/item/cannon_ball/shell/tank/HE100(storage)
-	new /obj/item/cannon_ball/shell/tank/HE100(storage)
-	new /obj/item/cannon_ball/shell/tank/HE100(storage)
-
-	new /obj/item/cannon_ball/shell/tank/AP100(storage)
-	new /obj/item/cannon_ball/shell/tank/AP100(storage)
-	new /obj/item/cannon_ball/shell/tank/AP100(storage)
-	new /obj/item/cannon_ball/shell/tank/AP100(storage)
-
-	new /obj/item/cannon_ball/shell/tank/APCR100(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR100(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR100(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR100(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/HE75(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/AP75(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/APCR75(storage)
 	update_icon()
 
 /obj/structure/shellrack/full75/american/New()
 	..()
-	new /obj/item/cannon_ball/shell/tank/HE75(storage)
-	new /obj/item/cannon_ball/shell/tank/HE75(storage)
-	new /obj/item/cannon_ball/shell/tank/HE75(storage)
-	new /obj/item/cannon_ball/shell/tank/HE75(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/HE75(storage)
+	update_icon()
+
+/obj/structure/shellrack/full100/New()
+	..()
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/HE100(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/AP100(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/APCR100(storage)
+	update_icon()
+
+
+/obj/structure/shellrack/full120/New()
+	..()
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/HE120(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/AP120(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/APCR120(storage)
+	update_icon()
+
+/obj/structure/shellrack/full125/New()
+	..()
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/HE125(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/AP125(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/APCR125(storage)
 	update_icon()
 
 /obj/structure/shellrack/full85/New()
 	..()
-	new /obj/item/cannon_ball/shell/tank/HE85(storage)
-	new /obj/item/cannon_ball/shell/tank/HE85(storage)
-	new /obj/item/cannon_ball/shell/tank/HE85(storage)
-	new /obj/item/cannon_ball/shell/tank/HE85(storage)
-
-	new /obj/item/cannon_ball/shell/tank/AP85(storage)
-	new /obj/item/cannon_ball/shell/tank/AP85(storage)
-	new /obj/item/cannon_ball/shell/tank/AP85(storage)
-	new /obj/item/cannon_ball/shell/tank/AP85(storage)
-
-	new /obj/item/cannon_ball/shell/tank/APCR85(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR85(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR85(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR85(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/HE85(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/AP85(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/APCR85(storage)
 
 /obj/structure/shellrack/full88/New()
 	..()
-	new /obj/item/cannon_ball/shell/tank/HE88(storage)
-	new /obj/item/cannon_ball/shell/tank/HE88(storage)
-	new /obj/item/cannon_ball/shell/tank/HE88(storage)
-	new /obj/item/cannon_ball/shell/tank/HE88(storage)
-
-	new /obj/item/cannon_ball/shell/tank/AP88(storage)
-	new /obj/item/cannon_ball/shell/tank/AP88(storage)
-	new /obj/item/cannon_ball/shell/tank/AP88(storage)
-	new /obj/item/cannon_ball/shell/tank/AP88(storage)
-
-	new /obj/item/cannon_ball/shell/tank/APCR88(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR88(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR88(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR88(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/HE88(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/AP88(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/APCR88(storage)
 	update_icon()
 
 /obj/structure/shellrack/full76/New()
 	..()
-	new /obj/item/cannon_ball/shell/tank/HE76(storage)
-	new /obj/item/cannon_ball/shell/tank/HE76(storage)
-	new /obj/item/cannon_ball/shell/tank/HE76(storage)
-	new /obj/item/cannon_ball/shell/tank/HE76(storage)
-
-	new /obj/item/cannon_ball/shell/tank/AP76(storage)
-	new /obj/item/cannon_ball/shell/tank/AP76(storage)
-	new /obj/item/cannon_ball/shell/tank/AP76(storage)
-	new /obj/item/cannon_ball/shell/tank/AP76(storage)
-
-	new /obj/item/cannon_ball/shell/tank/APCR76(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR76(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR76(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR76(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/HE76(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/AP76(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/APCR76(storage)
 	update_icon()
 
 /obj/structure/shellrack/full204/New()
 	..()
-	new /obj/item/cannon_ball/shell/tank/HE204(storage)
-	new /obj/item/cannon_ball/shell/tank/HE204(storage)
-	new /obj/item/cannon_ball/shell/tank/HE204(storage)
-	new /obj/item/cannon_ball/shell/tank/HE204(storage)
-	new /obj/item/cannon_ball/shell/tank/HE204(storage)
-	new /obj/item/cannon_ball/shell/tank/HE204(storage)
-
-
-	new /obj/item/cannon_ball/shell/tank/AP204(storage)
-	new /obj/item/cannon_ball/shell/tank/AP204(storage)
-	new /obj/item/cannon_ball/shell/tank/AP204(storage)
-	new /obj/item/cannon_ball/shell/tank/AP204(storage)
-	new /obj/item/cannon_ball/shell/tank/AP204(storage)
-
-	new /obj/item/cannon_ball/shell/tank/APCR204(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR204(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR204(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR204(storage)
-	new /obj/item/cannon_ball/shell/tank/APCR204(storage)
+	for (var/i=1, i<=6, i++)
+		new /obj/item/cannon_ball/shell/tank/HE204(storage)
+	for (var/i=1, i<=5, i++)
+		new /obj/item/cannon_ball/shell/tank/AP204(storage)
+	for (var/i=1, i<=5, i++)
+		new /obj/item/cannon_ball/shell/tank/APCR204(storage)
 	update_icon()
 
 /obj/structure/shellrack/fullrocket/New()
 	..()
-	new /obj/item/cannon_ball/rocket(storage)
-	new /obj/item/cannon_ball/rocket(storage)
-	new /obj/item/cannon_ball/rocket(storage)
-	new /obj/item/cannon_ball/rocket(storage)
-	new /obj/item/cannon_ball/rocket(storage)
-	new /obj/item/cannon_ball/rocket(storage)
-
-	new /obj/item/cannon_ball/rocket(storage)
-	new /obj/item/cannon_ball/rocket(storage)
-	new /obj/item/cannon_ball/rocket(storage)
-	new /obj/item/cannon_ball/rocket(storage)
-	new /obj/item/cannon_ball/rocket(storage)
-
-	new /obj/item/cannon_ball/rocket(storage)
-	new /obj/item/cannon_ball/rocket(storage)
-	new /obj/item/cannon_ball/rocket(storage)
-	new /obj/item/cannon_ball/rocket(storage)
-	new /obj/item/cannon_ball/rocket(storage)
+	for (var/i=1, i<=16, i++)
+		new /obj/item/cannon_ball/rocket(storage)
 	update_icon()

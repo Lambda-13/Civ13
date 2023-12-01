@@ -61,10 +61,10 @@
 
 
 /obj/map_metadata/pervomaisk_crossing/faction2_can_cross_blocks()
-	return (processes.ticker.playtime_elapsed >= 3000 || admin_ended_all_grace_periods)
+	return (processes.ticker.playtime_elapsed >= 1 || admin_ended_all_grace_periods)
 
 /obj/map_metadata/pervomaisk_crossing/faction1_can_cross_blocks()
-	return (processes.ticker.playtime_elapsed >= 3000 || admin_ended_all_grace_periods)
+	return (processes.ticker.playtime_elapsed >= 1 || admin_ended_all_grace_periods)
 
 /obj/map_metadata/pervomaisk_crossing/check_caribbean_block(var/mob/living/human/H, var/turf/T)
 	if (!istype(H) || !istype(T))

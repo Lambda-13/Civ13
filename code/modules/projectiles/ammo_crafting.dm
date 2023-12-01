@@ -19,7 +19,7 @@
 				user << "You fill the casings with gunpowder."
 				gunpowder = gunpowder_max*amount
 				return
-	
+
 	if (istype(W, /obj/item/stack/material/iron))	//If the grenade casing is hit with iron, continue
 		if (!(gunpowder >= gunpowder_max*amount))
 			user << "<span class = 'notice'>You need to fill the casings with gunpowder before filling the charge.</span>"
@@ -31,7 +31,7 @@
 			var/spam_check = 0
 			var/list/listing = list("Cancel")
 			listing = list(/*"Explosive"*/, "Anti-Tank", "Shrapnel", "Cancel")
-			if (spam_check <= 1)	
+			if (spam_check <= 1)
 				var/input = WWinput(user, "What grenade do you want to make?", "Grenade Making", "Cancel", listing)
 				switch (input)
 					if ("Cancel")
@@ -60,7 +60,7 @@
 					return
 			else
 				return
-	
+
 	if (gunpowder >= gunpowder_max*amount && finished)
 		attack_self(user)
 		return
@@ -295,7 +295,7 @@
 /obj/item/stack/ammopart/casing/artillery/wired/advanced/filled/attack_self(mob/user)
 	if (gunpowder >= gunpowder_max && bulletn >= amount)
 		for(var/i=1;i<=amount;i++)
-			new/obj/item/cannon_ball/shell/nuclear/makeshift(user.loc)
+			//new/obj/item/cannon_ball/shell/nuclear/makeshift(user.loc)
 		qdel(src)
 		return
 	else
@@ -547,7 +547,7 @@
 					resultpath = /obj/item/ammo_casing/a65x50
 				if ("7.7x58mm arisaka")
 					resultpath = /obj/item/ammo_casing/a77x58
-				
+
 			if (resultpath != null && gunpowder >= gunpowder_max && bulletn >= amount)
 				for(var/i=1;i<=amount;i++)
 					var/obj/item/ammo_casing/NC = new resultpath(user.loc)
