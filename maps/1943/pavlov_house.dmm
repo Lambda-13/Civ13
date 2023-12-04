@@ -252,7 +252,7 @@
 "eR" = (/obj/structure/wild/rock,/obj/structure/wild/burnedbush{icon_state = "burnedbush7"},/turf/floor/dirt,/area/caribbean/nomads{ambience = list("sound/ambience/battle1.ogg")})
 "eS" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/wood,/area/caribbean/roofed/temperate)
 "eT" = (/obj/structure/wild/tree/dead_tree/destroyed{icon_state = "8"},/turf/floor/dirt,/area/caribbean/nomads{ambience = list("sound/ambience/battle1.ogg")})
-"eU" = (/obj/structure/cannon/modern{dir = 1; icon_state = "modern_cannon"; maxrange = 50; maxsway = 25},/turf/floor/trench,/area/caribbean/nomads{ambience = list("sound/ambience/battle1.ogg")})
+"eU" = (/obj/structure/cannon/modern{dir = 1; icon_state = "modern_cannon"; maxrange = 50},/turf/floor/trench,/area/caribbean/nomads{ambience = list("sound/ambience/battle1.ogg")})
 "eV" = (/obj/structure/bookcase,/turf/floor/wood,/area/caribbean/roofed/temperate)
 "eW" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/barricade,/obj/structure/barricade/horizontal,/obj/structure/barbwire{dir = 1; icon_state = "barbwire"},/turf/floor/dirt,/area/caribbean/nomads{ambience = list("sound/ambience/battle1.ogg")})
 "eX" = (/obj/structure/barricade,/obj/structure/barricade/horizontal,/obj/structure/barricade/vertical,/obj/structure/flag/soviet,/obj/structure/barbwire{dir = 1; icon_state = "barbwire"},/obj/structure/barbwire{dir = 8; icon_state = "barbwire"},/turf/floor/dirt,/area/caribbean/nomads{ambience = list("sound/ambience/battle1.ogg")})
