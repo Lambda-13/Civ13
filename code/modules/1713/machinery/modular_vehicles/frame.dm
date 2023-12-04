@@ -262,8 +262,7 @@
 			if (K.code == doorcode)
 				if (w_front[6])
 					if (w_front[7])
-						visible_message("[H] locks the door.")
-						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
+						visible_message("[H] запер дверь")
 						w_front[7] = FALSE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -273,8 +272,7 @@
 									VP.update_icon()
 							noroof = FALSE
 					else
-						visible_message("[H] unlocks the door.")
-						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
+						visible_message("[H] отпер дверь")
 						w_front[7] = TRUE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -286,8 +284,7 @@
 					H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				if (w_back[6])
 					if (w_back[7])
-						visible_message("[H] locks the door.")
-						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
+						visible_message("[H] запер дверь")
 						w_back[7] = FALSE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -297,8 +294,7 @@
 									VP.update_icon()
 							noroof = FALSE
 					else
-						visible_message("[H] unlocks the door.")
-						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
+						visible_message("[H] отпер дверь")
 						w_back[7] = TRUE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -310,8 +306,7 @@
 					H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				if (w_left[6])
 					if (w_left[7])
-						visible_message("[H] locks the door.")
-						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
+						visible_message("[H] запер дверь")
 						w_left[7] = FALSE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -321,8 +316,7 @@
 									VP.update_icon()
 							noroof = FALSE
 					else
-						visible_message("[H] unlocks the door.")
-						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
+						visible_message("[H] отпер дверь")
 						w_left[7] = TRUE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -334,8 +328,7 @@
 					H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				if (w_right[6])
 					if (w_right[7])
-						visible_message("[H] locks the door.")
-						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
+						visible_message("[H] запер дверь")
 						w_right[7] = FALSE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -345,8 +338,7 @@
 									VP.update_icon()
 							noroof = FALSE
 					else
-						visible_message("[H] unlocks the door.")
-						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
+						visible_message("[H] отпер дверь")
 						w_right[7] = TRUE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -356,9 +348,10 @@
 									VP.update_icon()
 							noroof = TRUE
 					H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+				playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
 				update_icon()
 			else
-				H << "This key does not match this lock!"
+				H << "Ключ не подходит!"
 				return
 		else
 			if(istype(src, /obj/structure/vehicleparts/frame/ship )) //adds routines to lock the boat
@@ -371,15 +364,14 @@
 				else if(src.w_front[1] == "boat_port2")
 					src.w_front[6] = TRUE
 				else
-					H << "This is not a door."
+					H << "Это не дверь."
 					return
 				doorcode = K.code
-				H << "You assign this key to the lock."
+				H << "Замок на двери привязан к ключу."
 				return
 			else
-				if (src.w_front[6] || src.w_back[6] || src.w_left[6] || src.w_right[6])
-					doorcode = K.code		//Leave it as before if its not a boat
-					H << "You assign this key to the lock."
+				doorcode = K.code		//Leave it as before if its not a boat
+				H << "Замок на двери привязан к ключу."
 				return
 	else
 		..()
@@ -485,42 +477,42 @@
 		if ("front")
 			if (w_front[5] <= 0 && prob(75))
 				return TRUE
-			if (max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_front[4])
+			if (max(0,proj.heavy_armor_penetration-get_dist(src.loc,proj.starting)) >= w_front[4])
 				return TRUE
 		if ("back")
 			if (w_back[5] <= 0 && prob(75))
 				return TRUE
-			if (max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_back[4])
+			if (max(0,proj.heavy_armor_penetration-get_dist(src.loc,proj.starting)) >= w_back[4])
 				return TRUE
 		if ("left")
 			if (w_left[5] <= 0 && prob(75))
 				return TRUE
-			if (max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_left[4])
+			if (max(0,proj.heavy_armor_penetration-get_dist(src.loc,proj.starting)) >= w_left[4])
 				return TRUE
 		if ("right")
 			if (w_right[5] <= 0 && prob(75))
 				return TRUE
-			if (max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_right[4])
+			if (max(0,proj.heavy_armor_penetration-get_dist(src.loc,proj.starting)) >= w_right[4])
 				return TRUE
 		if ("frontleft")
 			if ((w_front[5] <= 0 && w_left[5] <= 0) && prob(75))
 				return TRUE
-			if (max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_front[4] && max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_left[4])
+			if (max(0,proj.heavy_armor_penetration-get_dist(src.loc,proj.starting)) >= w_front[4] && max(0,proj.heavy_armor_penetration-get_dist(src.loc,proj.starting)) >= w_left[4])
 				return TRUE
 		if ("backleft")
 			if ((w_back[5] <= 0 && w_left[5] <= 0) && prob(75))
 				return TRUE
-			if (max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_back[4] && max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_left[4])
+			if (max(0,proj.heavy_armor_penetration-get_dist(src.loc,proj.starting)) >= w_back[4] && max(0,proj.heavy_armor_penetration-get_dist(src.loc,proj.starting)) >= w_left[4])
 				return TRUE
 		if ("frontright")
 			if ((w_front[5] <= 0 && w_right[5] <= 0) && prob(75))
 				return TRUE
-			if (max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_front[4] && max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_right[4])
+			if (max(0,proj.heavy_armor_penetration-get_dist(src.loc,proj.starting)) >= w_front[4] && max(0,proj.heavy_armor_penetration-get_dist(src.loc,proj.starting)) >= w_right[4])
 				return TRUE
 		if ("backright")
 			if ((w_back[5] <= 0 && w_right[5] <= 0) && prob(75))
 				return TRUE
-			if (max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_back[4] && max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_right[4])
+			if (max(0,proj.heavy_armor_penetration-get_dist(src.loc,proj.starting)) >= w_back[4] && max(0,proj.heavy_armor_penetration-get_dist(src.loc,proj.starting)) >= w_right[4])
 				return TRUE
 	if (istype(proj, /obj/item/projectile/shell))
 		playsound(loc, pick('sound/machines/tank/tank_ricochet1.ogg','sound/machines/tank/tank_ricochet2.ogg','sound/machines/tank/tank_ricochet3.ogg'),100, TRUE)
@@ -541,19 +533,18 @@
 		if (F.axis == axis)
 			return
 	if (mwheel && prob(30))
-		if (!(istype(mwheel, /obj/structure/vehicleparts/movement/armored)))
-			if (mwheel.ntype == "wheel")
-				mwheel.broken = TRUE
-				visible_message("<span class='danger'>\The [mwheel.name] breaks down!</span>")
-				new/obj/effect/effect/smoke/small(loc)
-				update_icon()
+		if (mwheel.ntype == "wheel")
+			mwheel.broken = TRUE
+			visible_message("<span class='danger'>\The [mwheel.name] повреждено!</span>")
+			new/obj/effect/effect/smoke/small(loc)
+			update_icon()
 	if (penloc)
 		if (istype(proj, /obj/item/projectile/shell))
 			var/obj/item/projectile/shell/PS = proj
 			if (mwheel && prob(60))
 				if (mwheel.ntype == "wheel")
 					mwheel.broken = TRUE
-					visible_message("<span class='danger'>\The [mwheel.name] breaks down!</span>")
+					visible_message("<span class='danger'>\The [mwheel.name] повреждено!</span>")
 					new/obj/effect/effect/smoke/small(loc)
 					update_icon()
 				else if (mwheel.ntype == "track")
@@ -628,7 +619,7 @@
 									tprob = 25
 								if (prob(tprob))
 									M.adjustBruteLoss(PS.damage)
-									visible_message("<span class='danger'>[M] is hit by the [PS]!</span>")
+									visible_message("<span class='danger'>[M] попадает в [PS]!</span>")
 						adjdam = proj.damage * 0.05
 				switch(penloc)
 					if ("left")
@@ -696,6 +687,7 @@
 		visible_message("<span class = 'warning'>\The [proj] hits \the [src]!</span>")
 		if (istype(proj, /obj/item/projectile/shell))
 			playsound(loc, pick('sound/effects/explosion1.ogg','sound/effects/explosion1.ogg'),100, TRUE)
+			playsound(loc, 'sound/tank/bronja-ne-probita.ogg')
 			new/obj/effect/effect/smoke/small/fast(loc)
 		try_destroy()
 		return

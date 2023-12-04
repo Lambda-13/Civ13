@@ -252,7 +252,7 @@
 
 /obj/item/weapon/gun/projectile/automatic/stationary/autocannon
 	name = "30mm Autocannon"
-	desc = "An autocannon capable of firing 600 rounds a minute! Unfortunately the firing mode switch is stuck at semi-automatic. It fires 30mm rounds."
+	desc = "An autocannon capable of firing 600 rounds a minute! It fires 30mm rounds."
 	icon_state = "autocannon"
 	base_icon = "autocannon"
 	caliber = "a30"
@@ -262,7 +262,7 @@
 	magazine_type = /obj/item/ammo_magazine/autocannon_ap
 	good_mags = list(/obj/item/ammo_magazine/autocannon_ap, /obj/item/ammo_magazine/autocannon_he)
 	firemodes = list(
-		list(name = "single shot", burst=1, fire_delay=20, dispersion=list(0.1, 0.3, 1, 2.5), accuracy=list(2)),
+		list(name = "single shot", burst=1, fire_delay=1, dispersion=list(0.1, 0.3, 1, 2.5), accuracy=list(2)),
 		)
 	ammo_type = /obj/item/ammo_casing/a30mm_ap
 	is_hmg = TRUE
@@ -279,7 +279,7 @@
 	magazine_type = /obj/item/ammo_magazine/autocannon_ap
 	good_mags = list(/obj/item/ammo_magazine/autocannon_ap, /obj/item/ammo_magazine/autocannon_he)
 	firemodes = list(
-		list(name = "single shot", burst=1, fire_delay=20, dispersion=list(0.1, 0.3, 1, 2.5), accuracy=list(2)),
+		list(name = "full auto", burst=4, burst_delay=1, fire_delay=1, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a30mm_ap
 
@@ -315,7 +315,7 @@
 	magazine_type = /obj/item/ammo_magazine/autocannon_ap
 	good_mags = list(/obj/item/ammo_magazine/autocannon_ap, /obj/item/ammo_magazine/autocannon_he)
 	firemodes = list(
-		list(name = "single shot", burst=1, fire_delay=20, dispersion=list(0.1, 0.3, 1, 2.5), accuracy=list(2)),
+		list(name = "single shot", burst=3, fire_delay=5, dispersion=list(0.1, 0.3, 1, 2.5), accuracy=list(2)),
 		)
 	ammo_type = /obj/item/ammo_casing/a30mm_ap
 	anchored = TRUE

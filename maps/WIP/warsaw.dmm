@@ -350,7 +350,7 @@
 "gL" = (/obj/structure/window/barrier/sandbag/incomplete{dir = 4; icon_state = "sandbag_66%"},/turf/floor/plating/road,/area/caribbean/nomads)
 "gM" = (/obj/structure/simple_door/key_door/anyone/doubledoor/steel,/obj/structure/window/barrier/sandbag,/obj/structure/barricade/horizontal,/turf/floor/plating/concrete,/area/caribbean/roofed/temperate)
 "gN" = (/obj/item/weapon/storage/toolbox/emergency,/obj/structure/vehicleparts/frame/sdfkzfront/right/door,/turf/floor/plating/road,/area/caribbean/nomads)
-"gO" = (/obj/structure/vehicleparts/axis/car{anchored = 1; color = "#505050"; name = "Sdkfz 251MG"; vehicle_size = "2x4"},/obj/structure/vehicleparts/frame/car/left/metalreinforced,/turf/floor/plating/road,/area/caribbean/nomads)
+"gO" = (/obj/structure/vehicleparts/axis/car{anchored = 1; color = "#505050"; name = "Sdkfz 251MG"},/obj/structure/vehicleparts/frame/car/left/metalreinforced,/turf/floor/plating/road,/area/caribbean/nomads)
 "gP" = (/obj/structure/barricade/antitank,/turf/floor/beach/water/swamp,/area/caribbean/roofed)
 "gQ" = (/obj/structure/vehicleparts/movement/tracks,/obj/item/weapon/gun/projectile/automatic/stationary/modern/mg34{anchored = 1; layer = 4},/obj/item/ammo_magazine/mg34belt,/obj/item/ammo_magazine/mg34belt,/obj/item/ammo_magazine/mg34belt,/obj/item/ammo_magazine/mg34,/obj/structure/vehicleparts/frame/sdfkzfront/rf,/turf/floor/plating/road,/area/caribbean/nomads)
 "gR" = (/obj/item/weapon/gun/launcher/rocket/piat,/obj/item/weapon/storage/backpack/piatpack/filledearly,/turf/floor/plating/concrete,/area/caribbean/roofed/temperate)

@@ -147,6 +147,8 @@
 				roof_turret_x = -80
 				roof_turret_y = -80
 			for(var/obj/structure/cannon/modern/tank/C in T)
+				if (C.course && C.dir != src.dir)
+					C.rotate_to(src.dir)
 				roof_turret = image(icon=ic,loc=src, icon_state="[axis.turret_type][broken]", layer=11.1, dir=C.dir)
 
 				if (roof_turret && axis.color)

@@ -311,9 +311,14 @@
 	name = "85mm M1939 D5-T"
 	desc = "a 85mm Russian tank-based cannon."
 	icon_state = "tank_cannon"
+	firedelay = 1
 	maxrange = 33
 	caliber = 85
 	anchored = TRUE
+
+/obj/structure/cannon/modern/tank/russian85/course
+	desc = "a 85mm Russian course cannon."
+	course = TRUE
 
 /obj/structure/cannon/modern/tank/russian85/su85
 	desc = "a 85mm SU-85 russian tank-based cannon."
@@ -345,6 +350,10 @@
 	maxrange = 33
 	caliber = 100
 	anchored = TRUE
+
+/obj/structure/cannon/modern/tank/russian100/course
+	desc = "a 85mm Russian course cannon."
+	course = TRUE
 
 /obj/structure/cannon/mortar
 	name = "mortar"
