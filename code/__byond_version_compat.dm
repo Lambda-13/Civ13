@@ -44,9 +44,3 @@
 #define GLOBAL_PROC_REF(X) (/proc/##X)
 #endif
 
-// 515 split call for external libraries into call_ext
-#if DM_VERSION < 515
-#define LIBCALL call
-#else
-#define LIBCALL call_ext
-#endif

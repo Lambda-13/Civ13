@@ -10,6 +10,7 @@
 #define DEBUG
 // END_PREFERENCES
 // BEGIN_INCLUDE
+#include "_auxtools.dm"
 #include "code\__byond_version_compat.dm"
 #include "code\_compile_options.dm"
 #include "code\_macros.dm"
@@ -616,6 +617,7 @@
 #include "code\game\objects\structures\mirror.dm"
 #include "code\game\objects\structures\morgue.dm"
 #include "code\game\objects\structures\noticeboard.dm"
+#include "code\game\objects\structures\nuclearbomb.dm"
 #include "code\game\objects\structures\optable.dm"
 #include "code\game\objects\structures\piano.dm"
 #include "code\game\objects\structures\plant_pots.dm"
@@ -1167,5 +1169,5 @@
 #include "lambda\sanecman\code\serverside\whitelistweb.dm"
 #include "lambda\sanecman\code\soldier_stogie\soldier_stogie.dm"
 #include "lambda\rotipik\code\chainsaw.dm"
-#include "maps\1943\gulag13.dmm"
+#include "maps\1943\kursk.dmm"
 // END_INCLUDE
