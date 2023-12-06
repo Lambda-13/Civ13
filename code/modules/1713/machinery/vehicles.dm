@@ -100,6 +100,7 @@
 	color = "#5C5C4C"
 	turret_type = "is3_turret"
 	tile_size = "96x96"
+	broken_icon = 'icons/obj/vehicles/tankparts96x96_damaged.dmi'
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)
@@ -114,6 +115,7 @@
 	color = "#3d5931"
 	turret_type = "t34_turret"
 	tile_size = "96x96"
+	broken_icon = 'icons/obj/vehicles/tankparts96x96_damaged.dmi'
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)
@@ -133,6 +135,7 @@
 	color = "#4a5243"
 	turret_type = "su100_turret"
 	tile_size = "96x96"
+	broken_icon = 'icons/obj/vehicles/tankparts96x96_damaged.dmi'
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)
@@ -216,6 +219,7 @@
 	reg_number = ""
 	color = "#787859"
 	turret_type = "bmd1_turret"
+	broken_icon = 'icons/obj/vehicles/apcparts96x96_damaged.dmi'
 	tile_size = "96x96"
 	vehicle_type = "apc"
 	turret_x = 16
@@ -233,6 +237,7 @@
 	reg_number = ""
 	color = "#787859"
 	turret_type = "bmd2_turret"
+	broken_icon = 'icons/obj/vehicles/apcparts96x96_damaged.dmi'
 	tile_size = "96x96"
 	vehicle_type = "apc"
 	turret_x = 16
@@ -254,6 +259,7 @@
 	color = "#787859"
 	turret_type = "btr_turret"
 	tile_size = "96x96"
+	broken_icon = 'icons/obj/vehicles/apcparts96x96_damaged.dmi'
 	vehicle_type = "apc"
 	turret_x = 16
 	turret_y = 0

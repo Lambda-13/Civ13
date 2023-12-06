@@ -279,7 +279,7 @@
 	magazine_type = /obj/item/ammo_magazine/autocannon_ap
 	good_mags = list(/obj/item/ammo_magazine/autocannon_ap, /obj/item/ammo_magazine/autocannon_he)
 	firemodes = list(
-		list(name = "full auto", burst=4, burst_delay=1, fire_delay=1, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
+		list(name = "full auto", burst=3, burst_delay=2, fire_delay=3, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a30mm_ap
 
@@ -315,7 +315,7 @@
 	magazine_type = /obj/item/ammo_magazine/autocannon_ap
 	good_mags = list(/obj/item/ammo_magazine/autocannon_ap, /obj/item/ammo_magazine/autocannon_he)
 	firemodes = list(
-		list(name = "single shot", burst=3, fire_delay=5, dispersion=list(0.1, 0.3, 1, 2.5), accuracy=list(2)),
+		list(name = "full auto", burst=3, burst_delay=2, fire_delay=3, dispersion=list(0.1, 0.3, 1, 2.5), accuracy=list(2)),
 		)
 	ammo_type = /obj/item/ammo_casing/a30mm_ap
 	anchored = TRUE

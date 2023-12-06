@@ -5,6 +5,7 @@
 /obj/structure/vehicleparts/frame/mtlb
 	icon = 'icons/obj/vehicles/apcparts96x96.dmi'
 	normal_icon = 'icons/obj/vehicles/apcparts96x96.dmi'
+	broken_icon = 'icons/obj/vehicles/apcparts96x96_damaged.dmi'
 	pixel_x = -32
 	pixel_y = -32
 
@@ -105,7 +106,7 @@
 /obj/structure/vehicleparts/frame/bmd2
 	icon = 'icons/obj/vehicles/apcparts96x96.dmi'
 	normal_icon = 'icons/obj/vehicles/apcparts96x96.dmi'
-	// broken_icon = 'icons/obj/vehicles/apcparts96x96.dmi'
+	broken_icon = 'icons/obj/vehicles/apcparts96x96_damaged.dmi'
 	pixel_x = -32
 	pixel_y = -32
 
@@ -142,7 +143,7 @@
 /obj/structure/vehicleparts/frame/adrian
 	icon = 'icons/obj/vehicles/apcparts96x96.dmi'
 	normal_icon = 'icons/obj/vehicles/apcparts96x96.dmi'
-	broken_icon = 'icons/obj/vehicles/apcparts96x96.dmi'
+	broken_icon = 'icons/obj/vehicles/apcparts96x96_damaged.dmi'
 	pixel_x = -32
 	pixel_y = -32
 
@@ -180,7 +181,7 @@
 /obj/structure/vehicleparts/frame/btr80
 	icon = 'icons/obj/vehicles/apcparts96x96.dmi'
 	normal_icon = 'icons/obj/vehicles/apcparts96x96.dmi'
-	// broken_icon = 'icons/obj/vehicles/apcparts96x96.dmi'
+	broken_icon = 'icons/obj/vehicles/apcparts96x96_damaged.dmi'
 	pixel_x = -32
 	pixel_y = -32
 
