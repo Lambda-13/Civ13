@@ -909,6 +909,7 @@
 		return
 
 /obj/item/missile/fragmentation
+	heavy_armor_penetration = 6
 	throw_impact(atom/hit_atom)
 		if(primed)
 			explosion(hit_atom,0,1,3,1)
