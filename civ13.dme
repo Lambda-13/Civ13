@@ -1168,6 +1168,5 @@
 #include "lambda\sanecman\code\serverside\padezhi.dm"
 #include "lambda\sanecman\code\serverside\whitelistweb.dm"
 #include "lambda\sanecman\code\soldier_stogie\soldier_stogie.dm"
-#include "lambda\rotipik\code\chainsaw.dm"
-#include "maps\1943\pavlov_house.dmm"
+#include "maps\313bc\gladiators.dmm"
 // END_INCLUDE

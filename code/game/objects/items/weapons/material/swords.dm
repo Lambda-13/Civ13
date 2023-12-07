@@ -278,6 +278,23 @@ obj/item/weapon/material/sword/vikingsword/bronze
 	block_chance = 35
 	cooldownw = 7
 
+/obj/item/weapon/material/sword/vanotyan
+	name = "Eldaxe"
+	desc = "huy."
+	icon_state = "eldaxe"
+	item_state = "eldaxe"
+	throw_speed = 3
+	throw_range = 6
+	force = 45
+	force_divisor = 0.9 // 48 when wielded with hardnes 60 (steel)
+	thrown_force_divisor = 0.45 // 10 when thrown with weight 20 (steel)
+	slot_flags = SLOT_BACK
+	block_chance = 75
+	cooldownw = 9
+	value = 3000
+	chopping_speed = 0.3
+	applies_material_colour = FALSE
+
 /obj/item/weapon/material/sword/bolo
 	name = "bolo"
 	desc = "A very common filipino machete like sword."
