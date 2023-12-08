@@ -517,7 +517,7 @@
 	item_state = "vanoserp"
 	name = "scythe"
 	desc = "FROM USSR WITH LOVE. Fast but not best weapon."
-	force = 4
+	force = 7
 	block_chance = 50
 	force_divisor = 0.275 // 16 with hardness 60 (steel)
 	thrown_force_divisor = 0.25 // 5 with weight 20 (steel)
@@ -562,7 +562,7 @@
 	w_class = ITEM_SIZE_SMALL
 	attack_verb = list("sussy baked")
 	hitsound = 'sound/weapons/amogus.ogg'
-	cooldownw = 777
+	cooldownw = 15
 
 
 /obj/item/weapon/material/scythe/old
