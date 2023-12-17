@@ -1564,9 +1564,9 @@
 /obj/item/clothing/accessory/storage/webbing/green_webbing/m24
 	New()
 		..()
-		new/obj/item/ammo_magazine/mosin(hold)
-		new/obj/item/ammo_magazine/mosin(hold)
-		new/obj/item/ammo_magazine/mosin(hold)
+		new/obj/item/ammo_magazine/m24(hold)
+		new/obj/item/ammo_magazine/m24(hold)
+		new/obj/item/ammo_magazine/m24(hold)
 
 /obj/item/clothing/accessory/storage/webbing/khaki_webbing
 	name = "khaki chest webbing"
