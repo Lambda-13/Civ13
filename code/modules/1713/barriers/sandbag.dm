@@ -23,7 +23,7 @@
 	name = "sandbag wall"
 	desc = "That's a sandbag barricade."
 	icon_state = "sandbag"
-	layer = MOB_LAYER + 2 //just above mobs
+	layer = 13 //поверх спрайтов техники
 	anchored = TRUE
 	climbable = TRUE
 

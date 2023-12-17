@@ -4,8 +4,7 @@
 	var/burst_delay = 0
 	var/fire_delay = -1
 	var/move_delay = 0
-	var/recoil = -1
-	var/list/dispersion = list(0)
+	var/shake_strength = -1
 
 //using a list makes defining fire modes for new guns much nicer,
 //however we convert the lists to datums in part so that firemodes can be VVed if necessary.
@@ -42,10 +41,15 @@
 	var/fire_sound = 'sound/weapons/guns/fire/rifle.ogg'
 	var/silencer_fire_sound = 'sound/weapons/guns/fire/AKM-SD.ogg'
 	var/fire_sound_text = "gunshot"
-	var/recoil = 0		//screen shake
+	var/shake_strength = 0		//screen shake
 	var/muzzle_flash = 3
-	var/accuracy = 0   //accuracy is measured in tiles. +1 accuracy means that everything is effectively one tile closer for the purpose of miss chance, -1 means the opposite. launchers are not supported, at the moment.
-//	var/scoped_accuracy = null
+
+	var/recoil = 15 // увод ствола отдачей в стороны при стрельбе
+	var/next_shot_recoil = 0
+	var/last_shot_time = 0 // время последнего выстрела
+	var/accuracy = 1 // базовый дефект ствола
+	var/ergonomics = 1
+	var/stat = "rifle"
 
 	var/next_fire_time = 0
 
@@ -73,7 +77,6 @@
 	var/burst = 1
 	var/move_delay = 0
 	var/list/burst_accuracy = list(0)
-	var/list/dispersion = list(0)
 
 	var/obj/item/weapon/attachment/bayonet = null
 	var/obj/item/weapon/gun/launcher/grenade/underslung/launcher = null
@@ -199,7 +202,7 @@
 			var/mob/living/L = A
 
 			var/obj/item/weapon/attachment/bayonet/a = bayonet
-			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN + 8)	
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN + 8)
 
 			if (L)
 				if (user != L)
@@ -227,18 +230,9 @@
 	..()
 
 /obj/item/weapon/gun/proc/Fire(atom/target, mob/living/user, clickparams=null, pointblank=0, reflex=0, forceburst = -1, force = FALSE, accuracy_mod = 1)
-
 	if (!user || !target) return
 
 	if (user.pixel_y > 16) return // can't fire while we're this high up - used for paradropping in particular
-
-	// stops admemes from sending immortal dummies into combat
-	//if (user && istype(user, /mob/living/human))
-	//	var/mob/living/human/H = user
-	//	if ((H.client && istype(H, /mob/living/human/dummy)) || !H.original_job || !H.original_job_title)
-	//		if (clients.len > 1)
-	//			user << "<span class = 'danger'>Hey you fucking dumbass, don't send immortal dummies into combat.</span>"
-	//			return
 
 	add_fingerprint(user)
 
@@ -282,15 +276,11 @@
 		health_check(user)
 		health -= 0.2
 
-		var/disp = firemode.dispersion[min(i, firemode.dispersion.len)]
-
 		if (istype(projectile, /obj/item/projectile))
 			var/obj/item/projectile/P = projectile
 			if (istype(P.firedfrom, /obj/item/weapon/gun/projectile))
 				var/obj/item/weapon/gun/projectile/proj = P.firedfrom
 				P.KD_chance = proj.KD_chance
-
-		process_accuracy(projectile, user, target, accuracy_mod, disp)
 
 		if (pointblank)
 			if (istype(projectile, /obj/item/projectile))
@@ -359,18 +349,13 @@
 
 	var/datum/firemode/F = firemodes[sel_mode]
 
-	var/i_recoil = recoil
-	if (F.recoil != -1)
-		recoil = F.recoil
+	if (F.shake_strength != -1)
+		shake_strength = F.shake_strength
 
-	if (recoil)
+	if (shake_strength)
 		spawn(0)
-			var/shake_strength = recoil
 			if (shake_strength > 0)
 				shake_camera(user, max(shake_strength, 0), min(shake_strength, 50))
-			recoil = i_recoil
-	else
-		recoil = i_recoil
 
 	update_icon()
 
@@ -394,23 +379,6 @@
 				damage_mult = 3
 	P.damage *= damage_mult
 
-/obj/item/weapon/gun/proc/process_accuracy(obj/projectile, mob/user, atom/target, acc_mod, dispersion)
-	var/obj/item/projectile/P = projectile
-
-	if (!istype(P))
-		return //default behaviour only applies to true projectiles
-
-	//Accuracy modifiers
-	P.accuracy = accuracy*acc_mod
-	P.dispersion = dispersion
-/*
-	//accuracy bonus from aiming
-	if (aim_targets && (target in aim_targets))
-		//If you aim at someone beforehead, it'll hit more often.
-		//Kinda balanced by fact you need like 2 seconds to aim
-		//As opposed to no-delay pew pew
-		P.accuracy += 2*/
-
 //does the actual launching of the projectile
 /obj/item/weapon/gun/proc/process_projectile(obj/projectile, mob/user, atom/target, var/target_zone, var/params=null)
 
@@ -425,6 +393,29 @@
 	if (damage_modifier != 0)
 		P.damage += damage_modifier
 
+	var/dt = world.time - last_shot_time
+
+	var/shot_recoil = next_shot_recoil
+
+	if (user.client.moving)
+		next_shot_recoil *= 2
+
+	if(user.lying || user.prone)
+		next_shot_recoil /= 2
+
+	if(istype(user, /mob/living/human))
+		var/mob/living/human/firer = user
+		next_shot_recoil /= firer.getStatCoeff(stat)
+
+	if (next_shot_recoil > 0)
+		shot_recoil = clamp(next_shot_recoil - sqrt(dt * dt * ergonomics / 5), 0, 40)
+	else if (next_shot_recoil < 0)
+		shot_recoil = clamp(next_shot_recoil + sqrt(dt * dt * ergonomics / 5), -40, 0)
+	var/shot_accuracy = rand(-accuracy, accuracy)
+
+	var/shot_dispersion = clamp(shot_recoil + shot_accuracy, -40, 40)
+	P.dispersion = shot_dispersion
+
 	//shooting while in shock
 	var/x_offset = 0
 	var/y_offset = 0
@@ -437,7 +428,15 @@
 			y_offset = rand(-1,1)
 			x_offset = rand(-1,1)
 
-	return !P.launch(target, user, src, target_zone, x_offset, y_offset)
+	if(!P.launch(target, user, src, target_zone, x_offset, y_offset))
+		next_shot_recoil = shot_recoil + rand(-recoil, recoil)
+		if (next_shot_recoil >= 20)
+			next_shot_recoil += rand(-recoil, 0)
+		if (next_shot_recoil <= -20)
+			next_shot_recoil += rand(0, recoil)
+		last_shot_time = world.time
+		return FALSE
+	return TRUE
 
 //Suicide handling.
 /obj/item/weapon/gun/var/mouthshoot = FALSE //To stop people from suiciding twice... >.>

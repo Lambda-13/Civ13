@@ -16,7 +16,7 @@
 
 /obj/structure/vehicleparts/frame/mtlb/rf
 	icon_state = "mtlb_frame_steel_front_right"
-	w_front = list("mtlb_front_right_frame",TRUE,TRUE,35,50,FALSE,FALSE)
+	w_front = list("mtlb_front_right_frame",TRUE,TRUE,35,50,FALSE,FALSE,TRUE)
 	w_right = list("none",TRUE,TRUE,35,50,FALSE,FALSE)
 
 /obj/structure/vehicleparts/frame/mtlb/lfc
@@ -112,12 +112,12 @@
 
 /obj/structure/vehicleparts/frame/bmd2/lf
 	icon_state = "bmd2new_frame_steel_front_left"
-	w_front = list("bmd2new_front_left_frame",TRUE,TRUE,35,50,FALSE,FALSE)
+	w_front = list("bmd2new_front_left_frame",TRUE,TRUE,35,50,FALSE,FALSE,TRUE)
 	w_left = list("none",TRUE,TRUE,35,50,FALSE,FALSE)
 
 /obj/structure/vehicleparts/frame/bmd2/rf
 	icon_state = "bmd2new_frame_steel_front_right"
-	w_front = list("bmd2new_front_right_frame",TRUE,TRUE,35,50,FALSE,FALSE)
+	w_front = list("bmd2new_front_right_frame",TRUE,TRUE,35,50,FALSE,FALSE,TRUE)
 	w_right = list("none",TRUE,TRUE,35,50,FALSE,FALSE)
 
 /obj/structure/vehicleparts/frame/bmd2/lc
@@ -187,38 +187,38 @@
 
 /obj/structure/vehicleparts/frame/btr80/lf
 	icon_state = "btr80_frame_steel_front_left"
-	w_front = list("btr80_front_left_frame",TRUE,TRUE,35,50,FALSE,FALSE)
-	w_left = list("none",TRUE,TRUE,35,50,FALSE,FALSE)
+	w_front = list("btr80_front_left_frame",TRUE,TRUE,35,50,FALSE,FALSE,TRUE)
+	w_left = list("none",TRUE,TRUE,35,50,FALSE,FALSE,TRUE)
 
 /obj/structure/vehicleparts/frame/btr80/rf
 	icon_state = "btr80_frame_steel_front_right"
-	w_front = list("btr80_front_right_frame",TRUE,TRUE,35,50,FALSE,FALSE)
-	w_right = list("none",TRUE,TRUE,35,50,FALSE,FALSE)
+	w_front = list("btr80_front_right_frame",TRUE,TRUE,35,50,FALSE,FALSE,TRUE)
+	w_right = list("none",TRUE,TRUE,35,50,FALSE,FALSE,TRUE)
 
 /obj/structure/vehicleparts/frame/btr80/lfc
 	icon_state = "btr80_frame_steel_middle_front_left"
-	w_left = list("btr80_middle_front_left_frame",TRUE,TRUE,35,50,FALSE,FALSE)
+	w_left = list("btr80_middle_front_left_frame",TRUE,TRUE,35,50,FALSE,FALSE,TRUE)
 
 /obj/structure/vehicleparts/frame/btr80/rfc
 	icon_state = "btr80_frame_steel_middle_front_right"
-	w_right = list("btr80_middle_front_right_frame",TRUE,TRUE,35,50,FALSE,FALSE)
+	w_right = list("btr80_middle_front_right_frame",TRUE,TRUE,35,50,FALSE,FALSE,TRUE)
 
 /obj/structure/vehicleparts/frame/btr80/lbc
 	icon_state = "btr80_frame_steel_middle_back_left"
-	w_left = list("btr80_middle_back_left_frame",TRUE,TRUE,35,50,FALSE,FALSE)
+	w_left = list("btr80_middle_back_left_frame",TRUE,TRUE,35,50,TRUE,TRUE)
 
 /obj/structure/vehicleparts/frame/btr80/rbc
 	icon_state = "btr80_frame_steel_middle_back_right"
-	w_right = list("btr80_middle_back_right_frame",TRUE,TRUE,35,50,FALSE,FALSE)
+	w_right = list("btr80_middle_back_right_frame",TRUE,TRUE,35,50,TRUE,TRUE)
 
 /obj/structure/vehicleparts/frame/btr80/lb
 	icon_state = "btr80_frame_steel_back_left"
-	w_back = list("btr80_back_left_frame",TRUE,TRUE,35,50,TRUE,TRUE)
+	w_back = list("btr80_back_left_frame",TRUE,TRUE,35,50,FALSE,FALSE)
 	w_left = list("none",TRUE,TRUE,35,50,FALSE,FALSE)
 
 /obj/structure/vehicleparts/frame/btr80/rb
 	icon_state = "btr80_frame_steel_back_right"
-	w_back = list("btr80_back_right_frame",TRUE,TRUE,35,50,TRUE,TRUE)
+	w_back = list("btr80_back_right_frame",TRUE,TRUE,35,50,FALSE,FALSE)
 	w_right = list("none",TRUE,TRUE,35,50,FALSE,FALSE)
 
 

@@ -12,51 +12,6 @@
 	silencer_fire_sound = 'sound/weapons/guns/fire/Glock17-SD.ogg'
 	maxhealth = 45
 	gtype = "pistol"
-
-	accuracy_list = list(
-		// small body parts: head, hand, feet
-		"small" = list(
-			SHORT_RANGE_STILL = 60,
-			SHORT_RANGE_MOVING = 40,
-
-			MEDIUM_RANGE_STILL = 53,
-			MEDIUM_RANGE_MOVING = 35,
-
-			LONG_RANGE_STILL = 45,
-			LONG_RANGE_MOVING = 30,
-
-			VERY_LONG_RANGE_STILL = 38,
-			VERY_LONG_RANGE_MOVING = 25),
-
-		// medium body parts: limbs
-		"medium" = list(
-			SHORT_RANGE_STILL = 64,
-			SHORT_RANGE_MOVING = 42,
-
-			MEDIUM_RANGE_STILL = 56,
-			MEDIUM_RANGE_MOVING = 38,
-
-			LONG_RANGE_STILL = 49,
-			LONG_RANGE_MOVING = 32,
-
-			VERY_LONG_RANGE_STILL = 41,
-			VERY_LONG_RANGE_MOVING = 27),
-
-		// large body parts: chest, groin
-		"large" = list(
-			SHORT_RANGE_STILL = 68,
-			SHORT_RANGE_MOVING = 44,
-
-			MEDIUM_RANGE_STILL = 60,
-			MEDIUM_RANGE_MOVING = 40,
-
-			LONG_RANGE_STILL = 53,
-			LONG_RANGE_MOVING = 35,
-
-			VERY_LONG_RANGE_STILL = 45,
-			VERY_LONG_RANGE_MOVING = 30),
-	)
-
 	accuracy_increase_mod = 1.50
 	accuracy_decrease_mod = 2.00
 	KD_chance = KD_CHANCE_MEDIUM
@@ -185,6 +140,7 @@
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	effectiveness_mod = 0.9
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/pistol/glock17/standardized
 	magazine_type = /obj/item/ammo_magazine/emptymagazine/pistol
@@ -419,6 +375,7 @@
 	handle_casings = EJECT_CASINGS
 	effectiveness_mod = 0.95
 	pocket = TRUE
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/pistol/colthammerless/update_icon()
 	..()
@@ -457,7 +414,7 @@
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	effectiveness_mod = 0.9
-
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/pistol/bergmann/update_icon()
 	..()
@@ -482,6 +439,7 @@
 	handle_casings = EJECT_CASINGS
 	effectiveness_mod = 1.02
 	bad_magazine_types = list(/obj/item/ammo_magazine/thompson)
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/pistol/m1911/update_icon()
 	..()
@@ -505,6 +463,7 @@
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	effectiveness_mod = 1.02
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/pistol/blackm1911/update_icon()
 	..()
@@ -536,6 +495,7 @@
 	handle_casings = EJECT_CASINGS
 	effectiveness_mod = 0.98
 	bad_magazine_types = list(/obj/item/ammo_magazine/c762x25_ppsh, /obj/item/ammo_magazine/c762x25_pps)
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/pistol/tt30/update_icon()
 	..()
@@ -602,6 +562,8 @@
 	handle_casings = EJECT_CASINGS
 	effectiveness_mod = 1.02
 	bad_magazine_types = list(/obj/item/ammo_magazine/makarov)
+	recoil = 30
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/pistol/m9beretta
 	name = "Beretta M9"
@@ -617,6 +579,7 @@
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	effectiveness_mod = 1.10
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/pistol/m9beretta/update_icon()
 	..()
@@ -646,6 +609,7 @@
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	effectiveness_mod = 1.12
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/pistol/m9beretta/tan/update_icon()
 	..()
@@ -668,6 +632,7 @@
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	effectiveness_mod = 1.12
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/pistol/jericho941/update_icon()
 	..()
@@ -690,6 +655,7 @@
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	effectiveness_mod = 1.02
+	accuracy = 3
 	bad_magazine_types = list(/obj/item/ammo_magazine/thompson)
 
 /obj/item/weapon/gun/projectile/pistol/deagle/update_icon()
@@ -715,6 +681,7 @@
 	handle_casings = EJECT_CASINGS
 	effectiveness_mod = 1.02
 	bad_magazine_types = list(/obj/item/ammo_magazine/thompson)
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/pistol/deaglemagnum/update_icon()
 	..()
@@ -739,6 +706,7 @@
 	handle_casings = EJECT_CASINGS
 	effectiveness_mod = 1.02
 	bad_magazine_types = list(/obj/item/ammo_magazine/thompson)
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/pistol/browninghp/update_icon()
 	..()
@@ -763,6 +731,7 @@
 	handle_casings = EJECT_CASINGS
 	effectiveness_mod = 1.12
 	bad_magazine_types = list(/obj/item/ammo_magazine/thompson)
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/pistol/sti2011/update_icon()
 	..()

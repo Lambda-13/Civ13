@@ -165,7 +165,7 @@
 	item_state = "rpg7"
 	slot_flags = null
 	force = 10
-	recoil = 2
+	shake_strength = 2
 	load_delay = 50
 
 // Flare gun
@@ -358,7 +358,7 @@
 	item_state = "panzerfaust"
 	slot_flags = SLOT_SHOULDER | SLOT_BACK
 	force = 10
-	recoil = 2
+	shake_strength = 2
 	fire_delay = 12
 	release_force = 12
 	throw_distance = 10
@@ -398,7 +398,7 @@
 	icon_state = "panzerfaust"
 	item_state = "panzerfaust"
 	force = 10
-	recoil = 2
+	shake_strength = 2
 	fire_delay = 12
 	release_force = 12
 	throw_distance = 10
@@ -419,7 +419,7 @@
 	icon_state = "m72law"
 	item_state = "m72law"
 	force = 15
-	recoil = 2
+	shake_strength = 2
 	fire_delay = 10
 	release_force = 15
 	throw_distance = 18
@@ -431,7 +431,7 @@
 	icon_state = "rpg22"
 	item_state = "rpg22"
 	force = 15
-	recoil = 2
+	shake_strength = 2
 	fire_delay = 10
 	release_force = 15
 	throw_distance = 18
@@ -495,7 +495,7 @@
 	item_state = "piat_empty"
 	slot_flags = SLOT_SHOULDER
 	force = 10
-	recoil = 4
+	shake_strength = 4
 	caliber = "piat"
 	fire_sound = 'sound/weapons/guns/fire/piatfire.ogg'
 

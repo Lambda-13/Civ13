@@ -281,8 +281,7 @@ Current Defines (_defines/attachment.dm)
 		A_attached = FALSE
 		loc = get_turf(src)
 		user << "You remove [src] from the [G]."
-		G.accuracy = initial(G.accuracy)
-		G.recoil = initial(G.recoil)
+		G.shake_strength = initial(G.shake_strength)
 	else
 		return
 

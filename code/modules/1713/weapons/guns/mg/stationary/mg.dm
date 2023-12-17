@@ -21,7 +21,9 @@
 		list(name = "full auto", burst=6, burst_delay=2, fire_delay=2, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
 		)
 	full_auto = TRUE
-	fire_delay = 3
+	fire_delay = 0
+	recoil = 20
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/maxim
 	name = "Maxim 1895"
@@ -36,6 +38,8 @@
 		list(name = "full auto", burst=6, burst_delay=2, fire_delay=2, dispersion=list(0.8, 0.9, 1.0, 1.1, 1.2), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a762x54/weak
+	recoil = 10
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/maxim/ww2
 	name = "Maxim"
@@ -51,6 +55,8 @@
 		list(name = "full auto", burst=6, burst_delay=2, fire_delay=2, dispersion=list(0.8, 0.9, 1.0, 1.1, 1.2), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a762x54/weak
+	recoil = 10
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/mg08
 	name = "Maschinengewehr 08"
@@ -65,6 +71,8 @@
 		list(name = "full auto", burst=6, burst_delay=2, fire_delay=2, dispersion=list(0.8, 0.9, 1.0, 1.1, 1.2), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a792x57/weak
+	recoil = 10
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/pkm
 	name = "PKM machine gun"
@@ -78,6 +86,8 @@
 		list(name = "full auto", burst=4, burst_delay=1.3, fire_delay=1.3, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a762x54/weak
+	recoil = 10
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/dshk
 	name = "DShK machine gun"
@@ -91,6 +101,8 @@
 		list(name = "full auto", burst=3, burst_delay=1.2, fire_delay=1.2, dispersion=list(0.8, 0.9, 1.0, 1.2, 1.3), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a127
+	recoil = 25
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/nsvt
 	name = "NSVT machine gun"
@@ -104,6 +116,8 @@
 		list(name = "full auto", burst=4, burst_delay=1.1, fire_delay=1.1, dispersion=list(0.3, 0.4, 0.7, 0.9, 1.2), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a127
+	recoil = 30
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/foldable
 	anchored = TRUE
@@ -138,6 +152,8 @@
 		list(name = "full auto", burst=4, burst_delay=1.3, fire_delay=1.3, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a762x54/weak
+	recoil = 20
+	accuracy = 3
 
 	path = /obj/item/weapon/foldable/pkm
 
@@ -154,6 +170,8 @@
 		list(name = "full auto", burst=6, burst_delay=2, fire_delay=2, dispersion=list(0.8, 0.9, 1.0, 1.1, 1.2), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a303/weak
+	recoil = 25
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/hotchkiss1914
 	name = "Hotchkiss M1914 machine gun"
@@ -164,6 +182,8 @@
 	magazine_type = /obj/item/ammo_magazine/hotchkiss
 	good_mags = list(/obj/item/ammo_magazine/hotchkiss)
 	ammo_type = /obj/item/ammo_casing/a8x50/weak
+	recoil = 25
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/type3
 	name = "Type 3 machine gun"
@@ -174,6 +194,8 @@
 	magazine_type = /obj/item/ammo_magazine/type3
 	good_mags = list(/obj/item/ammo_magazine/type3)
 	ammo_type = /obj/item/ammo_casing/a65x50/weak
+	recoil = 25
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/type98
 	name = "Type 92 machine gun"
@@ -189,6 +211,9 @@
 		)
 	ammo_type = /obj/item/ammo_casing/a77x58
 	attachment_slots = ATTACH_SCOPE
+	recoil = 25
+	accuracy = 3
+
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/type98/update_icon()
 	icon_state = "type92hmg[ammo_magazine ? round(ammo_magazine.stored_ammo.len, 5) : "_empty"]"
 
@@ -205,6 +230,9 @@
 		list(name = "full auto", burst=5, burst_delay=1.8, fire_delay=1.1, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a3006
+	recoil = 25
+	accuracy = 3
+
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/browning/update_icon()
 	icon_state = "browning[ammo_magazine ? round(ammo_magazine.stored_ammo.len, 50) : "_empty"]"
 
@@ -221,6 +249,8 @@
 		list(name = "full auto", burst=5, burst_delay=1.8, fire_delay=1.1, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a50cal/weak
+	recoil = 30
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/mg34
 	name = "MG 34 machine gun"
@@ -234,6 +264,8 @@
 		list(name = "full auto", burst=4, burst_delay=1, fire_delay=1, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a792x57/weak
+	recoil = 25
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/mg3
 	name = "MG 3 machine gun"
@@ -247,6 +279,8 @@
 		list(name = "full auto", burst=4, burst_delay=1, fire_delay=1, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a762x51/weak
+	recoil = 25
+	accuracy = 3
 
 // Autocannons
 
@@ -267,6 +301,8 @@
 	ammo_type = /obj/item/ammo_casing/a30mm_ap
 	is_hmg = TRUE
 	full_auto = FALSE
+	recoil = 1
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/automatic/stationary/autocannon/shipunov
 	name = "30mm 2A42 'Shipunov' Autocannon"

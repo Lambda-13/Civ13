@@ -232,7 +232,7 @@
 					ticon = normal_icon
 				var/tempstate = "[w_left[1]]"
 				var/image/tmpimg1 = image(icon=ticon, icon_state=tempstate, layer=10, dir=WEST)
-				if (w_left.len < 8)
+				if (w_left.len <= 8)
 					if (axis)
 						if (override_color)
 							tmpimg1.color = override_color
@@ -246,7 +246,7 @@
 					ticon = normal_icon
 				var/tempstate = "[w_right[1]]"
 				var/image/tmpimg1 = image(icon=ticon, icon_state=tempstate, layer=10, dir=EAST)
-				if (w_right.len < 8)
+				if (w_right.len <= 8)
 					if (axis)
 						if (override_color)
 							tmpimg1.color = override_color
@@ -263,7 +263,7 @@
 					tempstate = override_frame_icon
 					override_applied = TRUE
 				var/image/tmpimg1 = image(icon=ticon, icon_state=tempstate, layer=10, dir=NORTH)
-				if (w_front.len < 8)
+				if (w_front.len <= 8)
 					if (axis)
 						if (override_color)
 							tmpimg1.color = override_color
@@ -280,7 +280,7 @@
 					tempstate = override_frame_icon
 					override_applied = TRUE
 				var/image/tmpimg1 = image(icon=ticon, icon_state=tempstate, layer=10.5, dir=SOUTH)
-				if (w_back.len < 8)
+				if (w_back.len <= 8)
 					if (axis)
 						if (override_color)
 							tmpimg1.color = override_color
@@ -299,7 +299,7 @@
 					ticon = normal_icon
 				var/tempstate = "[w_left[1]]"
 				var/image/tmpimg1 = image(icon=ticon, icon_state=tempstate, layer=10, dir=EAST)
-				if (w_left.len < 8)
+				if (w_left.len <= 8)
 					if (axis)
 						if (override_color)
 							tmpimg1.color = override_color
@@ -313,7 +313,7 @@
 					ticon = normal_icon
 				var/tempstate = "[w_right[1]]"
 				var/image/tmpimg1 = image(icon=ticon, icon_state=tempstate, layer=10, dir=WEST)
-				if (w_right.len < 8)
+				if (w_right.len <= 8)
 					if (axis)
 						if (override_color)
 							tmpimg1.color = override_color
@@ -330,7 +330,7 @@
 					tempstate = override_frame_icon
 					override_applied = TRUE
 				var/image/tmpimg1 = image(icon=ticon, icon_state=tempstate, layer=10.5, dir=SOUTH)
-				if (w_front.len < 8)
+				if (w_front.len <= 8)
 					if (axis)
 						if (override_color)
 							tmpimg1.color = override_color
@@ -347,7 +347,7 @@
 					tempstate = override_frame_icon
 					override_applied = TRUE
 				var/image/tmpimg1 = image(icon=ticon, icon_state=tempstate, layer=10, dir=NORTH)
-				if (w_back.len < 8)
+				if (w_back.len <= 8)
 					if (axis)
 						if (override_color)
 							tmpimg1.color = override_color
@@ -366,7 +366,7 @@
 					ticon = normal_icon
 				var/tempstate = "[w_left[1]]"
 				var/image/tmpimg1 = image(icon=ticon, icon_state=tempstate, layer=10, dir=NORTH)
-				if (w_left.len < 8)
+				if (w_left.len <= 8)
 					if (axis)
 						if (override_color)
 							tmpimg1.color = override_color
@@ -380,7 +380,7 @@
 					ticon = normal_icon
 				var/tempstate = "[w_right[1]]"
 				var/image/tmpimg1 = image(icon=ticon, icon_state=tempstate, layer=10.5, dir=SOUTH)
-				if (w_right.len < 8)
+				if (w_right.len <= 8)
 					if (axis)
 						if (override_color)
 							tmpimg1.color = override_color
@@ -397,7 +397,7 @@
 					tempstate = override_frame_icon
 					override_applied = TRUE
 				var/image/tmpimg1 = image(icon=ticon, icon_state=tempstate, layer=10, dir=EAST)
-				if (w_front.len < 8)
+				if (w_front.len <= 8)
 					if (axis)
 						if (override_color)
 							tmpimg1.color = override_color
@@ -414,7 +414,7 @@
 					tempstate = override_frame_icon
 					override_applied = TRUE
 				var/image/tmpimg1 = image(icon=ticon, icon_state=tempstate, layer=10, dir=WEST)
-				if (w_back.len < 8)
+				if (w_back.len <= 8)
 					if (axis)
 						if (override_color)
 							tmpimg1.color = override_color
@@ -433,7 +433,7 @@
 					ticon = normal_icon
 				var/tempstate = "[w_left[1]]"
 				var/image/tmpimg1 = image(icon=ticon, icon_state=tempstate, layer=10.5, dir=SOUTH)
-				if (w_left.len < 8)
+				if (w_left.len <= 8)
 					if (axis)
 						if (override_color)
 							tmpimg1.color = override_color
@@ -447,7 +447,7 @@
 					ticon = normal_icon
 				var/tempstate = "[w_right[1]]"
 				var/image/tmpimg1 = image(icon=ticon, icon_state=tempstate, layer=10, dir=NORTH)
-				if (w_right.len < 8)
+				if (w_right.len <= 8)
 					if (axis)
 						if (override_color)
 							tmpimg1.color = override_color
@@ -464,7 +464,7 @@
 					tempstate = override_frame_icon
 					override_applied = TRUE
 				var/image/tmpimg1 = image(icon=ticon, icon_state=tempstate, layer=10, dir=WEST)
-				if (w_front.len < 8)
+				if (w_front.len <= 8)
 					if (axis)
 						if (override_color)
 							tmpimg1.color = override_color
@@ -481,7 +481,7 @@
 					tempstate = override_frame_icon
 					override_applied = TRUE
 				var/image/tmpimg1 = image(icon=ticon, icon_state=tempstate, layer=10, dir=EAST)
-				if (w_back.len < 8)
+				if (w_back.len <= 8)
 					if (axis)
 						if (override_color)
 							tmpimg1.color = override_color

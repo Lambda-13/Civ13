@@ -3,57 +3,14 @@
 	fire_sound = 'sound/weapons/guns/fire/rifle.ogg'
 	icon = 'icons/obj/guns/rifles.dmi'
 	// pistol accuracy, rifle skill & decent KD chance
-	accuracy_list = list(
-
-		// small body parts: head, hand, feet
-		"small" = list(
-			SHORT_RANGE_STILL = 63,
-			SHORT_RANGE_MOVING = 38,
-
-			MEDIUM_RANGE_STILL = 53,
-			MEDIUM_RANGE_MOVING = 32,
-
-			LONG_RANGE_STILL = 43,
-			LONG_RANGE_MOVING = 25,
-
-			VERY_LONG_RANGE_STILL = 33,
-			VERY_LONG_RANGE_MOVING = 18),
-
-		// medium body parts: limbs
-		"medium" = list(
-			SHORT_RANGE_STILL = 78,
-			SHORT_RANGE_MOVING = 51,
-
-			MEDIUM_RANGE_STILL = 68,
-			MEDIUM_RANGE_MOVING = 45,
-
-			LONG_RANGE_STILL = 58,
-			LONG_RANGE_MOVING = 38,
-
-			VERY_LONG_RANGE_STILL = 48,
-			VERY_LONG_RANGE_MOVING = 32),
-
-		// large body parts: chest, groin
-		"large" = list(
-			SHORT_RANGE_STILL = 83,
-			SHORT_RANGE_MOVING = 55,
-
-			MEDIUM_RANGE_STILL = 73,
-			MEDIUM_RANGE_MOVING = 48,
-
-			LONG_RANGE_STILL = 63,
-			LONG_RANGE_MOVING = 42,
-
-			VERY_LONG_RANGE_STILL = 53,
-			VERY_LONG_RANGE_MOVING = 35),
-	)
-
 	accuracy_increase_mod = 2.00
 	accuracy_decrease_mod = 6.00
 	KD_chance = KD_CHANCE_MEDIUM
 	stat = "rifle"
 	load_delay = 5
 	aim_miss_chance_divider = 2.50
+	recoil = 20
+	accuracy = 2
 
 	headshot_kill_chance = 35
 	KO_chance = 30
@@ -256,6 +213,8 @@
 	throwforce = 20
 	effectiveness_mod = 1.03
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
+	recoil = 30
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/semiautomatic/svd/New()
 	..()
@@ -269,8 +228,7 @@
 		actions -= SC.actions
 		verbs -= SC.verbs
 		attachment_slots += SC.attachment_type
-		accuracy = initial(accuracy)
-		recoil = initial(recoil)
+		shake_strength = initial(shake_strength)
 		qdel(SC)
 	var/obj/item/weapon/attachment/scope/adjustable/advanced/acog/SP = new/obj/item/weapon/attachment/scope/adjustable/advanced/acog(src)
 	SP.attached(null,src,TRUE)
@@ -483,7 +441,7 @@
 	magazine_type = /obj/item/ammo_magazine/barrett
 	good_mags = list(/obj/item/ammo_magazine/barrett)
 	weight = 14.8
-	recoil = 3
+	shake_strength = 3
 	firemodes = list(
 		list(name = "single shot",burst=1, move_delay=2, fire_delay=25)
 		)
@@ -491,7 +449,7 @@
 	effectiveness_mod = 2.0
 	equiptimer = 15
 	accuracy_increase_mod = 2.0
-	recoil = 2
+	shake_strength = 2
 
 /obj/item/weapon/gun/projectile/semiautomatic/barrett/sniper/New()
 	..()
@@ -512,7 +470,7 @@
 	slot_flags = null
 	caliber = "a15115"
 	weight = 9
-	recoil = 2
+	shake_strength = 2
 	load_method = MAGAZINE
 	ammo_type = list (/obj/item/ammo_casing/a15115, /obj/item/ammo_casing/a15115_ap, /obj/item/ammo_casing/a15115_aphe)
 	magazine_type = /obj/item/ammo_magazine/bamr
