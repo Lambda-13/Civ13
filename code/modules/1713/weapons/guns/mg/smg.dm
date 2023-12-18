@@ -658,17 +658,17 @@
 	accuracy = 2
 
 /obj/item/weapon/gun/projectile/submachinegun/ak47/update_icon()
+	overlays -= mag_image
+	var/part_icon = 'icons/obj/guns/parts.dmi'
+	var/part_icon_state
 	if (ammo_magazine)
-		icon_state = "[base_icon]"
+		part_icon_state = "ak47_magak"
 		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk47))
-			item_state = "[base_icon]_magrpk"
-			icon_state = "[base_icon]_magrpk"
+			part_icon_state = "ak47_magrpk"
 		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk47/drum))
-			icon_state = "[base_icon]_drum"
-			item_state = "[base_icon]_drum"
-	else
-		icon_state = "[base_icon]_open"
-		item_state = "[base_icon]_open"
+			part_icon_state = "ak47_drum"
+		mag_image = image(icon = part_icon, loc = src, icon_state = part_icon_state)
+		overlays += mag_image
 	update_held_icon()
 
 	return
@@ -695,20 +695,22 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/ak47/akms/update_icon()
 	if (folded)
-		base_icon = "akms_folded"
+		icon_state = "akms_folded"
 	else
-		base_icon = "akms"
+		icon_state = "akms"
+
+	overlays -= mag_image
+
+	var/part_icon = 'icons/obj/guns/parts.dmi'
+	var/part_icon_state
 	if (ammo_magazine)
-		icon_state = "[base_icon]"
+		part_icon_state = "ak47_magak"
 		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk47))
-			item_state = "[base_icon]_magrpk"
-			icon_state = "[base_icon]_magrpk"
+			part_icon_state = "ak47_magrpk"
 		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk47/drum))
-			icon_state = "[base_icon]_drum"
-			item_state = "[base_icon]_drum"
-	else
-		icon_state = "[base_icon]_open"
-		item_state = "[base_icon]_open"
+			part_icon_state = "ak47_drum"
+		mag_image = image(icon = part_icon, loc = src, icon_state = part_icon_state)
+		overlays += mag_image
 	update_held_icon()
 
 	return
@@ -768,28 +770,32 @@
 	accuracy = 3
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/update_icon()
-	base_icon = "ak74"
-	if (sniper_scope)
-		if (!ammo_magazine)
-			icon_state = "[base_icon]_scope_open"
-			return
-		else
-			icon_state = "[base_icon]_scope"
-			return
-	else
-		if (ammo_magazine)
-			icon_state = "[base_icon]"
-			if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74))
-				item_state = "[base_icon]_magrpk"
-				icon_state = "[base_icon]_magrpk"
-			if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74/drum))
-				icon_state = "[base_icon]_drum"
-				item_state = "[base_icon]_drum"
-		else
-			icon_state = "[base_icon]_open"
-			item_state = "[base_icon]_open"
-	update_held_icon()
+	overlays -= mag_image
+	var/part_icon = 'icons/obj/guns/parts.dmi'
+	var/part_icon_state
 
+	if (sniper_scope)
+		part_icon_state = "pso1"
+		if (istype(part_icon_state, /obj/item/weapon/attachment/scope/adjustable/sniper_scope))
+			part_icon_state = "pso1"
+		if (istype(part_icon_state, /obj/item/weapon/attachment/scope/adjustable/advanced/holographic))
+			part_icon_state = "holographic"
+		if (istype(part_icon_state, /obj/item/weapon/attachment/scope/adjustable/advanced/reddot))
+			part_icon_state = "reddot"
+		scope_image = image(icon = part_icon, loc = src, icon_state = part_icon_state)
+		overlays += scope_image
+
+	if (ammo_magazine)
+		part_icon_state = "ak74_magak"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/ak74/ak74m))
+			part_icon_state = "ak74m_magak"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74))
+			part_icon_state = "ak74_magrpk"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74/drum))
+			part_icon_state = "ak74_drum"
+		mag_image= image(icon = part_icon, loc = src, icon_state = part_icon_state)
+		overlays += mag_image
+	update_held_icon()
 	return
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/grenade_launcher/New()
@@ -815,30 +821,41 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/update_icon()
 	if (folded)
-		base_icon = "aks74_folded"
+		icon_state = "aks74_folded"
 	else
-		base_icon = "aks74"
-	if (sniper_scope)
-		if (!ammo_magazine)
-			icon_state = "[base_icon]_scope_open"
-			return
-		else
-			icon_state = "[base_icon]_scope"
-			return
-	else
-		if (ammo_magazine)
-			icon_state = "[base_icon]"
-			if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74))
-				item_state = "[base_icon]_magrpk"
-				icon_state = "[base_icon]_magrpk"
-			if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74/drum))
-				icon_state = "[base_icon]_drum"
-				item_state = "[base_icon]_drum"
-		else
-			icon_state = "[base_icon]_open"
-			item_state = "[base_icon]_open"
-	update_held_icon()
+		icon_state = "aks74"
 
+	var/part_icon = 'icons/obj/guns/parts.dmi'
+	var/part_icon_state
+	overlays -= mag_image
+
+	if (sniper_scope)
+		part_icon_state = "pso1"
+		if (istype(part_icon_state, /obj/item/weapon/attachment/scope/adjustable/sniper_scope))
+			part_icon_state = "pso1"
+		if (istype(part_icon_state, /obj/item/weapon/attachment/scope/adjustable/advanced/holographic))
+			part_icon_state = "holographic"
+		if (istype(part_icon_state, /obj/item/weapon/attachment/scope/adjustable/advanced/reddot))
+			part_icon_state = "reddot"
+		scope_image = image(icon = part_icon, loc = src, icon_state = part_icon_state)
+		overlays += scope_image
+
+	if (ammo_magazine)
+		part_icon_state = "ak74_magak"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/ak74/ak74m))
+			part_icon_state = "ak74m_magak"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74))
+			part_icon_state = "ak74_magrpk"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74/drum))
+			part_icon_state = "ak74_drum"
+		mag_image = image(icon = part_icon, loc = src, icon_state = part_icon_state)
+		overlays += mag_image
+	if(under)
+		usr << "under attached"
+	else
+		usr << "under isn't attached"
+
+	update_held_icon()
 	return
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/verb/fold()
@@ -887,27 +904,37 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/aks74u/update_icon()
 	if (folded)
-		base_icon = "aks74u_folded"
+		icon_state = "aks74u_folded"
 	else
-		base_icon = "aks74u"
+		icon_state = "aks74u"
+
+	overlays -= mag_image
+	overlays -= scope_image
+
+	var/part_icon = 'icons/obj/guns/parts.dmi'
+	var/part_icon_state
+
 	if (sniper_scope)
-		if (!ammo_magazine)
-			icon_state = "[base_icon]_scope_open"
-			return
-		else
-			icon_state = "[base_icon]_scope"
-			return
-	else
-		if (ammo_magazine)
-			icon_state = "[base_icon]"
-			if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74))
-				item_state = "[base_icon]_magrpk"
-				icon_state = "[base_icon]_magrpk"
-			if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74/drum))
-				icon_state = "[base_icon]_drum"
-				item_state = "[base_icon]_drum"
-		else
-			icon_state = "[base_icon]_open"
+		part_icon_state = "pso1"
+		if (istype(part_icon_state, /obj/item/weapon/attachment/scope/adjustable/sniper_scope))
+			part_icon_state = "pso1"
+		if (istype(part_icon_state, /obj/item/weapon/attachment/scope/adjustable/advanced/holographic))
+			part_icon_state = "holographic"
+		if (istype(part_icon_state, /obj/item/weapon/attachment/scope/adjustable/advanced/reddot))
+			part_icon_state = "reddot"
+		scope_image = image(icon = part_icon, loc = src, icon_state = part_icon_state)
+		overlays += scope_image
+
+	if (ammo_magazine)
+		part_icon_state = "ak74_magak"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/ak74/ak74m))
+			part_icon_state = "ak74m_magak"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74))
+			part_icon_state = "ak74_magrpk"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74/drum))
+			part_icon_state = "ak74_drum"
+		mag_image = image(icon = part_icon, loc = src, icon_state = part_icon_state)
+		overlays += mag_image
 	update_held_icon()
 
 	return
@@ -957,23 +984,37 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/aks74u/aks74uso/update_icon()
 	if (folded)
-		base_icon = "aks74uso_folded"
+		icon_state = "aks74uso_folded"
 	else
-		base_icon = "aks74uso"
+		icon_state = "aks74uso"
+
+	overlays -= mag_image
+	overlays -= scope_image
+
+	var/part_icon = 'icons/obj/guns/parts.dmi'
+	var/part_icon_state
+
 	if (sniper_scope)
-		if (!ammo_magazine)
-			icon_state = "[base_icon]_scope_open"
-			return
-		else
-			icon_state = "[base_icon]_scope"
-			return
-	else
-		if (ammo_magazine)
-			icon_state = base_icon
-			item_state = base_icon
-		else
-			icon_state = "[base_icon]_open"
-			item_state = "[base_icon]_open"
+		part_icon_state = "pso1"
+		if (istype(part_icon_state, /obj/item/weapon/attachment/scope/adjustable/sniper_scope))
+			part_icon_state = "pso1"
+		if (istype(part_icon_state, /obj/item/weapon/attachment/scope/adjustable/advanced/holographic))
+			part_icon_state = "holographic"
+		if (istype(part_icon_state, /obj/item/weapon/attachment/scope/adjustable/advanced/reddot))
+			part_icon_state = "reddot"
+		scope_image = image(icon = part_icon, loc = src, icon_state = part_icon_state)
+		overlays += scope_image
+
+	if (ammo_magazine)
+		part_icon_state = "ak74_magak"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/ak74/ak74m))
+			part_icon_state = "ak74m_magak"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74))
+			part_icon_state = "ak74_magrpk"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74/drum))
+			part_icon_state = "ak74_drum"
+		mag_image = image(icon = part_icon, loc = src, icon_state = part_icon_state)
+		overlays += mag_image
 	update_held_icon()
 
 	return
@@ -1044,31 +1085,33 @@
 		)
 	effectiveness_mod = 1.08
 	sel_mode = 1
-	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_SCOPE|ATTACH_UNDER
 	stat = "rifle"
 	recoil = 30
 	accuracy = 3
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74m/update_icon()
+	overlays -= mag_image
+	overlays -= scope_image
+
+	var/part_icon = 'icons/obj/guns/parts.dmi'
+	var/part_icon_state
+
 	if (sniper_scope)
-		if (!ammo_magazine)
-			icon_state = "[base_icon]_scope_open"
-			return
-		else
-			icon_state = "[base_icon]_scope"
-			return
-	else
-		if (ammo_magazine)
-			icon_state = "[base_icon]"
-			if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74))
-				item_state = "[base_icon]_magrpk"
-				icon_state = "[base_icon]_magrpk"
-			if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74/drum))
-				icon_state = "[base_icon]_drum"
-				item_state = "[base_icon]_drum"
-		else
-			icon_state = "[base_icon]_open"
-			item_state = "[base_icon]_open"
+		part_icon_state = "ak74_scope"
+		scope_image = image(icon = part_icon, loc = src, icon_state = part_icon_state)
+		overlays += scope_image
+
+	if (ammo_magazine)
+		part_icon_state = "ak74_magak"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/ak74/ak74m))
+			part_icon_state = "ak74m_magak"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74))
+			part_icon_state = "ak74_magrpk"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74/drum))
+			part_icon_state = "ak74_drum"
+		mag_image = image(icon = part_icon, loc = src, icon_state = part_icon_state)
+		overlays += mag_image
 	update_held_icon()
 
 	return
