@@ -4,7 +4,7 @@
 	icon_state = "DC-15A"
 	item_state = "DC-15A"
 	base_icon = "DC-15A"
-	fire_sound = 'sound/weapons/guns/fire/blasterdc2.ogg'
+	fire_sound = list('sound/weapons/guns/fire/blasterdc2.ogg')
 	w_class = ITEM_SIZE_LARGE
 	load_method = MAGAZINE
 	max_shells = 200
@@ -61,7 +61,7 @@
 	icon_state = "DC-15"
 	item_state = "DC-15"
 	base_icon = "DC-15"
-	fire_sound = 'sound/weapons/guns/fire/blasterdc2.ogg'
+	fire_sound = list('sound/weapons/guns/fire/blasterdc2.ogg')
 	w_class = ITEM_SIZE_LARGE
 	load_method = MAGAZINE
 	max_shells = 200
@@ -89,7 +89,7 @@
 	icon_state = "DC-15A"
 	item_state = "DC-15A"
 	base_icon = "DC-15A"
-	fire_sound = 'sound/weapons/guns/fire/blasterdc1.ogg'
+	fire_sound = list('sound/weapons/guns/fire/blasterdc1.ogg')
 	w_class = ITEM_SIZE_LARGE
 	load_method = MAGAZINE
 	max_shells = 500
@@ -117,7 +117,7 @@
 	icon_state = "E-5"
 	item_state = "E-5"
 	base_icon = "E-5"
-	fire_sound = 'sound/weapons/guns/fire/blasterimperial.ogg'
+	fire_sound = list('sound/weapons/guns/fire/blasterimperial.ogg')
 	w_class = ITEM_SIZE_LARGE
 	load_method = MAGAZINE
 	max_shells = 100
@@ -145,7 +145,7 @@
 	icon_state = "E-11"
 	item_state = "E-11"
 	base_icon = "E-11"
-	fire_sound = 'sound/weapons/guns/fire/blasterimperial2.ogg'
+	fire_sound = list('sound/weapons/guns/fire/blasterimperial2.ogg')
 	w_class = ITEM_SIZE_LARGE
 	load_method = MAGAZINE
 	max_shells = 100
@@ -173,7 +173,7 @@
 	icon_state = "A280"
 	item_state = "A280"
 	base_icon = "A280"
-	fire_sound = 'sound/weapons/guns/fire/blasterrebel.ogg'
+	fire_sound = list('sound/weapons/guns/fire/blasterrebel.ogg')
 	w_class = ITEM_SIZE_LARGE
 	load_method = MAGAZINE
 	max_shells = 100
@@ -202,7 +202,7 @@
 	icon_state = "DC-17"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "laserb"
-	fire_sound = 'sound/weapons/guns/fire/blasterdc2.ogg'
+	fire_sound = list('sound/weapons/guns/fire/blasterdc2.ogg')
 	magazine_type = /obj/item/ammo_magazine/tibannagas/dc17
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/dc17)
 	weight = 0.5
@@ -228,7 +228,7 @@
 	icon_state = "DL-44"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "laser"
-	fire_sound = 'sound/weapons/guns/fire/blasterdl44.ogg'
+	fire_sound = list('sound/weapons/guns/fire/blasterdl44.ogg')
 	magazine_type = /obj/item/ammo_magazine/tibannagas/dl44
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/dl44)
 	weight = 0.5
@@ -241,7 +241,7 @@
 	icon_state = "DH-17"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "laser"
-	fire_sound = 'sound/weapons/guns/fire/blasterrebel.ogg'
+	fire_sound = list('sound/weapons/guns/fire/blasterrebel.ogg')
 	magazine_type = /obj/item/ammo_magazine/tibannagas/dh17
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/dh17)
 	weight = 0.5
@@ -254,7 +254,7 @@
 	icon_state = "Westar-34"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "laser"
-	fire_sound = 'sound/weapons/guns/fire/blasterrebel.ogg'
+	fire_sound = list('sound/weapons/guns/fire/blasterrebel.ogg')
 	magazine_type = /obj/item/ammo_magazine/tibannagas/westar34
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/westar34)
 	weight = 0.5
@@ -267,7 +267,7 @@
 	icon_state = "repeating_blaster"
 	base_icon = "repeating_blaster"
 	caliber = "laser"
-	fire_sound = 'sound/weapons/guns/fire/blastere5sniper.ogg'
+	fire_sound = list('sound/weapons/guns/fire/blastere5sniper.ogg')
 	magazine_type = /obj/item/ammo_magazine/tibannagas/repeating_blaster
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/repeating_blaster)
 	firemodes = list(
@@ -292,7 +292,7 @@
 	icon_state = "repeating_blaster"
 	base_icon = "repeating_blaster"
 	caliber = "laser"
-	fire_sound = 'sound/weapons/guns/fire/blastere5sniper.ogg'
+	fire_sound = list('sound/weapons/guns/fire/blastere5sniper.ogg')
 	magazine_type = /obj/item/ammo_magazine/tibannagas/repeating_blaster
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/repeating_blaster)
 	firemodes = list(
@@ -306,7 +306,7 @@
 	icon_state = "repeating_blaster"
 	base_icon = "repeating_blaster"
 	caliber = "laser"
-	fire_sound = 'sound/weapons/guns/fire/blastere5sniper.ogg'
+	fire_sound = list('sound/weapons/guns/fire/blastere5sniper.ogg')
 	magazine_type = /obj/item/ammo_magazine/tibannagas/repeating_blaster
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/repeating_blaster)
 	firemodes = list(
@@ -321,7 +321,7 @@
 	item_state = "Z-6"
 	base_icon = "Z-6"
 	caliber = "laser"
-	fire_sound = 'sound/weapons/guns/fire/blasterimperial.ogg'
+	fire_sound = list('sound/weapons/guns/fire/blasterimperial.ogg')
 	ammo_type = /obj/item/ammo_casing/laser
 	magazine_type = /obj/item/ammo_magazine/tibannagas/blaster_power_pack
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/blaster_power_pack, /obj/item/ammo_magazine/tibannagas/blaster_power_pack)
@@ -353,7 +353,7 @@
 	item_state = "Z-6"
 	base_icon = "Z-6"
 	caliber = "laserb"
-	fire_sound = 'sound/weapons/guns/fire/blasterdc1.ogg'
+	fire_sound = list('sound/weapons/guns/fire/blasterdc1.ogg')
 	ammo_type = /obj/item/ammo_casing/laser/b
 	magazine_type = /obj/item/ammo_magazine/tibannagas/blaster_power_pack
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/blaster_power_pack)
@@ -378,7 +378,7 @@
 	item_state = "m16"
 	base_icon = "qblz1"
 	caliber = "laserb"
-	fire_sound = 'sound/weapons/guns/fire/laserrifle.ogg'
+	fire_sound = list('sound/weapons/guns/fire/laserrifle.ogg')
 	ammo_type = /obj/item/ammo_casing/laser/b
 	magazine_type = /obj/item/ammo_magazine/tibannagas/qblz1
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/qblz1)
@@ -397,7 +397,7 @@
 	icon_state = "dcb2"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "laserb"
-	fire_sound = 'sound/weapons/guns/fire/dcb2.ogg'
+	fire_sound = list('sound/weapons/guns/fire/dcb2.ogg')
 	magazine_type = /obj/item/ammo_magazine/tibannagas/dcb2
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/dcb2)
 	weight = 0.6
@@ -420,7 +420,7 @@
 	item_state = "lasgunm36"
 	base_icon = "lasgunm36"
 	caliber = "laser"
-	fire_sound = 'sound/weapons/guns/fire/lasgun.ogg'
+	fire_sound = list('sound/weapons/guns/fire/lasgun.ogg')
 	ammo_type = /obj/item/ammo_casing/laser
 	magazine_type = /obj/item/ammo_magazine/tibannagas/lasgun
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/lasgun)
@@ -442,7 +442,7 @@
 	icon_state = "laspistol"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "laser"
-	fire_sound = 'sound/weapons/guns/fire/lasgun.ogg'
+	fire_sound = list('sound/weapons/guns/fire/lasgun.ogg')
 	magazine_type = /obj/item/ammo_magazine/tibannagas/laspistol
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/laspistol)
 	weight = 0.7

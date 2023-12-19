@@ -20,7 +20,7 @@
 	magazine_type = /obj/item/ammo_magazine/mosin
 	good_mags = list(/obj/item/ammo_magazine)
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
-	fire_sound = 'sound/weapons/guns/fire/battle_rifle.ogg'
+	fire_sound = list('sound/weapons/guns/fire/battle_rifle.ogg')
 	var/bolt_open_sound = 'sound/weapons/guns/interact/bolt_open.ogg'
 	var/bolt_close_sound = 'sound/weapons/guns/interact/bolt_close.ogg'
 	//+2 accuracy over the LWAP because only one shot
@@ -325,7 +325,7 @@
 	ammo_type = list (/obj/item/ammo_casing/a50cal, /obj/item/ammo_casing/a50cal_ap, /obj/item/ammo_casing/a50cal_he)
 	magazine_type = /obj/item/ammo_magazine/mosin
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
-	fire_sound = 'sound/weapons/guns/fire/BarrettM99.ogg'
+	fire_sound = list('sound/weapons/guns/fire/BarrettM99.ogg')
 	bolt_open_sound = 'sound/weapons/guns/interact/barrett_bolt_open.ogg'
 	bolt_close_sound = 'sound/weapons/guns/interact/barrett_bolt_close.ogg'
 	accuracy_increase_mod = 2.00
@@ -364,7 +364,7 @@
 	ammo_type = list (/obj/item/ammo_casing/a145, /obj/item/ammo_casing/a145_ap)
 	magazine_type = /obj/item/ammo_magazine/mosin
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
-	fire_sound = 'sound/weapons/guns/fire/ptrd.ogg'
+	fire_sound = list('sound/weapons/guns/fire/ptrd.ogg')
 	accuracy_increase_mod = 2.00
 	move_delay = 4
 	fire_delay = 10
@@ -398,7 +398,7 @@
 	ammo_type = list (/obj/item/ammo_casing/a792x94, /obj/item/ammo_casing/a792x94_ap)
 	magazine_type = /obj/item/ammo_magazine/pzb_case
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
-	fire_sound = 'sound/weapons/guns/fire/ptrd.ogg'
+	fire_sound = list('sound/weapons/guns/fire/ptrd.ogg')
 	accuracy_increase_mod = 2.00
 	move_delay = 4
 	fire_delay = 4
@@ -448,7 +448,7 @@
 	icon_state ="mosin"
 	item_state ="mosin"
 	base_icon = "mosin"
-	fire_sound = 'sound/weapons/guns/fire/Mosin.ogg'
+	fire_sound = list('sound/weapons/guns/fire/Mosin.ogg')
 	force = 12
 	caliber = "a762x54"
 	weight = 4.3
@@ -589,7 +589,7 @@
 	base_icon = "arisaka99"
 	caliber = "a77x58_wood"
 	weight = 3.8
-	fire_sound = 'sound/weapons/guns/fire/rifle.ogg'
+	fire_sound = list('sound/weapons/guns/fire/rifle.ogg')
 	ammo_type = /obj/item/ammo_casing/a77x58_wood
 	magazine_type = /obj/item/ammo_magazine/arisaka99_training
 	good_mags = list(/obj/item/ammo_magazine/arisaka99, /obj/item/ammo_magazine/arisaka99_training)
@@ -660,7 +660,7 @@
 	icon_state = "mauser90"
 	item_state = "gewehr98"
 	base_icon = "mauser90"
-	fire_sound = 'sound/weapons/guns/fire/Kar98k.ogg'
+	fire_sound = list('sound/weapons/guns/fire/Kar98k.ogg')
 	caliber = "a765x53"
 	weight = 3.8
 	ammo_type = /obj/item/ammo_casing/a765x53
@@ -684,7 +684,7 @@
 	icon_state = "mauser93"
 	item_state = "mauser93"
 	base_icon = "mauser93"
-	fire_sound = 'sound/weapons/guns/fire/Kar98k.ogg'
+	fire_sound = list('sound/weapons/guns/fire/Kar98k.ogg')
 	caliber = "a7x57"
 	weight = 3.68
 	ammo_type = /obj/item/ammo_casing/a7x57
@@ -718,7 +718,7 @@
 	item_state = "gewehr98"
 	base_icon = "gewehr98"
 	caliber = "a792x57"
-	fire_sound = 'sound/weapons/guns/fire/Kar98k.ogg'
+	fire_sound = list('sound/weapons/guns/fire/Kar98k.ogg')
 	weight = 4
 	ammo_type = /obj/item/ammo_casing/a792x57
 	magazine_type = /obj/item/ammo_magazine/gewehr98
@@ -742,7 +742,7 @@
 	item_state = "vg1"
 	base_icon = "vg1"
 	caliber = "a792x33"
-	fire_sound = 'sound/weapons/guns/fire/stg.ogg'
+	fire_sound = list('sound/weapons/guns/fire/stg.ogg')
 	weight = 4.2
 	ammo_type = /obj/item/ammo_casing/a792x33
 	magazine_type = /obj/item/ammo_magazine/vgclip

@@ -9,7 +9,7 @@
 	effectiveness_mod = 1.11
 	caliber = "a556x45"
 	icon = 'icons/obj/guns/assault_rifles.dmi'
-	fire_sound = 'sound/weapons/guns/fire/AKM.ogg'
+	fire_sound = list('sound/weapons/guns/fire/AKM.ogg')
 	magazine_type = /obj/item/ammo_magazine/ak101
 	good_mags = list(/obj/item/ammo_magazine/ak101, /obj/item/ammo_magazine/ak101/drum)
 	equiptimer = 15

@@ -137,9 +137,6 @@
 	ui_interact(user)
 	..()
 
-/obj/proc/interact(mob/user)
-	return
-
 /obj/proc/update_icon()
 	return
 
@@ -193,3 +190,7 @@
 
 /obj/proc/secondary_attack_self(mob/living/human/user)
 	return
+
+/obj/proc/update_for_view()
+	var/list/actualview = getviewsize(WORLD_VIEW)
+	transform = matrix(actualview[1]/FULLSCREEN_OVERLAY_RESOLUTION_X, 0, 0, 0, actualview[2]/FULLSCREEN_OVERLAY_RESOLUTION_Y, 0)

@@ -10,11 +10,11 @@
 	handle_casings = CYCLE_CASINGS
 	max_shells = 7
 	ammo_type = /obj/item/ammo_casing/a45
-	unload_sound 	= 'sound/weapons/guns/interact/rev_magout.ogg'
-	reload_sound 	= 'sound/weapons/guns/interact/rev_magin.ogg'
-	cocked_sound 	= 'sound/weapons/guns/interact/rev_cock.ogg'
-	fire_sound = 'sound/weapons/guns/fire/revolver.ogg'
-	silencer_fire_sound = 'sound/weapons/guns/fire/Glock17-SD.ogg'
+	unload_sound 	= list('sound/weapons/guns/interact/rev_magout.ogg')
+	reload_sound 	= list('sound/weapons/guns/interact/rev_magin.ogg')
+	cocked_sound 	= list('sound/weapons/guns/interact/rev_cock.ogg')
+	fire_sound = list('sound/weapons/guns/fire/revolver.ogg')
+	silencer_fire_sound = list('sound/weapons/guns/fire/Glock17-SD.ogg')
 	var/chamber_offset = FALSE //how many empty chambers in the cylinder until you hit a round
 	magazine_based = FALSE
 	var/single_action = FALSE
@@ -116,12 +116,12 @@
 /obj/item/weapon/gun/projectile/revolver/attack_self(mob/user)
 	if (single_action)
 		if (!cocked)
-			playsound(loc, cocked_sound, 50, TRUE)
+			playsound(loc, pick(cocked_sound), 50, TRUE)
 			visible_message("<span class='warning'>[user] cocks the [src]!</span>","<span class='warning'>You cock the [src]!</span>")
 			cocked = TRUE
 			update_icon()
 		else
-			playsound(loc, cocked_sound, 50, TRUE)
+			playsound(loc, pick(cocked_sound), 50, TRUE)
 			visible_message("<span class='notice'>[user] uncocks the [src].</span>","<span class='notice'>You uncock the [src].</span>")
 			cocked = FALSE
 			update_icon()
@@ -159,7 +159,8 @@
 				loaded.Cut()
 			if (count)
 				visible_message("[user] unloads [src].", "<span class='notice'>You unload [count] round\s from [src].</span>")
-				if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
+				if (bulletinsert_sound)
+					playsound(loc, pick(bulletinsert_sound), 75, TRUE)
 		else if (load_method & SINGLE_CASING)
 			var/obj/item/ammo_casing/C = loaded[loaded.len]
 			loaded.len--
@@ -169,7 +170,8 @@
 				var/obj/item/weapon/gun/projectile/boltaction/B = src
 				if (B.bolt_safety && !B.loaded.len)
 					B.check_bolt_lock++
-			if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
+			if (bulletinsert_sound)
+				playsound(loc, pick(bulletinsert_sound), 75, TRUE)
 	else
 		user << "<span class='warning'>[src] is empty.</span>"
 	update_icon()
@@ -341,7 +343,7 @@
 	icon_state = "coltnewpolice"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a32"
-	fire_sound = 'sound/weapons/guns/fire/32ACP.ogg'
+	fire_sound = list('sound/weapons/guns/fire/32ACP.ogg')
 	handle_casings = CYCLE_CASINGS
 	max_shells = 6
 	equiptimer = 4
@@ -384,7 +386,7 @@
 	icon_state = "webley4"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a455"
-	fire_sound = 'sound/weapons/guns/fire/45ACP.ogg'
+	fire_sound = list('sound/weapons/guns/fire/45ACP.ogg')
 	handle_casings = CYCLE_CASINGS
 	max_shells = 6
 	magazine_type = /obj/item/ammo_magazine/c455
@@ -472,7 +474,7 @@
 	base_icon = "smithwesson32"
 	w_class = ITEM_SIZE_TINY
 	caliber = "a32"
-	fire_sound = 'sound/weapons/guns/fire/32ACP.ogg'
+	fire_sound = list('sound/weapons/guns/fire/32ACP.ogg')
 	handle_casings = CYCLE_CASINGS
 	max_shells = 6
 	magazine_type = /obj/item/ammo_magazine/c32
@@ -492,7 +494,7 @@
 	base_icon = "snw3"
 	w_class = ITEM_SIZE_TINY
 	caliber = "a32"
-	fire_sound = 'sound/weapons/guns/fire/32ACP.ogg'
+	fire_sound = list('sound/weapons/guns/fire/32ACP.ogg')
 	handle_casings = CYCLE_CASINGS
 	max_shells = 6
 	magazine_type = /obj/item/ammo_magazine/c32
@@ -511,7 +513,7 @@
 	base_icon = "snw10"
 	w_class = ITEM_SIZE_TINY
 	caliber = "a38"
-	fire_sound = 'sound/weapons/guns/fire/32ACP.ogg'
+	fire_sound = list('sound/weapons/guns/fire/32ACP.ogg')
 	handle_casings = CYCLE_CASINGS
 	max_shells = 6
 	magazine_type = /obj/item/ammo_magazine/c38
@@ -547,7 +549,7 @@
 	icon_state = "panther"
 	item_state = "panther"
 	w_class = ITEM_SIZE_SMALL
-	fire_sound = 'sound/weapons/guns/fire/44Mag.ogg'
+	fire_sound = list('sound/weapons/guns/fire/44Mag.ogg')
 	caliber = "a44p"
 	handle_casings = CYCLE_CASINGS
 	max_shells = 7
@@ -565,7 +567,7 @@
 	item_state = "pistol"
 	w_class = ITEM_SIZE_TINY
 	caliber = "a41"
-	fire_sound = 'sound/weapons/guns/fire/44Mag.ogg'
+	fire_sound = list('sound/weapons/guns/fire/44Mag.ogg')
 	magazine_type = /obj/item/ammo_magazine/c41
 	ammo_type = /obj/item/ammo_casing/a41
 	weight = 0.31
@@ -700,7 +702,7 @@
 	unload_sound 	= 'sound/weapons/guns/interact/rev_magout.ogg'
 	reload_sound 	= 'sound/weapons/guns/interact/rev_magin.ogg'
 	cocked_sound 	= 'sound/weapons/guns/interact/rev_cock.ogg'
-	fire_sound = 'sound/weapons/guns/fire/revolver.ogg'
+	fire_sound = list('sound/weapons/guns/fire/revolver.ogg')
 	var/chamber_offset = FALSE //how many empty chambers in the cylinder until you hit a round
 	magazine_based = FALSE
 	var/single_action = FALSE
@@ -792,11 +794,11 @@
 /obj/item/weapon/gun/projectile/revolving/attack_self(mob/user)
 	if (single_action)
 		if (!cocked)
-			playsound(loc, cocked_sound, 50, TRUE)
+			playsound(loc, pick(cocked_sound), 50, TRUE)
 			visible_message("<span class='warning'>[user] cocks the [src]!</span>","<span class='warning'>You cock the [src]!</span>")
 			cocked = TRUE
 		else
-			playsound(loc, cocked_sound, 50, TRUE)
+			playsound(loc, pick(cocked_sound), 50, TRUE)
 			visible_message("<span class='notice'>[user] uncocks the [src].</span>","<span class='notice'>You uncock the [src].</span>")
 			cocked = FALSE
 
@@ -833,7 +835,8 @@
 				loaded.Cut()
 			if (count)
 				visible_message("[user] unloads [src].", "<span class='notice'>You unload [count] round\s from [src].</span>")
-				if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
+				if (bulletinsert_sound)
+					playsound(loc, pick(bulletinsert_sound), 75, TRUE)
 		else if (load_method & SINGLE_CASING)
 			var/obj/item/ammo_casing/C = loaded[loaded.len]
 			loaded.len--
@@ -843,7 +846,8 @@
 				var/obj/item/weapon/gun/projectile/boltaction/B = src
 				if (B.bolt_safety && !B.loaded.len)
 					B.check_bolt_lock++
-			if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
+			if (bulletinsert_sound)
+				playsound(loc, pick(bulletinsert_sound), 75, TRUE)
 	else
 		user << "<span class='warning'>[src] is empty.</span>"
 	update_icon()
@@ -881,7 +885,7 @@
 	unload_sound 	= 'sound/weapons/guns/interact/rev_magout.ogg'
 	reload_sound 	= 'sound/weapons/guns/interact/rev_magin.ogg'
 	cocked_sound 	= 'sound/weapons/guns/interact/rev_cock.ogg'
-	fire_sound = 'sound/weapons/guns/fire/hpistol.ogg'
+	fire_sound = list('sound/weapons/guns/fire/hpistol.ogg')
 	var/chamber_offset = FALSE //how many empty chambers in the cylinder until you hit a round
 	magazine_based = FALSE
 	var/single_action = FALSE
@@ -979,12 +983,12 @@
 /obj/item/weapon/gun/projectile/capnball/attack_self(mob/user)
 	if (single_action)
 		if (!cocked)
-			playsound(loc, cocked_sound, 50, TRUE)
+			playsound(loc, pick(cocked_sound), 50, TRUE)
 			visible_message("<span class='warning'>[user] cocks the [src]!</span>","<span class='warning'>You cock the [src]!</span>")
 			cocked = TRUE
 			update_icon()
 		else
-			playsound(loc, cocked_sound, 50, TRUE)
+			playsound(loc, pick(cocked_sound), 50, TRUE)
 			visible_message("<span class='notice'>[user] uncocks the [src].</span>","<span class='notice'>You uncock the [src].</span>")
 			cocked = FALSE
 			update_icon()
@@ -1019,7 +1023,8 @@
 				loaded.Cut()
 			if (count)
 				visible_message("[user] unloads [src].", "<span class='notice'>You unload [count] round\s from [src].</span>")
-				if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
+				if (bulletinsert_sound)
+					playsound(loc, pick(bulletinsert_sound), 75, TRUE)
 		else if (load_method & SINGLE_CASING)
 			var/obj/item/ammo_casing/C = loaded[loaded.len]
 			loaded.len--
@@ -1029,7 +1034,8 @@
 				var/obj/item/weapon/gun/projectile/boltaction/B = src
 				if (B.bolt_safety && !B.loaded.len)
 					B.check_bolt_lock++
-			if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
+			if (bulletinsert_sound)
+				playsound(loc, pick(bulletinsert_sound), 75, TRUE)
 	else
 		user << "<span class='warning'>[src] is empty.</span>"
 	update_icon()

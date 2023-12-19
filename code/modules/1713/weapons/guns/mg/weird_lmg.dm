@@ -290,7 +290,7 @@
 		C.loc = src
 		loaded.Insert(1, C) //add to the head of the list
 		user.visible_message("[user] inserts \a [C] into [src].", "<span class='notice'>You insert \a [C] into [src].</span>")
-		if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
+		if (bulletinsert_sound) playsound(loc, pick(bulletinsert_sound), 75, TRUE)
 
 	update_icon()
 
@@ -314,13 +314,13 @@
 				loaded.Cut()
 			if (count)
 				user.visible_message("[user] unloads [src].", "<span class='notice'>You unload [count] round\s from [src].</span>")
-				if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
+				if (bulletinsert_sound) playsound(loc, pick(bulletinsert_sound), 75, TRUE)
 		else if (load_method & SINGLE_CASING)
 			var/obj/item/ammo_casing/C = loaded[loaded.len]
 			loaded.len--
 			user.put_in_hands(C)
 			user.visible_message("[user] removes \a [C] from [src].", "<span class='notice'>You remove \a [C] from [src].</span>")
-			if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
+			if (bulletinsert_sound) playsound(loc, pick(bulletinsert_sound), 75, TRUE)
 	else
 		user << "<span class='warning'>[src] is empty.</span>"
 	update_icon()

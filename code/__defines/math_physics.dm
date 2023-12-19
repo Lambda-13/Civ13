@@ -90,3 +90,6 @@
 #define IsPowerOfTwo(val) ((val & (val-1)) == 0)
 
 #define RoundUpToPowerOfTwo(val) (2 ** -round(-log(2,val)))
+
+// Returns true if val is from min to max, inclusive.
+#define ISINRANGE(val, min, max) (min <= val && val <= max)
