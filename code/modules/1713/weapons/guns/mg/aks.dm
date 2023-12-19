@@ -18,7 +18,7 @@
 		list(name = "full auto",	burst=1, burst_delay=1.2, recoil=0, move_delay=4, dispersion = list(1.1, 1.2, 1.2, 1.3, 1.4)),
 		)
 	sel_mode = 1
-	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_ADV_SCOPE|ATTACH_UNDER|ATTACH_BARREL
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_ADV_SCOPE|ATTACH_UNDER|ATTACH_BARREL
 	accuracy = 2
 	recoil = 30
 

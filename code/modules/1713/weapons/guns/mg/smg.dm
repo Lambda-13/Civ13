@@ -980,7 +980,7 @@
 	effectiveness_mod = 1.02
 	damage_modifier = 0.95
 	equiptimer = 12
-	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_ADV_SCOPE|ATTACH_UNDER|ATTACH_BARREL
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_ADV_SCOPE|ATTACH_SCOPE|ATTACH_UNDER|ATTACH_BARREL
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/aks74u/aks74uso/update_icon()
 	if (folded)
@@ -1085,7 +1085,7 @@
 		)
 	effectiveness_mod = 1.08
 	sel_mode = 1
-	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_SCOPE|ATTACH_UNDER
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_SCOPE|ATTACH_SCOPE|ATTACH_UNDER
 	stat = "rifle"
 	recoil = 30
 	accuracy = 3
@@ -1098,7 +1098,13 @@
 	var/part_icon_state
 
 	if (sniper_scope)
-		part_icon_state = "ak74_scope"
+		part_icon_state = "pso1"
+		if (istype(part_icon_state, /obj/item/weapon/attachment/scope/adjustable/sniper_scope))
+			part_icon_state = "pso1"
+		if (istype(part_icon_state, /obj/item/weapon/attachment/scope/adjustable/advanced/holographic))
+			part_icon_state = "holographic"
+		if (istype(part_icon_state, /obj/item/weapon/attachment/scope/adjustable/advanced/reddot))
+			part_icon_state = "reddot"
 		scope_image = image(icon = part_icon, loc = src, icon_state = part_icon_state)
 		overlays += scope_image
 
@@ -1127,7 +1133,7 @@
 	effectiveness_mod = 1.13
 	magazine_type = /obj/item/ammo_magazine/ak74
 	good_mags = list(/obj/item/ammo_magazine/rpk74, /obj/item/ammo_magazine/rpk74/drum, /obj/item/ammo_magazine/ak74, /obj/item/ammo_magazine/ak74/ak74m)
-	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_ADV_SCOPE|ATTACH_UNDER|ATTACH_BARREL
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_ADV_SCOPE|ATTACH_SCOPE|ATTACH_UNDER|ATTACH_BARREL
 	equiptimer = 12
 	sel_mode = 1
 	recoil = 25
@@ -1145,11 +1151,41 @@
 	fire_sound = 'sound/weapons/guns/fire/AKM.ogg'
 	magazine_type = /obj/item/ammo_magazine/ak47
 	good_mags = list(/obj/item/ammo_magazine/ak47, /obj/item/ammo_magazine/ak47/drum, /obj/item/ammo_magazine/ak47/makeshift)
-	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_ADV_SCOPE|ATTACH_UNDER|ATTACH_BARREL
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_ADV_SCOPE|ATTACH_SCOPE|ATTACH_UNDER|ATTACH_BARREL
 	equiptimer = 12
 	sel_mode = 1
 	recoil = 30
 	accuracy = 2
+
+/obj/item/weapon/gun/projectile/submachinegun/ak74m/ak12/ak15/update_icon()
+	overlays -= mag_image
+	overlays -= scope_image
+
+	var/part_icon = 'icons/obj/guns/parts.dmi'
+	var/part_icon_state
+
+	if (sniper_scope)
+		part_icon_state = "pso1"
+		if (istype(part_icon_state, /obj/item/weapon/attachment/scope/adjustable/sniper_scope))
+			part_icon_state = "pso1"
+		if (istype(part_icon_state, /obj/item/weapon/attachment/scope/adjustable/advanced/holographic))
+			part_icon_state = "holographic"
+		if (istype(part_icon_state, /obj/item/weapon/attachment/scope/adjustable/advanced/reddot))
+			part_icon_state = "reddot"
+		scope_image = image(icon = part_icon, loc = src, icon_state = part_icon_state)
+		overlays += scope_image
+
+	if (ammo_magazine)
+		part_icon_state = "ak47_magak"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk47))
+			part_icon_state = "ak47_magrpk"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk47/drum))
+			part_icon_state = "ak47_drum"
+		mag_image = image(icon = part_icon, loc = src, icon_state = part_icon_state)
+		overlays += mag_image
+	update_held_icon()
+
+	return
 
 /obj/item/weapon/gun/projectile/submachinegun/m16
 	name = "M16A1"
