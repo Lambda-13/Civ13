@@ -107,7 +107,7 @@
 	caliber = "dart"
 	fire_sound = 'sound/weapons/guns/interact/garandload.ogg'
 	fire_sound_text = "a sharp metalic clack"
-	recoil = FALSE
+	shake_strength = FALSE
 	magazine_type = /obj/item/ammo_magazine/chemdart
 	auto_eject = FALSE
 	gtype = "none"
@@ -151,7 +151,7 @@
 	fire_sound = 'sound/weapons/guns/fire/Crossbow.ogg'
 	fire_sound_text = "someone blowing through a tube"
 	bulletinsert_sound = 'sound/items/matchstick_hit.ogg'
-	recoil = FALSE
+	shake_strength = FALSE
 	auto_eject = FALSE
 	gtype = "none"
 	max_beakers = 1
@@ -293,7 +293,7 @@
 	caliber = "dart"
 	fire_sound = 'sound/weapons/guns/interact/garandload.ogg'
 	fire_sound_text = "a sharp metalic clack"
-	recoil = FALSE
+	shake_strength = FALSE
 	auto_eject = TRUE
 	gtype = "none"
 	max_beakers = 1
@@ -334,7 +334,7 @@
 	caliber = "dart"
 	fire_sound = 'sound/weapons/guns/interact/garandload.ogg'
 	fire_sound_text = "a sharp metalic clack"
-	recoil = FALSE
+	shake_strength = FALSE
 	magazine_type = /obj/item/ammo_magazine/chemdart/mag
 	auto_eject = TRUE
 	gtype = "none"

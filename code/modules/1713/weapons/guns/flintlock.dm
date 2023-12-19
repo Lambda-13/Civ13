@@ -14,14 +14,13 @@
 	max_shells = 1 //duh
 	slot_flags = SLOT_SHOULDER
 	caliber = "musketball"
-	recoil = 3 //extra kickback
+	shake_strength = 3 //extra kickback
 	handle_casings = REMOVE_CASINGS
 	load_method = SINGLE_CASING
 	ammo_type = /obj/item/ammo_casing/musketball
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	fire_sound = 'sound/weapons/guns/fire/musket.ogg'
 	//+2 accuracy over the LWAP because only one shot
-	accuracy = TRUE
 //	scoped_accuracy = 2
 	gun_type = GUN_TYPE_RIFLE
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS | ATTACH_BARREL
@@ -34,51 +33,7 @@
 	fire_delay = 5
 	equiptimer = 20
 	maxhealth = 20
-	// 5x as accurate as MGs for now
-	accuracy_list = list(
-
-		// small body parts: head, hand, feet
-		"small" = list(
-			SHORT_RANGE_STILL = 83,
-			SHORT_RANGE_MOVING = 42,
-
-			MEDIUM_RANGE_STILL = 73,
-			MEDIUM_RANGE_MOVING = 37,
-
-			LONG_RANGE_STILL = 63,
-			LONG_RANGE_MOVING = 32,
-
-			VERY_LONG_RANGE_STILL = 53,
-			VERY_LONG_RANGE_MOVING = 27),
-
-		// medium body parts: limbs
-		"medium" = list(
-			SHORT_RANGE_STILL = 88,
-			SHORT_RANGE_MOVING = 44,
-
-			MEDIUM_RANGE_STILL = 78,
-			MEDIUM_RANGE_MOVING = 39,
-
-			LONG_RANGE_STILL = 68,
-			LONG_RANGE_MOVING = 34,
-
-			VERY_LONG_RANGE_STILL = 58,
-			VERY_LONG_RANGE_MOVING = 29),
-
-		// large body parts: chest, groin
-		"large" = list(
-			SHORT_RANGE_STILL = 93,
-			SHORT_RANGE_MOVING = 47,
-
-			MEDIUM_RANGE_STILL = 83,
-			MEDIUM_RANGE_MOVING = 42,
-
-			LONG_RANGE_STILL = 73,
-			LONG_RANGE_MOVING = 37,
-
-			VERY_LONG_RANGE_STILL = 63,
-			VERY_LONG_RANGE_MOVING = 32),
-	)
+	accuracy = 5
 
 	load_delay = 110 //11 seconds for rifles, 8 seconds for pistols & blunderbuss
 	aim_miss_chance_divider = 3.00
@@ -152,6 +107,7 @@
 	effectiveness_mod = 0.97
 	ammo_type = /obj/item/ammo_casing/musketball
 	value = 100
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/flintlock/m1752
 	name = "M1752 mosquete"
@@ -164,6 +120,7 @@
 	value = 100
 	item_state = "musket"
 	icon_state = "mosquete1752"
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/flintlock/jezail
 	name = "Jezail musket"
@@ -176,6 +133,7 @@
 	value = 100
 	item_state = "musket"
 	icon_state = "jezail"
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/flintlock/kabyle
 	name = "Kabyle musket"
@@ -188,6 +146,7 @@
 	value = 100
 	item_state = "musket"
 	icon_state = "moukalla"
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/flintlock/brownbess
 	name = "Brownbess musket"
@@ -200,6 +159,7 @@
 	value = 100
 	item_state = "musket"
 	icon_state = "brownbess"
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/flintlock/charleville
 	name = "Charleville mousquet"
@@ -212,6 +172,7 @@
 	value = 100
 	item_state = "musket"
 	icon_state = "charleville_mousquet"
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/flintlock/plexico
 	name = "flintlock musket"
@@ -224,6 +185,7 @@
 	value = 110
 	item_state = "plexciomusket"
 	icon_state = "plexciomusket"
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/flintlock/springfield
 	name = "Springfield M1861 Musket"
@@ -237,6 +199,7 @@
 	item_state = "springfield"
 	icon_state = "springfield"
 	load_delay = 70
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/flintlock/springfield1795
 	name = "Springfield 1795 Musket"
@@ -250,6 +213,7 @@
 	item_state = "springfield"
 	icon_state = "springfield1795"
 	load_delay = 80
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/flintlock/musketoon
 	name = "flintlock musketoon"
@@ -263,6 +227,7 @@
 	ammo_type = /obj/item/ammo_casing/musketball
 	value = 80
 	equiptimer = 12
+	accuracy = 5
 
 /obj/item/weapon/gun/projectile/flintlock/crude
 	name = "crude musket"
@@ -275,50 +240,8 @@
 	effectiveness_mod = 0.75
 	ammo_type = /obj/item/ammo_casing/musketball
 	value = 45
-	accuracy_list = list(
+	accuracy = 5
 
-		// small body parts: head, hand, feet
-		"small" = list(
-			SHORT_RANGE_STILL = 60,
-			SHORT_RANGE_MOVING = 40,
-
-			MEDIUM_RANGE_STILL = 53,
-			MEDIUM_RANGE_MOVING = 35,
-
-			LONG_RANGE_STILL = 45,
-			LONG_RANGE_MOVING = 30,
-
-			VERY_LONG_RANGE_STILL = 38,
-			VERY_LONG_RANGE_MOVING = 25),
-
-		// medium body parts: limbs
-		"medium" = list(
-			SHORT_RANGE_STILL = 64,
-			SHORT_RANGE_MOVING = 42,
-
-			MEDIUM_RANGE_STILL = 60,
-			MEDIUM_RANGE_MOVING = 38,
-
-			LONG_RANGE_STILL = 55,
-			LONG_RANGE_MOVING = 32,
-
-			VERY_LONG_RANGE_STILL = 48,
-			VERY_LONG_RANGE_MOVING = 27),
-
-		// large body parts: chest, groin
-		"large" = list(
-			SHORT_RANGE_STILL = 68,
-			SHORT_RANGE_MOVING = 44,
-
-			MEDIUM_RANGE_STILL = 63,
-			MEDIUM_RANGE_MOVING = 40,
-
-			LONG_RANGE_STILL = 58,
-			LONG_RANGE_MOVING = 35,
-
-			VERY_LONG_RANGE_STILL = 51,
-			VERY_LONG_RANGE_MOVING = 30),
-	)
 /obj/item/weapon/gun/projectile/flintlock/pistol
 	// less accurate than rifles against still targets, but better against moving targets
 	// less accurate than semiautos but with the same ratios
@@ -326,7 +249,7 @@
 	desc = "A typical flintlock pistol. Good for short ranges, useless otherwise."
 	icon_state = "flintpistol"
 	item_state = "pistol"
-	recoil = 2
+	shake_strength = 2
 	force = 6
 	w_class = ITEM_SIZE_SMALL
 	fire_sound = 'sound/weapons/guns/fire/hpistol.ogg'
@@ -343,59 +266,12 @@
 	gtype = "pistol"
 	equiptimer = 7
 	gun_type = GUN_TYPE_PISTOL
-	accuracy_list = list(
-
-
-		// small body parts: head, hand, feet
-		"small" = list(
-			SHORT_RANGE_STILL = 60,
-			SHORT_RANGE_MOVING = 40,
-
-			MEDIUM_RANGE_STILL = 53,
-			MEDIUM_RANGE_MOVING = 35,
-
-			LONG_RANGE_STILL = 45,
-			LONG_RANGE_MOVING = 30,
-
-			VERY_LONG_RANGE_STILL = 38,
-			VERY_LONG_RANGE_MOVING = 25),
-
-		// medium body parts: limbs
-		"medium" = list(
-			SHORT_RANGE_STILL = 64,
-			SHORT_RANGE_MOVING = 42,
-
-			MEDIUM_RANGE_STILL = 56,
-			MEDIUM_RANGE_MOVING = 38,
-
-			LONG_RANGE_STILL = 49,
-			LONG_RANGE_MOVING = 32,
-
-			VERY_LONG_RANGE_STILL = 41,
-			VERY_LONG_RANGE_MOVING = 27),
-
-		// large body parts: chest, groin
-		"large" = list(
-			SHORT_RANGE_STILL = 68,
-			SHORT_RANGE_MOVING = 44,
-
-			MEDIUM_RANGE_STILL = 60,
-			MEDIUM_RANGE_MOVING = 40,
-
-			LONG_RANGE_STILL = 53,
-			LONG_RANGE_MOVING = 35,
-
-			VERY_LONG_RANGE_STILL = 45,
-			VERY_LONG_RANGE_MOVING = 30),
-	)
-
 	accuracy_increase_mod = 1.50
 	accuracy_decrease_mod = 2.00
 	KD_chance = KD_CHANCE_LOW
 	stat = "pistol"
 	aim_miss_chance_divider = 2.00
-
-
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/flintlock/blunderbuss
 	stat = "heavy"
@@ -403,7 +279,7 @@
 	desc = "A enlarged version of the musketoon, it can fire bigger bullets. Useless at long range."
 	icon_state = "blunderbuss"
 	item_state = "blunderbuss"
-	recoil = 4
+	shake_strength = 4
 	force = 14
 	load_delay = 100
 	caliber = "blunderbuss"
@@ -417,50 +293,7 @@
 	fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
 	equiptimer = 15
 	// 15% more accurate than SMGs
-	accuracy_list = list(
-
-		// small body parts: head, hand, feet
-		"small" = list(
-			SHORT_RANGE_STILL = 56,
-			SHORT_RANGE_MOVING = 45,
-
-			MEDIUM_RANGE_STILL = 55,
-			MEDIUM_RANGE_MOVING = 46,
-
-			LONG_RANGE_STILL = 16,
-			LONG_RANGE_MOVING = 13,
-
-			VERY_LONG_RANGE_STILL = 8,
-			VERY_LONG_RANGE_MOVING = 7),
-
-		// medium body parts: limbs
-		"medium" = list(
-			SHORT_RANGE_STILL = 65,
-			SHORT_RANGE_MOVING = 56,
-
-			MEDIUM_RANGE_STILL = 55,
-			MEDIUM_RANGE_MOVING = 46,
-
-			LONG_RANGE_STILL = 18,
-			LONG_RANGE_MOVING = 15,
-
-			VERY_LONG_RANGE_STILL = 10,
-			VERY_LONG_RANGE_MOVING = 8),
-
-		// large body parts: chest, groin
-		"large" = list(
-			SHORT_RANGE_STILL = 91,
-			SHORT_RANGE_MOVING = 72,
-
-			MEDIUM_RANGE_STILL = 69,
-			MEDIUM_RANGE_MOVING = 64,
-
-			LONG_RANGE_STILL = 45,
-			LONG_RANGE_MOVING = 36,
-
-			VERY_LONG_RANGE_STILL = 18,
-			VERY_LONG_RANGE_MOVING = 15),
-	)
+	accuracy = 5
 
 	accuracy_increase_mod = 1.05
 	accuracy_decrease_mod = 1.10
@@ -471,7 +304,7 @@
 	desc = "A typical French pistol. Used by Calvary units."
 	icon_state = "pistolet_modele1733"
 	item_state = "pistol"
-	recoil = 2.1
+	shake_strength = 2.1
 	force = 6.1
 	w_class = ITEM_SIZE_SMALL
 	fire_sound = 'sound/weapons/guns/fire/hpistol.ogg'
@@ -488,64 +321,20 @@
 	gtype = "pistol"
 	gun_type = GUN_TYPE_PISTOL
 	equiptimer = 7
-	accuracy_list = list(
-
-
-		// small body parts: head, hand, feet
-		"small" = list(
-			SHORT_RANGE_STILL = 60,
-			SHORT_RANGE_MOVING = 40,
-
-			MEDIUM_RANGE_STILL = 55,
-			MEDIUM_RANGE_MOVING = 55,
-
-			LONG_RANGE_STILL = 45,
-			LONG_RANGE_MOVING = 30,
-
-			VERY_LONG_RANGE_STILL = 38,
-			VERY_LONG_RANGE_MOVING = 25),
-
-		// medium body parts: limbs
-		"medium" = list(
-			SHORT_RANGE_STILL = 64,
-			SHORT_RANGE_MOVING = 42,
-
-			MEDIUM_RANGE_STILL = 54,
-			MEDIUM_RANGE_MOVING = 48,
-
-			LONG_RANGE_STILL = 49,
-			LONG_RANGE_MOVING = 32,
-
-			VERY_LONG_RANGE_STILL = 41,
-			VERY_LONG_RANGE_MOVING = 27),
-
-		// large body parts: chest, groin
-		"large" = list(
-			SHORT_RANGE_STILL = 68,
-			SHORT_RANGE_MOVING = 44,
-
-			MEDIUM_RANGE_STILL = 60,
-			MEDIUM_RANGE_MOVING = 40,
-
-			LONG_RANGE_STILL = 53,
-			LONG_RANGE_MOVING = 35,
-
-			VERY_LONG_RANGE_STILL = 45,
-			VERY_LONG_RANGE_MOVING = 30),
-	)
-
 	accuracy_increase_mod = 1.40
 	accuracy_decrease_mod = 2.00
 	KD_chance = KD_CHANCE_LOW
 	stat = "pistol"
 	aim_miss_chance_divider = 1.70
+	accuracy = 10
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/flintlock/duellingpistol
 	name = "Duelling Flintlock "
 	desc = "A typical Duelling Pistol. Used by gentlemen who take part in duels."
 	icon_state = "flintlock_duelingpistol"
 	item_state = "pistol"
-	recoil = 2.5
+	shake_strength = 2.5
 	force = 8
 	w_class = ITEM_SIZE_SMALL
 	fire_sound = 'sound/weapons/guns/fire/hpistol.ogg'
@@ -562,59 +351,14 @@
 	gtype = "pistol"
 	gun_type = GUN_TYPE_PISTOL
 	equiptimer = 7
-	accuracy_list = list(
-
-
-		// small body parts: head, hand, feet
-		"small" = list(
-			SHORT_RANGE_STILL = 60,
-			SHORT_RANGE_MOVING = 50,
-
-			MEDIUM_RANGE_STILL = 65,
-			MEDIUM_RANGE_MOVING = 65,
-
-			LONG_RANGE_STILL = 45,
-			LONG_RANGE_MOVING = 30,
-
-			VERY_LONG_RANGE_STILL = 42,
-			VERY_LONG_RANGE_MOVING = 25),
-
-		// medium body parts: limbs
-		"medium" = list(
-			SHORT_RANGE_STILL = 64,
-			SHORT_RANGE_MOVING = 42,
-
-			MEDIUM_RANGE_STILL = 55,
-			MEDIUM_RANGE_MOVING = 58,
-
-			LONG_RANGE_STILL = 49,
-			LONG_RANGE_MOVING = 32,
-
-			VERY_LONG_RANGE_STILL = 41,
-			VERY_LONG_RANGE_MOVING = 27),
-
-		// large body parts: chest, groin
-		"large" = list(
-			SHORT_RANGE_STILL = 68,
-			SHORT_RANGE_MOVING = 44,
-
-			MEDIUM_RANGE_STILL = 60,
-			MEDIUM_RANGE_MOVING = 40,
-
-			LONG_RANGE_STILL = 63,
-			LONG_RANGE_MOVING = 35,
-
-			VERY_LONG_RANGE_STILL = 47,
-			VERY_LONG_RANGE_MOVING = 35),
-	)
-
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/flintlock/pistoletmodeleanxiii
 	name = "Pistolet modèle An XIII"
 	desc = "A typical French pistol. Used by Calvary units."
 	icon_state = "pistolet_modele13"
 	item_state = "pistol"
-	recoil = 2.1
+	shake_strength = 2.1
 	force = 6.1
 	w_class = ITEM_SIZE_SMALL
 	fire_sound = 'sound/weapons/guns/fire/hpistol.ogg'
@@ -631,64 +375,20 @@
 	gtype = "pistol"
 	gun_type = GUN_TYPE_PISTOL
 	equiptimer = 7
-	accuracy_list = list(
-
-
-		// small body parts: head, hand, feet
-		"small" = list(
-			SHORT_RANGE_STILL = 60,
-			SHORT_RANGE_MOVING = 40,
-
-			MEDIUM_RANGE_STILL = 55,
-			MEDIUM_RANGE_MOVING = 55,
-
-			LONG_RANGE_STILL = 45,
-			LONG_RANGE_MOVING = 30,
-
-			VERY_LONG_RANGE_STILL = 38,
-			VERY_LONG_RANGE_MOVING = 25),
-
-		// medium body parts: limbs
-		"medium" = list(
-			SHORT_RANGE_STILL = 64,
-			SHORT_RANGE_MOVING = 42,
-
-			MEDIUM_RANGE_STILL = 54,
-			MEDIUM_RANGE_MOVING = 48,
-
-			LONG_RANGE_STILL = 49,
-			LONG_RANGE_MOVING = 32,
-
-			VERY_LONG_RANGE_STILL = 41,
-			VERY_LONG_RANGE_MOVING = 27),
-
-		// large body parts: chest, groin
-		"large" = list(
-			SHORT_RANGE_STILL = 68,
-			SHORT_RANGE_MOVING = 44,
-
-			MEDIUM_RANGE_STILL = 60,
-			MEDIUM_RANGE_MOVING = 40,
-
-			LONG_RANGE_STILL = 53,
-			LONG_RANGE_MOVING = 35,
-
-			VERY_LONG_RANGE_STILL = 45,
-			VERY_LONG_RANGE_MOVING = 30),
-	)
-
 	accuracy_increase_mod = 1.40
 	accuracy_decrease_mod = 2.00
 	KD_chance = KD_CHANCE_LOW
 	stat = "pistol"
 	aim_miss_chance_divider = 1.70
+	accuracy = 4
+
 /obj/item/weapon/gun/projectile/flintlock/blunderbuss/pistol
 	stat = "heavy"
 	name = "Blunderbuss Pistol"
 	desc = "A enlarged version of the musketoon, it can fire bigger bullets. This one has been designed so it can be used with one hand. Useless at medium range."
 	icon_state = "flintlock_blunderbusspistol"
 	item_state = "pistol"
-	recoil = 5
+	shake_strength = 5
 	force = 14
 	load_delay = 110
 	caliber = "blunderbuss"
@@ -701,3 +401,4 @@
 	effectiveness_mod = 0.6
 	attachment_slots = ATTACH_IRONSIGHTS
 	ammo_type = /obj/item/ammo_casing/blunderbuss
+	accuracy = 6

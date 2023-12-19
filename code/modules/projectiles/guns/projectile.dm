@@ -11,6 +11,8 @@
 	var/is_hmg = FALSE
 	var/is_laser_mg = FALSE
 	var/has_telescopic = FALSE
+	var/image/scope_image = null
+
 	//gunporn stuff
 	var/unload_sound 	= 'sound/weapons/guns/interact/pistol_magout.ogg'
 	var/reload_sound 	= 'sound/weapons/guns/interact/pistol_magin.ogg'
@@ -30,6 +32,7 @@
 	var/auto_eject = FALSE			//if the magazine should automatically eject itself when empty.
 	var/auto_eject_sound = null
 	var/ammo_mag = "default" // magazines + gun itself. if set to default, then not used
+	var/image/mag_image = null
 	//TODO generalize ammo icon states for guns
 	//var/magazine_states = FALSE
 	//var/list/icon_keys = list()		//keys

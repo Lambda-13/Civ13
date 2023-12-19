@@ -13,7 +13,7 @@
 	max_shells = 5
 	slot_flags = SLOT_SHOULDER
 	caliber = "a762x54"
-	recoil = 0 //extra kickback
+	shake_strength = 0 //extra kickback
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING | SPEEDLOADER
 	ammo_type = /obj/item/ammo_casing/a762x54
@@ -24,7 +24,6 @@
 	var/bolt_open_sound = 'sound/weapons/guns/interact/bolt_open.ogg'
 	var/bolt_close_sound = 'sound/weapons/guns/interact/bolt_close.ogg'
 	//+2 accuracy over the LWAP because only one shot
-	accuracy = TRUE
 //	scoped_accuracy = 2
 	gun_type = GUN_TYPE_RIFLE
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
@@ -38,54 +37,9 @@
 	gun_safety = TRUE
 	maxhealth = 20
 	gtype = "rifle"
-	// 5x as accurate as MGs for now
-	accuracy_list = list(
-
-		// small body parts: head, hand, feet
-		"small" = list(
-			SHORT_RANGE_STILL = 87,
-			SHORT_RANGE_MOVING = 50,
-
-			MEDIUM_RANGE_STILL = 77,
-			MEDIUM_RANGE_MOVING = 47,
-
-			LONG_RANGE_STILL = 63,
-			LONG_RANGE_MOVING = 37,
-
-			VERY_LONG_RANGE_STILL = 56,
-			VERY_LONG_RANGE_MOVING = 30),
-
-		// medium body parts: limbs
-		"medium" = list(
-			SHORT_RANGE_STILL = 88,
-			SHORT_RANGE_MOVING = 44,
-
-			MEDIUM_RANGE_STILL = 78,
-			MEDIUM_RANGE_MOVING = 39,
-
-			LONG_RANGE_STILL = 68,
-			LONG_RANGE_MOVING = 34,
-
-			VERY_LONG_RANGE_STILL = 58,
-			VERY_LONG_RANGE_MOVING = 29),
-
-		// large body parts: chest, groin
-		"large" = list(
-			SHORT_RANGE_STILL = 98,
-			SHORT_RANGE_MOVING = 49,
-
-			MEDIUM_RANGE_STILL = 90,
-			MEDIUM_RANGE_MOVING = 50,
-
-			LONG_RANGE_STILL = 77,
-			LONG_RANGE_MOVING = 38,
-
-			VERY_LONG_RANGE_STILL = 69,
-			VERY_LONG_RANGE_MOVING = 31),
-	)
-
 	load_delay = 4
 	aim_miss_chance_divider = 3.00
+	accuracy = 1
 
 	var/bolt_open = FALSE
 	var/check_bolt = FALSE //Keeps the bolt from being interfered with
@@ -212,7 +166,7 @@
 	effectiveness_mod = 0.99
 	bolt_safety = FALSE
 	value = 80
-	recoil = 0
+	shake_strength = 0
 	slot_flags = SLOT_SHOULDER
 	throwforce = 16
 	handle_casings = HOLD_CASINGS
@@ -224,6 +178,7 @@
 	gun_safety = FALSE
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
 	var/bolt_delay = 2
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/martini_henry
 	name = "Martini-Henry Rifle"
@@ -237,7 +192,7 @@
 	effectiveness_mod = 0.98
 	bolt_safety = FALSE
 	value = 90
-	recoil = 0
+	shake_strength = 0
 	slot_flags = SLOT_SHOULDER
 	throwforce = 17
 	handle_casings = HOLD_CASINGS
@@ -247,6 +202,7 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	max_shells = 1
 	load_delay = 7
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/rollingblock
 	name = "Rolling-Block Rifle"
@@ -260,7 +216,7 @@
 	effectiveness_mod = 1.02
 	bolt_safety = FALSE
 	value = 90
-	recoil = 0
+	shake_strength = 0
 	slot_flags = SLOT_SHOULDER
 	throwforce = 17
 	handle_casings = HOLD_CASINGS
@@ -270,6 +226,7 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	max_shells = 1
 	load_delay = 7
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/rollingblock/spanish
 	name = "Rolling-Block Rifle"
@@ -278,6 +235,7 @@
 	effectiveness_mod = 0.98
 	ammo_type = /obj/item/ammo_casing/a43
 	magazine_type = /obj/item/ammo_magazine/c43
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/makeshiftbolt
 	name = "Makeshift Bolt"
@@ -291,7 +249,7 @@
 	effectiveness_mod = 0.98
 	bolt_safety = FALSE
 	value = 90
-	recoil = 0
+	shake_strength = 0
 	slot_flags = SLOT_SHOULDER
 	throwforce = 17
 	handle_casings = HOLD_CASINGS
@@ -302,6 +260,7 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	max_shells = 1
 	load_delay = 7
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/barrett
 	name = "Barrett M99"
@@ -319,7 +278,7 @@
 	caliber = "a50cal"
 	weight = 14.8
 	effectiveness_mod = 2.0
-	recoil = 3
+	shake_strength = 3
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING
 	ammo_type = list (/obj/item/ammo_casing/a50cal, /obj/item/ammo_casing/a50cal_ap, /obj/item/ammo_casing/a50cal_he)
@@ -337,6 +296,7 @@
 	bolt_open = FALSE
 	bolt_safety = FALSE
 	bolt_delay = 3
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/barrett/sniper/New()
 	..()
@@ -358,7 +318,7 @@
 	slot_flags = null
 	caliber = "a145"
 	weight = 8
-	recoil = 3
+	shake_strength = 3
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING
 	ammo_type = list (/obj/item/ammo_casing/a145, /obj/item/ammo_casing/a145_ap)
@@ -374,6 +334,12 @@
 	bolt_open = FALSE
 	bolt_safety = FALSE
 	bolt_delay = 6
+	accuracy = 1
+
+/obj/item/weapon/gun/projectile/boltaction/singleshot/ptrd/sniper/New()
+	..()
+	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope(src)
+	SP.attached(null,src,TRUE)
 
 // /obj/item/weapon/gun/projectile/boltaction/singleshot/ptrd/ptrs - To be added soon, just needs an icon change
 
@@ -392,7 +358,7 @@
 	slot_flags = null
 	caliber = "a792x94"
 	weight = 8
-	recoil = 3
+	shake_strength = 3
 	handle_casings = EJECT_CASINGS
 	load_method = SINGLE_CASING | MAGAZINE
 	ammo_type = list (/obj/item/ammo_casing/a792x94, /obj/item/ammo_casing/a792x94_ap)
@@ -408,6 +374,7 @@
 	bolt_open = FALSE
 	bolt_safety = FALSE
 	bolt_delay = 6
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/special_check(mob/user)
 	if (bolt_open)
@@ -455,7 +422,7 @@
 	effectiveness_mod = 0.96
 	bolt_safety = FALSE
 	value = 100
-	recoil = 0
+	shake_strength = 0
 	slot_flags = SLOT_SHOULDER
 	throwforce = 20
 	handle_casings = HOLD_CASINGS
@@ -465,6 +432,7 @@
 	good_mags = list(/obj/item/ammo_magazine/mosin)
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 18
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/boltaction/mosin/m30
 	name = "Mosin 91/30"
@@ -475,6 +443,8 @@
 	weight = 4
 	effectiveness_mod = 1.02
 	equiptimer = 15
+	accuracy = 3
+
 /obj/item/weapon/gun/projectile/boltaction/mosin/m30/sniper/New()
 	..()
 	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope(src)
@@ -494,7 +464,7 @@
 	effectiveness_mod = 0.95
 	value = 100
 	slot_flags = SLOT_SHOULDER
-	recoil = 0
+	shake_strength = 0
 	force = 11
 	throwforce = 25
 	handle_casings = HOLD_CASINGS
@@ -504,6 +474,7 @@
 	bolt_close_sound = 'sound/weapons/guns/interact/arisaka_close.ogg'
 	equiptimer = 18
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL|ATTACH_UNDER
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka38
 	name = "Arisaka Type 38"
@@ -519,7 +490,7 @@
 	effectiveness_mod = 1.05
 	value = 100
 	slot_flags = SLOT_SHOULDER
-	recoil = 0
+	shake_strength = 0
 	force = 11
 	throwforce = 25
 	handle_casings = HOLD_CASINGS
@@ -529,6 +500,7 @@
 	bolt_close_sound = 'sound/weapons/guns/interact/arisaka_close.ogg'
 	equiptimer = 18
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL|ATTACH_UNDER
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka38/sniper
 	name = "Arisaka Type 97"
@@ -553,7 +525,7 @@
 	slot_flags = SLOT_SHOULDER
 	magazine_type = /obj/item/ammo_magazine/arisaka99
 	good_mags = list(/obj/item/ammo_magazine/arisaka99)
-	recoil = 0
+	shake_strength = 0
 	force = 11
 	throwforce = 25
 	handle_casings = HOLD_CASINGS
@@ -563,6 +535,7 @@
 	bolt_close_sound = 'sound/weapons/guns/interact/arisaka_close.ogg'
 	equiptimer = 18
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL|ATTACH_UNDER
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka99/sniper
 	name = "Arisaka Type 99"
@@ -596,7 +569,7 @@
 	effectiveness_mod = 1.05
 	value = 100
 	slot_flags = SLOT_SHOULDER
-	recoil = 0
+	shake_strength = 0
 	force = 11
 	throwforce = 25
 	handle_casings = HOLD_CASINGS
@@ -606,6 +579,7 @@
 	bolt_close_sound = 'sound/weapons/guns/interact/arisaka_close.ogg'
 	equiptimer = 18
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL|ATTACH_UNDER
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr71
 	name = "Gewehr 71"
@@ -621,14 +595,15 @@
 	effectiveness_mod = 0.85
 	value = 90
 	slot_flags = SLOT_SHOULDER
-	recoil = 0
-	force = 10
+	shake_strength = 0
+	shake_strength = 10
 	throwforce = 20
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING | SPEEDLOADER
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 19
+	accuracy = 5
 
 /obj/item/weapon/gun/projectile/boltaction/madsenm47
 	name = "Madsen M47"
@@ -645,7 +620,7 @@
 	effectiveness_mod = 0.85
 	value = 90
 	slot_flags = SLOT_SHOULDER
-	recoil = 0
+	shake_strength = 0
 	force = 10
 	throwforce = 20
 	handle_casings = HOLD_CASINGS
@@ -653,6 +628,7 @@
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 20
+	accuracy = 5
 
 /obj/item/weapon/gun/projectile/boltaction/mauser1890
 	name = "Mauser M1890"
@@ -670,13 +646,14 @@
 	effectiveness_mod = 0.89
 	value = 100
 	slot_flags = SLOT_SHOULDER
-	recoil = 0
+	shake_strength = 0
 	force = 10
 	throwforce = 25
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 15
+	accuracy = 5
 
 /obj/item/weapon/gun/projectile/boltaction/mauser1893
 	name = "Mauser M1893"
@@ -694,13 +671,14 @@
 	effectiveness_mod = 0.91
 	value = 100
 	slot_flags = SLOT_SHOULDER
-	recoil = 0
+	shake_strength = 0
 	force = 10
 	throwforce = 25
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 15
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/boltaction/mauser1893/mauser1893o
 	name = "Mauser M1893 (Ottoman)"
@@ -727,13 +705,14 @@
 	effectiveness_mod = 0.95
 	value = 100
 	slot_flags = SLOT_SHOULDER
-	recoil = 0
+	shake_strength = 0
 	force = 11
 	throwforce = 25
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 15
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/boltaction/vg //for balance reasons this gun wont use the STG mags instead it will use just clips also i dont know how to code in mag usage by bolties
 	name = "Volkssturmgewehr"
@@ -751,7 +730,7 @@
 	effectiveness_mod = 0.92
 	value = 100
 	slot_flags = SLOT_SHOULDER
-	recoil = 0
+	shake_strength = 0
 	force = 15
 	throwforce = 29
 	max_shells = 10
@@ -759,6 +738,7 @@
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 15
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/mauser1903
 	name = "Mauser M1903"
@@ -770,6 +750,7 @@
 	good_mags = list(/obj/item/ammo_magazine/gewehr71)
 	effectiveness_mod = 0.96
 	equiptimer = 15
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98a
 	name = "Karabiner 98a"
@@ -780,6 +761,7 @@
 	weight = 3.5
 	effectiveness_mod = 0.97
 	equiptimer = 12
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98k
 	name = "Karabiner 98k"
@@ -790,6 +772,7 @@
 	weight = 3.7
 	effectiveness_mod = 1.05
 	equiptimer = 12
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98k/sniper/New()
 	..()
@@ -811,7 +794,7 @@
 	weight = 4.2
 	bolt_safety = FALSE
 	value = 80
-	recoil = 0
+	shake_strength = 0
 	throwforce = 16
 	ammo_type = /obj/item/ammo_casing/a303
 	magazine_type = /obj/item/ammo_magazine/enfield
@@ -822,6 +805,7 @@
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 12
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/boltaction/carcano
 	name = "carcano 1891"
@@ -838,13 +822,14 @@
 	effectiveness_mod = 0.85
 	value = 100
 	slot_flags = SLOT_SHOULDER
-	recoil = 0
+	shake_strength = 0
 	force = 11
 	throwforce = 25
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 14
+	accuracy = 5
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka35
 	name = "Arisaka Type 35"
@@ -859,7 +844,7 @@
 	effectiveness_mod = 0.98
 	value = 120
 	slot_flags = SLOT_SHOULDER
-	recoil = 0
+	shake_strength = 0
 	force = 12
 	throwforce = 20
 	handle_casings = HOLD_CASINGS
@@ -868,6 +853,7 @@
 	good_mags = list(/obj/item/ammo_magazine/arisaka)
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 15
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/boltaction/murata
 	name = "Type-22 Murata"
@@ -882,7 +868,7 @@
 	effectiveness_mod = 0.75
 	value = 120
 	slot_flags = SLOT_SHOULDER
-	recoil = 0
+	shake_strength = 0
 	force = 12
 	throwforce = 20
 	max_shells = 8
@@ -893,6 +879,7 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	blackpowder = TRUE
 	equiptimer = 17
+	accuracy = 6
 	/////need to add:
 	///Springfield Model
 	///1861,Pattern
@@ -915,7 +902,7 @@
 	effectiveness_mod = 0.96
 	bolt_safety = FALSE
 	value = 100
-	recoil = 0
+	shake_strength = 0
 	slot_flags = SLOT_SHOULDER
 	throwforce = 20
 	handle_casings = HOLD_CASINGS
@@ -925,6 +912,7 @@
 	good_mags = list(/obj/item/ammo_magazine/mosin)
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 17
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/boltaction/berdan/update_icon(var/add_scope = FALSE)
 	if (bolt_open)
@@ -949,7 +937,7 @@
 	effectiveness_mod = 0.99
 	bolt_safety = FALSE
 	value = 80
-	recoil = 0
+	shake_strength = 0
 	slot_flags = SLOT_SHOULDER
 	throwforce = 16
 	handle_casings = HOLD_CASINGS
@@ -960,6 +948,7 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	max_shells = 10
 	equiptimer = 15
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/boltaction/lebel
 	name = "Lebel 1886/M93"
@@ -973,7 +962,7 @@
 	effectiveness_mod = 0.97
 	bolt_safety = FALSE
 	value = 80
-	recoil = 0
+	shake_strength = 0
 	slot_flags = SLOT_SHOULDER
 	throwforce = 16
 	handle_casings = HOLD_CASINGS
@@ -984,6 +973,7 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	max_shells = 8
 	equiptimer = 16
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/boltaction/berthier
 	name = "Berthier M1907/15"
@@ -997,7 +987,7 @@
 	effectiveness_mod = 0.94
 	bolt_safety = FALSE
 	value = 80
-	recoil = 0
+	shake_strength = 0
 	slot_flags = SLOT_SHOULDER
 	throwforce = 16
 	handle_casings = HOLD_CASINGS
@@ -1008,6 +998,7 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	max_shells = 3
 	equiptimer = 13
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/boltaction/berthier/m16
 	name = "Berthier M1907/16"
@@ -1033,7 +1024,7 @@
 	value = 60
 	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_SHOULDER
 	equiptimer = 9
-
+	accuracy = 5
 
 /obj/item/weapon/gun/projectile/boltaction/m24
 	name = "M24 SWS"
@@ -1051,13 +1042,14 @@
 	effectiveness_mod = 1.15
 	value = 130
 	slot_flags = SLOT_SHOULDER
-	recoil = 0
+	shake_strength = 0
 	force = 11
 	throwforce = 25
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 12
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/boltaction/m24/New()
 	..()
@@ -1076,7 +1068,7 @@
 	effectiveness_mod = 1.2
 	bolt_safety = FALSE
 	value = 80
-	recoil = 0
+	shake_strength = 0
 	slot_flags = SLOT_SHOULDER
 	throwforce = 16
 	handle_casings = HOLD_CASINGS
@@ -1087,6 +1079,7 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	max_shells = 5
 	equiptimer = 12
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/boltaction/springfield/sniper/New()
 	..()

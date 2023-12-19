@@ -854,7 +854,7 @@
 	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a30mm_ap
-	max_ammo = 16
+	max_ammo = 200
 	multiple_sprites = TRUE
 	belt = TRUE
 
@@ -870,7 +870,7 @@
 	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/frag/a30mm_he
-	max_ammo = 16
+	max_ammo = 200
 	multiple_sprites = TRUE
 	belt = TRUE
 

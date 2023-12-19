@@ -10,51 +10,8 @@
 	gun_safety = TRUE
 	slowdown = 0.5
 
-	// not accurate at all
-	accuracy_list = list(
-
-		// small body parts: head, hand, feet
-		"small" = list(
-			SHORT_RANGE_STILL = 30,
-			SHORT_RANGE_MOVING = 27,
-
-			MEDIUM_RANGE_STILL = 21,
-			MEDIUM_RANGE_MOVING = 19,
-
-			LONG_RANGE_STILL = 11,
-			LONG_RANGE_MOVING = 10,
-
-			VERY_LONG_RANGE_STILL = 8,
-			VERY_LONG_RANGE_MOVING = 7),
-
-		// medium body parts: limbs
-		"medium" = list(
-			SHORT_RANGE_STILL = 38,
-			SHORT_RANGE_MOVING = 34,
-
-			MEDIUM_RANGE_STILL = 30,
-			MEDIUM_RANGE_MOVING = 27,
-
-			LONG_RANGE_STILL = 23,
-			LONG_RANGE_MOVING = 21,
-
-			VERY_LONG_RANGE_STILL = 11,
-			VERY_LONG_RANGE_MOVING = 10),
-
-		// large body parts: chest, groin
-		"large" = list(
-			SHORT_RANGE_STILL = 78,
-			SHORT_RANGE_MOVING = 66,
-
-			MEDIUM_RANGE_STILL = 55,
-			MEDIUM_RANGE_MOVING = 45,
-
-			LONG_RANGE_STILL = 33,
-			LONG_RANGE_MOVING = 30,
-
-			VERY_LONG_RANGE_STILL = 19,
-			VERY_LONG_RANGE_MOVING = 15),
-	)
+	accuracy = 3
+	recoil = 50
 
 	accuracy_increase_mod = 1.00
 	accuracy_decrease_mod = 2.00
@@ -122,6 +79,8 @@
 	force = 20
 	throwforce = 30
 	slot_flags = SLOT_SHOULDER
+	recoil = 40
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/type99
 	name = "Type 99 Light Machinegun"
@@ -140,6 +99,8 @@
 	effectiveness_mod = 1.00
 	has_telescopic = TRUE
 	slot_flags = SLOT_SHOULDER
+	recoil = 40
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/dp28
 	name = "DP-28"
@@ -157,6 +118,9 @@
 	throwforce = 30
 	effectiveness_mod = 1.05
 	bad_magazine_types = list(/obj/item/ammo_magazine/maxim)
+	recoil = 40
+	accuracy = 3
+
 /obj/item/weapon/gun/projectile/automatic/bar
 	name = "M1918A2 BAR"
 	desc = "The BAR, is a light machine gun (LMG) This one is chambered in .30-06 rounds."
@@ -173,6 +137,9 @@
 	throwforce = 30
 	effectiveness_mod = 1.02
 	bad_magazine_types = list(/obj/item/ammo_magazine/browning)
+	recoil = 40
+	accuracy = 3
+
 ///////////////////////////M1919A6//////////////////////
 /obj/item/weapon/gun/projectile/automatic/browning_lmg
 	name = "M1919A6 Browning LMG"
@@ -193,6 +160,8 @@
 	effectiveness_mod = 1.01
 /obj/item/weapon/gun/projectile/automatic/browning_lmg/update_icon()
 	icon_state = "browlmg[ammo_magazine ? round(ammo_magazine.stored_ammo.len, 50) : "_empty"]"
+	recoil = 50
+	accuracy = 3
 
 ////////////////////////////MG34/////////////////////////////////////////
 /obj/item/weapon/gun/projectile/automatic/mg34
@@ -217,6 +186,8 @@
 	throwforce = 30
 	effectiveness_mod = 1.01
 	var/cover_open = FALSE
+	recoil = 40
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/mg34/special_check(mob/user)
 	if (cover_open)
@@ -280,6 +251,8 @@
 	load_delay = 50
 	slowdown = 1
 	effectiveness_mod = 1.04
+	recoil = 40
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/m249
 	name = "M249 SAW"
@@ -303,6 +276,8 @@
 	load_delay = 50
 	slowdown = 1
 	effectiveness_mod = 1.07
+	recoil = 40
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/m249/acog/New()
 	..()
@@ -329,6 +304,8 @@
 	load_delay = 50
 	slowdown = 0.8
 	effectiveness_mod = 1.07
+	recoil = 40
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/rpd
 	name = "RPD machine gun"
@@ -350,6 +327,8 @@
 	load_delay = 40
 	slowdown = 0.6
 	effectiveness_mod = 1.05
+	recoil = 40
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/rpk74
 	name = "RPK-74 machine gun"
@@ -371,6 +350,8 @@
 	load_delay = 30
 	slowdown = 0.5
 	effectiveness_mod = 1.07
+	recoil = 35
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/rpk74/update_icon()
 	if (ammo_magazine)
@@ -409,6 +390,8 @@
 	load_delay = 26
 	slowdown = 0.4
 	effectiveness_mod = 1.03
+	recoil = 35
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/rpk47/update_icon()
 	if (ammo_magazine)
@@ -433,6 +416,8 @@
 	weight = 4.7
 	name = "RPK-47M machine gun"
 	desc = "A modernized Soviet machinegun chambered in 7.62x39 rounds."
+	recoil = 30
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/negev
 	name = "IWI Negev"
@@ -455,6 +440,9 @@
 	load_delay = 50
 	slowdown = 0.9
 	effectiveness_mod = 1.01
+	recoil = 40
+	accuracy = 3
+
 ///NSVT//////////////
 
 /obj/item/weapon/gun/projectile/automatic/nsv_utes
@@ -479,6 +467,9 @@
 	load_delay = 55
 	slowdown = 0.8
 	effectiveness_mod = 1.01
+	recoil = 60 // хоть сколько-нибудь точная стрельба возможна короткими очередями лежа
+	accuracy = 1 // крупнокалиберная снайперская винтовка
+
 ////////////////////////MG13////////////////////////////////
 
 /obj/item/weapon/gun/projectile/automatic/mg13
@@ -502,6 +493,8 @@
 	load_delay = 21
 	slowdown = 0.5
 	effectiveness_mod = 1.01
+	recoil = 40
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/mg13/update_icon()
 	if (ammo_magazine)
@@ -540,6 +533,9 @@
 	force = 20
 	throwforce = 30
 	effectiveness_mod = 1.07
+	recoil = 40
+	accuracy = 3
+
 /obj/item/weapon/gun/projectile/automatic/c6/update_icon()
 	if (ammo_magazine)
 		icon_state = "[base_icon]_can[ammo_magazine ? round(ammo_magazine.stored_ammo.len, 25) : "0"]"

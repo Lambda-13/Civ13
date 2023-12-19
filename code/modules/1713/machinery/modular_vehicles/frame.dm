@@ -11,11 +11,11 @@
 
 	var/resistance = 150
 	var/obj/structure/vehicleparts/axis/axis = null
-	//format: type of wall, opacity, density, armor, current health, can open/close, is open?
-	var/list/w_front = list("",FALSE,FALSE,0,0,FALSE,FALSE)
-	var/list/w_back = list("",FALSE,FALSE,0,0,FALSE,FALSE)
-	var/list/w_left = list("",FALSE,FALSE,0,0,FALSE,FALSE)
-	var/list/w_right = list("",FALSE,FALSE,0,0,FALSE,FALSE)
+	//format: type of wall, opacity, density, armor, current health, can open/close, is open, is ambrasure
+	var/list/w_front = list("",FALSE,FALSE,0,0,FALSE,FALSE,FALSE)
+	var/list/w_back = list("",FALSE,FALSE,0,0,FALSE,FALSE,FALSE)
+	var/list/w_left = list("",FALSE,FALSE,0,0,FALSE,FALSE,FALSE)
+	var/list/w_right = list("",FALSE,FALSE,0,0,FALSE,FALSE,FALSE)
 	var/obj/structure/vehicleparts/movement/mwheel = null
 
 	var/doorcode = 0 //if it has a door on it, what the key code is
@@ -262,8 +262,7 @@
 			if (K.code == doorcode)
 				if (w_front[6])
 					if (w_front[7])
-						visible_message("[H] locks the door.")
-						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
+						visible_message("[H] запер дверь")
 						w_front[7] = FALSE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -273,8 +272,7 @@
 									VP.update_icon()
 							noroof = FALSE
 					else
-						visible_message("[H] unlocks the door.")
-						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
+						visible_message("[H] отпер дверь")
 						w_front[7] = TRUE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -286,8 +284,7 @@
 					H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				if (w_back[6])
 					if (w_back[7])
-						visible_message("[H] locks the door.")
-						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
+						visible_message("[H] запер дверь")
 						w_back[7] = FALSE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -297,8 +294,7 @@
 									VP.update_icon()
 							noroof = FALSE
 					else
-						visible_message("[H] unlocks the door.")
-						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
+						visible_message("[H] отпер дверь")
 						w_back[7] = TRUE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -310,8 +306,7 @@
 					H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				if (w_left[6])
 					if (w_left[7])
-						visible_message("[H] locks the door.")
-						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
+						visible_message("[H] запер дверь")
 						w_left[7] = FALSE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -321,8 +316,7 @@
 									VP.update_icon()
 							noroof = FALSE
 					else
-						visible_message("[H] unlocks the door.")
-						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
+						visible_message("[H] отпер дверь")
 						w_left[7] = TRUE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -334,8 +328,7 @@
 					H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				if (w_right[6])
 					if (w_right[7])
-						visible_message("[H] locks the door.")
-						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
+						visible_message("[H] запер дверь")
 						w_right[7] = FALSE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -345,8 +338,7 @@
 									VP.update_icon()
 							noroof = FALSE
 					else
-						visible_message("[H] unlocks the door.")
-						playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
+						visible_message("[H] отпер дверь")
 						w_right[7] = TRUE
 						if (removesroof)
 							for(var/obj/structure/vehicleparts/frame/VP in range(1,loc))
@@ -356,9 +348,10 @@
 									VP.update_icon()
 							noroof = TRUE
 					H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+				playsound(src.loc, 'sound/effects/door_lock_unlock.ogg', 100)
 				update_icon()
 			else
-				H << "This key does not match this lock!"
+				H << "Ключ не подходит!"
 				return
 		else
 			if(istype(src, /obj/structure/vehicleparts/frame/ship )) //adds routines to lock the boat
@@ -371,18 +364,101 @@
 				else if(src.w_front[1] == "boat_port2")
 					src.w_front[6] = TRUE
 				else
-					H << "This is not a door."
+					H << "Это не дверь."
 					return
 				doorcode = K.code
-				H << "You assign this key to the lock."
+				H << "Замок на двери привязан к ключу."
 				return
 			else
-				if (src.w_front[6] || src.w_back[6] || src.w_left[6] || src.w_right[6])
-					doorcode = K.code		//Leave it as before if its not a boat
-					H << "You assign this key to the lock."
+				doorcode = K.code		//Leave it as before if its not a boat
+				H << "Замок на двери привязан к ключу."
 				return
 	else
 		..()
+
+/obj/structure/vehicleparts/frame/proc/is_ambrasure(var/w_name)
+	var/list/wall = get_wall(w_name)
+	if(wall.len >= 8 && wall[8])
+		return TRUE
+	return FALSE
+
+/obj/structure/vehicleparts/frame/proc/get_wall(var/w_name)
+	if (w_name == "front")
+		return w_front
+	else if (w_name == "back")
+		return w_back
+	else if (w_name == "left")
+		return w_left
+	else if (w_name == "right")
+		return w_right
+	else if (w_name == "frontleft")
+		if(prob(50))
+			return w_front
+		else
+			return w_left
+	else if (w_name == "backleft")
+		if(prob(50))
+			return w_back
+		else
+			return w_left
+	else if (w_name == "frontright")
+		if(prob(50))
+			return w_front
+		else
+			return w_right
+	else if (w_name == "backright")
+		if(prob(50))
+			return w_back
+		else
+			return w_right
+	else
+		return null
+
+/obj/structure/vehicleparts/frame/proc/get_opposite_wall(var/w_name)
+	if (w_name == "front")
+		return "back"
+	else if (w_name == "back")
+		return "front"
+	else if (w_name == "left")
+		return "right"
+	else if (w_name == "right")
+		return "left"
+	else if (w_name == "frontleft")
+		return "backright"
+	else if (w_name == "backleft")
+		return "frontright"
+	else if (w_name == "frontright")
+		return "backleft"
+	else if (w_name == "backright")
+		return "frontleft"
+	return null
+
+/obj/structure/vehicleparts/frame/proc/get_wall_name(var/w_dir)
+	var/back = NORTH
+	var/front = SOUTH
+	var/left = EAST
+	switch (dir)
+		if (SOUTH)
+			back = SOUTH
+			front = NORTH
+			left = WEST
+		if (WEST)
+			back = WEST
+			front = EAST
+			left = NORTH
+		if (EAST)
+			back = EAST
+			front = WEST
+			left = SOUTH
+	if (w_dir == back)
+		return "back"
+	else if (w_dir == front)
+		return "front"
+	else if (w_dir == left)
+		return "left"
+	else
+		return "right"
+
 /obj/structure/vehicleparts/frame/proc/CheckPenLoc(var/obj/item/proj)
 	var/turf/startingturf = null
 
@@ -390,138 +466,36 @@
 		var/obj/item/projectile/pj = proj
 		pj.throw_source = pj.starting
 		startingturf = pj.starting
+
 	else if (istype(proj, /obj/item/missile))
 		var/obj/item/missile/miss = proj
 		startingturf = miss.startingturf
+
 	else if (istype(proj, /obj/item/weapon/grenade/suicide_vest))
 		startingturf = get_turf(proj.loc)
+
 	else if (istype(proj, /obj/item/weapon/grenade))
 		startingturf = get_turf(proj)
 
 	if (!startingturf)
-		return "front"
-	var/incdir = get_dir(startingturf, get_turf(src))
-	switch(dir)
-		if (NORTH)
-			switch(incdir)
-				if (NORTH)
-					return "back"
-				if (SOUTH)
-					return "front"
-				if (WEST)
-					return "right"
-				if (EAST)
-					return "left"
-				if (NORTHWEST)
-					return "backright"
-				if (SOUTHWEST)
-					return "frontright"
-				if (NORTHEAST)
-					return "backleft"
-				if (SOUTHEAST)
-					return "frontleft"
-		if (SOUTH)
-			switch(incdir)
-				if (NORTH)
-					return "front"
-				if (SOUTH)
-					return "back"
-				if (WEST)
-					return "left"
-				if (EAST)
-					return "right"
-				if (NORTHWEST)
-					return "frontleft"
-				if (SOUTHWEST)
-					return "backleft"
-				if (NORTHEAST)
-					return "frontright"
-				if (SOUTHEAST)
-					return "backright"
-		if (EAST)
-			switch(incdir)
-				if (NORTH)
-					return "right"
-				if (SOUTH)
-					return "left"
-				if (WEST)
-					return "front"
-				if (EAST)
-					return "back"
-				if (NORTHWEST)
-					return "frontright"
-				if (SOUTHWEST)
-					return "frontleft"
-				if (NORTHEAST)
-					return "backright"
-				if (SOUTHEAST)
-					return "backleft"
-		if (WEST)
-			switch(incdir)
-				if (NORTH)
-					return "left"
-				if (SOUTH)
-					return "right"
-				if (WEST)
-					return "back"
-				if (EAST)
-					return "front"
-				if (NORTHWEST)
-					return "backleft"
-				if (SOUTHWEST)
-					return "backright"
-				if (NORTHEAST)
-					return "frontleft"
-				if (SOUTHEAST)
-					return "frontright"
+		return "none"
 
-	return "front"
+	var/incdir = get_dir(startingturf, get_turf(src))
+
+	return get_wall_name(incdir)
 
 /obj/structure/vehicleparts/frame/proc/CheckPen(var/obj/item/projectile/proj, var/penloc = "front")
 	if (!penloc)
 		return FALSE
 	proj.throw_source = proj.starting
-	switch(penloc)
-		if ("front")
-			if (w_front[5] <= 0 && prob(75))
-				return TRUE
-			if (max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_front[4])
-				return TRUE
-		if ("back")
-			if (w_back[5] <= 0 && prob(75))
-				return TRUE
-			if (max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_back[4])
-				return TRUE
-		if ("left")
-			if (w_left[5] <= 0 && prob(75))
-				return TRUE
-			if (max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_left[4])
-				return TRUE
-		if ("right")
-			if (w_right[5] <= 0 && prob(75))
-				return TRUE
-			if (max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_right[4])
-				return TRUE
-		if ("frontleft")
-			if ((w_front[5] <= 0 && w_left[5] <= 0) && prob(75))
-				return TRUE
-			if (max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_front[4] && max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_left[4])
-				return TRUE
-		if ("backleft")
-			if ((w_back[5] <= 0 && w_left[5] <= 0) && prob(75))
-				return TRUE
-			if (max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_back[4] && max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_left[4])
-				return TRUE
-		if ("frontright")
-			if ((w_front[5] <= 0 && w_right[5] <= 0) && prob(75))
-				return TRUE
-			if (max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_front[4] && max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_right[4])
-				return TRUE
-		if ("backright")
-			if ((w_back[5] <= 0 && w_right[5] <= 0) && prob(75))
-				return TRUE
-			if (max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_back[4] && max(0,(proj.heavy_armor_penetration-get_dist(src.loc,proj.starting))) >= w_right[4])
-				return TRUE
+	var/list/wall
+	var/firing_dist = get_dist(src.loc,proj.starting)
+	wall = get_wall(penloc)
+	if (wall[5] <= 0)
+		return TRUE
+	if (max(0,proj.heavy_armor_penetration-firing_dist) >= wall[4])
+		return TRUE
+
 	if (istype(proj, /obj/item/projectile/shell))
 		playsound(loc, pick('sound/machines/tank/tank_ricochet1.ogg','sound/machines/tank/tank_ricochet2.ogg','sound/machines/tank/tank_ricochet3.ogg'),100, TRUE)
 		//playsound(loc, "ric_voice", 100, TRUE)
@@ -541,19 +515,18 @@
 		if (F.axis == axis)
 			return
 	if (mwheel && prob(30))
-		if (!(istype(mwheel, /obj/structure/vehicleparts/movement/armored)))
-			if (mwheel.ntype == "wheel")
-				mwheel.broken = TRUE
-				visible_message("<span class='danger'>\The [mwheel.name] breaks down!</span>")
-				new/obj/effect/effect/smoke/small(loc)
-				update_icon()
+		if (mwheel.ntype == "wheel")
+			mwheel.broken = TRUE
+			visible_message("<span class='danger'>\The [mwheel.name] повреждено!</span>")
+			new/obj/effect/effect/smoke/small(loc)
+			update_icon()
 	if (penloc)
 		if (istype(proj, /obj/item/projectile/shell))
 			var/obj/item/projectile/shell/PS = proj
 			if (mwheel && prob(60))
 				if (mwheel.ntype == "wheel")
 					mwheel.broken = TRUE
-					visible_message("<span class='danger'>\The [mwheel.name] breaks down!</span>")
+					visible_message("<span class='danger'>\The [mwheel.name] повреждено!</span>")
 					new/obj/effect/effect/smoke/small(loc)
 					update_icon()
 				else if (mwheel.ntype == "track")
@@ -628,7 +601,7 @@
 									tprob = 25
 								if (prob(tprob))
 									M.adjustBruteLoss(PS.damage)
-									visible_message("<span class='danger'>[M] is hit by the [PS]!</span>")
+									visible_message("<span class='danger'>[M] попадает в [PS]!</span>")
 						adjdam = proj.damage * 0.05
 				switch(penloc)
 					if ("left")
@@ -696,6 +669,7 @@
 		visible_message("<span class = 'warning'>\The [proj] hits \the [src]!</span>")
 		if (istype(proj, /obj/item/projectile/shell))
 			playsound(loc, pick('sound/effects/explosion1.ogg','sound/effects/explosion1.ogg'),100, TRUE)
+			playsound(loc, 'sound/tank/bronja-ne-probita.ogg')
 			new/obj/effect/effect/smoke/small/fast(loc)
 		try_destroy()
 		return

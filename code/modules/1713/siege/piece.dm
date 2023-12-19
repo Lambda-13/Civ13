@@ -43,6 +43,8 @@
 	var/target_y = -5
 	var/list/image/target_image = new/list(20)
 
+	var/course
+
 /obj/structure/cannon/verb/assemble()
 	set category = null
 	set name = "Assemble"
@@ -423,6 +425,19 @@
 
 	target_coords()
 	update_scope()
+
+	if (course)
+		if (dir == NORTH)
+			degree = clamp(degree, 45, 134)
+		else if (dir == WEST)
+			degree = clamp(degree, 135, 224)
+		else if (dir == SOUTH)
+			degree = clamp(degree, 225, 315)
+		else
+			if (degree >= 45)
+				degree = 44
+			if (degree < 315)
+				degree = 315
 
 	if(degree >= 45 && degree < 135)
 		dir = NORTH
@@ -881,6 +896,19 @@
 		"},  "window=artillery_window;border=1;can_close=1;can_resize=1;can_minimize=0;titlebar=1;size=500x500")
 	//		<A href = '?src=\ref[src];topic_type=[topic_custom_input];continue_num=1'>
 
+/obj/structure/cannon/proc/rotate_to(var/new_dir)
+	if (new_dir == NORTH)
+		degree = 90
+	else if (new_dir == WEST)
+		degree = 180
+	else if (new_dir == SOUTH)
+		degree = 270
+	else
+		degree = 0
+	dir = new_dir
+	target_coords()
+	update_scope()
+
 /obj/structure/cannon/proc/target_coords()
 	// round(abs(x)) * sign(x) - round to the nearest whole
 	target_x = round(abs(distance * cos(degree))) * sign(cos(degree))
@@ -920,10 +948,13 @@
 	if (!istype(usr, /mob/living))
 		return
 
+	degree += 90
+	if (degree >= 360)
+		degree -= 360
+
 	switch(dir)
 		if (EAST)
 			dir = NORTH
-			degree = 90
 			if (spritemod)
 				bound_height = 64
 				bound_width = 32
@@ -931,7 +962,6 @@
 				icon_state = "cannon"
 		if (WEST)
 			dir = SOUTH
-			degree = 270
 			if (spritemod)
 				bound_height = 64
 				bound_width = 32
@@ -939,7 +969,6 @@
 				icon_state = "cannon"
 		if (NORTH)
 			dir = WEST
-			degree = 180
 			if (spritemod)
 				bound_height = 32
 				bound_width = 64
@@ -947,7 +976,6 @@
 				icon_state = "cannon"
 		if (SOUTH)
 			dir = EAST
-			degree = 0
 			if (spritemod)
 				bound_height = 32
 				bound_width = 64
@@ -965,10 +993,13 @@
 	if (!istype(usr, /mob/living))
 		return
 
+	degree -= 90
+	if (degree < 0)
+		degree += 360
+
 	switch(dir)
 		if (EAST)
 			dir = SOUTH
-			degree = 270
 			if (spritemod)
 				bound_height = 64
 				bound_width = 32
@@ -976,7 +1007,6 @@
 				icon_state = "cannon"
 		if (WEST)
 			dir = NORTH
-			degree = 90
 			if (spritemod)
 				bound_height = 64
 				bound_width = 32
@@ -984,7 +1014,6 @@
 				icon_state = "cannon"
 		if (NORTH)
 			dir = EAST
-			degree = 0
 			if (spritemod)
 				bound_height = 32
 				bound_width = 64
@@ -992,7 +1021,6 @@
 				icon_state = "cannon"
 		if (SOUTH)
 			dir = WEST
-			degree = 180
 			if (spritemod)
 				bound_height = 32
 				bound_width = 64

@@ -143,7 +143,7 @@ var/list/coefflist = list()
 				stat("Industrial Research:","[map.civf_research[1]]/[civmax_research[1]]")
 				stat("Military Research:","[map.civf_research[2]]/[civmax_research[2]]")
 				stat("Health Research:","[map.civf_research[3]]/[civmax_research[3]]")
-			
+
 			if (original_job_title == "Redmenian Civilian")
 				stat("Industrial Research:","[map.civa_research[1]]/[civmax_research[1]]")
 				stat("Military Research:","[map.civa_research[2]]/[civmax_research[2]]")
@@ -1481,11 +1481,10 @@ var/list/coefflist = list()
 			if (looking)
 		/*		if (G.accuracy)
 					G.accuracy = G.scoped_accuracy + zoom_offset*/
-				if (G.recoil)
-					G.recoil = round(G.recoil*(W.zoom_amt/5)+1) //recoil is worse when looking through a scope
+				if (G.shake_strength)
+					G.shake_strength = round(G.shake_strength*(W.zoom_amt/5)+1) //recoil is worse when looking through a scope
 			else
-				G.accuracy = initial(G.accuracy)
-				G.recoil = initial(G.recoil)
+				G.shake_strength = initial(G.shake_strength)
 
 
 

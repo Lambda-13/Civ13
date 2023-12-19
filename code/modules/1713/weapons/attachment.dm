@@ -281,8 +281,7 @@ Current Defines (_defines/attachment.dm)
 		A_attached = FALSE
 		loc = get_turf(src)
 		user << "You remove [src] from the [G]."
-		G.accuracy = initial(G.accuracy)
-		G.recoil = initial(G.recoil)
+		G.shake_strength = initial(G.shake_strength)
 	else
 		return
 
@@ -315,6 +314,7 @@ Current Defines (_defines/attachment.dm)
 		G.attachments -= src
 		G.actions -= actions
 		G.verbs -= verbs
+		G.overlays -= G.optics_ico
 		G.attachment_slots += attachment_type
 		dropped(user)
 		A_attached = FALSE
@@ -336,6 +336,7 @@ Current Defines (_defines/attachment.dm)
 		G.actions += actions
 		G.verbs += verbs
 		G.attachments += src
+		G.overlays += G.optics_ico
 		if (istype(G, /obj/item/weapon/gun/projectile))
 			var/obj/item/weapon/gun/projectile/W = G
 			W.sniper_scope = TRUE

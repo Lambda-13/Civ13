@@ -333,6 +333,7 @@
 	has_telescopic = FALSE
 	slot_flags = SLOT_SHOULDER
 	is_laser_mg = TRUE
+	recoil = 1
 
 /obj/item/weapon/gun/projectile/automatic/laser/update_icon()
 	if (ammo_magazine)
