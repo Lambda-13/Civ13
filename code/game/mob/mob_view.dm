@@ -3,7 +3,7 @@
 // you really need to get better at nomenclature, I guess
 /mob/proc/reset_zoom()
 	if (client)
-		client.view = WORLD_VIEW
+		client.view = world.view
 		client.pixel_x = FALSE
 		client.pixel_y = FALSE
 		return TRUE

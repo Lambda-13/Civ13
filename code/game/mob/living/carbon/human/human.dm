@@ -1400,27 +1400,25 @@ var/list/coefflist = list()
 			var/_y = 0
 			switch(user.dir)
 				if(NORTH)
-					_y = look_amount - (WORLD_VIEW_NUM_Y - 7)
+					_y = look_amount
 				if(EAST)
-					_x = look_amount - (WORLD_VIEW_NUM_X - 7)
+					_x = look_amount
 				if(SOUTH)
-					_y = -look_amount + (WORLD_VIEW_NUM_Y - 7)
+					_y = -look_amount
 				if(WEST)
-					_x = -look_amount + (WORLD_VIEW_NUM_X - 7)
+					_x = -look_amount
 			if(look_amount > world.view && user && user.client)//So we can still see the player at the edge of the screen if the zoom amount is greater than the world view //Copied from zoom.dm
-				var/view_offset_x = round((look_amount - WORLD_VIEW_NUM_X)/2, TRUE)
-				var/view_offset_y = round((look_amount - WORLD_VIEW_NUM_Y)/2, TRUE)
-				user.client.view_num_x += view_offset_x
-				user.client.view_num_y += view_offset_y
+				var/view_offset = round((look_amount - world.view)/2, TRUE)
+				user.client.view += view_offset
 				switch(user.dir)
 					if (NORTH)
-						_y -= view_offset_y + (WORLD_VIEW_NUM_Y - 7)
+						_y -= view_offset
 					if (EAST)
-						_x -= view_offset_x  + (WORLD_VIEW_NUM_X - 7)
+						_x -= view_offset
 					if (SOUTH)
-						_y += view_offset_y - (WORLD_VIEW_NUM_Y - 7)
+						_y += view_offset
 					if (WEST)
-						_x += view_offset_x - (WORLD_VIEW_NUM_X - 7)
+						_x += view_offset
 				animate(user.client, pixel_x = world.icon_size*_x, pixel_y = world.icon_size*_y, time = 3, easing = SINE_EASING)
 				user.client.pixel_x = world.icon_size*_x
 				user.client.pixel_y = world.icon_size*_y
@@ -1428,14 +1426,14 @@ var/list/coefflist = list()
 				animate(user.client, pixel_x = world.icon_size*_x, pixel_y = world.icon_size*_y, time = 3, easing = SINE_EASING)
 				user.client.pixel_x = world.icon_size*_x
 				user.client.pixel_y = world.icon_size*_y
-			user.visible_message("[user] смотрит вдаль.")
+			user.visible_message("[user] looks into the distance.")
 			handle_ui_visibility()
 			user.dizzycheck = TRUE
 	else//Resets
 		animate(user.client, pixel_x = 0, pixel_y = 0, time = 2, easing = SINE_EASING)
 		user.client.pixel_x = 0
 		user.client.pixel_y = 0
-		user.client.view = WORLD_VIEW
+		user.client.view = world.view
 		look_amount = 3
 		handle_ui_visibility()
 		user.dizzycheck = FALSE

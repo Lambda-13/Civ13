@@ -1,11 +1,11 @@
 /*
 HOW TO MAKE A CALLBACK:
-	var/datum/callback/C = new(object|null, GLOBAL_PROC_REF(/proc/type/path)|"procstring", arg1, arg2, ... argn)
+	var/datum/callback/C = new(object|null, /proc/type/path|"procstring", arg1, arg2, ... argn)
 
 HOW TO MAKE A TIMER:
 	C being a callback datum as shown above, 
 	var/timerid = addtimer(C, time, timertype)
-	var/timerid = addtimer(CALLBACK(object|null, GLOBAL_PROC_REF(/proc/type/path)|procstring, arg1, arg2, ... argn), time, timertype)
+	var/timerid = addtimer(CALLBACK(object|null, /proc/type/path|procstring, arg1, arg2, ... argn), time, timertype)
 
 PROC STRINGS ARE BAD, they can only be done for datum proc calls and they dont give compile errors.
 
@@ -30,10 +30,10 @@ HELP TO PROC TYPEPATH SHORTCUTS (Purely based on the path in the code)
 	When the above doesn't apply:
 		.proc/procname
 		Example:
-			CALLBACK(src, PROC_REF(some_proc_here))
+			CALLBACK(src, .proc/some_proc_here)
 
 	Proc defined on a parent of a some type:
-		TYPE_PROC_REF(/some/type, some_proc_here)
+		/some/type/.proc/some_proc_here
 
 	If you can't do the above or want to be sure, use the full path (/type/of/thing/proc/procname)
 */

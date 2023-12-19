@@ -297,7 +297,6 @@ var/list/admin_verbs_mod = list(
 	/client/proc/quickBan_search,
 	/client/proc/quickBan_person,
 	/client/proc/set_teams,
-	/client/proc/toggle_right_click,
 )
 
 var/list/admin_verbs_mentor = list(

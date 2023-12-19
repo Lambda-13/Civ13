@@ -5,7 +5,7 @@
 	icon_state = "taser_new"
 	item_state = "taser_new"
 	var/base_icon = "taser_new"
-	fire_sound = list('sound/weapons/taser.ogg') //To be changed to taser.ogg when imported
+	fire_sound = 'sound/weapons/taser.ogg' //To be changed to taser.ogg when imported
 	w_class = ITEM_SIZE_NORMAL
 	load_method = MAGAZINE
 	max_shells = 5

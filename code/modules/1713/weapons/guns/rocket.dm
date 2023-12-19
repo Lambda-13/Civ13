@@ -72,7 +72,7 @@
 	force = 5.0
 	flags =  CONDUCT
 	slot_flags = 0
-	fire_sound = list('sound/effects/bang.ogg')
+	fire_sound = 'sound/effects/bang.ogg'
 	var/max_rockets = 1
 	var/list/rockets = new/list()
 	var/caliber = "rocket"
@@ -176,7 +176,7 @@
 	icon = 'icons/obj/guns/pistols.dmi'
 	icon_state = "flaregun"
 	item_state = "flaregun"
-	fire_sound = list('sound/weapons/guns/fire/flaregun.ogg')
+	fire_sound = 'sound/weapons/guns/fire/flaregun.ogg'
 	secondary_action = TRUE
 
 	load_delay = 20
@@ -462,7 +462,7 @@
 	slot_flags = SLOT_SHOULDER
 	force = 10
 	caliber = "rpb54"
-	fire_sound = list('sound/weapons/guns/fire/panzershreck.ogg')
+	fire_sound = 'sound/weapons/guns/fire/panzershreck.ogg'
 
 /obj/item/weapon/gun/launcher/rocket/rpb54/update_icon()
 	..()
@@ -497,7 +497,7 @@
 	force = 10
 	recoil = 4
 	caliber = "piat"
-	fire_sound = list('sound/weapons/guns/fire/piatfire.ogg')
+	fire_sound = 'sound/weapons/guns/fire/piatfire.ogg'
 
 /obj/item/weapon/gun/launcher/rocket/piat/update_icon()
 	..()

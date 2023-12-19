@@ -13,12 +13,12 @@
 	slot_flags = SLOT_SHOULDER
 	caliber = "arrow"
 	recoil = 0 //no shaking
-	fire_sound = list('sound/weapons/arrow_fly.ogg')
+	fire_sound = 'sound/weapons/arrow_fly.ogg'
 	handle_casings = REMOVE_CASINGS
 	load_method = SINGLE_CASING
 	ammo_type = /obj/item/ammo_casing/arrow
 	load_shell_sound = 'sound/weapons/pull_bow.ogg'
-	bulletinsert_sound = list('sound/weapons/pull_bow.ogg')
+	bulletinsert_sound = 'sound/weapons/pull_bow.ogg'
 	//+2 accuracy over the LWAP because only one shot
 	accuracy = TRUE
 	gun_type = GUN_TYPE_BOW
@@ -264,15 +264,13 @@ obj/item/weapon/gun/projectile/bow/Fire()
 		user.visible_message("[user] inserts \a [C] into the [src].", "<span class='notice'>You insert \a [C] into the [src].</span>")
 		icon_state = "[icotype]1"
 		load_arrow_overlay(C)
-		if (bulletinsert_sound)
-			playsound(loc, pick(bulletinsert_sound), 75, TRUE)
+		if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
 
 /obj/item/weapon/gun/projectile/bow/unload_ammo(mob/user, var/allow_dump=1)
 	if (ammo_magazine)
 		user.put_in_hands(ammo_magazine)
 
-		if (unload_sound)
-			playsound(loc, pick(unload_sound), 75, TRUE)
+		if (unload_sound) playsound(loc, unload_sound, 75, TRUE)
 		ammo_magazine.update_icon()
 		ammo_magazine = null
 	else if (loaded.len)
@@ -283,8 +281,7 @@ obj/item/weapon/gun/projectile/bow/Fire()
 			user.visible_message("[user] removes \a [C] from the [src].", "<span class='notice'>You remove \a [C] from the [src].</span>")
 			icon_state = "[icotype]0"
 			remove_arrow_overlay()
-			if (bulletinsert_sound)
-				playsound(loc, pick(bulletinsert_sound), 75, TRUE)
+			if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
 	else
 		user << "<span class='warning'>[src] is empty.</span>"
 	update_icon()

@@ -77,6 +77,11 @@
 	else
 		return null
 
+//return flags that should be added to the viewer's sight var.
+//Otherwise return a negative number to indicate that the view should be cancelled.
+/atom/proc/check_eye(user as mob)
+	return -1
+
 /atom/proc/on_reagent_change()
 	return
 

@@ -1,8 +1,8 @@
 /obj/item/weapon/gun/projectile/submachinegun
 	force = 10
 	throwforce = 20
-	fire_sound = list('sound/weapons/guns/fire/smg.ogg')
-	silencer_fire_sound = list('sound/weapons/guns/fire/Gyrza-SD.ogg')
+	fire_sound = 'sound/weapons/guns/fire/smg.ogg'
+	silencer_fire_sound = 'sound/weapons/guns/fire/Gyrza-SD.ogg'
 	icon = 'icons/obj/guns/automatic.dmi'
 	var/base_icon = "smg"
 	// more accuracy than MGs, less than everything else
@@ -68,8 +68,8 @@
 	var/jamcheck = 0
 	var/last_fire = -1
 	var/one_handed = FALSE
-	reload_sound = list('sound/weapons/guns/interact/AR15Reload.ogg')
-	unload_sound = list('sound/weapons/guns/interact/AR15Unload.ogg')
+	reload_sound = 'sound/weapons/guns/interact/AR15Reload.ogg'
+	unload_sound = 'sound/weapons/guns/interact/AR15Unload.ogg'
 
 /obj/item/weapon/gun/projectile/submachinegun/special_check(mob/user)
 	if (gun_safety && safetyon)
@@ -95,8 +95,8 @@
 	w_class = ITEM_SIZE_LARGE
 	caliber = "a792x33"
 
-	fire_sound = list('sound/weapons/guns/fire/stg.ogg')
-	reload_sound = list('sound/weapons/guns/interact/stg_reload.ogg')
+	fire_sound = 'sound/weapons/guns/fire/stg.ogg'
+	reload_sound = 'sound/weapons/guns/interact/stg_reload.ogg'
 	magazine_type = /obj/item/ammo_magazine/stg
 	good_mags = list(/obj/item/ammo_magazine/stg)
 	weight = 4.6
@@ -155,7 +155,7 @@
 	force = 15
 	throwforce = 30
 	weight = 3.4
-	fire_sound = list('sound/weapons/guns/fire/shotgun.ogg')
+	fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
 	firemodes = list(
 		list(name = "semi auto",    burst=1, burst_delay=0.7, recoil=0, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
 		list(name = "full auto",    burst=1, burst_delay=1.2, recoil=0, move_delay=4, dispersion = list(1.1, 1.2, 1.3, 1.3, 1.5)),
@@ -182,7 +182,7 @@
 	weight = 3.5
 	equiptimer = 15
 	effectiveness_mod = 1.46
-	fire_sound = list('sound/weapons/guns/fire/shotgun.ogg')
+	fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
 	firemodes = list(
 		list(name = "semi auto",    burst=1, burst_delay=0.7, recoil=0, move_delay=3, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
 		list(name = "full auto",    burst=1, burst_delay=1.2, recoil=0, move_delay=4, dispersion = list(1.1, 1.2, 1.3, 1.3, 1.5)),
@@ -233,7 +233,7 @@
 	throwforce = 30
 	weight = 3.4
 	attachment_slots = ATTACH_BARREL
-	fire_sound = list('sound/weapons/guns/fire/shotgun.ogg')
+	fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
 	firemodes = list(
 		list(name = "semi auto",    burst=1, burst_delay=0.7, recoil=0, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
 		)
@@ -249,7 +249,7 @@
 	base_icon = "mp40"
 	weight = 3.97
 	caliber = "a9x19"
-	fire_sound = list('sound/weapons/guns/fire/mp40.ogg')
+	fire_sound = 'sound/weapons/guns/fire/mp40.ogg'
 	magazine_type = /obj/item/ammo_magazine/mp40
 	good_mags = list(/obj/item/ammo_magazine/mp40)
 	full_auto = TRUE
@@ -282,7 +282,7 @@
 	base_icon = "ermaemp"
 	weight = 4.25
 	caliber = "a9x19"
-	fire_sound = list('sound/weapons/guns/fire/mp40.ogg')
+	fire_sound = 'sound/weapons/guns/fire/mp40.ogg'
 	magazine_type = /obj/item/ammo_magazine/mp40/erma
 	good_mags = list(/obj/item/ammo_magazine/mp40,/obj/item/ammo_magazine/mp40/erma)
 	full_auto = TRUE
@@ -316,7 +316,7 @@
 	base_icon = "mp5"
 	weight = 2.9
 	equiptimer = 8
-	fire_sound = list('sound/weapons/guns/fire/MP5.ogg')
+	fire_sound = 'sound/weapons/guns/fire/MP5.ogg'
 	magazine_type = /obj/item/ammo_magazine/mp40/mp5
 	good_mags = list(/obj/item/ammo_magazine/mp40/mp5)
 	firemodes = list(
@@ -334,7 +334,7 @@
 	base_icon = "fg42"
 	weight = 4.2
 	caliber = "a792x57"
-	fire_sound = list('sound/weapons/guns/fire/mg34.ogg')
+	fire_sound = 'sound/weapons/guns/fire/mg34.ogg'
 	magazine_type = /obj/item/ammo_magazine/fg42
 	good_mags = list(/obj/item/ammo_magazine/fg42,/obj/item/ammo_magazine/fg42/small)
 	full_auto = TRUE
@@ -361,7 +361,7 @@
 	caliber = "a9x19"
 	weight = 2.1
 	equiptimer = 5
-	fire_sound = list('sound/weapons/guns/fire/9mm.ogg')
+	fire_sound = 'sound/weapons/guns/fire/9mm.ogg'
 	magazine_type = /obj/item/ammo_magazine/uzi
 	good_mags = list(/obj/item/ammo_magazine/uzi)
 	firemodes = list(
@@ -381,7 +381,7 @@
 	weight = 1.7
 	equiptimer = 7
 	caliber = "a45acp"
-	fire_sound = list('sound/weapons/guns/fire/45ACP.ogg')
+	fire_sound = 'sound/weapons/guns/fire/45ACP.ogg'
 	magazine_type = /obj/item/ammo_magazine/mac10
 	good_mags = list(/obj/item/ammo_magazine/mac10)
 	firemodes = list(
@@ -400,7 +400,7 @@
 	item_state = "tec-9"
 	base_icon = "tec-9"
 	caliber = "a9x19"
-	fire_sound = list('sound/weapons/guns/fire/tec9.ogg')
+	fire_sound = 'sound/weapons/guns/fire/tec9.ogg'
 	magazine_type = /obj/item/ammo_magazine/tec9
 	good_mags = list(/obj/item/ammo_magazine/tec9)
 	weight = 1.3
@@ -424,7 +424,7 @@
 	caliber = "a9x19"
 	weight = 1.1
 	equiptimer = 6
-	fire_sound = list('sound/weapons/guns/fire/9mm.ogg')
+	fire_sound = 'sound/weapons/guns/fire/9mm.ogg'
 	magazine_type = /obj/item/ammo_magazine/skorpion
 	good_mags = list(/obj/item/ammo_magazine/skorpion)
 	firemodes = list(
@@ -443,7 +443,7 @@
 	base_icon = "greasegun"
 	weight = 3.6
 	caliber = "a45acp"
-	fire_sound = list('sound/weapons/guns/fire/M3A1.ogg')
+	fire_sound = 'sound/weapons/guns/fire/M3A1.ogg'
 	magazine_type = /obj/item/ammo_magazine/greasegun
 	good_mags = list(/obj/item/ammo_magazine/greasegun)
 	full_auto = TRUE
@@ -464,7 +464,7 @@
 	base_icon = "thompson"
 	weight = 3.6
 	caliber = "a45acp"
-	fire_sound = list('sound/weapons/guns/fire/Thompson.ogg')
+	fire_sound = 'sound/weapons/guns/fire/Thompson.ogg'
 	magazine_type = /obj/item/ammo_magazine/thompson
 	good_mags = list(/obj/item/ammo_magazine/thompson, /obj/item/ammo_magazine/tommy)
 	full_auto = TRUE
@@ -485,7 +485,7 @@
 	base_icon = "tommygun"
 	weight = 3.6
 	caliber = "a45acp"
-	fire_sound = list('sound/weapons/guns/fire/Thompson.ogg')
+	fire_sound = 'sound/weapons/guns/fire/Thompson.ogg'
 	magazine_type = /obj/item/ammo_magazine/tommy
 	good_mags = list(/obj/item/ammo_magazine/thompson, /obj/item/ammo_magazine/tommy)
 	full_auto = TRUE
@@ -507,7 +507,7 @@
 	weight = 3.97
 	attachment_slots = ATTACH_BARREL
 	caliber = "c8mmnambu"
-	fire_sound = list('sound/weapons/guns/fire/Type100.ogg')
+	fire_sound = 'sound/weapons/guns/fire/Type100.ogg'
 	magazine_type = /obj/item/ammo_magazine/type100
 	good_mags = list(/obj/item/ammo_magazine/type100)
 	full_auto = TRUE
@@ -529,7 +529,7 @@
 	weight = 3.2
 	attachment_slots = ATTACH_BARREL
 	caliber = "a9x19"
-	fire_sound = list('sound/weapons/guns/fire/Thompson.ogg')
+	fire_sound = 'sound/weapons/guns/fire/Thompson.ogg'
 	magazine_type = /obj/item/ammo_magazine/sten2
 	good_mags = list(/obj/item/ammo_magazine/sten2)
 	full_auto = TRUE
@@ -560,7 +560,7 @@
 	item_state = "ppsh"
 	base_icon = "ppsh"
 	caliber = "a762x25"
-	fire_sound = list('sound/weapons/guns/fire/762x25.ogg')
+	fire_sound = 'sound/weapons/guns/fire/762x25.ogg'
 	full_auto = TRUE
 	magazine_type = /obj/item/ammo_magazine/c762x25_ppsh
 	good_mags = list(/obj/item/ammo_magazine/c762x25_ppsh, /obj/item/ammo_magazine/c762x25_pps)
@@ -586,7 +586,7 @@
 	item_state = "pps"
 	base_icon = "pps"
 	caliber = "a762x25"
-	fire_sound = list('sound/weapons/guns/fire/762x25.ogg')
+	fire_sound = 'sound/weapons/guns/fire/762x25.ogg'
 	full_auto = TRUE
 	magazine_type = /obj/item/ammo_magazine/c762x25_pps
 	good_mags = list(/obj/item/ammo_magazine/c762x25_ppsh, /obj/item/ammo_magazine/c762x25_pps)
@@ -605,7 +605,7 @@
 	item_state = "ppd"
 	base_icon = "ppd"
 	caliber = "a762x25"
-	fire_sound = list('sound/weapons/guns/fire/762x25.ogg')
+	fire_sound = 'sound/weapons/guns/fire/762x25.ogg'
 	full_auto = TRUE
 	magazine_type = /obj/item/ammo_magazine/c762x25_ppsh
 	good_mags = list(/obj/item/ammo_magazine/c762x25_ppsh, /obj/item/ammo_magazine/c762x25_pps)
@@ -642,7 +642,7 @@
 	item_state = "ak47"
 	base_icon = "ak47"
 	caliber = "a762x39"
-	fire_sound = list('sound/weapons/guns/fire/AKM.ogg')
+	fire_sound = 'sound/weapons/guns/fire/AKM.ogg'
 	magazine_type = /obj/item/ammo_magazine/ak47
 	good_mags = list(/obj/item/ammo_magazine/ak47, /obj/item/ammo_magazine/ak47/drum, /obj/item/ammo_magazine/ak47/makeshift)
 	weight = 3.47
@@ -771,7 +771,7 @@
 	item_state = "ak74"
 	base_icon = "ak74"
 	caliber = "a545x39"
-	fire_sound = list('sound/weapons/guns/fire/AK74.ogg')
+	fire_sound = 'sound/weapons/guns/fire/AK74.ogg'
 	magazine_type = /obj/item/ammo_magazine/ak74
 	good_mags = list(/obj/item/ammo_magazine/ak74, /obj/item/ammo_magazine/ak74/drum,/obj/item/ammo_magazine/ak74/rubber)
 	weight = 3.07
@@ -1051,7 +1051,7 @@
 	item_state = "ak74m"
 	base_icon = "ak74m"
 	caliber = "a545x39"
-	fire_sound = list('sound/weapons/guns/fire/AK74.ogg')
+	fire_sound = 'sound/weapons/guns/fire/AK74.ogg'
 	magazine_type = /obj/item/ammo_magazine/ak74/ak74m
 	good_mags = list(/obj/item/ammo_magazine/ak74/ak74m, /obj/item/ammo_magazine/ak74, /obj/item/ammo_magazine/ak74/drum, /obj/item/ammo_magazine/ak74/ak74m/drum)
 	weight = 3.07
@@ -1133,7 +1133,7 @@
 	caliber = "a762x39"
 	weight = 3.07
 	effectiveness_mod = 1.13
-	fire_sound = list('sound/weapons/guns/fire/AKM.ogg')
+	fire_sound = 'sound/weapons/guns/fire/AKM.ogg'
 	magazine_type = /obj/item/ammo_magazine/ak47
 	good_mags = list(/obj/item/ammo_magazine/ak47, /obj/item/ammo_magazine/ak47/drum, /obj/item/ammo_magazine/ak47/makeshift)
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_ADV_SCOPE|ATTACH_UNDER|ATTACH_BARREL
@@ -1148,7 +1148,7 @@
 	item_state = "m16"
 	base_icon = "m16"
 	caliber = "a556x45"
-	fire_sound = list('sound/weapons/guns/fire/M4A1.ogg')
+	fire_sound = 'sound/weapons/guns/fire/M4A1.ogg'
 	magazine_type = /obj/item/ammo_magazine/m16
 	good_mags = list(/obj/item/ammo_magazine/m16)
 	weight = 3.07
@@ -1224,9 +1224,9 @@
 	item_state = "m16"
 	base_icon = "ar10"
 	caliber = "a762x51"
-	fire_sound = list('sound/weapons/guns/fire/battle_rifle.ogg')
-	reload_sound = list('sound/weapons/guns/interact/AR15Reload.ogg')
-	unload_sound = list('sound/weapons/guns/interact/AR15Unload.ogg')
+	fire_sound = 'sound/weapons/guns/fire/battle_rifle.ogg'
+	reload_sound = 'sound/weapons/guns/interact/AR15Reload.ogg'
+	unload_sound = 'sound/weapons/guns/interact/AR15Unload.ogg'
 	magazine_type = /obj/item/ammo_magazine/ar10
 	good_mags = list(/obj/item/ammo_magazine/ar10)
 	weight = 3.07
@@ -1290,9 +1290,9 @@
 	item_state = "m4"
 	base_icon = "m4"
 	caliber = "a556x45"
-	fire_sound = list('sound/weapons/guns/fire/M4A1.ogg')
-	reload_sound = list('sound/weapons/guns/interact/AR15Reload.ogg')
-	unload_sound = list('sound/weapons/guns/interact/AR15Unload.ogg')
+	fire_sound = 'sound/weapons/guns/fire/M4A1.ogg'
+	reload_sound = 'sound/weapons/guns/interact/AR15Reload.ogg'
+	unload_sound = 'sound/weapons/guns/interact/AR15Unload.ogg'
 	magazine_type = /obj/item/ammo_magazine/m16
 	good_mags = list(/obj/item/ammo_magazine/m16)
 	weight = 3.07
@@ -1392,7 +1392,7 @@
 	item_state = "m14"
 	base_icon = "m14"
 	caliber = "a762x51"
-	fire_sound = list('sound/weapons/guns/fire/M14Alt.ogg')
+	fire_sound = 'sound/weapons/guns/fire/M14Alt.ogg'
 	magazine_type = /obj/item/ammo_magazine/m14
 	good_mags = list(/obj/item/ammo_magazine/m14)
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
@@ -1475,7 +1475,7 @@
 	item_state = "g3"
 	base_icon = "g3"
 	caliber = "a762x51"
-	fire_sound = list('sound/weapons/guns/fire/battle_rifle.ogg')
+	fire_sound = 'sound/weapons/guns/fire/battle_rifle.ogg'
 	magazine_type = /obj/item/ammo_magazine/hk
 	good_mags = list(/obj/item/ammo_magazine/hk)
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
@@ -1540,7 +1540,7 @@
 	item_state = "fal"
 	base_icon = "fal"
 	caliber = "a762x51"
-	fire_sound = list('sound/weapons/guns/fire/fnfal.ogg')
+	fire_sound = 'sound/weapons/guns/fire/fnfal.ogg'
 	magazine_type = /obj/item/ammo_magazine/fal
 	good_mags = list(/obj/item/ammo_magazine/fal)
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
@@ -1605,9 +1605,9 @@
 	item_state = "scarl"
 	base_icon = "scarl"
 	caliber = "a556x45"
-	fire_sound = list('sound/weapons/guns/fire/M4A1.ogg')
-	reload_sound = list('sound/weapons/guns/interact/AR15Reload.ogg')
-	unload_sound = list('sound/weapons/guns/interact/AR15Unload.ogg')
+	fire_sound = 'sound/weapons/guns/fire/M4A1.ogg'
+	reload_sound = 'sound/weapons/guns/interact/AR15Reload.ogg'
+	unload_sound = 'sound/weapons/guns/interact/AR15Unload.ogg'
 	magazine_type = /obj/item/ammo_magazine/m16
 	good_mags = list(/obj/item/ammo_magazine/m16)
 	weight = 3
@@ -1672,9 +1672,9 @@
 	desc = "A Belgian-designed automatic rifle, chambered in 7.62x51mm."
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	caliber = "a762x51"
-	fire_sound = list('sound/weapons/guns/fire/M14.ogg')
-	reload_sound = list('sound/weapons/guns/interact/AR15Reload.ogg')
-	unload_sound = list('sound/weapons/guns/interact/AR15Unload.ogg')
+	fire_sound = 'sound/weapons/guns/fire/M14.ogg'
+	reload_sound = 'sound/weapons/guns/interact/AR15Reload.ogg'
+	unload_sound = 'sound/weapons/guns/interact/AR15Unload.ogg'
 	magazine_type = /obj/item/ammo_magazine/scarh
 	good_mags = list(/obj/item/ammo_magazine/scarh)
 	weight = 3.5
@@ -1740,7 +1740,7 @@
 	desc = "An AR-15 style magazine fed shotgun in 12 gauge."
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	caliber = "12gauge"
-	fire_sound = list('sound/weapons/guns/fire/assault_rifle.ogg')
+	fire_sound = 'sound/weapons/guns/fire/assault_rifle.ogg'
 	magazine_type = /obj/item/ammo_magazine/ar12
 	good_mags = list(/obj/item/ammo_magazine/ar12)
 	weight = 3.5
@@ -1807,7 +1807,7 @@
 	item_state = "hk417"
 	base_icon = "hk417"
 	caliber = "a762x51"
-	fire_sound = list('sound/weapons/guns/fire/battle_rifle.ogg')
+	fire_sound = 'sound/weapons/guns/fire/battle_rifle.ogg'
 	magazine_type = /obj/item/ammo_magazine/scarh
 	good_mags = list(/obj/item/ammo_magazine/scarh)
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL|ATTACH_ADV_SCOPE|ATTACH_UNDER
@@ -1888,7 +1888,7 @@
 	item_state = "p90"
 	base_icon = "p90"
 	caliber = "a57x28"
-	fire_sound = list('sound/weapons/guns/fire/PDW.ogg')
+	fire_sound = 'sound/weapons/guns/fire/PDW.ogg'
 	magazine_type = /obj/item/ammo_magazine/p90
 	good_mags = list(/obj/item/ammo_magazine/p90)
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_ADV_SCOPE
@@ -1909,7 +1909,7 @@
 	item_state = "victor"
 	base_icon = "victor"
 	caliber = "a9x19"
-	fire_sound = list('sound/weapons/guns/fire/pistol.ogg')
+	fire_sound = 'sound/weapons/guns/fire/pistol.ogg'
 	magazine_type = /obj/item/ammo_magazine/glock17
 	good_mags = list(/obj/item/ammo_magazine/glock17, /obj/item/ammo_magazine/glock17/victor)
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_ADV_SCOPE
@@ -1932,9 +1932,9 @@
 	desc = "A Chinese-designed bullup assault rifle, chambered in 5.8x42mm."
 	icon = 'icons/obj/guns/wip.dmi'
 	caliber = "a58x42"
-	fire_sound = list('sound/weapons/guns/fire/M14.ogg')
-	reload_sound = list('sound/weapons/guns/interact/AR15Reload.ogg')
-	unload_sound = list('sound/weapons/guns/interact/AR15Unload.ogg')
+	fire_sound = 'sound/weapons/guns/fire/M14.ogg'
+	reload_sound = 'sound/weapons/guns/interact/AR15Reload.ogg'
+	unload_sound = 'sound/weapons/guns/interact/AR15Unload.ogg'
 	magazine_type = /obj/item/ammo_magazine/qbz95
 	good_mags = list(/obj/item/ammo_magazine/qbz95)
 	weight = 3.5
@@ -2000,7 +2000,7 @@
 	item_state = "makeshiftak"
 	base_icon = "makeshiftak"
 	caliber = "a762x39"
-	fire_sound = list('sound/weapons/guns/fire/AKM.ogg')
+	fire_sound = 'sound/weapons/guns/fire/AKM.ogg'
 	magazine_type = /obj/item/ammo_magazine/ak47/makeshift
 	good_mags = list(/obj/item/ammo_magazine/ak47, /obj/item/ammo_magazine/ak47/makeshift)
 	weight = 3.8
@@ -2021,9 +2021,9 @@
 	item_state = "vz58"
 	base_icon = "vz58"
 	caliber = "a762x39"
-	fire_sound = list('sound/weapons/guns/fire/AKM.ogg')
-	reload_sound = list('sound/weapons/guns/interact/AKReload.ogg')
-	unload_sound = list('sound/weapons/guns/interact/AKUnload.ogg')
+	fire_sound = 'sound/weapons/guns/fire/AKM.ogg'
+	reload_sound = 'sound/weapons/guns/interact/AKReload.ogg'
+	unload_sound = 'sound/weapons/guns/interact/AKUnload.ogg'
 	magazine_type = /obj/item/ammo_magazine/ak47
 	good_mags = list(/obj/item/ammo_magazine/ak47)
 	weight = 2.93
@@ -2061,7 +2061,7 @@
 	item_state = "c7"
 	base_icon = "c7"
 	caliber = "a556x45"
-	fire_sound = list('sound/weapons/guns/fire/M4A1.ogg')
+	fire_sound = 'sound/weapons/guns/fire/M4A1.ogg'
 	magazine_type = /obj/item/ammo_magazine/m16
 	good_mags = list(/obj/item/ammo_magazine/m16)
 	weight = 2.98
@@ -2099,7 +2099,7 @@
 	item_state = "mcar"
 	base_icon = "mcar"
 	caliber = "a762x33"
-	fire_sound = list('sound/weapons/guns/fire/Garand.ogg')
+	fire_sound = 'sound/weapons/guns/fire/Garand.ogg'
 	ammo_type = /obj/item/ammo_casing/a762x33
 	magazine_type = /obj/item/ammo_magazine/m1carbine
 	good_mags = list(/obj/item/ammo_magazine/m1carbine, /obj/item/ammo_magazine/m1carbine/big)

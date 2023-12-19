@@ -48,11 +48,11 @@ var/global/redirect_all_players = null
 	spawn(5)
 		if (map && map.ID == MAP_THE_ART_OF_THE_DEAL)
 			var/htmlfile = "<!DOCTYPE html><HTML><HEAD><TITLE>Wiki Guide</TITLE><META http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"></HEAD> \
-			<BODY><iframe src=\"https://lambda-13.github.io/civ13-wiki/The_Art_of_the_Deal\"  style=\"position: absolute; height: 97%; width: 97%; border: none\"></iframe></BODY></HTML>"
+			<BODY><iframe src=\"https://civ13.github.io/civ13-wiki/The_Art_of_the_Deal\"  style=\"position: absolute; height: 97%; width: 97%; border: none\"></iframe></BODY></HTML>"
 			src << browse(htmlfile,"window=wiki;size=820x650")
 		if (map && map.ID == MAP_GULAG13)
 			var/htmlfile = "<!DOCTYPE html><HTML><HEAD><TITLE>Wiki Guide</TITLE><META http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"></HEAD> \
-			<BODY><iframe src=\"https://lambda-13.github.io/civ13-wiki/Gulag_13\"  style=\"position: absolute; height: 97%; width: 97%; border: none\"></iframe></BODY></HTML>"
+			<BODY><iframe src=\"https://civ13.github.io/civ13-wiki/Gulag_13\"  style=\"position: absolute; height: 97%; width: 97%; border: none\"></iframe></BODY></HTML>"
 			src << browse(htmlfile,"window=wiki;size=820x650")
 	spawn(5)
 		if (!isemptylist(approved_list) && config.useapprovedlist)
@@ -159,38 +159,12 @@ var/global/redirect_all_players = null
 
 	output += "</div>"
 
-	client << browse(null, "window=playersetup;")
-	client << browse(replacetext(output_stylized, "PLACEHOLDER", output), "window=playersetup;size=275x[height];can_close=0;can_resize=0")
-	if (!ticker || ticker.current_state <= GAME_STATE_PREGAME)
-		client << browse_rsc('code/modules/mob/new_player/html/bg2.png', "bg2.png")
-		client << browse_rsc('code/modules/mob/new_player/html/cond2.ttf', "cond2.ttf")
-		client << browse_rsc('code/modules/mob/new_player/html/pointer.cur', "pointer.cur")
-		client << browse('code/modules/mob/new_player/html/chatbot.html', "window=playerlist;size=300x385;can_close=0; can_resize=0;")
+	src << browse(null, "window=playersetup;")
+	src << browse(replacetext(output_stylized, "PLACEHOLDER", output), "window=playersetup;size=275x[height];can_close=0;can_resize=0")
 	return
 
 /mob/new_player/Stat()
 
-// Новый способ
-	if(ticker)
-		if(ticker.current_state == GAME_STATE_PLAYING)
-			src << browse(null, "window=playerlist")
-			return
-
-		if((ticker.current_state == GAME_STATE_PREGAME))// && going)
-			client << output(list2params(list("[ticker.pregame_timeleft][round_progressing ? "" : " (ОТЛОЖЕНО)"]")), "playerlist.browser:setTimeToStart")
-		//if((ticker.current_state == GAME_STATE_PREGAME))// && !going)
-		//	client << output(list2params(list("[ticker.pregame_timeleft][round_progressing ? "" : " (ОТЛОЖЕНО)"]")), "playerlist.browser:setTimeToStart")
-
-		for(var/mob/new_player/player in player_list)
-			if(client) // Добавить позже выбор профы
-				//if(player.ready && player.client.work_chosen)
-				//	client << output(list2params(list("[player.client.work_chosen]", "[player.client.key]")), "playerlist.browser:addPlayerCell")
-				//else
-				client << output(list2params(list("Игрок", "[player.client.key]")), "playerlist.browser:addPlayerCell")
-				client << output(list2params(list()), "playerlist.browser:renderPlayerList")
-				player.updateTimeToStart()
-
-// Старый способ
 	if (client.status_tabs && statpanel("Статус") && ticker)
 		stat("")
 		stat(stat_header("Лобби"))
@@ -659,7 +633,7 @@ var/global/redirect_all_players = null
 
 		var/job_flag = actual_job.base_type_flag()
 
-		if (!GLOB.enter_allowed)
+		if (!config.enter_allowed)
 			WWalert(usr,"Админ запретил заходить в раунд.", "Error")
 			return
 
@@ -825,7 +799,7 @@ var/global/redirect_all_players = null
 				spawn(10)
 					WWalert(usr,"Раунд закончился или ещё не начался.", "Error")
 		return FALSE
-	if (!GLOB.enter_allowed)
+	if (!config.enter_allowed)
 		if (!nomsg)
 			WWalert(usr,"There is an administrative lock on entering the game!", "Error")
 			if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.civilizations || map.ID == MAP_FOUR_KINGDOMS)

@@ -671,7 +671,7 @@
 	name = "drop"
 
 	icon_state = "act_drop"
-	screen_loc = "EAST:-16,2"
+	screen_loc = "15:-16,2"
 
 /obj/screen/drop/Click()
 	if (usr.client)
@@ -800,7 +800,7 @@ obj/screen/tactic
 	name = "mood"
 
 	icon_state = "mood1"
-	screen_loc = "EAST-1:28,5:11"
+	screen_loc = "15,8"
 	process_flag = TRUE
 /obj/screen/mood/Click()
 	if (ishuman(parentmob))
@@ -1049,7 +1049,6 @@ obj/screen/tactic
 
 
 /obj/screen/nvgoverlay/process()
-	update_for_view()
 	update_icon()
 
 /obj/screen/nvgoverlay/update_icon()
@@ -1058,7 +1057,6 @@ obj/screen/tactic
 		underlays += global_hud.nvg
 
 /obj/screen/thermaloverlay/process()
-	update_for_view()
 	update_icon()
 
 /obj/screen/thermaloverlay/update_icon()
@@ -1067,7 +1065,6 @@ obj/screen/tactic
 		underlays += global_hud.thermal
 
 /obj/screen/gasmask/process()
-	update_for_view()
 	update_icon()
 
 /obj/screen/gasmask/update_icon()
@@ -1089,7 +1086,6 @@ obj/screen/tactic
 //	var/global/image/blind_icon = image('icons/mob/screen1_full.dmi', "blackimageoverlay")
 
 /obj/screen/drugoverlay/process()
-	update_for_view()
 	update_icon()
 	return
 
@@ -1130,7 +1126,6 @@ obj/screen/tactic
 
 
 /obj/screen/damageoverlay/process()
-	update_for_view()
 	update_icon()
 	return
 
@@ -1231,7 +1226,7 @@ obj/screen/tactic
 ////////////Screen effects/////////////////////////
 /obj/screen/noise
 	icon = 'icons/effects/static.dmi'
-	icon_state = "1 light"
+	icon_state = "1 moderate"
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	layer = 17
 	alpha = 127
@@ -1270,7 +1265,6 @@ obj/screen/tactic
 	if (!parentmob.aiming)
 		parentmob.aiming = new(parentmob)
 	update_icon()
-
 
 /obj/screen/gun/mode
 	name = "Toggle Gun Mode"
@@ -1336,6 +1330,7 @@ obj/screen/tactic
 	else
 		icon_state = "no_items1"
 //			owner.item_use_icon.name = "Disallow Item Use"
+
 //-----------------------Gun Mod End------------------------------
 
 //-----------------------toggle_inventory------------------------------
@@ -1384,7 +1379,6 @@ obj/screen/tactic
 	process_flag = TRUE
 
 /obj/screen/fov/process()
-	update_for_view()
 	update_icon()
 
 /obj/screen/fov/update_icon()

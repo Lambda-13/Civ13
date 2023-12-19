@@ -1,5 +1,5 @@
 /map_storage/proc/Load_Entry(savefile/savefile, var/ind, var/turf/old_turf, var/atom/starting_loc, var/atom/replacement, var/nocontents = 0, var/lag_fix = 0)
-/*    try
+    try
         TICK_CHECK
         var/nextContents
         if(nocontents)
@@ -98,9 +98,9 @@
                 H.name = savefile["name"]
         return object
     catch(var/exception/e)
-        message_admins("EXCEPTION IN LOAD ENTRY!! [e] on [e.file]:[e.line], v: [savefile["type"]]")*/
+        message_admins("EXCEPTION IN LOAD ENTRY!! [e] on [e.file]:[e.line], v: [savefile["type"]]")
 /map_storage/proc/Load_World()
-/*    for(var/B = 1, B <= world.maxz, B++)
+    for(var/B = 1, B <= world.maxz, B++)
         try
             var/watch = start_watch()
             existing_references = list()
@@ -135,4 +135,4 @@
             log_startup_progress("	Loaded z-level [B] in [stop_watch(watch)]s.")
         catch(var/exception/e)
             message_admins("EXCEPTION IN MAP LOADING!! [e] on [e.file]:[e.line]")
-    log_startup_progress("Finished loading.")*/
+    log_startup_progress("Finished loading.")

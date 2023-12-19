@@ -108,7 +108,7 @@
 	if (extractees.len)
 		world << "<big><b>Extracted:</b></big>"
 		world << "<big>[jointext(extractees,"\n")]</big>"
-	spawn(1 MINUTES)
+	spawn(1 MINUTE)
 	show_extractees()
 
 /area/caribbean/extract/Entered(var/atom/movable/A)

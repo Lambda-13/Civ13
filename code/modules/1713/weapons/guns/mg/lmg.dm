@@ -148,7 +148,7 @@
 	item_state = "dp"
 	base_icon = "dp"
 	caliber = "a762x54_weak"
-	fire_sound = list('sound/weapons/guns/fire/DP28.ogg')
+	fire_sound = 'sound/weapons/guns/fire/DP28.ogg'
 	magazine_type = /obj/item/ammo_magazine/dp
 	good_mags = list(/obj/item/ammo_magazine/dp)
 	slot_flags = SLOT_SHOULDER
@@ -165,7 +165,7 @@
 	base_icon = "bar"
 	slot_flags = SLOT_SHOULDER
 	caliber = "a3006_weak"
-	fire_sound = list('sound/weapons/guns/fire/M1918A2.ogg')
+	fire_sound = 'sound/weapons/guns/fire/M1918A2.ogg'
 	magazine_type = /obj/item/ammo_magazine/bar
 	good_mags = list(/obj/item/ammo_magazine/bar)
 	weight = 9.12
@@ -184,7 +184,7 @@
 	w_class = ITEM_SIZE_HUGE
 	slot_flags = SLOT_SHOULDER
 	caliber = "a3006"
-	fire_sound = list('sound/weapons/guns/fire/M1919.ogg')
+	fire_sound = 'sound/weapons/guns/fire/M1919.ogg'
 	magazine_type = /obj/item/ammo_magazine/browning
 	good_mags = list(/obj/item/ammo_magazine/browning)
 	weight = 12.50 //heavy piece of shit
@@ -209,10 +209,10 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mg34
 	good_mags = list(/obj/item/ammo_magazine/mg34, /obj/item/ammo_magazine/mg34belt)
-	unload_sound 	= list('sound/weapons/guns/interact/lmg_magout.ogg')
-	reload_sound 	= list('sound/weapons/guns/interact/lmg_magin.ogg')
-	cocked_sound 	= list('sound/weapons/guns/interact/lmg_cock.ogg')
-	fire_sound = list('sound/weapons/guns/fire/mg34.ogg')
+	unload_sound 	= 'sound/weapons/guns/interact/lmg_magout.ogg'
+	reload_sound 	= 'sound/weapons/guns/interact/lmg_magin.ogg'
+	cocked_sound 	= 'sound/weapons/guns/interact/lmg_cock.ogg'
+	fire_sound = 	'sound/weapons/guns/fire/mg34.ogg'
 	force = 20
 	throwforce = 30
 	effectiveness_mod = 1.01
@@ -266,7 +266,7 @@
 	item_state = "m60"
 	base_icon = "m60"
 	caliber = "a762x51_weak"
-	fire_sound = list('sound/weapons/guns/fire/M60.ogg')
+	fire_sound = 'sound/weapons/guns/fire/M60.ogg'
 	magazine_type = /obj/item/ammo_magazine/b762
 	good_mags = list(/obj/item/ammo_magazine/b762)
 	slot_flags = SLOT_SHOULDER
@@ -288,7 +288,7 @@
 	item_state = "m249"
 	base_icon = "m249"
 	caliber = "a556x45"
-	fire_sound = list('sound/weapons/guns/fire/Minimi.ogg')
+	fire_sound = 'sound/weapons/guns/fire/Minimi.ogg'
 	magazine_type = /obj/item/ammo_magazine/m249
 	good_mags = list(/obj/item/ammo_magazine/m249)
 	slot_flags = SLOT_SHOULDER
@@ -533,10 +533,10 @@
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	magazine_type = /obj/item/ammo_magazine/c6belt
 	good_mags = list(/obj/item/ammo_magazine/c6belt, /obj/item/ammo_magazine/c6can)
-	unload_sound 	= list('sound/weapons/guns/interact/lmg_magout.ogg')
-	reload_sound 	= list('sound/weapons/guns/interact/lmg_magin.ogg')
-	cocked_sound 	= list('sound/weapons/guns/interact/lmg_cock.ogg')
-	fire_sound = list('sound/weapons/guns/fire/M60.ogg')
+	unload_sound 	= 'sound/weapons/guns/interact/lmg_magout.ogg'
+	reload_sound 	= 'sound/weapons/guns/interact/lmg_magin.ogg'
+	cocked_sound 	= 'sound/weapons/guns/interact/lmg_cock.ogg'
+	fire_sound = 'sound/weapons/guns/fire/M60.ogg'
 	force = 20
 	throwforce = 30
 	effectiveness_mod = 1.07

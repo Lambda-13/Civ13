@@ -13,42 +13,6 @@
 	icon_state = "pwig"
 	item_state = "pwig"
 
-/obj/item/clothing/head/furryhead1
-	name = "blue furry head"
-	desc = "Thats a blue wolf."
-	icon_state = "furhead1"
-	item_state = "furhead1"
-
-/obj/item/clothing/head/furryhead2
-	name = "red furry head"
-	desc = "Thats a red wolf."
-	icon_state = "furhead2"
-	item_state = "furhead2"
-
-/obj/item/clothing/head/furryhead3
-	name = "orange furry head"
-	desc = "Thats a orange wolf."
-	icon_state = "furhead3"
-	item_state = "furhead3"
-
-/obj/item/clothing/head/furryhead1nazi
-	name = "nazi blue furry head"
-	desc = "Thats a nazi blue wolf."
-	icon_state = "furhead1"
-	item_state = "furhead1nazi"
-
-/obj/item/clothing/head/furryhead2nazi
-	name = "nazi red furry head"
-	desc = "Thats a nazi red wolf."
-	icon_state = "furhead2"
-	item_state = "furhead2nazi"
-
-/obj/item/clothing/head/furryhead3nazi
-	name = "nazi orange furry head"
-	desc = "Thats a nazi orange wolf."
-	icon_state = "furhead3"
-	item_state = "furhead3nazi"
-
 /obj/item/clothing/head/tophat
 	name = "top-hat"
 	desc = "It's an amish looking hat."

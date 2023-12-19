@@ -1,7 +1,7 @@
 /obj/item/weapon/gun/projectile/shotgun
 	maxhealth = 45
 	gun_type = GUN_TYPE_SHOTGUN
-	fire_sound = list('sound/weapons/guns/fire/shotgun.ogg')
+	fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
 	icon = 'icons/obj/guns/rifles.dmi'
 	// 15% more accurate than SMGs
 	equiptimer = 17
