@@ -826,10 +826,10 @@
 			slot_flags = SLOT_BELT|SLOT_POCKET|SLOT_HOLSTER
 			handle_casings = CYCLE_CASINGS
 			max_shells = 7
-			unload_sound 	= 'sound/weapons/guns/interact/rev_magout.ogg'
-			reload_sound 	= 'sound/weapons/guns/interact/rev_magin.ogg'
-			cocked_sound 	= 'sound/weapons/guns/interact/rev_cock.ogg'
-			fire_sound 		= 'sound/weapons/guns/fire/revolver.ogg'
+			unload_sound 	= list('sound/weapons/guns/interact/rev_magout.ogg')
+			reload_sound 	= list('sound/weapons/guns/interact/rev_magin.ogg')
+			cocked_sound 	= list('sound/weapons/guns/interact/rev_cock.ogg')
+			fire_sound 		= list('sound/weapons/guns/fire/revolver.ogg')
 			magazine_based = FALSE
 			gun_type = GUN_TYPE_PISTOL
 			single_action = FALSE
@@ -1156,7 +1156,7 @@
 			w_class = ITEM_SIZE_NORMAL
 			sel_mode = 1
 			full_auto = TRUE
-			fire_sound = 'sound/weapons/guns/fire/rifle.ogg'
+			fire_sound = list('sound/weapons/guns/fire/rifle.ogg')
 			weight = 3.47
 			slot_flags = SLOT_SHOULDER
 			firemodes = list(
@@ -1223,7 +1223,7 @@
 			w_class = ITEM_SIZE_NORMAL
 			sel_mode = 1
 			full_auto = TRUE
-			fire_sound = 'sound/weapons/guns/fire/rifle.ogg'
+			fire_sound = list('sound/weapons/guns/fire/rifle.ogg')
 			weight = 3.47
 			slot_flags = SLOT_SHOULDER
 			firemodes = list(
@@ -1288,7 +1288,7 @@
 			stat = "rifle"
 			gtype = "shotgun"
 			gun_type = GUN_TYPE_SHOTGUN
-			fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
+			fire_sound = list('sound/weapons/guns/fire/shotgun.ogg')
 			// 15% more accurate than SMGs
 			accuracy_list = list(
 
@@ -1679,7 +1679,8 @@
 					loaded.Cut()
 				if (count)
 					visible_message("[user] unloads [src].", "<span class='notice'>You unload [count] round\s from [src].</span>")
-					if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
+					if (bulletinsert_sound)
+						playsound(loc, pick(bulletinsert_sound), 75, TRUE)
 			else if (load_method & SINGLE_CASING)
 				var/obj/item/ammo_casing/C = loaded[loaded.len]
 				loaded.len--
@@ -1689,7 +1690,8 @@
 					var/obj/item/weapon/gun/projectile/boltaction/B = src
 					if (B.bolt_safety && !B.loaded.len)
 						B.check_bolt_lock++
-				if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
+				if (bulletinsert_sound)
+					playsound(loc, pick(bulletinsert_sound), 75, TRUE)
 		else
 			user << "<span class='warning'>[src] is empty.</span>"
 	update_icon()

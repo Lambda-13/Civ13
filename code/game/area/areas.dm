@@ -48,8 +48,7 @@
 
 	var/climate = "temperate" //temperate, desert, jungle, tundra
 
-// ===
-/area
+	var/nukesafe = FALSE
 	var/global/global_uid = FALSE
 	var/uid
 	var/artillery_integrity = 100

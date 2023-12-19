@@ -1,7 +1,7 @@
 /obj/item/weapon/gun/projectile/special
 	force = 10
 	throwforce = 20
-	fire_sound = 'sound/weapons/guns/fire/smg.ogg'
+	fire_sound = list('sound/weapons/guns/fire/smg.ogg')
 	var/base_icon = "tactical"
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	// more accuracy than MGs, less than everything else
@@ -106,7 +106,7 @@
 	base_icon = "mk18"
 	weight = 3.97
 	caliber = "a556x45"
-	fire_sound = 'sound/weapons/guns/fire/assault_rifle.ogg'
+	fire_sound = list('sound/weapons/guns/fire/assault_rifle.ogg')
 	magazine_type = /obj/item/ammo_magazine/mk18
 	good_mags = list(/obj/item/ammo_magazine/mk18)
 	full_auto = TRUE
@@ -127,7 +127,7 @@
 	base_icon = "ak74mtactical"
 	weight = 3.97
 	caliber = "a545x39"
-	fire_sound = 'sound/weapons/guns/fire/assault_rifle.ogg'
+	fire_sound = list('sound/weapons/guns/fire/assault_rifle.ogg')
 	magazine_type = /obj/item/ammo_magazine/ak74
 	good_mags = list(/obj/item/ammo_magazine/ak74/ak74m, /obj/item/ammo_magazine/ak74)
 	full_auto = TRUE

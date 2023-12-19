@@ -140,6 +140,19 @@
 	value = 60
 	cooldownw = 7
 
+/obj/item/weapon/material/sword/guandao
+	name = "гуан дао"
+	desc = "Кратким языком - меч на палке что был придуман в далёкой Азии. Позволяет блокировать, мощный, но медленный."
+	icon_state = "guandao"
+	item_state = "guandao"
+	block_chance = 90
+	force = 85
+	force_divisor = 0.8 // 42 when wielded with hardnes 60 (steel)
+	thrown_force_divisor = 0.5 // 10 when thrown with weight 20 (steel)
+	value = 3500
+	applies_material_colour = FALSE
+	cooldownw = 35
+
 obj/item/weapon/material/sword/wakazashi
 	name = "wakazashi"
 	desc = "A sword used by the japanese for centuries. Made to slice and slash, not chop or saw. Often paired with a katana."
@@ -277,6 +290,23 @@ obj/item/weapon/material/sword/vikingsword/bronze
 	slot_flags = SLOT_BELT | SLOT_BACK
 	block_chance = 35
 	cooldownw = 7
+
+/obj/item/weapon/material/sword/vanotyan
+	name = "Eldaxe"
+	desc = "huy."
+	icon_state = "eldaxe"
+	item_state = "eldaxe"
+	throw_speed = 3
+	throw_range = 6
+	force = 45
+	force_divisor = 0.9 // 48 when wielded with hardnes 60 (steel)
+	thrown_force_divisor = 0.45 // 10 when thrown with weight 20 (steel)
+	slot_flags = SLOT_BACK
+	block_chance = 75
+	cooldownw = 9
+	value = 3000
+	chopping_speed = 0.3
+	applies_material_colour = FALSE
 
 /obj/item/weapon/material/sword/bolo
 	name = "bolo"

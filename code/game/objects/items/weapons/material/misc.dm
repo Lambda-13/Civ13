@@ -512,6 +512,59 @@
 	attack_verb = list("chopped", "sliced", "cut", "reaped")
 	cooldownw = 5
 
+/obj/item/weapon/material/scythevano
+	icon_state = "vanoserp"
+	item_state = "vanoserp"
+	name = "scythe"
+	desc = "FROM USSR WITH LOVE. Fast but not best weapon."
+	force = 7
+	block_chance = 50
+	force_divisor = 0.275 // 16 with hardness 60 (steel)
+	thrown_force_divisor = 0.25 // 5 with weight 20 (steel)
+	sharp = TRUE
+	edge = TRUE
+	throw_speed = TRUE
+	throw_range = 10
+	w_class = ITEM_SIZE_SMALL
+	attack_verb = list("chopped", "sliced", "cut", "reaped")
+	cooldownw = 1
+
+/obj/item/weapon/material/hammervano
+	icon_state = "vanomolot"
+	item_state = "vanomolot"
+	name = "hammer"
+	desc = "FROM USSR WITH LOVE. Can destroy capitalism or someone skull."
+	force = 65
+	force_divisor = 0.275 // 16 with hardness 60 (steel)
+	thrown_force_divisor = 0.25 // 5 with weight 20 (steel)
+	edge = TRUE
+	throw_speed = TRUE
+	throw_range = 3
+	w_class = ITEM_SIZE_SMALL
+	attack_verb = list("thwacked", "hit", "clonked", "batted", "slammed", "smacked", "poked", "slapped")
+	hitsound = 'sound/weapons/pierce.ogg'
+	cooldownw = 7
+
+/obj/item/weapon/material/amogus
+	icon_state = "susamogus"
+	item_state = "susamogus"
+	force = 7500
+	material = "cloth"
+	default_material = "cloth"
+	name = "little sussy plush"
+	desc = "Oh my god red is sus!"
+	force_divisor = 16 // 16 with hardness 60 (steel)
+	thrown_force_divisor = 25 // 5 with weight 20 (steel)
+	edge = TRUE
+	throw_speed = TRUE
+	throw_range = 3
+	applies_material_colour = FALSE
+	w_class = ITEM_SIZE_SMALL
+	attack_verb = list("sussy baked")
+	hitsound = 'sound/weapons/amogus.ogg'
+	cooldownw = 15
+
+
 /obj/item/weapon/material/scythe/old
 	icon_state = "scythe"
 	name = "scythe"

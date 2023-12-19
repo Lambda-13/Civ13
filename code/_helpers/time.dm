@@ -1,25 +1,5 @@
-#define SECOND *10
-#define SECONDS *10
-
-#define MINUTE *600
-#define MINUTES *600
-
-#define HOUR *36000
-#define HOURS *36000
-
-#define DAY *864000
-#define DAYS *864000
-
 #define TimeOfGame (get_game_time())
 #define TimeOfTick (world.tick_usage*0.01*world.tick_lag)
-
-#define CHECK_TICK if (world.tick_usage > 80) sleep(world.tick_lag)
-
-#define TICKS *world.tick_lag
-
-#define DS2TICKS(DS) ((DS)/world.tick_lag)
-
-#define TICKS2DS(T) ((T) TICKS)
 
 var/midnight_rollovers = 0
 var/rollovercheck_last_timeofday = 0
@@ -52,7 +32,7 @@ var/rollovercheck_last_timeofday = 0
 
 var/roundstart_hour = FALSE
 var/station_date = ""
-var/next_station_date_change = TRUE DAY
+var/next_station_date_change = TRUE DAYS
 
 #define roundduration2text_in_ticks (round_start_time ? world.time - round_start_time : FALSE)
 #define station_time_in_ticks (roundstart_hour HOURS + roundduration2text_in_ticks)
@@ -64,10 +44,10 @@ var/next_station_date_change = TRUE DAY
 /proc/stationdate2text()
 	var/update_time = FALSE
 	if (station_time_in_ticks > next_station_date_change)
-		next_station_date_change += 1 DAY
+		next_station_date_change += 1 DAYS
 		update_time = TRUE
 	if (!station_date || update_time)
-		var/extra_days = round(station_time_in_ticks / (1 DAY)) DAYS
+		var/extra_days = round(station_time_in_ticks / (1 DAYS)) DAYS
 		var/timeofday = world.timeofday + extra_days
 		station_date = num2text((text2num(time2text(timeofday, "YYYY"))+544)) + "-" + time2text(timeofday, "MM-DD")
 	return station_date

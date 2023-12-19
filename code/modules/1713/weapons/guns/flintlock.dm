@@ -19,7 +19,7 @@
 	load_method = SINGLE_CASING
 	ammo_type = /obj/item/ammo_casing/musketball
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
-	fire_sound = 'sound/weapons/guns/fire/musket.ogg'
+	fire_sound = list('sound/weapons/guns/fire/musket.ogg')
 	//+2 accuracy over the LWAP because only one shot
 	accuracy = TRUE
 //	scoped_accuracy = 2
@@ -329,7 +329,7 @@
 	recoil = 2
 	force = 6
 	w_class = ITEM_SIZE_SMALL
-	fire_sound = 'sound/weapons/guns/fire/hpistol.ogg'
+	fire_sound = list('sound/weapons/guns/fire/hpistol.ogg')
 	caliber = "musketball_pistol"
 	weight = 2.5
 	effectiveness_mod = 1
@@ -414,7 +414,7 @@
 	attachment_slots = ATTACH_IRONSIGHTS
 	ammo_type = /obj/item/ammo_casing/blunderbuss
 	gun_type = GUN_TYPE_SHOTGUN
-	fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
+	fire_sound = list('sound/weapons/guns/fire/shotgun.ogg')
 	equiptimer = 15
 	// 15% more accurate than SMGs
 	accuracy_list = list(
@@ -474,7 +474,7 @@
 	recoil = 2.1
 	force = 6.1
 	w_class = ITEM_SIZE_SMALL
-	fire_sound = 'sound/weapons/guns/fire/hpistol.ogg'
+	fire_sound = list('sound/weapons/guns/fire/hpistol.ogg')
 	caliber = "musketball_pistol"
 	weight = 2.5
 	effectiveness_mod = 1
@@ -548,7 +548,7 @@
 	recoil = 2.5
 	force = 8
 	w_class = ITEM_SIZE_SMALL
-	fire_sound = 'sound/weapons/guns/fire/hpistol.ogg'
+	fire_sound = list('sound/weapons/guns/fire/hpistol.ogg')
 	caliber = "musketball_pistol"
 	weight = 2.9
 	effectiveness_mod = 1
@@ -617,7 +617,7 @@
 	recoil = 2.1
 	force = 6.1
 	w_class = ITEM_SIZE_SMALL
-	fire_sound = 'sound/weapons/guns/fire/hpistol.ogg'
+	fire_sound = list('sound/weapons/guns/fire/hpistol.ogg')
 	caliber = "musketball_pistol"
 	weight = 2.5
 	effectiveness_mod = 1
