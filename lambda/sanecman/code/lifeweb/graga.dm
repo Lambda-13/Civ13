@@ -46,7 +46,7 @@
 	if(prob(5))
 		visible_message("<b class='danger'><h3>[pick("АХХХХХХ", "УХХХХХ", "ХГХХХХ")]<h3></b>")
 		playsound(src.loc, selectedSound, 50, 1, -1)
-	for(var/mob/living/human/H in view(WORLD_VIEW, src))
+	for(var/mob/living/human/H in view(world.view, src))
 		shake_camera(H, 1, 1)
 	return ..()
 

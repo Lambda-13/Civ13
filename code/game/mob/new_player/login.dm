@@ -1,3 +1,4 @@
+
 /mob/new_player
 	var/client/my_client // Need to keep track of this ourselves, since by the time Logout() is called the client has already been nulled
 
@@ -33,14 +34,3 @@
 			client.playtitlemusic()
 			if (client.is_preference_enabled(/datum/client_preference/fit_viewport))
 				client.fit_viewport()
-
-	spawn while(client)
-		sleep(35)
-		updateTimeToStart()
-
-/mob/new_player/proc/updateTimeToStart()
-	if(!client)
-		return
-//	if(!client.pigReady)
-//		return
-	client << output(list2params(list("#timestart", "[ticker?.pregame_timeleft]")), "outputwindow.browser:change")

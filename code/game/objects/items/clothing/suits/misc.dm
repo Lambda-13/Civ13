@@ -54,24 +54,6 @@
 	icon_state = "pimpcoat"
 	item_state = "pimpcoat"
 
-/obj/item/clothing/suit/furrysuit1
-	name = "blue furry head."
-	desc = "Thats a blue wolf."
-	icon_state = "fursuit1"
-	item_state = "fursuit1"
-
-/obj/item/clothing/suit/furrysuit2
-	name = "red furry head."
-	desc = "Thats a red wolf."
-	icon_state = "fursuit2"
-	item_state = "fursuit2"
-
-/obj/item/clothing/suit/furrysuit3
-	name = "orange furry head."
-	desc = "Thats a orange wolf."
-	icon_state = "fursuit3"
-	item_state = "fursuit3"
-
 /obj/item/clothing/suit/blugojacket
 	name = "Blugoslavian Jacket."
 	desc = "A standard issue combat jacket of the blugo army."

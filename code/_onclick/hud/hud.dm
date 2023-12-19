@@ -21,17 +21,6 @@ var/list/global_huds = list(
 /datum/hud/var/obj/screen/disarm_intent
 /datum/hud/var/obj/screen/help_intent
 */
-
-/datum/hud
-	var/name
-	var/list/HUDneed
-//	var/list/HUDprocess = list()
-	var/list/slot_data
-	var/icon/icon = null
-	var/list/HUDfrippery
-	var/list/HUDoverlays
-	var/list/ConteinerData
-
 /datum/global_hud
 	var/obj/screen/druggy
 	var/obj/screen/blurry
@@ -70,7 +59,7 @@ var/list/global_huds = list(
 	blurry = new /obj/screen()
 	blurry.icon = 'icons/mob/screen/effects.dmi'
 	blurry.screen_loc = ui_entire_screen
-	blurry.icon_state = "[rand(1,9)] light"
+	blurry.icon_state = "[rand(1,9)] moderate"
 	blurry.layer = 17
 	blurry.plane = HUD_PLANE
 	blurry.mouse_opacity = FALSE
@@ -185,7 +174,7 @@ var/list/global_huds = list(
 		return
 
 	if (!client) return
-	if (client.view != WORLD_VIEW)
+	if (client.view != world.view)
 		return
 
 //	hud_used.hidden_inventory_update()
@@ -200,7 +189,7 @@ var/list/global_huds = list(
 		return
 	if (!client)
 		return
-	if (client.view != WORLD_VIEW)
+	if (client.view != world.view)
 		return
 
 	update_action_buttons()

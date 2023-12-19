@@ -9,7 +9,7 @@
 	gun_safety = TRUE
 	gun_type = GUN_TYPE_PISTOL
 	handle_casings = EJECT_CASINGS
-	silencer_fire_sound = list('sound/weapons/guns/fire/Glock17-SD.ogg')
+	silencer_fire_sound = 'sound/weapons/guns/fire/Glock17-SD.ogg'
 	maxhealth = 45
 	gtype = "pistol"
 
@@ -76,7 +76,7 @@
 	icon_state = "nambu"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "c8mmnambu"
-	fire_sound = list('sound/weapons/guns/fire/Nambu.ogg')
+	fire_sound = 'sound/weapons/guns/fire/Nambu.ogg'
 	magazine_type = /obj/item/ammo_magazine/c8mmnambu
 	weight = 0.794
 	ammo_type = /obj/item/ammo_casing/c8mmnambu
@@ -99,7 +99,7 @@
 	icon_state = "nambu_ww2"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "c8mmnambu"
-	fire_sound = list('sound/weapons/guns/fire/Nambu.ogg')
+	fire_sound = 'sound/weapons/guns/fire/Nambu.ogg'
 	magazine_type = /obj/item/ammo_magazine/c8mmnambu
 	weight = 0.794
 	ammo_type = /obj/item/ammo_casing/c8mmnambu
@@ -122,7 +122,7 @@
 	icon_state = "luger"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a9x19"
-	fire_sound = list('sound/weapons/guns/fire/9mm.ogg')
+	fire_sound = 'sound/weapons/guns/fire/9mm.ogg'
 	magazine_type = /obj/item/ammo_magazine/luger
 	weight = 0.794
 	ammo_type = /obj/item/ammo_casing/a9x19
@@ -145,7 +145,7 @@
 	icon_state = "waltherp38"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a9x19"
-	fire_sound = list('sound/weapons/guns/fire/9mm.ogg')
+	fire_sound = 'sound/weapons/guns/fire/9mm.ogg'
 	magazine_type = /obj/item/ammo_magazine/walther
 	weight = 0.794
 	ammo_type = /obj/item/ammo_casing/a9x19
@@ -176,7 +176,7 @@
 	fire_delay = 2.3
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a9x19"
-	fire_sound = list('sound/weapons/guns/fire/9mm.ogg')
+	fire_sound = 'sound/weapons/guns/fire/9mm.ogg'
 	magazine_type = /obj/item/ammo_magazine/glock17
 	weight = 0.594
 	max_shells = 17 //Glock 17 real capacity
@@ -212,7 +212,7 @@
 	fire_delay = 2.3
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a9x19"
-	fire_sound = list('sound/weapons/guns/fire/pistol.ogg')
+	fire_sound = 'sound/weapons/guns/fire/pistol.ogg'
 	magazine_type = /obj/item/ammo_magazine/sig250
 	weight = 0.594
 	max_shells = 17
@@ -236,7 +236,7 @@
 	fire_delay = 1.8
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a9x19"
-	fire_sound = list('sound/weapons/guns/fire/pistol.ogg')
+	fire_sound = 'sound/weapons/guns/fire/pistol.ogg'
 	magazine_type = /obj/item/ammo_magazine/pl14
 	good_mags = list(/obj/item/ammo_magazine/pl14)
 	weight = 0.594
@@ -261,7 +261,7 @@
 	fire_delay = 3.15
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a9x19"
-	fire_sound = list('sound/weapons/guns/fire/pistol.ogg')
+	fire_sound = 'sound/weapons/guns/fire/pistol.ogg'
 	magazine_type = /obj/item/ammo_magazine/mp443
 	good_mags = list(/obj/item/ammo_magazine/mp443)
 	weight = 0.594
@@ -285,7 +285,7 @@
 	fire_delay = 2.3
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a9x19"
-	fire_sound = list('sound/weapons/guns/fire/pistol.ogg')
+	fire_sound = 'sound/weapons/guns/fire/pistol.ogg'
 	magazine_type = /obj/item/ammo_magazine/glock17
 	good_mags = list(/obj/item/ammo_magazine/glock17)
 	weight = 0.594
@@ -309,7 +309,7 @@
 	fire_delay = 3.7
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a45"
-	fire_sound = list('sound/weapons/guns/fire/45ACP.ogg')
+	fire_sound = 'sound/weapons/guns/fire/45ACP.ogg'
 	magazine_type = /obj/item/ammo_magazine/p220
 	good_mags = list(/obj/item/ammo_magazine/p220)
 	weight = 0.594
@@ -340,7 +340,7 @@
 	fire_delay = 1.1
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a9x19"
-	fire_sound = list('sound/weapons/guns/fire/pistol.ogg')
+	fire_sound = 'sound/weapons/guns/fire/pistol.ogg'
 	magazine_type = /obj/item/ammo_magazine/glock17
 	good_mags = list(/obj/item/ammo_magazine/glock17)
 	weight = 0.594
@@ -363,7 +363,7 @@
 	icon_state = "mauser"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a762x25"
-	fire_sound = list('sound/weapons/guns/fire/762x25.ogg')
+	fire_sound = 'sound/weapons/guns/fire/762x25.ogg'
 	magazine_type = /obj/item/ammo_magazine/mauser
 	good_mags = list(/obj/item/ammo_magazine/mauser)
 	weight = 0.794
@@ -387,7 +387,7 @@
 	icon_state = "borchardt"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a765x25"
-	fire_sound = list('sound/weapons/guns/fire/762x25.ogg')
+	fire_sound = 'sound/weapons/guns/fire/762x25.ogg'
 	magazine_type = /obj/item/ammo_magazine/borchardt
 	good_mags = list(/obj/item/ammo_magazine/borchardt, /obj/item/ammo_magazine/borchardt/empty)
 	weight = 0.794
@@ -410,7 +410,7 @@
 	w_class = ITEM_SIZE_SMALL
 	equiptimer = 4
 	caliber = "a32acp"
-	fire_sound = list('sound/weapons/guns/fire/32ACP.ogg')
+	fire_sound = 'sound/weapons/guns/fire/32ACP.ogg'
 	magazine_type = /obj/item/ammo_magazine/colthammerless
 	good_mags = list(/obj/item/ammo_magazine/colthammerless)
 	weight = 0.680
@@ -434,7 +434,7 @@
 	icon_state = "coltpockethammerless"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a380acp"
-	fire_sound = list('sound/weapons/guns/fire/9mm.ogg')
+	fire_sound = 'sound/weapons/guns/fire/9mm.ogg'
 	magazine_type = /obj/item/ammo_magazine/colthammerless/a380acp
 	good_mags = list(/obj/item/ammo_magazine/colthammerless/a380acp)
 	weight = 0.720
@@ -449,7 +449,7 @@
 	icon_state = "bergmann"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "c8mmnambu"
-	fire_sound = list('sound/weapons/guns/fire/Nambu.ogg')
+	fire_sound = 'sound/weapons/guns/fire/Nambu.ogg'
 	magazine_type = /obj/item/ammo_magazine/bergmann
 	good_mags = list(/obj/item/ammo_magazine/bergmann)
 	weight = 0.794
@@ -473,7 +473,7 @@
 	icon_state = "colt"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a45acp"
-	fire_sound = list('sound/weapons/guns/fire/45ACP.ogg')
+	fire_sound = 'sound/weapons/guns/fire/45ACP.ogg'
 	magazine_type = /obj/item/ammo_magazine/m1911
 	good_mags = list(/obj/item/ammo_magazine/m1911, /obj/item/ammo_magazine/m1911/empty)
 	weight = 0.794
@@ -497,7 +497,7 @@
 	icon_state = "colt"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a45acp"
-	fire_sound = list('sound/weapons/guns/fire/45ACP.ogg')
+	fire_sound = 'sound/weapons/guns/fire/45ACP.ogg'
 	magazine_type = /obj/item/ammo_magazine/m1911
 	good_mags = list(/obj/item/ammo_magazine/m1911)
 	weight = 0.794
@@ -527,7 +527,7 @@
 	icon_state = "tt30"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a762x25"
-	fire_sound = list('sound/weapons/guns/fire/762x25.ogg')
+	fire_sound = 'sound/weapons/guns/fire/762x25.ogg'
 	magazine_type = /obj/item/ammo_magazine/tt30
 	good_mags = list(/obj/item/ammo_magazine/tt30, /obj/item/ammo_magazine/tt30ll, /obj/item/ammo_magazine/tt30/empty,/obj/item/ammo_magazine/tt30ll/rubber)
 	weight = 0.794
@@ -563,7 +563,7 @@
 	icon_state = "makarov"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a9x18"
-	fire_sound = list('sound/weapons/guns/fire/762x25.ogg')
+	fire_sound = 'sound/weapons/guns/fire/762x25.ogg'
 	magazine_type = /obj/item/ammo_magazine/makarov
 	good_mags = list(/obj/item/ammo_magazine/makarov, /obj/item/ammo_magazine/makarov/empty)
 	weight = 0.704
@@ -593,7 +593,7 @@
 	icon_state = "aps"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a9x18"
-	fire_sound = list('sound/weapons/guns/fire/762x25.ogg')
+	fire_sound = 'sound/weapons/guns/fire/762x25.ogg'
 	magazine_type = /obj/item/ammo_magazine/aps
 	good_mags = list(/obj/item/ammo_magazine/aps, /obj/item/ammo_magazine/aps/empty)
 	weight = 0.704
@@ -609,7 +609,7 @@
 	icon_state = "m9beretta"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a9x19"
-	fire_sound = list('sound/weapons/guns/fire/9mm.ogg')
+	fire_sound = 'sound/weapons/guns/fire/9mm.ogg'
 	magazine_type = /obj/item/ammo_magazine/m9beretta
 	good_mags = list(/obj/item/ammo_magazine/m9beretta)
 	weight = 0.794
@@ -638,7 +638,7 @@
 	icon_state = "tanm9"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a9x19"
-	fire_sound = list('sound/weapons/guns/fire/9mm.ogg')
+	fire_sound = 'sound/weapons/guns/fire/9mm.ogg'
 	magazine_type = /obj/item/ammo_magazine/m9beretta
 	good_mags = list(/obj/item/ammo_magazine/m9beretta)
 	weight = 0.794
@@ -660,7 +660,7 @@
 	icon_state = "jericho941"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a9x19"
-	fire_sound = list('sound/weapons/guns/fire/9mm.ogg')
+	fire_sound = 'sound/weapons/guns/fire/9mm.ogg'
 	magazine_type = /obj/item/ammo_magazine/jericho
 	good_mags = list(/obj/item/ammo_magazine/jericho)
 	weight = 0.85
@@ -682,7 +682,7 @@
 	icon_state = "deagle"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a50cal"
-	fire_sound = list('sound/weapons/guns/fire/deagle.ogg')
+	fire_sound = 'sound/weapons/guns/fire/deagle.ogg'
 	magazine_type = /obj/item/ammo_magazine/deagle
 	good_mags = list(/obj/item/ammo_magazine/deagle)
 	weight = 0.794
@@ -706,7 +706,7 @@
 	icon_state = "deagle"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a44magnum"
-	fire_sound = list('sound/weapons/guns/fire/deagle.ogg')
+	fire_sound = 'sound/weapons/guns/fire/deagle.ogg'
 	magazine_type = /obj/item/ammo_magazine/deagle
 	good_mags = list(/obj/item/ammo_magazine/deaglemagnum)
 	weight = 0.794
@@ -730,7 +730,7 @@
 	icon_state = "browning_hp"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a9x19"
-	fire_sound = list('sound/weapons/guns/fire/9mm.ogg')
+	fire_sound = 'sound/weapons/guns/fire/9mm.ogg'
 	magazine_type = /obj/item/ammo_magazine/browninghp
 	good_mags = list(/obj/item/ammo_magazine/browninghp)
 	weight = 0.794
@@ -754,7 +754,7 @@
 	icon_state = "sti2011"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a45acp"
-	fire_sound = list('sound/weapons/guns/fire/45ACP.ogg')
+	fire_sound = 'sound/weapons/guns/fire/45ACP.ogg'
 	magazine_type = /obj/item/ammo_magazine/sti2011
 	good_mags = list(/obj/item/ammo_magazine/sti2011)
 	weight = 0.794

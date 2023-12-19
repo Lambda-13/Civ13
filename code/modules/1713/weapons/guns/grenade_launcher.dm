@@ -6,7 +6,7 @@
 	w_class = ITEM_SIZE_HUGE
 	force = 10
 	
-	fire_sound = list('sound/weapons/guns/fire/m79.ogg')
+	fire_sound = 'sound/weapons/guns/fire/m79.ogg'
 	fire_sound_text = "a metallic thunk"
 	recoil = 0
 	throw_distance = 40

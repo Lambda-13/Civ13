@@ -39,10 +39,8 @@
 
 	var/full_auto = FALSE
 	var/fire_delay = 5 	//delay after shooting before the gun can be used again
-
-	var/list/fire_sound = list('sound/weapons/guns/fire/rifle.ogg')
-	var/list/silencer_fire_sound = list('sound/weapons/guns/fire/AKM-SD.ogg')
-
+	var/fire_sound = 'sound/weapons/guns/fire/rifle.ogg'
+	var/silencer_fire_sound = 'sound/weapons/guns/fire/AKM-SD.ogg'
 	var/fire_sound_text = "gunshot"
 	var/recoil = 0		//screen shake
 	var/muzzle_flash = 3
@@ -352,9 +350,9 @@
 //called after successfully firing
 /obj/item/weapon/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0)
 	if (silencer)
-		playsound(get_turf(user), pick(silencer_fire_sound), 100-silencer.reduction, TRUE, 100-silencer.reduction)
+		playsound(get_turf(user), silencer_fire_sound, 100-silencer.reduction, TRUE, 100-silencer.reduction)
 	else
-		playsound(get_turf(user), pick(fire_sound), 100, TRUE, 100)
+		playsound(get_turf(user), fire_sound, 100, TRUE, 100)
 
 		if (muzzle_flash)
 			set_light(muzzle_flash)
@@ -459,9 +457,9 @@
 	if (in_chamber && istype(in_chamber))
 		user.visible_message("<span class = 'warning'>[user] pulls the trigger.</span>")
 		if (silencer)
-			playsound(user, pick(silencer_fire_sound), 50-(silencer.reduction/2), TRUE,50-(silencer.reduction/2))
+			playsound(user, silencer_fire_sound, 50-(silencer.reduction/2), TRUE,50-(silencer.reduction/2))
 		else
-			playsound(user, pick(fire_sound), 50, TRUE,50)
+			playsound(user, fire_sound, 50, TRUE,50)
 
 		M.attack_log += "\[[time_stamp()]\] [M]/[M.ckey]</b> shot themselves in the mouth (tried to commit suicide)"
 
@@ -527,9 +525,9 @@
 
 			user.visible_message("<span class = 'red'>[user] shoots \himself in \the [organ_name]!</span>")
 			if (silencer)
-				playsound(user, pick(silencer_fire_sound), 100-silencer.reduction, TRUE,100-silencer.reduction)
+				playsound(user, silencer_fire_sound, 100-silencer.reduction, TRUE,100-silencer.reduction)
 			else
-				playsound(user, pick(fire_sound), 100, TRUE,100)
+				playsound(user, fire_sound, 100, TRUE,100)
 
 			user.attack_log += "\[[time_stamp()]\] [user]/[user.ckey]</b> shot themselves in the [organ_name]"
 
