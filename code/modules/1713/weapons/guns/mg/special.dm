@@ -1,7 +1,7 @@
 /obj/item/weapon/gun/projectile/special
 	force = 10
 	throwforce = 20
-	fire_sound = list('sound/weapons/guns/fire/smg.ogg')
+	fire_sound = 'sound/weapons/guns/fire/smg.ogg'
 	var/base_icon = "tactical"
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	// more accuracy than MGs, less than everything else
@@ -12,50 +12,6 @@
 	load_delay = 8
 	gun_type = GUN_TYPE_RIFLE
 	gtype = "smg"
-	accuracy_list = list(
-
-		// small body parts: head, hand, feet
-		"small" = list(
-			SHORT_RANGE_STILL = 60,
-			SHORT_RANGE_MOVING = 55,
-
-			MEDIUM_RANGE_STILL = 44,
-			MEDIUM_RANGE_MOVING = 39,
-
-			LONG_RANGE_STILL = 22,
-			LONG_RANGE_MOVING = 15,
-
-			VERY_LONG_RANGE_STILL = 7,
-			VERY_LONG_RANGE_MOVING = 6),
-
-		// medium body parts: limbs
-		"medium" = list(
-			SHORT_RANGE_STILL = 72,
-			SHORT_RANGE_MOVING = 62,
-
-			MEDIUM_RANGE_STILL = 54,
-			MEDIUM_RANGE_MOVING = 45,
-
-			LONG_RANGE_STILL = 34,
-			LONG_RANGE_MOVING = 21,
-
-			VERY_LONG_RANGE_STILL = 9,
-			VERY_LONG_RANGE_MOVING = 7),
-
-		// large body parts: chest, groin
-		"large" = list(
-			SHORT_RANGE_STILL = 94,
-			SHORT_RANGE_MOVING = 86,
-
-			MEDIUM_RANGE_STILL = 76,
-			MEDIUM_RANGE_MOVING = 67,
-
-			LONG_RANGE_STILL = 56,
-			LONG_RANGE_MOVING = 38,
-
-			VERY_LONG_RANGE_STILL = 20,
-			VERY_LONG_RANGE_MOVING = 15),
-	)
 
 	accuracy_increase_mod = 1.00
 	accuracy_decrease_mod = 1.50
@@ -106,7 +62,7 @@
 	base_icon = "mk18"
 	weight = 3.97
 	caliber = "a556x45"
-	fire_sound = list('sound/weapons/guns/fire/assault_rifle.ogg')
+	fire_sound = 'sound/weapons/guns/fire/assault_rifle.ogg'
 	magazine_type = /obj/item/ammo_magazine/mk18
 	good_mags = list(/obj/item/ammo_magazine/mk18)
 	full_auto = TRUE
@@ -118,6 +74,8 @@
 		)
 	sel_mode = 1
 	effectiveness_mod = 1.40
+	accuracy = 1
+	recoil = 20
 
 /obj/item/weapon/gun/projectile/special/ak74mtactical
 	name = "Tactical AK-74M"
@@ -127,9 +85,9 @@
 	base_icon = "ak74mtactical"
 	weight = 3.97
 	caliber = "a545x39"
-	fire_sound = list('sound/weapons/guns/fire/assault_rifle.ogg')
+	fire_sound = 'sound/weapons/guns/fire/assault_rifle.ogg'
 	magazine_type = /obj/item/ammo_magazine/ak74
-	good_mags = list(/obj/item/ammo_magazine/ak74/ak74m, /obj/item/ammo_magazine/ak74)
+	good_mags = list(/obj/item/ammo_magazine/rpk74, /obj/item/ammo_magazine/rpk74/drum, /obj/item/ammo_magazine/ak74, /obj/item/ammo_magazine/ak74/ak74m)
 	full_auto = TRUE
 	equiptimer = 12
 	firemodes = list(
@@ -139,3 +97,5 @@
 		)
 	sel_mode = 1
 	effectiveness_mod = 1.40
+	accuracy = 1
+	recoil = 20

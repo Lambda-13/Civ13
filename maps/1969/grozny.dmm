@@ -252,7 +252,7 @@
 "aeR" = (/obj/structure/table/wood,/obj/structure/lamp/lamp_small{dir = 4},/turf/floor/wood,/area/caribbean/roofed/temperate)
 "aeS" = (/obj/structure/table/rack/shelf,/turf/floor/wood,/area/caribbean/roofed/temperate)
 "aeT" = (/obj/structure/table/wood,/obj/structure/lamp/lamp_small,/turf/floor/wood,/area/caribbean/roofed/temperate)
-"aeU" = (/obj/structure/vehicleparts/movement/tracks/bmd2new/right_front,/obj/item/weapon/gun/projectile/automatic/stationary/autocannon/shipunov,/obj/structure/vehicleparts/frame/bmd2/rf,/turf/floor/dirt,/area/caribbean/no_mans_land/temperate{ambience = list("sound/ambience/battle1.ogg")})
+"aeU" = (/obj/structure/vehicleparts/movement/tracks/bmd2new/right_front,/obj/item/weapon/gun/projectile/automatic/stationary/autocannon/shipunov,/obj/structure/vehicleparts/frame/bmd2/rf,/obj/structure/vehicleparts/axis/heavy/bmd2,/turf/floor/dirt,/area/caribbean/no_mans_land/temperate{ambience = list("sound/ambience/battle1.ogg")})
 "aeV" = (/obj/structure/curtain/closed/green{pixel_x = 32},/turf/floor/wood,/area/caribbean/roofed/temperate)
 "aeW" = (/obj/structure/closet/cabinet,/obj/item/ammo_magazine/madsen,/obj/item/ammo_magazine/madsen,/obj/item/ammo_magazine/madsen,/obj/item/weapon/gun/projectile/automatic/madsen,/obj/structure/curtain/closed/green{pixel_x = 32},/turf/floor/wood,/area/caribbean/roofed/temperate)
 "aeX" = (/obj/structure/table/wood,/obj/item/kitchen/plate,/obj/structure/curtain/closed/green{pixel_x = 0; pixel_y = -32},/turf/floor/wood,/area/caribbean/roofed/temperate)

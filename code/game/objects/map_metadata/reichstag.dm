@@ -23,7 +23,7 @@
 	faction1 = GERMAN
 	faction2 = RUSSIAN
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET)
-	grace_wall_timer = 6000
+	grace_wall_timer = 3000
 	songs = list(
 		"Red Army Choir - Katyusha:1" = "sound/music/katyusha.ogg",)
 	gamemode = "Siege"

@@ -45,7 +45,7 @@
 	var/base = 100
 	if (!istype(proj))
 		return base
-	return base - min(15, proj.accuracy)
+	return base - 15
 
 // procedure for both incomplete and complete sandbags
 /obj/structure/window/barrier/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)

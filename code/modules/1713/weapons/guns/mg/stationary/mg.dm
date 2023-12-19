@@ -16,12 +16,14 @@
 	max_shells = FALSE
 	anchored = FALSE
 	auto_eject = TRUE
-	fire_sound = list('sound/weapons/guns/fire/Maxim.ogg')
+	fire_sound = 'sound/weapons/guns/fire/Maxim.ogg'
 	firemodes = list(
 		list(name = "full auto", burst=6, burst_delay=2, fire_delay=2, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
 		)
 	full_auto = TRUE
-	fire_delay = 3
+	fire_delay = 0
+	recoil = 20
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/maxim
 	name = "Maxim 1895"
@@ -29,13 +31,15 @@
 	icon_state = "maxim"
 	base_icon = "maxim"
 	caliber = "a762x54_weak"
-	fire_sound = list('sound/weapons/guns/fire/Maxim.ogg')
+	fire_sound = 'sound/weapons/guns/fire/Maxim.ogg'
 	magazine_type = /obj/item/ammo_magazine/maxim
 	good_mags = list(/obj/item/ammo_magazine/maxim)
 	firemodes = list(
 		list(name = "full auto", burst=6, burst_delay=2, fire_delay=2, dispersion=list(0.8, 0.9, 1.0, 1.1, 1.2), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a762x54/weak
+	recoil = 10
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/maxim/ww2
 	name = "Maxim"
@@ -44,13 +48,15 @@
 	base_icon = "maxim_ww2"
 	hardness = 90
 	caliber = "a762x54_weak"
-	fire_sound = list('sound/weapons/guns/fire/Maxim.ogg')
+	fire_sound = 'sound/weapons/guns/fire/Maxim.ogg'
 	magazine_type = /obj/item/ammo_magazine/maxim
 	good_mags = list(/obj/item/ammo_magazine/maxim)
 	firemodes = list(
 		list(name = "full auto", burst=6, burst_delay=2, fire_delay=2, dispersion=list(0.8, 0.9, 1.0, 1.1, 1.2), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a762x54/weak
+	recoil = 10
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/mg08
 	name = "Maschinengewehr 08"
@@ -58,13 +64,15 @@
 	icon_state = "mg08"
 	base_icon = "mg08"
 	caliber = "a792x57_weak"
-	fire_sound = list('sound/weapons/guns/fire/Maxim.ogg')
+	fire_sound = 'sound/weapons/guns/fire/Maxim.ogg'
 	magazine_type = /obj/item/ammo_magazine/mg08
 	good_mags = list(/obj/item/ammo_magazine/mg08)
 	firemodes = list(
 		list(name = "full auto", burst=6, burst_delay=2, fire_delay=2, dispersion=list(0.8, 0.9, 1.0, 1.1, 1.2), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a792x57/weak
+	recoil = 10
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/pkm
 	name = "PKM machine gun"
@@ -78,6 +86,8 @@
 		list(name = "full auto", burst=4, burst_delay=1.3, fire_delay=1.3, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a762x54/weak
+	recoil = 10
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/dshk
 	name = "DShK machine gun"
@@ -91,6 +101,8 @@
 		list(name = "full auto", burst=3, burst_delay=1.2, fire_delay=1.2, dispersion=list(0.8, 0.9, 1.0, 1.2, 1.3), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a127
+	recoil = 25
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/nsvt
 	name = "NSVT machine gun"
@@ -104,6 +116,8 @@
 		list(name = "full auto", burst=4, burst_delay=1.1, fire_delay=1.1, dispersion=list(0.3, 0.4, 0.7, 0.9, 1.2), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a127
+	recoil = 30
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/foldable
 	anchored = TRUE
@@ -131,13 +145,15 @@
 	icon_state = "pkm_foldable"
 	base_icon = "pkm_foldable"
 	caliber = "a762x54_weak"
-	fire_sound = list('sound/weapons/guns/fire/Maxim.ogg')
+	fire_sound = 'sound/weapons/guns/fire/Maxim.ogg'
 	magazine_type = /obj/item/ammo_magazine/pkm
 	good_mags = list(/obj/item/ammo_magazine/pkm, /obj/item/ammo_magazine/pkm/c100, /obj/item/ammo_magazine/maxim)
 	firemodes = list(
 		list(name = "full auto", burst=4, burst_delay=1.3, fire_delay=1.3, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a762x54/weak
+	recoil = 20
+	accuracy = 3
 
 	path = /obj/item/weapon/foldable/pkm
 
@@ -147,13 +163,15 @@
 	icon_state = "vickers"
 	base_icon = "vickers"
 	caliber = "a303_weak"
-	fire_sound = list('sound/weapons/guns/fire/Vickers.ogg')
+	fire_sound = 'sound/weapons/guns/fire/Vickers.ogg'
 	magazine_type = /obj/item/ammo_magazine/vickers
 	good_mags = list(/obj/item/ammo_magazine/vickers)
 	firemodes = list(
 		list(name = "full auto", burst=6, burst_delay=2, fire_delay=2, dispersion=list(0.8, 0.9, 1.0, 1.1, 1.2), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a303/weak
+	recoil = 25
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/hotchkiss1914
 	name = "Hotchkiss M1914 machine gun"
@@ -164,6 +182,8 @@
 	magazine_type = /obj/item/ammo_magazine/hotchkiss
 	good_mags = list(/obj/item/ammo_magazine/hotchkiss)
 	ammo_type = /obj/item/ammo_casing/a8x50/weak
+	recoil = 25
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/type3
 	name = "Type 3 machine gun"
@@ -174,6 +194,8 @@
 	magazine_type = /obj/item/ammo_magazine/type3
 	good_mags = list(/obj/item/ammo_magazine/type3)
 	ammo_type = /obj/item/ammo_casing/a65x50/weak
+	recoil = 25
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/type98
 	name = "Type 92 machine gun"
@@ -181,7 +203,7 @@
 	icon_state = "type92hmg"
 	base_icon = "type92hmg"
 	caliber = "a77x58"
-	fire_sound = list('sound/weapons/guns/fire/Type92.ogg')
+	fire_sound = 'sound/weapons/guns/fire/Type92.ogg'
 	magazine_type = /obj/item/ammo_magazine/type92
 	good_mags = list(/obj/item/ammo_magazine/type92)
 	firemodes = list(
@@ -189,6 +211,9 @@
 		)
 	ammo_type = /obj/item/ammo_casing/a77x58
 	attachment_slots = ATTACH_SCOPE
+	recoil = 25
+	accuracy = 3
+
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/type98/update_icon()
 	icon_state = "type92hmg[ammo_magazine ? round(ammo_magazine.stored_ammo.len, 5) : "_empty"]"
 
@@ -198,13 +223,16 @@
 	icon_state = "browning"
 	base_icon = "browning"
 	caliber = "a3006"
-	fire_sound = list('sound/weapons/guns/fire/M1919.ogg')
+	fire_sound = 'sound/weapons/guns/fire/M1919.ogg'
 	magazine_type = /obj/item/ammo_magazine/browning
 	good_mags = list(/obj/item/ammo_magazine/browning)
 	firemodes = list(
 		list(name = "full auto", burst=5, burst_delay=1.8, fire_delay=1.1, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a3006
+	recoil = 25
+	accuracy = 3
+
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/browning/update_icon()
 	icon_state = "browning[ammo_magazine ? round(ammo_magazine.stored_ammo.len, 50) : "_empty"]"
 
@@ -214,13 +242,15 @@
 	icon_state = "m2"
 	base_icon = "m2"
 	caliber = "a50cal"
-	fire_sound = list('sound/weapons/guns/fire/M1919.ogg')
+	fire_sound = 'sound/weapons/guns/fire/M1919.ogg'
 	magazine_type = /obj/item/ammo_magazine/a50cal_can
 	good_mags = list(/obj/item/ammo_magazine/a50cal_can)
 	firemodes = list(
 		list(name = "full auto", burst=5, burst_delay=1.8, fire_delay=1.1, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a50cal/weak
+	recoil = 30
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/mg34
 	name = "MG 34 machine gun"
@@ -234,6 +264,8 @@
 		list(name = "full auto", burst=4, burst_delay=1, fire_delay=1, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a792x57/weak
+	recoil = 25
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/mg3
 	name = "MG 3 machine gun"
@@ -247,39 +279,43 @@
 		list(name = "full auto", burst=4, burst_delay=1, fire_delay=1, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a762x51/weak
+	recoil = 25
+	accuracy = 3
 
 // Autocannons
 
 /obj/item/weapon/gun/projectile/automatic/stationary/autocannon
 	name = "30mm Autocannon"
-	desc = "An autocannon capable of firing 600 rounds a minute! Unfortunately the firing mode switch is stuck at semi-automatic. It fires 30mm rounds."
+	desc = "An autocannon capable of firing 600 rounds a minute! It fires 30mm rounds."
 	icon_state = "autocannon"
 	base_icon = "autocannon"
 	caliber = "a30"
-	fire_sound = list('sound/weapons/guns/fire/30mm.ogg')
+	fire_sound = 'sound/weapons/guns/fire/30mm.ogg'
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	magazine_type = /obj/item/ammo_magazine/autocannon_ap
 	good_mags = list(/obj/item/ammo_magazine/autocannon_ap, /obj/item/ammo_magazine/autocannon_he)
 	firemodes = list(
-		list(name = "single shot", burst=1, fire_delay=20, dispersion=list(0.1, 0.3, 1, 2.5), accuracy=list(2)),
+		list(name = "single shot", burst=1, fire_delay=1, dispersion=list(0.1, 0.3, 1, 2.5), accuracy=list(2)),
 		)
 	ammo_type = /obj/item/ammo_casing/a30mm_ap
 	is_hmg = TRUE
 	full_auto = FALSE
+	recoil = 1
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/automatic/stationary/autocannon/shipunov
 	name = "30mm 2A42 'Shipunov' Autocannon"
 	icon_state = "autocannon"
 	base_icon = "autocannon"
 	caliber = "a30"
-	fire_sound = list('sound/weapons/guns/fire/30mm.ogg')
+	fire_sound = 'sound/weapons/guns/fire/30mm.ogg'
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	magazine_type = /obj/item/ammo_magazine/autocannon_ap
 	good_mags = list(/obj/item/ammo_magazine/autocannon_ap, /obj/item/ammo_magazine/autocannon_he)
 	firemodes = list(
-		list(name = "single shot", burst=1, fire_delay=20, dispersion=list(0.1, 0.3, 1, 2.5), accuracy=list(2)),
+		list(name = "full auto", burst=3, burst_delay=2, fire_delay=3, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a30mm_ap
 
@@ -289,7 +325,7 @@
 	icon_state = "autocannon"
 	base_icon = "autocannon"
 	caliber = "a30"
-	fire_sound = list('sound/weapons/guns/fire/30mm.ogg')
+	fire_sound = 'sound/weapons/guns/fire/30mm.ogg'
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	magazine_type = /obj/item/ammo_magazine/autocannon_ap
@@ -309,13 +345,13 @@
 	icon_state = "atgm_autocannon"
 	base_icon = "atgm_autocannon"
 	caliber = "a30"
-	fire_sound = list('sound/weapons/guns/fire/30mm.ogg')
+	fire_sound = 'sound/weapons/guns/fire/30mm.ogg'
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	magazine_type = /obj/item/ammo_magazine/autocannon_ap
 	good_mags = list(/obj/item/ammo_magazine/autocannon_ap, /obj/item/ammo_magazine/autocannon_he)
 	firemodes = list(
-		list(name = "single shot", burst=1, fire_delay=20, dispersion=list(0.1, 0.3, 1, 2.5), accuracy=list(2)),
+		list(name = "full auto", burst=3, burst_delay=2, fire_delay=3, dispersion=list(0.1, 0.3, 1, 2.5), accuracy=list(2)),
 		)
 	ammo_type = /obj/item/ammo_casing/a30mm_ap
 	anchored = TRUE
@@ -407,7 +443,7 @@
 	icon_state = "atgm"
 	base_icon = "atgm"
 	caliber = "rocket"
-	fire_sound = list('sound/weapons/guns/fire/rpg7.ogg')
+	fire_sound = 'sound/weapons/guns/fire/rpg7.ogg'
 	load_method = SINGLE_CASING
 	handle_casings = REMOVE_CASINGS
 	magazine_type = /obj/item/ammo_magazine/mosin

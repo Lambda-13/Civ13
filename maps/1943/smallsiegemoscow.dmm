@@ -538,7 +538,7 @@
 "kr" = (/obj/structure/table/wood,/obj/item/weapon/paper,/obj/item/weapon/paper,/obj/structure/window/barrier/sandbag,/turf/floor/plating/metro{icon_state = "metro"; dir = 10},/area/caribbean/roofed/tundra)
 "ks" = (/obj/structure/table/modern/flipped,/obj/structure/window/barrier/sandbag,/turf/floor/plating/metro{icon_state = "metro"; dir = 10},/area/caribbean/roofed/tundra)
 "kt" = (/obj/structure/table/wood,/obj/structure/lamp/lamp_big/alwayson,/turf/floor/plating/metro{icon_state = "metro"; dir = 10},/area/caribbean/roofed/tundra)
-"ku" = (/obj/structure/window/barrier/sandbag{dir = 8; icon_state = "sandbag"},/obj/structure/cannon/modern{dir = 8; maxrange = 85; !INVALID_VAR! = 30},/turf/floor/winter,/area/caribbean/nomads/forest/snow)
+"ku" = (/obj/structure/window/barrier/sandbag{dir = 8; icon_state = "sandbag"},/obj/structure/cannon/modern{dir = 8; maxrange = 85},/turf/floor/winter,/area/caribbean/nomads/forest/snow)
 "kv" = (/obj/structure/window/barrier/sandbag{dir = 4; icon_state = "sandbag"; pixel_x = 0},/turf/floor/plating/cobblestone/vertical,/area/caribbean/nomads/forest/snow)
 "kw" = (/obj/structure/sink,/obj/structure/lamp/lamp_small/alwayson{dir = 1},/turf/floor/plating/white,/area/caribbean/roofed/tundra)
 "kx" = (/obj/structure/railing,/turf/floor/plating/metroline,/area/caribbean/roofed/tundra)

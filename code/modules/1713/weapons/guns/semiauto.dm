@@ -1,59 +1,16 @@
 /obj/item/weapon/gun/projectile/semiautomatic
 	maxhealth = 60
-	fire_sound = list('sound/weapons/guns/fire/rifle.ogg')
+	fire_sound = 'sound/weapons/guns/fire/rifle.ogg'
 	icon = 'icons/obj/guns/rifles.dmi'
 	// pistol accuracy, rifle skill & decent KD chance
-	accuracy_list = list(
-
-		// small body parts: head, hand, feet
-		"small" = list(
-			SHORT_RANGE_STILL = 63,
-			SHORT_RANGE_MOVING = 38,
-
-			MEDIUM_RANGE_STILL = 53,
-			MEDIUM_RANGE_MOVING = 32,
-
-			LONG_RANGE_STILL = 43,
-			LONG_RANGE_MOVING = 25,
-
-			VERY_LONG_RANGE_STILL = 33,
-			VERY_LONG_RANGE_MOVING = 18),
-
-		// medium body parts: limbs
-		"medium" = list(
-			SHORT_RANGE_STILL = 78,
-			SHORT_RANGE_MOVING = 51,
-
-			MEDIUM_RANGE_STILL = 68,
-			MEDIUM_RANGE_MOVING = 45,
-
-			LONG_RANGE_STILL = 58,
-			LONG_RANGE_MOVING = 38,
-
-			VERY_LONG_RANGE_STILL = 48,
-			VERY_LONG_RANGE_MOVING = 32),
-
-		// large body parts: chest, groin
-		"large" = list(
-			SHORT_RANGE_STILL = 83,
-			SHORT_RANGE_MOVING = 55,
-
-			MEDIUM_RANGE_STILL = 73,
-			MEDIUM_RANGE_MOVING = 48,
-
-			LONG_RANGE_STILL = 63,
-			LONG_RANGE_MOVING = 42,
-
-			VERY_LONG_RANGE_STILL = 53,
-			VERY_LONG_RANGE_MOVING = 35),
-	)
-
 	accuracy_increase_mod = 2.00
 	accuracy_decrease_mod = 6.00
 	KD_chance = KD_CHANCE_MEDIUM
 	stat = "rifle"
 	load_delay = 5
 	aim_miss_chance_divider = 2.50
+	recoil = 20
+	accuracy = 2
 
 	headshot_kill_chance = 35
 	KO_chance = 30
@@ -66,8 +23,8 @@
 	var/base_icon = "semiautomatic"
 	equiptimer = 12
 	gun_safety = TRUE
-	reload_sound = list('sound/weapons/guns/interact/semiauto_magin.ogg')
-	unload_sound = list('sound/weapons/guns/interact/semiauto_magout.ogg')
+	reload_sound = 'sound/weapons/guns/interact/semiauto_magin.ogg'
+	unload_sound = 'sound/weapons/guns/interact/semiauto_magout.ogg'
 
 /obj/item/weapon/gun/projectile/semiautomatic/update_icon()
 	if (sniper_scope)
@@ -192,7 +149,7 @@
 	icon_state = "sks"
 	item_state = "mosin"
 	base_icon = "sks"
-	fire_sound = list('sound/weapons/guns/fire/SKS.ogg')
+	fire_sound = 'sound/weapons/guns/fire/SKS.ogg'
 	w_class = ITEM_SIZE_LARGE
 	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 10
@@ -242,7 +199,7 @@
 	caliber = "a762x54"
 	ammo_type = /obj/item/ammo_casing/a762x54
 	damage_modifier = 1.2
-	fire_sound = list('sound/weapons/guns/fire/SVD.ogg')
+	fire_sound = 'sound/weapons/guns/fire/SVD.ogg'
 	slot_flags = SLOT_SHOULDER
 	magazine_type = /obj/item/ammo_magazine/svd
 	good_mags = list(/obj/item/ammo_magazine/svd)
@@ -256,6 +213,8 @@
 	throwforce = 20
 	effectiveness_mod = 1.03
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
+	recoil = 30
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/semiautomatic/svd/New()
 	..()
@@ -269,8 +228,7 @@
 		actions -= SC.actions
 		verbs -= SC.verbs
 		attachment_slots += SC.attachment_type
-		accuracy = initial(accuracy)
-		recoil = initial(recoil)
+		shake_strength = initial(shake_strength)
 		qdel(SC)
 	var/obj/item/weapon/attachment/scope/adjustable/advanced/acog/SP = new/obj/item/weapon/attachment/scope/adjustable/advanced/acog(src)
 	SP.attached(null,src,TRUE)
@@ -285,7 +243,7 @@
 	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 10
 	caliber = "a792x57"
-	fire_sound = list('sound/weapons/guns/fire/Garand.ogg')
+	fire_sound = 'sound/weapons/guns/fire/Garand.ogg'
 	slot_flags = SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a792x57
 	magazine_type = /obj/item/ammo_magazine/gewehr98
@@ -310,7 +268,7 @@
 	max_shells = 10
 	load_delay = 8
 	caliber = "a792x57"
-	fire_sound = list('sound/weapons/guns/fire/Garand.ogg')
+	fire_sound = 'sound/weapons/guns/fire/Garand.ogg'
 	slot_flags = SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a792x57
 	magazine_type = /obj/item/ammo_magazine/g43
@@ -335,8 +293,8 @@
 	max_shells = 30
 	load_delay = 10
 	caliber = "a792x33"
-	fire_sound = list('sound/weapons/guns/fire/stg.ogg')
-	reload_sound = list('sound/weapons/guns/interact/stg_reload.ogg')
+	fire_sound = 'sound/weapons/guns/fire/stg.ogg'
+	reload_sound = 'sound/weapons/guns/interact/stg_reload.ogg'
 	slot_flags = SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a792x33
 	magazine_type = /obj/item/ammo_magazine/stg
@@ -361,13 +319,13 @@
 	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 8
 	caliber = "a3006"
-	fire_sound = list('sound/weapons/guns/fire/Garand.ogg')
+	fire_sound = 'sound/weapons/guns/fire/Garand.ogg'
 	slot_flags = SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a3006
 	magazine_type = /obj/item/ammo_magazine/garand
 	good_mags = list(/obj/item/ammo_magazine/springfield,/obj/item/ammo_magazine/garand)
-	reload_sound = list('sound/weapons/guns/interact/GarandLoad.ogg')
-	unload_sound = list('sound/weapons/guns/interact/GarandUnload.ogg')
+	reload_sound = 'sound/weapons/guns/interact/GarandLoad.ogg'
+	unload_sound = 'sound/weapons/guns/interact/GarandUnload.ogg'
 	weight = 4.3
 	firemodes = list(
 		list(name = "single shot",burst=1, move_delay=2, fire_delay=4)
@@ -397,7 +355,7 @@
 	load_method = MAGAZINE
 	load_delay = 5
 	caliber = "a556x45"
-	fire_sound = list('sound/weapons/guns/fire/M4A1.ogg')
+	fire_sound = 'sound/weapons/guns/fire/M4A1.ogg'
 	slot_flags = SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a556x45
 	magazine_type = /obj/item/ammo_magazine/ar15
@@ -420,12 +378,12 @@
 	w_class = ITEM_SIZE_LARGE
 	load_method = MAGAZINE
 	caliber = "a762x33"
-	fire_sound = list('sound/weapons/guns/fire/Garand.ogg')
+	fire_sound = 'sound/weapons/guns/fire/Garand.ogg'
 	slot_flags = SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a762x33
 	magazine_type = /obj/item/ammo_magazine/m1carbine
 	good_mags = list(/obj/item/ammo_magazine/m1carbine,/obj/item/ammo_magazine/m1carbine/big)
-	reload_sound = list('sound/weapons/guns/interact/GarandLoad.ogg')
+	reload_sound = 'sound/weapons/guns/interact/GarandLoad.ogg'
 	weight = 3.9
 	firemodes = list(
 		list(name = "single shot",burst=1, move_delay=2, fire_delay=4)
@@ -446,7 +404,7 @@
 	ammo_type = /obj/item/ammo_casing/a9x39
 	damage_modifier = 1.2
 	w_class = ITEM_SIZE_LARGE
-	fire_sound = list('sound/weapons/guns/fire/silenced_pistol.ogg')
+	fire_sound = 'sound/weapons/guns/fire/silenced_pistol.ogg'
 	slot_flags = SLOT_SHOULDER
 	magazine_type = /obj/item/ammo_magazine/vintorez
 	good_mags = list(/obj/item/ammo_magazine/vintorez)
@@ -477,13 +435,13 @@
 	caliber = "a50cal"
 	load_method = MAGAZINE
 	ammo_type = list (/obj/item/ammo_casing/a50cal, /obj/item/ammo_casing/a50cal_ap, /obj/item/ammo_casing/a50cal_he)
-	fire_sound = list('sound/weapons/guns/fire/BarrettM99.ogg')
-	reload_sound = list('sound/weapons/guns/interact/barrett_magin.ogg')
-	unload_sound = list('sound/weapons/guns/interact/barrett_magout.ogg')
+	fire_sound = 'sound/weapons/guns/fire/BarrettM99.ogg'
+	reload_sound = 'sound/weapons/guns/interact/barrett_magin.ogg'
+	unload_sound = 'sound/weapons/guns/interact/barrett_magout.ogg'
 	magazine_type = /obj/item/ammo_magazine/barrett
 	good_mags = list(/obj/item/ammo_magazine/barrett)
 	weight = 14.8
-	recoil = 3
+	shake_strength = 3
 	firemodes = list(
 		list(name = "single shot",burst=1, move_delay=2, fire_delay=25)
 		)
@@ -491,7 +449,7 @@
 	effectiveness_mod = 2.0
 	equiptimer = 15
 	accuracy_increase_mod = 2.0
-	recoil = 2
+	shake_strength = 2
 
 /obj/item/weapon/gun/projectile/semiautomatic/barrett/sniper/New()
 	..()
@@ -512,7 +470,7 @@
 	slot_flags = null
 	caliber = "a15115"
 	weight = 9
-	recoil = 2
+	shake_strength = 2
 	load_method = MAGAZINE
 	ammo_type = list (/obj/item/ammo_casing/a15115, /obj/item/ammo_casing/a15115_ap, /obj/item/ammo_casing/a15115_aphe)
 	magazine_type = /obj/item/ammo_magazine/bamr
@@ -520,9 +478,9 @@
 	firemodes = list(
 		list(name = "single shot",burst=1, move_delay=2, fire_delay=15)
 		)
-	reload_sound = list('sound/weapons/guns/interact/barrett_magin.ogg')
-	unload_sound = list('sound/weapons/guns/interact/barrett_magout.ogg')
-	fire_sound = list('sound/weapons/guns/fire/ptrd.ogg')
+	reload_sound = 'sound/weapons/guns/interact/barrett_magin.ogg'
+	unload_sound = 'sound/weapons/guns/interact/barrett_magout.ogg'
+	fire_sound = 'sound/weapons/guns/fire/ptrd.ogg'
 	accuracy_increase_mod = 2.00
 	effectiveness_mod = 1.3
 	move_delay = 3
