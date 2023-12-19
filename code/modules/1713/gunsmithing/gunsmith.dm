@@ -138,7 +138,7 @@
 				if ("6.5x50mm small rifle")
 					P.caliber = "a65x50"
 					P.ammo_type = /obj/item/ammo_casing/a65x50
-					
+
 				if (".45 Colt")
 					P.caliber = "a45"
 					P.ammo_type = /obj/item/ammo_casing/a45
@@ -206,7 +206,7 @@
 	if (!found)
 		user << "You don't have enough money to make a new blueprint! You need 10 gold or equivalent in one of your hands."
 		return FALSE
-		
+
 ////////////////STOCK///////////////////////////////
 	var/list/display = list("Cancel")
 	if (map.ordinal_age == 5)
@@ -309,7 +309,7 @@
 	if (choice_receiver == "Open-Bolt (large)" && map.ordinal_age >= 6)
 		display3 = list("Internal Magazine", "External Magazine","Large External Magazine","Open (Belt-Fed)")
 	if (choice_receiver == "Bolt-Action" || choice_receiver =="Semi-Auto (large)" && map.ordinal_age >= 6)
-		display3 = list("Internal Magazine", "Tubular", "External Magazine","Large External Magazine")	
+		display3 = list("Internal Magazine", "Tubular", "External Magazine","Large External Magazine")
 	display3 += "Cancel"
 	var/choice_feeding = WWinput(user, "Choose the feeding system:", "Gunsmith - [using_steel]/[steel_amt] steel, [using_wood]/[wood_amt] wood", "Cancel", display3)
 	switch (choice_feeding)
@@ -397,7 +397,7 @@
 
 			if ("Open-Bolt (small)","Revolver","Semi-Auto (small)")
 				caliberlist = list("9x19 Parabellum","9x18 Makarov","8x22mmB nambu","9x22mm nambu","7.62x38mmR",".45 Colt","Cancel")
-			
+
 			if ("Open-Bolt (large)")
 				caliberlist = list("7.7x58mm arisaka","6.5x50mm arisaka","7.62x54mmR","Cancel")
 
@@ -416,7 +416,7 @@
 
 			if ("Open-Bolt (small)","Revolver","Semi-Auto (small)")
 				caliberlist = list("9x19 Parabellum","9x18 Makarov",".45 Colt","Cancel")
-			
+
 			if ("Open-Bolt (large)")
 				caliberlist = list("7.62x39mm intermediate rifle","5.56x45mm intermediate rifle","Cancel")
 
@@ -771,50 +771,6 @@
 			move_delay = 2
 			fire_delay = 2
 			good_mags = list(/obj/item/ammo_magazine/emptyclip)
-			accuracy_list = list(
-
-				// small body parts: head, hand, feet
-				"small" = list(
-					SHORT_RANGE_STILL = 87,
-					SHORT_RANGE_MOVING = 50,
-
-					MEDIUM_RANGE_STILL = 77,
-					MEDIUM_RANGE_MOVING = 47,
-
-					LONG_RANGE_STILL = 63,
-					LONG_RANGE_MOVING = 37,
-
-					VERY_LONG_RANGE_STILL = 56,
-					VERY_LONG_RANGE_MOVING = 30),
-
-				// medium body parts: limbs
-				"medium" = list(
-					SHORT_RANGE_STILL = 88,
-					SHORT_RANGE_MOVING = 44,
-
-					MEDIUM_RANGE_STILL = 78,
-					MEDIUM_RANGE_MOVING = 39,
-
-					LONG_RANGE_STILL = 68,
-					LONG_RANGE_MOVING = 34,
-
-					VERY_LONG_RANGE_STILL = 58,
-					VERY_LONG_RANGE_MOVING = 29),
-
-				// large body parts: chest, groin
-				"large" = list(
-					SHORT_RANGE_STILL = 98,
-					SHORT_RANGE_MOVING = 49,
-
-					MEDIUM_RANGE_STILL = 90,
-					MEDIUM_RANGE_MOVING = 50,
-
-					LONG_RANGE_STILL = 77,
-					LONG_RANGE_MOVING = 38,
-
-					VERY_LONG_RANGE_STILL = 69,
-					VERY_LONG_RANGE_MOVING = 31),
-			)
 
 			load_delay = 4
 			aim_miss_chance_divider = 3.00
@@ -836,49 +792,6 @@
 			equiptimer -= 1
 			slot_flags = SLOT_HOLSTER
 			good_mags = list(/obj/item/ammo_magazine/emptyspeedloader)
-			accuracy_list = list(
-				// small body parts: head, hand, feet
-				"small" = list(
-					SHORT_RANGE_STILL = 60,
-					SHORT_RANGE_MOVING = 40,
-
-					MEDIUM_RANGE_STILL = 53,
-					MEDIUM_RANGE_MOVING = 35,
-
-					LONG_RANGE_STILL = 45,
-					LONG_RANGE_MOVING = 30,
-
-					VERY_LONG_RANGE_STILL = 38,
-					VERY_LONG_RANGE_MOVING = 25),
-
-				// medium body parts: limbs
-				"medium" = list(
-					SHORT_RANGE_STILL = 64,
-					SHORT_RANGE_MOVING = 42,
-
-					MEDIUM_RANGE_STILL = 56,
-					MEDIUM_RANGE_MOVING = 38,
-
-					LONG_RANGE_STILL = 49,
-					LONG_RANGE_MOVING = 32,
-
-					VERY_LONG_RANGE_STILL = 41,
-					VERY_LONG_RANGE_MOVING = 27),
-
-				// large body parts: chest, groin
-				"large" = list(
-					SHORT_RANGE_STILL = 68,
-					SHORT_RANGE_MOVING = 44,
-
-					MEDIUM_RANGE_STILL = 60,
-					MEDIUM_RANGE_MOVING = 40,
-
-					LONG_RANGE_STILL = 53,
-					LONG_RANGE_MOVING = 35,
-
-					VERY_LONG_RANGE_STILL = 45,
-					VERY_LONG_RANGE_MOVING = 30),
-			)
 
 			accuracy_increase_mod = 1.50
 			accuracy_decrease_mod = 2.00
@@ -896,49 +809,7 @@
 			gun_type = GUN_TYPE_PISTOL
 			slot_flags = SLOT_BELT | SLOT_HOLSTER
 			good_mags = list(/obj/item/ammo_magazine/emptymagazine/pistol)
-			accuracy_list = list(
-				// small body parts: head, hand, feet
-				"small" = list(
-					SHORT_RANGE_STILL = 60,
-					SHORT_RANGE_MOVING = 40,
 
-					MEDIUM_RANGE_STILL = 53,
-					MEDIUM_RANGE_MOVING = 35,
-
-					LONG_RANGE_STILL = 45,
-					LONG_RANGE_MOVING = 30,
-
-					VERY_LONG_RANGE_STILL = 38,
-					VERY_LONG_RANGE_MOVING = 25),
-
-				// medium body parts: limbs
-				"medium" = list(
-					SHORT_RANGE_STILL = 64,
-					SHORT_RANGE_MOVING = 42,
-
-					MEDIUM_RANGE_STILL = 56,
-					MEDIUM_RANGE_MOVING = 38,
-
-					LONG_RANGE_STILL = 49,
-					LONG_RANGE_MOVING = 32,
-
-					VERY_LONG_RANGE_STILL = 41,
-					VERY_LONG_RANGE_MOVING = 27),
-
-				// large body parts: chest, groin
-				"large" = list(
-					SHORT_RANGE_STILL = 68,
-					SHORT_RANGE_MOVING = 44,
-
-					MEDIUM_RANGE_STILL = 60,
-					MEDIUM_RANGE_MOVING = 40,
-
-					LONG_RANGE_STILL = 53,
-					LONG_RANGE_MOVING = 35,
-
-					VERY_LONG_RANGE_STILL = 45,
-					VERY_LONG_RANGE_MOVING = 30),
-			)
 			w_class = ITEM_SIZE_SMALL
 			slot_flags = SLOT_BELT|SLOT_POCKET|SLOT_HOLSTER
 			accuracy_increase_mod = 1.50
@@ -952,50 +823,6 @@
 			w_class = ITEM_SIZE_LARGE
 			slot_flags = SLOT_SHOULDER
 			good_mags = list(/obj/item/ammo_magazine/emptymagazine/rifle)
-			accuracy_list = list(
-
-				// small body parts: head, hand, feet
-				"small" = list(
-					SHORT_RANGE_STILL = 73,
-					SHORT_RANGE_MOVING = 48,
-
-					MEDIUM_RANGE_STILL = 63,
-					MEDIUM_RANGE_MOVING = 42,
-
-					LONG_RANGE_STILL = 53,
-					LONG_RANGE_MOVING = 35,
-
-					VERY_LONG_RANGE_STILL = 43,
-					VERY_LONG_RANGE_MOVING = 28),
-
-				// medium body parts: limbs
-				"medium" = list(
-					SHORT_RANGE_STILL = 78,
-					SHORT_RANGE_MOVING = 51,
-
-					MEDIUM_RANGE_STILL = 68,
-					MEDIUM_RANGE_MOVING = 45,
-
-					LONG_RANGE_STILL = 58,
-					LONG_RANGE_MOVING = 38,
-
-					VERY_LONG_RANGE_STILL = 48,
-					VERY_LONG_RANGE_MOVING = 32),
-
-				// large body parts: chest, groin
-				"large" = list(
-					SHORT_RANGE_STILL = 83,
-					SHORT_RANGE_MOVING = 55,
-
-					MEDIUM_RANGE_STILL = 73,
-					MEDIUM_RANGE_MOVING = 48,
-
-					LONG_RANGE_STILL = 63,
-					LONG_RANGE_MOVING = 42,
-
-					VERY_LONG_RANGE_STILL = 53,
-					VERY_LONG_RANGE_MOVING = 35),
-			)
 
 			accuracy_increase_mod = 2.00
 			accuracy_decrease_mod = 6.00
@@ -1028,50 +855,6 @@
 			load_delay = 8
 			equiptimer -= 1
 			gun_type = GUN_TYPE_RIFLE
-			accuracy_list = list(
-
-				// small body parts: head, hand, feet
-				"small" = list(
-					SHORT_RANGE_STILL = 49,
-					SHORT_RANGE_MOVING = 39,
-
-					MEDIUM_RANGE_STILL = 39,
-					MEDIUM_RANGE_MOVING = 31,
-
-					LONG_RANGE_STILL = 14,
-					LONG_RANGE_MOVING = 11,
-
-					VERY_LONG_RANGE_STILL = 7,
-					VERY_LONG_RANGE_MOVING = 6),
-
-				// medium body parts: limbs
-				"medium" = list(
-					SHORT_RANGE_STILL = 59,
-					SHORT_RANGE_MOVING = 47,
-
-					MEDIUM_RANGE_STILL = 39,
-					MEDIUM_RANGE_MOVING = 31,
-
-					LONG_RANGE_STILL = 16,
-					LONG_RANGE_MOVING = 13,
-
-					VERY_LONG_RANGE_STILL = 9,
-					VERY_LONG_RANGE_MOVING = 7),
-
-				// large body parts: chest, groin
-				"large" = list(
-					SHORT_RANGE_STILL = 79,
-					SHORT_RANGE_MOVING = 63,
-
-					MEDIUM_RANGE_STILL = 59,
-					MEDIUM_RANGE_MOVING = 47,
-
-					LONG_RANGE_STILL = 39,
-					LONG_RANGE_MOVING = 31,
-
-					VERY_LONG_RANGE_STILL = 16,
-					VERY_LONG_RANGE_MOVING = 13),
-			)
 
 			accuracy_increase_mod = 1.00
 			accuracy_decrease_mod = 2.00
@@ -1096,51 +879,6 @@
 			load_delay = 50
 			slowdown = 1
 			load_delay = 12
-			// not accurate at all
-			accuracy_list = list(
-
-				// small body parts: head, hand, feet
-				"small" = list(
-					SHORT_RANGE_STILL = 30,
-					SHORT_RANGE_MOVING = 27,
-
-					MEDIUM_RANGE_STILL = 21,
-					MEDIUM_RANGE_MOVING = 19,
-
-					LONG_RANGE_STILL = 11,
-					LONG_RANGE_MOVING = 10,
-
-					VERY_LONG_RANGE_STILL = 8,
-					VERY_LONG_RANGE_MOVING = 7),
-
-				// medium body parts: limbs
-				"medium" = list(
-					SHORT_RANGE_STILL = 38,
-					SHORT_RANGE_MOVING = 34,
-
-					MEDIUM_RANGE_STILL = 30,
-					MEDIUM_RANGE_MOVING = 27,
-
-					LONG_RANGE_STILL = 23,
-					LONG_RANGE_MOVING = 21,
-
-					VERY_LONG_RANGE_STILL = 11,
-					VERY_LONG_RANGE_MOVING = 10),
-
-				// large body parts: chest, groin
-				"large" = list(
-					SHORT_RANGE_STILL = 45,
-					SHORT_RANGE_MOVING = 41,
-
-					MEDIUM_RANGE_STILL = 38,
-					MEDIUM_RANGE_MOVING = 34,
-
-					LONG_RANGE_STILL = 30,
-					LONG_RANGE_MOVING = 27,
-
-					VERY_LONG_RANGE_STILL = 15,
-					VERY_LONG_RANGE_MOVING = 14),
-			)
 
 			accuracy_increase_mod = 1.00
 			accuracy_decrease_mod = 2.00
@@ -1167,50 +905,6 @@
 			attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
 			load_delay = 8
 			gun_type = GUN_TYPE_RIFLE
-			accuracy_list = list(
-
-				// small body parts: head, hand, feet
-				"small" = list(
-					SHORT_RANGE_STILL = 49,
-					SHORT_RANGE_MOVING = 39,
-
-					MEDIUM_RANGE_STILL = 39,
-					MEDIUM_RANGE_MOVING = 31,
-
-					LONG_RANGE_STILL = 14,
-					LONG_RANGE_MOVING = 11,
-
-					VERY_LONG_RANGE_STILL = 7,
-					VERY_LONG_RANGE_MOVING = 6),
-
-				// medium body parts: limbs
-				"medium" = list(
-					SHORT_RANGE_STILL = 59,
-					SHORT_RANGE_MOVING = 47,
-
-					MEDIUM_RANGE_STILL = 39,
-					MEDIUM_RANGE_MOVING = 31,
-
-					LONG_RANGE_STILL = 16,
-					LONG_RANGE_MOVING = 13,
-
-					VERY_LONG_RANGE_STILL = 9,
-					VERY_LONG_RANGE_MOVING = 7),
-
-				// large body parts: chest, groin
-				"large" = list(
-					SHORT_RANGE_STILL = 79,
-					SHORT_RANGE_MOVING = 63,
-
-					MEDIUM_RANGE_STILL = 59,
-					MEDIUM_RANGE_MOVING = 47,
-
-					LONG_RANGE_STILL = 39,
-					LONG_RANGE_MOVING = 31,
-
-					VERY_LONG_RANGE_STILL = 16,
-					VERY_LONG_RANGE_MOVING = 13),
-			)
 
 			accuracy_increase_mod = 1.00
 			accuracy_decrease_mod = 2.00
@@ -1235,50 +929,6 @@
 			attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
 			load_delay = 8
 			gun_type = GUN_TYPE_RIFLE
-			accuracy_list = list(
-
-				// small body parts: head, hand, feet
-				"small" = list(
-					SHORT_RANGE_STILL = 49,
-					SHORT_RANGE_MOVING = 39,
-
-					MEDIUM_RANGE_STILL = 39,
-					MEDIUM_RANGE_MOVING = 31,
-
-					LONG_RANGE_STILL = 14,
-					LONG_RANGE_MOVING = 11,
-
-					VERY_LONG_RANGE_STILL = 7,
-					VERY_LONG_RANGE_MOVING = 6),
-
-				// medium body parts: limbs
-				"medium" = list(
-					SHORT_RANGE_STILL = 59,
-					SHORT_RANGE_MOVING = 47,
-
-					MEDIUM_RANGE_STILL = 39,
-					MEDIUM_RANGE_MOVING = 31,
-
-					LONG_RANGE_STILL = 16,
-					LONG_RANGE_MOVING = 13,
-
-					VERY_LONG_RANGE_STILL = 9,
-					VERY_LONG_RANGE_MOVING = 7),
-
-				// large body parts: chest, groin
-				"large" = list(
-					SHORT_RANGE_STILL = 79,
-					SHORT_RANGE_MOVING = 63,
-
-					MEDIUM_RANGE_STILL = 59,
-					MEDIUM_RANGE_MOVING = 47,
-
-					LONG_RANGE_STILL = 39,
-					LONG_RANGE_MOVING = 31,
-
-					VERY_LONG_RANGE_STILL = 16,
-					VERY_LONG_RANGE_MOVING = 13),
-			)
 
 			accuracy_increase_mod = 1.00
 			accuracy_decrease_mod = 2.00
@@ -1289,51 +939,6 @@
 			gtype = "shotgun"
 			gun_type = GUN_TYPE_SHOTGUN
 			fire_sound = list('sound/weapons/guns/fire/shotgun.ogg')
-			// 15% more accurate than SMGs
-			accuracy_list = list(
-
-				// small body parts: head, hand, feet
-				"small" = list(
-					SHORT_RANGE_STILL = 56,
-					SHORT_RANGE_MOVING = 45,
-
-					MEDIUM_RANGE_STILL = 45,
-					MEDIUM_RANGE_MOVING = 36,
-
-					LONG_RANGE_STILL = 16,
-					LONG_RANGE_MOVING = 13,
-
-					VERY_LONG_RANGE_STILL = 8,
-					VERY_LONG_RANGE_MOVING = 7),
-
-				// medium body parts: limbs
-				"medium" = list(
-					SHORT_RANGE_STILL = 68,
-					SHORT_RANGE_MOVING = 54,
-
-					MEDIUM_RANGE_STILL = 45,
-					MEDIUM_RANGE_MOVING = 36,
-
-					LONG_RANGE_STILL = 18,
-					LONG_RANGE_MOVING = 15,
-
-					VERY_LONG_RANGE_STILL = 10,
-					VERY_LONG_RANGE_MOVING = 8),
-
-				// large body parts: chest, groin
-				"large" = list(
-					SHORT_RANGE_STILL = 91,
-					SHORT_RANGE_MOVING = 72,
-
-					MEDIUM_RANGE_STILL = 68,
-					MEDIUM_RANGE_MOVING = 54,
-
-					LONG_RANGE_STILL = 45,
-					LONG_RANGE_MOVING = 36,
-
-					VERY_LONG_RANGE_STILL = 18,
-					VERY_LONG_RANGE_MOVING = 15),
-			)
 
 			accuracy_increase_mod = 1.00
 			accuracy_decrease_mod = 1.00
