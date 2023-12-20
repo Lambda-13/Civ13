@@ -283,6 +283,36 @@
 	turret_x = 16
 	turret_y = 16
 
+/obj/structure/vehicleparts/axis/heavy/t80u
+	name = "T-80U"
+	speeds = 4
+	speedlist = list(1=10,2=7,3=5,4=4)
+	turret_type = "t80u_turret"
+	reg_number = ""
+	color = "#5C5C4C"
+	turret_x = 0
+	turret_y = 16
+	New()
+		..()
+		var/pickedname = pick(tank_names_soviet)
+		tank_names_soviet -= pickedname
+		name = "[name] \'[pickedname]\'"
+
+/obj/structure/vehicleparts/axis/heavy/t80uk
+	name = "T-80UK"
+	speeds = 4
+	speedlist = list(1=10,2=7,3=5,4=4)
+	turret_type = "t80uk_turret"
+	reg_number = ""
+	color = "#5C5C4C"
+	turret_x = 0
+	turret_y = 16
+	New()
+		..()
+		var/pickedname = pick(tank_names_soviet)
+		tank_names_soviet -= pickedname
+		name = "[name] \'[pickedname]\'"
+
 /obj/structure/vehicleparts/axis/heavy/t72
 	name = "T-72"
 	speeds = 4
