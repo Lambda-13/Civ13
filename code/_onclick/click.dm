@@ -98,8 +98,13 @@
 			FE.fire(H,cdir,A)
 		if (istype(H.get_active_hand(), /obj/item/weapon/gun))
 			var/obj/item/weapon/gun/GN = H.get_active_hand()
-			H.dir = get_dir(H,A)
-			GN.Fire(A,H,params)
+			var/is_firing_from_vehicle = FALSE
+			var/turf/firer_turf = H.loc
+			for (var/obj/structure/vehicleparts/frame/F in H.loc)
+				is_firing_from_vehicle = TRUE
+			if (is_firing_from_vehicle)
+				H.dir = get_dir(H,A)
+				GN.Fire(A,H,params)
 		if (istype(H.buckled, /obj/structure/bed/chair/commander)) //TO DO TODO: move it to wheels.dm
 			var/obj/item/weapon/attachment/scope/adjustable/binoculars/periscope/P
 			if (istype(H.l_hand,/obj/item/weapon/attachment/scope/adjustable/binoculars/periscope))
