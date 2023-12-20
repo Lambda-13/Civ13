@@ -408,9 +408,9 @@
 		next_shot_recoil /= firer.getStatCoeff(stat)
 
 	if (next_shot_recoil > 0)
-		shot_recoil = clamp(next_shot_recoil - sqrt(dt * dt * ergonomics / 5), 0, 40)
+		shot_recoil = clamp(next_shot_recoil - sqrt(dt * dt * ergonomics / 3), 0, 40)
 	else if (next_shot_recoil < 0)
-		shot_recoil = clamp(next_shot_recoil + sqrt(dt * dt * ergonomics / 5), -40, 0)
+		shot_recoil = clamp(next_shot_recoil + sqrt(dt * dt * ergonomics / 3), -40, 0)
 	var/shot_accuracy = rand(-accuracy, accuracy)
 
 	var/shot_dispersion = clamp(shot_recoil + shot_accuracy, -40, 40)

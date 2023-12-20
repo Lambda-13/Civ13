@@ -372,19 +372,19 @@
 		"r_foot" = 3
 	)
 	var/list/redirection_list = list(
-		"head" = list("eyes", "mouth", "chest"),
-		"eyes" = list("mouth", "l_arm", "r_arm", "chest"),
-		"mouth" = list("eyes", "l_arm", "r_arm", "chest"),
-		"chest" = list("eyes", "mouth", "head", "groin", "l_arm", "r_arm", "r_hand", "l_hand"),
-		"groin" = list("chest", "r_hand", "l_hand", "l_leg", "r_leg"),
-		"l_arm" = list("eyes", "mouth", "head", "chest", "groin", "l_hand", "l_leg"),
-		"l_hand" = list("eyes", "mouth", "head", "chest", "groin", "l_arm", "l_leg"),
-		"r_arm" = list("eyes", "mouth", "head", "chest", "groin", "r_hand", "r_leg"),
-		"r_hand" = list("eyes", "mouth", "head", "chest", "groin", "r_arm", "r_leg"),
-		"l_leg" = list("l_foot", "r_leg", "r_foot","groin", "l_arm", "l_hand"),
-		"l_foot" = list("l_leg", "r_leg", "r_foot","groin", "l_hand"),
-		"r_leg" = list("r_foot", "l_leg", "l_foot","groin", "r_arm", "r_hand"),
-		"r_foot" = list("r_leg", "l_leg", "l_foot","groin", "r_hand"),
+		"head" = list("eyes", "mouth", "chest", "l_arm", "r_arm"), // шанс критического промаха 59%
+		"eyes" = list("head", "mouth", "l_arm", "r_arm", "chest"), // шанс критического промаха 59%
+		"mouth" = list("head", "eyes", "l_arm", "r_arm", "chest"), // шанс критического промаха 59%
+		"chest" = list("eyes", "mouth", "head", "groin", "l_arm", "r_arm", "r_hand", "l_hand", "r_leg", "l_leg"), // шанс критического промаха 26%
+		"groin" = list("chest", "l_arm", "r_arm", "r_hand", "l_hand", "l_leg", "r_leg"), // шанс критического промаха 33%
+		"l_arm" = list("eyes", "mouth", "head", "chest", "groin", "l_hand", "l_leg"), // шанс критического промаха 46%
+		"l_hand" = list("chest", "groin", "l_arm", "l_leg", "l_foot"), //  шанс критического промаха 50
+		"r_arm" = list("eyes", "mouth", "head", "chest", "groin", "r_hand", "r_leg"), // шанс критического промаха 46%
+		"r_hand" = list("chest", "groin", "r_arm", "r_leg", "r_foot"), //  шанс критического промаха 50
+		"l_leg" = list("chest", "l_foot", "r_leg", "r_foot","groin", "l_arm", "l_hand"), // шанс критического промаха 44
+		"l_foot" = list("l_leg", "r_leg", "r_foot","groin", "l_hand"), // шанс критического промаха 67
+		"r_leg" = list("chest", "r_foot", "l_leg", "l_foot","groin", "r_arm", "r_hand"), // шанс критического промаха 44
+		"r_foot" = list("r_leg", "l_leg", "l_foot","groin", "r_hand"), // шанс критического промаха 67
 	)
 	var/redirection_parts = redirection_list[def_zone]
 	var/hit_zone = "none"
