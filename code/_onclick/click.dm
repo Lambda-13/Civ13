@@ -100,7 +100,7 @@
 			var/obj/item/weapon/gun/GN = H.get_active_hand()
 			var/is_firing_from_vehicle = FALSE
 			var/turf/firer_turf = H.loc
-			for (var/obj/structure/vehicleparts/frame/F in H.loc)
+			for (var/obj/structure/vehicleparts/frame/F in firer_turf)
 				is_firing_from_vehicle = TRUE
 			if (is_firing_from_vehicle)
 				H.dir = get_dir(H,A)
