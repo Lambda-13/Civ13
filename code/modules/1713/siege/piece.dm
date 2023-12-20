@@ -41,7 +41,6 @@
 	var/scope_mod = "Disabled"
 	var/target_x = 0
 	var/target_y = -5
-	var/list/image/target_image = new/list(20)
 
 	var/course
 
@@ -451,7 +450,8 @@
 	if (href_list["toggle_scope"])
 		if(scope_mod == "Enabled")
 			scope_mod = "Disabled"
-			src.overlays -= target_image
+			delete_scope_image()
+
 			user << "<span class = 'danger'>Scope disabled</span>"
 		else
 			scope_mod = "Enabled"
@@ -924,21 +924,27 @@
 	else
 		return (-1 * target_y)
 
+/obj/structure/cannon/proc/delete_scope_image()
+	for (var/image/img in usr.client.images)
+		if (img.icon_state == "point")
+			usr.client.images.Remove(img)
+		if (img.icon_state == "cannon_target")
+			usr.client.images.Remove(img)
+
 /obj/structure/cannon/proc/update_scope()
-	src.overlays -= target_image
-	del(target_image)
-	target_image = new/list(distance)
-	target_coords()
-	var/i
-	var/j = 4
-	for(i = 1, i <= distance - 4, i++)
-		var/point_x = round(abs(j * cos(degree))) * sign(cos(degree))
-		var/point_y = round(abs(j * sin(degree))) * sign(sin(degree))
-		target_image[i] = new/image(icon='icons/effects/Targeted.dmi',icon_state="point", pixel_x = point_x * 32, pixel_y = point_y * 32, layer = 12)
-		j++
-	target_image[i] = new/image(icon='icons/effects/Targeted.dmi',icon_state="cannon_target", pixel_x = target_x * 32, pixel_y = target_y * 32, layer = 12)
 	if (scope_mod == "Enabled")
-		src.overlays += target_image
+		delete_scope_image()
+		var/image/targeted_image
+		target_coords()
+		var/i
+		for(i = 1, i < distance, i++)
+			var/point_x = round(abs(i * cos(degree))) * sign(cos(degree))
+			var/point_y = round(abs(i * sin(degree))) * sign(sin(degree))
+			if (point_x != 0 || point_y != 0)
+				targeted_image = new('icons/effects/Targeted.dmi', src, icon_state="point", pixel_x = point_x * 32, pixel_y = point_y * 32, layer = 12)
+				usr.client.images += targeted_image
+		targeted_image = new('icons/effects/Targeted.dmi', src, icon_state="cannon_target", pixel_x = target_x * 32, pixel_y = target_y * 32, layer = 12)
+		usr.client.images += targeted_image
 
 /obj/structure/cannon/verb/rotate_left()
 	set category = null
