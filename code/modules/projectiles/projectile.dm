@@ -372,9 +372,9 @@
 		"r_foot" = 3
 	)
 	var/list/redirection_list = list(
-		"head" = list("eyes", "mouth", "chest", "l_arm", "r_arm"), // шанс критического промаха 59%
-		"eyes" = list("head", "mouth", "l_arm", "r_arm", "chest"), // шанс критического промаха 59%
-		"mouth" = list("head", "eyes", "l_arm", "r_arm", "chest"), // шанс критического промаха 59%
+		"head" = list("eyes", "mouth", "chest"), // шанс критического промаха 59%
+		"eyes" = list("head", "mouth", "chest"), // шанс критического промаха 59%
+		"mouth" = list("head", "eyes", "chest"), // шанс критического промаха 59%
 		"chest" = list("eyes", "mouth", "head", "groin", "l_arm", "r_arm", "r_hand", "l_hand", "r_leg", "l_leg"), // шанс критического промаха 26%
 		"groin" = list("chest", "l_arm", "r_arm", "r_hand", "l_hand", "l_leg", "r_leg"), // шанс критического промаха 33%
 		"l_arm" = list("eyes", "mouth", "head", "chest", "groin", "l_hand", "l_leg"), // шанс критического промаха 46%
