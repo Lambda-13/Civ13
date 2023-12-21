@@ -103,8 +103,9 @@
 			for (var/obj/structure/vehicleparts/frame/F in firer_turf)
 				is_firing_from_vehicle = TRUE
 			if (is_firing_from_vehicle)
-				H.dir = get_dir(H,A)
-				GN.Fire(A,H,params)
+				if (H.loc != A.loc)
+					H.dir = get_dir(H,A)
+					GN.Fire(A,H,params)
 		if (istype(H.buckled, /obj/structure/bed/chair/commander)) //TO DO TODO: move it to wheels.dm
 			var/obj/item/weapon/attachment/scope/adjustable/binoculars/periscope/P
 			if (istype(H.l_hand,/obj/item/weapon/attachment/scope/adjustable/binoculars/periscope))
