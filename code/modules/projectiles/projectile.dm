@@ -387,12 +387,12 @@
 		"r_foot" = list("r_leg", "l_leg", "l_foot","groin", "r_hand"), // шанс критического промаха 67
 	)
 	var/redirection_parts = redirection_list[def_zone]
-	var/hit_zone = "none"
-	if (prob(body_part_size[def_zone]))
+	var/hit_zone = null
+	if (prob(body_part_size[def_zone]) || distance <= 4)
 		hit_zone = def_zone
 	else
 		for(var/part in redirection_parts)
-			if (prob(body_part_size[part]) && hit_zone == "none")
+			if (prob(body_part_size[part]) && !hit_zone)
 				hit_zone = part
 
 	if (hit_zone)
@@ -580,12 +580,12 @@
 					qdel(src)
 					return FALSE
 				else
-					O.visible_message("<span class = 'warning'>[src] пролетает над [O]!</span>")
 					if (isitem(O) || (O.density && O.anchored)) // since it was on the ground
 						bumped = TRUE
 						loc = null
-						//qdel(src)
+						qdel(src)
 						return FALSE
+					O.visible_message("<span class = 'warning'>[src] пролетает над [O]!</span>")
 				break
 	for (var/atom/movable/AM in T.contents)
 		if (!untouchable.Find(AM))
@@ -614,7 +614,7 @@
 						var/hit_chace = 100
 						var/tmp_zone = def_zone
 
-						if (L.lying || L.prone)
+						if ((L.lying || L.prone) && firer_dist > 4)
 							if (firer_dist >= 3)
 								hit_chace = 30
 
