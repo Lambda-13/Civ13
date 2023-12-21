@@ -292,7 +292,7 @@
 			tgt = user.targeted_organ
 			if (user.targeted_organ == "random")
 				tgt = pick("l_foot","r_foot","l_leg","r_leg","chest","groin","l_arm","r_arm","l_hand","r_hand","eyes","mouth","head")
-			if (process_projectile(projectile, user, target, tgt, clickparams))
+			if (!process_projectile(projectile, user, target, tgt, clickparams))
 				handle_post_fire(user, target, pointblank, reflex)
 				update_icon()
 
@@ -340,12 +340,11 @@
 //called after successfully firing
 /obj/item/weapon/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0)
 	if (silencer)
-		playsound(get_turf(user), silencer_fire_sound, 100-silencer.reduction, TRUE, 100-silencer.reduction)
+		playsound(user, silencer_fire_sound, 100-silencer.reduction, TRUE,100-silencer.reduction)
 	else
-		playsound(get_turf(user), fire_sound, 100, TRUE, 100)
-
-		if (muzzle_flash)
-			set_light(muzzle_flash)
+		playsound(user, fire_sound, 100, TRUE,100)
+	if (muzzle_flash)
+		set_light(muzzle_flash)
 
 	var/datum/firemode/F = firemodes[sel_mode]
 
