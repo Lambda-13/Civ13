@@ -681,6 +681,18 @@ obj/item/projectile/bullet/rifle/a556x45
 	armor_penetration = 0
 	heavy_armor_penetration = 0
 
+/obj/item/projectile/bullet/autocannon/a25mm_ap
+	damage = DAMAGE_VERY_HIGH + 10
+	penetrating = 20
+	armor_penetration = 40
+	heavy_armor_penetration = 20
+
+/obj/item/projectile/bullet/autocannon/frag/a25mm_he
+	damage = DAMAGE_MEDIUM
+	penetrating = 0
+	armor_penetration = 0
+	heavy_armor_penetration = 0
+
 /obj/item/projectile/bullet/autocannon/frag
 	var/explosion_size = 2
 	var/fragment_type = /obj/item/projectile/bullet/pellet/fragment

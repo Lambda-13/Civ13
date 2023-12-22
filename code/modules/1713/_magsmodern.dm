@@ -861,6 +861,10 @@
 /obj/item/ammo_magazine/autocannon_ap/small
 	max_ammo = 10
 
+/obj/item/ammo_magazine/autocannon_ap/m242ap
+	name = "M242 AP ammo belt"
+	caliber = "a25"
+
 /obj/item/ammo_magazine/autocannon_he
 	name = "3UOR6 HE ammo belt"
 	icon_state = "maximbelt"
@@ -876,6 +880,10 @@
 
 /obj/item/ammo_magazine/autocannon_he/small
 	max_ammo = 10
+
+/obj/item/ammo_magazine/autocannon_he/m242he
+	name = "M242 HE ammo belt"
+	caliber = "a25"
 
 /obj/item/ammo_magazine/flare
 	name = "flare casing pouch (.50 BMG)"

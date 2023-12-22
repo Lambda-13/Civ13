@@ -304,6 +304,21 @@
 	recoil = 1
 	accuracy = 1
 
+/obj/item/weapon/gun/projectile/automatic/stationary/autocannon/bushmaster
+	name = "25mm M242 'Bushmaster' Autocannon"
+	icon_state = "autocannon"
+	base_icon = "autocannon"
+	caliber = "a25"
+	fire_sound = 'sound/weapons/guns/fire/30mm.ogg'
+	load_method = MAGAZINE
+	handle_casings = EJECT_CASINGS
+	magazine_type = /obj/item/ammo_magazine/autocannon_ap
+	good_mags = list(/obj/item/ammo_magazine/autocannon_ap/m242ap, /obj/item/ammo_magazine/autocannon_he/m242he)
+	firemodes = list(
+		list(name = "full auto", burst=3, burst_delay=2, fire_delay=3, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
+		)
+	//ammo_type = /obj/item/ammo_casing/a25mm_ap
+
 /obj/item/weapon/gun/projectile/automatic/stationary/autocannon/shipunov
 	name = "30mm 2A42 'Shipunov' Autocannon"
 	icon_state = "autocannon"

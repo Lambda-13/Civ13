@@ -1144,6 +1144,26 @@
 	caliber = "a58x42"
 	value = 2
 
+/obj/item/ammo_casing/a25mm_ap
+	name = "M242 AP"
+	desc = "A VERY big brass casing."
+	icon_state = "huge-bullet"
+	spent_icon = "huge-casing"
+	weight = 1
+	projectile_type = /obj/item/projectile/bullet/autocannon/a25mm_ap
+	caliber = "a25"
+	value = 2
+
+/obj/item/ammo_casing/a25mm_he
+	name = "M242 HE"
+	desc = "A VERY big brass casing."
+	icon_state = "huge-bullet"
+	spent_icon = "huge-casing"
+	weight = 1
+	projectile_type = /obj/item/projectile/bullet/autocannon/frag/a25mm_he
+	caliber = "a25"
+	value = 2
+
 /obj/item/ammo_casing/a30mm_ap
 	name = "3UBR6 AP"
 	desc = "A VERY big brass casing."
