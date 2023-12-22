@@ -246,7 +246,7 @@
 	w_front = list("c_armoredfront",TRUE,TRUE,40,40,FALSE,FALSE,TRUE)
 /obj/structure/vehicleparts/frame/unattr/rf
 	w_right = list("c_wall",TRUE,TRUE,40,40,FALSE,FALSE)
-	w_front = list("c_armoredfront",TRUE,TRUE,40,40,FALSE,FALSE)
+	w_front = list("c_armoredfront",TRUE,TRUE,40,40,FALSE,FALSE,TRUE)
 /obj/structure/vehicleparts/frame/unattr/leftm
 	name = "steel frame"
 	desc = "a steel vehicle frame."
@@ -333,7 +333,7 @@
 	w_back = list("c_wall",TRUE,TRUE,70,70,FALSE,FALSE)
 /obj/structure/vehicleparts/frame/kv1/rf
 	w_right = list("c_wall",TRUE,TRUE,75,75,FALSE,FALSE,TRUE)
-	w_front = list("c_armoredfront",TRUE,TRUE,85,85,FALSE,FALSE)
+	w_front = list("c_armoredfront",TRUE,TRUE,85,85,FALSE,FALSE,TRUE)
 /obj/structure/vehicleparts/frame/kv1/lf
 	w_left = list("c_wall",TRUE,TRUE,70,70,FALSE,FALSE)
 	w_front = list("c_armoredfront",TRUE,TRUE,75,75,FALSE,FALSE)
@@ -421,7 +421,7 @@
 	w_back = list("c_wall",TRUE,TRUE,15,35,FALSE,FALSE)
 /obj/structure/vehicleparts/frame/m4/rf
 	w_right = list("c_wall",TRUE,TRUE,30,50,FALSE,FALSE,TRUE)
-	w_front = list("c_armoredfront",TRUE,TRUE,30,50,FALSE,FALSE)
+	w_front = list("c_armoredfront",TRUE,TRUE,30,50,FALSE,FALSE,TRUE)
 /obj/structure/vehicleparts/frame/m4/lf
 	w_left = list("c_wall",TRUE,TRUE,30,50,FALSE,FALSE)
 	w_front = list("c_armoredfront",TRUE,TRUE,30,50,FALSE,FALSE)
@@ -474,7 +474,7 @@
 
 /obj/structure/vehicleparts/frame/t90a/rf
 	w_right = list("c_wall",TRUE,TRUE,90,90,FALSE,FALSE)
-	w_front = list("mt_front_right_frame",TRUE,TRUE,600,600,FALSE,FALSE,TRUE)
+	w_front = list("mt_front_right_frame",TRUE,TRUE,600,600,FALSE,FALSE)
 	override_roof_icon = "mt_front_right_roof"
 	override_frame_icon = "mt_front_right_frame"
 /obj/structure/vehicleparts/frame/t90a/lf
@@ -531,7 +531,7 @@
 
 /obj/structure/vehicleparts/frame/t72/rf
 	w_right = list("c_wall",TRUE,TRUE,90,90,FALSE,FALSE)
-	w_front = list("mt_front_right_frame",TRUE,TRUE,450,450,FALSE,FALSE,TRUE)
+	w_front = list("mt_front_right_frame",TRUE,TRUE,450,450,FALSE,FALSE)
 	override_roof_icon = "mt_front_right_roof"
 	override_frame_icon = "mt_front_right_frame"
 /obj/structure/vehicleparts/frame/t72/lf
@@ -588,7 +588,7 @@
 
 /obj/structure/vehicleparts/frame/leopard/rf
 	w_right = list("c_wall",TRUE,TRUE,75,75,FALSE,FALSE)
-	w_front = list("mt_front_right_frame",TRUE,TRUE,450,450,FALSE,FALSE,TRUE)
+	w_front = list("mt_front_right_frame",TRUE,TRUE,450,450,FALSE,FALSE)
 	override_roof_icon = "mt_front_right_roof"
 	override_frame_icon = "mt_front_right_frame"
 /obj/structure/vehicleparts/frame/leopard/lf
@@ -644,7 +644,7 @@
 	override_frame_icon = "mt_back_left_frame"
 /obj/structure/vehicleparts/frame/omw22_2/rf
 	w_right = list("c_wall",TRUE,TRUE,50,40,FALSE,FALSE)
-	w_front = list("mt_front_right_frame",TRUE,TRUE,90,90,FALSE,FALSE,TRUE)
+	w_front = list("mt_front_right_frame",TRUE,TRUE,90,90,FALSE,FALSE)
 	override_roof_icon = "mt_front_right_roof"
 	override_frame_icon = "mt_front_right_frame"
 /obj/structure/vehicleparts/frame/omw22_2/lf
@@ -707,7 +707,7 @@
 	override_frame_icon = "mt_back_left_frame"
 /obj/structure/vehicleparts/frame/baf1_a/rf
 	w_right = list("c_wall",TRUE,TRUE,40,35,FALSE,FALSE)
-	w_front = list("mt_front_right_frame",TRUE,TRUE,50,50,FALSE,FALSE,TRUE)
+	w_front = list("mt_front_right_frame",TRUE,TRUE,50,50,FALSE,FALSE)
 	override_roof_icon = "baf1_fr"
 	override_frame_icon = "mt_front_right_frame"
 /obj/structure/vehicleparts/frame/baf1_a/lf
@@ -736,7 +736,7 @@
 	w_front = list("is3_front_middle_frame",TRUE,TRUE,300,300,FALSE,FALSE)
 /obj/structure/vehicleparts/frame/is3/rf
 	icon_state = "is3_frame_steel_front_right"
-	w_front = list("is3_front_right_frame",TRUE,TRUE,300,,FALSE,FALSE,TRUE)
+	w_front = list("is3_front_right_frame",TRUE,TRUE,300,,FALSE,FALSE)
 	w_right = list("none",TRUE,TRUE,115,115,FALSE,FALSE)
 /// middle-front
 /obj/structure/vehicleparts/frame/is3/lfc
