@@ -614,9 +614,9 @@
 						var/hit_chace = 100
 						var/tmp_zone = def_zone
 
-						if ((L.lying || L.prone) && firer_dist > 4)
+						if (L.lying || L.prone)
 							if (firer_dist > 3)
-								hit_chace = 30
+								hit_chace = 40
 
 						// проверка на получение защиты от окопа
 						if (is_trench)
