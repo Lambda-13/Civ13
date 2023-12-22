@@ -388,7 +388,7 @@
 	)
 	var/redirection_parts = redirection_list[def_zone]
 	var/hit_zone = null
-	if (prob(body_part_size[def_zone]) || distance <= 4)
+	if (prob(body_part_size[def_zone]) || distance < 4)
 		hit_zone = def_zone
 	else
 		for(var/part in redirection_parts)
@@ -615,18 +615,18 @@
 						var/tmp_zone = def_zone
 
 						if ((L.lying || L.prone) && firer_dist > 4)
-							if (firer_dist >= 3)
+							if (firer_dist > 3)
 								hit_chace = 30
 
 						// проверка на получение защиты от окопа
 						if (is_trench)
 							if (passed_trenches * 2 <= firer_dist)
 								def_zone = "head" // для цели прикрыт окопом зона воздействия автоматически назначается головой
-								hit_chace = 100
+								hit_chace = 70
 								if (L.lying || L.prone)
 									hit_chace = 0
 
-						if (firer_dist <= 2)
+						if (firer_dist <= 3)
 							hit_chace = 100
 
 						if (prob(hit_chace))
