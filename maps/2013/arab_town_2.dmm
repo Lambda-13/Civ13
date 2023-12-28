@@ -165,7 +165,9 @@
 "di" = (/obj/structure/closet/anchored,/obj/item/clothing/suit/storage/jacket/doctor,/obj/item/clothing/suit/storage/jacket/doctor,/obj/item/clothing/suit/storage/jacket/doctor,/obj/item/clothing/gloves/color/white,/obj/item/clothing/gloves/color/white,/obj/item/clothing/gloves/color/white,/turf/floor/dirt/dust,/area/caribbean/british{name = "American Base"})
 "dj" = (/obj/structure/window/barrier/jersey{icon_state = "jerseybarrier1"; dir = 1},/turf/floor/dirt,/area/caribbean/desert)
 "dk" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 8},/turf/floor/beach/sand/desert,/area/caribbean/desert)
+"dl" = (/obj/structure/vehicleparts/frame/bradley/lbc,/obj/item/weapon/key/american,/turf/floor/plating/road,/area/caribbean/british{name = "American Base"})
 "dm" = (/obj/structure/window/barrier/jersey,/turf/floor/dirt,/area/caribbean/desert)
+"dn" = (/obj/structure/sign/traffic/central{icon_state = "centralline"; dir = 8},/obj/item/weapon/key/american,/turf/floor/plating/road,/area/caribbean/british{name = "American Base"})
 "do" = (/obj/structure/window/barrier/jersey{icon_state = "jerseybarrier1"; dir = 4},/turf/floor/plating/road,/area/caribbean/desert)
 "dp" = (/obj/structure/sign/traffic/central{icon_state = "centralline"; dir = 4},/obj/item/weapon/trafficcone{icon_state = "cone1"; dir = 4},/turf/floor/plating/road,/area/caribbean/desert)
 "dq" = (/obj/structure/sign/traffic/central{icon_state = "centralline"; dir = 4},/obj/item/weapon/trafficcone{icon_state = "cone1"; dir = 1},/turf/floor/plating/road,/area/caribbean/desert)
@@ -567,7 +569,6 @@
 "ld" = (/obj/effect/landmark{name = "JoinLateRNCap"},/turf/floor/dirt/dust,/area/caribbean/british{name = "American Base"})
 "le" = (/obj/effect/landmark{name = "JoinLateRNCap"},/turf/floor/beach/sand/desert,/area/caribbean/british{name = "American Base"})
 "lf" = (/obj/structure/vehicleparts/frame/bradley/rbc,/obj/item/ammo_magazine/autocannon_he/m242he,/obj/item/ammo_magazine/autocannon_he/m242he,/obj/item/ammo_magazine/autocannon_he/m242he,/obj/item/ammo_magazine/autocannon_he/m242he,/turf/floor/plating/road,/area/caribbean/british{name = "American Base"})
-"lg" = (/obj/structure/vehicleparts/frame/bradley/lbc,/turf/floor/plating/road,/area/caribbean/british{name = "American Base"})
 "lh" = (/obj/structure/vehicleparts/frame/bradley/rfc,/obj/item/weapon/gun/projectile/automatic/stationary/autocannon/bushmaster,/turf/floor/plating/road,/area/caribbean/british{name = "American Base"})
 "li" = (/obj/structure/vehicleparts/frame/bradley/lfc,/obj/structure/radio/transmitter_receiver/nopower/tank/faction2,/obj/structure/bed/chair/commander,/turf/floor/plating/road,/area/caribbean/british{name = "American Base"})
 "lj" = (/obj/structure/vehicleparts/axis/heavy/bradley,/obj/structure/vehicleparts/frame/bradley/rf,/obj/structure/vehicleparts/movement/tracks/bradley/right_front,/obj/structure/engine/internal/diesel/premade/m113,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled{density = 0},/turf/floor/plating/road,/area/caribbean/british{name = "American Base"})
@@ -580,12 +581,12 @@
 
 (1,1,1) = {"
 frfsfsfsfsfsftafaaaaafabababababababababafafabababababdDacbjdidvdwdvdvdwdxdydzdCdCdEdCdCdGdGdGdGdGdHacababababaecaaeadaXabababababababababab
-fxfyadfyfyadfzafaaaaaffrfsfsftafaffufvaDfufvfwfvafaiabeUacbjdIdIdIdIdKdIdNdIdIdCdCdQdCdCdGdGdXedakbzacabdDababbecabeaeadabajababababeUababai
-fBadadadbfadfzaZaaaaaffxfyadfzaffuaDaDaDfAaDaDfuaDabdDabacbjeeefdIdIdIdIdNdIeKdIdIbjdCdCdGdGdGbOlflgacabamabadaecaaeadaXadababaiaiababaiageU
+fxfyadfyfyadfzafaaaaaffrfsfsftafaffufvaDfufvfwfvafaiabeUacbjdIdIdIdIdKdIdNdIdIdCdCdQdCdCdGdGdXdnakbzacabdDababbecabeaeadabajababababeUababai
+fBadadadbfadfzaZaaaaaffxfyadfzaffuaDaDaDfAaDaDfuaDabdDabacbjeeefdIdIdIdIdNdIeKdIdIbjdCdCdGdGdGbOlfdlacabamabadaecaaeadaXadababaiaiababaiageU
 fxadfyadadfyfzafaaaaaffBadadfzafaDaDfCaDcrfDaDfvaDabababacbjkfdIdIdIdKkgkhdIdIkidIdIdIbjdGdGdXedlhliacdDabababbeaecaaeadadabamababaAabababab
 fHfyadfyfyadfzafaaaaaffFadfyfzaDfCaEaDcrfGaDaDfvaDababdDacbjkfkjdIdIdIdIdIdIdIdIbCbCbCdIdGdGdGdGljlkaceUababadadaecaaeaeaXababababababaAabai
 fxfyadfyfyadfzafaaaaaffHfyadfzaDfCfCcsfDaDfCaDfCaDaAababacbjbjdIdIcFcSdIdIeKldledIbjkldIdGdGdXeddGdGacabdOababadbecacaaeadaYababababahahabab
-fBadadbfadadfzafaaaaaffBadbffzaDcrfIaDfDaDhafJcraDabdDabacbjklbjdIbjdIdQklkmknkneKdQbjbjdGdGdGdGdGdHacabababajabaeaecaaeaXadabababababababab
+fBadadbfadadfzafaaaaaffBadbffzaDcrfIaDfDaDhafJcraDabdDabacbjklbjdIbjdIdQklkmknkneKdQbjbjdGdGdGdGdGdGacabababajabaeaecaaeaXadabababababababab
 fxadfyadadfyfzafaaaaaffxadadfzaDaDhafKfLaDcsaDfvaDafafabacbjbjbjbjbjbjbjkokobjbjbjbjbjbjdGdGdXeddGdGacdFababababbeaeaecaaeadadababababababab
 fHfyadfyfyadfzafaaaaaffxfybRfMaDaDfuaDcraDfCfufuaDafafdDacackpacacacacacacacacacacacacackqkqkqkqdGdGacabababafabadadaeaecaaeaXababababababag
 fBadbfadadbffzafaaaaaWfOfsfsfPaDaDbSaDaDaDaDaDaDafafafafdWafafafdWabababdWabababdDabaffjasaaaJaKaaaaababdYababababadaeaecaaeadaXabajafababab
