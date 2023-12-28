@@ -101,6 +101,7 @@
 	turret_type = "is3_turret"
 	tile_size = "96x96"
 	broken_icon = 'icons/obj/vehicles/tankparts96x96_damaged.dmi'
+	turret_y = 16
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)
@@ -469,7 +470,7 @@
 	name = "Panzer VI Tiger"
 	speeds = 4
 	speedlist = list(1=14,2=11,3=9,4=7)
-	turret_type = "tiger_turret"
+	turret_type = "pziv_turret"
 	reg_number = ""
 	color = "#3B3F41"
 	New()

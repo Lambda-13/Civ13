@@ -736,7 +736,7 @@
 	w_front = list("is3_front_middle_frame",TRUE,TRUE,300,300,FALSE,FALSE)
 /obj/structure/vehicleparts/frame/is3/rf
 	icon_state = "is3_frame_steel_front_right"
-	w_front = list("is3_front_right_frame",TRUE,TRUE,300,,FALSE,FALSE)
+	w_front = list("is3_front_right_frame",TRUE,TRUE,300,300,FALSE,FALSE)
 	w_right = list("none",TRUE,TRUE,115,115,FALSE,FALSE)
 /// middle-front
 /obj/structure/vehicleparts/frame/is3/lfc
@@ -750,23 +750,23 @@
 /// middle
 /obj/structure/vehicleparts/frame/is3/lc
 	icon_state = "is3_frame_steel_middle_left"
-	w_left = list("is3_middle_left_frame",TRUE,TRUE,90,90,FALSE,FALSE)
+	w_left = list("is3_middle_left_frame",TRUE,TRUE,90,90,TRUE,TRUE)
 /obj/structure/vehicleparts/frame/is3/c
 	icon_state = "is3_frame_steel_middle"
 /obj/structure/vehicleparts/frame/is3/rc
 	icon_state = "is3_frame_steel_middle_right"
-	w_right = list("is3_middle_right_frame",TRUE,TRUE,90,90,FALSE,FALSE)
+	w_right = list("is3_middle_right_frame",TRUE,TRUE,90,90,TRUE,TRUE)
 /// middle-back
 /obj/structure/vehicleparts/frame/is3/lbc
 	icon_state = "is3_frame_steel_middle_back_left"
 	w_left = list("is3_middle_back_left_frame",TRUE,TRUE,90,90,FALSE,FALSE)
 /obj/structure/vehicleparts/frame/is3/bc
 	icon_state = "is3_frame_steel_middle_back"
-
 /obj/structure/vehicleparts/frame/is3/rbc
 	icon_state = "is3_frame_steel_middle_back_right"
 	w_right = list("is3_middle_back_right_frame",TRUE,TRUE,90,90,FALSE,FALSE)
 /// back
+
 /obj/structure/vehicleparts/frame/is3/lb
 	icon_state = "is3_frame_steel_back_left"
 	w_back = list("is3_back_left_frame",TRUE,TRUE,90,90,FALSE,FALSE)
@@ -776,7 +776,7 @@
 	w_back = list("is3_back_middle_frame",TRUE,TRUE,90,90,FALSE,FALSE)
 /obj/structure/vehicleparts/frame/is3/rb
 	icon_state = "is3_frame_steel_back_right"
-	w_back = list("is3_back_right_frame",TRUE,TRUE,90,90,TRUE,TRUE)
+	w_back = list("is3_back_right_frame",TRUE,TRUE,90,90,FALSE,FALSE)
 	w_right = list("none",TRUE,TRUE,90,90,FALSE,FALSE)
 
 /// middle-back
@@ -805,7 +805,7 @@
 
 /obj/structure/vehicleparts/frame/is3/rb
 	icon_state = "is3_frame_steel_back_right"
-	w_back = list("is3_back_right_frame",TRUE,TRUE,35,50,TRUE,TRUE)
+	w_back = list("is3_back_right_frame",TRUE,TRUE,35,50,FALSE,FALSE)
 	w_right = list("none",TRUE,TRUE,35,50,FALSE,FALSE)
 
 /// SU-100
