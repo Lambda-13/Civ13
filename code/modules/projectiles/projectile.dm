@@ -675,8 +675,6 @@
 				bumped = TRUE
 				loc = null
 				qdel(src)
-			else
-				visible_message("<span class = 'warning'>Снаряд пролетает сквозь [penloc] стену!</span>")
 
 	//penetrating projectiles can pass through things that otherwise would not let them
 	++penetrating
