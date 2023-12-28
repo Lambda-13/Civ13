@@ -103,7 +103,7 @@
 			for (var/obj/structure/vehicleparts/frame/F in firer_turf)
 				is_firing_from_vehicle = TRUE
 			if (is_firing_from_vehicle)
-				if (H.loc != A.loc)
+				if ((H.loc != A.loc) && (A.x != 0 && A.y != 0))
 					H.dir = get_dir(H,A)
 					GN.Fire(A,H,params)
 		if (istype(H.buckled, /obj/structure/bed/chair/commander)) //TO DO TODO: move it to wheels.dm
