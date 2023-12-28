@@ -201,6 +201,13 @@
 		loader_chair = new /obj/structure/bed/chair/loader(src)
 		gunner_chair = new /obj/structure/bed/chair/gunner(src)
 
+/obj/structure/cannon/modern/tank/american90
+	name = "90mm M41 gun"
+	desc = "a 90mm american tank-based cannon."
+	icon_state = "tank_cannon"
+	maxrange = 35
+	caliber = 90
+
 /obj/structure/cannon/modern/tank/japanese57
 	name = "Type 90 Cannon"
 	desc = "a 57mm japanese tank-based cannon."
