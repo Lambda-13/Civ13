@@ -417,7 +417,7 @@
 "ia" = (/obj/item/mine/boobytrap,/turf/floor/grass,/area/caribbean/nomads)
 "ib" = (/obj/structure/vehicleparts/frame/su100/lfc,/obj/item/weapon/storage/toolbox/emergency,/turf/floor/grass,/area/caribbean/nomads)
 "ic" = (/obj/structure/vehicleparts/frame/su100/rf,/obj/structure/bed/chair/gunner,/obj/structure/vehicleparts/movement/tracks/t34/right_front,/turf/floor/grass,/area/caribbean/nomads)
-"id" = (/obj/structure/vehicleparts/frame/su100/front,/obj/structure/vehicleparts/axis/heavy/su100,/obj/structure/cannon/modern/tank/russian85/course,/turf/floor/grass,/area/caribbean/nomads)
+"id" = (/obj/structure/vehicleparts/frame/su100/front,/obj/structure/cannon/modern/tank/russian85/course,/obj/structure/vehicleparts/axis/heavy/su100/su85m,/turf/floor/grass,/area/caribbean/nomads)
 "ie" = (/obj/structure/vehicleparts/frame/t34/right,/obj/structure/bed/chair/commander,/turf/floor/dirt,/area/caribbean/nomads)
 "if" = (/obj/structure/vehicleparts/frame/t34/fc,/obj/structure/cannon/modern/tank/russian76{anchored = 1; dir = 2; icon_state = "tank_cannon"},/turf/floor/dirt,/area/caribbean/nomads)
 "ig" = (/obj/structure/vehicleparts/frame/t34/left,/obj/structure/bed/chair/gunner{icon_state = "officechair_white"; dir = 8},/turf/floor/dirt,/area/caribbean/nomads)
