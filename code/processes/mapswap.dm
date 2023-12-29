@@ -210,6 +210,7 @@
 				MAP_PERVOMAISK_CROSSING = 10,
 				MAP_WACO = 0,
 				MAP_SYRIA = 12,
+				MAP_ZENBAO = 10,
 			)
 		else if (epoch == "World War II (1931-1948)" || epoch == "Вторая мировая война (1931 - 1948)")
 	// 1943 - TDM
