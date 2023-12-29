@@ -209,6 +209,7 @@
 				MAP_CAPITOL_HILL = 6,
 				MAP_PERVOMAISK_CROSSING = 10,
 				MAP_WACO = 0,
+				MAP_SYRIA = 12,
 			)
 		else if (epoch == "World War II (1931-1948)" || epoch == "Вторая мировая война (1931 - 1948)")
 	// 1943 - TDM
@@ -226,14 +227,18 @@
 				MAP_STALINGRAD = 10,
 				MAP_LONG_MARCH = 12,
 				MAP_SMALLSIEGEMOSCOW = 12,
-				MAP_INTRAMUROS = 14,
-				MAP_WAKE_ISLAND = 14,
-				MAP_NANJING = 14,
-				MAP_OMAHA = 20,
+				MAP_INTRAMUROS = 12,
+				MAP_WAKE_ISLAND = 12,
+				MAP_NANJING = 12,
+				MAP_OMAHA = 14,
 //				MAP_BIGSIEGEMOSCOW = 20,
-				MAP_FOREST = 20,
-//				MAP_KARELIA = 14,
-				MAP_BERLIN = 20,
+				MAP_FOREST = 12,
+				MAP_KARELIA = 10,
+				MAP_BERLIN = 14,
+				MAP_VITEBSK = 10,
+				MAP_WARSAW = 12,
+				MAP_ARDENNES = 12,
+				MAP_BARBAROSSA = 12,
 //				MAP_IWO_JIMA = 40,
 			)
 
@@ -349,7 +354,8 @@
 		else if (epoch == "Fiction" || epoch == "Альтернативная история")
 			maps = list(
 				MAP_TANTIVEIV = 0,
-				MAP_WHITERUN = 10,)
+				MAP_WHITERUN = 10,
+				MAP_RED_MENACE = 12,)
 		else if (epoch == "Избранное")
 			maps = list(
 				MAP_COLONY = 0,
