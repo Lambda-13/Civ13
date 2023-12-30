@@ -528,9 +528,9 @@
 							high = FALSE
 
 						var/hit = FALSE
-
-						var/tx = x + target_x + rand(-2,2)
-						var/ty = y + target_y + rand(-2,2)
+						var/scattering = distance * 0.05
+						var/tx = x + target_x + rand(-scattering, scattering)
+						var/ty = y + target_y + rand(-scattering, scattering)
 						if (tx < 1)
 							tx = 1
 						if (tx > world.maxx)

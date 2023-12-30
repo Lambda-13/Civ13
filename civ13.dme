@@ -1169,4 +1169,5 @@
 #include "lambda\sanecman\code\serverside\whitelistweb.dm"
 #include "lambda\sanecman\code\soldier_stogie\soldier_stogie.dm"
 #include "maps\313bc\gladiators.dmm"
+#include "maps\WIP\operation_falcon.dmm"
 // END_INCLUDE
