@@ -356,7 +356,8 @@
 			maps = list(
 				MAP_TANTIVEIV = 0,
 				MAP_WHITERUN = 10,
-				MAP_RED_MENACE = 12,)
+				MAP_RED_MENACE = 12,
+				MAP_OPERATION_FALCON = 10,)
 		else if (epoch == "Избранное")
 			maps = list(
 				MAP_COLONY = 0,
