@@ -528,7 +528,7 @@
 							high = FALSE
 
 						var/hit = FALSE
-						var/scattering = distance * 0.05
+						var/scattering = distance * 0.1
 						var/tx = x + target_x + rand(-scattering, scattering)
 						var/ty = y + target_y + rand(-scattering, scattering)
 						if (tx < 1)
