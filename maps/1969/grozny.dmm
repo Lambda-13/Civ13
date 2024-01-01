@@ -83,7 +83,7 @@
 "abE" = (/obj/structure/window/barrier,/obj/effect/landmark{icon_state = "x1"; name = "JoinLateRU"},/turf/floor/trench,/area/caribbean/no_mans_land/temperate{ambience = list("sound/ambience/battle1.ogg")})
 "abF" = (/obj/structure/window/barrier/sandbag{dir = 1; icon_state = "sandbag"},/turf/floor/dirt/burned,/area/caribbean/no_mans_land/temperate/two{ambience = list("sound/ambience/battle1.ogg")})
 "abG" = (/turf/floor/plating/steel,/area/caribbean/roofed)
-"abH" = (/obj/structure/vehicleparts/movement/tracks/bmd2new/right_back,/obj/structure/vehicleparts/frame/bmd2/lb,/turf/floor/dirt,/area/caribbean/no_mans_land/temperate{ambience = list("sound/ambience/battle1.ogg")})
+"abH" = (/obj/structure/vehicleparts/movement/tracks/bmd2new/right_back,/obj/structure/vehicleparts/frame/bmd2/lb,/obj/item/weapon/key/russian,/turf/floor/dirt,/area/caribbean/no_mans_land/temperate{ambience = list("sound/ambience/battle1.ogg")})
 "abI" = (/obj/item/weapon/grenade/coldwar/rgd5,/obj/item/weapon/grenade/coldwar/rgd5,/obj/item/weapon/grenade/coldwar/rgd5,/obj/item/weapon/grenade/coldwar/rgd5,/obj/item/weapon/grenade/coldwar/rgd5,/obj/item/weapon/grenade/coldwar/rgd5,/obj/item/weapon/grenade/coldwar/rgd5,/obj/structure/closet/crate/empty,/obj/structure/lamp/lamp_big/alwayson{dir = 1},/turf/floor/plating/concrete,/area/caribbean/roofed)
 "abJ" = (/obj/structure/window/barrier/sandbag/incomplete{icon_state = "sandbag_66%"},/turf/floor/plating/cobblestone/vertical,/area/caribbean/no_mans_land/temperate/two{ambience = list("sound/ambience/battle1.ogg")})
 "abK" = (/obj/structure/sink,/obj/item/weapon/soap,/turf/floor/plating/steel,/area/caribbean/roofed/temperate)
