@@ -22,16 +22,6 @@ var/list/global_huds = list(
 /datum/hud/var/obj/screen/help_intent
 */
 
-/datum/hud
-	var/name
-	var/list/HUDneed
-//	var/list/HUDprocess = list()
-	var/list/slot_data
-	var/icon/icon = null
-	var/list/HUDfrippery
-	var/list/HUDoverlays
-	var/list/ConteinerData
-
 /datum/global_hud
 	var/obj/screen/druggy
 	var/obj/screen/blurry

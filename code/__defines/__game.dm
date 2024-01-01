@@ -121,11 +121,11 @@
 #define CINEMATIC_NUKE_FAR 10
 #define CINEMATIC_CRASH_NUKE 11
 
-#define WORLD_VIEW "19x15"
+#define WORLD_VIEW "15x15"
 // 7 по Х и 7 по У = 15х15
 // 9 по Х и 7 по У = 19х15
-#define WORLD_VIEW_NUM_X 9
-#define WORLD_VIEW_NUM_Y 7
+#define WORLD_VIEW_NUM_X 5
+#define WORLD_VIEW_NUM_Y 5
 #define VIEW_NUM_TO_STRING(v) "[1 + 2 * v]x[1 + 2 * v]"
 
 #define TEXT_NORTH "[NORTH]"
