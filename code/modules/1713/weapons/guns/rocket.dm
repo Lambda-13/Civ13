@@ -720,34 +720,54 @@
 			explosion(hit_atom, 0, 1, 2, 3)
 			handle_vehicle_hit(hit_atom,firer)
 			var/turf/T = get_turf(hit_atom)
-			if(!T) return
-			var/target_x = 0
-			var/target_y = 0
-
-			if (dir == SOUTH)
-				target_y = -10
-			else if (dir == NORTH)
-				target_y = 10
-			else if (dir == WEST)
-				target_x = -10
-			else
-				target_x = 10
-			var/i
-			for (i = 0, i < num_fragments, i++)
-				var/obj/item/projectile/bullet/pellet/fragment/P = new fragment_type(T)
-				P.damage = fragment_damage
-				P.pellets = num_fragments
-				P.range_step = damage_step
-				P.shot_from = name
-				P.launch_fragment(locate(src.x + target_x + rand(-5,5), src.y + target_y + rand(-5,5), src.z))
-
-				for (var/mob/living/L in T)
-					P.attack_mob(L, 0, 0)
+			launch_fragments(T)
 			spawn (5)
 				qdel(src)
 		else
 			..()
 		return
+
+/obj/item/missile/explosive/proc/launch_fragments(var/turf/T)
+	if(!T)
+		return
+
+	var/missile_dir = get_dir(startingturf, loc)
+	var/target_x = 0
+	var/target_y = 0
+
+	if (missile_dir == SOUTH)
+		target_y = -10
+	else if (missile_dir == NORTH)
+		target_y = 10
+	else if (missile_dir == WEST)
+		target_x = -10
+	else if (missile_dir == EAST)
+		target_x = 10
+	else if (missile_dir == SOUTHWEST)
+		target_y = -10
+		target_x = -10
+	else if (missile_dir == SOUTHEAST)
+		target_y = -10
+		target_x = 10
+	else if (missile_dir == NORTHWEST)
+		target_y = 10
+		target_x = -10
+	else
+		target_y = 10
+		target_x = 10
+
+	var/i
+	for (i = 0, i < num_fragments, i++)
+		var/obj/item/projectile/bullet/pellet/fragment/P = new fragment_type(T)
+		P.damage = fragment_damage
+		P.pellets = num_fragments
+		P.range_step = damage_step
+		P.shot_from = name
+		P.launch_fragment(locate(src.x + target_x + rand(-2,2), src.y + target_y + rand(-2,2), src.z))
+
+		for (var/mob/living/L in T)
+			P.attack_mob(L, 0, 0)
+
 /obj/item/missile/explosive/panzerfaust
 	heavy_armor_penetration = 200
 	icon_state = "panzerfaust_missile"
@@ -756,29 +776,7 @@
 			explosion(hit_atom, 0, 1, 2, 3)
 			handle_vehicle_hit(hit_atom,firer)
 			var/turf/T = get_turf(hit_atom)
-			if(!T) return
-			var/target_x = 0
-			var/target_y = 0
-
-			if (dir == SOUTH)
-				target_y = -10
-			else if (dir == NORTH)
-				target_y = 10
-			else if (dir == WEST)
-				target_x = -10
-			else
-				target_x = 10
-			var/i
-			for (i = 0, i < num_fragments, i++)
-				var/obj/item/projectile/bullet/pellet/fragment/P = new fragment_type(T)
-				P.damage = fragment_damage
-				P.pellets = num_fragments
-				P.range_step = damage_step
-				P.shot_from = name
-				P.launch_fragment(locate(src.x + target_x + rand(-2,2), src.y + target_y + rand(-2,2), src.z))
-
-				for (var/mob/living/L in T)
-					P.attack_mob(L, 0, 0)
+			launch_fragments(T)
 			spawn (5)
 				qdel(src)
 		else
@@ -793,29 +791,7 @@
 			explosion(hit_atom, 0, 1, 2, 3)
 			handle_vehicle_hit(hit_atom,firer)
 			var/turf/T = get_turf(hit_atom)
-			if(!T) return
-			var/target_x = 0
-			var/target_y = 0
-
-			if (dir == SOUTH)
-				target_y = -10
-			else if (dir == NORTH)
-				target_y = 10
-			else if (dir == WEST)
-				target_x = -10
-			else
-				target_x = 10
-			var/i
-			for (i = 0, i < num_fragments, i++)
-				var/obj/item/projectile/bullet/pellet/fragment/P = new fragment_type(T)
-				P.damage = fragment_damage
-				P.pellets = num_fragments
-				P.range_step = damage_step
-				P.shot_from = name
-				P.launch_fragment(locate(src.x + target_x + rand(-5,5), src.y + target_y + rand(-5,5), src.z))
-
-				for (var/mob/living/L in T)
-					P.attack_mob(L, 0, 0)
+			launch_fragments(T)
 			spawn (5)
 				qdel(src)
 		else
@@ -830,29 +806,7 @@
 			explosion(hit_atom, 0, 1, 2, 3)
 			handle_vehicle_hit(hit_atom,firer)
 			var/turf/T = get_turf(hit_atom)
-			if(!T) return
-			var/target_x = 0
-			var/target_y = 0
-
-			if (dir == SOUTH)
-				target_y = -10
-			else if (dir == NORTH)
-				target_y = 10
-			else if (dir == WEST)
-				target_x = -10
-			else
-				target_x = 10
-			var/i
-			for (i = 0, i < num_fragments, i++)
-				var/obj/item/projectile/bullet/pellet/fragment/P = new fragment_type(T)
-				P.damage = fragment_damage
-				P.pellets = num_fragments
-				P.range_step = damage_step
-				P.shot_from = name
-				P.launch_fragment(locate(src.x + target_x + rand(-5,5), src.y + target_y + rand(-5,5), src.z))
-
-				for (var/mob/living/L in T)
-					P.attack_mob(L, 0, 0)
+			launch_fragments(T)
 			spawn (5)
 				qdel(src)
 		else
@@ -867,29 +821,7 @@
 			explosion(hit_atom, 0, 1, 2, 3)
 			handle_vehicle_hit(hit_atom,firer)
 			var/turf/T = get_turf(hit_atom)
-			if(!T) return
-			var/target_x = 0
-			var/target_y = 0
-
-			if (dir == SOUTH)
-				target_y = -10
-			else if (dir == NORTH)
-				target_y = 10
-			else if (dir == WEST)
-				target_x = -10
-			else
-				target_x = 10
-			var/i
-			for (i = 0, i < num_fragments, i++)
-				var/obj/item/projectile/bullet/pellet/fragment/P = new fragment_type(T)
-				P.damage = fragment_damage
-				P.pellets = num_fragments
-				P.range_step = damage_step
-				P.shot_from = name
-				P.launch_fragment(locate(src.x + target_x + rand(-5,5), src.y + target_y + rand(-5,5), src.z))
-
-				for (var/mob/living/L in T)
-					P.attack_mob(L, 0, 0)
+			launch_fragments(T)
 			spawn (5)
 				qdel(src)
 		else
@@ -942,29 +874,7 @@
 			explosion(hit_atom, 0, 1, 2, 3)
 			handle_vehicle_hit(hit_atom,firer)
 			var/turf/T = get_turf(hit_atom)
-			if(!T) return
-			var/target_x = 0
-			var/target_y = 0
-
-			if (dir == SOUTH)
-				target_y = -10
-			else if (dir == NORTH)
-				target_y = 10
-			else if (dir == WEST)
-				target_x = -10
-			else
-				target_x = 10
-			var/i
-			for (i = 0, i < num_fragments, i++)
-				var/obj/item/projectile/bullet/pellet/fragment/P = new fragment_type(T)
-				P.damage = fragment_damage
-				P.pellets = num_fragments
-				P.range_step = damage_step
-				P.shot_from = name
-				P.launch_fragment(locate(src.x + target_x + rand(-5,5), src.y + target_y + rand(-5,5), src.z))
-
-				for (var/mob/living/L in T)
-					P.attack_mob(L, 0, 0)
+			launch_fragments(T)
 			spawn (5)
 				qdel(src)
 		else
