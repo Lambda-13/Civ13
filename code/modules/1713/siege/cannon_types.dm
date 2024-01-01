@@ -359,7 +359,7 @@
 	anchored = TRUE
 
 /obj/structure/cannon/modern/tank/russian100/course
-	desc = "a 85mm Russian course cannon."
+	desc = "a 100mm Russian course cannon."
 	course = TRUE
 
 /obj/structure/cannon/mortar
