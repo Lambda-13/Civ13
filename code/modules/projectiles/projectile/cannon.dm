@@ -93,8 +93,12 @@
 
 /obj/item/projectile/shell/handleTurf(var/turf/T, forced=0, var/list/untouchable = list())
 	if (T == targloc)
-		explosion(T, 2, 4, 5, 6)
-		qdel(src)
+		if (atype == "HE")
+			explosion(T, 2, 4, 5, 6)
+			qdel(src)
+		else if (atype == "AP")
+			explosion(T, 1, 2, 2, 3)
+			qdel(src)
 	..()
 
 //////////////////////////////////////////
