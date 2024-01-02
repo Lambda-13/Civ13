@@ -512,8 +512,7 @@
 		qdel(src)
 		return
 
-	// проверка на вылет из транспорта
-
+	// Проверка на пробитие корпуса техники
 	if (T != firer_loc)
 		for (var/obj/structure/vehicleparts/frame/F in T.contents)
 			var/penloc = F.get_wall_name(direction)
