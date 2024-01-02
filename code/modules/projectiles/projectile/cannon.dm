@@ -15,6 +15,7 @@
 	var/caliber = 75
 	atype = "HE"
 	muzzle_type = /obj/effect/projectile/bullet/muzzle
+	var/turf/targloc = null
 
 /obj/item/projectile/shell/get_structure_damage()
 	if (damage_type == BRUTE || damage_type == BURN)
@@ -58,12 +59,12 @@
 
 
 /obj/item/projectile/shell/launch(atom/target, mob/user, obj/structure/cannon/modern/tank/launcher, var/x_offset=0, var/y_offset=0)
-	var/turf/targloc = get_turf(target)
+	targloc = get_turf(target)
 	var/dx = targloc.x - launcher.x
 	var/dy = targloc.y - launcher.y
-	var/azimuth = Atan2(dx, dy) // N = 90
-	var/x1 = launcher.x + round(abs(4 * cos(azimuth))) * sign(cos(azimuth))
-	var/y1 = launcher.y + round(abs(4 * sin(azimuth))) * sign(sin(azimuth))
+	var/angle = Atan2(dx, dy) // N = 90
+	var/x1 = launcher.x + round(abs(4 * cos(angle))) * sign(cos(angle))
+	var/y1 = launcher.y + round(abs(4 * sin(angle))) * sign(sin(angle))
 	var/turf/curloc = locate(x1, y1, launcher.z)
 	if (!istype(targloc) || !istype(curloc))
 		qdel(src)
@@ -89,6 +90,12 @@
 	projectile_list += src
 
 	return FALSE
+
+/obj/item/projectile/shell/handleTurf(var/turf/T, forced=0, var/list/untouchable = list())
+	if (T == targloc)
+		explosion(T, 2, 4, 5, 6)
+		qdel(src)
+	..()
 
 //////////////////////////////////////////
 ////////////////CANNONBALL////////////////

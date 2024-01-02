@@ -500,7 +500,6 @@
 
 	var/passthrough = TRUE //if the projectile should continue flying
 	var/passthrough_message = null
-
 	var/is_trench = istype(T, /turf/floor/trench)
 
 	if(is_trench)
