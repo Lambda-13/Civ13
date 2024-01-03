@@ -91,15 +91,22 @@
 
 	return FALSE
 
-/obj/item/projectile/shell/handleTurf(var/turf/T, forced=0, var/list/untouchable = list())
-	if (T == targloc)
-		if (atype == "HE")
-			explosion(T, 2, 4, 5, 6)
-			qdel(src)
-		else if (atype == "AP")
-			explosion(T, 1, 2, 2, 3)
-			qdel(src)
-	..()
+/obj/item/projectile/shell/proc/initiate(var/turf/T)
+	if(!T)
+		return
+	var/caliber_modifier = round(caliber / 50)
+	caliber_modifier = clamp(caliber_modifier, 1, 4)
+	if (atype == "HE")
+		var/he_range = caliber_modifier
+		explosion(T, he_range, he_range + 1, he_range + 2, 6)
+		loc = null
+		qdel(src)
+	else if (atype == "AP")
+		var/ap_range = round(caliber_modifier / 2)
+		ap_range = clamp(ap_range, 1, 4)
+		explosion(T, ap_range, ap_range + 1, ap_range + 2, 3)
+		loc = null
+		qdel(src)
 
 //////////////////////////////////////////
 ////////////////CANNONBALL////////////////

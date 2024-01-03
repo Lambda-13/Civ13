@@ -1162,6 +1162,5 @@
 #include "lambda\sanecman\code\serverside\padezhi.dm"
 #include "lambda\sanecman\code\serverside\whitelistweb.dm"
 #include "lambda\sanecman\code\soldier_stogie\soldier_stogie.dm"
-#include "maps\313bc\gladiators.dmm"
 #include "maps\ru\pervomaisk_crossing.dmm"
 // END_INCLUDE
