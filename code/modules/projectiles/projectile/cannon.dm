@@ -16,6 +16,7 @@
 	atype = "HE"
 	muzzle_type = /obj/effect/projectile/bullet/muzzle
 	var/turf/targloc = null
+	var/initiated = FALSE
 
 /obj/item/projectile/shell/get_structure_damage()
 	if (damage_type == BRUTE || damage_type == BURN)
@@ -99,12 +100,16 @@
 	if (atype == "HE")
 		var/he_range = caliber_modifier
 		explosion(T, he_range, he_range + 1, he_range + 2, 6)
+		var/list/fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/short_range = 1)
+		fragmentate(T, 12, 7, fragment_types)
 		loc = null
 		qdel(src)
 	else if (atype == "AP")
 		var/ap_range = round(caliber_modifier / 2)
 		ap_range = clamp(ap_range, 1, 4)
 		explosion(T, ap_range, ap_range + 1, ap_range + 2, 3)
+		var/list/fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/short_range = 1)
+		fragmentate(T, 6, 3, fragment_types)
 		loc = null
 		qdel(src)
 

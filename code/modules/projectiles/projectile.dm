@@ -532,6 +532,10 @@
 				passthrough = TRUE
 				forceMove(T)
 				permutated += T
+				if (istype(src, /obj/item/projectile/shell))
+					var/obj/item/projectile/shell/S = src
+					if(S.initiated)
+						S.initiate(permutated[permutated.len])
 				visible_message("<span class = 'warning'>Снаряд пролетает сквозь [penloc] стену</span>")
 
 	if (!is_trench && launch_from_trench && !overcoming_trench)
