@@ -617,7 +617,7 @@
 	var/mob/living/human/firer = null
 	var/turf/startingturf = null
 	throwforce = 15
-	var/num_fragments = 20
+	var/num_fragments = 6
 	var/spread_range = 6
 	var/fragment_type = /obj/item/projectile/bullet/pellet/fragment
 	var/fragment_damage = 15

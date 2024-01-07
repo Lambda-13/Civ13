@@ -15,6 +15,8 @@
 	var/caliber = 75
 	atype = "HE"
 	muzzle_type = /obj/effect/projectile/bullet/muzzle
+	var/turf/targloc = null
+	var/initiated = FALSE
 
 /obj/item/projectile/shell/get_structure_damage()
 	if (damage_type == BRUTE || damage_type == BURN)
@@ -58,12 +60,12 @@
 
 
 /obj/item/projectile/shell/launch(atom/target, mob/user, obj/structure/cannon/modern/tank/launcher, var/x_offset=0, var/y_offset=0)
-	var/turf/targloc = get_turf(target)
+	targloc = get_turf(target)
 	var/dx = targloc.x - launcher.x
 	var/dy = targloc.y - launcher.y
-	var/azimuth = Atan2(dx, dy) // N = 90
-	var/x1 = launcher.x + round(abs(4 * cos(azimuth))) * sign(cos(azimuth))
-	var/y1 = launcher.y + round(abs(4 * sin(azimuth))) * sign(sin(azimuth))
+	var/angle = Atan2(dx, dy) // N = 90
+	var/x1 = launcher.x + round(abs(4 * cos(angle))) * sign(cos(angle))
+	var/y1 = launcher.y + round(abs(4 * sin(angle))) * sign(sin(angle))
 	var/turf/curloc = locate(x1, y1, launcher.z)
 	if (!istype(targloc) || !istype(curloc))
 		qdel(src)
@@ -89,6 +91,27 @@
 	projectile_list += src
 
 	return FALSE
+
+/obj/item/projectile/shell/proc/initiate(var/turf/T)
+	if(!T)
+		return
+	var/caliber_modifier = round(caliber / 50)
+	caliber_modifier = clamp(caliber_modifier, 1, 4)
+	if (atype == "HE")
+		var/he_range = caliber_modifier
+		explosion(T, he_range, he_range + 1, he_range + 2, 6)
+		var/list/fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/short_range = 1)
+		fragmentate(T, 12, 7, fragment_types)
+		loc = null
+		qdel(src)
+	else if (atype == "AP")
+		var/ap_range = round(caliber_modifier / 2)
+		ap_range = clamp(ap_range, 1, 4)
+		explosion(T, ap_range, ap_range + 1, ap_range + 2, 3)
+		var/list/fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/short_range = 1)
+		fragmentate(T, 6, 3, fragment_types)
+		loc = null
+		qdel(src)
 
 //////////////////////////////////////////
 ////////////////CANNONBALL////////////////

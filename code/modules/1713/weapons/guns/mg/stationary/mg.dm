@@ -98,7 +98,7 @@
 	magazine_type = /obj/item/ammo_magazine/ammo127
 	good_mags = list(/obj/item/ammo_magazine/ammo127)
 	firemodes = list(
-		list(name = "full auto", burst=2, burst_delay=1.2, fire_delay=1.2, dispersion=list(0.8, 0.9, 1.0, 1.2, 1.3), accuracy=list(2))
+		list(name = "full auto", burst=2, burst_delay=2, fire_delay=2, dispersion=list(0.8, 0.9, 1.0, 1.2, 1.3), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a127
 	recoil = 25
@@ -107,16 +107,17 @@
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/nsvt
 	name = "NSVT machine gun"
 	desc = "Modern Soviet Heavy NSVT machinegun, can also be as anti vehicle gun against some lightly armored vehicles. Uses 12.7x108mm rounds."
+	zoom_amount = 18
 	icon_state = "nsvt"
 	base_icon = "nsvt"
 	caliber = "a127"
 	magazine_type = /obj/item/ammo_magazine/ammo127
 	good_mags = list(/obj/item/ammo_magazine/ammo127)
 	firemodes = list(
-		list(name = "full auto", burst=2, burst_delay=1.1, fire_delay=1.1, dispersion=list(0.3, 0.4, 0.7, 0.9, 1.2), accuracy=list(2))
+		list(name = "full auto", burst=2, burst_delay=2, fire_delay=2, dispersion=list(0.3, 0.4, 0.7, 0.9, 1.2), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a127
-	recoil = 30
+	recoil = 25
 	accuracy = 1
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/foldable

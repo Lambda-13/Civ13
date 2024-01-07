@@ -500,7 +500,6 @@
 
 	var/passthrough = TRUE //if the projectile should continue flying
 	var/passthrough_message = null
-
 	var/is_trench = istype(T, /turf/floor/trench)
 
 	if(is_trench)
@@ -513,28 +512,35 @@
 		qdel(src)
 		return
 
-	// проверка на вылет из транспорта
-
+	// Проверка на пробитие корпуса техники
 	if (T != firer_loc)
 		for (var/obj/structure/vehicleparts/frame/F in T.contents)
 			var/penloc = F.get_wall_name(direction)
+			F.bullet_act(src,penloc)
 			if (!F.CheckPen(src,penloc))
 				passthrough = FALSE
 				visible_message("<span class = 'warning'>Снаряд не пробивает [penloc] стену!</span>")
-				F.bullet_act(src,penloc)
 				bumped = TRUE
-				loc = null
-				qdel(src)
+				if (istype(src, /obj/item/projectile/shell))
+					var/obj/item/projectile/shell/S = src
+					S.initiate(permutated[permutated.len])
+				else
+					loc = null
+					qdel(src)
 				return FALSE
 			else
-				F.bullet_act(src,penloc)
 				passthrough = TRUE
 				forceMove(T)
 				permutated += T
+				if (istype(src, /obj/item/projectile/shell))
+					var/obj/item/projectile/shell/S = src
+					if(S.initiated)
+						S.initiate(permutated[permutated.len])
 				visible_message("<span class = 'warning'>Снаряд пролетает сквозь [penloc] стену</span>")
 
 	if (!is_trench && launch_from_trench && !overcoming_trench)
 		overcoming_trench = TRUE
+
 	if (T.density)
 		passthrough = FALSE
 	else
@@ -683,6 +689,12 @@
 			passthrough = TRUE
 			passthrough_message = "<span class = 'warning'>Пуля  пробивает насквозь [T]!</span>"
 		--penetrating
+
+	if (istype(src, /obj/item/projectile/shell))
+		if (loc == trajectory.target)
+			var/obj/item/projectile/shell/S = src
+			S.initiate(loc)
+			return FALSE
 
 	//the bullet passes through the turf
 	if (passthrough)

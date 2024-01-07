@@ -493,6 +493,9 @@
 	var/firing_dist = get_dist(src.loc,proj.starting)
 	var/heavy_ap = proj.heavy_armor_penetration
 	if (wall_hp(penloc) <= 0)
+		if (istype(proj, /obj/item/projectile/shell))
+			var/obj/item/projectile/shell/S = proj
+			S.initiated = TRUE
 		return TRUE
 	if (max(0,heavy_ap - firing_dist) >= wall_armor(penloc))
 		return TRUE
