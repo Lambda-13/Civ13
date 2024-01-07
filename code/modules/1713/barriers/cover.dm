@@ -36,8 +36,8 @@
 			return TRUE
 			
 	if (!istype(mover, /obj/item/projectile))
-		return
-	
+		return TRUE
+
 	var/obj/item/projectile/proj = mover
 	proj.throw_source = proj.starting
 
