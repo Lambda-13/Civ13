@@ -195,6 +195,10 @@
 /obj/structure/sign/map_board/attack_hand(mob/user)
 	examine(user)
 
+/obj/structure/sign/map_board/grozny/New()
+	..()
+	img = image(icon = 'icons/minimaps.dmi', icon_state = "grozny_map")
+
 /obj/structure/sign/map_board/falcon_artillery_ru/New()
 	..()
 	img = image(icon = 'icons/minimaps.dmi', icon_state = "operation_falcon_map_artillery_ru")
