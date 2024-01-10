@@ -109,7 +109,7 @@
 		ap_range = clamp(ap_range, 1, 4)
 		explosion(T, ap_range, ap_range + 1, ap_range + 2, 3)
 		var/list/fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/short_range = 1)
-		fragmentate(T, 6, 3, fragment_types)
+		fragmentate(T, 8, 7, fragment_types)
 		loc = null
 		qdel(src)
 
