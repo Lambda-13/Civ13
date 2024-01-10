@@ -335,6 +335,23 @@
 		)
 	ammo_type = /obj/item/ammo_casing/a30mm_ap
 
+/obj/item/weapon/gun/projectile/automatic/stationary/autocannon/shipunov2a72 // BTR-80
+	name = "Shipunov 2A72 30mm autocannon"
+	desc = "A lighter simplified variant of the 2A42 with a lower number of parts, a longer barrel, and higher muzzle velocity, but also a lower rate of fire. It fires 30mm rounds."
+	icon_state = "autocannon"
+	base_icon = "autocannon"
+	caliber = "a30"
+	fire_sound = 'sound/weapons/guns/fire/30mm.ogg'
+	load_method = MAGAZINE
+	handle_casings = EJECT_CASINGS
+	magazine_type = /obj/item/ammo_magazine/autocannon_ap
+	good_mags = list(/obj/item/ammo_magazine/autocannon_ap, /obj/item/ammo_magazine/autocannon_he)
+	firemodes = list(
+		list(name = "full auto", burst=3, burst_delay=3.5, fire_delay=2.5, dispersion=list(0.7, 0.8, 1.1, 1.2, 1.3), accuracy=list(2)),
+		)
+	ammo_type = /obj/item/ammo_casing/a30mm_ap
+	full_auto = TRUE
+
 /obj/item/weapon/gun/projectile/automatic/stationary/autocannon/red
 	name = "30mm Autocannon"
 	desc = "An autocannon capable of firing 20 rounds per minute."
