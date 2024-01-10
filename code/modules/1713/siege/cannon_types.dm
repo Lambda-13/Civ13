@@ -130,7 +130,7 @@
 				W = new/obj/item/cannon_ball(src)
 			loaded = W
 			distance = 13+rand(-5,5)
-			target_coords()
+			get_target_coords()
 			target_x += rand(-5,5)
 			var/turf/TF = locate(src.x + target_x, src.y + target_y)
 			if (!TF)
