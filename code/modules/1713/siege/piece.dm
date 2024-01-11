@@ -388,6 +388,7 @@
 			distance = 5
 
 	if (href_list["distance_1plus"])
+		user << SPAN_NOTICE("DISTANCE = [href_list["distance_1plus"]]!")
 		distance = distance + 1
 		if(distance > max_distance)
 			distance = max_distance
@@ -876,16 +877,15 @@
 		</center>
 		Shell: <a href='?src=\ref[src];load=1'>[loaded.len ? loaded[1].name : (autoloader ? "Click here to load shell" : "No shell loaded")]</a>[see_amount_loaded ? (loaded.len ? " <b>There are [loaded.len] [loaded[1].name]s loaded.</b>" : " <b>There is nothing loaded.</b>") : ""]<br><br>
 		Increase/Decrease distance: <a href='?src=\ref[src];distance_1minus=1'>-1</a> | <a href='?src=\ref[src];set_distance=1'>[distance] meters</a> | <a href='?src=\ref[src];distance_1plus=1'>+1</a><br><br>
-		Increase/Decrease angle: <a href='?src=\ref[src];degree_10plus=10'>+10</a> | <a href='?src=\ref[src];degree_1plus=1'>+1</a> | <a href='?src=\ref[src];set_degree=1'>[degree] degrees</a> | <a href='?src=\ref[src];degree_1minus=1'>-1</a> | <a href='?src=\ref[src];degree_10minus=1'>-10</a><br><br>
+		Increase/Decrease angle: <a href='?src=\ref[src];degree_10plus=1'>+10</a> | <a href='?src=\ref[src];degree_1plus=1'>+1</a> | <a href='?src=\ref[src];set_degree=1'>[degree] degrees</a> | <a href='?src=\ref[src];degree_1minus=1'>-1</a> | <a href='?src=\ref[src];degree_10minus=1'>-10</a><br><br>
 		<br>
 		<center>
 		<a href='?src=\ref[src];fire=1'><b><big>FIRE!</big></b></a>
 		</center>
-
 		</body>
 		</html>
 		<br>
-		"},  "window=artillery_window;border=1;can_close=1;can_resize=1;can_minimize=0;titlebar=1;size=500x500")
+		"},  "window=artillery_window;border=1;can_close=1;can_resize=1;can_minimize=0;titlebar=1;size=400x400")
 	//		<A href = '?src=\ref[src];topic_type=[topic_custom_input];continue_num=1'>
 
 /mob/var/obj/structure/cannon/using_cannon = null
@@ -908,7 +908,7 @@
 	stop_using_cannon()
 	..()
 
-/obj/structure/cannon/proc/rotate_to(var/new_dir)
+/obj/structure/cannon/proc/face_dir(var/new_dir)
 	if (new_dir == NORTH)
 		degree = 90
 	else if (new_dir == WEST)

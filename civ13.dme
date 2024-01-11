@@ -1162,5 +1162,5 @@
 #include "lambda\sanecman\code\serverside\padezhi.dm"
 #include "lambda\sanecman\code\serverside\whitelistweb.dm"
 #include "lambda\sanecman\code\soldier_stogie\soldier_stogie.dm"
-#include "maps\1969\grozny.dmm"
+#include "maps\WIP\vitebsk.dmm"
 // END_INCLUDE
