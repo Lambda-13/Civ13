@@ -127,7 +127,7 @@
 	icon_state = "sandbag_33%"
 	var/progress = FALSE
 	incomplete = TRUE
-	maxhealth = 30
+	maxhealth = 10
 
 /obj/structure/window/barrier/sandbag/incomplete/attackby(obj/O as obj, mob/user as mob)
 	user.dir = get_dir(user, src)
@@ -315,7 +315,7 @@
 /obj/item/weapon/barrier/sandbag/attack_self(mob/user)
 	if (sand_amount <= 0)
 		user << "<span class = 'notice'>You need to fill the sandbag with sand first!</span>"
-	var/your_dir = "NORTH"
+/*	var/your_dir = "NORTH"
 
 	switch (user.dir)
 		if (NORTH)
@@ -325,7 +325,7 @@
 		if (EAST)
 			your_dir = "EAST"
 		if (WEST)
-			your_dir = "WEST"
+			your_dir = "WEST"*/
 
 	var/sandbag_time = 50
 
@@ -349,7 +349,7 @@
 
 /obj/structure/window/barrier/sandbag/attack_hand(var/mob/user as mob)
 	if (locate(src) in get_step(user, user.dir))
-		if (do_after(user, 200, src))
+		if (do_after(user, 150, src))
 			visible_message("<span class='danger'>[user] finishes dismantling the sandbag wall.</span>", "<span class='danger'>You finish dismantling the sandbag wall.</span>")
 			var/turf = get_turf(src)
 			new /obj/item/weapon/barrier/sandbag(turf)
