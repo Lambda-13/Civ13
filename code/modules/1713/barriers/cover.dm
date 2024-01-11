@@ -43,7 +43,7 @@
 
 	if (ishuman(proj.firer) && !incomplete && (proj.firer.lying || proj.firer.prone))
 		visible_message("<span class = 'warning'>[mover] hits the [src]!</span>")
-		health -= round(proj.damage*0.1)
+		health -= round(proj.damage*0.2)
 		proj.damage = 0 // make sure we can't hurt people after hitting a sandbag
 		proj.invisibility = 101
 		proj.loc = null
@@ -52,13 +52,13 @@
 
 	if(proj.direction in check_dir())
 
-		if(check_cover(proj) && prob(20))
+		if(check_cover(proj) && prob(33))
 			return TRUE
 
 		if (get_dist(proj.starting, loc) <= 1)
 			return TRUE
 
-		health -= round(proj.damage*0.1)
+		health -= round(proj.damage*0.2)
 		proj.damage = 0
 		proj.invisibility = 101
 		proj.loc = null
