@@ -38,7 +38,7 @@
 
 	var/degree = 270
 	var/distance = 5
-	var/scope_mod = "Disabled"
+	var/scope_mod = TRUE
 	var/target_x = 0
 	var/target_y = -5
 
@@ -248,6 +248,10 @@
 			goto restart
 	else
 		user = m
+		user.use_cannon(src)
+		scope_mod = TRUE
+		update_scope_image()
+		user << "you are using [user.using_cannon.name]"
 		do_html(user)
 
 /obj/structure/cannon/Topic(href, href_list, hsrc)
@@ -384,6 +388,7 @@
 			distance = 5
 
 	if (href_list["distance_1plus"])
+		user << SPAN_NOTICE("DISTANCE = [href_list["distance_1plus"]]!")
 		distance = distance + 1
 		if(distance > max_distance)
 			distance = max_distance
@@ -422,8 +427,8 @@
 	// 270 south
 	// 360 = 0 east
 
-	target_coords()
-	update_scope()
+	get_target_coords()
+	update_scope_image()
 
 	if (course)
 		if (dir == NORTH)
@@ -446,17 +451,6 @@
 		dir = SOUTH
 	else
 		dir = EAST
-
-	if (href_list["toggle_scope"])
-		if(scope_mod == "Enabled")
-			scope_mod = "Disabled"
-			delete_scope_image()
-
-			user << "<span class = 'danger'>Scope disabled</span>"
-		else
-			scope_mod = "Enabled"
-			user << "<span class = 'danger'>Scope enabled</span>"
-			update_scope()
 
 	if (href_list["fire"])
 
@@ -883,20 +877,38 @@
 		</center>
 		Shell: <a href='?src=\ref[src];load=1'>[loaded.len ? loaded[1].name : (autoloader ? "Click here to load shell" : "No shell loaded")]</a>[see_amount_loaded ? (loaded.len ? " <b>There are [loaded.len] [loaded[1].name]s loaded.</b>" : " <b>There is nothing loaded.</b>") : ""]<br><br>
 		Increase/Decrease distance: <a href='?src=\ref[src];distance_1minus=1'>-1</a> | <a href='?src=\ref[src];set_distance=1'>[distance] meters</a> | <a href='?src=\ref[src];distance_1plus=1'>+1</a><br><br>
-		Increase/Decrease angle: <a href='?src=\ref[src];degree_10plus=10'>+10</a> | <a href='?src=\ref[src];degree_1plus=1'>+1</a> | <a href='?src=\ref[src];set_degree=1'>[degree] degrees</a> | <a href='?src=\ref[src];degree_1minus=1'>-1</a> | <a href='?src=\ref[src];degree_10minus=1'>-10</a><br><br>
-		Scope: <a href='?src=\ref[src];toggle_scope=1'>[scope_mod]</a><br><br>
+		Increase/Decrease angle: <a href='?src=\ref[src];degree_10plus=1'>+10</a> | <a href='?src=\ref[src];degree_1plus=1'>+1</a> | <a href='?src=\ref[src];set_degree=1'>[degree] degrees</a> | <a href='?src=\ref[src];degree_1minus=1'>-1</a> | <a href='?src=\ref[src];degree_10minus=1'>-10</a><br><br>
 		<br>
 		<center>
 		<a href='?src=\ref[src];fire=1'><b><big>FIRE!</big></b></a>
 		</center>
-
 		</body>
 		</html>
 		<br>
-		"},  "window=artillery_window;border=1;can_close=1;can_resize=1;can_minimize=0;titlebar=1;size=500x500")
+		"},  "window=artillery_window;border=1;can_close=1;can_resize=1;can_minimize=0;titlebar=1;size=400x400")
 	//		<A href = '?src=\ref[src];topic_type=[topic_custom_input];continue_num=1'>
 
-/obj/structure/cannon/proc/rotate_to(var/new_dir)
+/mob/var/obj/structure/cannon/using_cannon = null
+
+/mob/proc/use_cannon(o)
+	if (!o || !istype(o, /obj/structure/cannon))
+		using_cannon = null
+	else
+		using_cannon = o
+
+/mob/proc/stop_using_cannon()
+	if (using_cannon)
+		src << "you are stopped using [using_cannon.name]"
+		using_cannon.delete_scope_image()
+		src << browse(null, "window=artillery_window")
+		using_cannon.scope_mod = FALSE
+		using_cannon = null
+
+/mob/living/human/Move()
+	stop_using_cannon()
+	..()
+
+/obj/structure/cannon/proc/face_dir(var/new_dir)
 	if (new_dir == NORTH)
 		degree = 90
 	else if (new_dir == WEST)
@@ -906,11 +918,10 @@
 	else
 		degree = 0
 	dir = new_dir
-	target_coords()
-	update_scope()
+	get_target_coords()
+	update_scope_image()
 
-/obj/structure/cannon/proc/target_coords()
-	// round(abs(x)) * sign(x) - round to the nearest whole
+/obj/structure/cannon/proc/get_target_coords()
 	target_x = round(abs(distance * cos(degree))) * sign(cos(degree))
 	target_y = round(abs(distance * sin(degree))) * sign(sin(degree))
 
@@ -931,20 +942,21 @@
 		if (img.icon_state == "cannon_target")
 			usr.client.images.Remove(img)
 
-/obj/structure/cannon/proc/update_scope()
-	if (scope_mod == "Enabled")
-		delete_scope_image()
-		var/image/targeted_image
-		target_coords()
-		var/i
-		for(i = 1, i < distance, i++)
-			var/point_x = round(abs(i * cos(degree))) * sign(cos(degree))
-			var/point_y = round(abs(i * sin(degree))) * sign(sin(degree))
-			if (point_x != 0 || point_y != 0)
-				targeted_image = new('icons/effects/Targeted.dmi', src, icon_state="point", pixel_x = point_x * 32, pixel_y = point_y * 32, layer = 12)
-				usr.client.images += targeted_image
-		targeted_image = new('icons/effects/Targeted.dmi', src, icon_state="cannon_target", pixel_x = target_x * 32, pixel_y = target_y * 32, layer = 12)
-		usr.client.images += targeted_image
+/obj/structure/cannon/proc/update_scope_image()
+	if (!scope_mod)
+		return
+	delete_scope_image()
+	var/image/targeted_image
+	get_target_coords()
+	var/i
+	for(i = 1, i < distance, i++)
+		var/point_x = round(abs(i * cos(degree))) * sign(cos(degree))
+		var/point_y = round(abs(i * sin(degree))) * sign(sin(degree))
+		if (point_x != 0 || point_y != 0)
+			targeted_image = new('icons/effects/Targeted.dmi', src, icon_state="point", pixel_x = point_x * 32, pixel_y = point_y * 32, layer = 12)
+			usr.client.images += targeted_image
+	targeted_image = new('icons/effects/Targeted.dmi', src, icon_state="cannon_target", pixel_x = target_x * 32, pixel_y = target_y * 32, layer = 12)
+	usr.client.images += targeted_image
 
 /obj/structure/cannon/verb/rotate_left()
 	set category = null
@@ -987,8 +999,8 @@
 				bound_width = 64
 				icon = 'icons/obj/cannon.dmi'
 				icon_state = "cannon"
-	target_coords()
-	update_scope()
+	get_target_coords()
+	update_scope_image()
 	return
 
 /obj/structure/cannon/verb/rotate_right()
@@ -1032,8 +1044,8 @@
 				bound_width = 64
 				icon = 'icons/obj/cannon.dmi'
 				icon_state = "cannon"
-	target_coords()
-	update_scope()
+	get_target_coords()
+	update_scope_image()
 	return
 /obj/structure/cannon/relaymove(var/mob/mob, direction)
 	if (direction)
@@ -1179,7 +1191,7 @@
 	if (!loaded.len)
 		return FALSE
 	var/turf/TF
-	target_coords()
+	get_target_coords()
 	TF = locate(src.x + target_x,src.y + target_y,z)
 	if (!TF)
 		return FALSE
