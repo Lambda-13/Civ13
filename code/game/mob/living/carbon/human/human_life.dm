@@ -66,7 +66,9 @@
 		handle_animalistic("Wolf")
 	else if (crab)
 		handle_animalistic("Crab")
-	else if (!gorillaman && !werewolf && !orc && !goblin && !ant && !lizard && !wolfman && !crab && body_build.name != "Default")
+	else if (droid)
+		handle_animalistic("Droid")
+	else if (!gorillaman && !werewolf && !orc && !goblin && !ant && !lizard && !wolfman && !crab && !droid && body_build.name != "Default")
 		handle_animalistic("Default")
 //	if (prone)
 //		lying = 1
@@ -113,6 +115,8 @@
 		mood = 100
 	else if (mood < 0)
 		mood = 0
+	else if (droid || mood < 80)
+		mood = 100
 	if(istype(buckled, /obj/structure/cross))
 		if (stats["stamina"][1] > 0)
 			stats["stamina"][1]-=3
@@ -174,6 +178,9 @@
 			water_m *= 2.5
 		if (gorillaman)
 			water_m *= 0.2
+		if (droid)
+			food_m = 0
+			water_m = 0
 		if (istype(buckled, /obj/structure/cross))
 			food_m *= 1.5
 			water_m *= 5
@@ -546,6 +553,12 @@
 
 
 	if (disease == TRUE)
+		if (droid)
+			disease = FALSE
+			disease_type = "none"
+			disease_progression = 0
+			disease_treatment = 0
+
 		if (disease_type in disease_immunity)
 			disease = FALSE
 			disease_type = "none"
