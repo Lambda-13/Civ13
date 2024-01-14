@@ -286,7 +286,10 @@ var/list/charge_sounds_rurobbers = list(
 	'sound/effects/emotes/robber1.ogg',
 	'sound/effects/emotes/robber2.ogg',
 	'sound/effects/emotes/robber3.ogg',
-	'sound/effects/emotes/robber4.ogg',)
+	'sound/effects/emotes/robber4.ogg',
+	'sound/effects/emotes/robber5.ogg', // Голоса диких из Таркова
+	'sound/effects/emotes/robber6.ogg',
+	'sound/effects/emotes/robber7.ogg',)
 var/list/charge_sounds_blugoslavia = list()
 
 var/list/charge_sounds_gra = list(
