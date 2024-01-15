@@ -25,7 +25,7 @@
 	faction2 = RUSSIAN
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET, WEATHER_EXTREME)
 	songs = list(
-		"Visonia - Antarctic Love:1" = "sound/music/antarcticlove.ogg",)
+		"Visonia - Antarctic Love:1" = 'sound/music/antarcticlove.ogg',)
 	gamemode = "Siege"
 
 /obj/map_metadata/arctic_sub/faction1_can_cross_blocks()

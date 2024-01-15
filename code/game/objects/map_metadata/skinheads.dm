@@ -1,3 +1,4 @@
+// Около рабочая (Ещё один Араб Даун Ру, который запускается только на локалке)
 /obj/map_metadata/skinheads
 	ID = MAP_SKINHEADS
 	title = "Skinheads"
@@ -23,7 +24,7 @@
 	faction2 = CIVILIAN
 	valid_weather_types = list(WEATHER_WET, WEATHER_NONE, WEATHER_EXTREME)
 	songs = list(
-		"Bad To The Bonehead - Prodolzhay Borby:1" = "lambda/legasy/music/borby.ogg",)
+		"Bad To The Bonehead - Prodolzhay Borby:1" = 'lambda/legasy/music/borby.ogg',)
 	scores = list(
 		"Милиция" = 0,
 		"Скинхеды" = 0,

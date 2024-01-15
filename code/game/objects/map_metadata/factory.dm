@@ -23,7 +23,7 @@
 	faction2 = RUSSIAN
 	valid_weather_types = list(WEATHER_WET, WEATHER_NONE, WEATHER_EXTREME)
 	songs = list(
-		"Vopli Vidopliassova - Vesna:1" = "sound/music/vesna.ogg",) //change this eventually to a more war march sounding song and not just a ukrainian rock band
+		"Vopli Vidopliassova - Vesna:1" = 'sound/music/vesna.ogg',) //change this eventually to a more war march sounding song and not just a ukrainian rock band
 	artillery_count = 0
 	grace_wall_timer = 3000
 

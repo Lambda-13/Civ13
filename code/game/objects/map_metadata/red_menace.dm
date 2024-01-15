@@ -25,7 +25,7 @@
 	faction2 = RUSSIAN
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET)
 	songs = list(
-		"Killing Joke - Eighties:1" = "sound/music/eighties.ogg",)
+		"Killing Joke - Eighties:1" = 'sound/music/eighties.ogg',)
 	gamemode = "Siege"
 
 /obj/map_metadata/red_menace/job_enabled_specialcheck(var/datum/job/J)

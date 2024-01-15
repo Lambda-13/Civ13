@@ -22,7 +22,7 @@
 	faction2 = RUSSIAN
 	ordinal_age = 5
 	songs = list(
-		"Napalm sticks to kids:1" = "sound/music/napalmsticsktokidsbycortex.ogg")
+		"Napalm sticks to kids:1" = 'sound/music/napalmsticsktokidsbycortex.ogg')
 	gamemode = "King of the Hill"
 /obj/map_metadata/siberiad/faction2_can_cross_blocks()
 	return (processes.ticker.playtime_elapsed >= 3600 || admin_ended_all_grace_periods)

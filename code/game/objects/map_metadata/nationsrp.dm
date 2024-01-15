@@ -24,7 +24,7 @@
 	nomads = FALSE
 	availablefactions_run = FALSE
 	songs = list(
-		"Words Through the Sky:1" = "sound/music/words_through_the_sky.ogg",)
+		"Words Through the Sky:1" = 'sound/music/words_through_the_sky.ogg',)
 	default_research = 105
 	gamemode = "Nations RP"
 	ordinal_age = 4
@@ -107,7 +107,7 @@
 	mission_start_message = "<big>Two nations rule this land. The grace wall will end in <b>30 minutes</b>. This is an RP focused map, people of both nations start friendly by default.</big><br><b>Wiki Guide: http://civ13.github.io/civ13-wiki/Civilizations_and_Nomads</b>"
 	age = "the Cold War"
 	songs = list(
-		"Emma:1" = "sound/music/emma.ogg",)
+		"Emma:1" = 'sound/music/emma.ogg',)
 	default_research = 175
 	ordinal_age = 7
 	age1_done = TRUE
@@ -136,7 +136,7 @@
 	mission_start_message = "<big>Two nations rule this land. The grace wall will end in <b>30 minutes</b>. This is an RP focused map, people of both nations start friendly by default.</big><br><b>Wiki Guide: http://civ13.github.io/civ13-wiki/Civilizations_and_Nomads</b>"
 	age = "the Cold War"
 	songs = list(
-		"Emma:1" = "sound/music/emma.ogg",)
+		"Emma:1" = 'sound/music/emma.ogg',)
 	default_research = 175
 	ordinal_age = 7
 	age1_done = TRUE
