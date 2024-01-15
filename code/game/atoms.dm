@@ -367,7 +367,10 @@
 		blood_DNA = list()
 
 	was_bloodied = TRUE
-	blood_color = "#A10808"
+	if (M.droid)
+		blood_color = "#030303"
+	else
+		blood_color = "#A10808"
 	if (istype(M))
 		if (!istype(M.dna, /datum/dna))
 			M.dna = new /datum/dna(null)

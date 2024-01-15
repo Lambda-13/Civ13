@@ -241,6 +241,7 @@ var/civmax_research = list(230,230,230)
 	var/list/lizard = list()
 	var/list/wolfman = list()
 	var/list/crab = list()
+	var/list/droid = list()
 
 	var/list/berryeffects = list(list("neutral","neutral","water"), list("tinto","neutral","water"), list("amar","neutral","water"), list("majo","neutral","water"), list("narco","neutral","water"), list("azul","neutral","water"), list("zelenyy","neutral","water"), list("marron","neutral","water"), list("corcairghorm","neutral","water"))
 

@@ -177,6 +177,7 @@
 					HM.lizard = 0
 					HM.wolfman = 0
 					HM.crab = 0
+					HM.droid = 0
 			if ("werewolf")
 				var/mob/living/human/HM = M
 				if (!ishuman(M))
@@ -190,6 +191,7 @@
 					HM.lizard = 0
 					HM.wolfman = 0
 					HM.crab = 0
+					HM.droid = 0
 			if ("orc")
 				var/mob/living/human/HM = M
 				if (!ishuman(M))
@@ -203,6 +205,7 @@
 					HM.lizard = 0
 					HM.wolfman = 0
 					HM.crab = 0
+					HM.droid = 0
 			if ("ant")
 				var/mob/living/human/HM = M
 				if (!ishuman(M))
@@ -216,6 +219,7 @@
 					HM.lizard = 0
 					HM.wolfman = 0
 					HM.crab = 0
+					HM.droid = 0
 			if ("lizard")
 				var/mob/living/human/HM = M
 				if (!ishuman(M))
@@ -229,6 +233,7 @@
 					HM.orc = 0
 					HM.wolfman = 0
 					HM.crab = 0
+					HM.droid = 0
 			if ("crab")
 				var/mob/living/human/HM = M
 				if (!ishuman(M))
@@ -242,6 +247,7 @@
 					HM.orc = 0
 					HM.wolfman = 0
 					HM.crab = 1
+					HM.droid = 0
 			if ("wolfman")
 				var/mob/living/human/HM = M
 				if (!ishuman(M))
@@ -255,6 +261,21 @@
 					HM.orc = 0
 					HM.wolfman = 1
 					HM.crab = 0
+					HM.droid = 0
+			if ("droid")
+				var/mob/living/human/HM = M
+				if (!ishuman(M))
+					usr << "This can only be used on instances of type /mob/living/human"
+					return
+				else
+					HM.lizard = 0
+					HM.ant = 0
+					HM.gorillaman = 0
+					HM.werewolf = 0
+					HM.orc = 0
+					HM.wolfman = 0
+					HM.crab = 0
+					HM.droid = 1
 		if (New)
 			if (New.type == /mob/living/human)
 				var/mob/living/human/H = New
