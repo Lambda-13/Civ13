@@ -152,6 +152,7 @@
 	speedlist = list(1=12,2=8,3=6,4=5,5=4,6=3,7=2)
 	reg_number = ""
 	color = "#5c784f"
+	turret_type = "jap_turret"
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)
@@ -595,6 +596,19 @@
 		..()
 		var/pickedname = pick(tank_names_usa)
 		tank_names_soviet -= pickedname
+		name = "[name] \'[pickedname]\'"
+
+/obj/structure/vehicleparts/axis/heavy/m1a1_abrams
+	name = "M1A1 Abrams"
+	speeds = 4
+	speedlist = list(1=9,2=6,3=4,4=3)
+	reg_number = ""
+	color = "#58564a"
+	turret_type = "m1a1_turret"
+	New()
+		..()
+		var/pickedname = pick(tank_names_usa)
+		tank_names_usa -= pickedname
 		name = "[name] \'[pickedname]\'"
 
 /obj/structure/vehicleparts/axis/car
