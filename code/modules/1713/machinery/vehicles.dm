@@ -153,6 +153,7 @@
 	reg_number = ""
 	color = "#5c784f"
 	turret_type = "jap_turret"
+	turret_x = -16
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)
