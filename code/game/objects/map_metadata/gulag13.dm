@@ -3,7 +3,7 @@
 	ID = MAP_GULAG13
 	title = "ГУЛАГ 13"
 	no_winner ="Раунд окончен."
-	lobby_icon = "icons/lobby/gulag.png"
+	lobby_icon = 'icons/lobby/gulag.png'
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/tundra, /area/caribbean/no_mans_land/invisible_wall/one)
 	respawn_delay = 3600
 	has_hunger = TRUE

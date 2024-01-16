@@ -2,7 +2,7 @@
 /obj/map_metadata/skinheads
 	ID = MAP_SKINHEADS
 	title = "Skinheads"
-	lobby_icon = "icons/lobby/skinheads.png"
+	lobby_icon = 'icons/lobby/skinheads.png'
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/jungle,/area/caribbean/no_mans_land/invisible_wall/jungle/one,/area/caribbean/no_mans_land/invisible_wall/inside/two)
 	respawn_delay = 300
 	no_winner ="Противостояние будет продолжаться."

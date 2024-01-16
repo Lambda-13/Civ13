@@ -1,7 +1,7 @@
 /obj/map_metadata/arctic_sub
 	ID = MAP_ARCTIC_SUB
 	title = "Battle for the Submarine"
-	lobby_icon = "icons/lobby/arcticsub.png"
+	lobby_icon = 'icons/lobby/arcticsub.png'
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/tundra/one)
 	respawn_delay = 1200
 	no_winner = "The siege is still underway."
