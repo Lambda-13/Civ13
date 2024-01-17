@@ -257,6 +257,12 @@
 	maxrange = 35
 	caliber = 120
 
+/obj/structure/cannon/modern/tank/m1a1_abrams
+	name = "M256 120mm"
+	desc = "The M256 is an American 120 mm smoothbore tank gun. It uses a German-designed Rh-120 L44 gun tube and combustible cartridges with an American-designed mount, cradle and recoil mechanism."
+	maxrange = 35
+	caliber = 120
+
 /obj/structure/cannon/modern/tank/baftkn75
 	name = "BAF TKN 75mm"
 	desc = "a 75mm Blugoslavian tank-based cannon."
