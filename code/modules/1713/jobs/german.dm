@@ -2007,9 +2007,9 @@
 	return TRUE
 
 /datum/job/german/roa_soldier
-	title = "Russkaya Osvoboditelnaya Armiya - Soldat"
-	en_meaning = "Russian Liberation Army - Soldier"
-	rank_abbreviation = "ROA"
+	title = "Russische Befreiungsarmee Militär"
+	en_meaning = "ROA Soldat"
+	rank_abbreviation = "ROA Sdt"
 
 	spawn_location = "JoinLateGE"
 
@@ -2019,6 +2019,11 @@
 
 	min_positions = 6
 	max_positions = 12
+
+/datum/job/german/roa_soldier/give_random_name(var/mob/living/human/H)
+	H.name = H.species.get_random_russian_name(H.gender)
+	H.real_name = H.name
+	H.s_tone = rand(-35,-25)
 
 /datum/job/german/roa_soldier/equip(var/mob/living/human/H)
 	if(!H) return FALSE
@@ -2069,12 +2074,14 @@
 			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/boltaction/mosin/m30(H), slot_shoulder)
 			var/obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/mosin/webbing = new /obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/mosin(null)
 			uniform.attackby(webbing, H)
-
+	
+	var/obj/item/clothing/accessory/patch/russia/white = new /obj/item/clothing/accessory/patch/russia(null)
+	uniform.attackby(white, H)
 
 	if (time_of_day == "Night" || time_of_day == "Evening" || time_of_day == "Early Morning")
 		H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight/alt(H), slot_wear_id)
 	give_random_name(H)
-	H.add_note("Role", "You are a <b>[title]</b>, a member of the Waffen-SS Mechanized Infantry Corps. Follow your commander's orders and coordinate with the Panzers!")
+	H.add_note("Role", "You are a <b>[title]</b>, a member of Russian Liberation Army. Help your German friends!")
 	H.setStat("strength", STAT_MEDIUM_HIGH)
 	H.setStat("crafting", STAT_MEDIUM_LOW)
 	H.setStat("rifle", STAT_MEDIUM_HIGH)
