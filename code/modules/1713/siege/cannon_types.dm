@@ -490,6 +490,23 @@
 	w_class = ITEM_SIZE_GARGANTUAN
 	see_amount_loaded = TRUE
 
+/obj/structure/cannon/rocket/nebelwerfer
+	name = "Nebelwerfer"
+	desc = "German 158mm rocket artillery. So loud."
+	icon = 'icons/obj/cannon.dmi'
+	icon_state = "nebelwerfer"
+	ammotype = /obj/item/cannon_ball/rocket
+	spritemod = FALSE
+	pixel_x = 0
+	pixel_y = 0
+	bound_height = 32
+	bound_width = 32
+	firedelay = 10
+	maxrange = 60
+	max_loaded = 6
+	w_class = ITEM_SIZE_GARGANTUAN
+	see_amount_loaded = TRUE
+
 /obj/structure/cannon/rocket/old
 	icon_state = "old_rocket"
 	max_loaded = 9
