@@ -25,7 +25,7 @@
 	grace_wall_timer = 4800
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET)
 	songs = list(
-		"Mugi to Heitai:1" = 'sound/music/mugi_to_heitai.ogg',)
+		"Red Army Choir - Tri tankista:1" = 'sound/music/tri_tankista.ogg',)
 
 /obj/map_metadata/khalkhyn/job_enabled_specialcheck(var/datum/job/J)
 	..()

@@ -22,7 +22,7 @@
 	faction2 = GERMAN
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET)
 	songs = list(
-		"Red Army Choir - Katyusha:1" = 'sound/music/katyusha.ogg',)
+		"Red Army Choir - March of the defenders of Moscow:1" = 'sound/music/march_defenders_moscow.ogg',)
 	gamemode = "Siege"
 	grace_wall_timer = 4800
 
@@ -185,7 +185,7 @@
 	faction2 = GERMAN
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET)
 	songs = list(
-		"Red Army Choir - Katyusha:1" = 'sound/music/katyusha.ogg',)
+		"Red Army Choir - March of the defenders of Moscow:1" = 'sound/music/march_defenders_moscow.ogg',)
 	gamemode = "Siege"
 	grace_wall_timer = 4800
 

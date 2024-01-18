@@ -26,7 +26,7 @@
 	ordinal_age = 5
 	grace_wall_timer = 4200
 	songs = list(
-		"Korobushka:1" = 'sound/music/korobushka.ogg')
+		"Song of 27 Division:1" = 'sound/music/27_division_ussr.ogg')
 	gamemode = "Siege"
 
 obj/map_metadata/tsaritsyn/job_enabled_specialcheck(var/datum/job/J)
