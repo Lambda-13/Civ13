@@ -18,12 +18,16 @@
 	firemodes = list(
 		list(name = "full auto",	burst=1, burst_delay=1.1, recoil=0, move_delay=3, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
 		)
-
+	item_icons = list(
+		slot_l_hand_str = 'lambda/sanecman/icons/mob/space/lefthand_weapons.dmi',
+		slot_r_hand_str = 'lambda/sanecman/icons/mob/space/righthand_weapons.dmi',
+		slot_back_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
+		slot_shoulder_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
+		)
 	sel_mode = 1
 	effectiveness_mod = 1.05
 	recoil = 25
 	accuracy = 4
-
 /obj/item/ammo_magazine/tibannagas/space_war/lp40
 	name = "тибанновый блок питания LP40"
 	icon = 'lambda/sanecman/icons/obj/guns/space_ammo.dmi'
@@ -53,6 +57,12 @@
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.5, recoil=0, move_delay=1, dispersion = list(0.2, 0.4, 0.4, 0.4, 0.5)),
 		list(name = "full auto",	burst=1, burst_delay=1.2, recoil=0, move_delay=3, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
+		)
+	item_icons = list(
+		slot_l_hand_str = 'lambda/sanecman/icons/mob/space/lefthand_weapons.dmi',
+		slot_r_hand_str = 'lambda/sanecman/icons/mob/space/righthand_weapons.dmi',
+		slot_back_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
+		slot_shoulder_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
 		)
 	sel_mode = 1
 	recoil = 20
@@ -87,6 +97,12 @@
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.3, recoil=0, move_delay=1, dispersion = list(0.2, 0.4, 0.4, 0.4, 0.5)),
 		list(name = "full auto",	burst=1, burst_delay=0.4, recoil=0, move_delay=3, dispersion = list(0.8, 1.3, 1.3, 1.4, 1.6)),
+		)
+	item_icons = list(
+		slot_l_hand_str = 'lambda/sanecman/icons/mob/space/lefthand_weapons.dmi',
+		slot_r_hand_str = 'lambda/sanecman/icons/mob/space/righthand_weapons.dmi',
+		slot_back_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
+		slot_shoulder_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
 		)
 	sel_mode = 1
 	effectiveness_mod = 0.95
@@ -132,6 +148,12 @@
 		list(name = "semi auto",	burst=1, burst_delay=0.8, move_delay=2, dispersion = list(0.2, 0.1, 0.2, 0.3, 0.1)),
 		list(name = "full auto",	burst=1, burst_delay=1.3, move_delay=4, dispersion = list(1.2, 1.2, 1.3, 1.4, 1.8)),
 		)
+	item_icons = list(
+		slot_l_hand_str = 'lambda/sanecman/icons/mob/space/lefthand_weapons.dmi',
+		slot_r_hand_str = 'lambda/sanecman/icons/mob/space/righthand_weapons.dmi',
+		slot_back_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
+		slot_shoulder_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
+		)
 	effectiveness_mod = 1.20
 	sel_mode = 1
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
@@ -151,8 +173,8 @@
 
 
 /obj/item/weapon/gun/projectile/semiautomatic/laser/laserez
-	name = "ВСС Лазерез"
-	desc = "Винтовка дальнего действия созданная в период существования Старой Советской Республики."
+	name = "ВЛС Лазерез"
+	desc = "Винтовка лазерная специальная созданная в период существования Старой Советской Республики."
 	icon = 'lambda/sanecman/icons/obj/guns/space.dmi'
 	icon_state = "laserez"
 	item_state = "laserez"
@@ -170,6 +192,12 @@
 	firemodes = list(
 		list(name = "single shot",burst=1, move_delay=2, fire_delay=6)
 		)
+	item_icons = list(
+		slot_l_hand_str = 'lambda/sanecman/icons/mob/space/lefthand_weapons.dmi',
+		slot_r_hand_str = 'lambda/sanecman/icons/mob/space/righthand_weapons.dmi',
+		slot_back_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
+		slot_shoulder_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
+		)
 	gun_type = GUN_TYPE_RIFLE
 	effectiveness_mod = 1.09
 	equiptimer = 8
@@ -181,7 +209,7 @@
 	SP.attached(null,src,TRUE)
 
 /obj/item/ammo_magazine/tibannagas/space_war/laserez
-	name = "тибанновый блок питания ВСС Лазерез"
+	name = "тибанновый блок питания ВЛС Лазерез"
 	icon = 'lambda/sanecman/icons/obj/guns/space_ammo.dmi'
 	icon_state = "laserez"
 	caliber = "laser"
@@ -212,6 +240,12 @@
 	weight = 4.9
 	firemodes = list(
 		list(name = "single shot",burst=1, move_delay=2, fire_delay=6)
+		)
+	item_icons = list(
+		slot_l_hand_str = 'lambda/sanecman/icons/mob/space/lefthand_weapons.dmi',
+		slot_r_hand_str = 'lambda/sanecman/icons/mob/space/righthand_weapons.dmi',
+		slot_back_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
+		slot_shoulder_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
 		)
 	force = 10
 	throwforce = 20
@@ -248,7 +282,7 @@
 	effectiveness_mod = 0.98
 	bad_magazine_types = list(/obj/item/ammo_magazine/tibannagas/space_war/c762x25_pplsh)
 
-/obj/item/weapon/gun/projectile/pistol/lazganov/update_icon()
+/obj/item/weapon/gun/projectile/pistol/laser/lazganov/update_icon()
 	..()
 	if (ammo_magazine)
 		icon_state = "lazganov"
@@ -270,7 +304,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/laser/laserp38
 	name = "Лазгер П38"
-	desc = "Лазгер Проекта 38 является немецкой разработкой."
+	desc = "Лазгер Проекта 38 является пистолетом немецкой разработкой."
 	icon = 'lambda/sanecman/icons/obj/guns/space.dmi'
 	icon_state = "laserp38"
 	w_class = ITEM_SIZE_SMALL
@@ -285,7 +319,7 @@
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/space_war/laserp38)
 	bad_magazine_types = list(/obj/item/ammo_magazine/tibannagas/space_war/lp40)
 
-/obj/item/weapon/gun/projectile/pistol/laserp38/update_icon()
+/obj/item/weapon/gun/projectile/pistol/laser/laserp38/update_icon()
 	..()
 	if (ammo_magazine)
 		icon_state = "laserp38"
@@ -318,6 +352,12 @@
 	firemodes = list(
 		list(name = "full auto", burst=2, burst_delay=2, fire_delay=2, dispersion=list(0.8, 0.9, 1.0, 1.2, 1.3), accuracy=list(2))
 		)
+	item_icons = list(
+		slot_l_hand_str = 'lambda/sanecman/icons/mob/space/lefthand_weapons.dmi',
+		slot_r_hand_str = 'lambda/sanecman/icons/mob/space/righthand_weapons.dmi',
+		slot_back_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
+		slot_shoulder_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
+		)
 	ammo_type = /obj/item/ammo_casing/laser/b
 	recoil = 25
 	accuracy = 1
@@ -346,6 +386,12 @@
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/space_war/lg42)
 	firemodes = list(
 		list(name = "full auto", burst=2, burst_delay=2, fire_delay=2, dispersion=list(0.3, 0.4, 0.7, 0.9, 1.2), accuracy=list(2))
+		)
+	item_icons = list(
+		slot_l_hand_str = 'lambda/sanecman/icons/mob/space/lefthand_weapons.dmi',
+		slot_r_hand_str = 'lambda/sanecman/icons/mob/space/righthand_weapons.dmi',
+		slot_back_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
+		slot_shoulder_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
 		)
 	ammo_type = /obj/item/ammo_casing/laser
 	recoil = 25
