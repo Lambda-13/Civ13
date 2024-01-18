@@ -1,18 +1,18 @@
 /obj/item/ammo_magazine/tibannagas/space_war
 	name = "ХУЙ"
 
-/obj/item/weapon/gun/projectile/semiautomatic/laser/laser/lp40
+/obj/item/weapon/gun/projectile/semiautomatic/laser/laser/ml40
 	name = "ЛП-40"
 	desc = "Икона Косморейха, поставляется повсеместно, работает почти безотказно."
 	icon = 'lambda/sanecman/icons/obj/guns/space.dmi'
-	icon_state = "lp40"
-	item_state = "lp40"
-	base_icon = "lp40"
+	icon_state = "ml40"
+	item_state = "ml40"
+	base_icon = "ml40"
 	weight = 3.97
 	caliber = "laser"
 	fire_sound = 'lambda/sanecman/sound/space/ml40.ogg'
-	magazine_type = /obj/item/ammo_magazine/tibannagas/space_war/lp40
-	good_mags = list(/obj/item/ammo_magazine/tibannagas/space_war/lp40)
+	magazine_type = /obj/item/ammo_magazine/tibannagas/space_war/ml40
+	good_mags = list(/obj/item/ammo_magazine/tibannagas/space_war/ml40)
 	full_auto = TRUE
 	equiptimer = 12
 	firemodes = list(
@@ -28,7 +28,7 @@
 	effectiveness_mod = 1.05
 	recoil = 25
 	accuracy = 4
-/obj/item/ammo_magazine/tibannagas/space_war/lp40
+/obj/item/ammo_magazine/tibannagas/space_war/ml40
 	name = "тибанновый блок питания LP40"
 	icon = 'lambda/sanecman/icons/obj/guns/space_ammo.dmi'
 	icon_state = "lp40"
@@ -232,7 +232,7 @@
 	max_shells = 10
 	load_delay = 8
 	caliber = "laser"
-	fire_sound = 'sound/weapons/guns/fire/Garand.ogg'
+	fire_sound = 'lambda/sanecman/sound/space/l43.ogg'
 	slot_flags = SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/laser
 	magazine_type = /obj/item/ammo_magazine/tibannagas/space_war/l43
@@ -251,6 +251,11 @@
 	throwforce = 20
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	effectiveness_mod = 1.06
+
+/obj/item/weapon/gun/projectile/semiautomatic/laser/l43/New()
+	..()
+	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope(src)
+	SP.attached(null,src,TRUE)
 
 /obj/item/ammo_magazine/tibannagas/space_war/l43
 	name = "тибанновый блок питания Лаз 43"
@@ -317,7 +322,7 @@
 	handle_casings = EJECT_CASINGS
 	effectiveness_mod = 0.96
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/space_war/laserp38)
-	bad_magazine_types = list(/obj/item/ammo_magazine/tibannagas/space_war/lp40)
+	bad_magazine_types = list(/obj/item/ammo_magazine/tibannagas/space_war/ml40)
 
 /obj/item/weapon/gun/projectile/pistol/laser/laserp38/update_icon()
 	..()
