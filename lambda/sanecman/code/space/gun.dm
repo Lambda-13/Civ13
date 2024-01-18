@@ -2,7 +2,7 @@
 	name = "ХУЙ"
 
 /obj/item/weapon/gun/projectile/semiautomatic/laser/laser/ml40
-	name = "ЛП-40"
+	name = "МЛ-40"
 	desc = "Икона Косморейха, поставляется повсеместно, работает почти безотказно."
 	icon = 'lambda/sanecman/icons/obj/guns/space.dmi'
 	icon_state = "ml40"
@@ -29,9 +29,9 @@
 	recoil = 25
 	accuracy = 4
 /obj/item/ammo_magazine/tibannagas/space_war/ml40
-	name = "тибанновый блок питания LP40"
+	name = "тибанновый блок питания МЛ-40"
 	icon = 'lambda/sanecman/icons/obj/guns/space_ammo.dmi'
-	icon_state = "lp40"
+	icon_state = "ml40"
 	mag_type = MAGAZINE
 	caliber = "laser"
 	ammo_type = /obj/item/ammo_casing/laser
