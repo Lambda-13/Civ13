@@ -26,6 +26,8 @@
 	// replaced by OPENCONTAINER flags and atom/proc/is_open_container()
 	///Chemistry.
 
+	var/crafted = FALSE //оптимизация для загруженных с картой атомов
+
 	//Detective Work, used for the duplicate data points kept in the scanners
 	var/list/original_atom
 

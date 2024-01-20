@@ -627,9 +627,10 @@ var/global/list/tank_names_usa = list("Charlie", "Alpha", "Foxtrot", "Tango", "E
 
 	New()
 		..()
-		spawn(1200)
-			if (!link)
-				qdel(src)
+		if(crafted) //Для оптимизации премейдов
+			spawn(1200)
+				if (!link)
+					qdel(src)
 
 
 /obj/structure/vehicleparts/axis/attack_hand(var/mob/living/human/H)
