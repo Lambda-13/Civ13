@@ -21,13 +21,10 @@
 	var/rotten = FALSE
 	var/rotten_icon_state = ""
 
-/obj/item/weapon/reagent_containers/food/New()
+/obj/item/weapon/reagent_containers/food/New(loc)
 	..()
 	if(istype(loc, /obj/structure/closet))
-		RegisterSignal(loc, CLOSET_OPENED, food_decay())
-	else if(istype(loc, /obj/item/weapon/can))
-		RegisterSignal(loc, FOOD_CAN_OPENED, food_decay())
-	
+		RegisterSignal(loc, CLOSET_OPENED, PROC_REF(food_decay))
 	else if(decay > 0)
 		food_decay()
 
@@ -57,16 +54,22 @@
 				new/mob/living/simple_animal/fly(get_turf(src))
 
 /obj/item/weapon/reagent_containers/food/proc/food_decay()
+	SIGNAL_HANDLER
+
 	UnregisterSignal(src, FOOD_CAN_OPENED)
 	UnregisterSignal(src, CLOSET_OPENED)
-	if(istype(src, /obj/item/weapon/reagent_containers/food/snacks/MRE)) //Оптимизация на ТДМ картах
-		return
+
 	spawn(rand(590,610)) //some spreading and randomness
 		if (decay == 0)
 			return
 		if (istype(loc, /obj/structure/vending))
 			food_decay()
 			return
+		if(istype(loc, /obj/item/weapon/can))
+			var/obj/item/weapon/can/can = loc
+			if(!can.open)
+				RegisterSignal(loc, FOOD_CAN_OPENED, PROC_REF(food_decay))
+				return
 		//temp until I put a continuing proc somewhere else like by the potatoes but i cant figure it right now because i have other stuff to do k thx bye.
 		if(istype(src, /obj/item/weapon/reagent_containers/food/snacks/grown/potato))
 			if (isturf(loc))
