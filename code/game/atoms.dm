@@ -26,6 +26,8 @@
 	// replaced by OPENCONTAINER flags and atom/proc/is_open_container()
 	///Chemistry.
 
+	var/crafted = FALSE //оптимизация для загруженных с картой атомов
+
 	//Detective Work, used for the duplicate data points kept in the scanners
 	var/list/original_atom
 
@@ -415,7 +417,7 @@
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
 /atom/proc/visible_message(var/message, var/blind_message)
 
-	var/list/see = get_mobs_or_objects_in_view(7,src) | viewers(get_turf(src), null)
+	var/list/see = get_mobs_or_objects_in_view(7,src, TRUE, FALSE) | viewers(get_turf(src), null)
 
 	for (var/I in see)
 		if (isobj(I))

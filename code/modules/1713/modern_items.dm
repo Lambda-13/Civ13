@@ -125,7 +125,9 @@
 		update_icon()
 		powered = FALSE
 		on = FALSE
-
+		
+	if(!crafted)
+		return
 	spawn(10)
 		do_light()
 

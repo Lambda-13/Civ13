@@ -76,12 +76,12 @@
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
 /mob/visible_message(var/message, var/self_message, var/blind_message)
-	var/list/see = get_mobs_or_objects_in_view(7,src) | viewers(7,src)
+	var/list/see = get_mobs_or_objects_in_view(7,src,TRUE,FALSE) | viewers(7,src)
 
 	for (var/I in see)
 		if (isobj(I))
 			spawn(0)
-				if (I) //It's possible that it could be deleted in the meantime.
+				if (istype(I, /mob/living/human)) //It's possible that it could be deleted in the meantime.
 					var/obj/O = I
 					O.show_message( message, TRUE, blind_message, 2)
 		else if (ismob(I))
