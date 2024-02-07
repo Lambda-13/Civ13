@@ -127,7 +127,7 @@
 	max_ammo = 20
 	weight = 0.70
 	multiple_sprites = TRUE
-	pouch = TRUE
+	pouch = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/emptyclip
 	name = "clip (5)"
@@ -235,7 +235,7 @@
 	weight = 1
 	w_class = ITEM_SIZE_LARGE
 	multiple_sprites = TRUE
-	belt = TRUE
+	belt = TRUE;ammo_count_accuracy = 10
 
 /obj/item/ammo_magazine/emptybelt/filled_762x54
 	name = "belt (7.62x54mm)"
