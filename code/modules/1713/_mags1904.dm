@@ -9,7 +9,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	max_ammo = 5
 	weight = 0.04
 	multiple_sprites = TRUE
-	clip = TRUE
+	clip = TRUE;ammo_count_accuracy = 1
 
 /obj/item/ammo_magazine/mosinbox
 	name = "патронная коробка (7.62x54mm)"
@@ -20,7 +20,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	ammo_type = /obj/item/ammo_casing/a762x54
 	max_ammo = 50
 	multiple_sprites = FALSE
-	is_box = TRUE
+	is_box = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/madsen
 	name = "рожок (7.62x54mm)"
@@ -41,7 +41,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	ammo_type = /obj/item/ammo_casing/a762x54
 	max_ammo = 65
 	multiple_sprites = TRUE
-	is_box = TRUE
+	is_box = TRUE;ammo_count_accuracy = 5
 /obj/item/ammo_magazine/b762
 	name = "патронная лента (7.62x51mm)"
 	icon_state = "b762"
@@ -70,7 +70,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	max_ammo = 5
 	weight = 0.04
 	multiple_sprites = TRUE
-	clip = TRUE
+	clip = TRUE;ammo_count_accuracy = 1
 
 
 /obj/item/ammo_magazine/gewehr71box
@@ -82,7 +82,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	ammo_type = /obj/item/ammo_casing/a765x53
 	max_ammo = 50
 	multiple_sprites = FALSE
-	is_box = TRUE
+	is_box = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/gewehr98
 	name = "клипса (7.92x57mm)"
@@ -92,7 +92,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	max_ammo = 5
 	weight = 0.04
 	multiple_sprites = TRUE
-	clip = TRUE
+	clip = TRUE;ammo_count_accuracy = 1
 
 /obj/item/ammo_magazine/vgclip
 	name = "clip (7.92x33mm)"
@@ -102,7 +102,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	max_ammo = 5
 	weight = 0.06
 	multiple_sprites = TRUE
-	clip = TRUE
+	clip = TRUE;ammo_count_accuracy = 1
 
 /obj/item/ammo_magazine/mauser1893
 	name = "клипса (7x53mm)"
@@ -112,7 +112,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	max_ammo = 5
 	weight = 0.038
 	multiple_sprites = TRUE
-	clip = TRUE
+	clip = TRUE;ammo_count_accuracy = 1
 
 /obj/item/ammo_magazine/gewehr98box
 	name = "патронная коробка (7.92x57mm)"
@@ -123,7 +123,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	ammo_type = /obj/item/ammo_casing/a792x57
 	max_ammo = 50
 	multiple_sprites = FALSE
-	is_box = TRUE
+	is_box = TRUE;ammo_count_accuracy = 5
 
 
 /obj/item/ammo_magazine/mauser1893box
@@ -135,7 +135,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	ammo_type = /obj/item/ammo_casing/a7x57
 	max_ammo = 50
 	multiple_sprites = FALSE
-	is_box = TRUE
+	is_box = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/sharps
 	name = "ammo box (.45-70 Government)"
@@ -146,7 +146,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	ammo_type = /obj/item/ammo_casing/a4570
 	max_ammo = 15
 	multiple_sprites = FALSE
-	is_box = TRUE
+	is_box = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/c577
 	name = "ammo box (.577/450 Martini-Henry)"
@@ -157,7 +157,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	ammo_type = /obj/item/ammo_casing/a577
 	max_ammo = 12
 	multiple_sprites = FALSE
-	is_box = TRUE
+	is_box = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/arisaka
 	name = "клипса (6.5x50mm)"
@@ -168,7 +168,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	max_ammo = 5
 	weight = 0.038
 	multiple_sprites = TRUE
-	clip = TRUE
+	clip = TRUE;ammo_count_accuracy = 1
 
 /obj/item/ammo_magazine/arisakabox
 	name = "патронная коробка (6.5x50mm)"
@@ -180,7 +180,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	ammo_type = /obj/item/ammo_casing/a65x50
 	max_ammo = 50
 	multiple_sprites = FALSE
-	is_box = TRUE
+	is_box = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/carcano
 	name = "клипса (6.5x52mm)"
@@ -191,7 +191,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	max_ammo = 5
 	weight = 0.038
 	multiple_sprites = TRUE
-	clip = TRUE
+	clip = TRUE;ammo_count_accuracy = 1
 
 /obj/item/ammo_magazine/carcano_box
 	name = "патронная коробка (6.5x52mm)"
@@ -203,7 +203,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	ammo_type = /obj/item/ammo_casing/a65x52
 	max_ammo = 50
 	multiple_sprites = FALSE
-	is_box = TRUE
+	is_box = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/maxim
 	name = "Maxim ammo belt"
@@ -216,7 +216,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	ammo_type = /obj/item/ammo_casing/a762x54/weak
 	max_ammo = 250
 	multiple_sprites = TRUE
-	belt = TRUE
+	belt = TRUE;ammo_count_accuracy = 10
 
 /obj/item/ammo_magazine/mg08
 	name = "MG08 ammo belt"
@@ -228,7 +228,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	ammo_type = /obj/item/ammo_casing/a792x57/weak
 	max_ammo = 250
 	multiple_sprites = TRUE
-	belt = TRUE
+	belt = TRUE;ammo_count_accuracy = 10
 
 /obj/item/ammo_magazine/vickers
 	name = "Vickers ammo belt"
@@ -240,7 +240,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	ammo_type = /obj/item/ammo_casing/a303/weak
 	max_ammo = 250
 	multiple_sprites = TRUE
-	belt = TRUE
+	belt = TRUE;ammo_count_accuracy = 10
 
 /obj/item/ammo_magazine/vickers/box
 	name = "патронная коробка (.303 British)"
@@ -251,7 +251,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	ammo_type = /obj/item/ammo_casing/a303/weak
 	max_ammo = 650
 	multiple_sprites = TRUE
-	is_box = TRUE
+	is_box = TRUE;ammo_count_accuracy = 5
 	slowdown = 2.0
 
 /obj/item/ammo_magazine/hotchkiss
@@ -264,7 +264,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	ammo_type = /obj/item/ammo_casing/a8x50/weak
 	max_ammo = 250
 	multiple_sprites = TRUE
-	belt = TRUE
+	belt = TRUE;ammo_count_accuracy = 10
 
 
 /obj/item/ammo_magazine/type3
@@ -277,7 +277,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	ammo_type = /obj/item/ammo_casing/a65x50/weak
 	max_ammo = 250
 	multiple_sprites = TRUE
-	belt = TRUE
+	belt = TRUE;ammo_count_accuracy = 10
 
 /obj/item/ammo_magazine/mg34belt
 	name = "MG 34 ammo belt"
@@ -289,7 +289,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	ammo_type = /obj/item/ammo_casing/a792x57/weak
 	max_ammo = 250
 	multiple_sprites = TRUE
-	belt = TRUE
+	belt = TRUE;ammo_count_accuracy = 10
 
 /obj/item/ammo_magazine/mg3belt
 	name = "belt (7.62x51mm)"
@@ -365,7 +365,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	weight = 0.06
 	multiple_sprites = TRUE
 	mag_type = SPEEDLOADER
-	clip = TRUE
+	clip = TRUE;ammo_count_accuracy = 1
 
 
 ////////// NAGANT REVOLVER ///////////////
@@ -378,7 +378,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	weight = 0.4
 	multiple_sprites = TRUE
 
-	pouch = TRUE
+	pouch = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/c8x27
 	name = "bullet pouch (8x27mmR)"
@@ -389,7 +389,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	weight = 0.5
 	multiple_sprites = TRUE
 
-	pouch = TRUE
+	pouch = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/c9mm_jap_revolver
 	name = "bullet pouch (9mm)"
@@ -401,7 +401,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 
 	multiple_sprites = TRUE
 
-	pouch = TRUE
+	pouch = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/c32
 	name = "bullet pouch (.32 S&W Long)"
@@ -413,7 +413,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	weight = 0.9
 	multiple_sprites = TRUE
 
-	pouch = TRUE
+	pouch = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/c32acp
 	name = "bullet pouch (.32 ACP)"
@@ -425,7 +425,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	weight = 0.9
 	multiple_sprites = TRUE
 
-	pouch = TRUE
+	pouch = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/c9mm
 	name = "bullet pouch (9x19mm)"
@@ -437,7 +437,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	weight = 1.1
 	multiple_sprites = TRUE
 
-	pouch = TRUE
+	pouch = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/c38
 	name = "bullet pouch (.38 long)"
@@ -449,7 +449,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	weight = 0.9
 	multiple_sprites = TRUE
 
-	pouch = TRUE
+	pouch = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/c45
 	name = "bullet pouch (.45 Colt)"
@@ -461,7 +461,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	weight = 0.9
 	multiple_sprites = TRUE
 
-	pouch = TRUE
+	pouch = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/c455
 	name = "bullet pouch (.455 Webley)"
@@ -473,7 +473,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	weight = 0.95
 	multiple_sprites = TRUE
 
-	pouch = TRUE
+	pouch = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/c41
 	name = "bullet pouch (.41 Short)"
@@ -485,7 +485,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	weight = 0.1
 	multiple_sprites = TRUE
 
-	pouch = TRUE
+	pouch = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/c43
 	name = "bullet pouch (.43 Spanish)"
@@ -496,7 +496,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	max_ammo = 30
 	weight = 0.1
 	multiple_sprites = TRUE
-	pouch = TRUE
+	pouch = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/webly445
 	name = "bullet pouch (.445 webly)"
@@ -508,7 +508,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	weight = 0.1
 	multiple_sprites = TRUE
 
-	pouch = TRUE
+	pouch = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/c44
 	name = "bullet pouch (.44-40 Winchester)"
@@ -520,7 +520,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	weight = 1.1
 	multiple_sprites = TRUE
 
-	pouch = TRUE
+	pouch = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/c44magnum
 	name = "bullet pouch (.44 magnum)"
@@ -532,7 +532,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	weight = 1.1
 	multiple_sprites = TRUE
 
-	pouch = TRUE
+	pouch = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/c8x50
 	name = "bullet pouch (8x50mmR Lebel)"
@@ -544,7 +544,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	weight = 0.95
 	multiple_sprites = TRUE
 
-	pouch = TRUE
+	pouch = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/murata
 	name = "клипса (8x53mm)"
@@ -555,7 +555,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	max_ammo = 5
 	weight = 0.048
 	multiple_sprites = TRUE
-	clip = TRUE
+	clip = TRUE;ammo_count_accuracy = 1
 
 /obj/item/ammo_magazine/murata_box
 	name = "патронная коробка (8x53mm)"
@@ -567,7 +567,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	ammo_type = /obj/item/ammo_casing/a8x53
 	max_ammo = 50
 	multiple_sprites = FALSE
-	is_box = TRUE
+	is_box = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/enfield
 	name = "клипса (.303)"
@@ -578,7 +578,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	max_ammo = 5
 	weight = 0.048
 	multiple_sprites = TRUE
-	clip = TRUE
+	clip = TRUE;ammo_count_accuracy = 1
 
 /obj/item/ammo_magazine/enfield_box
 	name = "патронная коробка (.303)"
@@ -590,7 +590,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	ammo_type = /obj/item/ammo_casing/a303
 	max_ammo = 50
 	multiple_sprites = FALSE
-	is_box = TRUE
+	is_box = TRUE;ammo_count_accuracy = 5
 /obj/item/ammo_magazine/c8x50_3clip
 	name = "клипса (8x50mmR Lebel, 3u)"
 	icon_state = "clip"
@@ -600,7 +600,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	max_ammo = 3
 	weight = 0.035
 	multiple_sprites = TRUE
-	clip = TRUE
+	clip = TRUE;ammo_count_accuracy = 1
 /obj/item/ammo_magazine/c8x50_5clip
 	name = "клипса (8x50mmR Lebel, 5u)"
 	icon_state = "clip"
@@ -610,7 +610,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	max_ammo = 5
 	weight = 0.048
 	multiple_sprites = TRUE
-	clip = TRUE
+	clip = TRUE;ammo_count_accuracy = 1
 /obj/item/ammo_magazine/c44p
 	name = "bullet pouch (.44)"
 	icon_state = "pouch"
@@ -632,7 +632,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
 	max_ammo = 12
 	multiple_sprites = TRUE
-	is_box = TRUE
+	is_box = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/shellbox/slug
 	name = "shotgun slugshot box (.12 gauge)"
