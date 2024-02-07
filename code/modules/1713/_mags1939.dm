@@ -19,7 +19,7 @@
 	ammo_type = /obj/item/ammo_casing/a77x58
 	max_ammo = 50
 	multiple_sprites = FALSE
-	is_box = TRUE
+	is_box = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/arisaka99_training
 	name = "клипса (7.7x58mm)"
@@ -77,6 +77,8 @@
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
 	var/image/mob_overlay = null
 	var/overlay_state = null
+	
+	ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/sten2
 	name = "Sten Magazine"
@@ -117,7 +119,7 @@
 	ammo_type = /obj/item/ammo_casing/a9x19
 	max_ammo = 80
 	multiple_sprites = TRUE
-	is_box = TRUE
+	is_box = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/mp40/mp5
 	name = "MP5 магазин (9x19mm)"
@@ -178,7 +180,7 @@
 	ammo_type = /obj/item/ammo_casing/a45acp
 	max_ammo = 65
 	multiple_sprites = TRUE
-	is_box = TRUE
+	is_box = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/c762x25_pps
 	name = "PPS-43 магазин (7.62x25mm)"
@@ -285,7 +287,7 @@ obj/item/ammo_magazine/dp
 	w_class = ITEM_SIZE_NORMAL
 	max_ammo = 65
 	multiple_sprites = FALSE
-	is_box = TRUE
+	is_box = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/tt30
 	name = "TT-33 магазин (7.62x25mm)"
@@ -359,7 +361,7 @@ obj/item/ammo_magazine/dp
 	max_ammo = 65
 	weight = 1.5
 	multiple_sprites = TRUE
-	pouch = TRUE
+	pouch = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/m3006box
 	name = "патронная коробка (30-06)"
@@ -370,7 +372,7 @@ obj/item/ammo_magazine/dp
 	ammo_type = /obj/item/ammo_casing/a3006
 	max_ammo = 50
 	multiple_sprites = FALSE
-	is_box = TRUE
+	is_box = TRUE;ammo_count_accuracy = 5
 
 /obj/item/ammo_magazine/springfield
 	name = "клипса (30-06)"
@@ -390,7 +392,7 @@ obj/item/ammo_magazine/dp
 	caliber = "a3006"
 	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_BELT|SLOT_SHOULDER
-	belt = TRUE
+	belt = TRUE;ammo_count_accuracy = 10
 
 	ammo_type = /obj/item/ammo_casing/a3006
 	max_ammo = 250
@@ -429,6 +431,7 @@ obj/item/ammo_magazine/dp
 	caliber = "a50cal"
 	max_ammo = 7
 	multiple_sprites = TRUE
+	ammo_count_accuracy = 2
 
 /obj/item/ammo_magazine/deaglemagnum
 	name = "Desert eagle магазин (44.magnum)"
