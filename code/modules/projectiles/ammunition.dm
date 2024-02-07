@@ -97,6 +97,8 @@
 	// are we an ammo box
 	var/is_box = FALSE
 	map_storage_saved_vars = "density;icon_state;dir;name;pixel_x;pixel_y;stored_ammo"
+	
+	var/ammo_count_accuracy = 0 // 0 - Примерная наполненность, 1 - Точное кол-во патронов, 2+ - Примерное кол-во патронов (В этом режиме, размер переменной также определяет неточность подсчёта)
 
 /obj/item/ammo_magazine/secondary_attack_self(mob/living/human/user)
 	if (stored_ammo.len >= max_ammo)
@@ -129,7 +131,7 @@
 
 /obj/item/ammo_magazine/emptyclip
 	name = "clip (5)"
-	clip = TRUE
+	clip = TRUE;ammo_count_accuracy = 1
 	icon_state = "clip"
 	ammo_type = null
 	caliber = null
@@ -446,7 +448,27 @@
 
 /obj/item/ammo_magazine/examine(mob/user)
 	..()
-	user << "There [(stored_ammo.len == TRUE)? "is" : "are"] [stored_ammo.len] round\s left!"
+	//user << "There [(stored_ammo.len == TRUE)? "is" : "are"] [stored_ammo.len] round\s left!"
+	if(loc == user && user.get_active_hand() == src)
+		switch(ammo_count_accuracy)
+			if(0)
+				if(do_after(user, 10, src, can_move = TRUE))
+					var/am = stored_ammo.len/max_ammo
+					switch(am)
+						if(0.9 to 1)user << "Полный."
+						if(0.7 to 0.9)user << "Почти полн."
+						if(0.3 to 0.7)user << "Наполовину полн."
+						if(0.01 to 0.3)user << "Почти пуст."
+						if(0 to 0.01)user << "Пусто."
+			if(1)
+				var/l = stored_ammo.len
+				if(l)user << "Здесь [l] снаряд[(l==1)? "" : "[(l>=2 && l<=4)? "а" : "ов"]"]."
+				else user << "Пусто"
+			if(2 to 99999999)
+				var/l = stored_ammo.len
+				if(l>ammo_count_accuracy)l = round(stored_ammo.len,ammo_count_accuracy)
+				if(l)user << "Здесь примерно [l] снаряд[(l==1)? "" : "[(l>=2 && l<=4)? "а" : "ов"]"]."
+				else user << "Пусто"
 
 //magazine icon state caching
 /var/global/list/magazine_icondata_keys = list()
@@ -481,3 +503,4 @@
 	for (var/obj/item/I in stored_ammo)
 		.+= I.get_weight()
 	return .
+
