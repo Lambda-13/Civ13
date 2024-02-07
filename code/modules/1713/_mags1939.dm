@@ -334,7 +334,7 @@ obj/item/ammo_magazine/dp
 	max_ammo = 8
 	weight = 0.038
 	multiple_sprites = TRUE
-	clip = TRUE
+	clip = TRUE;ammo_count_accuracy = 1
 
 /obj/item/ammo_magazine/m1carbine
 	name = "M1 Carbine Small magazine (7.62x33mm)"
