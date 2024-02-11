@@ -161,7 +161,7 @@
 
 /obj/item/weapon/grenade/bomb
 	name = "пороховая бочкобомба"
-	desc = "Плотно закрытая пороховая бочка. У неё виднеется фитиль на 10 секунд, возможно."
+	desc = "Плотно закрытая пороховая бочка. У неё виднеется фитиль."
 	icon_state = "bomb"
 	var/explosion_size = 3
 	nothrow = TRUE
@@ -298,6 +298,7 @@
 	var/damage_step = 2	  //projectiles lose a fragment each time they travel this distance. Can be a non-integer.
 	var/big_bomb = FALSE
 	var/spread_range = 7
+	armsound = 'lambda/sanecman/sound/grenade/generic_checkout_2.ogg'
 	heavy_armor_penetration = 3
 	explosion_sound = 'sound/weapons/Explosives/FragGrenade.ogg'
 /obj/item/weapon/grenade/modern/prime()
@@ -420,6 +421,7 @@
 	icon_state = "detonator"
 	det_time = 35
 	throw_range = 12
+	armsound = 'lambda/sanecman/sound/grenade/td_checkout.ogg'
 
 /obj/item/weapon/grenade/modern/t68
 	name = "граната Type68"
@@ -598,9 +600,11 @@
 	secondary_action = TRUE
 	var/explosion_size = 2
 	var/spread_range = 7
+	armsound = 'lambda/sanecman/sound/grenade/generic_checkout_1.ogg'
 
 /obj/item/weapon/grenade/modern
 	secondary_action = TRUE
+	armsound = 'lambda/sanecman/sound/grenade/generic_checkout_2.ogg'
 
 /obj/item/weapon/grenade/coldwar
 	heavy_armor_penetration = 6
@@ -609,7 +613,7 @@
 	var/fragment_damage = 15
 	var/damage_step = 2	  //projectiles lose a fragment each time they travel this distance. Can be a non-integer.
 	var/big_bomb = FALSE
-
+	armsound = 'lambda/sanecman/sound/grenade/generic_checkout_4.ogg'
 	//The radius of the circle used to launch projectiles. Lower values mean less projectiles are used but if set too low gaps may appear in the spread pattern
 	var/spread_range = 7
 	secondary_action = TRUE
@@ -646,6 +650,7 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	det_time = 10
+	armsound = 'lambda/sanecman/sound/grenade/generic_checkout_1.ogg'
 	var/armed = "disarmed"
 
 /obj/item/weapon/grenade/suicide_vest/prime()
@@ -894,6 +899,7 @@
 	det_time = 50
 	throw_range = 5
 	heavy_armor_penetration = 22
+	armsound = 'lambda/sanecman/sound/grenade/generic_checkout_5.ogg'
 
 /obj/item/weapon/grenade/antitank/rpg40
 	name = "РПГ-40"

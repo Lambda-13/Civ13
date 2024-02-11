@@ -2,7 +2,7 @@
 /obj/map_metadata/colony
 	ID = MAP_COLONY
 	title = "Colony"
-	lobby_icon = "icons/lobby/imperial.png"
+	lobby_icon = 'icons/lobby/imperial.png'
 	no_winner ="The round is proceeding normally."
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
 	respawn_delay = 7200 // 12 minutes!
@@ -28,7 +28,7 @@
 	faction1 = INDIANS
 	faction2 = CIVILIAN
 	songs = list(
-		"Nassau Shores:1" = "sound/music/nassau_shores.ogg",)
+		"Nassau Shores:1" = 'sound/music/nassau_shores.ogg',)
 	gamemode = "Colony Building RP"
 	is_RP = TRUE
 	grace_wall_timer = 15000

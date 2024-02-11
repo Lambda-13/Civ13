@@ -12,7 +12,7 @@ var/civmax_research = list(230,230,230)
 	var/ID = null // MUST be text, or aspects will break
 	var/no_winner = "Neither side has captured the other side's base."
 	var/title = null
-	var/lobby_icon = "icons/lobby/civ13.gif"
+	var/lobby_icon = 'icons/lobby/civ13.gif' // Апдейт - одиночная кавычка + маршрут необходимы для картинки в лобби
 	var/list/caribbean_blocking_area_types = list()
 	var/list/allow_bullets_through_blocks = list()
 	var/last_crossing_block_status[3]
@@ -39,7 +39,7 @@ var/civmax_research = list(230,230,230)
 		list(BRITISH) = /area/caribbean/british)
 	var/list/ambience = list('sound/ambience/ship1.ogg')
 	var/list/songs = list(
-		"Nassau Shores:1" = "sound/music/nassau_shores.ogg",)
+		"Nassau Shores:1" = 'sound/music/nassau_shores.ogg',) // Для звуков/музыки и прочего говна указывать всё в OGG, используя единичную кавычку ''
 	var/mission_start_message = "Раунд скоро начнётся!"
 	var/is_RP = FALSE
 	var/mosinonly = FALSE
@@ -241,6 +241,7 @@ var/civmax_research = list(230,230,230)
 	var/list/lizard = list()
 	var/list/wolfman = list()
 	var/list/crab = list()
+	var/list/droid = list()
 
 	var/list/berryeffects = list(list("neutral","neutral","water"), list("tinto","neutral","water"), list("amar","neutral","water"), list("majo","neutral","water"), list("narco","neutral","water"), list("azul","neutral","water"), list("zelenyy","neutral","water"), list("marron","neutral","water"), list("corcairghorm","neutral","water"))
 

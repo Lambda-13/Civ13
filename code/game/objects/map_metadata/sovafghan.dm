@@ -2,7 +2,7 @@
 	ID = MAP_SOVAFGHAN
 	title = "Soviet-Afghan War"
 	no_winner ="The region of Kandahar is still contested."
-	lobby_icon = "icons/lobby/sovafghan.png"
+	lobby_icon = 'icons/lobby/sovafghan.png'
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall, /area/caribbean/no_mans_land/invisible_wall/one, /area/caribbean/no_mans_land/invisible_wall/two)
 	respawn_delay = 600
 	has_hunger = TRUE
@@ -25,7 +25,7 @@
 	faction2 = RUSSIAN
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET, WEATHER_EXTREME)
 	songs = list(
-		"Swallowing Dust:1" = "sound/music/swallowingdust.ogg")
+		"Swallowing Dust:1" = 'sound/music/swallowingdust.ogg')
 	gamemode = "Afghan"
 	artillery_count = 3
 	var/sov_points = 0

@@ -373,6 +373,8 @@ var/list/vocal_emotes = list(
 							playsound(get_turf(src), "charge_LIZARD", 100)
 						else if (gorillaman == 1)
 							playsound(get_turf(src), "charge_GORILLA", 100)
+						else if (droid == 1)
+							playsound(get_turf(src), "change_DROID", 100)
 						else //If you are not a special race, check normal factions.
 							//You should never have more then two factions.
 							switch(faction_text)

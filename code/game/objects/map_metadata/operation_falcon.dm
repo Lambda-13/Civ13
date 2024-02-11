@@ -2,7 +2,7 @@
 /obj/map_metadata/operation_falcon
 	ID = MAP_OPERATION_FALCON
 	title = "Operation Falcon"
-	lobby_icon = "icons/lobby/operation_falcon.png"
+	lobby_icon = 'icons/lobby/operation_falcon.png'
 	no_winner = "The battle for the city is still going on."
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall,/area/caribbean/no_mans_land/invisible_wall/one,/area/caribbean/no_mans_land/invisible_wall/two)
 	respawn_delay = 600
@@ -24,7 +24,7 @@
 	faction2 = RUSSIAN
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET, WEATHER_EXTREME)
 	songs = list(
-		"Doe Maar - The Bomb (De Bom):1" = "sound/music/de_bom.ogg",)
+		"Doe Maar - The Bomb (De Bom):1" = 'sound/music/de_bom.ogg',)
 	gamemode = "Area Control"
 	ambience = list('sound/ambience/battle1.ogg')
 	var/rus_points = 0

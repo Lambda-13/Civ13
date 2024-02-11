@@ -2,7 +2,7 @@
 /obj/map_metadata/reichstag
 	ID = MAP_REICHSTAG
 	title = "Reichstag"
-	lobby_icon = "icons/lobby/reichstag.png"
+	lobby_icon = 'icons/lobby/reichstag.png'
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall,/area/caribbean/no_mans_land/invisible_wall/one,/area/caribbean/no_mans_land/invisible_wall/two)
 	respawn_delay = 1200
 	no_winner ="The reichstag is under German control."
@@ -25,7 +25,7 @@
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET)
 	grace_wall_timer = 3000
 	songs = list(
-		"Red Army Choir - Katyusha:1" = "sound/music/katyusha.ogg",)
+		"FLER - Neue Deutsche Welle:1" = 'sound/music/neue_deutsche_welle.ogg',)
 	gamemode = "Siege"
 
 /obj/map_metadata/reichstag/job_enabled_specialcheck(var/datum/job/J)
