@@ -118,10 +118,7 @@
 	throw_distance = 40
 	max_grenades = 0
 	var/A_attached = FALSE
-	var/image/ongun
-	New()
-		..()
-		ongun = image("icon" = 'icons/obj/gun_att.dmi', "icon_state" = "[icon_state]_ongun")
+	var/mount = "none"
 
 /obj/item/weapon/gun/launcher/grenade/underslung/attack_self()
 	return
@@ -156,6 +153,7 @@
 	release_force = 2
 	throw_distance = 40
 	desc = "Not much more than a tube and a firing mechanism, this grenade launcher is designed to be fitted to a rifle."
+	mount = "m203_mount"
 	whitelisted_grenades = list(
 		/obj/item/weapon/grenade/frag/ugl/shell40mm,
 		/obj/item/weapon/grenade/smokebomb/ugl/shell40mm,
@@ -174,6 +172,7 @@
 	release_force = 2
 	throw_distance = 40
 	desc = "Not much more than a tube and a firing mechanism, this grenade launcher is designed to be fitted to a rifle."
+	mount = "gp25_mount"
 	whitelisted_grenades = list(
 		/obj/item/weapon/grenade/frag/ugl/vog25,
 		/obj/item/weapon/grenade/smokebomb/ugl/vog25
