@@ -37,7 +37,7 @@
 	attack_verb = list("struck", "hit", "bashed")
 
 	var/full_auto = FALSE
-	var/fire_delay = 1 	//delay after shooting before the gun can be used again
+	var/fire_delay = 5 	//delay after shooting before the gun can be used again
 	var/fire_sound = 'sound/weapons/guns/fire/rifle.ogg'
 	var/silencer_fire_sound = 'sound/weapons/guns/fire/AKM-SD.ogg'
 	var/fire_sound_text = "gunshot"
@@ -66,8 +66,6 @@
 	var/tmp/told_cant_shoot = FALSE //So that it doesn't spam them with the fact they cannot hit them.
 	var/tmp/lock_time = -100
 
-	var/list/under_mounts = list() //List of extra compatible unders
-	var/list/scope_mounts = list() //List of extra compatible scopes
 
 	var/damage_modifier = 0
 
@@ -396,25 +394,30 @@
 
 	var/dt = world.time - last_shot_time
 
-	var/shot_recoil = next_shot_recoil / (dt * ergonomics * 0.75)
+	var/shot_recoil = next_shot_recoil
+
+	if (user.client.moving)
+		next_shot_recoil *= 2
 
 	if(user.lying || user.prone)
-		shot_recoil /= 2.5
+		next_shot_recoil /= 2
 
+	if(istype(user, /mob/living/human))
+		var/mob/living/human/firer = user
+		next_shot_recoil /= firer.getStatCoeff(stat)
+
+	if (next_shot_recoil > 0)
+		shot_recoil = clamp(next_shot_recoil - dt * sqrt(ergonomics), 0, 40)
+	else if (next_shot_recoil < 0)
+		shot_recoil = clamp(next_shot_recoil + dt * sqrt(ergonomics), -40, 0)
 	var/shot_accuracy = rand(-accuracy, accuracy)
 
-	if (world.time - user.last_movement < 4)
-		shot_accuracy *= 5
-		shot_recoil *= 2
-
-	var/shot_dispersion = clamp(shot_recoil + shot_accuracy, -45, 45)
-
+	var/shot_dispersion = clamp(shot_recoil + shot_accuracy, -40, 40)
 	P.dispersion = shot_dispersion
 
 	//shooting while in shock
 	var/x_offset = 0
 	var/y_offset = 0
-
 	if (istype(user, /mob/living/human))
 		var/mob/living/human/mob = user
 		if (mob.shock_stage > 120)
@@ -425,10 +428,11 @@
 			x_offset = rand(-1,1)
 
 	if(!P.launch(target, user, src, target_zone, x_offset, y_offset))
-		next_shot_recoil += rand(-recoil, recoil)
-		if(abs(next_shot_recoil) >= 25)
-			next_shot_recoil = clamp(next_shot_recoil, -25, 25)
-			next_shot_recoil /= rand(2, 4)
+		next_shot_recoil = shot_recoil + rand(-recoil, recoil)
+		if (next_shot_recoil >= 20)
+			next_shot_recoil += rand(-recoil, 0)
+		if (next_shot_recoil <= -20)
+			next_shot_recoil += rand(0, recoil)
 		last_shot_time = world.time
 		return FALSE
 	return TRUE

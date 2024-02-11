@@ -36,7 +36,7 @@ Example for later use:
 /obj/random/proc/spawn_item()
 	if(prob(spawn_nothing_percentage))
 		return
-
+    
 	if(isnull(loc))
 		return
 
@@ -112,16 +112,16 @@ Example for later use:
     icon_state = "magazine"
 /obj/random/magazine/ak47/spawn_choices()
 	return list(/obj/item/ammo_magazine/ak47,
-                /obj/item/ammo_magazine/rpk47/drum)
+                /obj/item/ammo_magazine/ak47/drum)
 
 /obj/random/magazine/ak74
     name = "random ak magazine"
     icon_state = "magazine"
 /obj/random/magazine/ak74/spawn_choices()
 	return list(/obj/item/ammo_magazine/ak74,
-                /obj/item/ammo_magazine/rpk47/drum)
+                /obj/item/ammo_magazine/ak74/drum)
 
-
+		
 ////////////////Medical////////////////
 /obj/item/weapon/storage/eft/medical
 	name = "medical bag"
