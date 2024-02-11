@@ -684,7 +684,7 @@
 
 	//penetrating projectiles can pass through things that otherwise would not let them
 	++penetrating
-	if (((T.density || istype(T, /obj/structure/window/barrier)) && penetrating > 0))
+	if ((T.density && penetrating > 0))
 		if (check_penetrate(T))
 			passthrough = TRUE
 			passthrough_message = "<span class = 'warning'>Пуля  пробивает насквозь [T]!</span>"

@@ -979,6 +979,3 @@
 
 /// From /datum/admins/proc/force_predator_round()
 #define COMSIG_GLOB_PREDATOR_ROUND_TOGGLED "!predator_round_toglged"
-
-#define FOOD_CAN_OPENED "food_can_opened"
-#define CLOSET_OPENED "closet_opened"

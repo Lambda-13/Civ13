@@ -2,7 +2,7 @@
 	ID = MAP_HILL_3234
 	title = "Battle for Hill 3234"
 	no_winner = "Hill 3234 is still under Soviet control."
-	lobby_icon = 'icons/lobby/sovafghan.png'
+	lobby_icon = "icons/lobby/sovafghan.png"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall, /area/caribbean/no_mans_land/invisible_wall/one, /area/caribbean/no_mans_land/invisible_wall/two)
 	respawn_delay = 0
 	victory_time = 24000
@@ -24,7 +24,7 @@
 	faction2 = ARAB
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET)
 	songs = list(
-		"Kino - Gruppa Krovi (Blood Group):1" = 'sound/music/gruppakrovi.ogg',)
+		"Kino - Gruppa Krovi (Blood Group):1" = "sound/music/gruppakrovi.ogg",)
 	gamemode = "Siege"
 	artillery_count = 3
 	grace_wall_timer = 3000

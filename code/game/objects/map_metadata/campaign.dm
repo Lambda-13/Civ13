@@ -2,7 +2,7 @@
 /obj/map_metadata/campaign
 	ID = MAP_CAMPAIGN
 	title = "Campaign"
-	lobby_icon = 'icons/lobby/campaign.png'
+	lobby_icon = "icons/lobby/campaign.png"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall,/area/caribbean/no_mans_land/invisible_wall/temperate)
 	respawn_delay = 1800
 	no_winner = "The battle is going on."
@@ -25,7 +25,7 @@
 	faction2 = CIVILIAN
 	valid_weather_types = list(WEATHER_WET, WEATHER_NONE, WEATHER_EXTREME)
 	songs = list(
-		"Emma:1" = 'sound/music/emma.ogg',)
+		"Emma:1" = "sound/music/emma.ogg",)
 	artillery_count = 0
 	scores = list(
 		"Blugoslavia" = 0,

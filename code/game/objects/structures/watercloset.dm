@@ -736,10 +736,7 @@
 
 /obj/structure/sink/New()
 	..()
-	if(crafted)
-		refill()
-		return
-	max_volume = 10000
+	refill()
 
 /obj/structure/sink/proc/refill()
 	if (volume < max_volume)
@@ -1028,8 +1025,8 @@
 			if (src.x < 256)
 				mosquito_proc()
 
-	if (map.chad_mode && map.ID != MAP_NOMADS_AFRICA)
-		spawn(2000)
+	spawn(2000)
+		if (map.chad_mode && map.ID != MAP_NOMADS_AFRICA)
 			mosquito_limit = 1
 			mosquito_proc()
 

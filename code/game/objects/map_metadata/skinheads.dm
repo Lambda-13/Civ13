@@ -1,8 +1,7 @@
-// Около рабочая (Ещё один Араб Даун Ру, который запускается только на локалке)
 /obj/map_metadata/skinheads
 	ID = MAP_SKINHEADS
 	title = "Skinheads"
-	lobby_icon = 'icons/lobby/skinheads.png'
+	lobby_icon = "icons/lobby/skinheads.png"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/jungle,/area/caribbean/no_mans_land/invisible_wall/jungle/one,/area/caribbean/no_mans_land/invisible_wall/inside/two)
 	respawn_delay = 300
 	no_winner ="Противостояние будет продолжаться."
@@ -24,7 +23,7 @@
 	faction2 = CIVILIAN
 	valid_weather_types = list(WEATHER_WET, WEATHER_NONE, WEATHER_EXTREME)
 	songs = list(
-		"Bad To The Bonehead - Prodolzhay Borby:1" = 'lambda/legasy/music/borby.ogg',)
+		"Bad To The Bonehead - Prodolzhay Borby:1" = "lambda/legasy/music/borby.ogg",)
 	scores = list(
 		"Милиция" = 0,
 		"Скинхеды" = 0,

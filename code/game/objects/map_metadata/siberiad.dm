@@ -1,7 +1,7 @@
 /obj/map_metadata/siberiad
 	ID = MAP_SIBERIAD
 	title = "Secret war Siberia"
-	lobby_icon = 'icons/lobby/siberiad.png'
+	lobby_icon = "icons/lobby/siberiad.png"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall,/area/caribbean/no_mans_land/invisible_wall/one,/area/caribbean/no_mans_land/invisible_wall/two)
 	respawn_delay = 0
 	no_hardcore = FALSE
@@ -22,7 +22,7 @@
 	faction2 = RUSSIAN
 	ordinal_age = 5
 	songs = list(
-		"Napalm sticks to kids:1" = 'sound/music/napalmsticsktokidsbycortex.ogg')
+		"Napalm sticks to kids:1" = "sound/music/napalmsticsktokidsbycortex.ogg")
 	gamemode = "King of the Hill"
 /obj/map_metadata/siberiad/faction2_can_cross_blocks()
 	return (processes.ticker.playtime_elapsed >= 3600 || admin_ended_all_grace_periods)

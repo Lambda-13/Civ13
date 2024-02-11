@@ -2,7 +2,7 @@
 /obj/map_metadata/dvojka
 	ID = MAP_DVOJKA
 	title = "dvojka"
-	lobby_icon = 'icons/lobby/dvojka.png'
+	lobby_icon = "icons/lobby/dvojka.png"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/one)
 	respawn_delay = 1200
 
@@ -24,7 +24,7 @@
 	grace_wall_timer = 3600
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET, WEATHER_EXTREME)
 	songs = list(
-		"Red Army Choir - Katyusha:1" = 'sound/music/katyusha.ogg',)
+		"Red Army Choir - Katyusha:1" = "sound/music/katyusha.ogg",)
 
 /obj/map_metadata/dvojka/roundend_condition_def2name(define)
 	..()

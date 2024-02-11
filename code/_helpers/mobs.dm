@@ -338,7 +338,7 @@ proc/skintone2racedescription(tone)
 		if (-45 to -25)					return "тёмнокожий"
 		if (-65 to -45)					return "коричневатый"
 		if (-INFINITY to -65)			return "темнокожий"
-		else							return "цветной"
+		else							return "неизвестного цвета"
 
 proc/age2agedescription(age)
 	switch(age)
@@ -351,7 +351,7 @@ proc/age2agedescription(age)
 		if (45 to 60)					return "престарелый"
 		if (60 to 70)					return "старик"
 		if (70 to INFINITY)				return "очень старый"
-		else							return "древний"
+		else							return "ещё не рождёный"
 
 proc/ageAndGender2Desc(age, gender)//Used for the radio
 	if (gender == FEMALE)
@@ -360,14 +360,14 @@ proc/ageAndGender2Desc(age, gender)//Used for the radio
 			if (15 to 25)				return "Подросток"
 			if (25 to 60)				return "Женщина"
 			if (60 to INFINITY)			return "Старик"
-			else						return "???"
+			else						return "Кто-то"
 	else
 		switch(age)
 			if (0 to 15)				return "Пацан"
 			if (15 to 25)				return "Подросток"
 			if (25 to 60)				return "Мужик"
 			if (60 to INFINITY)			return "Старик"
-			else						return "???"
+			else						return "Кто-то"
 
 proc/bodyGender2Desc(gender)
 	if (gender == FEMALE)

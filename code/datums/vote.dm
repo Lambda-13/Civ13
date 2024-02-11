@@ -242,7 +242,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 					else if (!map.is_RP && !map.nomads && !map.civilizations)
 						if (clients.len < 10)
 							options = list("Easy", "Normal", "Competitive")
-						else if  (clients.len < 14)
+						else if  (clients.len < 20)
 							options = list("Easy", "Normal", "Competitive", "Hardcore")
 						else
 							options = list("Easy", "Normal", "Competitive", "Hardcore", "RealLive")

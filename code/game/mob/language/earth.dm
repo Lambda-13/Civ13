@@ -36,7 +36,6 @@
 #define NORWEGIAN_SYLLABLES list("ja","ga","et","de","ka","vi","ik","bli","ve","ke","ste","der","dej","mi","eg","end","ere","ers","ese","gen","hen","ich","ige","ine","ist","lic","lle","men","mit","nde","nen","nge","ike","sto","ren","sch","sei","jep")
 #define PASHTO_SYLLABLES list("aa", "bal", "bara", "be", "bi", "bo", "bu", "ce", "ci", "co", "cu", "che", "chi", "cho", "chu", "da", "dar", "de", "di", "do", "du", "ee", "fa", "far", "fe", "fi", "fo", "fu", "ga", "gar", "ge", "gi", "go", "gu", "ja", "jar", "je", "ji", "jo", "ju", "khe", "khi", "kho", "khu", "la", "le", "li", "lo", "lu", "ma", "mi", "mo", "mu", "na", "nar", "ne", "ni", "no", "nu", "pa", "pe", "pi", "po", "pu", "qa", "qe", "qi", "qo", "qu", "re", "ri", "ro", "ru", "se", "she", "shi", "sho", "shu", "ta", "te", "ti", "to", "tu", "ve", "vi", "vo", "vu", "ya", "yar", "ye", "yi", "yo", "yu", "zan", "ze", "zi", "zo", "zu", "baal", "bala", "bar", "bara", "che", "dar", "dara", "fa", "far", "kala", "kho", "khor", "ma", "mar", "na", "nar", "pa", "para", "qa", "ra", "ro", "se", "sho", "shu", "ta", "to", "ve", "vi", "za", "zara")
 #define DARI_SYLLABLES list("aa", "and", "ba", "bal", "bar", "be", "bi", "bo", "bu", "da", "dar", "de", "di", "do", "du", "fa", "far", "fe", "fi", "fo", "fu", "ga", "gar", "ge", "gi", "go", "gu", "ha", "har", "he", "hi", "ho", "hu", "ja", "jar", "je", "ji", "jo", "ju", "ka", "kar", "ke", "ki", "ko", "ku", "la", "le", "li", "lo", "lu", "ma", "mar", "me", "mi", "mo", "mu", "na", "nar", "ne", "ni", "no", "nu", "pa", "par", "pe", "pi", "po", "pu", "qa", "qe", "qi", "qo", "qu", "ra", "ran", "re", "ri", "ro", "ru", "sa", "sar", "se", "si", "so", "su", "ta", "tar", "te", "ti", "to", "tu", "va", "var", "ve", "vi", "vo", "vu", "ya", "yar", "ye", "yi", "yo", "yu", "za", "zar", "ze", "zi", "zo", "zu", "baa", "bari", "dari", "gar", "gari", "kan", "kar", "mand", "mar", "nand", "par", "sart", "tard", "var", "zand", "zar")
-#define DROID_SYLLABLES list("0", "1", "01", "10", "101", "010", "1010", "0101", "10101", "01010", "101010", "010101", "101010", "0101010", "1010101")
 
 /datum/language/portuguese
 	name = "Portuguese"
@@ -483,13 +482,4 @@
 	colour = "Greenistani"
 	flags = RESTRICTED | COMMON_VERBS
 	syllables = CHECHEN_SYLLABLES
-	mutual_intelligibility = list()
-
-/datum/language/droid
-	name = "Binary"
-	desc = "Бинарный язык дройдов."
-	key = "bn"
-	colour = "Binary"
-	flags = RESTRICTED | COMMON_VERBS
-	syllables = DROID_SYLLABLES
 	mutual_intelligibility = list()

@@ -2,7 +2,7 @@
 /obj/map_metadata/czech_border
 	ID = MAP_czech_border
 	title = "Battle On the Czech border"
-	lobby_icon = 'icons/lobby/coldwar'
+	lobby_icon = "icons/lobby/ "
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/temperate,/area/caribbean/no_mans_land/invisible_wall/temperate/one,/area/caribbean/no_mans_land/invisible_wall/temperate/one)
 	respawn_delay = 1200
 	no_winner ="The Village is under Czech control."
@@ -23,7 +23,7 @@
 	faction2 = NATO
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET)
 	songs = list(
-		"Red Army Choir - Katyusha:1" = 'sound/music/putmusichere',)
+		"Red Army Choir - Katyusha:1" = "sound/music/putmusichere",)
 	gamemode = "Siege"
 	grace_wall_timer = 4800
 

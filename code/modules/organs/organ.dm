@@ -49,7 +49,7 @@ var/list/organ_cache = list()
 /obj/item/organ/proc/organ_check()
 	if (!src)
 		return
-/*	if (!loc || isturf(loc))
+	if (!loc || isturf(loc))
 		spawn(3000)
 			if (src)
 				if (!loc || isturf(loc))
@@ -57,7 +57,7 @@ var/list/organ_cache = list()
 					return
 	spawn(3000)
 		if (src)
-			organ_check()*/
+			organ_check()
 
 /obj/item/organ/proc/update_health()
 	return

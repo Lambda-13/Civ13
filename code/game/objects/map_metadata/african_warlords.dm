@@ -2,10 +2,11 @@
 /obj/map_metadata/african_warlords
 	ID = MAP_AFRICAN_WARLORDS
 	title = "African Warlords"
-	lobby_icon = 'icons/lobby/africanwarlords.png'
+	lobby_icon = "icons/lobby/africanwarlords.png"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/jungle,/area/caribbean/no_mans_land/invisible_wall/jungle/one,/area/caribbean/no_mans_land/invisible_wall/jungle/two,/area/caribbean/no_mans_land/invisible_wall/jungle/three)
 	respawn_delay = 300
 	no_winner ="No warband has won yet."
+	lobby_icon = "africanwarlords.png"
 	faction_organization = list(INDIANS)
 
 	faction_organization = list(INDIANS, CIVILIAN)
@@ -24,7 +25,7 @@
 	faction2 = CIVILIAN
 	valid_weather_types = list(WEATHER_WET, WEATHER_NONE, WEATHER_EXTREME)
 	songs = list(
-		"Barrington Levy - Murderer:1" = 'sound/music/murderer.ogg',)
+		"Barrington Levy - Murderer:1" = "sound/music/murderer.ogg",)
 	scores = list(
 		"Blugisi" = 0,
 		"Yellowagwana" = 0,

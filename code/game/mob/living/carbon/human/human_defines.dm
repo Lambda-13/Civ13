@@ -120,7 +120,6 @@
 	var/lizard = FALSE
 	var/wolfman = FALSE
 	var/crab = FALSE
-	var/droid = FALSE
 	var/nationality = "none"
 	var/classtf2 = "none"
 	/* These are stats. They affect how fast and how well you can do certain

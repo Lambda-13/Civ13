@@ -115,8 +115,6 @@
 	opened = TRUE
 	playsound(loc, open_sound, 100, TRUE, -3)
 	density = FALSE
-	for(var/obj/item/weapon/reagent_containers/food/food in contents)
-		SEND_SIGNAL(food, CLOSET_OPENED)
 	return TRUE
 
 /obj/structure/closet/proc/close()

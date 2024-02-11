@@ -1916,8 +1916,6 @@
 	if (istype(W, /obj/item/weapon/material/kitchen/utensil/knife))
 		if (!open)
 			open = TRUE
-			for(var/obj/item/weapon/reagent_containers/food/food in contents)
-				SEND_SIGNAL(food, FOOD_CAN_OPENED)
 			update_icon()
 			H << "You open \the [src]."
 		return

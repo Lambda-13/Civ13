@@ -1,7 +1,7 @@
 /obj/map_metadata/ardennes
 	ID = MAP_ARDENNES
 	title = "Ardennes Offensive"
-	lobby_icon = 'icons/lobby/ardennes.png'
+	lobby_icon = "icons/lobby/ardennes.png"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/tundra/three,/area/caribbean/no_mans_land/invisible_wall/tundra/two,/area/caribbean/no_mans_land/invisible_wall/tundra/one)
 	respawn_delay = 1200
 	no_winner = "The HQ stays under American control, stalling the German offense."
@@ -24,7 +24,7 @@
 	grace_wall_timer = 3000
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET)
 	songs = list(
-		"Woody Guthrine - Tear the Fascists Down:1" = 'sound/music/tearthefascists.ogg',)
+		"Woody Guthrine - Tear the Fascists Down:1" = "sound/music/tearthefascists.ogg",)
 	gamemode = "Siege"
 
 /obj/map_metadata/ardennes/job_enabled_specialcheck(var/datum/job/J)

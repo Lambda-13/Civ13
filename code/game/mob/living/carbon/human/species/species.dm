@@ -598,10 +598,6 @@
 		else
 			return capitalize(pick(first_names_male_filipino)) + " " + capitalize(pick(last_names_filipino))
 
-/datum/species/proc/get_random_droid_name(var/gender)
-	if (!name_language)
-		return capitalize(pick("A","B","C","E","F","G")) + "-" + capitalize(rand(100,10000))
-
 /datum/species/proc/create_organs(var/mob/living/human/H) //Handles creation of mob organs.
 
 	for (var/obj/item/organ/organ in H.contents)

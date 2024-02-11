@@ -87,16 +87,6 @@
 					real_name = name
 					give_clothes()
 
-				if ("Droid")
-					droid = 1
-					religion = "Clankers"
-					add_language("Binary",TRUE)
-					for (var/datum/language/droid/A in languages)
-						default_language = A
-					name = species.get_random_droid_name(gender)
-					real_name = name
-					give_clothes()
-
 			var/choice1 = "English"
 			if (choice_race == "Human")
 				religion = "Father in the Sky"

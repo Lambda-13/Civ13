@@ -1776,7 +1776,6 @@ obj/item/stack/Crossed(var/obj/item/stack/S)
 				for(A in handReturnMap[H.key])
 					O = new A.type()
 					H.put_in_hands(O)
-					O.crafted = TRUE
 				handReturnMap.Remove(H.key)
 			return
 
@@ -1854,10 +1853,8 @@ obj/item/stack/Crossed(var/obj/item/stack/S)
 		var/atom/O
 		if (recipe && recipe.use_material && recipe.result_type)
 			O = new recipe.result_type(user.loc, recipe.use_material)
-			O.crafted = TRUE
 		else
 			O = new recipe.result_type(user.loc)
-			O.crafted = TRUE
 
 		if(istype(O, /obj/structure/cannon/modern/tank))
 			var/obj/structure/cannon/modern/tank/T = O

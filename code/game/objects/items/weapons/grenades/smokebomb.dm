@@ -6,7 +6,6 @@
 	det_time = 20
 	item_state = "smoke_grenade"
 	slot_flags = SLOT_BELT
-	armsound = 'lambda/sanecman/sound/grenade/generic_checkout_2.ogg'
 	var/datum/effect/effect/system/smoke_spread/bad/smoke
 
 /obj/item/weapon/grenade/smokebomb/New()

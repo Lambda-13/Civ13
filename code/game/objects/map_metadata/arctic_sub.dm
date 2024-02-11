@@ -1,7 +1,7 @@
 /obj/map_metadata/arctic_sub
 	ID = MAP_ARCTIC_SUB
 	title = "Battle for the Submarine"
-	lobby_icon = 'icons/lobby/arcticsub.png'
+	lobby_icon = "icons/lobby/arcticsub.png"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/tundra/one)
 	respawn_delay = 1200
 	no_winner = "The siege is still underway."
@@ -25,7 +25,7 @@
 	faction2 = RUSSIAN
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET, WEATHER_EXTREME)
 	songs = list(
-		"Visonia - Antarctic Love:1" = 'sound/music/antarcticlove.ogg',)
+		"Visonia - Antarctic Love:1" = "sound/music/antarcticlove.ogg",)
 	gamemode = "Siege"
 
 /obj/map_metadata/arctic_sub/faction1_can_cross_blocks()

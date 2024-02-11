@@ -144,7 +144,7 @@
 	w_right = list("c_door",TRUE,TRUE,15,15,TRUE,TRUE)
 	doorcode = 11940
 
-/obj/structure/vehicleparts/frame/t20 //ТРААААААААКТОР
+/obj/structure/vehicleparts/frame/t20
 
 /obj/structure/vehicleparts/frame/t20/lf
 	w_left = list("c_wall",TRUE,TRUE,20,20,FALSE,FALSE,TRUE)
@@ -210,36 +210,34 @@
 	w_left = list("c_door",TRUE,TRUE,15,15,TRUE,TRUE)
 	doorcode = 4975
 
-/obj/structure/vehicleparts/frame/bt7 // Пробуем 2x4 коробочку
+/obj/structure/vehicleparts/frame/bt7
 
-/obj/structure/vehicleparts/frame/bt7/lf
-	w_front = list("c_armoredfront",TRUE,TRUE,38,50,FALSE,FALSE)
-	w_left = list("c_wall",TRUE,TRUE,34,50,FALSE,FALSE)
-
-/obj/structure/vehicleparts/frame/bt7/rf
-	w_front = list("c_armoredfront",TRUE,TRUE,38,50,FALSE,FALSE,TRUE)
-	w_right = list("c_wall",TRUE,TRUE,34,50,FALSE,FALSE)
-
-/obj/structure/vehicleparts/frame/bt7/lfc
-	w_left = list("c_wall",TRUE,TRUE,15,15,FALSE,FALSE)
-
-/obj/structure/vehicleparts/frame/bt7/rfc
+/obj/structure/vehicleparts/frame/bt7/front
+	w_front = list("c_wall",TRUE,TRUE,30,30,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/bt7/back
+	w_back = list("c_wall",TRUE,TRUE,25,25,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/bt7/left
+	w_left = list("c_wall",TRUE,TRUE,25,25,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/bt7/right
+	w_right = list("c_wall",TRUE,TRUE,25,25,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/bt7/left/door
+	w_left = list("c_door",TRUE,TRUE,15,15,TRUE,TRUE)
+	doorcode = 11940
+/obj/structure/vehicleparts/frame/bt7/right/door
 	w_right = list("c_door",TRUE,TRUE,15,15,TRUE,TRUE)
-	doorcode = 4975
-
-/obj/structure/vehicleparts/frame/bt7/lbc
-	w_left = list("c_wall",TRUE,TRUE,34,50,FALSE,FALSE)
-
-/obj/structure/vehicleparts/frame/bt7/rbc
-	w_right = list("c_wall",TRUE,TRUE,34,50,FALSE,FALSE)
-
-/obj/structure/vehicleparts/frame/bt7/lb
-	w_back = list("c_wall",TRUE,TRUE,25,50,FALSE,FALSE)
-	w_left = list("c_wall",TRUE,TRUE,34,50,FALSE,FALSE)
-
+	doorcode = 11940
 /obj/structure/vehicleparts/frame/bt7/rb
-	w_back = list("c_wall",TRUE,TRUE,25,50,FALSE,FALSE)
-	w_right = list("c_wall",TRUE,TRUE,34,50,FALSE,FALSE)
+	w_right = list("c_wall",TRUE,TRUE,25,25,FALSE,FALSE)
+	w_back = list("c_wall",TRUE,TRUE,25,25,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/bt7/lb
+	w_left = list("c_wall",TRUE,TRUE,25,25,FALSE,FALSE)
+	w_back = list("c_wall",TRUE,TRUE,25,25,FALSE,FALSE)
+/obj/structure/vehicleparts/frame/bt7/rf
+	w_right = list("c_wall",TRUE,TRUE,30,30,FALSE,FALSE)
+	w_front = list("c_armoredfront",TRUE,TRUE,30,30,FALSE,FALSE,TRUE)
+/obj/structure/vehicleparts/frame/bt7/lf
+	w_left = list("c_wall",TRUE,TRUE,30,30,FALSE,FALSE)
+	w_front = list("c_armoredfront",TRUE,TRUE,30,30,FALSE,FALSE)
 
 /obj/structure/vehicleparts/frame/unattr
 
