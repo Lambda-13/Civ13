@@ -1164,6 +1164,4 @@
 #include "lambda\sanecman\code\soldier_stogie\soldier_stogie.dm"
 #include "lambda\sanecman\code\space\grenade.dm"
 #include "lambda\sanecman\code\space\gun.dm"
-#include "maps\ru\pervomaisk_crossing.dmm"
-// END_INCLUDE
 
