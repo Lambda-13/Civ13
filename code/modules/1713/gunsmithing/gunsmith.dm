@@ -763,7 +763,7 @@
 			load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 			accuracy = TRUE
 			gun_type = GUN_TYPE_RIFLE
-			attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
+			attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 			accuracy_increase_mod = 2.00
 			accuracy_decrease_mod = 6.00
 			KD_chance = KD_CHANCE_HIGH
@@ -846,7 +846,7 @@
 			slot_flags = SLOT_SHOULDER|SLOT_BELT
 			sel_mode = 1
 			full_auto = TRUE
-			attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS
+			attachment_slots = ATTACH_BARREL|ATTACH_IRONSIGHTS
 			good_mags = list(/obj/item/ammo_magazine/emptymagazine,/obj/item/ammo_magazine/emptymagazine/rifle)
 			firemodes = list(
 				list(name = "full auto",	burst=1, burst_delay=1, recoil=1, move_delay=5, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5))
@@ -865,7 +865,7 @@
 			gtype = "mg"
 			w_class = ITEM_SIZE_HUGE
 			heavy = TRUE
-			attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS
+			attachment_slots = ATTACH_BARREL|ATTACH_IRONSIGHTS
 			good_mags = list(/obj/item/ammo_magazine/emptybelt)
 			firemodes = list(
 				list(name = "full auto",	burst=1, burst_delay=1.3, recoil = 1.6, move_delay=8, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.5)),
@@ -902,7 +902,7 @@
 				list(name = "full auto",	burst=1, burst_delay=1.3, recoil=1.3, move_delay=4, dispersion = list(1.2, 1.2, 1.3, 1.4, 1.8)),
 				)
 			sel_mode = 1
-			attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
+			attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 			load_delay = 8
 			gun_type = GUN_TYPE_RIFLE
 
@@ -926,7 +926,7 @@
 				list(name = "full auto",	burst=1, burst_delay=1.3, recoil=1.3, move_delay=4, dispersion = list(1.2, 1.2, 1.3, 1.4, 1.8)),
 				)
 			sel_mode = 1
-			attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
+			attachment_slots =ATTACH_IRONSIGHTS|ATTACH_BARREL
 			load_delay = 8
 			gun_type = GUN_TYPE_RIFLE
 
