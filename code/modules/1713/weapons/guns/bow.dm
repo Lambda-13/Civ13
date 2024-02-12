@@ -94,7 +94,8 @@
 	flammable = TRUE
 	load_delay = 12
 	projtype = "arrow"
-	accuracy = 3
+	recoil = 1
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/bow/compoundbow
 	name = "compound bow"

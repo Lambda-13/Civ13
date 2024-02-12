@@ -11,7 +11,6 @@
 	var/is_hmg = FALSE
 	var/is_laser_mg = FALSE
 	var/has_telescopic = FALSE
-	var/image/scope_image = null
 
 	//gunporn stuff
 	var/unload_sound 	= 'sound/weapons/guns/interact/pistol_magout.ogg'
@@ -33,12 +32,28 @@
 	var/auto_eject_sound = null
 	var/ammo_mag = "default" // magazines + gun itself. if set to default, then not used
 	var/image/mag_image = null
+	var/image/barrel_image = null
+	var/image/scope_image = null
+	var/image/under_image = null
+	var/image/launcher_image = null
+	var/mag_x_offset = 0
+	var/mag_y_offset = 0
+
+	var/barrel_x_offset = 16
+	var/barrel_y_offset = 16
+
+	var/scope_x_offset = 0
+	var/scope_y_offset = 0
+
+	var/under_x_offset = 0
+	var/under_y_offset = 0
+
 	//TODO generalize ammo icon states for guns
 	//var/magazine_states = FALSE
 	//var/list/icon_keys = list()		//keys
 	//var/list/ammo_states = list()	//values
 	var/magazine_based = TRUE
-	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS
+	attachment_slots = ATTACH_BARREL|ATTACH_IRONSIGHTS
 
 	var/load_shell_sound = 'sound/weapons/empty.ogg'
 
@@ -67,15 +82,57 @@
 			ammo_magazine = new magazine_type(src)
 
 	update_icon()
-	if (is_hmg == TRUE && has_telescopic == FALSE)
-		var/obj/item/weapon/attachment/scope/iron_sights/mg/A = new /obj/item/weapon/attachment/scope/iron_sights/mg(src)
-		spawn_add_attachment(A, src)
-	else if (has_telescopic == TRUE)
-		var/obj/item/weapon/attachment/scope/iron_sights/mg/type99/A = new /obj/item/weapon/attachment/scope/iron_sights/mg/type99(src)
+	if (has_telescopic == TRUE)
+		var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/type97/A = new /obj/item/weapon/attachment/scope/adjustable/sniper_scope/type97(src)
 		spawn_add_attachment(A, src)
 	else
 		var/obj/item/weapon/attachment/A = new /obj/item/weapon/attachment/scope/iron_sights(src)
 		spawn_add_attachment(A, src)
+
+/obj/item/weapon/gun/projectile/proc/update_attachment_icon()
+	overlays -= mag_image
+	overlays -= scope_image
+	overlays -= barrel_image
+	overlays -= under_image
+	overlays -= launcher_image
+
+	var/part_icon = 'icons/obj/guns/parts.dmi'
+	var/part_icon_state
+
+	if (scope)
+		part_icon_state = scope.icon_state
+		scope_image = image(icon = part_icon, loc = src, icon_state = part_icon_state, pixel_x = scope_x_offset, pixel_y = scope_y_offset)
+		overlays += scope_image
+
+	if (silencer)
+		part_icon_state = silencer.icon_state
+		barrel_image = image(icon = part_icon, loc = src, icon_state = part_icon_state, pixel_x = barrel_x_offset, pixel_y = barrel_y_offset)
+		overlays += barrel_image
+
+	if (bayonet)
+		part_icon_state = bayonet.icon_state
+		barrel_image = image(icon = part_icon, loc = src, icon_state = part_icon_state, pixel_x = barrel_x_offset, pixel_y = barrel_y_offset)
+		overlays += barrel_image
+
+	if (under)
+		part_icon_state = under.icon_state
+		under_image = image(icon = part_icon, loc = src, icon_state = part_icon_state, pixel_x = under_x_offset, pixel_y = under_y_offset)
+		overlays += under_image
+
+	if (ammo_magazine)
+		part_icon_state = ammo_magazine.attached_icon_state
+		mag_image = image(icon = part_icon, loc = src, icon_state = part_icon_state, pixel_x = mag_x_offset, pixel_y = mag_y_offset)
+		overlays += mag_image
+
+	if (launcher)
+		part_icon_state = launcher.icon_state
+		launcher_image = image(icon = part_icon, loc = src, icon_state = part_icon_state, pixel_x = under_x_offset, pixel_y = under_y_offset)
+		overlays += launcher_image
+
+/obj/item/weapon/gun/projectile/update_icon()
+	update_attachment_icon()
+	update_held_icon()
+
 
 /obj/item/weapon/gun/projectile/proc/cock_gun(mob/user)
 	set waitfor = FALSE

@@ -29,7 +29,6 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
 	handle_casings = HOLD_CASINGS
 	stat = "rifle"
-	move_delay = 4
 	var/recentpump = FALSE // to prevent spammage
 	load_delay = 5
 
@@ -73,7 +72,6 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
 	handle_casings = HOLD_CASINGS
 	stat = "rifle"
-	move_delay = 4
 	var/open = FALSE
 	var/recentpump = FALSE // to prevent spammage
 	load_delay = 5
@@ -147,7 +145,6 @@
 	load_method = SINGLE_CASING
 	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
 	handle_casings = HOLD_CASINGS
-	move_delay = 4
 	load_delay = 5
 
 /obj/item/weapon/gun/projectile/shotgun/pump/remington870/brown
@@ -165,7 +162,6 @@
 	load_method = SINGLE_CASING
 	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
 	handle_casings = HOLD_CASINGS
-	move_delay = 4
 	load_delay = 5
 
 /obj/item/weapon/gun/projectile/shotgun/mts225
@@ -183,7 +179,6 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
 	handle_casings = HOLD_CASINGS
 	stat = "rifle"
-	move_delay = 4
 	var/open = FALSE
 	var/recentpump = FALSE // to prevent spammage
 	load_delay = 3
