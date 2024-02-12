@@ -24,7 +24,6 @@ Current Defines (_defines/attachment.dm)
 	var/A_attached = FALSE // Is attached?
 	w_class = ITEM_SIZE_SMALL
 	var/list/fits = list("pistol", "smg", "rifle", "shotgun", "mg") // What does it fit on?
-	var/ergonomics = 1
 
 /obj/item/weapon/attachment/proc/attached(mob/user, obj/item/weapon/gun/G)
 	user << "<span class = 'notice'>You start to attach [src] to the [G].</span>"
@@ -37,7 +36,6 @@ Current Defines (_defines/attachment.dm)
 		G.verbs += verbs
 		G.attachments += src
 		G.update_attachment_actions(user)
-		G.ergonomics *= src.ergonomics
 		user << "<span class = 'notice'>You attach [src] to the [G].</span>"
 	else
 		return
@@ -48,13 +46,12 @@ Current Defines (_defines/attachment.dm)
 		G.actions -= actions
 		G.verbs -= verbs
 		G.attachment_slots += attachment_type
-		G.ergonomics /= src.ergonomics
 		dropped(user)
 		A_attached = FALSE
 		loc = get_turf(src)
 		user << "You remove [src] from the [G]."
 	else
-		return//
+		return
 
 /obj/item/weapon/gun
 	var/list/attachments = list()
@@ -140,6 +137,21 @@ Current Defines (_defines/attachment.dm)
 			if (ATTACH_UNDER)
 				if (attachment_slots & ATTACH_UNDER)
 					A.attached(user, src, FALSE)
+			if (ATTACH_ADV_SCOPE)
+				if (attachment_slots & ATTACH_ADV_SCOPE)
+					A.attached(user, src, FALSE)
+				else
+					user << "You fumble around with the attachment."
+			if (ATTACH_SILENCER)
+				if (gtype in A.fits)
+					if (attachment_slots & ATTACH_SILENCER)
+						A.attached(user, src, FALSE)
+					else
+						user << "You fumble around with the attachment."
+				else
+					user << "[A] cannot be attached to the [src]."
+			else
+				user << "[A] cannot be attached to the [src]."
 	if (istype(I, /obj/item/weapon/gun/launcher/grenade/underslung))
 		var/obj/item/weapon/gun/launcher/grenade/underslung/G = I
 		if (attachment_slots & ATTACH_UNDER)
@@ -200,7 +212,7 @@ Current Defines (_defines/attachment.dm)
 		if (user)
 			user << "<span class = 'notice'>You attach [src] to the [G].</span>"
 		G.bayonet = src
-		G.update_icon()
+		G.overlays += G.bayonet_ico
 	else
 		if (user)
 			user << "<span class = 'notice'>You start to attach [src] to the [G].</span>"
@@ -214,9 +226,17 @@ Current Defines (_defines/attachment.dm)
 				user.unEquip(src)
 				G.update_attachment_actions(user)
 				user << "<span class = 'notice'>You attach [src] to the [G].</span>"
+				if (istype(src, /obj/item/weapon/attachment/bayonet/flag) && G.bayonet_ico)
+					G.bayonet_ico.icon_state = "[icon_state]_ongun"
+					G.bayonet_ico.pixel_x = 0
+					G.bayonet_ico.pixel_y = 0
+				else
+					G.bayonet_ico.icon_state = "[icon_state]_ongun"
+					G.bayonet_ico.pixel_x = 6
+					G.bayonet_ico.pixel_y = 6
 			loc = G
 			G.bayonet = src
-			G.update_icon()
+			G.overlays += G.bayonet_ico
 		else
 			return
 
@@ -231,7 +251,7 @@ Current Defines (_defines/attachment.dm)
 		loc = get_turf(src)
 		user << "You remove [src] from the [G]."
 		G.bayonet = null
-		G.update_icon()
+		G.overlays -= G.bayonet_ico
 	else
 		return
 
@@ -262,7 +282,6 @@ Current Defines (_defines/attachment.dm)
 		loc = get_turf(src)
 		user << "You remove [src] from the [G]."
 		G.shake_strength = initial(G.shake_strength)
-		G.update_icon()
 	else
 		return
 
@@ -274,104 +293,29 @@ Current Defines (_defines/attachment.dm)
 /obj/item/weapon/attachment/scope/iron_sights/removed(mob/user, obj/item/weapon/gun/G)
 	return
 
+/obj/item/weapon/attachment/scope/iron_sights/mg
+	name = "iron sights"
+	attachment_type = ATTACH_IRONSIGHTS
+	zoom_amt = ZOOM_CONSTANT + 5
+
+/obj/item/weapon/attachment/scope/iron_sights/mg/type99
+	name = "telescopic sights"
+	attachment_type = ATTACH_IRONSIGHTS
+	zoom_amt = ZOOM_CONSTANT + 5
+
 /obj/item/weapon/attachment/scope/adjustable/sniper_scope
 	name = "sniper scope"
-	icon = 'icons/obj/gun_att.dmi'
-	icon_state = "sniper_scope"
+	icon_state = "kar_scope"
 	desc = "You can attach this to rifles... or use them as binoculars. Amplifies 8x."
-	mount = "sniper_scope_mount"
 	max_zoom = ZOOM_CONSTANT*2
-
-/// JAPANESE ///
-
-/obj/item/weapon/attachment/scope/adjustable/sniper_scope/type97
-	name = "Type 97"
-	desc = "You can attach this to japanese ww2 sniper rifles and machineguns"
-	icon_state = "type97"
-	mount = "type97_cronstein"
-
-/// FRENCH ///
-
-/obj/item/weapon/attachment/scope/adjustable/sniper_scope/apx
-	name = "APX"
-	desc = "You can attach this to french ww1 sniper rifles"
-	icon_state = "apx"
-	mount = "apx_cronstein"
-
-/// RUSSIAN ///
-
-/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pu
-	name = "PU"
-	desc = "You can attach this scope to sniper Mosin-Nagan and SVT rifles"
-	icon_state = "pu"
-	mount = "kochetov"
-/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pso1
-	name = "PSO-1"
-	desc = "You can attach this scope to any rifle with dovetail rail"
-	icon_state = "pso1"
-	mount = "dovetail"
-	max_zoom = ZOOM_CONSTANT+3
-/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pso4
-	name = "PSO-4"
-	desc = "You can attach this scope to any rifle with dovetail rail"
-	icon_state = "pso4"
-	mount = "dovetail"
-	max_zoom = ZOOM_CONSTANT+4
-/obj/item/weapon/attachment/scope/adjustable/sniper_scope/spp
-	name = "SPP"
-	desc = "Optical sight designed for heavy machineguns. You can attach this scope to any rifle with dovetail rail"
-	icon_state = "spp"
-	mount = "dovetail"
-	max_zoom = ZOOM_CONSTANT+3
-
-/// GERMAN ///
-
-/obj/item/weapon/attachment/scope/adjustable/sniper_scope/zf39
-	name = "ZF-39"
-	desc = "You can attach this to Kar98 rifles"
-	icon_state = "zf39"
-	mount = "swept_back"
-	max_zoom = ZOOM_CONSTANT+3
-/obj/item/weapon/attachment/scope/adjustable/sniper_scope/zf4
-	name = "ZF-4"
-	desc = "You can attach this to FG42, StG44 and G42 rifles"
-	icon_state = "zf4"
-	mount = "swept_back"
-	max_zoom = ZOOM_CONSTANT+2
-
-/// AMERICAN ///
-
-/obj/item/weapon/attachment/scope/adjustable/sniper_scope/m84
-	name = "M84"
-	desc = "You can attach this to springfield sniper rifles"
-	icon_state = "m84"
-	mount = "picatinny"
-/obj/item/weapon/attachment/scope/adjustable/sniper_scope/acog
-	name = "ACOG"
-	desc = "You can attach this to any rifle with picatinny rail"
-	icon_state = "acog"
-	mount = "picatinny"
-	max_zoom = ZOOM_CONSTANT+3
-/obj/item/weapon/attachment/scope/adjustable/sniper_scope/elcan
-	name = "Elcan"
-	desc = "You can attach this to any rifle with picatinny rail"
-	icon_state = "elcan"
-	mount = "picatinny"
-	max_zoom = ZOOM_CONSTANT+2
-/obj/item/weapon/attachment/scope/adjustable/sniper_scope/vortex_viper
-	name = "Viper Vortex"
-	desc = "You can attach this to any rifle with picatinny rail"
-	icon_state = "vortex_viper"
-	mount = "picatinny"
-	max_zoom = ZOOM_CONSTANT * 3
 
 /obj/item/weapon/attachment/scope/adjustable/sniper_scope/removed(mob/user, obj/item/weapon/gun/G)
 	if (do_after(user, 15, user))
 		G.attachments -= src
 		G.actions -= actions
 		G.verbs -= verbs
+		G.overlays -= G.optics_ico
 		G.attachment_slots += attachment_type
-		G.ergonomics /= src.ergonomics
 		dropped(user)
 		A_attached = FALSE
 		loc = get_turf(src)
@@ -380,24 +324,19 @@ Current Defines (_defines/attachment.dm)
 		if (istype(G, /obj/item/weapon/gun/projectile))
 			var/obj/item/weapon/gun/projectile/W = G
 			W.sniper_scope = FALSE
-			W.scope = null
-		G.update_icon()
+			W.update_icon()
 	else
 		return
 
 /obj/item/weapon/attachment/scope/adjustable/sniper_scope/attached(mob/user, obj/item/weapon/gun/G, var/quick = FALSE)
-	if(!G.scope_mounts.Find(src.mount))
-		user << "[src.name] can't be attached!"
-		return
 	if (quick)
 		A_attached = TRUE
 		G.attachment_slots -= attachment_type
 		loc = G
-		G.scope = src
 		G.actions += actions
 		G.verbs += verbs
 		G.attachments += src
-		G.ergonomics *= ergonomics
+		G.overlays += G.optics_ico
 		if (istype(G, /obj/item/weapon/gun/projectile))
 			var/obj/item/weapon/gun/projectile/W = G
 			W.sniper_scope = TRUE
@@ -410,10 +349,8 @@ Current Defines (_defines/attachment.dm)
 			loc = G
 			G.actions += actions
 			G.verbs += verbs
-			G.scope = src
 			G.attachments += src
 			G.update_attachment_actions(user)
-			G.ergonomics *= src.ergonomics
 			user << "<span class = 'notice'>You attach [src] to the [G].</span>"
 			if (istype(G, /obj/item/weapon/gun/projectile))
 				var/obj/item/weapon/gun/projectile/W = G
@@ -426,19 +363,16 @@ Current Defines (_defines/attachment.dm)
 
 /obj/item/weapon/attachment/scope/adjustable/advanced
 	icon = 'icons/obj/gun_att.dmi'
-	icon_state = "holographic"
+	icon_state = "acog"
+	var/acc_modifier = 1
 	var/scopeonly = TRUE //if the gun must be on scope mode to give the bonuses
-	attachment_type = ATTACH_SCOPE
+	attachment_type = ATTACH_ADV_SCOPE
 	var/image/ongun
-	mount = "scope_mount"
 	New()
 		..()
 		ongun = image("icon" = 'icons/obj/gun_att.dmi', "icon_state" = "[icon_state]_ongun")
 
 /obj/item/weapon/attachment/scope/adjustable/advanced/attached(mob/user, obj/item/weapon/gun/G, var/quick = FALSE)
-	if(!G.scope_mounts.Find(src.mount))
-		user << "[src.name] can't be attached!"
-		return
 	if (quick)
 		A_attached = TRUE
 		G.attachment_slots -= attachment_type
@@ -446,9 +380,9 @@ Current Defines (_defines/attachment.dm)
 		G.actions += actions
 		G.verbs += verbs
 		G.attachments += src
-		G.scope = src
-		G.ergonomics *= src.ergonomics
-		G.update_icon()
+		G.specialoptics = src
+		G.optics_ico = ongun
+		G.overlays += G.optics_ico
 	else
 		if (do_after(user, 15, user))
 			user.unEquip(src)
@@ -460,9 +394,9 @@ Current Defines (_defines/attachment.dm)
 			G.attachments += src
 			G.update_attachment_actions(user)
 			user << "<span class = 'notice'>You attach [src] to the [G].</span>"
-			G.ergonomics *= src.ergonomics
-			G.scope = src
-			G.update_icon()
+			G.specialoptics = src
+			G.optics_ico = ongun
+			G.overlays += G.optics_ico
 		else
 			return
 /obj/item/weapon/attachment/scope/adjustable/advanced/removed(mob/user, obj/item/weapon/gun/G)
@@ -475,47 +409,72 @@ Current Defines (_defines/attachment.dm)
 		A_attached = FALSE
 		loc = get_turf(src)
 		user << "You remove [src] from the [G]."
-		G.scope = null
-		G.ergonomics /= src.ergonomics
-		G.update_icon()
+		G.specialoptics = null
+		G.overlays -= G.optics_ico
 	else
 		return
+
+/obj/item/weapon/attachment/scope/adjustable/advanced/pso1
+	name = "PSO-1 scope"
+	icon_state = "pso1"
+	desc = "A soviet 4x scope. Increases magnification but does not increase accuracy."
+	max_zoom = ZOOM_CONSTANT+3
+
+/obj/item/weapon/attachment/scope/adjustable/advanced/acog
+	name = "4x ACOG scope"
+	icon_state = "acog"
+	desc = "A 4x scope. Increases magnification but does not increase accuracy."
+	max_zoom = ZOOM_CONSTANT+3
 
 /obj/item/weapon/attachment/scope/adjustable/advanced/reddot
 	name = "red dot sight"
 	icon_state = "reddot"
 	desc = "A red dot laser sight. Increases accuracy and gives a slight magnification."
-	mount = "picatinny"
 	max_zoom = ZOOM_CONSTANT+1
-	ergonomics = 2
+	acc_modifier = 1.3
 
 /obj/item/weapon/attachment/scope/adjustable/advanced/holographic
 	name = "holographic sight"
 	desc = "A reflector holographic sight. Does not give magnification but greatly reduces parallax error."
 	icon_state = "holographic"
-	mount = "picatinny"
 	max_zoom = ZOOM_CONSTANT
-	ergonomics = 2.5
+	acc_modifier = 1.4
 
 /obj/item/weapon/attachment/scope/adjustable/advanced/nvs
 	name = "night vision scope"
 	desc = "A bulky scope that allows images be produced in levels of light approaching total darkness."
 	icon_state = "nvs"
-	mount = "picatinny"
 	max_zoom = ZOOM_CONSTANT
+	acc_modifier = 0.8
+
+/obj/item/weapon/attachment/scope/adjustable/advanced/elcan
+	name = "C79A2 Elcan sight"
+	icon_state = "elcan"
+	desc = "A 3.4x scope. Increases magnification and reduces some parallax error."
+	max_zoom = ZOOM_CONSTANT+2
+	acc_modifier = 1.1
+
+/obj/item/weapon/attachment/scope/adjustable/advanced/fg42
+	name = "FG42 sight"
+	icon_state = "fg42"
+	desc = "A 1.5x scope. Increases magnification and reduces some parallax error."
+	max_zoom = ZOOM_CONSTANT+2
+	acc_modifier = 1.1
 
 /////////////////UNDER BARREL//////////////////////////////
 
 /obj/item/weapon/attachment/under
 	icon = 'icons/obj/gun_att.dmi'
 	icon_state = "foregrip"
+	var/acc_modifier = 1
+	var/scopeonly = TRUE //if the gun must be on scope mode to give the bonuses
 	attachment_type = ATTACH_UNDER
-	var/mount = "picatinny"
+	var/image/ongun
+	New()
+		..()
+		ongun = image("icon" = 'icons/obj/gun_att.dmi', "icon_state" = "[icon_state]_ongun")
 
 /obj/item/weapon/attachment/under/attached(mob/user, obj/item/weapon/gun/G, var/quick = FALSE)
-	if(!G.under_mounts.Find(src.mount))
-		user << "[src.name] can't be attached!"
-		return
 	if (quick)
 		A_attached = TRUE
 		G.attachment_slots -= attachment_type
@@ -524,8 +483,8 @@ Current Defines (_defines/attachment.dm)
 		G.verbs += verbs
 		G.attachments += src
 		G.under = src
-		G.ergonomics *= src.ergonomics
-		G.update_icon()
+		G.under_ico = ongun
+		G.overlays += G.under_ico
 	else
 		if (do_after(user, 15, user))
 			user.unEquip(src)
@@ -536,10 +495,10 @@ Current Defines (_defines/attachment.dm)
 			G.verbs += verbs
 			G.attachments += src
 			G.update_attachment_actions(user)
-			G.ergonomics *= src.ergonomics
 			user << "<span class = 'notice'>You attach [src] to the [G].</span>"
 			G.under = src
-			G.update_icon()
+			G.under_ico = ongun
+			G.overlays += G.under_ico
 		else
 			return
 
@@ -554,39 +513,39 @@ Current Defines (_defines/attachment.dm)
 		loc = get_turf(src)
 		user << "You remove [src] from the [G]."
 		G.under = null
-		G.ergonomics /= src.ergonomics
-		G.update_icon()
+		G.overlays -= G.under_ico
 	else
 		return
 /obj/item/weapon/attachment/under/laser
 	name = "laser pointer"
 	icon_state = "laser"
 	desc = "a basic laser pointer, increases accuracy by a bit."
-	ergonomics = 1.25
+	acc_modifier = 1.2
+	scopeonly = FALSE
 
 /obj/item/weapon/attachment/under/foregrip
 	name = "foregrip"
 	icon_state = "foregrip"
 	desc = "a foregrip, to increase stability when firing."
-	ergonomics = 1.5
+	acc_modifier = 1.4
+	scopeonly = FALSE
 
 /obj/item/weapon/attachment/under/foregrip/alt
 	name = "foregrip"
 	icon_state = "foregrip_alt"
 	desc = "a foregrip, to increase stability when firing."
-	ergonomics = 1.5
+	acc_modifier = 1.4
+	scopeonly = FALSE
 
 /obj/item/weapon/gun/launcher/grenade/underslung/proc/attached(mob/user, obj/item/weapon/gun/G, var/quick = FALSE)
-	if(!G.under_mounts.Find(src.mount))
-		user << "[src.name] can't be attached!"
-		return
 	if (quick)
 		A_attached = TRUE
 		G.attachment_slots -= ATTACH_UNDER
 		loc = G
 		G.attachments += src
 		G.launcher = src
-		G.update_icon()
+		G.under_ico = ongun
+		G.overlays += G.under_ico
 	else
 		if (do_after(user, 15, user))
 			user.unEquip(src)
@@ -597,7 +556,8 @@ Current Defines (_defines/attachment.dm)
 			G.update_attachment_actions(user)
 			user << "<span class = 'notice'>You attach [src] to the [G].</span>"
 			G.launcher = src
-			G.update_icon()
+			G.under_ico = ongun
+			G.overlays += G.under_ico
 		else
 			return
 
@@ -610,11 +570,12 @@ Current Defines (_defines/attachment.dm)
 		loc = get_turf(src)
 		user << "You remove [src] from the [G]."
 		G.launcher = null
-		G.update_icon()
+		G.overlays -= G.under_ico
 	else
 		return
 
 /obj/item/weapon/gun
+	var/silencer_ico
 	var/obj/item/weapon/attachment/silencer/silencer = null
 
 
@@ -625,18 +586,19 @@ Current Defines (_defines/attachment.dm)
 	icon_state = "silencer"
 	name = "silencer"
 	desc = "a gun silencer."
-	attachment_type = ATTACH_BARREL
+	attachment_type = ATTACH_SILENCER
+	var/image/ongun
 	var/reduction = 50
-	var/caliber = "multicaliber"
-	ergonomics = 1.25
 
+	New()
+		..()
+		ongun = image("icon" = 'icons/obj/gun_att.dmi', "icon_state" = "[icon_state]_ongun")
+		ongun.pixel_x = 16
+		ongun.pixel_y = 16
+		if (findtext(icon_state,"pistol"))
+			ongun.pixel_x = 20
+			ongun.pixel_y = 0
 /obj/item/weapon/attachment/silencer/attached(mob/user, obj/item/weapon/gun/G, var/quick = FALSE)
-	if (istype(G, /obj/item/weapon/gun/projectile))
-		var/obj/item/weapon/gun/projectile/P = G
-		if (caliber != "multicaliber")
-			if (P.caliber != caliber)
-				user << "[src.name] can't be attached!"
-				return
 	if (quick)
 		A_attached = TRUE
 		G.attachment_slots -= attachment_type
@@ -645,8 +607,8 @@ Current Defines (_defines/attachment.dm)
 		G.verbs += verbs
 		G.attachments += src
 		G.silencer = src
-		G.ergonomics *= src.ergonomics
-		G.update_icon()
+		G.silencer_ico = ongun
+		G.overlays += G.silencer_ico
 	else
 		if (do_after(user, 15, user))
 			user.unEquip(src)
@@ -657,10 +619,10 @@ Current Defines (_defines/attachment.dm)
 			G.verbs += verbs
 			G.attachments += src
 			G.update_attachment_actions(user)
-			G.ergonomics *= src.ergonomics
 			user << "<span class = 'notice'>You attach [src] to the [G].</span>"
 			G.silencer = src
-			G.update_icon()
+			G.silencer_ico = ongun
+			G.overlays += G.silencer_ico
 		else
 			return
 
@@ -673,10 +635,9 @@ Current Defines (_defines/attachment.dm)
 		dropped(user)
 		A_attached = FALSE
 		loc = get_turf(src)
-		G.ergonomics /= src.ergonomics
 		user << "You remove [src] from the [G]."
 		G.silencer = null
-		G.update_icon()
+		G.overlays -= G.silencer_ico
 	else
 		return
 
@@ -684,10 +645,9 @@ Current Defines (_defines/attachment.dm)
 /obj/item/weapon/attachment/silencer/plastic_bottle
 	name = "plastic bottle suppressor"
 	icon_state = "plastic_bottle_suppressor"
-	desc = "Не то чтобы этот глушитель хоть как-то работал. Надев его вы будете выглядеть как клоун"
-	reduction = 5
+	desc = "a makeshift suppressor."
+	reduction = 25
 	fits = list("smg", "rifle")
-	ergonomics = 1
 
 /obj/item/weapon/attachment/silencer/oil_filter
 	name = "oil filter suppressor"
@@ -695,7 +655,6 @@ Current Defines (_defines/attachment.dm)
 	desc = "a makeshift suppressor."
 	reduction = 35
 	fits = list("smg", "rifle")
-	ergonomics = 1.1
 
 // Normal
 /obj/item/weapon/attachment/silencer/pistol
@@ -704,14 +663,12 @@ Current Defines (_defines/attachment.dm)
 	desc = "a pistol suppressor."
 	reduction = 50
 	fits = list("pistol")
-	ergonomics = 1.2
 
 /obj/item/weapon/attachment/silencer/pistol/ww2
 	name = "pistol suppressor"
 	icon_state = "ww2_pistol_suppressor"
 	desc = "a pistol suppressor."
 	reduction = 35
-	ergonomics = 1.15
 
 /obj/item/weapon/attachment/silencer/rifle
 	name = "rifle suppressor"
@@ -719,50 +676,12 @@ Current Defines (_defines/attachment.dm)
 	desc = "a rifle suppressor."
 	reduction = 50
 	fits = list("rifle")
-	ergonomics = 2
-
-/obj/item/weapon/attachment/silencer/rifle/srm
-	name = "srm suppressor"
-	icon_state = "srm_silencer"
-	desc = "a 9x39 SRM suppressor."
-	reduction = 50
-	fits = list("rifle")
-	ergonomics = 2
-	caliber = "a9x39"
-
-/obj/item/weapon/attachment/silencer/rifle/pbs1
-	name = "PBS-1"
-	icon_state = "pbs1"
-	desc = "a 7.62x39 AKM suppressor."
-	reduction = 50
-	fits = list("rifle")
-	ergonomics = 2
-	caliber = "a762x39"
-
-/obj/item/weapon/attachment/silencer/rifle/pbs4
-	name = "PBS-4"
-	icon_state = "pbs1"
-	desc = "a 5.45x39 AK74 suppressor."
-	reduction = 50
-	fits = list("rifle")
-	ergonomics = 2
-	caliber = "a545x39"
 
 /obj/item/weapon/attachment/silencer/rifle/ww2
 	name = "rifle suppressor"
 	icon_state = "ww2_rifle_suppressor"
 	desc = "a rifle suppressor."
 	reduction = 35
-	ergonomics = 1.5
-
-/obj/item/weapon/attachment/silencer/rifle/ww2/bramid
-	name = "Bramid"
-	icon_state = "bramid"
-	desc = "Mosin rifle suppressor."
-	reduction = 50
-	fits = list("rifle")
-	ergonomics = 1.5
-	caliber = "a762x54"
 
 /obj/item/weapon/attachment/silencer/smg
 	name = "smg suppressor"
@@ -770,14 +689,12 @@ Current Defines (_defines/attachment.dm)
 	desc = "a smg suppressor."
 	reduction = 50
 	fits = list("smg")
-	ergonomics = 1.5
 
 /obj/item/weapon/attachment/silencer/smg/ww2
 	name = "smg suppressor"
 	icon_state = "ww2_smg_suppressor"
 	desc = "a smg suppressor."
 	reduction = 35
-	ergonomics = 1.25
 
 /obj/item/weapon/attachment/silencer/shotgun
 	name = "shotgun suppressor"
@@ -785,4 +702,3 @@ Current Defines (_defines/attachment.dm)
 	desc = "a shotgun suppressor."
 	reduction = 40
 	fits = list("shotgun")
-	ergonomics = 1.5

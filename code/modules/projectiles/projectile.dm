@@ -809,9 +809,10 @@
 
 	// generate this now since all visual effects the projectile makes can use it
 	effect_transform = new()
-	effect_transform.Scale(1, TRUE)
-	effect_transform.Turn(-trajectory.angle)		//no idea why this has to be inverted, but it works
-	transform = turn(transform, -(trajectory.angle + 90)) //no idea why 90 needs to be added, but it works
+	effect_transform.Scale(trajectory.return_hypotenuse(), TRUE)
+	effect_transform.Turn(-trajectory.return_angle())		//no idea why this has to be inverted, but it works
+
+	transform = turn(transform, -(trajectory.return_angle() + 90)) //no idea why 90 needs to be added, but it works
 
 /obj/item/projectile/proc/muzzle_effect(var/matrix/T)
 
@@ -820,12 +821,12 @@
 		return
 
 	if (ispath(muzzle_type))
-		var/obj/effect/projectile/M = new muzzle_type(get_turf(firedfrom))
+		var/obj/effect/projectile/M = new muzzle_type(get_turf(src))
 
 		if (istype(M))
 			M.set_transform(T)
-			M.pixel_x = 20 * cos (angle)
-			M.pixel_y = 20 * sin (angle)
+			M.pixel_x = location.pixel_x
+			M.pixel_y = location.pixel_y
 			M.activate()
 
 	did_muzzle_effect = TRUE

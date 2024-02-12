@@ -1074,7 +1074,6 @@ obj/map_metadata/campaign/campaign8/job_enabled_specialcheck(var/datum/job/J)
 	w_class = ITEM_SIZE_SMALL
 	var/checking = FALSE
 	var/debounce = FALSE
-	var/ergonomics = 0
 
 /obj/item/weapon/attachment/scope/adjustable/binoculars/laser_designator_campaign/examine(mob/living/human/H)
 	..()

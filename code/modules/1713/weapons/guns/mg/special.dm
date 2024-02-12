@@ -18,12 +18,10 @@
 	KD_chance = KD_CHANCE_HIGH+5
 	stat = "machinegun"
 	w_class = ITEM_SIZE_NORMAL
-	attachment_slots = ATTACH_IRONSIGHTS
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS
 	var/jammed_until = -1
 	var/jamcheck = 0
 	var/last_fire = -1
-	barrel_x_offset = 16
-	barrel_y_offset = 16
 
 /obj/item/weapon/gun/projectile/special/special_check(mob/user)
 	if (gun_safety && safetyon)
@@ -36,6 +34,25 @@
 		user << "<span class = 'danger'>\The [src] has jammed! You can't fire it until it has unjammed.</span>"
 		return FALSE
 	return TRUE
+
+/obj/item/weapon/gun/projectile/special/update_icon()
+	if (sniper_scope)
+		if (!ammo_magazine)
+			icon_state = "[base_icon]_scope_open"
+			return
+		else
+			icon_state = "[base_icon]_scope"
+			return
+	else
+		if (ammo_magazine)
+			icon_state = base_icon
+			item_state = base_icon
+		else
+			icon_state = "[base_icon]_open"
+			item_state = "[base_icon]_open"
+	update_held_icon()
+
+	return
 
 /obj/item/weapon/gun/projectile/special/mk18
 	name = "MK-18"
@@ -51,22 +68,14 @@
 	full_auto = TRUE
 	equiptimer = 12
 	firemodes = list(
-		list(name = "semi auto", burst=1, burst_delay=0.8, dispersion = list(0.3, 0.4, 0.5, 0.6, 0.7)),
-		list(name = "burst fire", burst=3, burst_delay=1.4, dispersion = list(1, 1.1, 1.1, 1.3, 1.5)),
-		list(name = "full auto", burst=1, burst_delay=1.3, dispersion = list(1.2, 1.2, 1.3, 1.4, 1.8)),
+		list(name = "semi auto",	burst=1, burst_delay=0.8, move_delay=2, dispersion = list(0.3, 0.4, 0.5, 0.6, 0.7)),
+		list(name = "burst fire",	burst=3, burst_delay=1.4, move_delay=3, dispersion = list(1, 1.1, 1.1, 1.3, 1.5)),
+		list(name = "full auto",	burst=1, burst_delay=1.3, move_delay=4, dispersion = list(1.2, 1.2, 1.3, 1.4, 1.8)),
 		)
 	sel_mode = 1
 	effectiveness_mod = 1.40
 	accuracy = 1
 	recoil = 20
-	scope_mounts = list ("picatinny")
-	under_mounts = list ("picatinny")
-	mag_x_offset = 4
-	mag_y_offset = 2
-
-/obj/item/weapon/gun/projectile/special/mk18/tan
-	icon_state = "mk18tan"
-	base_icon = "mk18tan"
 
 /obj/item/weapon/gun/projectile/special/ak74mtactical
 	name = "Tactical AK-74M"
@@ -80,18 +89,42 @@
 	magazine_type = /obj/item/ammo_magazine/ak74
 	good_mags = list(/obj/item/ammo_magazine/rpk74, /obj/item/ammo_magazine/rpk74/drum, /obj/item/ammo_magazine/ak74, /obj/item/ammo_magazine/ak74/ak74m)
 	full_auto = TRUE
-	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER|ATTACH_BARREL
 	equiptimer = 12
 	firemodes = list(
-		list(name = "semi auto",	burst=1, burst_delay=0.8, dispersion = list(0.3, 0.4, 0.5, 0.6, 0.7)),
-		list(name = "burst fire",	burst=3, burst_delay=0.8, dispersion = list(1, 1.1, 1.1, 1.3, 1.5)),
-		list(name = "full auto",	burst=1, burst_delay=0.8, dispersion = list(1.2, 1.2, 1.3, 1.4, 1.8)),
+		list(name = "semi auto",	burst=1, burst_delay=0.8, move_delay=2, dispersion = list(0.3, 0.4, 0.5, 0.6, 0.7)),
+		list(name = "burst fire",	burst=3, burst_delay=1.4, move_delay=3, dispersion = list(1, 1.1, 1.1, 1.3, 1.5)),
+		list(name = "full auto",	burst=1, burst_delay=1.3, move_delay=4, dispersion = list(1.2, 1.2, 1.3, 1.4, 1.8)),
 		)
 	sel_mode = 1
 	effectiveness_mod = 1.40
 	accuracy = 1
 	recoil = 20
-	scope_x_offset = -1
-	scope_y_offset = -1
-	scope_mounts = list ("dovetail", "picatinny")
-	under_mounts = list ("picatinny", "gp25_mount")
+
+/obj/item/weapon/gun/projectile/special/ak74mtactical/update_icon()
+	overlays -= mag_image
+	var/part_icon = 'icons/obj/guns/parts.dmi'
+	var/part_icon_state
+
+	if (sniper_scope)
+		part_icon_state = "pso1"
+		if (istype(part_icon_state, /obj/item/weapon/attachment/scope/adjustable/sniper_scope))
+			part_icon_state = "pso1"
+		if (istype(part_icon_state, /obj/item/weapon/attachment/scope/adjustable/advanced/holographic))
+			part_icon_state = "holographic"
+		if (istype(part_icon_state, /obj/item/weapon/attachment/scope/adjustable/advanced/reddot))
+			part_icon_state = "reddot"
+		scope_image = image(icon = part_icon, loc = src, icon_state = part_icon_state)
+		overlays += scope_image
+
+	if (ammo_magazine)
+		part_icon_state = "ak74_magak"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/ak74/ak74m))
+			part_icon_state = "ak74m_magak"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74))
+			part_icon_state = "ak74_magrpk"
+		if (istype(ammo_magazine, /obj/item/ammo_magazine/rpk74/drum))
+			part_icon_state = "ak74_drum"
+		mag_image= image(icon = part_icon, loc = src, icon_state = part_icon_state)
+		overlays += mag_image
+	update_held_icon()
+	return

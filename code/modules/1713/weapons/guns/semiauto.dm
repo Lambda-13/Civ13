@@ -9,7 +9,7 @@
 	stat = "rifle"
 	load_delay = 5
 	aim_miss_chance_divider = 2.50
-	recoil = 60
+	recoil = 20
 	accuracy = 2
 
 	headshot_kill_chance = 35
@@ -25,6 +25,24 @@
 	gun_safety = TRUE
 	reload_sound = 'sound/weapons/guns/interact/semiauto_magin.ogg'
 	unload_sound = 'sound/weapons/guns/interact/semiauto_magout.ogg'
+
+/obj/item/weapon/gun/projectile/semiautomatic/update_icon()
+	if (sniper_scope)
+		if (!ammo_magazine)
+			icon_state = "[base_icon]_scope_open"
+			return
+		else
+			icon_state = "[base_icon]_scope"
+			return
+	else
+		if (ammo_magazine)
+			icon_state = base_icon
+			item_state = base_icon
+		else
+			icon_state = "[base_icon]_open"
+			item_state = base_icon
+	update_held_icon()
+	return
 
 /obj/item/weapon/gun/projectile/semiautomatic/special_check(mob/user)
 	if (gun_safety && safetyon)
@@ -59,7 +77,7 @@
 	item_state = "svt"
 	base_icon = "svt"
 	w_class = ITEM_SIZE_LARGE
-	load_method = MAGAZINE
+	load_method = SINGLE_CASING|SPEEDLOADER|MAGAZINE
 	max_shells = 10
 	caliber = "a762x54"
 	ammo_type = /obj/item/ammo_casing/a762x54
@@ -69,22 +87,14 @@
 	weight = 3.85
 	load_delay = 8
 	firemodes = list(
-		list(name = "single shot",burst=1, fire_delay=2)
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=6)
 		)
 
 	gun_type = GUN_TYPE_RIFLE
 	force = 10
 	throwforce = 20
 	effectiveness_mod = 1.04
-	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
-	scope_mounts = list("kochetov")
-
-/obj/item/weapon/gun/projectile/semiautomatic/svt/update_icon()
-	..()
-	if (scope)
-		overlays -= scope_image
-		scope_image = image(icon = 'icons/obj/guns/parts.dmi', loc = src, icon_state = "pu_svt", pixel_x = mag_x_offset, pixel_y = mag_y_offset)
-		overlays += scope_image
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 
 /obj/item/weapon/gun/projectile/semiautomatic/avtomat
 	name = "Fedorov Avtomat"
@@ -93,7 +103,7 @@
 	item_state = "svt"
 	base_icon = "avtomat"
 	w_class = ITEM_SIZE_LARGE
-	load_method = MAGAZINE
+	load_method = SINGLE_CASING|SPEEDLOADER|MAGAZINE
 	max_shells = 25
 	caliber = "a65x50"
 	ammo_type = /obj/item/ammo_casing/a65x50
@@ -103,15 +113,15 @@
 	weight = 3.85
 	load_delay = 8
 	firemodes = list(
-		list(name = "single shot",	burst=1, burst_delay=0.8, dispersion = list(0.1, 0.2, 0.1, 0.2, 0.3)),
-		list(name = "full auto",	burst=1, burst_delay=0.8, dispersion = list(1, 1.2, 1.3, 1.2, 1.3)),
+		list(name = "single shot",	burst=1, burst_delay=0.8, recoil=0, move_delay=2, dispersion = list(0.1, 0.2, 0.1, 0.2, 0.3)),
+		list(name = "full auto",	burst=1, burst_delay=1.1, recoil=0, move_delay=3, dispersion = list(1, 1.2, 1.3, 1.2, 1.3)),
 		)
 
 	gun_type = GUN_TYPE_RIFLE
 	force = 10
 	throwforce = 20
 	effectiveness_mod = 1.08
-	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 
 /obj/item/weapon/gun/projectile/semiautomatic/remington11
 	name = "Remington 11"
@@ -151,29 +161,19 @@
 	good_mags = list(/obj/item/ammo_magazine/sks)
 	weight = 3.85
 	firemodes = list(
-		list(name = "single shot",burst=1, fire_delay=2)
-	)
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=4)
+		)
+
 	gun_type = GUN_TYPE_RIFLE
 	force = 10
 	throwforce = 20
 	effectiveness_mod = 1.05
-	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
-	scope_mounts = list("kochetov", "dovetail")
-	barrel_x_offset = 15
-	scope_y_offset = -1
-
-/obj/item/weapon/gun/projectile/semiautomatic/sks/update_icon()
-	..()
-	if (istype(scope, /obj/item/weapon/attachment/scope/adjustable/sniper_scope/pu))
-		overlays -= scope_image
-		scope_image = image(icon = 'icons/obj/guns/parts.dmi', loc = src, icon_state = "pu_sks", pixel_x = mag_x_offset, pixel_y = mag_y_offset)
-		overlays += scope_image
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 
 /obj/item/weapon/gun/projectile/semiautomatic/sks/chinese
 	name = "Type 56 carbine"
 	desc = "Chinese variant of the Soviet semi-automatic rifle chambered in 7.62x39mm."
 	weight = 3.86
-	barrel_x_offset = 15
 
 /obj/item/weapon/gun/projectile/semiautomatic/sks/sksm
 	name = "SKS-M"
@@ -185,9 +185,8 @@
 	effectiveness_mod = 1.06
 	max_shells = 0
 	magazine_type = /obj/item/ammo_magazine/sksm
-	good_mags = list(/obj/item/ammo_magazine/sks, /obj/item/ammo_magazine/sksm, /obj/item/ammo_magazine/rpk47, /obj/item/ammo_magazine/rpk47/drum, /obj/item/ammo_magazine/ak47, /obj/item/ammo_magazine/ak47/makeshift)
-	load_method = MAGAZINE
-
+	good_mags = list(/obj/item/ammo_magazine/sks, /obj/item/ammo_magazine/sksm, /obj/item/ammo_magazine/ak47)
+	load_method = SINGLE_CASING|SPEEDLOADER|MAGAZINE
 /obj/item/weapon/gun/projectile/semiautomatic/svd
 	name = "SVD"
 	desc = "Soviet designated marksman's rifle, feeding from detachable 10-round magazines. Chambered in 7.62x54mmR."
@@ -195,7 +194,7 @@
 	item_state = "svd"
 	base_icon = "svd"
 	w_class = ITEM_SIZE_LARGE
-	load_method = MAGAZINE
+	load_method = SINGLE_CASING|SPEEDLOADER|MAGAZINE
 	max_shells = 10
 	caliber = "a762x54"
 	ammo_type = /obj/item/ammo_casing/a762x54
@@ -206,27 +205,24 @@
 	good_mags = list(/obj/item/ammo_magazine/svd)
 	weight = 3.85
 	firemodes = list(
-		list(name = "single shot",burst=1, fire_delay=2)
-	)
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=8)
+		)
 
 	gun_type = GUN_TYPE_RIFLE
 	force = 10
 	throwforce = 20
 	effectiveness_mod = 1.03
-	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
+	recoil = 30
 	accuracy = 1
-	scope_mounts = list ("dovetail")
-	scope_x_offset = 2
-	scope_y_offset = -1
 
 /obj/item/weapon/gun/projectile/semiautomatic/svd/New()
 	..()
-	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pso1/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pso1(src)
+	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope(src)
 	SP.attached(null,src,TRUE)
 
 /obj/item/weapon/gun/projectile/semiautomatic/svd/acog/New()
 	..()
-	scope_mounts = list ("dovetail", "picatinny")
 	for(var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/SC in attachments)
 		attachments -= SC
 		actions -= SC.actions
@@ -234,7 +230,7 @@
 		attachment_slots += SC.attachment_type
 		shake_strength = initial(shake_strength)
 		qdel(SC)
-	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/acog/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope/acog(src)
+	var/obj/item/weapon/attachment/scope/adjustable/advanced/acog/SP = new/obj/item/weapon/attachment/scope/adjustable/advanced/acog(src)
 	SP.attached(null,src,TRUE)
 
 /obj/item/weapon/gun/projectile/semiautomatic/g41
@@ -254,14 +250,12 @@
 	good_mags = list(/obj/item/ammo_magazine/gewehr98)
 	weight = 4.9
 	firemodes = list(
-		list(name = "single shot",burst=1, fire_delay=2)
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=6)
 		)
 	force = 10
 	throwforce = 20
-	attachment_slots = ATTACH_SCOPE|ATTACH_IRONSIGHTS|ATTACH_BARREL
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
 	effectiveness_mod = 1.05
-	scope_mounts = list ("swept_back")
-	barrel_x_offset = -1
 
 /obj/item/weapon/gun/projectile/semiautomatic/g43
 	name = "Gewehr 43"
@@ -270,7 +264,7 @@
 	item_state = "g43"
 	base_icon = "g43"
 	w_class = ITEM_SIZE_LARGE
-	load_method = MAGAZINE
+	load_method = SINGLE_CASING|SPEEDLOADER|MAGAZINE
 	max_shells = 10
 	load_delay = 8
 	caliber = "a792x57"
@@ -281,14 +275,12 @@
 	good_mags = list(/obj/item/ammo_magazine/g43, /obj/item/ammo_magazine/gewehr98)
 	weight = 4.9
 	firemodes = list(
-		list(name = "single shot",burst=1, fire_delay=2)
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=6)
 		)
 	force = 10
 	throwforce = 20
-	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	effectiveness_mod = 1.06
-	scope_mounts = list ("swept_back")
-	barrel_x_offset = -1
 
 /obj/item/weapon/gun/projectile/semiautomatic/vg5
 	name = "Volkssturmkarabiner 98"
@@ -297,7 +289,7 @@
 	item_state = "vg5"
 	base_icon = "vg5"
 	w_class = ITEM_SIZE_LARGE
-	load_method = MAGAZINE
+	load_method = SINGLE_CASING|SPEEDLOADER|MAGAZINE
 	max_shells = 30
 	load_delay = 10
 	caliber = "a792x33"
@@ -309,19 +301,13 @@
 	good_mags = list(/obj/item/ammo_magazine/stg, /obj/item/ammo_magazine/vgclip)
 	weight = 4.6
 	firemodes = list(
-		list(name = "single shot",burst=1, fire_delay=2)
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=5)
 		)
 	force = 15
 	throwforce = 20
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	effectiveness_mod = 0.94
 	equiptimer = 16
-	mag_x_offset = -2
-
-	scope_mounts = list ("swept_back")
-
-	scope_x_offset = -1
-	scope_y_offset = -1
 
 /obj/item/weapon/gun/projectile/semiautomatic/m1garand
 	name = "M1 Garand"
@@ -342,11 +328,11 @@
 	unload_sound = 'sound/weapons/guns/interact/GarandUnload.ogg'
 	weight = 4.3
 	firemodes = list(
-		list(name = "single shot",burst=1, fire_delay=2)
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=4)
 		)
 	force = 10
 	throwforce = 20
-	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
 	effectiveness_mod = 0.95
 
 /obj/item/weapon/gun/projectile/semiautomatic/m1garand/match //Match grade weapons are built to a higher standard than service grade weapons.
@@ -373,16 +359,15 @@
 	slot_flags = SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a556x45
 	magazine_type = /obj/item/ammo_magazine/ar15
-	good_mags = list(/obj/item/ammo_magazine/m16, /obj/item/ammo_magazine/ar15)
+	good_mags = list(/obj/item/ammo_magazine/ar15)
 	weight = 4.9
 	firemodes = list(
-		list(name = "single shot",burst=1, fire_delay=2)
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=6)
 		)
 	force = 10
 	throwforce = 20
-	attachment_slots = ATTACH_BARREL|ATTACH_SCOPE|ATTACH_UNDER
+	attachment_slots = ATTACH_SCOPE|ATTACH_BARREL
 	effectiveness_mod = 1.07
-	recoil = 30
 
 /obj/item/weapon/gun/projectile/semiautomatic/m1carbine
 	name = "M1 Carbine"
@@ -401,11 +386,11 @@
 	reload_sound = 'sound/weapons/guns/interact/GarandLoad.ogg'
 	weight = 3.9
 	firemodes = list(
-		list(name = "single shot",burst=1, fire_delay=2)
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=4)
 		)
 	force = 10
 	throwforce = 20
-	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_SCOPE
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_SCOPE
 	effectiveness_mod = 0.98
 
 /obj/item/weapon/gun/projectile/semiautomatic/vintorez
@@ -425,22 +410,16 @@
 	good_mags = list(/obj/item/ammo_magazine/vintorez)
 	weight = 1.90
 	firemodes = list(
-		list(name = "single shot",burst=1, fire_delay=2)
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=6)
 		)
 	gun_type = GUN_TYPE_RIFLE
 	effectiveness_mod = 1.09
 	equiptimer = 8
-	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER
-	accuracy = 3
-	scope_mounts = list ("dovetail")
-	scope_x_offset = 4
-	scope_y_offset = 1
-	under_x_offset = 3
-	under_y_offset = 2
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 
 /obj/item/weapon/gun/projectile/semiautomatic/vintorez/New()
 	..()
-	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pso1/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pso1(src)
+	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope(src)
 	SP.attached(null,src,TRUE)
 
 /obj/item/weapon/gun/projectile/semiautomatic/barrett
@@ -464,19 +443,17 @@
 	weight = 14.8
 	shake_strength = 3
 	firemodes = list(
-		list(name = "single shot",burst=1, fire_delay=25)
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=25)
 		)
 	gun_type = GUN_TYPE_RIFLE
 	effectiveness_mod = 2.0
 	equiptimer = 15
 	accuracy_increase_mod = 2.0
 	shake_strength = 2
-	scope_mounts = list ("picatinny")
 
 /obj/item/weapon/gun/projectile/semiautomatic/barrett/sniper/New()
 	..()
-
-	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/vortex_viper/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope/vortex_viper(src)
+	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope(src)
 	SP.attached(null,src,TRUE)
 
 /obj/item/weapon/gun/projectile/semiautomatic/bamr
@@ -499,13 +476,14 @@
 	magazine_type = /obj/item/ammo_magazine/bamr
 	good_mags = list(/obj/item/ammo_magazine/bamr, /obj/item/ammo_magazine/bamr_aphe, /obj/item/ammo_magazine/bamr_ap)
 	firemodes = list(
-		list(name = "single shot",burst=1, fire_delay=15)
+		list(name = "single shot",burst=1, move_delay=2, fire_delay=15)
 		)
 	reload_sound = 'sound/weapons/guns/interact/barrett_magin.ogg'
 	unload_sound = 'sound/weapons/guns/interact/barrett_magout.ogg'
 	fire_sound = 'sound/weapons/guns/fire/ptrd.ogg'
 	accuracy_increase_mod = 2.00
 	effectiveness_mod = 1.3
+	move_delay = 3
 	fire_delay = 5
 	equiptimer = 12
 	gun_safety = FALSE
@@ -516,5 +494,6 @@
 	desc = "An old blugoslavian semi-auto, anti-tank rifle chambered in 15x115. This one comes with a integrated Scope."
 	icon_state = "bamt"
 	has_telescopic = TRUE
+	move_delay = 4
 	equiptimer = 14
 	weight = 10
