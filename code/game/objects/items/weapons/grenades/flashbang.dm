@@ -2,6 +2,7 @@
 	name = "светошумовая граната"
 	icon_state = "flashbang"
 	item_state = "grenade"
+	armsound = 'lambda/sanecman/sound/grenade/generic_checkout_2.ogg'
 	var/banglet = 0
 
 	prime()
@@ -95,3 +96,4 @@
 /obj/item/weapon/grenade/flashbang/galaxywars
 	name = "светозвуковая граната"
 	icon_state = "sflashbang"
+	armsound = 'lambda/sanecman/sound/grenade/td_checkout.ogg'

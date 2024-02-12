@@ -257,6 +257,12 @@
 	maxrange = 35
 	caliber = 120
 
+/obj/structure/cannon/modern/tank/m1a1_abrams
+	name = "M256 120mm"
+	desc = "The M256 is an American 120 mm smoothbore tank gun. It uses a German-designed Rh-120 L44 gun tube and combustible cartridges with an American-designed mount, cradle and recoil mechanism."
+	maxrange = 35
+	caliber = 120
+
 /obj/structure/cannon/modern/tank/baftkn75
 	name = "BAF TKN 75mm"
 	desc = "a 75mm Blugoslavian tank-based cannon."
@@ -481,6 +487,23 @@
 	firedelay = 12
 	maxrange = 60
 	max_loaded = 12
+	w_class = ITEM_SIZE_GARGANTUAN
+	see_amount_loaded = TRUE
+
+/obj/structure/cannon/rocket/nebelwerfer
+	name = "Nebelwerfer"
+	desc = "German 158mm rocket artillery. So loud."
+	icon = 'icons/obj/cannon.dmi'
+	icon_state = "nebelwerfer"
+	ammotype = /obj/item/cannon_ball/rocket
+	spritemod = FALSE
+	pixel_x = 0
+	pixel_y = 0
+	bound_height = 32
+	bound_width = 32
+	firedelay = 10
+	maxrange = 60
+	max_loaded = 6
 	w_class = ITEM_SIZE_GARGANTUAN
 	see_amount_loaded = TRUE
 

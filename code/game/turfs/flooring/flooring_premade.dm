@@ -238,7 +238,7 @@
 	initial_flooring = /decl/flooring/dirt
 
 /turf/floor/dirt/New()
-	soil_nutrition_recover() // Starts soil nutrition recover
+//	soil_nutrition_recover() // Starts soil nutrition recover
 	return ..()
 
 /turf/floor/dirt/proc/soil_nutrition_recover()

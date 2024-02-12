@@ -595,6 +595,29 @@
 	"2,4" = list(/obj/structure/vehicleparts/frame/omw22_2/back, /obj/structure/shellrack/full100),
 	"3,4" = list(/obj/structure/vehicleparts/movement/tracks/right/reversed,/obj/structure/vehicleparts/frame/omw22_2/lb,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled)
 	)
+
+/obj/effects/premadevehicles/tank/m1a1_abrams //Взят с оффов
+	name = "M1A1 Abrams"
+	icon_state = "4x4"
+	custom_color = "#58564a"
+	axis = /obj/structure/vehicleparts/axis/heavy/m1a1_abrams
+	tocreate = list(
+	"1,1" = list(/obj/structure/vehicleparts/movement/tracks/right,/obj/structure/vehicleparts/frame/baf1_a/rf,/obj/item/ammo_magazine/a50cal_can,/obj/item/ammo_magazine/a50cal_can,/obj/item/ammo_magazine/a50cal_can,/obj/item/weapon/gun/projectile/automatic/stationary/modern/m2browning),
+	"2,1" = list(/obj/structure/vehicleparts/frame/baf1_a/front,/obj/structure/bed/chair/drivers/tank),
+	"3,1" = list(/obj/structure/vehicleparts/movement/tracks/left,/obj/structure/vehicleparts/frame/baf1_a/lf,/obj/structure/radio/transmitter_receiver/nopower/tank/faction1),
+
+	"1,2" = list(/obj/structure/vehicleparts/frame/baf1_a/right,/obj/structure/bed/chair/commander),
+	"2,2" = list(/obj/structure/vehicleparts/frame/baf1_a,/obj/structure/cannon/modern/tank/m1a1_abrams),
+	"3,2" = list(/obj/structure/vehicleparts/frame/baf1_a/left,/obj/structure/bed/chair/gunner),
+
+	"1,3" = list(/obj/structure/vehicleparts/frame/baf1_a/right/door{doorcode = 9950}),
+	"2,3" = list(/obj/structure/vehicleparts/frame/baf1_a,/obj/structure/bed/chair/loader),
+	"3,3" = list(/obj/structure/vehicleparts/frame/baf1_a/left),
+
+	"1,4" = list(/obj/structure/vehicleparts/movement/tracks/left/reversed,/obj/structure/vehicleparts/frame/baf1_a/rb, /obj/structure/engine/internal/diesel/premade/v12),
+	"2,4" = list(/obj/structure/vehicleparts/frame/baf1_a/back, /obj/structure/shellrack/full120),
+	"3,4" = list(/obj/structure/vehicleparts/movement/tracks/right/reversed,/obj/structure/vehicleparts/frame/baf1_a/lb,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled)
+	)
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 /// БРИТОВСКИЕ И АМЕРИКОСНЫЕ ТАНКИ: КОНЕЦ
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -649,6 +672,24 @@
 	"3,4" = list(/obj/structure/vehicleparts/movement/tracks/t34/left_back,/obj/structure/vehicleparts/frame/t34/lb,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled)
 	)
 
+/obj/effects/premadevehicles/tank/bt7
+	name = "BT-7"
+	icon_state = "4x4"
+	custom_color = "#5c784f"
+	axis = /obj/structure/vehicleparts/axis/heavy/bt7
+	tocreate = list(
+	"1,1" =list(/obj/structure/vehicleparts/movement/tracks,/obj/structure/vehicleparts/frame/bt7/rf),
+	"2,1" =list(/obj/structure/vehicleparts/movement/tracks,/obj/structure/vehicleparts/frame/bt7/lf, /obj/structure/bed/chair/drivers/tank),
+
+	"1,2" =list(/obj/structure/vehicleparts/frame/bt7/rfc,/obj/structure/bed/chair/loader, /obj/structure/bed/chair/gunner),
+	"2,2" =list(/obj/structure/vehicleparts/frame/bt7/lfc,/obj/structure/shellrack/full57, /obj/structure/cannon/modern/tank/japanese57),
+
+	"1,3" =list(/obj/structure/vehicleparts/frame/bt7/rbc, /obj/item/weapon/storage/toolbox/emergency),
+	"2,3" =list(/obj/structure/vehicleparts/frame/bt7/lbc, /obj/structure/bed/chair/commander),
+
+	"1,4" =list(/obj/structure/vehicleparts/movement/tracks/reversed,/obj/structure/vehicleparts/frame/bt7/rb, /obj/structure/engine/internal/diesel/premade/chiha),
+	"2,4" =list(/obj/structure/vehicleparts/movement/tracks/reversed,/obj/structure/vehicleparts/frame/bt7/lb, /obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled)
+	)
 /obj/effects/premadevehicles/tank/t3485
 	name = "T-34-85"
 	icon_state = "4x4"
@@ -763,6 +804,120 @@
 	"2,4" = list(/obj/structure/vehicleparts/frame/t90a/back),
 	"3,4" = list(/obj/structure/vehicleparts/movement/tracks/right/reversed,/obj/structure/vehicleparts/frame/t90a/lb,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled)
 	)
+
+/obj/effects/premadevehicles/tank/t72
+	name = "T-72"
+	icon_state = "4x4"
+	custom_color = "#3d5931"
+	axis = /obj/structure/vehicleparts/axis/heavy/t72
+	tocreate = list(
+	"1,1" = list(/obj/structure/vehicleparts/movement/tracks/right,/obj/structure/vehicleparts/frame/t72/rf,/obj/item/ammo_magazine/pkm,/obj/item/ammo_magazine/pkm,/obj/item/ammo_magazine/pkm,/obj/item/weapon/gun/projectile/automatic/stationary/modern/pkm),
+	"2,1" = list(/obj/structure/vehicleparts/frame/t72/front),
+	"3,1" = list(/obj/structure/vehicleparts/movement/tracks/left,/obj/structure/vehicleparts/frame/t72/lf,/obj/structure/bed/chair/drivers/tank,/obj/structure/radio/transmitter_receiver/nopower/tank/faction2),
+
+	"1,2" = list(/obj/structure/vehicleparts/frame/t72/right, /obj/structure/bed/chair/commander),
+	"2,2" = list(/obj/structure/vehicleparts/frame/t72,/obj/structure/cannon/modern/tank/autoloader/t90a,/obj/structure/shellrack/autoloader/full125),
+	"3,2" = list(/obj/structure/vehicleparts/frame/t72/left, /obj/structure/bed/chair/gunner),
+
+	"1,3" = list(/obj/structure/vehicleparts/frame/t72/right/door{doorcode = 4975}),
+	"2,3" = list(/obj/structure/vehicleparts/frame/t72),
+	"3,3" = list(/obj/structure/vehicleparts/frame/t72/left),
+
+	"1,4" = list(/obj/structure/vehicleparts/movement/tracks/left/reversed,/obj/structure/vehicleparts/frame/t72/rb,/obj/structure/engine/internal/diesel/premade/v12),
+	"2,4" = list(/obj/structure/vehicleparts/frame/t72/back),
+	"3,4" = list(/obj/structure/vehicleparts/movement/tracks/right/reversed,/obj/structure/vehicleparts/frame/t72/lb,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled)
+	)
+
+/obj/effects/premadevehicles/tank/t64bm
+	name = "T-64BM"
+	icon_state = "4x4"
+	custom_color = "#3d5931"
+	axis = /obj/structure/vehicleparts/axis/heavy/t64bm
+	tocreate = list(
+	"1,1" = list(/obj/structure/vehicleparts/movement/tracks/right,/obj/structure/vehicleparts/frame/t72/rf,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127,/obj/item/weapon/gun/projectile/automatic/stationary/modern/dshk),
+	"2,1" = list(/obj/structure/vehicleparts/frame/t72/front),
+	"3,1" = list(/obj/structure/vehicleparts/movement/tracks/left,/obj/structure/vehicleparts/frame/t72/lf,/obj/structure/bed/chair/drivers/tank,/obj/structure/radio/transmitter_receiver/nopower/tank/faction2),
+
+	"1,2" = list(/obj/structure/vehicleparts/frame/t72/right, /obj/structure/bed/chair/commander),
+	"2,2" = list(/obj/structure/vehicleparts/frame/t72,/obj/structure/cannon/modern/tank/autoloader/t90a,/obj/structure/shellrack/autoloader/full125),
+	"3,2" = list(/obj/structure/vehicleparts/frame/t72/left, /obj/structure/bed/chair/gunner),
+
+	"1,3" = list(/obj/structure/vehicleparts/frame/t72/right/door{doorcode = 4975}),
+	"2,3" = list(/obj/structure/vehicleparts/frame/t72),
+	"3,3" = list(/obj/structure/vehicleparts/frame/t72/left),
+
+	"1,4" = list(/obj/structure/vehicleparts/movement/tracks/left/reversed,/obj/structure/vehicleparts/frame/t72/rb,/obj/structure/engine/internal/diesel/premade/v12),
+	"2,4" = list(/obj/structure/vehicleparts/frame/t72/back),
+	"3,4" = list(/obj/structure/vehicleparts/movement/tracks/right/reversed,/obj/structure/vehicleparts/frame/t72/lb,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled)
+	)
+
+/obj/effects/premadevehicles/tank/t80uk
+	name = "T-80UK"
+	icon_state = "4x4"
+	custom_color = "#3d5931"
+	axis = /obj/structure/vehicleparts/axis/heavy/t80uk
+	tocreate = list(
+	"1,1" = list(/obj/structure/vehicleparts/movement/tracks/right,/obj/structure/vehicleparts/frame/t72/rf,/obj/item/ammo_magazine/pkm,/obj/item/ammo_magazine/pkm,/obj/item/ammo_magazine/pkm,/obj/item/weapon/gun/projectile/automatic/stationary/modern/pkm),
+	"2,1" = list(/obj/structure/vehicleparts/frame/t72/front),
+	"3,1" = list(/obj/structure/vehicleparts/movement/tracks/left,/obj/structure/vehicleparts/frame/t72/lf,/obj/structure/bed/chair/drivers/tank,/obj/structure/radio/transmitter_receiver/nopower/tank/faction2),
+
+	"1,2" = list(/obj/structure/vehicleparts/frame/t72/right, /obj/structure/bed/chair/commander),
+	"2,2" = list(/obj/structure/vehicleparts/frame/t72,/obj/structure/cannon/modern/tank/autoloader/t90a,/obj/structure/shellrack/autoloader/full125),
+	"3,2" = list(/obj/structure/vehicleparts/frame/t72/left, /obj/structure/bed/chair/gunner),
+
+	"1,3" = list(/obj/structure/vehicleparts/frame/t72/right/door{doorcode = 4975}),
+	"2,3" = list(/obj/structure/vehicleparts/frame/t72),
+	"3,3" = list(/obj/structure/vehicleparts/frame/t72/left),
+
+	"1,4" = list(/obj/structure/vehicleparts/movement/tracks/left/reversed,/obj/structure/vehicleparts/frame/t72/rb,/obj/structure/engine/internal/diesel/premade/v12),
+	"2,4" = list(/obj/structure/vehicleparts/frame/t72/back),
+	"3,4" = list(/obj/structure/vehicleparts/movement/tracks/right/reversed,/obj/structure/vehicleparts/frame/t72/lb,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled)
+	)
+
+/obj/effects/premadevehicles/tank/t72b3 //UK = B3?
+	name = "T-72B3"
+	icon_state = "4x4"
+	custom_color = "#3d5931"
+	axis = /obj/structure/vehicleparts/axis/heavy/t72b3
+	tocreate = list(
+	"1,1" = list(/obj/structure/vehicleparts/movement/tracks/right,/obj/structure/vehicleparts/frame/t72/rf,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127,/obj/item/weapon/gun/projectile/automatic/stationary/modern/nsvt),
+	"2,1" = list(/obj/structure/vehicleparts/frame/t72/front),
+	"3,1" = list(/obj/structure/vehicleparts/movement/tracks/left,/obj/structure/vehicleparts/frame/t72/lf,/obj/structure/bed/chair/drivers/tank,/obj/structure/radio/transmitter_receiver/nopower/tank/faction2),
+
+	"1,2" = list(/obj/structure/vehicleparts/frame/t72/right, /obj/structure/bed/chair/commander),
+	"2,2" = list(/obj/structure/vehicleparts/frame/t72,/obj/structure/cannon/modern/tank/autoloader/t90a,/obj/structure/shellrack/autoloader/full125),
+	"3,2" = list(/obj/structure/vehicleparts/frame/t72/left, /obj/structure/bed/chair/gunner),
+
+	"1,3" = list(/obj/structure/vehicleparts/frame/t72/right/door{doorcode = 4975}),
+	"2,3" = list(/obj/structure/vehicleparts/frame/t72),
+	"3,3" = list(/obj/structure/vehicleparts/frame/t72/left),
+
+	"1,4" = list(/obj/structure/vehicleparts/movement/tracks/left/reversed,/obj/structure/vehicleparts/frame/t72/rb,/obj/structure/engine/internal/diesel/premade/v12),
+	"2,4" = list(/obj/structure/vehicleparts/frame/t72/back),
+	"3,4" = list(/obj/structure/vehicleparts/movement/tracks/right/reversed,/obj/structure/vehicleparts/frame/t72/lb,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled)
+	)
+/obj/effects/premadevehicles/tank/t72m1
+	name = "T-72M1"
+	icon_state = "4x4"
+	custom_color = "#3d5931"
+	axis = /obj/structure/vehicleparts/axis/heavy/t72m1
+	tocreate = list(
+	"1,1" = list(/obj/structure/vehicleparts/movement/tracks/right,/obj/structure/vehicleparts/frame/t72/rf,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127,/obj/item/weapon/gun/projectile/automatic/stationary/modern/dshk),
+	"2,1" = list(/obj/structure/vehicleparts/frame/t72/front),
+	"3,1" = list(/obj/structure/vehicleparts/movement/tracks/left,/obj/structure/vehicleparts/frame/t72/lf,/obj/structure/bed/chair/drivers/tank,/obj/structure/radio/transmitter_receiver/nopower/tank/faction2),
+
+	"1,2" = list(/obj/structure/vehicleparts/frame/t72/right, /obj/structure/bed/chair/commander),
+	"2,2" = list(/obj/structure/vehicleparts/frame/t72,/obj/structure/cannon/modern/tank/autoloader/t90a,/obj/structure/shellrack/autoloader/full125),
+	"3,2" = list(/obj/structure/vehicleparts/frame/t72/left, /obj/structure/bed/chair/gunner),
+
+	"1,3" = list(/obj/structure/vehicleparts/frame/t72/right/door{doorcode = 4975}),
+	"2,3" = list(/obj/structure/vehicleparts/frame/t72),
+	"3,3" = list(/obj/structure/vehicleparts/frame/t72/left),
+
+	"1,4" = list(/obj/structure/vehicleparts/movement/tracks/left/reversed,/obj/structure/vehicleparts/frame/t72/rb,/obj/structure/engine/internal/diesel/premade/v12),
+	"2,4" = list(/obj/structure/vehicleparts/frame/t72/back),
+	"3,4" = list(/obj/structure/vehicleparts/movement/tracks/right/reversed,/obj/structure/vehicleparts/frame/t72/lb,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled)
+	)
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 /// КИТАЙСКИЕ И СОВЕТСКИЕ ТАНКИ: КОНЕЦ
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -863,7 +1018,7 @@
 
 /obj/effects/premadevehicles/apc/btr80
 	name = "BTR-80"
-	icon_state = "4x4"
+	icon_state = "2x4"
 	custom_color = "#4A5243"
 	axis = /obj/structure/vehicleparts/axis/heavy/btr80
 	tocreate = list(

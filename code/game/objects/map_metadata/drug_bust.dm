@@ -1,7 +1,7 @@
 /obj/map_metadata/drug_bust
 	ID = MAP_DRUG_BUST
 	title = "The Rednikov Drug Bust"
-	lobby_icon = "icons/lobby/policestories.png"
+	lobby_icon = 'icons/lobby/policestories.png'
 	no_winner ="The drug bust is still underway."
 	caribbean_blocking_area_types = list(
 		/area/caribbean/no_mans_land/invisible_wall,
@@ -27,7 +27,7 @@
 	grace_wall_timer = 3000
 	gamemode = "Drug Bust"
 	songs = list(
-		"D.A.V.E. The Drummer - Amphetamine or Cocaine:1" = "sound/music/amphetamine_cocaine.ogg",)
+		"D.A.V.E. The Drummer - Amphetamine or Cocaine:1" = 'sound/music/amphetamine_cocaine.ogg',)
 
 obj/map_metadata/drug_bust/job_enabled_specialcheck(var/datum/job/J)
 	..()
