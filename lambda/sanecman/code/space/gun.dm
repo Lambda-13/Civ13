@@ -113,8 +113,8 @@
 
 /obj/item/weapon/gun/projectile/semiautomatic/laser/laser/lg34/scope/New()
 	..()
-	obj/item/weapon/attachment/scope/adjustable/sniper_scope/zf4/SP = /obj/item/weapon/attachment/scope/adjustable/sniper_scope/zf4(src)
-	SP.attached(null,src,TRUE)
+	///obj/item/weapon/attachment/scope/adjustable/sniper_scope/zf4/SP = /obj/item/weapon/attachment/scope/adjustable/sniper_scope/zf4(src)
+	//SP.attached(null,src,TRUE)
 
 /obj/item/ammo_magazine/tibannagas/space_war/lg34
 	name = "тибанновый блок питания ЛГ-34"
