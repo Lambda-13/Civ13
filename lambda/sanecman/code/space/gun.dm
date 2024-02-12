@@ -106,15 +106,15 @@
 		)
 	sel_mode = 1
 	effectiveness_mod = 0.95
-	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE
+	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_ADV_SCOPE
 	recoil = 35
 	accuracy = 4
-	scope_mounts = list ("swept_back")
 
 /obj/item/weapon/gun/projectile/semiautomatic/laser/laser/lg34/scope/New()
 	..()
-	///obj/item/weapon/attachment/scope/adjustable/sniper_scope/zf4/SP = /obj/item/weapon/attachment/scope/adjustable/sniper_scope/zf4(src)
-	//SP.attached(null,src,TRUE)
+	var/obj/item/weapon/attachment/scope/adjustable/advanced/fg42/SP = new/obj/item/weapon/attachment/scope/adjustable/advanced/fg42(src)
+	SP.attached(null,src,TRUE)
+
 
 /obj/item/ammo_magazine/tibannagas/space_war/lg34
 	name = "тибанновый блок питания ЛГ-34"
@@ -157,7 +157,7 @@
 		)
 	effectiveness_mod = 1.20
 	sel_mode = 1
-	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
 	recoil = 40
 	accuracy = 2
 
@@ -202,7 +202,7 @@
 	gun_type = GUN_TYPE_RIFLE
 	effectiveness_mod = 1.09
 	equiptimer = 8
-	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 
 /obj/item/weapon/gun/projectile/semiautomatic/laser/laserez/New()
 	..()
@@ -250,7 +250,7 @@
 		)
 	force = 10
 	throwforce = 20
-	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	effectiveness_mod = 1.06
 
 /obj/item/weapon/gun/projectile/semiautomatic/laser/l43/New()
