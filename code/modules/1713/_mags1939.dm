@@ -1,6 +1,7 @@
 /obj/item/ammo_magazine/arisaka99
 	name = "клипса (7.7x58mm)"
 	icon_state = "kclip"
+	attached_icon_state = "none"
 	caliber = "a77x58"
 
 	ammo_type = /obj/item/ammo_casing/a77x58
@@ -24,6 +25,7 @@
 /obj/item/ammo_magazine/arisaka99_training
 	name = "клипса (7.7x58mm)"
 	icon_state = "kclip"
+	attached_icon_state = "none"
 	caliber = "a77x58_wood"
 
 	ammo_type = /obj/item/ammo_casing/a77x58_wood
@@ -35,6 +37,7 @@
 /obj/item/ammo_magazine/type100
 	name = "Type 100 Magazine"
 	icon_state = "type100"
+	attached_icon_state = "type100_mag"
 	mag_type = MAGAZINE
 	caliber = "c8mmnambu"
 	ammo_type = /obj/item/ammo_casing/c8mmnambu
@@ -45,6 +48,7 @@
 /obj/item/ammo_magazine/type99
 	name = "Type-99 Magazine"
 	icon_state = "type99"
+	attached_icon_state = "type99_mag"
 	mag_type = MAGAZINE
 	caliber = "a77x58"
 	ammo_type = /obj/item/ammo_casing/a77x58
@@ -55,6 +59,7 @@
 /obj/item/ammo_magazine/type96
 	name = "Type-96 Magazine"
 	icon_state = "type99"
+	attached_icon_state = "type99_mag"
 	mag_type = MAGAZINE
 	caliber = "a65x50"
 	ammo_type = /obj/item/ammo_casing/a65x50
@@ -81,6 +86,7 @@
 /obj/item/ammo_magazine/sten2
 	name = "Sten Magazine"
 	icon_state = "sten2"
+	attached_icon_state = "sten_mag"
 	mag_type = MAGAZINE
 	caliber = "a9x19"
 	ammo_type = /obj/item/ammo_casing/a9x19
@@ -91,6 +97,7 @@
 /obj/item/ammo_magazine/mp40
 	name = "MP40 магазин (9x19mm)"
 	icon_state = "mp40"
+	attached_icon_state = "mp40_mag"
 	mag_type = MAGAZINE
 	caliber = "a9x19"
 	ammo_type = /obj/item/ammo_casing/a9x19
@@ -101,6 +108,7 @@
 /obj/item/ammo_magazine/mp40/erma
 	name = "erma-emp magazine (9x19mm)"
 	icon_state = "mp40"
+	attached_icon_state = "erma_mag"
 	mag_type = MAGAZINE
 	caliber = "a9x19"
 	ammo_type = /obj/item/ammo_casing/a9x19
@@ -122,10 +130,12 @@
 /obj/item/ammo_magazine/mp40/mp5
 	name = "MP5 магазин (9x19mm)"
 	icon_state = "mp5"
+	attached_icon_state = "mp5_mag"
 
 /obj/item/ammo_magazine/fg42
 	name = "FG 42 magazine (7.92x57mm)"
 	icon_state = "fg42"
+	attached_icon_state = "fg42_mag"
 	mag_type = MAGAZINE
 	caliber = "a792x57"
 	ammo_type = /obj/item/ammo_casing/a792x57
@@ -142,6 +152,7 @@
 /obj/item/ammo_magazine/mg34
 	name = "MG34 магазин (7.92x57mm)"
 	icon_state = "mg34"
+	attached_icon_state = "mg34_mag"
 	mag_type = MAGAZINE
 	caliber = "a792x57_weak"
 	ammo_type = /obj/item/ammo_casing/a792x57/weak
@@ -152,6 +163,7 @@
 /obj/item/ammo_magazine/mg13
 	name = "MG13 magazine (7.92x57mm)"
 	icon_state = "mg13mag"
+	attached_icon_state = "mg13_mag"
 	mag_type = MAGAZINE
 	caliber = "a792x57_weak"
 	ammo_type = /obj/item/ammo_casing/a792x57/weak
@@ -162,6 +174,7 @@
 /obj/item/ammo_magazine/greasegun
 	name = "M3A1 магазин (.45 ACP)"
 	icon_state = "greasegun"
+	attached_icon_state = "greasegun_mag"
 	mag_type = MAGAZINE
 	caliber = "a45acp"
 	ammo_type = /obj/item/ammo_casing/a45acp
@@ -183,6 +196,7 @@
 /obj/item/ammo_magazine/c762x25_pps
 	name = "PPS-43 магазин (7.62x25mm)"
 	icon_state = "pps"
+	attached_icon_state = "pps_mag"
 	mag_type = MAGAZINE
 	caliber = "a762x25"
 	ammo_type = /obj/item/ammo_casing/a762x25
@@ -193,16 +207,18 @@
 /obj/item/ammo_magazine/c762x25_ppsh
 	name = "PPSh-41 барабанный магазин (7.62x25mm)"
 	icon_state = "ppsh"
+	attached_icon_state = "ppsh_mag"
 	mag_type = MAGAZINE
 	caliber = "a762x25"
 	ammo_type = /obj/item/ammo_casing/a762x25
-	max_ammo = 65
+	max_ammo = 71
 	weight = 1.3
 	multiple_sprites = TRUE
 
 obj/item/ammo_magazine/dp
-	name = "барабанный магазин (7.62x54mmR)"
-	icon_state = "dpdisk"
+	name = "магазин ДП (7.62x54mmR)"
+	icon_state = "dp_disk"
+	attached_icon_state = "dp_mag"
 	mag_type = MAGAZINE
 	caliber = "a762x54_weak"
 	ammo_type = /obj/item/ammo_casing/a762x54/weak
@@ -210,9 +226,16 @@ obj/item/ammo_magazine/dp
 	weight = 0.40
 	multiple_sprites = FALSE
 
+obj/item/ammo_magazine/dp/dt
+	name = "магазин ДТ (7.62x54mmR)"
+	icon_state = "dt_drum"
+	attached_icon_state = "dt_mag"
+	max_ammo = 60
+
 /obj/item/ammo_magazine/stg
 	name = "StG 44 магазин (7.92x33mm)"
 	icon_state = "stg"
+	attached_icon_state = "stg_mag"
 	mag_type = MAGAZINE
 	caliber = "a792x33"
 	ammo_type = /obj/item/ammo_casing/a792x33
@@ -223,6 +246,7 @@ obj/item/ammo_magazine/dp
 /obj/item/ammo_magazine/g43
 	name = "G43 магазин (7.92x57mm)"
 	icon_state = "g43"
+	attached_icon_state = "g43_mag"
 	caliber = "a792x57"
 	mag_type = MAGAZINE
 
@@ -234,6 +258,7 @@ obj/item/ammo_magazine/dp
 /obj/item/ammo_magazine/svd
 	name = "SVD магазин (7.62x54mmR)"
 	icon_state = "g43"
+	attached_icon_state = "svd_mag"
 	caliber = "a762x54"
 	mag_type = MAGAZINE
 
@@ -245,6 +270,7 @@ obj/item/ammo_magazine/dp
 /obj/item/ammo_magazine/avtomat
 	name = "avtomat магазин (6.5x50mm)"
 	icon_state = "g43"
+	attached_icon_state = "avtomat_mag"
 	caliber = "a65x50"
 	mag_type = MAGAZINE
 
@@ -256,6 +282,7 @@ obj/item/ammo_magazine/dp
 /obj/item/ammo_magazine/svt
 	name = "SVT-40 магазин (7.62x54mm)"
 	icon_state = "svt"
+	attached_icon_state = "svt_mag"
 	caliber = "a762x54"
 	mag_type = MAGAZINE
 
@@ -323,10 +350,10 @@ obj/item/ammo_magazine/dp
 	..()
 	stored_ammo.Cut()
 
-
 /obj/item/ammo_magazine/garand
 	name = "клипса (30-06) на 8 патронов"
 	icon_state = "g-clip"
+	attached_icon_state = "none"
 	caliber = "a3006"
 	ammo_type = /obj/item/ammo_casing/a3006
 	max_ammo = 8
@@ -337,6 +364,7 @@ obj/item/ammo_magazine/dp
 /obj/item/ammo_magazine/m1carbine
 	name = "M1 Carbine Small magazine (7.62x33mm)"
 	icon_state = "mcar"
+	attached_icon_state = "mcar_mag"
 	mag_type = MAGAZINE
 	caliber = "a762x33"
 	ammo_type = /obj/item/ammo_casing/a762x33
@@ -348,6 +376,7 @@ obj/item/ammo_magazine/dp
 	name = "M1 Carbine magazine (7.62x33mm)"
 	max_ammo = 30
 	icon_state = "mcarbig"
+	attached_icon_state = "mcar_mag30"
 	weight = 0.6
 	multiple_sprites = TRUE
 
@@ -375,8 +404,8 @@ obj/item/ammo_magazine/dp
 /obj/item/ammo_magazine/springfield
 	name = "клипса (30-06)"
 	icon_state = "clip"
+	attached_icon_state = "none"
 	caliber = "a3006"
-
 	ammo_type = /obj/item/ammo_casing/a3006
 	max_ammo = 5
 	weight = 0.038
@@ -386,6 +415,7 @@ obj/item/ammo_magazine/dp
 /obj/item/ammo_magazine/browning
 	name = "лента с патронами Браунинг"
 	icon_state = "maximbelt"
+	attached_icon_state = "belt_"
 	mag_type = MAGAZINE
 	caliber = "a3006"
 	w_class = ITEM_SIZE_LARGE
@@ -404,8 +434,8 @@ obj/item/ammo_magazine/dp
 /obj/item/ammo_magazine/bar
 	name = "BAR магазин (30-06)"
 	icon_state = "bar"
+	attached_icon_state = "bar_mag"
 	caliber = "a3006_weak"
-
 	ammo_type = /obj/item/ammo_casing/a3006/weak
 	max_ammo = 20
 	weight = 0.038
@@ -415,6 +445,7 @@ obj/item/ammo_magazine/dp
 /obj/item/ammo_magazine/thompson
 	name = "Thompson магазин (.45)"
 	icon_state = "thompson"
+	attached_icon_state = "thompson_mag"
 	caliber = "a45acp"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/a45acp
