@@ -3,7 +3,7 @@
 	var/burst = 1
 	var/burst_delay = 0
 	var/fire_delay = -1
-	var/move_delay = 0
+	var/move_delay = 1
 	var/shake_strength = -1
 
 //using a list makes defining fire modes for new guns much nicer,
@@ -77,7 +77,7 @@
 //	var/can_scope = FALSE
 
 	var/burst = 1
-	var/move_delay = 0
+	var/move_delay = 1
 	var/list/burst_accuracy = list(0)
 
 	var/obj/item/weapon/attachment/bayonet = null
@@ -396,7 +396,7 @@
 
 	var/dt = world.time - last_shot_time
 
-	var/shot_recoil = next_shot_recoil / (dt * ergonomics * 0.75)
+	var/shot_recoil = next_shot_recoil / (dt * ergonomics * 1.5)
 
 	if(user.lying || user.prone)
 		shot_recoil /= 2.5
@@ -425,7 +425,7 @@
 			x_offset = rand(-1,1)
 
 	if(!P.launch(target, user, src, target_zone, x_offset, y_offset))
-		next_shot_recoil += rand(-recoil, recoil)
+		next_shot_recoil += rand(-recoil, recoil) * 0.5
 		if(abs(next_shot_recoil) >= 25)
 			next_shot_recoil = clamp(next_shot_recoil, -25, 25)
 			next_shot_recoil /= rand(2, 4)
