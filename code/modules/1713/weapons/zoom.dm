@@ -11,7 +11,6 @@ Parts of code courtesy of Super3222
 	var/zoom_amt = 3
 	var/zoomed = FALSE
 	var/datum/action/toggle_scope/azoom
-	var/mount = "none"
 	flammable = FALSE
 	attachment_type = ATTACH_SCOPE
 	slot_flags = SLOT_POCKET|SLOT_BELT|SLOT_ID
@@ -30,6 +29,7 @@ Parts of code courtesy of Super3222
 	var/min_zoom = 3
 	var/max_zoom = 3
 	var/looking = FALSE
+
 /obj/item/weapon/attachment/scope/adjustable/New()
 	..()
 	zoom_amt = max_zoom // this really makes more sense IMO, 95% of people will just set it to the max - Kachnov

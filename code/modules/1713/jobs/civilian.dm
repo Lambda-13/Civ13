@@ -2305,7 +2305,7 @@
 		var/obj/item/ammo_magazine/tommy/mag = new /obj/item/ammo_magazine/tommy(null)
 		suit.attackby(mag, H)
 		suit.attackby(mag, H)
-		H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/thompson(H), slot_l_hand)
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/tommy(H), slot_l_hand)
 		H.add_note("Specialization", "You are a part of McKellen's Entreprises. You're the enforcer, the one who does what needs gettin done.")
 		H.setStat("strength", STAT_VERY_HIGH)
 		H.setStat("crafting", STAT_NORMAL)
