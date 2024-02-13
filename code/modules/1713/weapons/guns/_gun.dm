@@ -1,7 +1,7 @@
 /obj/item/weapon/gun
 	var/gun_safety = FALSE
 	var/safetyon = FALSE
-	var/obj/item/weapon/attachment/scope/adjustable/advanced/specialoptics = null
+	var/obj/item/weapon/attachment/scope/scope = null
 	var/obj/item/weapon/attachment/under/under = null
 	var/pocket = FALSE
 
