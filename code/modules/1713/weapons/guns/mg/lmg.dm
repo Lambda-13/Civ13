@@ -283,9 +283,9 @@
 	slot_flags = SLOT_SHOULDER
 	weight = 10
 	firemodes = list(
-		list(name = "full auto", burst=1, burst_delay=1.1, dispersion = list(0.6, 1, 1.2, 1.3, 1.3), recoil = 0),
+		list(name = "full auto", burst=1, burst_delay=1.1, dispersion = list(0.6, 1, 1.2, 1.3, 1.3)),
 	)
-	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE
+	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER
 	force = 20
 	nothrow = TRUE
 	throwforce = 30
@@ -310,6 +310,22 @@
 	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/acog/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope/acog(src)
 	SP.attached(null,src,TRUE)
 
+/obj/item/weapon/gun/projectile/automatic/m249/suppressor/New()
+	..()
+	if(prob(50))
+		var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/acog/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope/acog(src)
+		SP.attached(null,src,TRUE)
+	else
+		var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/elcan/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope/elcan(src)
+		SP.attached(null,src,TRUE)
+
+	if(prob(50))
+		var/obj/item/weapon/attachment/under/foregrip/FP = new/obj/item/weapon/attachment/under/foregrip(src)
+		FP.attached(null,src,TRUE)
+	else
+		var/obj/item/weapon/attachment/under/laser/LS = new/obj/item/weapon/attachment/under/laser(src)
+		LS.attached(null,src,TRUE)
+
 /obj/item/weapon/gun/projectile/automatic/pkm
 	name = "PKM machine gun"
 	desc = "A soviet machinegun chambered in 7.62x54mmR rounds."
@@ -322,7 +338,7 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	weight = 7.5
 	firemodes = list(
-		list(name = "full auto", burst=1, burst_delay=1.3, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.6), recoil = 0),
+		list(name = "full auto", burst=1, burst_delay=1.3, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.6)),
 	)
 	slot_flags = SLOT_SHOULDER
 	force = 20
@@ -357,8 +373,21 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_UNDER|ATTACH_SCOPE|ATTACH_BARREL
 	scope_mounts = list ("dovetail", "picatinny")
 	under_mounts = list ("picatinny")
-	under_x_offset = -1
-	under_y_offset = 3
+	under_x_offset = 3
+	under_y_offset = 2
+
+/obj/item/weapon/gun/projectile/automatic/pkm/pkp/devastator/New()
+	..()
+	if (prob(50))
+		var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pso4/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pso4(src)
+		SP.attached(null,src,TRUE)
+
+	if (prob(50))
+		var/obj/item/weapon/attachment/under/foregrip/FP = new/obj/item/weapon/attachment/under/foregrip(src)
+		FP.attached(null,src,TRUE)
+	else
+		var/obj/item/weapon/attachment/under/laser/LS = new/obj/item/weapon/attachment/under/laser(src)
+		LS.attached(null,src,TRUE)
 
 /obj/item/weapon/gun/projectile/automatic/rpd
 	name = "RPD machine gun"
@@ -434,6 +463,25 @@
 	mag_y_offset = -1
 	under_x_offset = 1
 	under_y_offset = 1
+
+/obj/item/weapon/gun/projectile/automatic/rpk74/rpk16/suppressor/New()
+	..()
+	if (prob(50))
+		var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pso4/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pso4(src)
+		SP.attached(null,src,TRUE)
+	else
+		var/obj/item/weapon/attachment/scope/adjustable/advanced/holographic/SP = new/obj/item/weapon/attachment/scope/adjustable/advanced/holographic(src)
+		SP.attached(null,src,TRUE)
+
+	if (prob(50))
+		var/obj/item/weapon/attachment/under/foregrip/FP = new/obj/item/weapon/attachment/under/foregrip(src)
+		FP.attached(null,src,TRUE)
+	else
+		var/obj/item/weapon/attachment/under/laser/LS = new/obj/item/weapon/attachment/under/laser(src)
+		LS.attached(null,src,TRUE)
+
+	var/obj/item/weapon/attachment/silencer/rifle/pbs4/SL = new/obj/item/weapon/attachment/silencer/rifle/pbs4(src)
+	SL.attached(null,src,TRUE)
 
 /obj/item/weapon/gun/projectile/automatic/rpk47
 	name = "RPK-47 machine gun"

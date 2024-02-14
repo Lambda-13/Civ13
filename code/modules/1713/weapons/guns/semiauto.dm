@@ -432,8 +432,8 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER
 	accuracy = 3
 	scope_mounts = list ("dovetail")
-	scope_x_offset = 4
-	scope_y_offset = 1
+	scope_x_offset = 2
+	scope_y_offset = -1
 	under_x_offset = 3
 	under_y_offset = 2
 

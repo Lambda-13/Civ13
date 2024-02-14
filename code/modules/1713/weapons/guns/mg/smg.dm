@@ -154,18 +154,35 @@
 	force = 15
 	throwforce = 30
 	weight = 3.4
-	attachment_slots = ATTACH_BARREL|ATTACH_SCOPE|ATTACH_UNDER
+	attachment_slots = ATTACH_UNDER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
 	firemodes = list(
 		list(name = "semi auto",    burst=1, burst_delay=0.7, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
 		)
-	recoil = 30
+	recoil = 60
 	accuracy = 5
 	sel_mode = 1
 	scope_x_offset = -2
 	scope_y_offset = -3
 	scope_mounts = list ("dovetail", "picatinny")
 	under_mounts = list ("picatinny")
+
+/obj/item/weapon/gun/projectile/submachinegun/saiga12/breacher/New()
+	..()
+	if (prob(50))
+		var/obj/item/weapon/attachment/scope/adjustable/advanced/holographic/SP = new/obj/item/weapon/attachment/scope/adjustable/advanced/holographic(src)
+		SP.attached(null,src,TRUE)
+	else
+		var/obj/item/weapon/attachment/scope/adjustable/advanced/reddot/SP = new/obj/item/weapon/attachment/scope/adjustable/advanced/reddot(src)
+		SP.attached(null,src,TRUE)
+
+	if (prob(50))
+		var/obj/item/weapon/attachment/under/foregrip/FP = new/obj/item/weapon/attachment/under/foregrip(src)
+		FP.attached(null,src,TRUE)
+	else
+		var/obj/item/weapon/attachment/under/laser/LS = new/obj/item/weapon/attachment/under/laser(src)
+		LS.attached(null,src,TRUE)
+
 
 /obj/item/weapon/gun/projectile/submachinegun/mp40
 	name = "MP40"
@@ -613,7 +630,8 @@
 	under_mounts = list ("gp25_mount")
 	under_x_offset = 1
 	under_y_offset = 1
-
+	scope_x_offset = -2
+	scope_y_offset = -2
 
 /obj/item/weapon/gun/projectile/submachinegun/ak47/gold
 	name = "gold-plated AKM"
@@ -699,7 +717,8 @@
 	under_mounts = list ("gp25_mount")
 	under_x_offset = 1
 	under_y_offset = 1
-
+	scope_x_offset = -2
+	scope_y_offset = -2
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/grenade_launcher/New()
 	..()
