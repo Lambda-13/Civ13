@@ -211,6 +211,27 @@
 	base_icon = "is3_tracks_right_back"
 	movement_icon = "is3_tracks_right_back_m"
 
+/obj/structure/vehicleparts/movement/tracks/is2/left_front
+	icon = 'icons/obj/vehicles/tankparts96x96.dmi'
+	icon_state = "is2_tracks_left_front"
+	base_icon = "is2_tracks_left_front"
+	movement_icon = "is2_tracks_left_front_m"
+/obj/structure/vehicleparts/movement/tracks/is2/right_front
+	icon = 'icons/obj/vehicles/tankparts96x96.dmi'
+	icon_state = "is2_tracks_right_front"
+	base_icon = "is2_tracks_right_front"
+	movement_icon = "is2_tracks_right_front_m"
+/obj/structure/vehicleparts/movement/tracks/is2/left_back
+	icon = 'icons/obj/vehicles/tankparts96x96.dmi'
+	icon_state = "is2_tracks_left_back"
+	base_icon = "is2_tracks_left_back"
+	movement_icon = "is2_tracks_left_back_m"
+/obj/structure/vehicleparts/movement/tracks/is2/right_back
+	icon = 'icons/obj/vehicles/tankparts96x96.dmi'
+	icon_state = "is2_tracks_right_back"
+	base_icon = "is2_tracks_right_back"
+	movement_icon = "is2_tracks_right_back_m"
+
 /obj/structure/vehicleparts/movement/tracks/t34/left_front
 	icon = 'icons/obj/vehicles/tankparts96x96.dmi'
 	icon_state = "t34_tracks_left_front"

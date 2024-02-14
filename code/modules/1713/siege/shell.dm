@@ -187,6 +187,17 @@
 	heavy_armor_penetration = 240
 	damage = 100
 
+/obj/item/cannon_ball/shell/tank/HE122
+	atype = "HE"
+	caliber = 122
+	heavy_armor_penetration = 35
+	damage = 333
+/obj/item/cannon_ball/shell/tank/AP122
+	atype = "AP"
+	caliber = 122
+	heavy_armor_penetration = 215
+	damage = 140
+
 /obj/item/cannon_ball/shell/tank/HE125
 	atype = "HE"
 	caliber = 125
@@ -560,12 +571,21 @@
 		new /obj/item/cannon_ball/shell/tank/AP100(storage)
 	update_icon()
 
+
 /obj/structure/shellrack/full120/New()
+	..()
+	for (var/i=1, i<=10, i++)
+		new /obj/item/cannon_ball/shell/tank/HE122(storage)
+	for (var/i=1, i<=6, i++)
+		new /obj/item/cannon_ball/shell/tank/AP122(storage)
+	update_icon()
+
+/obj/structure/shellrack/full122/New()
 	..()
 	for (var/i=1, i<=10, i++)
 		new /obj/item/cannon_ball/shell/tank/HE120(storage)
 	for (var/i=1, i<=6, i++)
-		new /obj/item/cannon_ball/shell/tank/APCR120(storage)
+		new /obj/item/cannon_ball/shell/tank/AP120(storage)
 	update_icon()
 
 /obj/structure/shellrack/full125/New()

@@ -92,12 +92,42 @@
 	speedlist = list(1=12,2=8,3=6)
 	vehicle_type = "tank"
 
+/obj/structure/vehicleparts/axis/heavy/is1
+	name = "IS-1"
+	speeds = 4
+	speedlist = list(1=12,2=8,3=6,4=5)
+	reg_number = ""
+	color = "#4a5243"
+	turret_type = "is1_turret"
+	tile_size = "96x96"
+	broken_icon = 'icons/obj/vehicles/tankparts96x96_damaged.dmi'
+	New()
+		..()
+		var/pickedname = pick(tank_names_soviet)
+		tank_names_soviet -= pickedname
+		name = "[name] \'[pickedname]\'"
+
+/obj/structure/vehicleparts/axis/heavy/is2
+	name = "IS-2"
+	speeds = 4
+	speedlist = list(1=12,2=8,3=6,4=5)
+	reg_number = ""
+	color = "#4a5243"
+	turret_type = "is2_turret"
+	tile_size = "96x96"
+	broken_icon = 'icons/obj/vehicles/tankparts96x96_damaged.dmi'
+	New()
+		..()
+		var/pickedname = pick(tank_names_soviet)
+		tank_names_soviet -= pickedname
+		name = "[name] \'[pickedname]\'"
+
 /obj/structure/vehicleparts/axis/heavy/is3
 	name = "IS-3"
 	speeds = 4
 	speedlist = list(1=12,2=8,3=6,4=5)
 	reg_number = ""
-	color = "#5C5C4C"
+	color = "#4a5243"
 	turret_type = "is3_turret"
 	tile_size = "96x96"
 	broken_icon = 'icons/obj/vehicles/tankparts96x96_damaged.dmi'
@@ -184,7 +214,7 @@
 		var/pickedname = pick(tank_names_soviet)
 		tank_names_soviet -= pickedname
 		name = "[name] \'[pickedname]\'"
-
+	turret_y = 8
 
 /obj/structure/vehicleparts/axis/heavy/mtlb
 	name = "MT-LB"
