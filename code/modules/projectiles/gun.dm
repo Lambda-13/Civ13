@@ -37,7 +37,7 @@
 	attack_verb = list("struck", "hit", "bashed")
 
 	var/full_auto = FALSE
-	var/fire_delay = 1 	//delay after shooting before the gun can be used again
+	var/fire_delay = 0.1 	//delay after shooting before the gun can be used again
 	var/fire_sound = 'sound/weapons/guns/fire/rifle.ogg'
 	var/silencer_fire_sound = 'sound/weapons/guns/fire/AKM-SD.ogg'
 	var/fire_sound_text = "gunshot"
