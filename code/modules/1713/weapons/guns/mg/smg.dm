@@ -162,10 +162,10 @@
 	recoil = 30
 	accuracy = 5
 	sel_mode = 1
-	gun_type = GUN_TYPE_RIFLE
 	scope_x_offset = -2
 	scope_y_offset = -3
 	scope_mounts = list ("dovetail", "picatinny")
+	under_mounts = list ("picatinny")
 
 /obj/item/weapon/gun/projectile/submachinegun/mp40
 	name = "MP40"
@@ -912,8 +912,8 @@
 	under_mounts = list ("picatinny", "gp25_mount")
 	under_x_offset = 1
 	under_y_offset = 1
-	scope_x_offset = -1
-	scope_y_offset = -1
+	scope_x_offset = -2
+	scope_y_offset = -2
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74m/ak12
 	name = "AK-12"
@@ -931,7 +931,7 @@
 	sel_mode = 1
 	recoil = 25
 	accuracy = 2
-
+	scope_x_offset = -2
 	barrel_x_offset = 15
 	barrel_y_offset = 17
 
@@ -952,7 +952,6 @@
 	sel_mode = 1
 	recoil = 30
 	accuracy = 2
-	under_mounts = list ("m203_mount")
 
 /obj/item/weapon/gun/projectile/submachinegun/m16
 	name = "M16A1"
@@ -979,8 +978,9 @@
 	accuracy = 3
 	barrel_x_offset = 16
 	barrel_y_offset = 16
-	scope_mounts = list ("picatinny")
 	scope_x_offset = -3
+	scope_mounts = list ("picatinny")
+	under_mounts = list ("m203_mount")
 
 /obj/item/weapon/gun/projectile/submachinegun/m16/ar15
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_SCOPE|ATTACH_UNDER
