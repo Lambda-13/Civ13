@@ -417,8 +417,8 @@
 	effectiveness_mod = 1.07
 	recoil = 25
 	accuracy = 2
-	scope-x_offset = -1
-	scope-x_offset = -1
+	scope_x_offset = -1
+	scope_y_offset = -1
 	scope_mounts = list ("dovetail")
 
 /obj/item/weapon/gun/projectile/automatic/rpk74/rpk16
@@ -459,8 +459,8 @@
 	effectiveness_mod = 1.03
 	recoil = 35
 	accuracy = 3
-	scope-x_offset = -1
-	scope-x_offset = -1
+	scope_x_offset = -1
+	scope_y_offset = -1
 	scope_mounts = list ("dovetail")
 
 /obj/item/weapon/gun/projectile/automatic/rpk47/modern //too lazy to add in a new icon for now, will do it later
