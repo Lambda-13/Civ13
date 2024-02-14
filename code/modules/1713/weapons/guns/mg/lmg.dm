@@ -339,6 +339,7 @@
 	barrel_y_offset = 17
 	scope_x_offset = -1
 	scope_y_offset = -3
+	scope_mounts = list ("dovetail")
 
 /obj/item/weapon/gun/projectile/automatic/pkm/update_icon()
 	..()
@@ -356,10 +357,8 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_UNDER|ATTACH_SCOPE|ATTACH_BARREL
 	scope_mounts = list ("dovetail", "picatinny")
 	under_mounts = list ("picatinny")
-	scope_x_offset = -1
-	scope_y_offset = -3
-	under_x_offset = 4
-	under_y_offset = 2
+	under_x_offset = -1
+	under_y_offset = 3
 
 /obj/item/weapon/gun/projectile/automatic/rpd
 	name = "RPD machine gun"
@@ -402,7 +401,7 @@
 	base_icon = "rpk74"
 	caliber = "a545x39"
 	magazine_type = /obj/item/ammo_magazine/rpk74
-	good_mags = list(/obj/item/ammo_magazine/rpk74, /obj/item/ammo_magazine/rpk74/drum, /obj/item/ammo_magazine/ak74)
+	good_mags = list(/obj/item/ammo_magazine/rpk74, /obj/item/ammo_magazine/rpk74/drum, /obj/item/ammo_magazine/ak74, /obj/item/ammo_magazine/ak74/ak74m)
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	weight = 5.1
 	firemodes = list(
@@ -413,11 +412,13 @@
 	nothrow = TRUE
 	throwforce = 30
 	equiptimer = 20
-	load_delay = 30
+	load_delay = 8
 	slowdown = 0.5
 	effectiveness_mod = 1.07
 	recoil = 25
 	accuracy = 2
+	scope-x_offset = -1
+	scope-x_offset = -1
 	scope_mounts = list ("dovetail")
 
 /obj/item/weapon/gun/projectile/automatic/rpk74/rpk16
@@ -453,11 +454,13 @@
 	nothrow = TRUE
 	throwforce = 30
 	equiptimer = 21
-	load_delay = 26
+	load_delay = 8
 	slowdown = 0.4
 	effectiveness_mod = 1.03
 	recoil = 35
 	accuracy = 3
+	scope-x_offset = -1
+	scope-x_offset = -1
 	scope_mounts = list ("dovetail")
 
 /obj/item/weapon/gun/projectile/automatic/rpk47/modern //too lazy to add in a new icon for now, will do it later

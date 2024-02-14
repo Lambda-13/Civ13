@@ -216,8 +216,7 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	accuracy = 1
 	scope_mounts = list ("dovetail")
-	scope_x_offset = 2
-	scope_y_offset = -1
+	scope_y_offset = -3
 
 /obj/item/weapon/gun/projectile/semiautomatic/svd/New()
 	..()

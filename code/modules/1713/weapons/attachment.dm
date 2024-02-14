@@ -317,6 +317,7 @@ Current Defines (_defines/attachment.dm)
 	icon_state = "pso4"
 	mount = "dovetail"
 	max_zoom = ZOOM_CONSTANT+4
+	ergonomics = 1.15
 /obj/item/weapon/attachment/scope/adjustable/sniper_scope/spp
 	name = "SPP"
 	desc = "Optical sight designed for heavy machineguns. You can attach this scope to any rifle with dovetail rail"
@@ -352,12 +353,14 @@ Current Defines (_defines/attachment.dm)
 	icon_state = "acog"
 	mount = "picatinny"
 	max_zoom = ZOOM_CONSTANT+3
+	ergonomics = 1.25
 /obj/item/weapon/attachment/scope/adjustable/sniper_scope/elcan
 	name = "Elcan"
 	desc = "You can attach this to any rifle with picatinny rail"
 	icon_state = "elcan"
 	mount = "picatinny"
 	max_zoom = ZOOM_CONSTANT+2
+	ergonomics = 1.35
 /obj/item/weapon/attachment/scope/adjustable/sniper_scope/vortex_viper
 	name = "Viper Vortex"
 	desc = "You can attach this to any rifle with picatinny rail"
