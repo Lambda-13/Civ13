@@ -35,6 +35,7 @@
 /datum/job/var/is_ww2 = FALSE
 /datum/job/var/is_reichstag = FALSE
 /datum/job/var/is_coldwar = FALSE
+/*/datum/job/var/is_pigsbay = FALSE*/
 /datum/job/var/is_radioman = FALSE
 /datum/job/var/is_specops = FALSE
 /datum/job/var/is_modernday = FALSE
