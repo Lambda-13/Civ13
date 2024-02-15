@@ -19,7 +19,6 @@
 "as" = (/obj/structure/barricade/antitank,/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 8},/obj/structure/window/barrier/snowwall{icon_state = "snow_wall"; dir = 1},/turf/floor/winter,/area/caribbean/nomads/forest/snow)
 "at" = (/obj/structure/wild/tree/live_tree/pine/snow,/turf/floor/winter/grass,/area/caribbean/nomads/forest/snow)
 "au" = (/obj/structure/barbwire{icon_state = "barbwire"; dir = 8},/turf/floor/winter,/area/caribbean/nomads/forest/snow)
-"av" = (/obj/structure/vehicleparts/frame/t34/rf,/obj/structure/vehicleparts/movement/tracks/t34/right_front,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/weapon/gun/projectile/automatic/stationary/modern/dt,/obj/structure/bed/chair/gunner,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
 "aw" = (/obj/structure/barbwire{icon_state = "barbwire"; dir = 8},/obj/structure/barricade/antitank,/turf/floor/winter/grass,/area/caribbean/nomads/forest/snow)
 "ax" = (/obj/structure/window/barrier/snowwall{icon_state = "snow_wall"; dir = 1},/turf/floor/winter/grass,/area/caribbean/nomads/forest/snow)
 "ay" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 8},/turf/floor/winter,/area/caribbean/nomads/forest/snow)
@@ -397,7 +396,7 @@
 "hH" = (/obj/item/weapon/gun/projectile/automatic/stationary/modern/maxim/ww2{icon_state = "maxim_ww2"; dir = 1},/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/plating/road,/area/caribbean/nomads/forest/snow)
 "hI" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 4},/turf/floor/plating/road,/area/caribbean/nomads/forest/snow)
 "hJ" = (/obj/structure/vending/sovietweapons,/turf/floor/wood,/area/caribbean/roofed)
-"hK" = (/obj/structure/vehicleparts/frame/t34/front,/obj/structure/vehicleparts/axis/heavy/t34,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
+"hK" = (/obj/structure/vehicleparts/frame/t34/rf,/obj/structure/vehicleparts/movement/tracks/t34/right_front,/obj/structure/bed/chair/mgunner/dt28,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
 "hL" = (/obj/structure/table/wood,/obj/structure/radio/transmitter_receiver/nopower/faction2,/turf/floor/wood,/area/caribbean/russian/land/inside/command{name = "Soviet HQ"})
 "hM" = (/obj/structure/table/wood,/obj/item/weapon/paper/official,/turf/floor/plating/white,/area/caribbean/roofed)
 "hN" = (/obj/structure/bed/chair{icon_state = "chair"; dir = 8},/obj/effect/landmark{name = "JoinLateRUDoc"; icon_state = "x1"},/turf/floor/plating/white,/area/caribbean/roofed)
@@ -459,6 +458,7 @@
 "iR" = (/obj/structure/bed/wood,/obj/effect/landmark{name = "JoinLateRU"; icon_state = "x1"},/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 8},/turf/floor/wood,/area/caribbean/roofed)
 "iS" = (/obj/structure/bed/wood,/obj/effect/landmark{name = "JoinLateRU"; icon_state = "x1"},/obj/structure/lamp/lamp_big/alwayson{dir = 4},/turf/floor/wood,/area/caribbean/roofed)
 "iT" = (/obj/structure/vehicleparts/frame/t34/lf,/obj/structure/vehicleparts/movement/tracks/t34/left_front,/obj/structure/bed/chair/drivers/tank,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
+"iU" = (/obj/structure/vehicleparts/frame/t34/front,/obj/structure/vehicleparts/axis/heavy/t34,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
 "mu" = (/obj/structure/cannon/mortar,/turf/floor/wood,/area/caribbean/roofed)
 "nT" = (/obj/structure/grille/chainlinkfence{icon_state = "chainlinkfence"; dir = 8},/obj/structure/barbwire{icon_state = "barbwire"; dir = 8},/obj/structure/window/barrier/sandbag{dir = 8},/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
 "qv" = (/obj/structure/lamp/lamp_small/alwayson{icon_state = "bulb"; dir = 1},/obj/structure/closet/crate/sandbags,/turf/floor/wood,/area/caribbean/roofed)
@@ -657,5 +657,5 @@ iciPhVhVhVhVhVhVhVhVhUijahahahahahgagfggghhhhwgWhAgkgkhAgaahahgaeDbfiQbfbfiQbfeD
 icicichEhEfUhEhEfCiLffilahahahahahgahPgghMhNhigWhegggghigaahahgaiRbfbwbfbfbwbfiSgahBbfNtbfbfbfbfbfgaeNexeveOeUeeahahahaZbAedahahahaZbAeiahahbXbXbXUdOseCfdajajajaaaaaaaaaaaaaaaaaaczaaaaaaaahmhlcXcXcXcScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScS
 iciminhEiogYhEiogXigihahahahahahahgahOggekgggghQgghAgghAgaahahgaeDbfbfeEeEbfbfeDgaizbfbwbfbfiAiBiCgaeVexeveWeXeeahahaheFeGeJahahaheFeGeJahahbXaGbXUdOseCfdajajajaaaaaaaaaaaaaaajaaaaaaaaaaaahmhlcScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScS
 icicichEhEeRhEhEfUhEicahahahahahahgahTgggggggghQgggggghigaahahgaiRbfeEiDiEeEbfiSgahJbfbfbfbfbfmuWzgafjevevfkfreeahahaheMfefpahahaheMfefpahahvGbXbXvGOseCfdgEajajaaacaaacaaaaaaaaaaaaaaaaaaaahmhlcScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScS
-ipicicicicicicicicicicahahahahahahgahWgghXgghXhQgghAgghAgaahahgaeDbfbweEeEbwbfeDgaitbfiFiGiGiHiIiIgafsfufxfzfAeeahahahavhKiTahahahavhKiTahahahahahahOseCfdajajajaaaaaaaaaaaaebaaaaaaaaaaaaaahmhlcScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScS
+ipicicicicicicicicicicahahahahahahgahWgghXgghXhQgghAgghAgaahahgaeDbfbweEeEbwbfeDgaitbfiFiGiGiHiIiIgafsfufxfzfAeeahahahhKiUiTahahahhKiUiTahahahahahahOseCfdajajajaaaaaaaaaaaaebaaaaaaaaaaaaaahmhlcScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScS
 "}

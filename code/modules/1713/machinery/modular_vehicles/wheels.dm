@@ -279,8 +279,20 @@
 			return
 
 /obj/structure/bed/chair/mgunner/dt28/New()
-		..()
 		mg = new/obj/item/weapon/gun/projectile/automatic/dp28/dt28(src)
+		..()
+
+/obj/structure/bed/chair/mgunner/mg34/New()
+		mg = new/obj/item/weapon/gun/projectile/automatic/mg34(src)
+		..()
+
+/obj/structure/bed/chair/mgunner/browning_lmg/New()
+		mg = new/obj/item/weapon/gun/projectile/automatic/browning_lmg(src)
+		..()
+
+/obj/structure/bed/chair/mgunner/pkm/New()
+		mg = new/obj/item/weapon/gun/projectile/automatic/pkm(src)
+		..()
 
 /obj/structure/bed/chair/mgunner/user_unbuckle_mob(mob/user)
 	var/mob/living/M = unbuckle_mob()
