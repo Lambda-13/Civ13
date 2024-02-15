@@ -251,19 +251,18 @@
 
 /obj/structure/bed/chair/mgunner
 	name = "machinegunner's seat"
-	desc = "a seat with a machinegun."
+	desc = "a seat with a course machinegun."
 	icon_state = "officechair_white"
 	anchored = FALSE
 	flammable = FALSE
 	var/obj/item/weapon/gun/projectile/automatic/mg = null
 	New()
 		..()
-		mg = new/obj/item/weapon/gun/projectile/automatic/dp28/dt28(src)
-		mg.mount = src
-		mg.nothrow = TRUE
-		mg.nodrop = TRUE
-		mg.recoil = 1
-
+		if(mg)
+			mg.mount = src
+			mg.nothrow = TRUE
+			mg.nodrop = TRUE
+			mg.recoil = 1
 /obj/structure/bed/chair/mgunner/rotate_right()
 	return
 
@@ -274,9 +273,14 @@
 	return
 
 /obj/structure/bed/chair/mgunner/post_buckle_mob()
-	if (buckled_mob && istype(buckled_mob, /mob/living/human) && buckled_mob.put_in_active_hand(mg) == FALSE)
-		buckled_mob << "Your hands are full!"
-		return
+	if (buckled_mob && istype(buckled_mob, /mob/living/human) && mg)
+		if(buckled_mob.put_in_active_hand(mg) == FALSE)
+			buckled_mob << "Your hands are full!"
+			return
+
+/obj/structure/bed/chair/mgunner/dt28/New()
+		..()
+		mg = new/obj/item/weapon/gun/projectile/automatic/dp28/dt28(src)
 
 /obj/structure/bed/chair/mgunner/user_unbuckle_mob(mob/user)
 	var/mob/living/M = unbuckle_mob()
@@ -292,8 +296,9 @@
 				"<span class='notice'>You unbuckle yourself from [src].</span>",\
 				"<span class='notice'>You hear metal clanking.</span>")
 		add_fingerprint(user)
-		M.remove_from_mob(mg)
-		mg.forceMove(src)
+		if(mg)
+			M.remove_from_mob(mg)
+			mg.forceMove(src)
 	return M
 
 ////////GUNNER/LOADER CHAIR////////////
