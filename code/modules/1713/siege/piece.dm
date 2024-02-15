@@ -963,6 +963,10 @@
 	set name = "Rotate Left"
 	set src in range(2, usr)
 
+	if (course && istype(usr, /mob/living))
+		usr << "You can't rotate course cannon"
+		return
+
 	if (!istype(usr, /mob/living))
 		return
 
@@ -1007,6 +1011,10 @@
 	set category = null
 	set name = "Rotate Right"
 	set src in range(2, usr)
+
+	if (course && istype(usr, /mob/living))
+		usr << "You can't rotate course cannon"
+		return
 
 	if (!istype(usr, /mob/living))
 		return

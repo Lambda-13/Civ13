@@ -1164,5 +1164,5 @@
 #include "lambda\sanecman\code\soldier_stogie\soldier_stogie.dm"
 #include "lambda\sanecman\code\space\grenade.dm"
 #include "lambda\sanecman\code\space\gun.dm"
-#include "maps\WIP\red_menace.dmm"
+#include "maps\1943\smallingrad.dmm"
 // END_INCLUDE
