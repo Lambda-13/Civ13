@@ -253,6 +253,27 @@
 	base_icon = "t34_tracks_right_back"
 	movement_icon = "t34_tracks_right_back_m"
 
+/obj/structure/vehicleparts/movement/tracks/m41/left_front
+	icon = 'icons/obj/vehicles/tankparts96x96.dmi'
+	icon_state = "m41_tracks_left_front"
+	base_icon = "m41_tracks_left_front"
+	movement_icon = "m41_tracks_left_front_m"
+/obj/structure/vehicleparts/movement/tracks/m41/right_front
+	icon = 'icons/obj/vehicles/tankparts96x96.dmi'
+	icon_state = "m41_tracks_right_front"
+	base_icon = "m41_tracks_right_front"
+	movement_icon = "m41_tracks_right_front_m"
+/obj/structure/vehicleparts/movement/tracks/m41/left_back
+	icon = 'icons/obj/vehicles/tankparts96x96.dmi'
+	icon_state = "m41_tracks_left_back"
+	base_icon = "m41_tracks_left_back"
+	movement_icon = "m41_tracks_left_back_m"
+/obj/structure/vehicleparts/movement/tracks/m41/right_back
+	icon = 'icons/obj/vehicles/tankparts96x96.dmi'
+	icon_state = "m41_tracks_right_back"
+	base_icon = "m41_tracks_right_back"
+	movement_icon = "m41_tracks_right_back_m"
+
 /obj/structure/vehicleparts/movement/tracks/apc/left
 	icon = 'icons/obj/vehicles/apcparts96x96.dmi'
 	icon_state = "tracks_end_left"

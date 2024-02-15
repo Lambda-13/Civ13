@@ -188,6 +188,13 @@
 	maxrange = 25
 	caliber = 75
 
+/obj/structure/cannon/modern/tank/american76
+	name = "76mm M32 gun"
+	desc = "a 76mm american tank-based cannon."
+	icon_state = "tank_cannon"
+	maxrange = 25
+	caliber = 76
+
 /obj/structure/cannon/modern/tank/russian76/americanfield
 	name = "76.2mm M5 gun"
 	desc = "a 76.2mm american Anti-tank cannon."

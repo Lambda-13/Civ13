@@ -245,6 +245,21 @@
 		tank_names_usa -= pickedname
 		name = "[name] \'[pickedname]\'"
 
+/obj/structure/vehicleparts/axis/heavy/m41
+	name = "M41"
+	speeds = 4
+	speedlist = list(1=14,2=10,3=8)
+	reg_number = ""
+	turret_type = "m41_turret"
+	color = "#494224"
+	tile_size = "96x96"
+	turret_x = -16
+	New()
+		..()
+		var/pickedname = pick(tank_names_usa)
+		tank_names_usa -= pickedname
+		name = "[name] \'[pickedname]\'"
+
 /obj/structure/vehicleparts/axis/heavy/bmd1
 	name = "BMD-1"
 	speeds = 4
