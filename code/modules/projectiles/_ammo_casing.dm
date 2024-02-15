@@ -558,7 +558,7 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a50cal/weak
 	caliber = "a50cal"
 	value = 7
-	heavy_armor_penetration = 10
+	heavy_armor_penetration = 31
 
 /obj/item/ammo_casing/a50cal_ap
 	name = ".50 BMG AP cartridge"
@@ -580,7 +580,7 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a50cal_he
 	caliber = "a50cal"
 	value = 7
-	heavy_armor_penetration = 7
+	heavy_armor_penetration = 3
 
 /obj/item/ammo_casing/a145
 	name = "14.5x114 cartridge"
