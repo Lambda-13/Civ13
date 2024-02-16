@@ -135,6 +135,7 @@
 	bad_magazine_types = list(/obj/item/ammo_magazine/maxim)
 	recoil = 40
 	accuracy = 3
+	var/folded = FALSE
 
 /obj/item/weapon/gun/projectile/automatic/dp28/dt28
 	name = "DT-28"
@@ -143,6 +144,51 @@
 	item_state = "dt"
 	base_icon = "dt"
 
+/obj/item/weapon/gun/projectile/automatic/dp28/dt28/update_icon()
+	..()
+	if (folded)
+		icon_state = "[base_icon]_folded"
+	else
+		icon_state = "[base_icon]"
+
+/obj/item/weapon/gun/projectile/automatic/dp28/dt28/verb/fold()
+	set name = "Toggle Stock"
+	set category = null
+	set src in usr
+	if (folded)
+		folded = FALSE
+		recoil *= 1.5
+		icon_state = "[base_icon]_folded"
+		usr << "You extend the stock on \the [src]."
+		equiptimer = 15
+		set_stock()
+		update_icon()
+	else
+		recoil /= 1.5
+		folded = TRUE
+		icon_state = "[base_icon]"
+		usr << "You collapse the stock on \the [src]."
+		equiptimer = 7
+		set_stock()
+		update_icon()
+
+/obj/item/weapon/gun/projectile/automatic/dp28/dt28/proc/set_stock()
+	if (folded)
+		slot_flags = SLOT_SHOULDER|SLOT_BELT
+	else
+		slot_flags = SLOT_SHOULDER
+
+/obj/item/weapon/gun/projectile/automatic/dp28/dt28/dtm28
+	name = "DTM-28"
+	desc = "The DTM-28 light machinegun. Designed to be places in vehicles. This one is in 7.62x54mmR."
+	icon_state = "dtm"
+	base_icon = "dtm"
+	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE
+	scope_mounts = list("dt_mount")
+	New()
+		..()
+		var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pu/ppu8/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pu/ppu8(src)
+		SP.attached(null,src,TRUE)
 /obj/item/weapon/gun/projectile/automatic/bar
 	name = "M1918A2 BAR"
 	desc = "The BAR, is a light machine gun (LMG) This one is chambered in .30-06 rounds."

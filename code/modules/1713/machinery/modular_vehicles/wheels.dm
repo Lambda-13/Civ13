@@ -282,6 +282,10 @@
 		mg = new/obj/item/weapon/gun/projectile/automatic/dp28/dt28(src)
 		..()
 
+/obj/structure/bed/chair/mgunner/dtm28/New()
+		mg = new/obj/item/weapon/gun/projectile/automatic/dp28/dt28/dtm28(src)
+		..()
+
 /obj/structure/bed/chair/mgunner/mg34/New()
 		mg = new/obj/item/weapon/gun/projectile/automatic/mg34(src)
 		..()

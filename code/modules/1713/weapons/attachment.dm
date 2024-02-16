@@ -305,6 +305,14 @@ Current Defines (_defines/attachment.dm)
 	desc = "You can attach this scope to sniper Mosin-Nagan and SVT rifles"
 	icon_state = "pu"
 	mount = "kochetov"
+
+/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pu/ppu8
+	name = "PPU-8"
+	desc = "You can attach this scope to DTM machinegun."
+	icon_state = "ppu8"
+	mount = "dt_mount"
+	max_zoom = ZOOM_CONSTANT+2
+
 /obj/item/weapon/attachment/scope/adjustable/sniper_scope/pso1
 	name = "PSO-1"
 	desc = "You can attach this scope to any rifle with dovetail rail"
