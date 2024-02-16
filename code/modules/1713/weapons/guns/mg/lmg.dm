@@ -641,6 +641,7 @@
 	)
 	shake_strength = 1
 	slot_flags = SLOT_SHOULDER
+	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE
 	force = 20
 	nothrow = TRUE
 	throwforce = 25
@@ -651,14 +652,14 @@
 	recoil = 60
 	accuracy = 1
 	scope_mounts = list ("dovetail")
-
-/obj/item/weapon/gun/projectile/automatic/nsv_utes/update_icon()
-	..()
-	if (!ammo_magazine)
-		icon_state = "[base_icon]_open"
-	else
-		icon_state = "[base_icon]"
-
+	scope_x_offset = -3
+	scope_y_offset = -5
+	mag_x_offset = -5
+	mag_y_offset = -2
+	New()
+		..()
+		var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pso4/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pso4(src)
+		SP.attached(null,src,TRUE)
 ////////////////////////MG13////////////////////////////////
 
 /obj/item/weapon/gun/projectile/automatic/mg13
