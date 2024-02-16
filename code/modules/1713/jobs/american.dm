@@ -158,7 +158,7 @@
 	is_ww2 = TRUE
 	uses_squads = TRUE
 	is_ardennes = TRUE
-/*	is_pigsbay = TRUE */
+	is_pigsbay = TRUE
 
 	min_positions = 2
 	max_positions = 8
@@ -218,7 +218,7 @@
 	is_ardennes = TRUE
 	is_medic = TRUE
 	is_ww2 = TRUE
-/*	is_pigsbay = TRUE */
+	is_pigsbay = TRUE
 	can_be_female = TRUE
 	min_positions = 1
 	max_positions = 4
@@ -498,7 +498,7 @@
 	is_ww2 = TRUE
 	is_tanker = TRUE
 	uses_squads = FALSE
-/*	is_pigsbay = TRUE */
+	is_pigsbay = TRUE
 
 	min_positions = 4
 	max_positions = 12
@@ -1467,7 +1467,7 @@
 	return TRUE
 
 /////////////////////CUBAN CONFLICT//////////////////////////////////
-/*
+
 /datum/job/american/cuban_sergeant
 	title = "US Sergeant"
 	rank_abbreviation = "Sgt."
@@ -1836,4 +1836,3 @@
 	H.setStat("medical", STAT_NORMAL)
 	H.setStat("machinegun", STAT_MEDIUM_HIGH)
 	return TRUE
-*/

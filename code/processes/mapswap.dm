@@ -188,6 +188,7 @@
 	// 2013 - TDM
 			maps = list(
 				MAP_RETREAT = 6,
+				MAP_BAY_OF_PIGS = 10,
 				MAP_ROAD_TO_DAK_TO = 0,
 				MAP_COMPOUND = 6,
 				MAP_HUE = 15,

@@ -1,4 +1,3 @@
-/*
 /obj/map_metadata/baypigs
 	ID = MAP_BAY_OF_PIGS
 	title = "Bay of Pigs"
@@ -143,4 +142,3 @@
 			return !faction1_can_cross_blocks()
 			return !faction2_can_cross_blocks()
 	return FALSE
-*/
