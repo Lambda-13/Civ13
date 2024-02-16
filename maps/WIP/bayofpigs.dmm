@@ -26,7 +26,7 @@
 "az" = (/obj/structure/vehicleparts/frame/t34/fc,/obj/structure/cannon/modern/tank/russian85{anchored = 1},/turf/floor/plating/road,/area/caribbean)
 "aA" = (/obj/structure/vehicleparts/frame/t34/left,/obj/structure/bed/chair/gunner{icon_state = "officechair_white"; dir = 8},/obj/structure/bed/chair/loader{dir = 8},/turf/floor/plating/road,/area/caribbean)
 "aB" = (/turf/floor/plating/road,/area/caribbean)
-"aC" = (/obj/structure/vehicleparts/frame/t34/rf,/obj/structure/vehicleparts/movement/tracks/t34/right_front,/obj/structure/bed/chair/mgunner/dt28,/turf/floor/plating/road,/area/caribbean)
+"aC" = (/obj/structure/vehicleparts/frame/t34/rf,/obj/structure/vehicleparts/movement/tracks/t34/right_front,/obj/structure/bed/chair/mgunner/dtm28,/turf/floor/plating/road,/area/caribbean)
 "aD" = (/obj/structure/vehicleparts/axis/heavy/t34/t3485,/obj/structure/vehicleparts/frame/t34/front,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/turf/floor/plating/road,/area/caribbean)
 "aE" = (/obj/structure/vehicleparts/frame/t34/lf,/obj/structure/vehicleparts/movement/tracks/t34/left_front,/obj/structure/bed/chair/drivers/tank,/turf/floor/plating/road,/area/caribbean)
 "aF" = (/obj/structure/window/classic/portholefull,/obj/structure/barricade/steel,/obj/structure/curtain/leather,/turf/floor/plating/steel,/area/caribbean/roofed)
