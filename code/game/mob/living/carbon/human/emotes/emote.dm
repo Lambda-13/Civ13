@@ -443,7 +443,10 @@ var/list/vocal_emotes = list(
 									else
 										playsound(get_turf(src), "charge_RUSSIAN", 100)
 								if (GERMAN)
-									playsound(get_turf(src), "charge_GERMAN", 100)
+									if (original_job.is_roa)
+										playsound(get_turf(src), "charge_ROA", 100)
+									else
+										playsound(get_turf(src), "charge_GERMAN", 100)
 								if (AMERICAN)
 									if (map.ID == MAP_ARAB_TOWN)
 										playsound(get_turf(src), "charge_ISRAELI", 100)

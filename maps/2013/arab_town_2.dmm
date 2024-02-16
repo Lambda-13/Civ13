@@ -578,6 +578,7 @@
 "ln" = (/obj/covers/brick_wall,/turf/wall/brick,/area/caribbean/desert/buildings{name = "Buildings"})
 "lo" = (/obj/covers/cement_wall,/obj/structure/sign/flag/jihad1,/turf/wall/cement,/area/caribbean/desert/buildings{name = "Buildings"})
 "lp" = (/obj/covers/cement_wall,/obj/structure/sign/flag/jihad2,/turf/wall/cement,/area/caribbean/desert/buildings{name = "Buildings"})
+"tv" = (/obj/structure/closet/crate/empty,/obj/item/weapon/gun/launcher/rocket/single_shot/m72law,/obj/item/weapon/gun/launcher/rocket/single_shot/m72law,/obj/item/weapon/gun/launcher/rocket/single_shot/m72law,/obj/item/weapon/gun/launcher/rocket/single_shot/m72law,/obj/item/weapon/gun/launcher/rocket/single_shot/m72law,/turf/floor/beach/sand/desert,/area/caribbean/british{name = "American Base"})
 
 (1,1,1) = {"
 frfsfsfsfsfsftafaaaaafabababababababababafafabababababdDacbjdidvdwdvdvdwdxdydzdCdCdEdCdCdGdGdGdGdGdHacababababaecaaeadaXabababababababababab
@@ -586,7 +587,7 @@ fBadadadbfadfzaZaaaaaffxfyadfzaffuaDaDaDfAaDaDfuaDabdDabacbjeeefdIdIdIdIdNdIeKdI
 fxadfyadadfyfzafaaaaaffBadadfzafaDaDfCaDcrfDaDfvaDabababacbjkfdIdIdIdKkgkhdIdIkidIdIdIbjdGdGdXedlhliacdDabababbeaecaaeadadabamababaAabababab
 fHfyadfyfyadfzafaaaaaffFadfyfzaDfCaEaDcrfGaDaDfvaDababdDacbjkfkjdIdIdIdIdIdIdIdIbCbCbCdIdGdGdGdGljlkaceUababadadaecaaeaeaXababababababaAabai
 fxfyadfyfyadfzafaaaaaffHfyadfzaDfCfCcsfDaDfCaDfCaDaAababacbjbjdIdIcFcSdIdIeKldledIbjkldIdGdGdXeddGdGacabdOababadbecacaaeadaYababababahahabab
-fBadadbfadadfzafaaaaaffBadbffzaDcrfIaDfDaDhafJcraDabdDabacbjklbjdIbjdIdQklkmknkneKdQbjbjdGdGdGdGdGdGacabababajabaeaecaaeaXadabababababababab
+fBadadbfadadfzafaaaaaffBadbffzaDcrfIaDfDaDhafJcraDabdDabacbjklbjdIbjdIdQklkmtvkneKdQbjbjdGdGdGdGdGdGacabababajabaeaecaaeaXadabababababababab
 fxadfyadadfyfzafaaaaaffxadadfzaDaDhafKfLaDcsaDfvaDafafabacbjbjbjbjbjbjbjkokobjbjbjbjbjbjdGdGdXeddGdGacdFababababbeaeaecaaeadadababababababab
 fHfyadfyfyadfzafaaaaaffxfybRfMaDaDfuaDcraDfCfufuaDafafdDacackpacacacacacacacacacacacacackqkqkqkqdGdGacabababafabadadaeaecaaeaXababababababag
 fBadbfadadbffzafaaaaaWfOfsfsfPaDaDbSaDaDaDaDaDaDafafafafdWafafafdWabababdWabababdDabaffjasaaaJaKaaaaababdYababababadaeaecaaeadaXabajafababab

@@ -2016,6 +2016,7 @@
 	is_ww2 = TRUE
 	uses_squads = TRUE
 	is_ardennes = TRUE
+	is_roa = TRUE
 
 	min_positions = 6
 	max_positions = 12

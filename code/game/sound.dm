@@ -218,6 +218,11 @@ var/list/charge_sounds_ge = list(
 	'sound/effects/emotes/charge_ger4.ogg',
 	'sound/effects/emotes/charge_ger5.ogg',
 	)
+var/list/charge_sounds_roa = list(
+	'sound/effects/emotes/charge_roa1.ogg',
+	'sound/effects/emotes/charge_roa2.ogg',
+	'sound/effects/emotes/charge_roa3.ogg',
+	)
 var/list/charge_sounds_crusader = list(
 	'sound/effects/emotes/charge_crusader.ogg',)
 var/list/charge_sounds_vi = list(
@@ -546,6 +551,8 @@ var/const/FALLOFF_SOUNDS = 0.5
 				soundin = pick(charge_sounds_ro)
 			if ("charge_GERMAN")
 				soundin = pick(charge_sounds_ge)
+			if ("charge_ROA")
+				soundin = pick(charge_sounds_roa)
 			if ("charge_ARAB")
 				soundin = pick(charge_sounds_ar)
 			if ("charge_CRUSADER")
