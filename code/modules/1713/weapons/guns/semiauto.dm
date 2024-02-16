@@ -86,6 +86,36 @@
 		scope_image = image(icon = 'icons/obj/guns/parts.dmi', loc = src, icon_state = "pu_svt", pixel_x = mag_x_offset, pixel_y = mag_y_offset)
 		overlays += scope_image
 
+/obj/item/weapon/gun/projectile/semiautomatic/ptrs
+	name = "PTRS-41"
+	desc = "Soviet semi-automatic antimaterial rifle chambered in 14.5x114mm."
+	icon_state = "ptrs"
+	item_state = "ptrs"
+	base_icon = "ptrs"
+	shake_strength = 2
+	w_class = ITEM_SIZE_LARGE
+	load_method = SINGLE_CASING|SPEEDLOADER
+	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE
+	max_shells = 5
+	caliber = "a145"
+	ammo_type = /obj/item/ammo_casing/a145
+	damage_modifier = 1.2
+	slot_flags = SLOT_BACK
+	magazine_type = /obj/item/ammo_magazine/ptrs
+	good_mags = list(/obj/item/ammo_magazine/ptrs)
+	weight = 8
+	firemodes = list(
+		list(name = "single shot",burst=1, fire_delay=2)
+	)
+	gun_type = GUN_TYPE_RIFLE
+	force = 10
+	throwforce = 20
+	effectiveness_mod = 1.05
+	fire_sound = 'sound/weapons/guns/fire/ptrd.ogg'
+	recoil = 120
+	scope_x_offset = -1
+	scope_mounts = list("kochetov")
+
 /obj/item/weapon/gun/projectile/semiautomatic/avtomat
 	name = "Fedorov Avtomat"
 	desc = "Russian automatic rifle, used during WWI."

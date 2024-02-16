@@ -659,6 +659,16 @@
 	multiple_sprites = TRUE
 	clip = TRUE
 
+/obj/item/ammo_magazine/ptrs
+	name = "клипса (14.5x114mm)"
+	icon_state = "clip"
+	caliber = "a145"
+	ammo_type = /obj/item/ammo_casing/a145_ap
+	max_ammo = 5
+	weight = 0.1
+	multiple_sprites = TRUE
+	clip = TRUE
+
 /obj/item/ammo_magazine/vintorez
 	name = "VSS Vintorez магазин (9x39mm)"
 	icon_state = "g43"
