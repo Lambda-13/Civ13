@@ -396,7 +396,7 @@
 
 	var/dt = world.time - last_shot_time
 
-	var/shot_recoil = next_shot_recoil / (dt * ergonomics * 1.5)
+	var/shot_recoil = next_shot_recoil / (dt * ergonomics)
 
 	if(user.lying || user.prone)
 		shot_recoil /= 2.5
@@ -426,9 +426,10 @@
 
 	if(!P.launch(target, user, src, target_zone, x_offset, y_offset))
 		next_shot_recoil += rand(-recoil, recoil) * 0.5
-		if(abs(next_shot_recoil) >= 25)
-			next_shot_recoil = clamp(next_shot_recoil, -25, 25)
-			next_shot_recoil /= rand(2, 4)
+		var/max_recoil = rand(5, 30)
+		if(abs(next_shot_recoil) >= max_recoil)
+			next_shot_recoil = clamp(next_shot_recoil, -max_recoil, max_recoil)
+			next_shot_recoil /= rand(1, 4)
 		last_shot_time = world.time
 		return FALSE
 	return TRUE
