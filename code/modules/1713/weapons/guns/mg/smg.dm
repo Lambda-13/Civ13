@@ -665,17 +665,17 @@
 	set category = null
 	set src in usr
 	if (folded)
-		recoil = 40
 		folded = FALSE
-		base_icon = "akms"
+		recoil *= 1.5
+		icon_state = "[base_icon]_folded"
 		usr << "You extend the stock on \the [src]."
 		equiptimer = 15
 		set_stock()
 		update_icon()
 	else
-		recoil = 50
+		recoil /= 1.5
 		folded = TRUE
-		base_icon = "akms_folded"
+		icon_state = "[base_icon]"
 		usr << "You collapse the stock on \the [src]."
 		equiptimer = 7
 		set_stock()
@@ -684,10 +684,8 @@
 /obj/item/weapon/gun/projectile/submachinegun/ak47/akms/proc/set_stock()
 	if (folded)
 		slot_flags = SLOT_SHOULDER|SLOT_BELT
-		recoil = 50
 	else
 		slot_flags = SLOT_SHOULDER
-		recoil = 40
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74
 	name = "AK-74"
@@ -744,9 +742,9 @@
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/update_icon()
 	..()
 	if (folded)
-		icon_state = "aks74_folded"
+		icon_state = "[base_icon]_folded"
 	else
-		icon_state = "aks74"
+		icon_state = "[base_icon]"
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/verb/fold()
 	set name = "Toggle Stock"
@@ -754,16 +752,16 @@
 	set src in usr
 	if (folded)
 		folded = FALSE
-		recoil = 30
-		base_icon = "aks74"
+		recoil *= 1.5
+		icon_state = "[base_icon]_folded"
 		usr << "You extend the stock on \the [src]."
 		equiptimer = 15
 		set_stock()
 		update_icon()
 	else
-		recoil = 40
+		recoil /= 1.5
 		folded = TRUE
-		base_icon = "aks74_folded"
+		icon_state = "[base_icon]"
 		usr << "You collapse the stock on \the [src]."
 		equiptimer = 7
 		set_stock()
@@ -772,10 +770,8 @@
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/proc/set_stock()
 	if (folded)
 		slot_flags = SLOT_SHOULDER|SLOT_BELT
-		effectiveness_mod = 0.87
 	else
 		slot_flags = SLOT_SHOULDER
-		effectiveness_mod = 1.05
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/aks74u
 	name = "AKS-74U"
@@ -801,38 +797,36 @@
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/aks74u/update_icon()
 	..()
 	if (folded)
-		icon_state = "aks74u_folded"
+		icon_state = "[base_icon]_folded"
 	else
-		icon_state = "aks74u"
+		icon_state = "[base_icon]"
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/aks74u/fold()
 	set name = "Toggle Stock"
 	set category = null
 	set src in usr
 	if (folded)
-		recoil = 40
 		folded = FALSE
-		base_icon = "aks74u"
+		recoil *= 1.5
+		icon_state = "[base_icon]_folded"
 		usr << "You extend the stock on \the [src]."
-		equiptimer = 12
+		equiptimer = 15
 		set_stock()
 		update_icon()
 	else
-		recoil = 50
+		recoil /= 1.5
 		folded = TRUE
-		base_icon = "aks74u_folded"
+		icon_state = "[base_icon]"
 		usr << "You collapse the stock on \the [src]."
-		equiptimer = 6
+		equiptimer = 7
 		set_stock()
 		update_icon()
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/aks74u/set_stock()
 	if (folded)
 		slot_flags = SLOT_SHOULDER|SLOT_BELT
-		effectiveness_mod = 0.84
 	else
 		slot_flags = SLOT_SHOULDER
-		effectiveness_mod = 1.02
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/aks74u/aks74uso
 	name = "AKS-74U SpecOps"
@@ -853,9 +847,9 @@
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/aks74u/aks74uso/update_icon()
 	..()
 	if (folded)
-		icon_state = "aks74uso_folded"
+		icon_state = "[base_icon]_folded"
 	else
-		icon_state = "aks74uso"
+		icon_state = "[base_icon]"
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/aks74u/aks74uso/kgb
 	folded = TRUE
@@ -886,22 +880,21 @@
 	set category = null
 	set src in usr
 	if (folded)
-		recoil = 30
 		folded = FALSE
-		base_icon = "aks74uso"
+		recoil *= 1.5
+		icon_state = "[base_icon]_folded"
 		usr << "You extend the stock on \the [src]."
-		equiptimer = 12
+		equiptimer = 15
 		set_stock()
 		update_icon()
 	else
-		recoil = 40
+		recoil /= 1.5
 		folded = TRUE
-		base_icon = "aks74uso_folded"
+		icon_state = "[base_icon]"
 		usr << "You collapse the stock on \the [src]."
-		equiptimer = 5
+		equiptimer = 7
 		set_stock()
 		update_icon()
-
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74m
 	name = "AK-74M"
@@ -1659,27 +1652,28 @@
 	set name = "Toggle Stock"
 	set category = null
 	set src in usr
+	set name = "Toggle Stock"
+	set category = null
+	set src in usr
 	if (folded)
 		folded = FALSE
-		icon_state = "srm"
-		base_icon = "srm"
+		recoil *= 1.5
+		icon_state = "[base_icon]_folded"
 		usr << "You extend the stock on \the [src]."
-		equiptimer = 12
+		equiptimer = 15
 		set_stock()
 		update_icon()
 	else
+		recoil /= 1.5
 		folded = TRUE
-		icon_state = "srm_folded"
-		base_icon = "srm_folded"
+		icon_state = "[base_icon]"
 		usr << "You collapse the stock on \the [src]."
-		equiptimer = 5
+		equiptimer = 7
 		set_stock()
 		update_icon()
 
 /obj/item/weapon/gun/projectile/submachinegun/srm/proc/set_stock()
 	if (folded)
 		slot_flags = SLOT_SHOULDER|SLOT_BELT
-		recoil = 40
 	else
 		slot_flags = SLOT_SHOULDER
-		recoil = 30
