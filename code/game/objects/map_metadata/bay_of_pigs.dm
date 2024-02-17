@@ -1,7 +1,8 @@
-/obj/map_metadata/baypigs
+//Большую часть кода стырил с Москвы
+/obj/map_metadata/bay_of_pigs
 	ID = MAP_BAY_OF_PIGS
 	title = "Bay of Pigs"
-	lobby_icon = 'icons/lobby/ww2.png'
+	lobby_icon = 'icons/lobby/coldwar.png'
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/jungle/one,/area/caribbean/no_mans_land/invisible_wall/one)
 	respawn_delay = 1200
 	no_winner ="The bay is under control of Cuba."
@@ -24,32 +25,33 @@
 		"Status Quo - In The Army Now:1" = 'sound/music/in_army.ogg')
 	gamemode = "Siege"
 	grace_wall_timer = 3000
+	required_players = 10
 
-/obj/map_metadata/baypigs/job_enabled_specialcheck(var/datum/job/J)
+/obj/map_metadata/bay_of_pigs/job_enabled_specialcheck(var/datum/job/J)
 	..()
-	if (J.is_coldwar == FALSE && J.is_pigsbay == TRUE)
+	if (J.is_pigsbay == TRUE)
 		. = TRUE
 	else
 		. = FALSE
 
-/obj/map_metadata/baypigs/roundend_condition_def2name(define)
+/obj/map_metadata/bay_of_pigs/roundend_condition_def2name(define)
 	..()
 	switch (define)
 		if (SPANISH)
 			return "Cuban"
 		if (AMERICAN)
-			return "American"
+			return "Americans"
 
-/obj/map_metadata/baypigs/army2name(army)
+/obj/map_metadata/bay_of_pigs/army2name(army)
 	..()
 	switch (army)
 		if ("Cuban")
 			return "Cuban"
-		if ("American")
+		if ("Americans")
 			return "American"
 
 
-/obj/map_metadata/baypigs/cross_message(faction)
+/obj/map_metadata/bay_of_pigs/cross_message(faction)
 	if (faction == AMERICAN)
 		return "<font size = 4>ВТОРЖЕНИЕ В ЗАЛИВ СВИНЕЙ НАЧИНАЕТСЯ!</font>"
 	else if (faction == SPANISH)
@@ -57,7 +59,7 @@
 	else
 		return ""
 
-/obj/map_metadata/baypigs/reverse_cross_message(faction)
+/obj/map_metadata/bay_of_pigs/reverse_cross_message(faction)
 	if (faction == AMERICAN)
 		return "<font size = 4>ВТОРЖЕНИЕ В ЗАЛИВ СВИНЕЙ НАЧИНАЕТСЯ!</font>"
 	else if (faction == SPANISH)
@@ -65,7 +67,7 @@
 	else
 		return ""
 
-/obj/map_metadata/baypigs/update_win_condition()
+/obj/map_metadata/bay_of_pigs/update_win_condition()
 	if (world.time >= 24000)
 		if (win_condition_spam_check)
 			return FALSE
@@ -130,7 +132,7 @@
 	last_win_condition = win_condition.hash
 	return TRUE
 
-/obj/map_metadata/baypigs/check_caribbean_block(var/mob/living/human/H, var/turf/T)
+/obj/map_metadata/bay_of_pigs/check_caribbean_block(var/mob/living/human/H, var/turf/T)
 	if (!istype(H) || !istype(T))
 		return FALSE
 	var/area/A = get_area(T)

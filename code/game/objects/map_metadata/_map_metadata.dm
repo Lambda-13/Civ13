@@ -865,6 +865,8 @@ var/civmax_research = list(230,230,230)
 		if (PORTUGUESE)
 			return "Portuguese"
 		if (SPANISH)
+			if(map.ID == MAP_BAY_OF_PIGS)
+				return "Cuban"
 			return "Spanish"
 		if (DUTCH)
 			return "Dutch"
@@ -924,7 +926,9 @@ var/civmax_research = list(230,230,230)
 		if (PORTUGUESE)
 			return "Portuguese Empire"
 		if (SPANISH)
-			return "Spanish Empire"
+			if(map.ID == MAP_BAY_OF_PIGS)
+				return "Republic Cuba"
+			return "Spanish"
 		if (DUTCH)
 			return "Dutch Republic"
 		if (ROMAN)
@@ -1008,6 +1012,8 @@ var/civmax_research = list(230,230,230)
 			return "Filipino"
 		if ("Polish Home Army")
 			return "Polish"
+		if("Republic Cuba")
+			return "Cuban"
 /obj/map_metadata/proc/special_relocate(var/mob/M)
 	return FALSE
 

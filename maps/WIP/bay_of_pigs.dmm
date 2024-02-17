@@ -74,7 +74,6 @@
 "bv" = (/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 1},/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 4},/turf/floor/plating/steel,/area/caribbean/roofed)
 "bw" = (/obj/structure/lamp/lamppost_small/alwayson,/turf/floor/plating/cobblestone/vertical,/area/caribbean)
 "bx" = (/obj/item/weapon/reagent_containers/glass/flamethrower/roks2/filled,/obj/item/weapon/flamethrower/roks2,/turf/floor/plating/steel,/area/caribbean/roofed)
-"by" = (/obj/map_metadata/baypigs,/turf/floor/dirt,/area/caribbean)
 "bz" = (/obj/structure/closet/cabinet,/obj/item/weapon/grenade/incendiary,/obj/item/clothing/under/industrial5,/obj/item/weapon/grenade/ww2/mk2,/turf/floor/wood,/area/caribbean/roofed)
 "bA" = (/obj/structure/table/modern,/obj/item/weapon/paper_bin,/obj/item/weapon/pen/pencil,/turf/floor/plating/steel,/area/caribbean/roofed)
 "bB" = (/obj/item/stack/material/barbwire/twnt,/obj/item/stack/material/barbwire/twnt,/turf/floor/plating/steel,/area/caribbean/roofed)
@@ -365,6 +364,7 @@
 "ie" = (/turf/floor/dirt/dust,/area/caribbean/no_mans_land/invisible_wall/one)
 "ix" = (/obj/structure/table/wood,/obj/item/weapon/key/soviet{name = "Cuban key"},/obj/item/weapon/key/soviet{name = "Cuban key"},/obj/item/weapon/key/soviet{name = "Cuban key"},/turf/floor/plating/steel,/area/caribbean/roofed)
 "jk" = (/turf/wall/indestructable/black,/area/caribbean)
+"jr" = (/obj/map_metadata/bay_of_pigs,/turf/floor/dirt,/area/caribbean)
 "jw" = (/obj/structure/window/barrier/railing/stone,/obj/structure/barricade/antitank,/obj/structure/flag/us,/turf/floor/plating/concrete,/area/caribbean)
 "mE" = (/obj/item/weapon/attachment/scope/adjustable/binoculars/binoculars,/turf/floor/dirt,/area/caribbean)
 "ni" = (/turf/floor/dirt/underground/sandy,/area/caribbean/no_mans_land/invisible_wall/jungle/one)
@@ -602,9 +602,8 @@ avavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavav
 avavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavav
 avavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavav
 jkjkavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavav
-byjkavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavav
+jrjkavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavavav
 "}
-
 (1,1,2) = {"
 dedededededededededededededededededededededededededededededededededededededededededeabababababababababababababababababab
 dededededededeaTaTdfaTaTaTaTaTaTdfaTaTaTaTaTaTdfaTaTaTaTaTdfdeaTdeOuzcdfanWrandededeabababababababababababababababababab
