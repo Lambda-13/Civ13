@@ -528,6 +528,16 @@
 	throwforce = WEAPON_FORCE_HARMLESS+6
 	value = 20
 
+/obj/item/ammo_casing/a73mm
+	name = "73mm PG-15V High-Explosive Anti-Tank grenade"
+	desc = "A High-Explosive Anti-Tank grenade."
+	icon_state = "pg15v"
+	spent_icon = "pg15v"
+	weight = 1
+	projectile_type = /obj/item/projectile/bullet/autocannon/a73mm
+	caliber = "a73"
+	value = 8
+
 /obj/item/ammo_casing/a65x50
 	name = "6.5x50mm Arisaka cartridge"
 	desc = "A brass casing containing powder and a lead bullet."

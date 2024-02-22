@@ -727,6 +727,19 @@ obj/item/projectile/bullet/rifle/a556x45
 			T.ChangeTurf(/turf/floor/dirt/burned)
 		explosion(T, 0, 0, 2, 1)
 
+/obj/item/projectile/bullet/autocannon/a73mm
+	icon = 'icons/obj/grenade.dmi'
+	icon_state = "atgm_missile"
+	damage = DAMAGE_OH_GOD + 500
+	penetrating = 40
+	armor_penetration = 300
+	heavy_armor_penetration = 300
+
+/obj/item/projectile/bullet/autocannon/a73mm/on_impact(var/atom/A)
+	var/turf/T = get_turf(A)
+	explosion(T, 0, 0, 1, 1)
+	..()
+
 // Shotguns
 
 /obj/item/projectile/bullet/pellet/buckshot
