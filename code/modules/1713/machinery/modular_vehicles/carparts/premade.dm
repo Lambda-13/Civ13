@@ -1000,7 +1000,7 @@
 	"1,1" = list(/obj/structure/vehicleparts/movement/tracks/bmd2new/right_front,/obj/structure/vehicleparts/frame/bmd2/rf,/obj/item/weapon/gun/projectile/automatic/stationary/autocannon/grom2a28),
 	"2,1" = list(/obj/structure/vehicleparts/movement/tracks/bmd2new/left_front,/obj/structure/vehicleparts/frame/bmd2/lf,/obj/structure/bed/chair/drivers/tank),
 
-	"1,2" = list(/obj/structure/vehicleparts/frame/bmd2/rc,/obj/item/ammo_magazine/a73mm,/obj/item/ammo_magazine/a73mm),
+	"1,2" = list(/obj/structure/vehicleparts/frame/bmd2/rc,/obj/item/ammo_magazine/a73mm_he,/obj/item/ammo_magazine/a73mm_ap),
 	"2,2" = list(/obj/structure/vehicleparts/frame/bmd2/lc,/obj/structure/radio/transmitter_receiver/nopower/tank/faction2),
 
 	"1,3" = list(/obj/structure/vehicleparts/movement/tracks/bmd2new/left_back,/obj/structure/vehicleparts/frame/bmd2/rb,/obj/structure/engine/internal/diesel/premade/bmd2,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled{density = 0}),

@@ -331,12 +331,12 @@
 	fire_sound = 'sound/weapons/guns/fire/2a72.ogg'
 	load_method = SINGLE_CASING | MAGAZINE
 	handle_casings = REMOVE_CASINGS
-	magazine_type = /obj/item/ammo_magazine/a73mm
-	good_mags = list(/obj/item/ammo_magazine/a73mm)
+	magazine_type = /obj/item/ammo_magazine/a73mm_ap
+	good_mags = list(/obj/item/ammo_magazine/a73mm_ap,/obj/item/ammo_magazine/a73mm_he)
 	firemodes = list(
-		list(name = "single shot", burst=1, fire_delay=75, dispersion=list(0.1, 0.2, 0.3, 0.3), accuracy=list(2)),
+		list(name = "single shot", burst=1, fire_delay=80, dispersion=list(0.1, 0.2, 0.3, 0.3), accuracy=list(2)),
 		)
-	ammo_type = /obj/item/ammo_casing/a73mm
+	ammo_type = /obj/item/ammo_casing/a73mm_ap || /obj/item/ammo_casing/a73mm_he
 
 /obj/item/weapon/gun/projectile/automatic/stationary/autocannon/grom2a28/handle_post_fire(mob/user, atom/target)
 	..()

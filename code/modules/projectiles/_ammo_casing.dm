@@ -528,13 +528,23 @@
 	throwforce = WEAPON_FORCE_HARMLESS+6
 	value = 20
 
-/obj/item/ammo_casing/a73mm
+/obj/item/ammo_casing/a73mm_ap
 	name = "73mm PG-15V High-Explosive Anti-Tank grenade"
 	desc = "A High-Explosive Anti-Tank grenade."
 	icon_state = "pg15v"
 	spent_icon = "pg15v"
-	weight = 1
-	projectile_type = /obj/item/projectile/bullet/autocannon/a73mm
+	weight = 1.4
+	projectile_type = /obj/item/projectile/bullet/autocannon/a73mm_ap
+	caliber = "a73"
+	value = 8
+
+/obj/item/ammo_casing/a73mm_he
+	name = "73mm OG-15V High-Explosive grenade"
+	desc = "A High-Explosive grenade."
+	icon_state = "og15v"
+	spent_icon = "og15v"
+	weight = 1.7
+	projectile_type = /obj/item/projectile/bullet/autocannon/a73mm_he
 	caliber = "a73"
 	value = 8
 

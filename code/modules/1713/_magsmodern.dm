@@ -950,7 +950,7 @@
 	name = "M242 HE ammo belt"
 	caliber = "a25"
 
-/obj/item/ammo_magazine/a73mm
+/obj/item/ammo_magazine/a73mm_ap
 	name = "73mm PG-15V rocket grenade belt"
 	icon_state = "maximbelt"
 	worn_state = "maximbelt"
@@ -958,7 +958,20 @@
 	caliber = "a73"
 	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_SHOULDER
-	ammo_type = /obj/item/ammo_casing/a73mm
+	ammo_type = /obj/item/ammo_casing/a73mm_ap
+	max_ammo = 40
+	multiple_sprites = TRUE
+	belt = TRUE
+
+/obj/item/ammo_magazine/a73mm_he
+	name = "73mm OG-15V rocket grenade belt"
+	icon_state = "maximbelt"
+	worn_state = "maximbelt"
+	mag_type = MAGAZINE
+	caliber = "a73"
+	w_class = ITEM_SIZE_LARGE
+	slot_flags = SLOT_BACK|SLOT_SHOULDER
+	ammo_type = /obj/item/ammo_casing/a73mm_he
 	max_ammo = 40
 	multiple_sprites = TRUE
 	belt = TRUE
