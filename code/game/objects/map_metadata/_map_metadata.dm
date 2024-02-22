@@ -867,7 +867,8 @@ var/civmax_research = list(230,230,230)
 		if (SPANISH)
 			if(map.ID == MAP_BAY_OF_PIGS)
 				return "Cuban"
-			return "Spanish"
+			else
+				return "Spanish"
 		if (DUTCH)
 			return "Dutch"
 		if (ROMAN)

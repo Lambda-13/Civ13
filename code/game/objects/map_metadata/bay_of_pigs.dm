@@ -90,7 +90,7 @@
 		if (!win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[1]]), roundend_condition_sides[2], roundend_condition_sides[1], 1.33))
 			if (last_win_condition != win_condition.hash)
 				current_win_condition = "The <b>Американцы</b> достигли главного здания! Они захватят его в течении {time} минут."
-				next_win = world.time + short_win_time(GERMAN)
+				next_win = world.time + short_win_time(SPANISH)
 				announce_current_win_condition()
 				current_winner = roundend_condition_def2army(roundend_condition_sides[1][1])
 				current_loser = roundend_condition_def2army(roundend_condition_sides[2][1])
@@ -99,7 +99,7 @@
 		if (!win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[1]]), roundend_condition_sides[2], roundend_condition_sides[1], 1.01))
 			if (last_win_condition != win_condition.hash)
 				current_win_condition = "The <b>Американцы</b> достигли главного здания! Они захватят его в течении {time} минут."
-				next_win = world.time + short_win_time(GERMAN)
+				next_win = world.time + short_win_time(SPANISH)
 				announce_current_win_condition()
 				current_winner = roundend_condition_def2army(roundend_condition_sides[1][1])
 				current_loser = roundend_condition_def2army(roundend_condition_sides[2][1])
@@ -108,7 +108,7 @@
 		if (!win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[2]]), roundend_condition_sides[1], roundend_condition_sides[2], 1.33))
 			if (last_win_condition != win_condition.hash)
 				current_win_condition = "The <b>Американцы</b> достигли главного здания! Они захватят его в течении {time} минут."
-				next_win = world.time + short_win_time(GERMAN)
+				next_win = world.time + short_win_time(AMERICAN)
 				announce_current_win_condition()
 				current_winner = roundend_condition_def2army(roundend_condition_sides[2][1])
 				current_loser = roundend_condition_def2army(roundend_condition_sides[1][1])
@@ -117,7 +117,7 @@
 		if (!win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[2]]), roundend_condition_sides[1], roundend_condition_sides[2], 1.01))
 			if (last_win_condition != win_condition.hash)
 				current_win_condition = "The <b>Американцы</b> достигли главного здания! Они захватят его в течении {time} минут."
-				next_win = world.time + short_win_time(GERMAN)
+				next_win = world.time + short_win_time(AMERICAN)
 				announce_current_win_condition()
 				current_winner = roundend_condition_def2army(roundend_condition_sides[2][1])
 				current_loser = roundend_condition_def2army(roundend_condition_sides[1][1])
@@ -132,6 +132,7 @@
 	last_win_condition = win_condition.hash
 	return TRUE
 
+/*
 /obj/map_metadata/bay_of_pigs/check_caribbean_block(var/mob/living/human/H, var/turf/T)
 	if (!istype(H) || !istype(T))
 		return FALSE
@@ -143,4 +144,4 @@
 		else
 			return !faction1_can_cross_blocks()
 			return !faction2_can_cross_blocks()
-	return FALSE
+	return FALSE */ //Насчёт этой части совсем не уверен, откоментить, если не будет работать
