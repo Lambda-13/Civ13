@@ -15,6 +15,7 @@ Parts of code courtesy of Super3222
 	attachment_type = ATTACH_SCOPE
 	slot_flags = SLOT_POCKET|SLOT_BELT|SLOT_ID
 	value = 15
+	var/mount
 
 /obj/item/weapon/attachment/scope/Destroy()
 	azoom = null
