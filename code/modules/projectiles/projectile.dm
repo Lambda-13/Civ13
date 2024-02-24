@@ -372,27 +372,27 @@
 		"r_foot" = 3
 	)
 	var/list/redirection_list = list(
-		"head" = list("eyes", "mouth", "chest"),
-		"eyes" = list("mouth", "l_arm", "r_arm", "chest"),
-		"mouth" = list("eyes", "l_arm", "r_arm", "chest"),
-		"chest" = list("eyes", "mouth", "head", "groin", "l_arm", "r_arm", "r_hand", "l_hand"),
-		"groin" = list("chest", "r_hand", "l_hand", "l_leg", "r_leg"),
-		"l_arm" = list("eyes", "mouth", "head", "chest", "groin", "l_hand", "l_leg"),
-		"l_hand" = list("eyes", "mouth", "head", "chest", "groin", "l_arm", "l_leg"),
-		"r_arm" = list("eyes", "mouth", "head", "chest", "groin", "r_hand", "r_leg"),
-		"r_hand" = list("eyes", "mouth", "head", "chest", "groin", "r_arm", "r_leg"),
-		"l_leg" = list("l_foot", "r_leg", "r_foot","groin", "l_arm", "l_hand"),
-		"l_foot" = list("l_leg", "r_leg", "r_foot","groin", "l_hand"),
-		"r_leg" = list("r_foot", "l_leg", "l_foot","groin", "r_arm", "r_hand"),
-		"r_foot" = list("r_leg", "l_leg", "l_foot","groin", "r_hand"),
+		"head" = list("eyes", "mouth", "chest"), // шанс критического промаха 73%
+		"eyes" = list("head", "mouth", "chest"), // шанс критического промаха 73%
+		"mouth" = list("head", "eyes", "chest"), // шанс критического промаха 73%
+		"chest" = list("eyes", "mouth", "head", "groin", "l_arm", "r_arm", "r_hand", "l_hand", "r_leg", "l_leg"), // шанс критического промаха 26%
+		"groin" = list("chest", "l_arm", "r_arm", "r_hand", "l_hand", "l_leg", "r_leg"), // шанс критического промаха 33%
+		"l_arm" = list("eyes", "mouth", "head", "chest", "groin", "l_hand", "l_leg"), // шанс критического промаха 46%
+		"l_hand" = list("chest", "groin", "l_arm", "l_leg", "l_foot"), //  шанс критического промаха 50
+		"r_arm" = list("eyes", "mouth", "head", "chest", "groin", "r_hand", "r_leg"), // шанс критического промаха 46%
+		"r_hand" = list("chest", "groin", "r_arm", "r_leg", "r_foot"), //  шанс критического промаха 50
+		"l_leg" = list("chest", "l_foot", "r_leg", "r_foot","groin", "l_arm", "l_hand"), // шанс критического промаха 44
+		"l_foot" = list("l_leg", "r_leg", "r_foot","groin", "l_hand"), // шанс критического промаха 67
+		"r_leg" = list("chest", "r_foot", "l_leg", "l_foot","groin", "r_arm", "r_hand"), // шанс критического промаха 44
+		"r_foot" = list("r_leg", "l_leg", "l_foot","groin", "r_hand"), // шанс критического промаха 67
 	)
 	var/redirection_parts = redirection_list[def_zone]
-	var/hit_zone = "none"
-	if (prob(body_part_size[def_zone]))
+	var/hit_zone = null
+	if (prob(body_part_size[def_zone]) || distance < 3)
 		hit_zone = def_zone
 	else
 		for(var/part in redirection_parts)
-			if (prob(body_part_size[part]) && hit_zone == "none")
+			if (prob(body_part_size[part]) && !hit_zone)
 				hit_zone = part
 
 	if (hit_zone)
@@ -466,27 +466,32 @@
 	return TRUE
 
 /obj/item/projectile/proc/get_angle()
-	var/dx = trajectory.target.x - trajectory.source.x
-	var/dy = trajectory.target.y - trajectory.source.y
-
-	var/angle = Atan2(dx, dy)
+	var/angle = trajectory.return_angle()
 	if (angle < 0)
 		angle = 180 + (180 - abs(angle))
 	return angle
 
 /obj/item/projectile/proc/angle_dir(var/angle)
-	if(angle >= 45 && angle < 135)
+	if(angle >= 10 && angle <= 80)
+		return NORTHEAST
+	else if(angle > 80 && angle < 100)
 		return NORTH
-	else if(angle >= 135 && angle < 225)
+	else if(angle >= 100 && angle <= 170)
+		return NORTHWEST
+	else if(angle > 170 && angle < 190)
 		return WEST
-	else if(angle >= 225 && angle < 315)
+	else if(angle >= 190 && angle <= 260)
+		return SOUTHWEST
+	else if(angle > 260 && angle < 280)
 		return SOUTH
-	else if(angle >= 315 || angle > 45)
+	else if(angle >= 280 && angle <= 350)
+		return SOUTHEAST
+	else
 		return EAST
 
 /obj/item/projectile/proc/handleTurf(var/turf/T, forced=0, var/list/untouchable = list())
 	if(atype == "NUCLEAR")
-		radiation_pulse(T, damage / 100, damage / 10, damage / 25, 0)
+		radiation_pulse(T, 	damage / 100, damage / 10, damage / 25, 0)
 	if (!T || !istype(T))
 		return FALSE
 
@@ -495,7 +500,6 @@
 
 	var/passthrough = TRUE //if the projectile should continue flying
 	var/passthrough_message = null
-
 	var/is_trench = istype(T, /turf/floor/trench)
 
 	if(is_trench)
@@ -508,49 +512,40 @@
 		qdel(src)
 		return
 
-	//проверка на вылет из транспорта
-	if (!istype(firedfrom, /obj/item/weapon/gun/projectile/automatic/stationary/))
-		for (var/obj/structure/vehicleparts/frame/F in src.loc)
-			var/penloc = F.get_opposite_wall(F.get_wall_name(direction))
-			if (F.is_ambrasure(penloc) && src.loc == firer_loc)
-				T.visible_message("<span class = 'warning'>Пуля вылетает из амбразуры</span>")
-			else if (!F.CheckPen(src,penloc))
+	// Проверка на пробитие корпуса техники
+	if (T != firer_loc)
+		for (var/obj/structure/vehicleparts/frame/F in T.contents)
+			var/penloc = F.get_wall_name(direction)
+			F.bullet_act(src,penloc)
+			if (!F.CheckPen(src,penloc))
 				passthrough = FALSE
-				passthrough_message = "<span class = 'warning'>Снаряд не пробивает [penloc] стену!</span>"
-				T.visible_message(passthrough_message)
-				F.bullet_act(src,penloc)
+				visible_message("<span class = 'warning'>Снаряд не пробивает [penloc] стену!</span>")
+				bumped = TRUE
+				if (istype(src, /obj/item/projectile/shell))
+					var/obj/item/projectile/shell/S = src
+					S.initiate(permutated[permutated.len])
+				else
+					loc = null
+					qdel(src)
+				return FALSE
+			else
+				passthrough = TRUE
+				forceMove(T)
+				permutated += T
+				if (istype(src, /obj/item/projectile/shell))
+					var/obj/item/projectile/shell/S = src
+					if(S.initiated)
+						S.initiate(permutated[permutated.len])
+				visible_message("<span class = 'warning'>Снаряд пролетает сквозь [penloc] стену</span>")
 
 	if (!is_trench && launch_from_trench && !overcoming_trench)
 		overcoming_trench = TRUE
+
 	if (T.density)
 		passthrough = FALSE
 	else
 		// needs to be its own loop for reasons
 		for (var/obj/O in T.contents)
-			// проверка на пробитие стены техники в соседнем тайле
-			if (istype(O, /obj/structure/vehicleparts/frame) && passthrough)
-				var/obj/structure/vehicleparts/frame/NO = O
-				var/penloc = NO.get_wall_name(direction)
-				var/obj/structure/vehicleparts/axis/found = null
-				for (var/obj/structure/vehicleparts/frame/FM in firer_loc)
-					found = FM.axis
-				if (!found || found != NO.axis)
-					if (!NO.CheckPen(src,penloc))
-						passthrough = FALSE
-						passthrough_message = "<span class = 'warning'>Снаряд не пробивает [penloc] стену!</span>"
-						T.visible_message(passthrough_message)
-						NO.bullet_act(src,penloc)
-						bumped = TRUE
-						loc = null
-						qdel(src)
-						return FALSE
-					else
-						NO.bullet_act(src,penloc)
-						passthrough = TRUE
-						//move ourselves onto T so we can continue on our way.
-						forceMove(T)
-						permutated += T
-						T.visible_message(passthrough_message)
 			var/hitchance = 33 // a light, for example. This was 66%, but that was unusually accurate, thanks BYOND
 			if (O == original)
 				if (istype(O, /obj/structure/table))
@@ -580,12 +575,12 @@
 					qdel(src)
 					return FALSE
 				else
-					O.visible_message("<span class = 'warning'>[src] пролетает над [O]!</span>")
 					if (isitem(O) || (O.density && O.anchored)) // since it was on the ground
 						bumped = TRUE
 						loc = null
-						//qdel(src)
+						qdel(src)
 						return FALSE
+					O.visible_message("<span class = 'warning'>[src] пролетает над [O]!</span>")
 				break
 	for (var/atom/movable/AM in T.contents)
 		if (!untouchable.Find(AM))
@@ -615,18 +610,18 @@
 						var/tmp_zone = def_zone
 
 						if (L.lying || L.prone)
-							if (firer_dist >= 3)
-								hit_chace = 30
+							if (firer_dist > 3)
+								hit_chace = 40
 
 						// проверка на получение защиты от окопа
 						if (is_trench)
 							if (passed_trenches * 2 <= firer_dist)
 								def_zone = "head" // для цели прикрыт окопом зона воздействия автоматически назначается головой
-								hit_chace = 100
+								hit_chace = 60
 								if (L.lying || L.prone)
 									hit_chace = 0
 
-						if (firer_dist <= 2)
+						if (firer_dist <= 3)
 							hit_chace = 100
 
 						if (prob(hit_chace))
@@ -673,13 +668,33 @@
 								if (O && !O.gcDestroyed)
 									passthrough = FALSE
 
+	if (!istype(firedfrom, /obj/item/weapon/gun/projectile/automatic/stationary/))
+		for (var/obj/structure/vehicleparts/frame/F in loc)
+			var/penloc = F.get_opposite_wall(F.get_wall_name(direction))
+			if (F.is_ambrasure(penloc) && src.loc == firer_loc)
+				visible_message("<span class = 'warning'>Пуля вылетает из амбразуры</span>")
+			else if (!F.CheckPen(src,penloc))
+				passthrough = FALSE
+				visible_message("<span class = 'warning'>Снаряд не пробивает [penloc] стену!</span>")
+				T.visible_message(passthrough_message)
+				F.bullet_act(src,penloc)
+				bumped = TRUE
+				loc = null
+				qdel(src)
+
 	//penetrating projectiles can pass through things that otherwise would not let them
 	++penetrating
-	if ((T.density && penetrating > 0))
+	if (((T.density || istype(T, /obj/structure/window/barrier)) && penetrating > 0))
 		if (check_penetrate(T))
 			passthrough = TRUE
 			passthrough_message = "<span class = 'warning'>Пуля  пробивает насквозь [T]!</span>"
 		--penetrating
+
+	if (istype(src, /obj/item/projectile/shell))
+		if (loc == trajectory.target)
+			var/obj/item/projectile/shell/S = src
+			S.initiate(loc)
+			return FALSE
 
 	//the bullet passes through the turf
 	if (passthrough)
@@ -766,7 +781,6 @@
 						for (var/obj/item/weapon/reagent_containers/glass/barrel/fueltank/F)
 							if (get_dist(firer, F) <= 2)
 								_untouchable += F
-
 		handleTurf(loc, untouchable = _untouchable)
 		before_move()
 		forceMove(location.return_turf())
@@ -795,10 +809,9 @@
 
 	// generate this now since all visual effects the projectile makes can use it
 	effect_transform = new()
-	effect_transform.Scale(trajectory.return_hypotenuse(), TRUE)
-	effect_transform.Turn(-trajectory.return_angle())		//no idea why this has to be inverted, but it works
-
-	transform = turn(transform, -(trajectory.return_angle() + 90)) //no idea why 90 needs to be added, but it works
+	effect_transform.Scale(1, TRUE)
+	effect_transform.Turn(-trajectory.angle)		//no idea why this has to be inverted, but it works
+	transform = turn(transform, -(trajectory.angle + 90)) //no idea why 90 needs to be added, but it works
 
 /obj/item/projectile/proc/muzzle_effect(var/matrix/T)
 
@@ -807,12 +820,12 @@
 		return
 
 	if (ispath(muzzle_type))
-		var/obj/effect/projectile/M = new muzzle_type(get_turf(src))
+		var/obj/effect/projectile/M = new muzzle_type(get_turf(firedfrom))
 
 		if (istype(M))
 			M.set_transform(T)
-			M.pixel_x = location.pixel_x
-			M.pixel_y = location.pixel_y
+			M.pixel_x = 20 * cos (angle)
+			M.pixel_y = 20 * sin (angle)
 			M.activate()
 
 	did_muzzle_effect = TRUE

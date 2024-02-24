@@ -757,12 +757,13 @@
 			throwforce = 20
 			max_shells = 5
 			slot_flags = SLOT_SHOULDER
-			shake_strength = 2 //extra kickback
+			recoil = 2 //extra kickback
 			handle_casings = HOLD_CASINGS
 			load_method = SINGLE_CASING | SPEEDLOADER
 			load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
+			accuracy = TRUE
 			gun_type = GUN_TYPE_RIFLE
-			attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
+			attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 			accuracy_increase_mod = 2.00
 			accuracy_decrease_mod = 6.00
 			KD_chance = KD_CHANCE_HIGH
@@ -781,10 +782,10 @@
 			slot_flags = SLOT_BELT|SLOT_POCKET|SLOT_HOLSTER
 			handle_casings = CYCLE_CASINGS
 			max_shells = 7
-			unload_sound 	= 'sound/weapons/guns/interact/rev_magout.ogg'
-			reload_sound 	= 'sound/weapons/guns/interact/rev_magin.ogg'
-			cocked_sound 	= 'sound/weapons/guns/interact/rev_cock.ogg'
-			fire_sound 		= 'sound/weapons/guns/fire/revolver.ogg'
+			unload_sound 	= list('sound/weapons/guns/interact/rev_magout.ogg')
+			reload_sound 	= list('sound/weapons/guns/interact/rev_magin.ogg')
+			cocked_sound 	= list('sound/weapons/guns/interact/rev_cock.ogg')
+			fire_sound 		= list('sound/weapons/guns/fire/revolver.ogg')
 			magazine_based = FALSE
 			gun_type = GUN_TYPE_PISTOL
 			single_action = FALSE
@@ -845,7 +846,7 @@
 			slot_flags = SLOT_SHOULDER|SLOT_BELT
 			sel_mode = 1
 			full_auto = TRUE
-			attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS
+			attachment_slots = ATTACH_BARREL|ATTACH_IRONSIGHTS
 			good_mags = list(/obj/item/ammo_magazine/emptymagazine,/obj/item/ammo_magazine/emptymagazine/rifle)
 			firemodes = list(
 				list(name = "full auto",	burst=1, burst_delay=1, recoil=1, move_delay=5, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5))
@@ -864,7 +865,7 @@
 			gtype = "mg"
 			w_class = ITEM_SIZE_HUGE
 			heavy = TRUE
-			attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS
+			attachment_slots = ATTACH_BARREL|ATTACH_IRONSIGHTS
 			good_mags = list(/obj/item/ammo_magazine/emptybelt)
 			firemodes = list(
 				list(name = "full auto",	burst=1, burst_delay=1.3, recoil = 1.6, move_delay=8, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.5)),
@@ -893,7 +894,7 @@
 			w_class = ITEM_SIZE_NORMAL
 			sel_mode = 1
 			full_auto = TRUE
-			fire_sound = 'sound/weapons/guns/fire/rifle.ogg'
+			fire_sound = list('sound/weapons/guns/fire/rifle.ogg')
 			weight = 3.47
 			slot_flags = SLOT_SHOULDER
 			firemodes = list(
@@ -901,7 +902,7 @@
 				list(name = "full auto",	burst=1, burst_delay=1.3, recoil=1.3, move_delay=4, dispersion = list(1.2, 1.2, 1.3, 1.4, 1.8)),
 				)
 			sel_mode = 1
-			attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
+			attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 			load_delay = 8
 			gun_type = GUN_TYPE_RIFLE
 
@@ -916,7 +917,7 @@
 			w_class = ITEM_SIZE_NORMAL
 			sel_mode = 1
 			full_auto = TRUE
-			fire_sound = 'sound/weapons/guns/fire/rifle.ogg'
+			fire_sound = list('sound/weapons/guns/fire/rifle.ogg')
 			weight = 3.47
 			slot_flags = SLOT_SHOULDER
 			firemodes = list(
@@ -925,7 +926,7 @@
 				list(name = "full auto",	burst=1, burst_delay=1.3, recoil=1.3, move_delay=4, dispersion = list(1.2, 1.2, 1.3, 1.4, 1.8)),
 				)
 			sel_mode = 1
-			attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL
+			attachment_slots =ATTACH_IRONSIGHTS|ATTACH_BARREL
 			load_delay = 8
 			gun_type = GUN_TYPE_RIFLE
 
@@ -937,8 +938,7 @@
 			stat = "rifle"
 			gtype = "shotgun"
 			gun_type = GUN_TYPE_SHOTGUN
-			fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
-			// 15% more accurate than SMGs
+			fire_sound = list('sound/weapons/guns/fire/shotgun.ogg')
 
 			accuracy_increase_mod = 1.00
 			accuracy_decrease_mod = 1.00
@@ -1284,7 +1284,8 @@
 					loaded.Cut()
 				if (count)
 					visible_message("[user] unloads [src].", "<span class='notice'>You unload [count] round\s from [src].</span>")
-					if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
+					if (bulletinsert_sound)
+						playsound(loc, pick(bulletinsert_sound), 75, TRUE)
 			else if (load_method & SINGLE_CASING)
 				var/obj/item/ammo_casing/C = loaded[loaded.len]
 				loaded.len--
@@ -1294,7 +1295,8 @@
 					var/obj/item/weapon/gun/projectile/boltaction/B = src
 					if (B.bolt_safety && !B.loaded.len)
 						B.check_bolt_lock++
-				if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
+				if (bulletinsert_sound)
+					playsound(loc, pick(bulletinsert_sound), 75, TRUE)
 		else
 			user << "<span class='warning'>[src] is empty.</span>"
 	update_icon()

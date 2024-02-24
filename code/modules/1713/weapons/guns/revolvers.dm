@@ -534,7 +534,7 @@
 	force = 4
 	slot_flags = SLOT_HOLSTER | SLOT_POCKET | SLOT_BELT
 	handle_casings = HOLD_CASINGS
-	move_delay = 4
+	move_delay = 1
 	var/open = FALSE
 	var/recentpump = FALSE // to prevent spammage
 	load_delay = 6

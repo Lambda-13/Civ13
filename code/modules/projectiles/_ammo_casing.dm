@@ -547,6 +547,7 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a50cal
 	caliber = "a50cal"
 	value = 7
+	heavy_armor_penetration = 15
 
 /obj/item/ammo_casing/a50cal/weak
 	name = ".50 BMG cartridge"
@@ -557,6 +558,7 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a50cal/weak
 	caliber = "a50cal"
 	value = 7
+	heavy_armor_penetration = 31
 
 /obj/item/ammo_casing/a50cal_ap
 	name = ".50 BMG AP cartridge"
@@ -567,6 +569,7 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a50cal_ap
 	caliber = "a50cal"
 	value = 7
+	heavy_armor_penetration = 31
 
 /obj/item/ammo_casing/a50cal_he
 	name = ".50 BMG HE cartridge"
@@ -577,6 +580,7 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a50cal_he
 	caliber = "a50cal"
 	value = 7
+	heavy_armor_penetration = 3
 
 /obj/item/ammo_casing/a145
 	name = "14.5x114 cartridge"
@@ -587,6 +591,7 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a145
 	caliber = "a145"
 	value = 7
+	heavy_armor_penetration = 45
 
 /obj/item/ammo_casing/a127
 	name = "12.7x108 cartridge"
@@ -597,6 +602,7 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a127
 	caliber = "a127"
 	value = 6
+	heavy_armor_penetration = 34
 
 /obj/item/ammo_casing/a145_ap
 	name = "14.5x114 AP cartridge"
@@ -617,6 +623,7 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a15115
 	caliber = "a15115"
 	value = 25
+	heavy_armor_penetration = 40
 
 /obj/item/ammo_casing/a15115_ap
 	name = "15x115 AP cartridge"
@@ -627,6 +634,7 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a15115_ap
 	caliber = "a15115"
 	value = 30
+	heavy_armor_penetration = 48
 
 /obj/item/ammo_casing/a15115_aphe
 	name = "15x115 APHE cartridge"
@@ -637,6 +645,7 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a15115_aphe
 	caliber = "a15115"
 	value = 35
+	heavy_armor_penetration = 45
 
 /obj/item/ammo_casing/a792x94
 	name = "7.92x94mm cartridge"
@@ -1142,6 +1151,26 @@
 	weight = 0.04
 	projectile_type = /obj/item/projectile/bullet/rifle/a58x42
 	caliber = "a58x42"
+	value = 2
+
+/obj/item/ammo_casing/a25mm_ap
+	name = "M242 AP"
+	desc = "A VERY big brass casing."
+	icon_state = "huge-bullet"
+	spent_icon = "huge-casing"
+	weight = 1
+	projectile_type = /obj/item/projectile/bullet/autocannon/a25mm_ap
+	caliber = "a25"
+	value = 2
+
+/obj/item/ammo_casing/a25mm_he
+	name = "M242 HE"
+	desc = "A VERY big brass casing."
+	icon_state = "huge-bullet"
+	spent_icon = "huge-casing"
+	weight = 1
+	projectile_type = /obj/item/projectile/bullet/autocannon/frag/a25mm_he
+	caliber = "a25"
 	value = 2
 
 /obj/item/ammo_casing/a30mm_ap

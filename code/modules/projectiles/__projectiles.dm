@@ -583,7 +583,7 @@ obj/item/projectile/bullet/rifle/a556x45
 	damage = DAMAGE_OH_GOD + 65
 	penetrating = 20
 	armor_penetration = 55
-	heavy_armor_penetration = 25
+	heavy_armor_penetration = 34
 
 /obj/item/projectile/bullet/rifle/a145
 	damage = DAMAGE_OH_GOD + 90
@@ -645,19 +645,19 @@ obj/item/projectile/bullet/rifle/a556x45
 	damage = DAMAGE_OH_GOD + 80
 	penetrating = 25
 	armor_penetration = 85
-	heavy_armor_penetration = 50
+	heavy_armor_penetration = 45
 
 /obj/item/projectile/bullet/rifle/a792x94
 	damage = DAMAGE_OH_GOD + 85
 	penetrating = 20
 	armor_penetration = 60
-	heavy_armor_penetration = 45
+	heavy_armor_penetration = 30
 
 /obj/item/projectile/bullet/rifle/a792x94_ap
 	damage = DAMAGE_OH_GOD + 80
 	penetrating = 25
 	armor_penetration = 85
-	heavy_armor_penetration = 55
+	heavy_armor_penetration = 40
 
 /obj/item/projectile/bullet/pistol/a44p
 	damage = DAMAGE_LOW - 20
@@ -673,9 +673,21 @@ obj/item/projectile/bullet/rifle/a556x45
 	damage = DAMAGE_VERY_HIGH + 10
 	penetrating = 20
 	armor_penetration = 40
-	heavy_armor_penetration = 20
+	heavy_armor_penetration = 60
 
 /obj/item/projectile/bullet/autocannon/frag/a30mm_he
+	damage = DAMAGE_MEDIUM
+	penetrating = 0
+	armor_penetration = 0
+	heavy_armor_penetration = 0
+
+/obj/item/projectile/bullet/autocannon/a25mm_ap
+	damage = DAMAGE_VERY_HIGH + 10
+	penetrating = 20
+	armor_penetration = 40
+	heavy_armor_penetration = 80
+
+/obj/item/projectile/bullet/autocannon/frag/a25mm_he
 	damage = DAMAGE_MEDIUM
 	penetrating = 0
 	armor_penetration = 0

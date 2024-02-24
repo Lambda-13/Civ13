@@ -582,7 +582,7 @@ obj/structure/vending/sofammo
 		/obj/item/ammo_magazine/m1911 = 50,
 		/obj/item/ammo_magazine/m9beretta = 50,
 		/obj/item/weapon/attachment/scope/adjustable/sniper_scope = 15,
-		/obj/item/weapon/attachment/scope/adjustable/advanced/acog = 15,
+		/obj/item/weapon/attachment/scope/adjustable/sniper_scope/acog = 15,
 		/obj/item/weapon/attachment/scope/adjustable/advanced/reddot = 15,
 		/obj/item/weapon/attachment/scope/adjustable/advanced/holographic = 15,
 		/obj/item/weapon/attachment/under/laser = 15,
@@ -1087,7 +1087,7 @@ obj/structure/vending/hezammo
 		/obj/item/ammo_magazine/makarov = 15,
 		/obj/item/ammo_magazine/pkm = 8,
 		/obj/item/ammo_magazine/maxim = 8,
-		/obj/item/weapon/attachment/scope/adjustable/advanced/acog = 15,
+		/obj/item/weapon/attachment/scope/adjustable/sniper_scope/acog = 15,
 		/obj/item/weapon/attachment/scope/adjustable/advanced/reddot = 15,
 		/obj/item/weapon/attachment/under/foregrip = 15,
 	)

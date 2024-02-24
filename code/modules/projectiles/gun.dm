@@ -3,7 +3,7 @@
 	var/burst = 1
 	var/burst_delay = 0
 	var/fire_delay = -1
-	var/move_delay = 0
+	var/move_delay = 1
 	var/shake_strength = -1
 
 //using a list makes defining fire modes for new guns much nicer,
@@ -37,7 +37,7 @@
 	attack_verb = list("struck", "hit", "bashed")
 
 	var/full_auto = FALSE
-	var/fire_delay = 5 	//delay after shooting before the gun can be used again
+	var/fire_delay = 0.1 	//delay after shooting before the gun can be used again
 	var/fire_sound = 'sound/weapons/guns/fire/rifle.ogg'
 	var/silencer_fire_sound = 'sound/weapons/guns/fire/AKM-SD.ogg'
 	var/fire_sound_text = "gunshot"
@@ -66,6 +66,8 @@
 	var/tmp/told_cant_shoot = FALSE //So that it doesn't spam them with the fact they cannot hit them.
 	var/tmp/lock_time = -100
 
+	var/list/under_mounts = list() //List of extra compatible unders
+	var/list/scope_mounts = list() //List of extra compatible scopes
 
 	var/damage_modifier = 0
 
@@ -75,7 +77,7 @@
 //	var/can_scope = FALSE
 
 	var/burst = 1
-	var/move_delay = 0
+	var/move_delay = 1
 	var/list/burst_accuracy = list(0)
 
 	var/obj/item/weapon/attachment/bayonet = null
@@ -292,7 +294,7 @@
 			tgt = user.targeted_organ
 			if (user.targeted_organ == "random")
 				tgt = pick("l_foot","r_foot","l_leg","r_leg","chest","groin","l_arm","r_arm","l_hand","r_hand","eyes","mouth","head")
-			if (process_projectile(projectile, user, target, tgt, clickparams))
+			if (!process_projectile(projectile, user, target, tgt, clickparams))
 				handle_post_fire(user, target, pointblank, reflex)
 				update_icon()
 
@@ -340,12 +342,11 @@
 //called after successfully firing
 /obj/item/weapon/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0)
 	if (silencer)
-		playsound(get_turf(user), silencer_fire_sound, 100-silencer.reduction, TRUE, 100-silencer.reduction)
+		playsound(user, silencer_fire_sound, 100-silencer.reduction, TRUE,100-silencer.reduction)
 	else
-		playsound(get_turf(user), fire_sound, 100, TRUE, 100)
-
-		if (muzzle_flash)
-			set_light(muzzle_flash)
+		playsound(user, fire_sound, 100, TRUE,100)
+	if (muzzle_flash)
+		set_light(muzzle_flash)
 
 	var/datum/firemode/F = firemodes[sel_mode]
 
@@ -395,30 +396,25 @@
 
 	var/dt = world.time - last_shot_time
 
-	var/shot_recoil = next_shot_recoil
-
-	if (user.client.moving)
-		next_shot_recoil *= 2
+	var/shot_recoil = next_shot_recoil / (dt * ergonomics)
 
 	if(user.lying || user.prone)
-		next_shot_recoil /= 2
+		shot_recoil /= 2.5
 
-	if(istype(user, /mob/living/human))
-		var/mob/living/human/firer = user
-		next_shot_recoil /= firer.getStatCoeff(stat)
-
-	if (next_shot_recoil > 0)
-		shot_recoil = clamp(next_shot_recoil - sqrt(dt * dt * ergonomics / 5), 0, 40)
-	else if (next_shot_recoil < 0)
-		shot_recoil = clamp(next_shot_recoil + sqrt(dt * dt * ergonomics / 5), -40, 0)
 	var/shot_accuracy = rand(-accuracy, accuracy)
 
-	var/shot_dispersion = clamp(shot_recoil + shot_accuracy, -40, 40)
+	if (world.time - user.last_movement < 4)
+		shot_accuracy *= 5
+		shot_recoil *= 2
+
+	var/shot_dispersion = clamp(shot_recoil + shot_accuracy, -45, 45)
+
 	P.dispersion = shot_dispersion
 
 	//shooting while in shock
 	var/x_offset = 0
 	var/y_offset = 0
+
 	if (istype(user, /mob/living/human))
 		var/mob/living/human/mob = user
 		if (mob.shock_stage > 120)
@@ -429,11 +425,11 @@
 			x_offset = rand(-1,1)
 
 	if(!P.launch(target, user, src, target_zone, x_offset, y_offset))
-		next_shot_recoil = shot_recoil + rand(-recoil, recoil)
-		if (next_shot_recoil >= 20)
-			next_shot_recoil += rand(-recoil, 0)
-		if (next_shot_recoil <= -20)
-			next_shot_recoil += rand(0, recoil)
+		next_shot_recoil += rand(-recoil, recoil) * 0.5
+		var/max_recoil = rand(5, 30)
+		if(abs(next_shot_recoil) >= max_recoil)
+			next_shot_recoil = clamp(next_shot_recoil, -max_recoil, max_recoil)
+			next_shot_recoil /= rand(1, 4)
 		last_shot_time = world.time
 		return FALSE
 	return TRUE

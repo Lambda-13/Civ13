@@ -62,12 +62,18 @@
 		if ("DUTCH")
 			options["Sniper"] = list(/obj/item/weapon/gun/projectile/boltaction/singleshot/barrett/sniper,/obj/item/ammo_magazine/a50cal,/obj/item/ammo_magazine/a50cal)
 			options["Anti-Tank"] = list(/obj/item/weapon/gun/launcher/rocket/single_shot/m72law,/obj/item/weapon/gun/launcher/rocket/single_shot/m72law)
-			options["Breacher"] = list(/obj/item/weapon/gun/projectile/shotgun/pump/remington870,/obj/item/ammo_magazine/shellbox,/obj/item/ammo_magazine/shellbox,/obj/item/ammo_magazine/shellbox)
+			options["Breacher"] = list(/obj/item/weapon/gun/projectile/submachinegun/spas,/obj/item/ammo_magazine/shellbox,/obj/item/ammo_magazine/shellbox,/obj/item/ammo_magazine/shellbox/slug,/obj/item/clothing/head/helmet/modern/ach,/obj/item/clothing/accessory/armor/nomads/pcarriertan)
+			options["Fire-Support"] = list(/obj/item/weapon/gun/projectile/automatic/m249/suppressor,/obj/item/ammo_magazine/m249,/obj/item/ammo_magazine/m249)
 			options["Grenadier"] = list(/obj/item/weapon/gun/launcher/grenade/standalone/hk69,/obj/item/clothing/accessory/storage/webbing/shell40mm)
 		if ("RUSSIAN")
-			options["Sniper"] = list(/obj/item/weapon/gun/projectile/semiautomatic/vintorez,/obj/item/ammo_magazine/vintorez,/obj/item/ammo_magazine/vintorez)
+			options["Sniper"] = list(/obj/item/weapon/gun/projectile/semiautomatic/svd,/obj/item/ammo_magazine/svd,/obj/item/ammo_magazine/svd)
+			options["Infiltrator"] = list(/obj/item/weapon/gun/projectile/semiautomatic/vintorez,/obj/item/ammo_magazine/vintorez,/obj/item/ammo_magazine/vintorez)
 			options["Anti-Tank"] = list(/obj/item/weapon/gun/launcher/rocket/single_shot/rpg22,/obj/item/weapon/gun/launcher/rocket/single_shot/rpg22)
-			options["Breacher"] = list(/obj/item/weapon/gun/projectile/submachinegun/saiga12,/obj/item/ammo_magazine/saiga12,/obj/item/ammo_magazine/saiga12,/obj/item/ammo_magazine/saiga12)
+			if (prob(25))
+				options["Fire-Support"] = list(/obj/item/weapon/gun/projectile/automatic/pkm/pkp/devastator,/obj/item/ammo_magazine/pkm/c100,/obj/item/ammo_magazine/pkm/c100)
+			else
+				options["Fire-Support"] = list(/obj/item/weapon/gun/projectile/automatic/rpk74/rpk16/suppressor,/obj/item/ammo_magazine/rpk74/drum,/obj/item/ammo_magazine/rpk74)
+			options["Breacher"] = list(/obj/item/weapon/gun/projectile/submachinegun/saiga12/breacher,/obj/item/ammo_magazine/saiga12,/obj/item/ammo_magazine/saiga12,/obj/item/ammo_magazine/saiga12/slug,/obj/item/clothing/accessory/armor/coldwar/plates/b5,/obj/item/clothing/head/helmet/modern/sovietfacehelmet/welding)
 	var/choice = input(user,"What type of equipment?") as null|anything in options
 	if(src && choice)
 		var/list/things_to_spawn = options[choice]
