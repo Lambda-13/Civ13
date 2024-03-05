@@ -108,10 +108,7 @@
 		return "Portuguese Empire"
 
 	if (constant == SPANISH)
-		if (map.ID == "BAY_OF_PIGS")
-			return "Republic Cuba"
-		else
-			return "Spanish Empire"
+		return "Spanish Empire"
 
 	if (constant == FRENCH)
 		if (age >= 4)
