@@ -322,6 +322,30 @@
 	recoil = 1
 	accuracy = 1
 
+/obj/item/weapon/gun/projectile/automatic/stationary/autocannon/grom2a28 // BMD-1
+	name = "2A28 Grom 73mm semi-automatic gun"
+	desc = "The 73mm 2A28 semi-automatic gun was developed as a replacement for the 2A28 Grom. It fires 73mm rounds."
+	icon_state = "autocannon"
+	base_icon = "autocannon"
+	caliber = "a73"
+	fire_sound = 'sound/weapons/guns/fire/2a72.ogg'
+	load_method = SINGLE_CASING | MAGAZINE
+	handle_casings = REMOVE_CASINGS
+	magazine_type = /obj/item/ammo_magazine/a73mm_ap
+	good_mags = list(/obj/item/ammo_magazine/a73mm_ap,/obj/item/ammo_magazine/a73mm_he)
+	firemodes = list(
+		list(name = "single shot", burst=1, fire_delay=80, dispersion=list(0.1, 0.2, 0.3, 0.3), accuracy=list(2)),
+		)
+	ammo_type = /obj/item/ammo_casing/a73mm_ap || /obj/item/ammo_casing/a73mm_he
+
+/obj/item/weapon/gun/projectile/automatic/stationary/autocannon/grom2a28/handle_post_fire(mob/user, atom/target)
+	..()
+	playsound(get_turf(src), 'sound/machines/autoloader.ogg', 60, TRUE)
+	for (var/datum/firemode/FM in firemodes)
+		spawn(FM.fire_delay)
+			to_chat(user, SPAN_NOTICE("\The [src] loads another round."))
+
+
 /obj/item/weapon/gun/projectile/automatic/stationary/autocannon/bushmaster
 	name = "25mm M242 'Bushmaster' Autocannon"
 	icon_state = "autocannon"

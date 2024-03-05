@@ -465,6 +465,7 @@
 #include "code\game\objects\map_metadata\bank_robbery.dm"
 #include "code\game\objects\map_metadata\barbarossa.dm"
 #include "code\game\objects\map_metadata\battleroyale.dm"
+#include "code\game\objects\map_metadata\bay_of_pigs.dm"
 #include "code\game\objects\map_metadata\berlin.dm"
 #include "code\game\objects\map_metadata\bohemia.dm"
 #include "code\game\objects\map_metadata\caloocan.dm"
@@ -477,7 +478,6 @@
 #include "code\game\objects\map_metadata\clash.dm"
 #include "code\game\objects\map_metadata\colony.dm"
 #include "code\game\objects\map_metadata\compound.dm"
-#include "code\game\objects\map_metadata\cuba_pigs.dm"
 #include "code\game\objects\map_metadata\cursed_island.dm"
 #include "code\game\objects\map_metadata\drug_bust.dm"
 #include "code\game\objects\map_metadata\east_los_santos.dm"
@@ -1165,5 +1165,5 @@
 #include "lambda\sanecman\code\soldier_stogie\soldier_stogie.dm"
 #include "lambda\sanecman\code\space\grenade.dm"
 #include "lambda\sanecman\code\space\gun.dm"
-#include "maps\1943\smallingrad.dmm"
+#include "maps\WIP\bay_of_pigs.dmm"
 // END_INCLUDE
