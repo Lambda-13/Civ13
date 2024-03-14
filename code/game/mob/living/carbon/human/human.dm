@@ -1380,7 +1380,6 @@ var/list/coefflist = list()
 			for(var/obj/item/weapon/attachment/scope/A in G.attachments)//Looks through the attachments of the gun in hand
 				LA.Add(A.zoom_amt)
 			look_amount = max(LA)//look_amount is set to the maximum zoom_amt of gun's attachments, maybe could be written different instead of a for loop
-
 	if(!user || !user.client)
 		return
 
@@ -1486,7 +1485,8 @@ var/list/coefflist = list()
 					G.shake_strength = round(G.shake_strength*(W.zoom_amt/5)+1) //recoil is worse when looking through a scope
 			else
 				G.shake_strength = initial(G.shake_strength)
-
+	process_vehicle_roofs()
+	process_turret_roofs()
 
 
 /datum/action/toggle_scope

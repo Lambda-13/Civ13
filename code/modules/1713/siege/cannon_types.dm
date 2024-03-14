@@ -193,7 +193,7 @@
 	desc = "a 76mm american tank-based cannon."
 	icon_state = "tank_cannon"
 	maxrange = 25
-	caliber = 76
+	caliber = 76.2
 
 /obj/structure/cannon/modern/tank/russian76/americanfield
 	name = "76.2mm M5 gun"
@@ -328,7 +328,7 @@
 		gunner_chair = new /obj/structure/bed/chair/gunner(src)
 
 /obj/structure/cannon/modern/tank/russian85
-	name = "85mm M1939 D5-T"
+	name = "85mm S-53"
 	desc = "a 85mm Russian tank-based cannon."
 	icon_state = "tank_cannon"
 	firedelay = 1
@@ -337,6 +337,7 @@
 	anchored = TRUE
 
 /obj/structure/cannon/modern/tank/russian85/course
+	name = "85mm D-5S"
 	desc = "a 85mm Russian course cannon."
 	course = TRUE
 
@@ -374,6 +375,14 @@
 /obj/structure/cannon/modern/tank/russian100/course
 	desc = "a 100mm Russian course cannon."
 	course = TRUE
+
+/obj/structure/cannon/modern/tank/russian115
+	name = "115mm 2A20"
+	desc = "a 115mm Russian tank-based cannon."
+	icon_state = "tank_cannon"
+	maxrange = 33
+	caliber = 115
+	anchored = TRUE
 
 /obj/structure/cannon/mortar
 	name = "mortar"

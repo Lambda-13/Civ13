@@ -642,7 +642,8 @@
 
 		if (!client)
 			species.handle_npc(src)
-	process_roofs()
+	process_turret_roofs()
+	process_vehicle_roofs()
 	process_static_roofs()
 
 	if (!handle_some_updates())

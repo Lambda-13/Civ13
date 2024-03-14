@@ -98,7 +98,7 @@
 	magazine_type = /obj/item/ammo_magazine/pkm
 	good_mags = list(/obj/item/ammo_magazine/pkm, /obj/item/ammo_magazine/pkm/c100, /obj/item/ammo_magazine/maxim)
 	firemodes = list(
-		list(name = "full auto", burst=4, burst_delay=1.3, fire_delay=1.3, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
+		list(name = "full auto", burst=3, burst_delay=1.3, fire_delay=1.3, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a762x54/weak
 	recoil = 5
@@ -333,7 +333,7 @@
 	magazine_type = /obj/item/ammo_magazine/autocannon_ap
 	good_mags = list(/obj/item/ammo_magazine/autocannon_ap/m242ap, /obj/item/ammo_magazine/autocannon_he/m242he)
 	firemodes = list(
-		list(name = "full auto", burst=1, burst_delay=2, fire_delay=3, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
+		list(name = "full auto", burst=1, burst_delay=1.1, fire_delay=3, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
 		)
 	//ammo_type = /obj/item/ammo_casing/a25mm_ap
 
@@ -348,7 +348,7 @@
 	magazine_type = /obj/item/ammo_magazine/autocannon_ap
 	good_mags = list(/obj/item/ammo_magazine/autocannon_ap, /obj/item/ammo_magazine/autocannon_he)
 	firemodes = list(
-		list(name = "full auto", burst=1, burst_delay=2, fire_delay=3, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
+		list(name = "full auto", burst=1, burst_delay=1.3, dispersion=list(0.8, 0.9, 1.1, 1.2, 1.3), accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a30mm_ap
 
@@ -364,7 +364,7 @@
 	magazine_type = /obj/item/ammo_magazine/autocannon_ap
 	good_mags = list(/obj/item/ammo_magazine/autocannon_ap, /obj/item/ammo_magazine/autocannon_he)
 	firemodes = list(
-		list(name = "full auto", burst=1, burst_delay=3.5, fire_delay=2.5, dispersion=list(0.7, 0.8, 1.1, 1.2, 1.3), accuracy=list(2)),
+		list(name = "full auto", burst=1, burst_delay=2, fire_delay=2.5, dispersion=list(0.7, 0.8, 1.1, 1.2, 1.3), accuracy=list(2)),
 		)
 	ammo_type = /obj/item/ammo_casing/a30mm_ap
 	full_auto = TRUE

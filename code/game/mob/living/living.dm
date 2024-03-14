@@ -817,9 +817,8 @@ default behaviour is:
 /mob/living/proc/forcelife()
 	if (src && stat != DEAD)
 		life_forced = TRUE
-		spawn(10)
-			if (world.realtime>=last_life_tick+9)
-				Life()
+		spawn(0.1)
+			Life()
 			forcelife()
 	else if (src)
 		life_forced = FALSE

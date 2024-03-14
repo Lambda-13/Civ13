@@ -316,9 +316,9 @@ macro "hotkeymode"
 	elem
 		name = "Z"
 		command = "Activate-Held-Object"
-	elem
-		name = "CTRL+Z"
-		command = "Activate-Held-Object"
+	elem "disactivation"
+		name = "Z+UP"
+		command = "disactivation"
 	elem
 		name = ","
 		command = "m-intent-prone"

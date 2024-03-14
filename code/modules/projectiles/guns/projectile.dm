@@ -57,6 +57,8 @@
 
 	var/load_shell_sound = 'sound/weapons/empty.ogg'
 
+	var/can_tactical_reload = FALSE
+
 	var/executing = FALSE
 
 	var/infinite_ammo = FALSE
@@ -344,6 +346,16 @@
 		user << "<span class='warning'>[src] is empty.</span>"
 	update_icon()
 
+/obj/item/weapon/gun/projectile/proc/tactical_reload(var/obj/item/A as obj, mob/user)
+	if(!can_tactical_reload)
+		return FALSE
+	if(!good_mags.Find(A.type))
+		return FALSE
+	if(ammo_magazine)
+		unload_ammo(user)
+	load_ammo(A, user)
+	return TRUE
+
 /obj/item/weapon/gun/projectile/attackby(var/obj/item/A as obj, mob/user)
 	..()
 	if(launcher && (istype(A, /obj/item/weapon/grenade)))//load check it for it's type
@@ -353,7 +365,8 @@
 		if (istype(A, /obj/item/ammo_magazine) && !magazine_type)
 			return
 		else
-			load_ammo(A, user)
+			if(!tactical_reload(A, user))
+				load_ammo(A, user)
 
 /obj/item/weapon/gun/projectile/attack_self(mob/user as mob)
 	if (firemodes.len > 1)

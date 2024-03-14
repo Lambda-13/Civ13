@@ -20,3 +20,17 @@
 	else
 		winset(src, "mapwindow.map", "icon-size=0")
 	return
+
+/client/verb/icons_scale()
+	set name = "Change Scale"
+	set category = "ООС"
+	set desc = "Меняет алгоритм сжатия изображения."
+
+	var/choice = WWinput(usr, "Какой алгоритм Вы выберете?", "Алгоритм", "Авто", list("Авто","Метод ближайшего соседа","Размытие"))
+	if (choice == "Авто")
+		winset(src, "mapwindow.map", "zoom-mode=normal")
+	else if (choice == "Метод ближайшего соседа")
+		winset(src, "mapwindow.map", "zoom-mode=distort")
+	else if (choice == "Размытие")
+		winset(src, "mapwindow.map", "zoom-mode=blur")
+	return

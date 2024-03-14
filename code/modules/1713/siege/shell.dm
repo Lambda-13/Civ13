@@ -171,6 +171,22 @@
 	heavy_armor_penetration = 220
 	damage = 100
 
+/obj/item/cannon_ball/shell/tank/HE115
+	atype = "HE"
+	caliber = 115
+	heavy_armor_penetration = 27
+	damage = 333
+/obj/item/cannon_ball/shell/tank/AP115
+	atype = "AP"
+	caliber = 115
+	heavy_armor_penetration = 220
+	damage = 133
+/obj/item/cannon_ball/shell/tank/APCR115
+	atype = "APCR"
+	caliber = 115
+	heavy_armor_penetration = 400
+	damage = 100
+
 /obj/item/cannon_ball/shell/tank/HE120
 	atype = "HE"
 	caliber = 120
@@ -515,6 +531,15 @@
 		new /obj/item/cannon_ball/shell/tank/AP100(storage)
 	update_icon()
 
+/obj/structure/shellrack/autoloader/full115/New()
+	..()
+	for (var/i=1, i<=12, i++)
+		new /obj/item/cannon_ball/shell/tank/HE115(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/AP115(storage)
+	update_icon()
+
+
 /obj/structure/shellrack/autoloader/full125/New()
 	..()
 	for (var/i=1, i<=12, i++)
@@ -575,17 +600,17 @@
 /obj/structure/shellrack/full120/New()
 	..()
 	for (var/i=1, i<=10, i++)
-		new /obj/item/cannon_ball/shell/tank/HE122(storage)
+		new /obj/item/cannon_ball/shell/tank/HE120(storage)
 	for (var/i=1, i<=6, i++)
-		new /obj/item/cannon_ball/shell/tank/AP122(storage)
+		new /obj/item/cannon_ball/shell/tank/APCR120(storage)
 	update_icon()
 
 /obj/structure/shellrack/full122/New()
 	..()
 	for (var/i=1, i<=10, i++)
-		new /obj/item/cannon_ball/shell/tank/HE120(storage)
+		new /obj/item/cannon_ball/shell/tank/HE122(storage)
 	for (var/i=1, i<=6, i++)
-		new /obj/item/cannon_ball/shell/tank/AP120(storage)
+		new /obj/item/cannon_ball/shell/tank/AP122(storage)
 	update_icon()
 
 /obj/structure/shellrack/full125/New()

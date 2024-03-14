@@ -76,7 +76,6 @@
 	else
 		firer = null
 		firer_original_dir = dir
-	firer_loc = get_turf(src)
 	firedfrom = launcher
 
 	original = target

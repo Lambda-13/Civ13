@@ -31,6 +31,9 @@
 	var/launch_from_vehicle = FALSE
 	var/overcoming_trench = FALSE // if bullet flies out of trench, it will be more difficult to hit a target in another trench
 
+	var/fired_from_turret = FALSE
+	var/obj/structure/vehicleparts/axis/fired_from_axis = null
+
 	var/p_x = 16
 	var/p_y = 16 // the pixel location of the tile that the player clicked. Default is the center
 
@@ -88,7 +91,6 @@
 	var/useless = FALSE
 
 	var/can_hit_in_trench = 1
-	var/turf/firer_loc = null
 	var/btype = "normal" //normal, AP (armor piercing) and HP (hollow point)
 	var/atype = "normal"
 	should_save = 0
@@ -186,13 +188,19 @@
 	if (istype(curloc, /turf/floor/trench))
 		launch_from_trench = TRUE
 
-	for (var/obj/structure/vehicleparts/frame/F in curloc)
-		launch_from_vehicle = TRUE
+	if(user.buckled)
+		for (var/obj/structure/turret/T in curloc)
+			fired_from_turret = TRUE
+		for (var/obj/structure/vehicleparts/frame/F in curloc)
+			fired_from_axis = F.axis
+			layer = 11
 
 	firer = user
-	firer_loc = get_turf(src)
 	firer_original_dir = firer.dir
 	firedfrom = launcher
+
+	for(var/obj/structure/turret/T in curloc)
+
 
 	if (istype(firedfrom, /obj/item/weapon/gun/projectile/automatic/stationary))
 		if (prob(80))
@@ -243,7 +251,6 @@
 
 	firer = null
 	firedfrom = null
-	firer_loc = get_turf(src)
 	def_zone = "chest"
 
 	if (targloc == curloc) //Shooting something in the same turf
@@ -277,7 +284,6 @@
 	loc = get_turf(user) //move the projectile out into the world
 
 	firer = user
-	firer_loc = get_turf(src)
 	firer_turf = get_turf(firer)
 	firer_original_dir = firer.dir
 	firedfrom = launcher
@@ -298,7 +304,6 @@
 	original = new_target
 	if (new_firer)
 		firer = src
-		firer_loc = get_turf(src)
 		firer_original_dir = firer.dir
 
 	setup_trajectory(starting_loc, new_target)
@@ -502,6 +507,20 @@
 	var/passthrough_message = null
 	var/is_trench = istype(T, /turf/floor/trench)
 
+	if(starting == T && fired_from_turret)
+		forceMove(T)
+		permutated += T
+		return TRUE
+
+	if(fired_from_turret && fired_from_axis) // пуля выпущеная из башни не имеет препятсятвий внутри той техники где она была выпущена
+		for (var/obj/structure/vehicleparts/frame/F in T)
+			if(fired_from_axis && fired_from_axis == F.axis)
+				forceMove(T)
+				permutated += T
+				return TRUE
+			else
+				fired_from_turret = FALSE
+
 	if(is_trench)
 		passed_trenches += 1
 	else
@@ -513,7 +532,7 @@
 		return
 
 	// Проверка на пробитие корпуса техники
-	if (T != firer_loc)
+	if (T != starting)
 		for (var/obj/structure/vehicleparts/frame/F in T.contents)
 			var/penloc = F.get_wall_name(direction)
 			F.bullet_act(src,penloc)
@@ -586,13 +605,7 @@
 		if (!untouchable.Find(AM))
 			if (isliving(AM) && AM != firer)
 				var/mob/living/L = AM
-				var/skip = FALSE
-				if (firer)
-					for (var/obj/structure/vehicleparts/frame/VP1 in L.loc)
-						for (var/obj/structure/vehicleparts/frame/VP2 in firer_loc)
-							if (VP1.axis == VP2.axis && istype(firedfrom, /obj/item/weapon/gun/projectile/automatic/stationary))
-								skip = TRUE
-				if ((!skip) && (!L.lying || T == get_turf(original) || execution))
+				if ((!L.lying || T == get_turf(original) || execution))
 					// if they have a neck grab on someone, that person gets hit instead
 					var/obj/item/weapon/grab/G = locate() in L
 					if (G && G.state >= GRAB_NECK && G.affecting.stat < UNCONSCIOUS)
@@ -671,7 +684,7 @@
 	if (!istype(firedfrom, /obj/item/weapon/gun/projectile/automatic/stationary/))
 		for (var/obj/structure/vehicleparts/frame/F in loc)
 			var/penloc = F.get_opposite_wall(F.get_wall_name(direction))
-			if (F.is_ambrasure(penloc) && src.loc == firer_loc)
+			if (F.is_ambrasure(penloc) && src.loc == starting)
 				visible_message("<span class = 'warning'>Пуля вылетает из амбразуры</span>")
 			else if (!F.CheckPen(src,penloc))
 				passthrough = FALSE

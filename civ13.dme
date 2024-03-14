@@ -855,6 +855,7 @@
 #include "code\modules\1713\siege\fire.dm"
 #include "code\modules\1713\siege\piece.dm"
 #include "code\modules\1713\siege\shell.dm"
+#include "code\modules\1713\siege\turret.dm"
 #include "code\modules\1713\transporter\_defines.dm"
 #include "code\modules\1713\transporter\landmarks.dm"
 #include "code\modules\1713\transporter\lever.dm"
@@ -1165,5 +1166,5 @@
 #include "lambda\sanecman\code\soldier_stogie\soldier_stogie.dm"
 #include "lambda\sanecman\code\space\grenade.dm"
 #include "lambda\sanecman\code\space\gun.dm"
-#include "maps\1943\smallingrad.dmm"
+#include "maps\ru\pervomaisk_crossing.dmm"
 // END_INCLUDE

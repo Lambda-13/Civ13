@@ -133,29 +133,18 @@
 			M << "<span class = 'warning'>There's already a [loaded[1]] loaded.</span>"
 			return
 		// load first and only slot
-		var/found_loader = FALSE
-		for (var/obj/structure/bed/chair/loader/L in M.loc)
-			found_loader = TRUE
-		if (!found_loader && istype(src, /obj/structure/cannon/modern/tank) && !istype(src, /obj/structure/cannon/modern/tank/voyage))
-			M << "<span class = 'warning'>You need to be at the loader's position to load \the [src].</span>"
-			return FALSE
 		var/loadtime = caliber/2
+		if(M.buckled && istype(M.buckled, /obj/structure/bed/chair/loader))
+			loadtime /= 2
 		if (istype(src,/obj/structure/cannon/modern/naval))
 			loadtime = caliber
 		if (do_after(M, loadtime, M, can_move = TRUE))
-			if (M && (locate(M) in range(1,src)))
-				found_loader = FALSE
-				for (var/obj/structure/bed/chair/loader/L in M.loc)
-					found_loader = TRUE
-				if (!found_loader && istype(src, /obj/structure/cannon/modern/tank) && !istype(src, /obj/structure/cannon/modern/tank/voyage))
-					M << "<span class = 'warning'>You need to be at the loader's position to load \the [src].</span>"
-					return FALSE
-				M.remove_from_mob(W)
-				W.loc = src
-				loaded += W
-				M << SPAN_NOTICE("You load \the [src].")
-				playsound(loc, 'sound/effects/lever.ogg', 100, TRUE)
-				return
+			M.remove_from_mob(W)
+			W.loc = src
+			loaded += W
+			M << SPAN_NOTICE("You load \the [src].")
+			playsound(loc, 'sound/effects/lever.ogg', 100, TRUE)
+			return
 	else if (istype(W,/obj/item/weapon/wrench) && !can_assemble)
 		M << (anchored ? "<span class='notice'>You start unfastening \the [src] from the floor.</span>" : "<span class='notice'>You start securing \the [src] to the floor.</span>")
 		if (do_after(M, 3 SECONDS, src))
@@ -318,12 +307,6 @@
 						loadtime = caliber
 					if (do_after(user, loadtime, user, can_move = TRUE))
 						if (user && (locate(user) in range(1,src)))
-							found_loader = FALSE
-							for (var/obj/structure/bed/chair/loader/L in user.loc)
-								found_loader = TRUE
-							if (!found_loader && istype(src, /obj/structure/cannon/modern/tank) && !istype(src, /obj/structure/cannon/modern/tank/voyage))
-								user << SPAN_WARNING("You need to be at the loader's position to load \the [src].")
-								return FALSE
 							user.remove_from_mob(M)
 							M.loc = src
 							loaded += M
@@ -1200,7 +1183,7 @@
 		return FALSE
 	var/turf/TF
 	get_target_coords()
-	TF = locate(src.x + target_x,src.y + target_y,z)
+	TF = locate(src.x + target_x, src.y + target_y, z)
 	if (!TF)
 		return FALSE
 	var/sub = loaded[1].subtype
@@ -1226,4 +1209,5 @@
 			S1.launch(TF, user, src, rand(-2,2), 0)
 	else
 		S.launch(TF, user, src, 0, 0)
+		playsound(loc, "artillery_out", 100, TRUE)
 	return TRUE

@@ -29,6 +29,7 @@
 	var/one_handed = FALSE
 	reload_sound = 'sound/weapons/guns/interact/AR15Reload.ogg'
 	unload_sound = 'sound/weapons/guns/interact/AR15Unload.ogg'
+	can_tactical_reload = TRUE
 
 /obj/item/weapon/gun/projectile/submachinegun/special_check(mob/user)
 	if (gun_safety && safetyon)

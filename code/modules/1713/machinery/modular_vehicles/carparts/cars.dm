@@ -555,7 +555,6 @@
 	turntimer = 7
 	reg_number = ""
 	color = "#3d5931"
-	turret_type = "none"
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)
@@ -573,7 +572,6 @@
 	turntimer = 6
 	reg_number = ""
 	color = "#3d5931"
-	turret_type = "none"
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)
@@ -591,7 +589,6 @@
 	turntimer = 6
 	reg_number = ""
 	color = "#ffffff"
-	turret_type = "none"
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)

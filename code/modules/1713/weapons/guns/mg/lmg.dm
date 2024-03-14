@@ -33,6 +33,8 @@
 
 	var/obj/structure/bed/chair/mgunner/mount = null
 
+	can_tactical_reload = TRUE
+
 /obj/item/weapon/gun/projectile/automatic/Fire(atom/target, mob/living/user, clickparams=null, pointblank=0, reflex=0, forceburst = -1, force = FALSE, accuracy_mod = 1)
 	if (mount)
 		var/turf/firing_turf = get_turf(mount)
@@ -133,6 +135,9 @@
 	throwforce = 30
 	effectiveness_mod = 1.05
 	bad_magazine_types = list(/obj/item/ammo_magazine/maxim)
+	firemodes = list(
+		list(name = "full auto", burst=1, burst_delay=1.3, dispersion = list(0.7, 1.1, 1.1, 1.1, 1.2), recoil = 0),
+	)
 	recoil = 40
 	accuracy = 3
 	var/folded = FALSE

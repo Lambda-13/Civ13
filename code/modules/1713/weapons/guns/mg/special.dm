@@ -24,6 +24,7 @@
 	var/last_fire = -1
 	barrel_x_offset = 16
 	barrel_y_offset = 16
+	can_tactical_reload = TRUE
 
 /obj/item/weapon/gun/projectile/special/special_check(mob/user)
 	if (gun_safety && safetyon)
