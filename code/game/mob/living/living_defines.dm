@@ -62,3 +62,34 @@
 
 	var/wall_smash = 0 //if they can smash walls
 	var/deals_blunt = 0
+
+	var/body_part_size = list( // размер частей тела в процентах от размера тела
+		"head" = 5,
+		"eyes" = 1,
+		"mouth" = 1,
+		"chest" = 20,
+		"groin" = 13,
+		"l_arm" = 7,
+		"l_hand" = 3,
+		"r_arm" = 7,
+		"r_hand" = 3,
+		"l_leg" = 7,
+		"l_foot" = 3,
+		"r_leg" = 7,
+		"r_foot" = 3
+	)
+	var/redirection_list = list(
+		"head" = list("eyes", "mouth", "chest"), // шанс критического промаха 73%
+		"eyes" = list("head", "mouth", "chest"), // шанс критического промаха 73%
+		"mouth" = list("head", "eyes", "chest"), // шанс критического промаха 73%
+		"chest" = list("eyes", "mouth", "head", "groin", "l_arm", "r_arm", "r_hand", "l_hand", "r_leg", "l_leg"), // шанс критического промаха 26%
+		"groin" = list("chest", "l_arm", "r_arm", "r_hand", "l_hand", "l_leg", "r_leg"), // шанс критического промаха 33%
+		"l_arm" = list("eyes", "mouth", "head", "chest", "groin", "l_hand", "l_leg"), // шанс критического промаха 46%
+		"l_hand" = list("chest", "groin", "l_arm", "l_leg", "l_foot"), //  шанс критического промаха 50
+		"r_arm" = list("eyes", "mouth", "head", "chest", "groin", "r_hand", "r_leg"), // шанс критического промаха 46%
+		"r_hand" = list("chest", "groin", "r_arm", "r_leg", "r_foot"), //  шанс критического промаха 50
+		"l_leg" = list("chest", "l_foot", "r_leg", "r_foot","groin", "l_arm", "l_hand"), // шанс критического промаха 44
+		"l_foot" = list("l_leg", "r_leg", "r_foot","groin", "l_hand"), // шанс критического промаха 67
+		"r_leg" = list("chest", "r_foot", "l_leg", "l_foot","groin", "r_arm", "r_hand"), // шанс критического промаха 44
+		"r_foot" = list("r_leg", "l_leg", "l_foot","groin", "r_hand"), // шанс критического промаха 67
+	)
