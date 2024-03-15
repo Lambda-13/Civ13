@@ -361,43 +361,19 @@
 	if (!def_zone)
 		def_zone = "chest"
 
-	var/body_part_size = list( // размер частей тела в процентах от размера тела
-		"head" = 5,
-		"eyes" = 1,
-		"mouth" = 1,
-		"chest" = 20,
-		"groin" = 13,
-		"l_arm" = 7,
-		"l_hand" = 3,
-		"r_arm" = 7,
-		"r_hand" = 3,
-		"l_leg" = 7,
-		"l_foot" = 3,
-		"r_leg" = 7,
-		"r_foot" = 3
-	)
-	var/list/redirection_list = list(
-		"head" = list("eyes", "mouth", "chest"), // шанс критического промаха 73%
-		"eyes" = list("head", "mouth", "chest"), // шанс критического промаха 73%
-		"mouth" = list("head", "eyes", "chest"), // шанс критического промаха 73%
-		"chest" = list("eyes", "mouth", "head", "groin", "l_arm", "r_arm", "r_hand", "l_hand", "r_leg", "l_leg"), // шанс критического промаха 26%
-		"groin" = list("chest", "l_arm", "r_arm", "r_hand", "l_hand", "l_leg", "r_leg"), // шанс критического промаха 33%
-		"l_arm" = list("eyes", "mouth", "head", "chest", "groin", "l_hand", "l_leg"), // шанс критического промаха 46%
-		"l_hand" = list("chest", "groin", "l_arm", "l_leg", "l_foot"), //  шанс критического промаха 50
-		"r_arm" = list("eyes", "mouth", "head", "chest", "groin", "r_hand", "r_leg"), // шанс критического промаха 46%
-		"r_hand" = list("chest", "groin", "r_arm", "r_leg", "r_foot"), //  шанс критического промаха 50
-		"l_leg" = list("chest", "l_foot", "r_leg", "r_foot","groin", "l_arm", "l_hand"), // шанс критического промаха 44
-		"l_foot" = list("l_leg", "r_leg", "r_foot","groin", "l_hand"), // шанс критического промаха 67
-		"r_leg" = list("chest", "r_foot", "l_leg", "l_foot","groin", "r_arm", "r_hand"), // шанс критического промаха 44
-		"r_foot" = list("r_leg", "l_leg", "l_foot","groin", "r_hand"), // шанс критического промаха 67
-	)
-	var/redirection_parts = redirection_list[def_zone]
+	var/redirection_parts = target_mob.redirection_list[def_zone]
 	var/hit_zone = null
-	if (prob(body_part_size[def_zone]) || distance < 3)
+	var/hitchance = target_mob.body_part_size[def_zone]
+
+	if(distance <= 3)
+		hitchance = 100
+
+	if (prob(hitchance))
 		hit_zone = def_zone
 	else
 		for(var/part in redirection_parts)
-			if (prob(body_part_size[part]) && !hit_zone)
+			hitchance = target_mob.body_part_size[def_zone]
+			if (prob(hitchance) && !hit_zone)
 				hit_zone = part
 
 	if (hit_zone)
@@ -439,12 +415,15 @@
 	//hit messages
 	if (blockedhit == FALSE)
 		if (silenced)
-			target_mob << "<span class='danger'>You've been hit in the [parse_zone(hit_zone)] by \the [src]!</span>"
+			if(hit_zone)
+				target_mob << "<span class='danger'>You've been hit in the [parse_zone(hit_zone)] by \the [src]!</span>"
 		else
-			visible_message("<span class='danger'>\The [target_mob] is hit in the [parse_zone(hit_zone)]!</span>")//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
+			if(hit_zone)
+				visible_message("<span class='danger'>\The [target_mob] is hit in the [parse_zone(hit_zone)]!</span>")//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
 		if (istype(target_mob, /mob/living/simple_animal/hostile/human/zombie))
 			var/mob/living/simple_animal/hostile/human/zombie/Z = target_mob
-			Z.limb_hit(hit_zone)
+			if(hit_zone)
+				Z.limb_hit(hit_zone)
 	if (istype(target_mob, /mob/living/simple_animal/hostile/human) && target_mob.stat != DEAD && prob(33))
 		var/list/screamlist = list('sound/voice/screams/scream1.ogg','sound/voice/screams/scream2.ogg','sound/voice/screams/scream3.ogg','sound/voice/screams/scream4.ogg','sound/voice/screams/scream5.ogg','sound/voice/screams/scream6.ogg',)
 		playsound(loc, pick(screamlist), 100, extrarange = 50)
@@ -465,7 +444,7 @@
 				msg_admin_attack("UNKNOWN shot [target_mob] ([target_mob.ckey]) with \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target_mob.x];Y=[target_mob.y];Z=[target_mob.z]'>JMP</a>)", "", target_mob.ckey)
 	//sometimes bullet_act() will want the projectile to continue flying
 
-	if (hit_zone == "none")
+	if (!hit_zone)
 		return FALSE
 	playsound(get_turf(target_mob), "miss_sound", 100, TRUE)
 	return TRUE
@@ -624,13 +603,12 @@
 
 						if (L.lying || L.prone)
 							if (firer_dist > 3)
-								hit_chace = 40
+								hit_chace = 100 / firer_dist * 2.5
 
 						// проверка на получение защиты от окопа
 						if (is_trench)
 							if (passed_trenches * 2 <= firer_dist)
-								def_zone = "head" // для цели прикрыт окопом зона воздействия автоматически назначается головой
-								hit_chace = 60
+								hit_chace =  100 / firer_dist * 2
 								if (L.lying || L.prone)
 									hit_chace = 0
 
@@ -638,8 +616,7 @@
 							hit_chace = 100
 
 						if (prob(hit_chace))
-							L.pre_bullet_act(src)
-							passthrough = !attack_mob(L)
+							passthrough = !attack_mob(L, firer_dist)
 						else
 							visible_message("<span class = 'warning'>[src] пролетает над [AM]!</span>")
 							def_zone = tmp_zone
