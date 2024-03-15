@@ -122,6 +122,7 @@ proc/admin_notice(var/message, var/rights)
 				<A href='?src=\ref[src];simplemake=wolfman;mob=\ref[M]'>Werewolf</A> |
 				<A href='?src=\ref[src];simplemake=ant;mob=\ref[M]'>Ant</A> |
 				<A href='?src=\ref[src];simplemake=orc;mob=\ref[M]'>Orc</A> |
+				<A href='?src=\ref[src];simplemake=droid;mob=\ref[M]'>Droid</A> |
 				<br>"}
 	body += {"<br><br>
 			<b>Other actions:</b>
@@ -455,8 +456,8 @@ proc/admin_notice(var/message, var/rights)
 	set category = "Сервер"
 	set name = "Toggle Entering"
 	set desc = "People can't enter"
-	config.enter_allowed = !(config.enter_allowed)
-	if (!(config.enter_allowed))
+	GLOB.enter_allowed = !(GLOB.enter_allowed)
+	if (!(GLOB.enter_allowed))
 		world << "<b>New players may no longer enter the game.</b>"
 	else
 		world << "<b>New players may now enter the game.</b>"
@@ -469,13 +470,13 @@ proc/admin_notice(var/message, var/rights)
 	set category = "Сервер"
 	set name = "Toggle Respawn"
 	set desc = "Respawn basically"
-	config.abandon_allowed = !(config.abandon_allowed)
-	if (config.abandon_allowed)
+	GLOB.abandon_allowed = !(GLOB.abandon_allowed)
+	if (GLOB.abandon_allowed)
 		world << "<b>You may now respawn.</b>"
 	else
 		world << "<b>You may no longer respawn :(</b>"
-	message_admins("<span class = 'notice'>[key_name_admin(usr)] toggled respawn to [config.abandon_allowed ? "On" : "Off"].</span>", key_name_admin(usr))
-	log_admin("[key_name(usr)] toggled respawn to [config.abandon_allowed ? "On" : "Off"].")
+	message_admins("<span class = 'notice'>[key_name_admin(usr)] toggled respawn to [GLOB.abandon_allowed ? "On" : "Off"].</span>", key_name_admin(usr))
+	log_admin("[key_name(usr)] toggled respawn to [GLOB.abandon_allowed ? "On" : "Off"].")
 	world.update_status()
 
 /datum/admins/proc/delay()

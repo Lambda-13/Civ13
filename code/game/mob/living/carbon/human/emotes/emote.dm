@@ -373,6 +373,8 @@ var/list/vocal_emotes = list(
 							playsound(get_turf(src), "charge_LIZARD", 100)
 						else if (gorillaman == 1)
 							playsound(get_turf(src), "charge_GORILLA", 100)
+						else if (droid == 1)
+							playsound(get_turf(src), "change_DROID", 100)
 						else //If you are not a special race, check normal factions.
 							//You should never have more then two factions.
 							switch(faction_text)
@@ -441,7 +443,10 @@ var/list/vocal_emotes = list(
 									else
 										playsound(get_turf(src), "charge_RUSSIAN", 100)
 								if (GERMAN)
-									playsound(get_turf(src), "charge_GERMAN", 100)
+									if (original_job.is_roa)
+										playsound(get_turf(src), "charge_ROA", 100)
+									else
+										playsound(get_turf(src), "charge_GERMAN", 100)
 								if (AMERICAN)
 									if (map.ID == MAP_ARAB_TOWN)
 										playsound(get_turf(src), "charge_ISRAELI", 100)

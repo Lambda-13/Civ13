@@ -1,6 +1,6 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:32
 
-//NOTE: Breathing happens once per FOUR TICKS, unless the last breath fails. In which case it happens once per ONE TICK! So oxyloss healing is done once per 4 ticks while oxyloss damage is applied once per tick!
+//NOTE: Breathing happens once per FOUR TICKS, unless the last breath fails. In which case it happens once per ONE TICKS! So oxyloss healing is done once per 4 ticks while oxyloss damage is applied once per tick!
 #define HUMAN_MAX_OXYLOSS TRUE //Defines how much oxyloss humans can get per tick. A tile with no air at all (such as space) applies this value, otherwise it's a percentage of it.
 #define HUMAN_CRIT_MAX_OXYLOSS ( 2.0 / 6) //The amount of damage you'll get when in critical condition. We want this to be a 5 minute deal = 300s. There are 50HP to get through, so (1/6)*last_tick_duration per second. Breaths however only happen every 4 ticks. last_tick_duration = ~2.0 on average
 
@@ -66,7 +66,9 @@
 		handle_animalistic("Wolf")
 	else if (crab)
 		handle_animalistic("Crab")
-	else if (!gorillaman && !werewolf && !orc && !goblin && !ant && !lizard && !wolfman && !crab && body_build.name != "Default")
+	else if (droid)
+		handle_animalistic("Droid")
+	else if (!gorillaman && !werewolf && !orc && !goblin && !ant && !lizard && !wolfman && !crab && !droid && body_build.name != "Default")
 		handle_animalistic("Default")
 //	if (prone)
 //		lying = 1
@@ -113,6 +115,8 @@
 		mood = 100
 	else if (mood < 0)
 		mood = 0
+	else if (droid || mood < 80)
+		mood = 100
 	if(istype(buckled, /obj/structure/cross))
 		if (stats["stamina"][1] > 0)
 			stats["stamina"][1]-=3
@@ -174,6 +178,9 @@
 			water_m *= 2.5
 		if (gorillaman)
 			water_m *= 0.2
+		if (droid)
+			food_m = 0
+			water_m = 0
 		if (istype(buckled, /obj/structure/cross))
 			food_m *= 1.5
 			water_m *= 5
@@ -546,6 +553,12 @@
 
 
 	if (disease == TRUE)
+		if (droid)
+			disease = FALSE
+			disease_type = "none"
+			disease_progression = 0
+			disease_treatment = 0
+
 		if (disease_type in disease_immunity)
 			disease = FALSE
 			disease_type = "none"
@@ -629,7 +642,8 @@
 
 		if (!client)
 			species.handle_npc(src)
-	process_roofs()
+	process_turret_roofs()
+	process_vehicle_roofs()
 	process_static_roofs()
 
 	if (!handle_some_updates())

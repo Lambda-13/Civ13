@@ -690,3 +690,334 @@
 	H.setStat("machinegun", STAT_MEDIUM_LOW)
 
 	return TRUE
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////CUBANIANS/////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/datum/job/spanish/cuban/militia
+	title = "Partidista del ERC"
+	en_meaning = "Partisan"
+	rank_abbreviation = ""
+
+	spawn_location = "JoinLateCBPartisan"
+	uses_squads = TRUE
+	is_pigsbay = TRUE
+	is_coldwar = FALSE
+
+	min_positions = 10
+	max_positions = 75
+
+/datum/job/spanish/cuban/militia/equip(var/mob/living/human/H)
+	if (!H)	return FALSE
+//shoes
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
+//clothes
+	var/randunder2 = rand(1,3)
+	switch(randunder2)
+		if(1)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/localnlf5(H), slot_w_uniform)
+		if(2)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/portuguese_sailor1(H), slot_w_uniform)
+		if(3)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/spanish_sailor3(H), slot_w_uniform)
+//head
+	var/randhead2 = rand(1,3)
+	switch(randhead2)
+		if(1)
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/ph_us_war/american/infantry_hat/civie(H), slot_head)
+		if(2)
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/flatcap1(H), slot_head)
+		if(3)
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/beret_red(H), slot_head)
+//weapons
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	var/randweapon2 = rand(1,4)
+	switch(randweapon2)
+		if(1)
+			H.equip_to_slot_or_del(new /obj/item/ammo_magazine/c8x50(H), slot_l_store)
+			H.equip_to_slot_or_del(new /obj/item/ammo_magazine/c8x50_5clip(H), slot_r_store)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/boltaction/berthier(H), slot_shoulder)
+			var/obj/item/clothing/accessory/storage/webbing/light/webbing = new /obj/item/clothing/accessory/storage/webbing/light(null)
+			uniform.attackby(webbing, H)
+			webbing.attackby(new/obj/item/ammo_magazine/c8x50_5clip, H)
+			webbing.attackby(new/obj/item/ammo_magazine/c8x50_5clip, H)
+			webbing.attackby(new/obj/item/ammo_magazine/c8x50_5clip, H)
+			webbing.attackby(new/obj/item/ammo_magazine/c8x50_5clip, H)
+		if(2)
+			H.equip_to_slot_or_del(new /obj/item/ammo_magazine/makarov(H), slot_l_store)
+			H.equip_to_slot_or_del(new /obj/item/ammo_magazine/makarov(H), slot_r_store)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/makarov(H), slot_l_arm)
+			var/obj/item/clothing/accessory/holster/hip/holster = new /obj/item/clothing/accessory/holster/hip(null)
+			uniform.attackby(holster, H)
+		if(3)
+			H.equip_to_slot_or_del(new /obj/item/ammo_magazine/sten2(H), slot_l_store)
+			H.equip_to_slot_or_del(new /obj/item/ammo_magazine/sten2(H), slot_r_store)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/sten(H), slot_shoulder)
+			var/obj/item/clothing/accessory/storage/webbing/light/webbing = new /obj/item/clothing/accessory/storage/webbing/light(null)
+			uniform.attackby(webbing, H)
+			webbing.attackby(new/obj/item/ammo_magazine/sten2, H)
+			webbing.attackby(new/obj/item/ammo_magazine/sten2, H)
+			webbing.attackby(new/obj/item/ammo_magazine/sten2, H)
+			webbing.attackby(new/obj/item/ammo_magazine/sten2, H)
+		if(4)
+			H.equip_to_slot_or_del(new /obj/item/ammo_magazine/madsen(H), slot_l_store)
+			H.equip_to_slot_or_del(new /obj/item/ammo_magazine/c8x50_5clip(H), slot_r_store)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/madsen(H), slot_shoulder)
+			var/obj/item/clothing/accessory/storage/webbing/light/webbing = new /obj/item/clothing/accessory/storage/webbing/light(null)
+			uniform.attackby(webbing, H)
+			webbing.attackby(new/obj/item/ammo_magazine/madsen, H)
+			webbing.attackby(new/obj/item/ammo_magazine/madsen, H)
+			webbing.attackby(new/obj/item/ammo_magazine/madsen, H)
+			webbing.attackby(new/obj/item/ammo_magazine/madsen, H)
+
+//belt
+	var/randbelt2 = rand(1,3)
+	switch(randbelt2)
+		if(1)
+			H.equip_to_slot_or_del(new /obj/item/weapon/grenade/ww2/stg1924(H), slot_belt)
+		if(2)
+			H.equip_to_slot_or_del(new /obj/item/weapon/grenade/antitank/stg24_bundle(H), slot_belt)
+		if(3)
+			H.equip_to_slot_or_del(new /obj/item/weapon/grenade/ww2/mk2(H), slot_belt)
+
+//armband
+	var/obj/item/clothing/accessory/armband/red = new /obj/item/clothing/accessory/armband(null)
+	uniform.attackby(red, H)
+	give_random_name(H)
+	H.add_note("Role", "You are a <b>[title]</b>, a militia of the Cuban Revolutionary army. Follow your <b>Sergeant's</b> orders!")
+	H.setStat("strength", STAT_MEDIUM_HIGH)
+	H.setStat("crafting", STAT_MEDIUM_LOW)
+	H.setStat("rifle", STAT_NORMAL)
+	H.setStat("dexterity", STAT_NORMAL)
+	H.setStat("swords", STAT_NORMAL)
+	H.setStat("pistol", STAT_MEDIUM_HIGH)
+	H.setStat("bows", STAT_NORMAL)
+	H.setStat("medical", STAT_MEDIUM_LOW)
+	H.setStat("machinegun", STAT_MEDIUM_HIGH)
+
+	return TRUE
+
+
+/datum/job/spanish/cuban/rifle
+	title = "Infantería Mecanizada del ERC"
+	en_meaning = "Mechanised Infantry of CRA"
+	rank_abbreviation = "Pvt."
+
+	spawn_location = "JoinLateCB"
+	uses_squads = TRUE
+	is_pigsbay = TRUE
+	is_coldwar = FALSE
+
+	min_positions = 2
+	max_positions = 30
+
+/datum/job/spanish/cuban/rifle/equip(var/mob/living/human/H)
+	if (!H)	return FALSE
+//shoes
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/blackboots(H), slot_shoes)
+//clothes
+	var/randunder2 = rand(1,4)
+	switch(randunder2)
+		if(1)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/spanish_sailor1(H), slot_w_uniform)
+		if(2)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/spanish_sailor2(H), slot_w_uniform)
+		if(3)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/nva/green(H), slot_w_uniform)
+		if(4)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni_korean(H), slot_w_uniform)
+
+//head
+	var/randhead3 = rand(1,3)
+	switch(randhead3)
+		if(1)
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/ww2/usm1(H), slot_head)
+		if(2)
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/ww2/soviet_fieldcap(H), slot_head)
+		if(3)
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/ww2/ustannet(H), slot_head)
+//weapons
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	var/randweapon = rand(1,6)
+	switch(randweapon)
+		if(1)
+			H.equip_to_slot_or_del(new /obj/item/weapon/grenade/ww2/mk2(H), slot_l_store)
+			H.equip_to_slot_or_del(new /obj/item/weapon/attachment/bayonet(H), slot_r_store)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/semiautomatic/m1garand(H), slot_shoulder)
+			var/obj/item/clothing/accessory/storage/webbing/light/webbing = new /obj/item/clothing/accessory/storage/webbing/light(null)
+			uniform.attackby(webbing, H)
+			webbing.attackby(new/obj/item/ammo_magazine/garand, H)
+			webbing.attackby(new/obj/item/ammo_magazine/garand, H)
+			webbing.attackby(new/obj/item/ammo_magazine/garand, H)
+			webbing.attackby(new/obj/item/ammo_magazine/garand, H)
+			webbing.attackby(new/obj/item/ammo_magazine/garand, H)
+			webbing.attackby(new/obj/item/ammo_magazine/garand, H)
+		if(2)
+			H.equip_to_slot_or_del(new /obj/item/ammo_magazine/thompson(H), slot_l_store)
+			H.equip_to_slot_or_del(new /obj/item/ammo_magazine/thompson(H), slot_r_store)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/thompson(H), slot_shoulder)
+			var/obj/item/clothing/accessory/storage/webbing/light/webbing = new /obj/item/clothing/accessory/storage/webbing/light(null)
+			uniform.attackby(webbing, H)
+			webbing.attackby(new/obj/item/ammo_magazine/thompson, H)
+			webbing.attackby(new/obj/item/ammo_magazine/thompson, H)
+			webbing.attackby(new/obj/item/ammo_magazine/thompson, H)
+			webbing.attackby(new/obj/item/ammo_magazine/thompson, H)
+		if(3)
+			H.equip_to_slot_or_del(new /obj/item/weapon/grenade/ww2/mk2(H), slot_l_store)
+			H.equip_to_slot_or_del(new /obj/item/weapon/attachment/bayonet(H), slot_r_store)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/semiautomatic/sks(H), slot_shoulder)
+			var/obj/item/clothing/accessory/storage/webbing/light/webbing = new /obj/item/clothing/accessory/storage/webbing/light(null)
+			uniform.attackby(webbing, H)
+			webbing.attackby(new/obj/item/ammo_magazine/sks, H)
+			webbing.attackby(new/obj/item/ammo_magazine/sks, H)
+			webbing.attackby(new/obj/item/ammo_magazine/sks, H)
+			webbing.attackby(new/obj/item/ammo_magazine/sks, H)
+			webbing.attackby(new/obj/item/ammo_magazine/sks, H)
+			webbing.attackby(new/obj/item/ammo_magazine/sks, H)
+		if(4)
+			H.equip_to_slot_or_del(new /obj/item/weapon/grenade/smokebomb/rdg1(H), slot_l_store)
+			H.equip_to_slot_or_del(new /obj/item/ammo_magazine/dp(H), slot_r_store)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/dp28(H), slot_shoulder)
+			var/obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/dpgun/webbing = new /obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/dpgun(null)
+			uniform.attackby(webbing, H)
+			H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/largepouches/sovietmg(H), slot_belt)
+		if(5)
+			H.equip_to_slot_or_del(new /obj/item/weapon/grenade/ww2/mk2(H), slot_l_store)
+			H.equip_to_slot_or_del(new /obj/item/weapon/attachment/bayonet(H), slot_r_store)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/semiautomatic/svt(H), slot_shoulder)
+			var/obj/item/clothing/accessory/storage/webbing/light/webbing = new /obj/item/clothing/accessory/storage/webbing/light(null)
+			uniform.attackby(webbing, H)
+			webbing.attackby(new/obj/item/ammo_magazine/svt, H)
+			webbing.attackby(new/obj/item/ammo_magazine/svt, H)
+			webbing.attackby(new/obj/item/ammo_magazine/svt, H)
+			webbing.attackby(new/obj/item/ammo_magazine/svt, H)
+			webbing.attackby(new/obj/item/ammo_magazine/svt, H)
+			webbing.attackby(new/obj/item/ammo_magazine/svt, H)
+		if(6)
+			H.equip_to_slot_or_del(new /obj/item/weapon/grenade/smokebomb/rdg1(H), slot_l_store)
+			H.equip_to_slot_or_del(new /obj/item/ammo_magazine/bar(H), slot_r_store)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/bar(H), slot_shoulder)
+			var/obj/item/clothing/accessory/storage/webbing/light/webbing = new /obj/item/clothing/accessory/storage/webbing/light(null)
+			uniform.attackby(webbing, H)
+			webbing.attackby(new/obj/item/ammo_magazine/bar, H)
+			webbing.attackby(new/obj/item/ammo_magazine/bar, H)
+			webbing.attackby(new/obj/item/ammo_magazine/bar, H)
+			webbing.attackby(new/obj/item/ammo_magazine/bar, H)
+			webbing.attackby(new/obj/item/ammo_magazine/bar, H)
+//belt
+	H.equip_to_slot_or_del(new /obj/item/weapon/grenade/modern/stg1915(H), slot_belt)
+//armband
+	var/obj/item/clothing/accessory/armband/spanish/white = new /obj/item/clothing/accessory/armband/spanish(null)
+	uniform.attackby(white, H)
+	give_random_name(H)
+	H.add_note("Role", "You are a <b>[title]</b>, a soldier of the Nationalist army. Follow your <b>Sergeant's</b> orders!")
+	H.setStat("strength", STAT_MEDIUM_HIGH)
+	H.setStat("crafting", STAT_MEDIUM_LOW)
+	H.setStat("rifle", STAT_NORMAL)
+	H.setStat("dexterity", STAT_NORMAL)
+	H.setStat("swords", STAT_NORMAL)
+	H.setStat("pistol", STAT_NORMAL)
+	H.setStat("bows", STAT_NORMAL)
+	H.setStat("medical", STAT_MEDIUM_LOW)
+	H.setStat("machinegun", STAT_NORMAL)
+
+	return TRUE
+
+
+/datum/job/spanish/cuban/soldier/sgt
+	title = "Sargento de Primera"
+	en_meaning = "First Sergeant"
+	rank_abbreviation = "Sgt."
+
+	spawn_location = "JoinLateCBLead"
+	is_officer = TRUE
+	is_commander = TRUE
+	uses_squads = TRUE
+	is_pigsbay = TRUE
+	is_coldwar = FALSE
+
+	min_positions = 1
+	max_positions = 8
+
+/datum/job/spanish/cuban/soldier/sgt/equip(var/mob/living/human/H)
+	if (!H)	return FALSE
+//shoes
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
+//clothes
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/nva/sl/green(H), slot_w_uniform)
+//head
+	H.equip_to_slot_or_del(new /obj/item/clothing/head/ww2/soviet_fieldcap(H), slot_head)
+//weapons
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver/m1892(H), slot_l_hand)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/ak47/chinese(H), slot_shoulder)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/c8x27(H), slot_l_store)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/ak47(H), slot_r_store)
+	H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/buttpack(H), slot_back)
+	H.equip_to_slot_or_del(new /obj/item/weapon/attachment/scope/adjustable/binoculars(H), slot_wear_id)
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	var/obj/item/clothing/accessory/holster/hip/holsterh = new /obj/item/clothing/accessory/holster/hip(null)
+	uniform.attackby(holsterh, H)
+	var/obj/item/clothing/accessory/armband/spanish/white = new /obj/item/clothing/accessory/armband/spanish(null)
+	uniform.attackby(white, H)
+	give_random_name(H)
+	world << "<b><big>[H.real_name] is sergeant of the Cuban Revolutionary Army!</big></b>"
+	H.add_note("Role", "You are a <b>[title]</b>, the highest ranking officer present. Your job is to command your people.")
+	H.setStat("strength", STAT_MEDIUM_HIGH)
+	H.setStat("crafting", STAT_NORMAL)
+	H.setStat("rifle", STAT_MEDIUM_HIGH)
+	H.setStat("dexterity", STAT_NORMAL)
+	H.setStat("swords", STAT_HIGH)
+	H.setStat("pistol", STAT_MEDIUM_HIGH)
+	H.setStat("bows", STAT_NORMAL)
+	H.setStat("medical", STAT_MEDIUM_LOW)
+	H.setStat("machinegun", STAT_NORMAL)
+
+	return TRUE
+
+/datum/job/spanish/cuban/tankist
+	title = "Tripulación del tanque"
+	en_meaning = "Tank Crew"
+	rank_abbreviation = "Tnk."
+
+	spawn_location = "JoinLateCBTankcrew"
+	is_ww2 = FALSE
+	uses_squads = FALSE
+	is_spainciv = TRUE
+
+	min_positions = 2
+	max_positions = 12
+
+/datum/job/spanish/cuban/tankist/equip(var/mob/living/human/H)
+	if (!H)	return FALSE
+//shoes
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/heavyboots/wrappedboots(H), slot_shoes)
+//clothes
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/localnlf3(H), slot_w_uniform)
+//head
+	if (prob(80))
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/ww2/german_tanker(H), slot_head)
+	else
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/ww2/soviet_tanker(H), slot_head)
+//weapons
+	H.equip_to_slot_or_del(new /obj/item/weapon/key/soviet(H), slot_r_store)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/greasegun(H), slot_shoulder)
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	var/obj/item/clothing/accessory/storage/webbing/ww1/leather/webbing = new /obj/item/clothing/accessory/storage/webbing/ww1/leather(null)
+	uniform.attackby(webbing, H)
+	webbing.attackby(new/obj/item/ammo_magazine/greasegun, H)
+	webbing.attackby(new/obj/item/ammo_magazine/greasegun, H)
+	webbing.attackby(new/obj/item/ammo_magazine/greasegun, H)
+	give_random_name(H)
+	H.add_note("Role", "You are a <b>[title]</b>, a tanker of the Cuban Revolutionary Army. Follow your <b>Sergeant's</b> orders!")
+	H.setStat("strength", STAT_MEDIUM_HIGH)
+	H.setStat("crafting", STAT_MEDIUM_LOW)
+	H.setStat("rifle", STAT_MEDIUM_LOW)
+	H.setStat("dexterity", STAT_NORMAL)
+	H.setStat("swords", STAT_NORMAL)
+	H.setStat("pistol", STAT_NORMAL)
+	H.setStat("bows", STAT_NORMAL)
+	H.setStat("medical", STAT_MEDIUM_LOW)
+	H.setStat("machinegun", STAT_MEDIUM_LOW)
+
+	return TRUE

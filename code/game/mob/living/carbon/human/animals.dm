@@ -201,3 +201,23 @@
 					species.unarmed_attacks += new /datum/unarmed_attack/stomp()
 					species.unarmed_attacks += new /datum/unarmed_attack/claws()
 					species.unarmed_attacks += new /datum/unarmed_attack/bite/sharp()
+	else if (type == "Droid")
+		if (body_build.name == "Default")
+			src << "<font size=3 color='red'>You turn into a Combat Droid!</font>"
+			icon = 'lambda/sanecman/icons/mob/battle_human.dmi'
+			body_build = get_body_build(gender,"Droid")
+			prev_tone = s_tone
+			s_tone = null
+			update_hair()
+			change_facial_hair()
+			force_update_limbs()
+			update_body(1,1)
+			icon = 'lambda/sanecman/icons/mob/battle_human.dmi'
+			regenerate_icons()
+			damage_multiplier = 2
+			movement_speed_multiplier = 1.0
+			species.unarmed_attacks = list()
+			species.unarmed_attacks += new /datum/unarmed_attack/stomp()
+			species.unarmed_attacks += new /datum/unarmed_attack/kick()
+			species.unarmed_attacks += new /datum/unarmed_attack/punch()
+			species.unarmed_attacks += new /datum/unarmed_attack/bite()

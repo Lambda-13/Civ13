@@ -583,6 +583,10 @@ obj/structure/closet/crate/ww2/stg1924
 	name = "stg 1924 grenade crate"
 	paths = list(/obj/item/weapon/grenade/ww2/stg1924 = 10)
 
+obj/structure/closet/crate/ww2/stg1924
+	name = "Anti-tank stg 1924 grenade crate"
+	paths = list(/obj/item/weapon/grenade/antitank/stg24_bundle = 10)
+
 obj/structure/closet/crate/ww2/ammo_mg34
 	name = "MG34 belts crate"
 	icon_state = "wood_crate"

@@ -24,7 +24,6 @@ var/datum/configuration/config	  = null
 var/Debug2 = FALSE
 var/datum/debug/debugobj
 
-
 var/join_motd = null
 
 var/datum/nanomanager/nanomanager		= new() // NanoManager, the manager for Nano UIs.

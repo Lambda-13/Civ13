@@ -377,87 +377,89 @@
 		..()
 
 /obj/structure/vehicleparts/frame/proc/is_ambrasure(var/w_name)
-	var/list/wall = get_wall(w_name)
-	if(wall.len >= 8 && wall[8])
-		return TRUE
+	if (w_name == "front" && w_front.len >= 8)
+		return w_front[8]
+	else if (w_name == "back" && w_back.len >= 8)
+		return w_back[8]
+	else if (w_name == "left" && w_left.len >= 8)
+		return w_left[8]
+	else if (w_name == "right" && w_right.len >= 8)
+		return w_right[8]
+
+	if (w_name == "frontleft")
+		if(w_front.len >= 8 && w_front[8])
+			return TRUE
+		if(w_left.len >= 8 && w_left[8])
+			return TRUE
+	else if (w_name == "backleft")
+		if(w_back.len >= 8 && w_back[8])
+			return TRUE
+		if(w_left.len >= 8 && w_left[8])
+			return TRUE
+	else if (w_name == "frontright")
+		if(w_front.len >= 8 && w_front[8])
+			return TRUE
+		if(w_right.len >= 8 && w_right[8])
+			return TRUE
+	else if (w_name == "backright")
+		if(w_back.len >= 8 && w_back[8])
+			return TRUE
+		if(w_right.len >= 8 && w_right[8])
+			return TRUE
 	return FALSE
 
-/obj/structure/vehicleparts/frame/proc/get_wall(var/w_name)
-	if (w_name == "front")
-		return w_front
-	else if (w_name == "back")
-		return w_back
-	else if (w_name == "left")
-		return w_left
-	else if (w_name == "right")
-		return w_right
-	else if (w_name == "frontleft")
-		if(prob(50))
-			return w_front
-		else
-			return w_left
-	else if (w_name == "backleft")
-		if(prob(50))
-			return w_back
-		else
-			return w_left
-	else if (w_name == "frontright")
-		if(prob(50))
-			return w_front
-		else
-			return w_right
-	else if (w_name == "backright")
-		if(prob(50))
-			return w_back
-		else
-			return w_right
-	else
-		return null
-
 /obj/structure/vehicleparts/frame/proc/get_opposite_wall(var/w_name)
-	if (w_name == "front")
-		return "back"
-	else if (w_name == "back")
-		return "front"
-	else if (w_name == "left")
-		return "right"
-	else if (w_name == "right")
-		return "left"
-	else if (w_name == "frontleft")
-		return "backright"
-	else if (w_name == "backleft")
-		return "frontright"
-	else if (w_name == "frontright")
-		return "backleft"
-	else if (w_name == "backright")
-		return "frontleft"
-	return null
+	var/opposite_list = list (
+		"front" = "back",
+		"back" = "front",
+		"left" = "right",
+		"right" = "left",
+		"frontleft" = "backright",
+		"backleft" = "frontright",
+		"frontright" = "backleft",
+		"backright" = "frontleft"
+	)
+	return opposite_list[w_name]
 
 /obj/structure/vehicleparts/frame/proc/get_wall_name(var/w_dir)
-	var/back = NORTH
-	var/front = SOUTH
-	var/left = EAST
-	switch (dir)
-		if (SOUTH)
-			back = SOUTH
-			front = NORTH
-			left = WEST
-		if (WEST)
-			back = WEST
-			front = EAST
-			left = NORTH
-		if (EAST)
-			back = EAST
-			front = WEST
-			left = SOUTH
-	if (w_dir == back)
-		return "back"
-	else if (w_dir == front)
-		return "front"
-	else if (w_dir == left)
-		return "left"
-	else
-		return "right"
+	var/w_dirs = list(NORTH, NORTHEAST, EAST, SOUTHEAST, SOUTH, SOUTHWEST, WEST, NORTHWEST)
+	var/w_names = list("back", "backleft", "left", "frontleft", "front", "frontright", "right", "backright")
+	while (dir != w_dirs[1])
+		var/i = 8
+		var/buf = w_dirs[i];
+		for (, i > 1, i--)
+			w_dirs[i] = w_dirs[i - 1]
+		w_dirs[1] = buf
+	var/i
+	for (i = 1, i <= 8, i++)
+		if (w_dir == w_dirs[i])
+			return w_names[i]
+
+/obj/structure/vehicleparts/frame/proc/wall_hp(var/w_name)
+	var/walls_hp_list = list (
+		"front" = w_front[5],
+		"back" = w_back[5],
+		"left" = w_left[5],
+		"right" = w_right[5],
+		"frontleft" = w_front[5] + w_left[5],
+		"backleft" = w_back[5] + w_left[5],
+		"frontright" = w_front[5] + w_right[5],
+		"backright" = w_back[5] + w_right[5]
+	)
+	return walls_hp_list[w_name]
+
+/obj/structure/vehicleparts/frame/proc/wall_armor(var/w_name)
+	var/walls_armor_list = list (
+		"front" = w_front[4],
+		"back" = w_back[4],
+		"left" = w_left[4],
+		"right" = w_right[4],
+		"frontleft" = w_front[4] + w_left[4],
+		"backleft" = w_back[4] + w_left[4],
+		"frontright" = w_front[4] + w_right[4],
+		"backright" = w_back[4] + w_right[4]
+	)
+	return walls_armor_list[w_name]
 
 /obj/structure/vehicleparts/frame/proc/CheckPenLoc(var/obj/item/proj)
 	var/turf/startingturf = null
@@ -488,30 +490,24 @@
 	if (!penloc)
 		return FALSE
 	proj.throw_source = proj.starting
-	var/list/wall
 	var/firing_dist = get_dist(src.loc,proj.starting)
-	wall = get_wall(penloc)
-	if (wall[5] <= 0)
+	var/heavy_ap = proj.heavy_armor_penetration
+	if (wall_hp(penloc) <= 0)
+		if (istype(proj, /obj/item/projectile/shell))
+			var/obj/item/projectile/shell/S = proj
+			S.initiated = TRUE
 		return TRUE
-	if (max(0,proj.heavy_armor_penetration-firing_dist) >= wall[4])
+	if (max(0,heavy_ap - firing_dist) >= wall_armor(penloc))
 		return TRUE
 
 	if (istype(proj, /obj/item/projectile/shell))
 		playsound(loc, pick('sound/machines/tank/tank_ricochet1.ogg','sound/machines/tank/tank_ricochet2.ogg','sound/machines/tank/tank_ricochet3.ogg'),100, TRUE)
-		//playsound(loc, "ric_voice", 100, TRUE)
 	else
 		playsound(loc, "ric_sound", 50, TRUE)
 	return FALSE
 
 /obj/structure/vehicleparts/frame/bullet_act(var/obj/item/projectile/proj, var/penloc = "front")
-	var/turf/tloc = null
-	if (proj.firer)
-		tloc = proj.firer.loc
-	else if (proj.firer_loc)
-		tloc = proj.firer_loc
-	else
-		tloc = get_turf(src)
-	for (var/obj/structure/vehicleparts/frame/F in tloc)
+	for (var/obj/structure/vehicleparts/frame/F in loc)
 		if (F.axis == axis)
 			return
 	if (mwheel && prob(30))
@@ -537,21 +533,18 @@
 							if (!mwheel.broken && prob(80))
 								mwheel.broken = TRUE
 								visible_message("<span class='danger'>\The [mwheel.name] breaks down!</span>")
-								//playsound(loc, "track_voice", 100, TRUE)
 								new/obj/effect/effect/smoke/small(loc)
 								update_icon()
 						if ("APCR")
 							if (!mwheel.broken && prob(60))
 								mwheel.broken = TRUE
 								visible_message("<span class='danger'>\The [mwheel.name] breaks down!</span>")
-								//playsound(loc, "track_voice", 100, TRUE)
 								new/obj/effect/effect/smoke/small(loc)
 								update_icon()
 						if ("AP")
 							if (!mwheel.broken && prob(70))
 								mwheel.broken = TRUE
 								visible_message("<span class='danger'>\The [mwheel.name] breaks down!</span>")
-								//playsound(loc, "track_voice", 100, TRUE)
 								new/obj/effect/effect/smoke/small(loc)
 								update_icon()
 			else

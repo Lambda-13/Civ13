@@ -2,11 +2,10 @@
 /obj/map_metadata/african_warlords
 	ID = MAP_AFRICAN_WARLORDS
 	title = "African Warlords"
-	lobby_icon = "icons/lobby/africanwarlords.png"
+	lobby_icon = 'icons/lobby/africanwarlords.png'
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/jungle,/area/caribbean/no_mans_land/invisible_wall/jungle/one,/area/caribbean/no_mans_land/invisible_wall/jungle/two,/area/caribbean/no_mans_land/invisible_wall/jungle/three)
 	respawn_delay = 300
 	no_winner ="No warband has won yet."
-	lobby_icon = "africanwarlords.png"
 	faction_organization = list(INDIANS)
 
 	faction_organization = list(INDIANS, CIVILIAN)
@@ -25,7 +24,7 @@
 	faction2 = CIVILIAN
 	valid_weather_types = list(WEATHER_WET, WEATHER_NONE, WEATHER_EXTREME)
 	songs = list(
-		"Barrington Levy - Murderer:1" = "sound/music/murderer.ogg",)
+		"Barrington Levy - Murderer:1" = 'sound/music/murderer.ogg',)
 	scores = list(
 		"Blugisi" = 0,
 		"Yellowagwana" = 0,
@@ -209,8 +208,8 @@
 					new/obj/item/ammo_magazine/ak74(user.loc)
 				if (2)
 					new/obj/item/weapon/gun/projectile/submachinegun/ak47/gold(user.loc)
-					new/obj/item/ammo_magazine/ak47/drum(user.loc)
-					new/obj/item/ammo_magazine/ak47/drum(user.loc)
+					new/obj/item/ammo_magazine/rpk47/drum(user.loc)
+					new/obj/item/ammo_magazine/rpk47/drum(user.loc)
 				if (3)
 					new/obj/item/weapon/gun/projectile/submachinegun/saiga12(user.loc)
 					new/obj/item/ammo_magazine/saiga12/slug(user.loc)

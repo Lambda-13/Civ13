@@ -41,7 +41,7 @@
 
 /process/scheduler/proc/schedule(var/datum/scheduled_task/st)
 	scheduled_tasks += st
-	destroyed_event.register(st, src, /process/scheduler/proc/unschedule)
+	destroyed_event.register(st, src, TYPE_PROC_REF(/process/scheduler, unschedule))
 
 /process/scheduler/proc/unschedule(var/datum/scheduled_task/st)
 	if (st in scheduled_tasks)
@@ -58,22 +58,22 @@
 	return schedule_task_with_source(world.time + in_time, source, procedure, arguments)
 
 /proc/schedule_task(var/trigger_time, var/procedure, var/list/arguments)
-	var/datum/scheduled_task/st = new/datum/scheduled_task(trigger_time, procedure, arguments, /proc/destroy_scheduled_task, list())
+	var/datum/scheduled_task/st = new/datum/scheduled_task(trigger_time, procedure, arguments, GLOBAL_PROC_REF(destroy_scheduled_task), list())
 	processes.scheduler.schedule(st)
 	return st
 
 /proc/schedule_task_with_source(var/trigger_time, var/source, var/procedure, var/list/arguments)
-	var/datum/scheduled_task/st = new/datum/scheduled_task/source(trigger_time, source, procedure, arguments, /proc/destroy_scheduled_task, list())
+	var/datum/scheduled_task/st = new/datum/scheduled_task/source(trigger_time, source, procedure, arguments, GLOBAL_PROC_REF(destroy_scheduled_task), list())
 	processes.scheduler.schedule(st)
 	return st
 
 /proc/schedule_repeating_task(var/trigger_time, var/repeat_interval, var/procedure, var/list/arguments)
-	var/datum/scheduled_task/st = new/datum/scheduled_task(trigger_time, procedure, arguments, /proc/repeat_scheduled_task, list(repeat_interval))
+	var/datum/scheduled_task/st = new/datum/scheduled_task(trigger_time, procedure, arguments, GLOBAL_PROC_REF(repeat_scheduled_task), list(repeat_interval))
 	processes.scheduler.schedule(st)
 	return st
 
 /proc/schedule_repeating_task_with_source(var/trigger_time, var/repeat_interval, var/source, var/procedure, var/list/arguments)
-	var/datum/scheduled_task/st = new/datum/scheduled_task/source(trigger_time, source, procedure, arguments, /proc/repeat_scheduled_task, list(repeat_interval))
+	var/datum/scheduled_task/st = new/datum/scheduled_task/source(trigger_time, source, procedure, arguments, GLOBAL_PROC_REF(repeat_scheduled_task), list(repeat_interval))
 	processes.scheduler.schedule(st)
 	return st
 

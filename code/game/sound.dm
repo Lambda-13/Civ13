@@ -218,6 +218,11 @@ var/list/charge_sounds_ge = list(
 	'sound/effects/emotes/charge_ger4.ogg',
 	'sound/effects/emotes/charge_ger5.ogg',
 	)
+var/list/charge_sounds_roa = list(
+	'sound/effects/emotes/charge_roa1.ogg',
+	'sound/effects/emotes/charge_roa2.ogg',
+	'sound/effects/emotes/charge_roa3.ogg',
+	)
 var/list/charge_sounds_crusader = list(
 	'sound/effects/emotes/charge_crusader.ogg',)
 var/list/charge_sounds_vi = list(
@@ -286,7 +291,10 @@ var/list/charge_sounds_rurobbers = list(
 	'sound/effects/emotes/robber1.ogg',
 	'sound/effects/emotes/robber2.ogg',
 	'sound/effects/emotes/robber3.ogg',
-	'sound/effects/emotes/robber4.ogg',)
+	'sound/effects/emotes/robber4.ogg',
+	'sound/effects/emotes/robber5.ogg', // Голоса диких из Таркова
+	'sound/effects/emotes/robber6.ogg',
+	'sound/effects/emotes/robber7.ogg',)
 var/list/charge_sounds_blugoslavia = list()
 
 var/list/charge_sounds_gra = list(
@@ -322,6 +330,11 @@ var/list/charge_sounds_ballas = list(
 	'sound/effects/emotes/ballas_vsgrov2.ogg',
 	'sound/effects/emotes/ballas_vsgrov3.ogg',
 	'sound/effects/emotes/ballas_vsgrov4.ogg',)
+
+var/list/charge_sounds_droid = list(
+	'lambda/sanecman/sound/droid/droid1.ogg',
+	'lambda/sanecman/sound/droid/droid2.ogg',
+	'lambda/sanecman/sound/droid/droid3.ogg',)
 // pain, etc sounds from Interbay
 
 /proc/playsound(var/atom/source, soundin, vol as num, vary, extrarange as num, falloff, var/is_global, var/list/excluded = list())
@@ -538,6 +551,8 @@ var/const/FALLOFF_SOUNDS = 0.5
 				soundin = pick(charge_sounds_ro)
 			if ("charge_GERMAN")
 				soundin = pick(charge_sounds_ge)
+			if ("charge_ROA")
+				soundin = pick(charge_sounds_roa)
 			if ("charge_ARAB")
 				soundin = pick(charge_sounds_ar)
 			if ("charge_CRUSADER")
@@ -580,4 +595,6 @@ var/const/FALLOFF_SOUNDS = 0.5
 				soundin = pick(charge_sounds_grove)
 			if ("charge_BALLAS")
 				soundin = pick(charge_sounds_ballas)
+			if ("change_DROID")
+				soundin = pick(charge_sounds_droid)
 	return soundin

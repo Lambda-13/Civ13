@@ -1,7 +1,7 @@
 /obj/map_metadata/tadojsville
 	ID = MAP_TADOJSVILLE
 	title = "Tadojsville Siege"
-	lobby_icon = "icons/lobby/tadojsville.png"
+	lobby_icon = 'icons/lobby/tadojsville.png'
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/jungle,/area/caribbean/no_mans_land/invisible_wall/jungle/one)
 	respawn_delay = 300
 	no_winner ="No warband has captured the clinic yet."
@@ -27,7 +27,7 @@
 	grace_wall_timer = 3600
 	valid_weather_types = list(WEATHER_WET, WEATHER_NONE, WEATHER_EXTREME)
 	songs = list(
-		"The Hygrades - Rough Rider:1" = "sound/music/roughrider.ogg",)
+		"The Hygrades - Rough Rider:1" = 'sound/music/roughrider.ogg',)
 
 /obj/map_metadata/tadojsville/job_enabled_specialcheck(var/datum/job/J)
 	..()
@@ -244,8 +244,8 @@
 						new/obj/item/ammo_magazine/ak74(user.loc)
 					if (2)
 						new/obj/item/weapon/gun/projectile/submachinegun/ak47/gold(user.loc)
-						new/obj/item/ammo_magazine/ak47/drum(user.loc)
-						new/obj/item/ammo_magazine/ak47/drum(user.loc)
+						new/obj/item/ammo_magazine/rpk47/drum(user.loc)
+						new/obj/item/ammo_magazine/rpk47/drum(user.loc)
 					if (3)
 						new/obj/item/weapon/gun/projectile/submachinegun/saiga12(user.loc)
 						new/obj/item/ammo_magazine/saiga12/slug(user.loc)

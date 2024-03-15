@@ -234,8 +234,6 @@
 /obj/item/weapon/gun/proc/Fire(atom/target, mob/living/user, clickparams=null, pointblank=0, reflex=0, forceburst = -1, force = FALSE, accuracy_mod = 1)
 	if (!user || !target) return
 
-	if (user.pixel_y > 16) return // can't fire while we're this high up - used for paradropping in particular
-
 	add_fingerprint(user)
 
 	if (!force)

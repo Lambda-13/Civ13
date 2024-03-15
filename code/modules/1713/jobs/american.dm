@@ -158,6 +158,7 @@
 	is_ww2 = TRUE
 	uses_squads = TRUE
 	is_ardennes = TRUE
+	is_pigsbay = TRUE
 
 	min_positions = 2
 	max_positions = 8
@@ -217,6 +218,7 @@
 	is_ardennes = TRUE
 	is_medic = TRUE
 	is_ww2 = TRUE
+	is_pigsbay = TRUE
 	can_be_female = TRUE
 	min_positions = 1
 	max_positions = 4
@@ -496,6 +498,7 @@
 	is_ww2 = TRUE
 	is_tanker = TRUE
 	uses_squads = FALSE
+	is_pigsbay = TRUE
 
 	min_positions = 4
 	max_positions = 12
@@ -1461,4 +1464,375 @@
 	H.setStat("machinegun", STAT_NORMAL)
 	give_random_name(H)
 
+	return TRUE
+
+/////////////////////CUBAN CONFLICT//////////////////////////////////
+
+/datum/job/american/cuban_sergeant
+	title = "US Sergeant"
+	rank_abbreviation = "Sgt."
+
+	spawn_location = "JoinLateAM"
+
+	is_squad_leader = TRUE
+	uses_squads = TRUE
+	is_radioman = FALSE
+	can_get_coordinates = TRUE
+	is_ww2 = FALSE
+	is_ardennes = FALSE
+	is_pigsbay = TRUE
+
+	min_positions = 2
+	max_positions = 10
+
+/datum/job/american/sergeant_ww2/equip(var/mob/living/human/H)
+	if (!H)	return FALSE
+//shoes
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/us_ww2_boots(H), slot_shoes)
+//clothes
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni(H), slot_w_uniform)
+//head
+	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/ww2/us_2lt(H), slot_head)
+//back
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/m1911(H), slot_l_hand)
+//gun
+	if (prob(65))
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/thompson(H), slot_shoulder)
+		H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/us_ww2_sgt(H), slot_belt)
+		H.equip_to_slot_or_del(new /obj/item/weapon/attachment/bayonet(H), slot_r_store)
+	else
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/semiautomatic/m1carbine(H), slot_shoulder)
+		H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/us_ww2_sgtc(H), slot_belt)
+		H.equip_to_slot_or_del(new /obj/item/weapon/attachment/bayonet(H), slot_r_store)
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	var/obj/item/clothing/accessory/holster/hip/holsterh = new /obj/item/clothing/accessory/holster/hip(null)
+	uniform.attackby(holsterh, H)
+	give_random_name(H)
+	H.add_note("Role", "You are a <b>[title]</b>, lead a squad against the Axis enemy and follow your CO's orders!")
+	H.setStat("strength", STAT_NORMAL)
+	H.setStat("crafting", STAT_NORMAL)
+	H.setStat("rifle", STAT_NORMAL)
+	H.setStat("dexterity", STAT_NORMAL)
+	H.setStat("swords", STAT_NORMAL)
+	H.setStat("pistol", STAT_NORMAL)
+	H.setStat("bows", STAT_NORMAL)
+	H.setStat("medical", STAT_NORMAL)
+	H.setStat("machinegun", STAT_MEDIUM_HIGH)
+	return TRUE
+
+
+/datum/job/american/cuban_sniper
+	title = "US Sniper"
+	rank_abbreviation = "Pfc."
+
+	spawn_location = "JoinLateAMSniper"
+
+	is_ww2 = FALSE
+	uses_squads = TRUE
+	is_ardennes = FALSE
+	is_pigsbay = TRUE
+
+	min_positions = 2
+	max_positions = 9
+
+/datum/job/american/cuban_sniper/equip(var/mob/living/human/H)
+	if (!H)	return FALSE
+//shoes
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/us_ww2_boots(H), slot_shoes)
+//clothes
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni(H), slot_w_uniform)
+//head
+	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/ww2/usm1camogreen(H), slot_head)
+//pocket
+	H.equip_to_slot_or_del(new /obj/item/weapon/attachment/bayonet(H), slot_l_store)
+	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/us_ww2_sniper(H), slot_belt)
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	var/obj/item/clothing/accessory/storage/webbing/us_ww2/web = new /obj/item/clothing/accessory/storage/webbing/us_ww2(null)
+	uniform.attackby(web, H)
+	web.attackby(new/obj/item/stack/medical/bruise_pack/gauze, H)
+	web.attackby(new/obj/item/ammo_magazine/m3006box, H)
+	web.attackby(new/obj/item/ammo_magazine/springfield, H)
+	web.attackby(new/obj/item/ammo_magazine/springfield, H)
+	web.attackby(new/obj/item/ammo_magazine/springfield, H)
+	web.attackby(new/obj/item/ammo_magazine/springfield, H)
+	web.attackby(new/obj/item/ammo_magazine/springfield, H)
+	give_random_name(H)
+	H.add_note("Role", "You are a <b>[title]</b>, fighting against the Axis! Keep the enemy off our guys and take out high value targets from a distance!")
+	H.setStat("strength", STAT_NORMAL)
+	H.setStat("crafting", STAT_MEDIUM_LOW)
+	H.setStat("rifle", STAT_VERY_HIGH)
+	H.setStat("dexterity", STAT_NORMAL)
+	H.setStat("swords", STAT_NORMAL)
+	H.setStat("pistol", STAT_NORMAL)
+	H.setStat("bows", STAT_NORMAL)
+	H.setStat("medical", STAT_MEDIUM_LOW)
+	H.setStat("machinegun", STAT_MEDIUM_LOW)
+	return TRUE
+
+/datum/job/american/cuban_machine_gunner
+	title = "US Machine Gunner"
+	rank_abbreviation = "Pfc."
+
+	spawn_location = "JoinLateAM"
+
+	is_ww2 = FALSE
+	uses_squads = TRUE
+	is_ardennes = FALSE
+	is_pigsbay = TRUE
+
+	min_positions = 2
+	max_positions = 12
+
+/datum/job/american/cuban_machine_gunner/equip(var/mob/living/human/H)
+	if (!H)	return FALSE
+//shoes
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/us_ww2_boots(H), slot_shoes)
+//clothes
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni2(H), slot_w_uniform)
+//head
+	H.equip_to_slot_or_del(new /obj/item/clothing/head/cowboyhat(H), slot_head)
+//back
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/m1911(H), slot_l_hand)
+	if (prob(85))
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/bar(H), slot_shoulder)
+		H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/us_ww2_gunner(H), slot_belt)
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun_cleaning_kit(H), slot_l_store)
+	else
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/browning_lmg(H), slot_shoulder)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/browning(H), slot_belt)
+		H.equip_to_slot_or_del(new /obj/item/ammo_magazine/browning(H), slot_back)
+		H.equip_to_slot_or_del(new /obj/item/weapon/gun_cleaning_kit(H), slot_l_store)
+		H.equip_to_slot_or_del(new /obj/item/stack/medical/bruise_pack/gauze(H), slot_r_store)
+
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	var/obj/item/clothing/accessory/holster/hip/holsterh = new /obj/item/clothing/accessory/holster/hip(null)
+	uniform.attackby(holsterh, H)
+	give_random_name(H)
+	H.add_note("Role", "You are a <b>[title]</b>, carrying a light machine gun. Keep your squad covered!")
+	H.setStat("strength", STAT_NORMAL)
+	H.setStat("crafting", STAT_MEDIUM_LOW)
+	H.setStat("rifle", STAT_NORMAL)
+	H.setStat("dexterity", STAT_NORMAL)
+	H.setStat("swords", STAT_NORMAL)
+	H.setStat("pistol", STAT_NORMAL)
+	H.setStat("bows", STAT_NORMAL)
+	H.setStat("medical", STAT_MEDIUM_LOW)
+	H.setStat("machinegun", STAT_VERY_HIGH)
+	return TRUE
+
+/datum/job/american/cuban_ammo_bearer
+	title = "Ammo Bearer"
+	rank_abbreviation = "Pfc."
+
+	spawn_location = "JoinLateRN"
+
+	is_ww2 = FALSE
+	uses_squads = TRUE
+	is_ardennes = FALSE
+	is_pigsbay = TRUE
+
+	min_positions = 2
+	max_positions = 12
+
+/datum/job/american/cuban_ammo_bearer/equip(var/mob/living/human/H)
+	if (!H)	return FALSE
+//shoes
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/us_ww2_boots(H), slot_shoes)
+//clothes
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni3(H), slot_w_uniform)
+//head
+	H.equip_to_slot_or_del(new /obj/item/clothing/head/commando_bandana(H), slot_head)
+//back
+	H.equip_to_slot_or_del(new /obj/item/weapon/storage/ammo_can/american_mg(H), slot_belt)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/m1911(H), slot_l_hand)
+	H.equip_to_slot_or_del(new /obj/item/weapon/storage/ammo_can/american_bar(H), slot_back)
+	H.equip_to_slot_or_del(new /obj/item/weapon/attachment/bayonet(H), slot_l_store)
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	var/obj/item/clothing/accessory/storage/webbing/us_ww2 = new /obj/item/clothing/accessory/storage/webbing/us_ww2(null)
+	uniform.attackby(us_ww2, H)
+	us_ww2.attackby(new/obj/item/stack/medical/bruise_pack/gauze, H)
+	us_ww2.attackby(new/obj/item/ammo_magazine/m1911, H)
+	us_ww2.attackby(new/obj/item/ammo_magazine/m1911, H)
+	us_ww2.attackby(new/obj/item/ammo_magazine/m1911, H)
+	us_ww2.attackby(new/obj/item/ammo_magazine/m1911, H)
+	us_ww2.attackby(new/obj/item/ammo_magazine/m1911, H)
+	us_ww2.attackby(new/obj/item/ammo_magazine/m1911, H)
+	us_ww2.attackby(new/obj/item/ammo_magazine/m1911, H)
+	give_random_name(H)
+	H.add_note("Role", "You are a <b>[title]</b>, carrying the ammo for a light machine gun. Keep your squad gunner supplied!")
+	H.setStat("strength", STAT_NORMAL)
+	H.setStat("crafting", STAT_MEDIUM_LOW)
+	H.setStat("rifle", STAT_NORMAL)
+	H.setStat("dexterity", STAT_NORMAL)
+	H.setStat("swords", STAT_NORMAL)
+	H.setStat("pistol", STAT_NORMAL)
+	H.setStat("bows", STAT_NORMAL)
+	H.setStat("medical", STAT_MEDIUM_LOW)
+	H.setStat("machinegun", STAT_VERY_HIGH)
+	return TRUE
+
+/datum/job/american/cuban_soldier
+	title = "US Rifleman"
+	rank_abbreviation = "Pvt."
+
+	spawn_location = "JoinLateAM"
+
+	is_ww2 = FALSE
+	uses_squads = TRUE
+	is_ardennes = FALSE
+	is_pigsbay = TRUE
+
+	min_positions = 8
+	max_positions = 80
+
+/datum/job/american/cuban_soldier/equip(var/mob/living/human/H)
+	if (!H)	return FALSE
+//shoes
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/us_ww2_boots(H), slot_shoes)
+//clothes
+	var/randcloth = rand(1,3)
+	switch(randcloth)
+		if(1)
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/ww2/usm1camogreen(H), slot_head)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni2(H), slot_w_uniform)
+		if(2)
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/ww2/usm1(H), slot_head)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni(H), slot_w_uniform)
+		if(3)
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/ww2/usgreennet(H), slot_head)
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni_korean(H), slot_w_uniform)
+//weapon
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	var/randweapon2 = rand(1,4)
+	switch(randweapon2)
+		if(1)
+			H.equip_to_slot_or_del(new /obj/item/weapon/grenade/coldwar/m26(H), slot_l_store)
+			H.equip_to_slot_or_del(new /obj/item/weapon/attachment/bayonet(H), slot_r_store)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/semiautomatic/m1garand(H), slot_shoulder)
+			var/obj/item/clothing/accessory/armor/coldwar/flakjacket = new /obj/item/clothing/accessory/armor/coldwar/flakjacket(null)
+			uniform.attackby(flakjacket, H)
+			var/obj/item/clothing/accessory/storage/webbing/us_ww2 = new /obj/item/clothing/accessory/storage/webbing/us_ww2(null)
+			uniform.attackby(us_ww2, H)
+			us_ww2.attackby(new/obj/item/stack/medical/bruise_pack/gauze, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/garand, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/garand, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/garand, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/garand, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/garand, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/garand, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/garand, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/garand, H)
+			H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/us_ww2(H), slot_belt)
+		if(2)
+			H.equip_to_slot_or_del(new /obj/item/weapon/grenade/coldwar/m26(H), slot_l_store)
+			H.equip_to_slot_or_del(new /obj/item/weapon/attachment/bayonet(H), slot_r_store)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/boltaction/springfield(H), slot_shoulder)
+			var/obj/item/clothing/accessory/armor/modern/lightplate/black = new /obj/item/clothing/accessory/armor/modern/lightplate/black(null)
+			uniform.attackby(black, H)
+			var/obj/item/clothing/accessory/storage/webbing/us_ww2 = new /obj/item/clothing/accessory/storage/webbing/us_ww2(null)
+			uniform.attackby(us_ww2, H)
+			us_ww2.attackby(new/obj/item/stack/medical/bruise_pack/gauze, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/springfield, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/springfield, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/springfield, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/springfield, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/springfield, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/springfield, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/springfield, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/springfield, H)
+		if(3)
+			H.equip_to_slot_or_del(new /obj/item/weapon/grenade/coldwar/m26(H), slot_l_store)
+			H.equip_to_slot_or_del(new /obj/item/ammo_magazine/thompson(H), slot_r_store)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/thompson(H), slot_shoulder)
+			var/obj/item/clothing/accessory/armor/modern/lightplate/black = new /obj/item/clothing/accessory/armor/modern/lightplate/black(null)
+			uniform.attackby(black, H)
+			var/obj/item/clothing/accessory/storage/webbing/us_ww2 = new /obj/item/clothing/accessory/storage/webbing/us_ww2(null)
+			uniform.attackby(us_ww2, H)
+			us_ww2.attackby(new/obj/item/stack/medical/bruise_pack/gauze, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/thompson, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/thompson, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/thompson, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/thompson, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/thompson, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/thompson, H)
+		if(4)
+			H.equip_to_slot_or_del(new /obj/item/weapon/grenade/coldwar/m26(H), slot_l_store)
+			H.equip_to_slot_or_del(new /obj/item/ammo_magazine/m1carbine(H), slot_r_store)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/m2carbine(H), slot_shoulder)
+			var/obj/item/clothing/accessory/armor/coldwar/flakjacket = new /obj/item/clothing/accessory/armor/coldwar/flakjacket(null)
+			uniform.attackby(flakjacket, H)
+			var/obj/item/clothing/accessory/storage/webbing/us_ww2 = new /obj/item/clothing/accessory/storage/webbing/us_ww2(null)
+			uniform.attackby(us_ww2, H)
+			us_ww2.attackby(new/obj/item/stack/medical/bruise_pack/gauze, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/m1carbine, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/m1carbine, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/m1carbine, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/m1carbine, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/m1carbine, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/m1carbine, H)
+			us_ww2.attackby(new/obj/item/ammo_magazine/m1carbine, H)
+
+	give_random_name(H)
+	H.add_note("Role", "You are a <b>[title]</b>, a basic grunt. Follow orders and defeat the enemy!")
+	H.setStat("strength", STAT_NORMAL)
+	H.setStat("crafting", STAT_MEDIUM_LOW)
+	H.setStat("rifle", STAT_MEDIUM_HIGH)
+	H.setStat("dexterity", STAT_NORMAL)
+	H.setStat("swords", STAT_NORMAL)
+	H.setStat("pistol", STAT_NORMAL)
+	H.setStat("bows", STAT_NORMAL)
+	H.setStat("medical", STAT_MEDIUM_LOW)
+	H.setStat("machinegun", STAT_MEDIUM_LOW)
+	return TRUE
+
+
+/datum/job/american/cuban_cia
+	title = "CIA Agent"
+	rank_abbreviation = "CIA"
+
+	spawn_location = "JoinLateCIA"
+
+	is_ww2 = FALSE
+	uses_squads = TRUE
+	is_ardennes = FALSE
+	is_pigsbay = TRUE
+
+	additional_languages = list("Spanish" = 80)
+	min_positions = 1
+	max_positions = 6
+
+/datum/job/american/cuban_cia/equip(var/mob/living/human/H)
+	if (!H)	return FALSE
+//shoes
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/us_ww2_boots(H), slot_shoes)
+//clothes
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni/us_lightuni3(H), slot_w_uniform)
+//suit
+	H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/ghillie(H), slot_wear_suit)
+//head
+	H.equip_to_slot_or_del(new /obj/item/clothing/head/ghillie(H), slot_head)
+//back
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/boltaction/springfield/sniper(H), slot_shoulder)
+	H.equip_to_slot_or_del(new /obj/item/weapon/attachment/bayonet(H), slot_l_store)
+	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/olive(H), slot_belt)
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	var/obj/item/clothing/accessory/storage/webbing/us_vest/webbing = new /obj/item/clothing/accessory/storage/webbing/us_vest(null)
+	uniform.attackby(webbing, H)
+	webbing.attackby(new/obj/item/stack/medical/bruise_pack/gauze, H)
+	webbing.attackby(new/obj/item/ammo_magazine/springfield, H)
+	webbing.attackby(new/obj/item/ammo_magazine/springfield, H)
+	webbing.attackby(new/obj/item/ammo_magazine/springfield, H)
+	webbing.attackby(new/obj/item/ammo_magazine/springfield, H)
+
+	give_random_name(H)
+	H.add_note("Role", "You are a <b>[title]</b>, a high quality agent. Defeat the enemy!")
+	H.setStat("strength", STAT_HIGH)
+	H.setStat("crafting", STAT_MEDIUM_LOW)
+	H.setStat("rifle", STAT_MEDIUM_HIGH)
+	H.setStat("dexterity", STAT_NORMAL)
+	H.setStat("swords", STAT_NORMAL)
+	H.setStat("pistol", STAT_MEDIUM_HIGH)
+	H.setStat("bows", STAT_NORMAL)
+	H.setStat("medical", STAT_NORMAL)
+	H.setStat("machinegun", STAT_MEDIUM_HIGH)
 	return TRUE

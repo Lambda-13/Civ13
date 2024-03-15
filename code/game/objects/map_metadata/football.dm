@@ -1,7 +1,7 @@
 /obj/map_metadata/football
 	ID = MAP_FOOTBALL
 	title = "Football Match"
-	lobby_icon = "icons/lobby/futebol.png"
+	lobby_icon = 'icons/lobby/futebol.png'
 	caribbean_blocking_area_types = list(/area/caribbean/football/midfield, /area/caribbean/football/nopass)
 	respawn_delay = 0
 	no_winner ="The game is still going on."
@@ -19,7 +19,7 @@
 	ambience = list('sound/ambience/football.ogg')
 	faction1 = CIVILIAN
 	songs = list(
-		"Forever Blowing Bubbles:1" = "sound/music/forever_blowing_bubbles.ogg",)
+		"Forever Blowing Bubbles:1" = 'sound/music/forever_blowing_bubbles.ogg',)
 	is_singlefaction = TRUE
 	var/team1 = "Unga Utd."
 	var/team2 = "Chad Town F.C."
@@ -329,7 +329,7 @@
 /obj/map_metadata/football_campaign
 	ID = MAP_FOOTBALL_CAMPAIGN
 	title = "Football Match"
-	lobby_icon = "icons/lobby/futebol.png"
+	lobby_icon = 'icons/lobby/futebol.png'
 	caribbean_blocking_area_types = list(/area/caribbean/football/midfield, /area/caribbean/football/nopass)
 	respawn_delay = 0
 	no_winner ="The game is still going on."
@@ -347,7 +347,7 @@
 	ambience = list('sound/ambience/football.ogg')
 	faction1 = CIVILIAN
 	songs = list(
-		"Forever Blowing Bubbles:1" = "sound/music/forever_blowing_bubbles.ogg",)
+		"Forever Blowing Bubbles:1" = 'sound/music/forever_blowing_bubbles.ogg',)
 	is_singlefaction = TRUE
 	var/team1 = "Redmenia Utd."
 	var/team2 = "Blugoslavia F.C."

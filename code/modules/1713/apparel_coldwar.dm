@@ -1537,9 +1537,9 @@
 /obj/item/clothing/accessory/storage/webbing/green_webbing/blue/akdrum
 	New()
 		..()
-		new/obj/item/ammo_magazine/ak47/drum(hold)
-		new/obj/item/ammo_magazine/ak47/drum(hold)
-		new/obj/item/ammo_magazine/ak47/drum(hold)
+		new/obj/item/ammo_magazine/rpk47/drum(hold)
+		new/obj/item/ammo_magazine/rpk47/drum(hold)
+		new/obj/item/ammo_magazine/rpk47/drum(hold)
 
 /obj/item/clothing/accessory/storage/webbing/green_webbing/red/m16
 	New()

@@ -2006,6 +2006,94 @@
 
 	return TRUE
 
+/datum/job/german/roa_soldier
+	title = "Russische Befreiungsarmee Militär"
+	en_meaning = "ROA Soldat"
+	rank_abbreviation = "ROA Sdt"
+
+	spawn_location = "JoinLateGE"
+
+	is_ww2 = TRUE
+	uses_squads = TRUE
+	is_ardennes = TRUE
+	is_roa = TRUE
+
+	min_positions = 6
+	max_positions = 12
+
+/datum/job/german/roa_soldier/give_random_name(var/mob/living/human/H)
+	H.name = H.species.get_random_russian_name(H.gender)
+	H.real_name = H.name
+	H.s_tone = rand(-35,-25)
+
+/datum/job/german/roa_soldier/equip(var/mob/living/human/H)
+	if(!H) return FALSE
+	
+//shoes
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
+
+//clothes
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/ww2/german_ss(H), slot_w_uniform)
+
+	if (prob(25))
+		H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/coat/ww2/ss_parka(H), slot_wear_suit)
+//head
+	var/randimpw = rand(1,2)
+	switch(randimpw)
+		if(1) 
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/ww2/roa_helmet1(H), slot_head)
+		if(2)
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/ww2/roa_helmet2(H), slot_head)
+//hand
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/launcher/rocket/single_shot/panzerfaust(H), slot_l_hand)
+//guns
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	var/randgun = rand(1,6)
+	switch(randgun)
+		if (1)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/ppsh(H), slot_shoulder)
+			var/obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/ppshassault/webbing = new /obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/ppshassault(null)
+			uniform.attackby(webbing, H)
+		if (2)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/mp40(H), slot_shoulder)
+			var/obj/item/clothing/accessory/storage/webbing/ww1/german/ww2/mp40assault/webbing = new /obj/item/clothing/accessory/storage/webbing/ww1/german/ww2/mp40assault(null)
+			uniform.attackby(webbing, H)
+		if (3)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/stg(H), slot_shoulder)
+			var/obj/item/clothing/accessory/storage/webbing/ww1/german/ww2/stg/webbing = new /obj/item/clothing/accessory/storage/webbing/ww1/german/ww2/stg(null)
+			uniform.attackby(webbing, H)
+		if (4)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/semiautomatic/svt(H), slot_shoulder)
+			var/obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/svtassault/webbing = new /obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/svtassault(null)
+			uniform.attackby(webbing, H)
+		if (5)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/dp28(H), slot_shoulder)
+			H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/largepouches/sovietmg(H), slot_belt)
+			var/obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/dpgun/webbing = new /obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/dpgun(null)
+			uniform.attackby(webbing, H)
+		if (6)
+			H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/boltaction/mosin/m30(H), slot_shoulder)
+			var/obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/mosin/webbing = new /obj/item/clothing/accessory/storage/webbing/ww1/leather/ww2/mosin(null)
+			uniform.attackby(webbing, H)
+	
+	var/obj/item/clothing/accessory/patch/russia/white = new /obj/item/clothing/accessory/patch/russia(null)
+	uniform.attackby(white, H)
+
+	if (time_of_day == "Night" || time_of_day == "Evening" || time_of_day == "Early Morning")
+		H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight/alt(H), slot_wear_id)
+	give_random_name(H)
+	H.add_note("Role", "You are a <b>[title]</b>, a member of Russian Liberation Army. Help your German friends!")
+	H.setStat("strength", STAT_MEDIUM_HIGH)
+	H.setStat("crafting", STAT_MEDIUM_LOW)
+	H.setStat("rifle", STAT_MEDIUM_HIGH)
+	H.setStat("dexterity", STAT_NORMAL)
+	H.setStat("swords", STAT_NORMAL)
+	H.setStat("pistol", STAT_MEDIUM_HIGH)
+	H.setStat("bows", STAT_NORMAL)
+	H.setStat("medical", STAT_MEDIUM_LOW)
+	H.setStat("machinegun", STAT_MEDIUM_HIGH)
+
+	return TRUE
 ////////////////////////////WARSAWUPRISING/////////////////////////////////////
 /datum/job/german/warsaw_schutzpolizei
 	title = "Schutzpolizei"

@@ -25,6 +25,7 @@
 	effectiveness_mod = 1.10
 	attachment_slots = null
 	handle_casings = REMOVE_CASINGS
+	can_tactical_reload = TRUE
 
 /obj/item/weapon/gun/projectile/semiautomatic/laser/consume_next_projectile(var/check = FALSE)
 	//get the next casing

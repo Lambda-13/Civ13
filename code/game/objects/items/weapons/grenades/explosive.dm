@@ -67,7 +67,6 @@
 		P.shot_from = src.name
 
 		P.launch_fragment(TT)
-		P.firer_loc = get_turf(src)
 
 		//Make sure to hit any mobs in the source turf
 		for(var/mob/living/M in T)

@@ -1,5 +1,3 @@
-#define SEND_TEXT(target, text) DIRECT_OUTPUT(target, text)
-
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
 /*
@@ -1092,4 +1090,6 @@ var/mob/dview/dview_mob = new
 	else
 		return FALSE
 
-
+/proc/CallAsync(datum/source, proctype, list/arguments)
+	set waitfor = FALSE
+	return call(source, proctype)(arglist(arguments))

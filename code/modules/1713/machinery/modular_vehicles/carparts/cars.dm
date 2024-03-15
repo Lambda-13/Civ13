@@ -555,7 +555,6 @@
 	turntimer = 7
 	reg_number = ""
 	color = "#3d5931"
-	turret_type = "none"
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)
@@ -573,7 +572,6 @@
 	turntimer = 6
 	reg_number = ""
 	color = "#3d5931"
-	turret_type = "none"
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)
@@ -591,7 +589,6 @@
 	turntimer = 6
 	reg_number = ""
 	color = "#ffffff"
-	turret_type = "none"
 	New()
 		..()
 		var/pickedname = pick(tank_names_soviet)
@@ -690,6 +687,10 @@
 /obj/structure/engine/internal/diesel/premade/adrian
 	name = "Type 9 Adrian 15 diesel engine"
 	enginesize = 8000
+
+/obj/structure/engine/internal/diesel/premade/btr80
+	name = "KamAZ-7403 diesel engine"
+	enginesize = 15000
 
 /obj/structure/emergency_lights
 	name = "emergency lights control"

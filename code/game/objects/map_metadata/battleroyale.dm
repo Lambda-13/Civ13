@@ -1,7 +1,7 @@
 /obj/map_metadata/battleroyale
 	ID = MAP_BATTLEROYALE_IMPERIAL
 	title = "Королевская битва: 17 век"
-	lobby_icon = "icons/lobby/battleroyale.png"
+	lobby_icon = 'icons/lobby/battleroyale.png'
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall)
 	respawn_delay = 0
 	is_singlefaction = TRUE
@@ -471,7 +471,7 @@
 /obj/map_metadata/battleroyale/two
 	ID = MAP_BATTLEROYALE_MODERN
 	title = "Королевская битва: 21 век"
-	lobby_icon = "icons/lobby/battleroyale_arab.png"
+	lobby_icon = 'icons/lobby/battleroyale_arab.png'
 
 	age = "2013"
 	ordinal_age = 8

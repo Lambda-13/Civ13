@@ -1,7 +1,7 @@
 /obj/map_metadata/eft_factory
 	ID = MAP_EFT_FACTORY
 	title = "Factory"
-	lobby_icon = "icons/lobby/battleroyale.png"
+	lobby_icon = 'icons/lobby/battleroyale.png'
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall)
 	respawn_delay = 3000
 
@@ -27,7 +27,7 @@
 	gamemode = "Firefight"
 	valid_weather_types = list(WEATHER_NONE)
 	songs = list(
-		"Тоска - Molchat Doma:1" = "sound/music/tocka.ogg",)
+		"Тоска - Molchat Doma:1" = 'sound/music/tocka.ogg',)
 
 /obj/map_metadata/eft_factory/New()
 	..()
@@ -108,7 +108,7 @@
 	if (extractees.len)
 		world << "<big><b>Extracted:</b></big>"
 		world << "<big>[jointext(extractees,"\n")]</big>"
-	spawn(1 MINUTE)
+	spawn(1 MINUTES)
 	show_extractees()
 
 /area/caribbean/extract/Entered(var/atom/movable/A)

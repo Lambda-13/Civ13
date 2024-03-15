@@ -6,7 +6,7 @@
 	desc = "A generic vending machine."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "apparel_british"
-	layer = 2.9
+	layer = 4
 	anchored = TRUE
 	density = TRUE
 	flammable = FALSE

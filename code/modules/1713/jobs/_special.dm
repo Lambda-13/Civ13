@@ -35,6 +35,7 @@
 /datum/job/var/is_ww2 = FALSE
 /datum/job/var/is_reichstag = FALSE
 /datum/job/var/is_coldwar = FALSE
+/datum/job/var/is_pigsbay = FALSE
 /datum/job/var/is_radioman = FALSE
 /datum/job/var/is_specops = FALSE
 /datum/job/var/is_modernday = FALSE
@@ -128,6 +129,7 @@
 /datum/job/var/is_ardennes = FALSE
 /datum/job/var/is_syria = FALSE
 /datum/job/var/is_rotstadt = FALSE
+/datum/job/var/is_roa = FALSE
 
 /datum/job/var/can_get_coordinates = FALSE
 /datum/job/var/is_event = FALSE
