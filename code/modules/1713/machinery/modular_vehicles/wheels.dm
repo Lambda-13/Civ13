@@ -416,9 +416,44 @@
 	worn_state = "turret_control"
 	nothrow = TRUE
 	nodrop = TRUE
+	var/datum/action/toggle_scope/azoom
+	var/zoom_amt = ZOOM_CONSTANT * 2
+	var/obj/item/weapon/attachment/scope/adjustable/binoculars/periscope/optics
 	var/obj/structure/turret/turret = null
 	var/is_rotating = FALSE
 	var/rotating_dir = 0
+	New()
+		..()
+		optics = new/obj/item/weapon/attachment/scope/adjustable/binoculars/periscope()
+		build_zooming()
+
+/obj/item/turret_controls/proc/build_zooming()
+	azoom = new()
+	azoom.scope = optics
+	actions += azoom
+
+/obj/item/turret_controls/scope/on_changed_slot()
+	..()
+
+	if (azoom)
+		if (istype(loc, /obj/item))
+			var/mob/M = loc.loc
+			if (M && istype(M))
+				azoom.Remove(M)
+				if(loc == M.r_hand || loc == M.l_hand)
+					azoom.Grant(M)
+
+		else if (istype(loc, /mob))
+			var/mob/M = loc
+			if (istype(M))
+				azoom.Remove(M)
+				if (src == M.r_hand || src == M.l_hand)
+					azoom.Grant(M)
+
+/obj/item/turret_controls/dropped(mob/user)
+	..()
+	if (azoom)
+		azoom.Remove(user)
 
 /obj/item/turret_controls/proc/stop_rotation()
 	rotating_dir = 0
