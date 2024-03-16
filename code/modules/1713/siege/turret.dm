@@ -278,8 +278,6 @@
 		C.do_tank_fire(gunner)
 		C.forceMove(src)
 
-	do_html(gunner)
-
 	if(is_firing)
 		spawn(next_shot_delay)
 			fire()
