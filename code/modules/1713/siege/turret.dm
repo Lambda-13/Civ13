@@ -36,7 +36,7 @@
 	var/distance = 5
 
 	var/rotation_speed = 0.5 // seconds for 1 degree
-	var/is_rotating = FALSE
+	var/stopped_rotation_time = 1
 
 	var/list/weapons = list()
 	var/selected_weapon = 1
@@ -46,6 +46,7 @@
 
 /obj/structure/turret/New()
 	..()
+
 	switch(dir)
 		if(EAST)
 			azimuth = 0
@@ -198,8 +199,8 @@
 
 /obj/structure/turret/proc/icrease_target_azimuth(var/value)
 	azimuth_to_target += value
-	if(!is_rotating)
-		is_rotating = TRUE
+	if(stopped_rotation_time != 0 && world.time - stopped_rotation_time > 0.1)
+		stopped_rotation_time = 0
 		rotate_to_target()
 
 /obj/structure/turret/proc/icrease_target_distance(var/value)
@@ -237,7 +238,7 @@
 		spawn(0.15)
 			rotate_to_target()
 	else
-		is_rotating = FALSE
+		stopped_rotation_time = world.time
 
 /obj/structure/turret/proc/update_seats()
 	if(gunner_seat)
