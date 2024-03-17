@@ -25,7 +25,7 @@
 	full_auto = TRUE
 	attachment_slots = ATTACH_BARREL|ATTACH_IRONSIGHTS
 	firemodes = list(
-		list(name = "full auto", burst=1, burst_delay=0.8, dispersion = list(0.7, 1.1, 1.1, 1.1, 1.2), recoil = 0),
+		list(name = "full auto", burst=1, burst_delay=0.8),
 	)
 	var/jammed_until = -1
 	var/jamcheck = 0
@@ -136,7 +136,7 @@
 	effectiveness_mod = 1.05
 	bad_magazine_types = list(/obj/item/ammo_magazine/maxim)
 	firemodes = list(
-		list(name = "full auto", burst=1, burst_delay=1.3, dispersion = list(0.7, 1.1, 1.1, 1.1, 1.2), recoil = 0),
+		list(name = "full auto", burst=1, burst_delay=1.3),
 	)
 	recoil = 40
 	accuracy = 3
@@ -331,7 +331,7 @@
 	slot_flags = SLOT_SHOULDER
 	weight = 10.5
 	firemodes = list(
-		list(name = "full auto", burst=1, burst_delay=1.3, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.5), recoil = 0),
+		list(name = "full auto", burst=1, burst_delay=1.3),
 	)
 	force = 20
 	nothrow = TRUE
@@ -356,7 +356,7 @@
 	slot_flags = SLOT_SHOULDER
 	weight = 10
 	firemodes = list(
-		list(name = "full auto", burst=1, burst_delay=1.1, dispersion = list(0.6, 1, 1.2, 1.3, 1.3)),
+		list(name = "full auto", burst=1, burst_delay=1.1),
 	)
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER
 	force = 20
@@ -411,7 +411,7 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	weight = 7.5
 	firemodes = list(
-		list(name = "full auto", burst=1, burst_delay=1.3, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.6)),
+		list(name = "full auto", burst=1, burst_delay=1.3),
 	)
 	slot_flags = SLOT_SHOULDER
 	force = 20
@@ -474,7 +474,7 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	weight = 7.4
 	firemodes = list(
-		list(name = "full auto", burst=1, burst_delay=1.3, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.6), recoil = 0),
+		list(name = "full auto", burst=1, burst_delay=1.3),
 	)
 	slot_flags = SLOT_SHOULDER
 	force = 20
@@ -507,7 +507,7 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	weight = 5.1
 	firemodes = list(
-		list(name = "full auto", burst=1, burst_delay=1.3, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.6), recoil = 0),
+		list(name = "full auto", burst=1, burst_delay=1.3),
 	)
 	slot_flags = SLOT_SHOULDER
 	force = 20
@@ -568,7 +568,7 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	weight = 5.7
 	firemodes = list(
-		list(name = "full auto", burst=1, burst_delay=1.3, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.5), recoil = 0),
+		list(name = "full auto", burst=1, burst_delay=1.3),
 	)
 	slot_flags = SLOT_SHOULDER
 	force = 20
@@ -607,7 +607,7 @@
 	slot_flags = SLOT_SHOULDER
 	weight = 8
 	firemodes = list(
-		list(name = "full auto", burst=1, burst_delay=0.9, dispersion = list(0.6, 1, 1.2, 1.3, 1.3)),
+		list(name = "full auto", burst=1, burst_delay=0.9),
 	)
 	slot_flags = SLOT_SHOULDER
 	force = 20
@@ -642,7 +642,7 @@
 	good_mags = list(/obj/item/ammo_magazine/ammo127)
 	weight = 12.5
 	firemodes = list(
-		list(name = "full auto", burst=1, burst_delay=1.8, dispersion = list(0.6, 1, 1.2, 1.3, 1.3)),
+		list(name = "full auto", burst=1, burst_delay=1.8),
 	)
 	shake_strength = 1
 	slot_flags = SLOT_SHOULDER
@@ -679,7 +679,7 @@
 	weight = 9
 	heavy = TRUE
 	firemodes = list(
-		list(name = "full auto", burst=1, burst_delay=1.3, dispersion = list(0.7, 1.1, 1.3, 1.4, 1.5), recoil = 0),
+		list(name = "full auto", burst=1, burst_delay=1.3),
 	)
 	slot_flags = SLOT_SHOULDER
 	force = 20

@@ -133,8 +133,8 @@
 	weight = 3.85
 	load_delay = 8
 	firemodes = list(
-		list(name = "single shot",	burst=1, burst_delay=0.8, dispersion = list(0.1, 0.2, 0.1, 0.2, 0.3)),
-		list(name = "full auto",	burst=1, burst_delay=0.8, dispersion = list(1, 1.2, 1.3, 1.2, 1.3)),
+		list(name = "single shot",	burst=1, burst_delay=0.8),
+		list(name = "full auto",	burst=1, burst_delay=0.8),
 		)
 
 	gun_type = GUN_TYPE_RIFLE

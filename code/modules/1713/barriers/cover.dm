@@ -34,7 +34,7 @@
 			return FALSE
 		else
 			return TRUE
-			
+
 	if (!istype(mover, /obj/item/projectile))
 		return TRUE
 
@@ -50,7 +50,7 @@
 		qdel(proj) // because somehow we were still passing the sandbag
 		return FALSE
 
-	if(proj.direction in check_dir())
+	if(proj.get_direction() in check_dir())
 
 		if(check_cover(proj) && prob(33))
 			return TRUE

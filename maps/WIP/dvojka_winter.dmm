@@ -565,7 +565,7 @@
 "kS" = (/obj/structure/engine/internal/gasoline{enginesize = 7000},/obj/structure/vehicleparts/frame/car/lf,/obj/structure/vehicleparts/movement/reversed{icon_state = "wheel_t_dark"; dir = 1},/turf/floor/plating/concrete,/area/caribbean/nomads)
 "kT" = (/turf/floor/plating/steel,/area/caribbean)
 "kU" = (/obj/structure/radio/transmitter_receiver/nopower/tank{dir = 2; freq = 160; multifreqlist = list(160); multifreqlist_selectable = list(160); name = "tank radiocommunications"},/turf/floor/plating/concrete,/area/caribbean/no_mans_land/capturable/one)
-"kV" = (/obj/structure/vehicleparts/frame/car/rf/truck/armored,/obj/item/weapon/gun/projectile/automatic/stationary/autocannon{firemodes = list(list("name" = "semi auto", "burst" = 3, "burst_delay" = 10, "dispersion" = list(0.1,0.3,1,2.5), "accuracy" = list(2))); name = "30mm Autocannon"},/turf/floor/plating/concrete,/area/caribbean/nomads)
+"kV" = (/obj/structure/vehicleparts/frame/car/rf/truck/armored,/obj/item/weapon/gun/projectile/automatic/stationary/autocannon{firemodes = list(list("name" = "semi auto", "burst" = 3, "burst_delay" = 10,)); name = "30mm Autocannon"},/turf/floor/plating/concrete,/area/caribbean/nomads)
 "kW" = (/obj/structure/bed/chair/drivers,/obj/structure/vehicleparts/axis/car{color = "#293822"; name = "M3CA halftrack"},/obj/structure/vehicleparts/frame/car/lf/truck/armored,/turf/floor/plating/concrete,/area/caribbean/nomads)
 "kX" = (/obj/random/mine/ap,/turf/floor/plating/cobblestone/vertical,/area/caribbean/nomads)
 "kY" = (/obj/structure/lamp/lamppost_small/alwayson,/obj/random/mine/ap,/turf/floor/plating/cobblestone/vertical,/area/caribbean/nomads)
