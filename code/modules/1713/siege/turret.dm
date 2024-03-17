@@ -80,9 +80,9 @@
 		point_x = round(abs(i * cos(azimuth))) * sign(cos(azimuth))
 		point_y = round(abs(i * sin(azimuth))) * sign(sin(azimuth))
 		if (point_x != 0 || point_y != 0)
-			aiming_line = new('icons/effects/Targeted.dmi', loc = src, icon_state="point", pixel_x = point_x - pixel_x, pixel_y = point_y - pixel_y, layer = 14)
+			aiming_line = new('icons/effects/Targeted.dmi', loc = src, icon_state="point", pixel_x = point_x, pixel_y = point_y, layer = 14)
 			operator.client.images += aiming_line
-	aiming_line = new('icons/effects/Targeted.dmi', loc = src, icon_state="cannon_target", pixel_x = point_x - pixel_x, pixel_y = point_y - pixel_y, layer = 14)
+	aiming_line = new('icons/effects/Targeted.dmi', loc = src, icon_state="cannon_target", pixel_x = point_x pixel_y = point_y, layer = 14)
 	operator.client.images += aiming_line
 
 /obj/structure/turret/update_icon()
