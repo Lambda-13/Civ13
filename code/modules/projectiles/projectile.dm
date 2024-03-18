@@ -454,6 +454,9 @@
 		angle = 180 + (180 - abs(angle))
 	return angle
 
+/obj/item/projectile/proc/get_distance()
+	return permutated.len
+
 /obj/item/projectile/proc/get_direction()
 	if(angle >= 10 && angle <= 80)
 		return NORTHEAST
@@ -549,42 +552,28 @@
 	else
 		// needs to be its own loop for reasons
 		for (var/obj/O in T.contents)
-			var/hitchance = 33 // a light, for example. This was 66%, but that was unusually accurate, thanks BYOND
+			var/hitchance = 0 // a light, for example. This was 66%, but that was unusually accurate, thanks BYOND
 			if (O == original)
-				if (istype(O, /obj/structure/table))
-					if (do_bullet_act(O))
-						bumped = TRUE
-						loc = null
-						qdel(src)
-						return FALSE
-				else if (isstructure(O) && !istype(O, /obj/structure/lamp))
-					hitchance = 50
-				else if (!isitem(O) && isnonstructureobj(O))
+				if (O.density)
 					if (!istype(O, /obj/covers/jail))
 						hitchance = 100
 					else
-						if (firer in range(1,O))
-							hitchance = 0
-						else
-							hitchance = 55
-
-				else if (isitem(O)) // any item
-					var/obj/item/I = O
-					hitchance = 9 * I.w_class // a pistol would be 50%
+						hitchance = 0
+				else if (isitem(O) && !density) // any item
+					hitchance = 0
 				if (prob(hitchance))
-					do_bullet_act(O)
-					bumped = TRUE
-					loc = null
-					qdel(src)
-					return FALSE
-				else
-					if (isitem(O) || (O.density && O.anchored)) // since it was on the ground
+					if (istype(O, /obj/structure))
+						var/obj/structure/S = O
+						if (!S.CanPass(src, original))
+							passthrough = FALSE
+					else
+						do_bullet_act(O)
 						bumped = TRUE
 						loc = null
 						qdel(src)
 						return FALSE
 					O.visible_message("<span class = 'warning'>[src] пролетает над [O]!</span>")
-				break
+					break
 	for (var/atom/movable/AM in T.contents)
 		if (!untouchable.Find(AM))
 			if (isliving(AM) && AM != firer)
@@ -594,9 +583,6 @@
 					var/obj/item/weapon/grab/G = locate() in L
 					if (G && G.state >= GRAB_NECK && G.affecting.stat < UNCONSCIOUS)
 						visible_message("<span class='danger'>[L] использует [G.affecting] в качестве щита!</span>")
-						//if (Bump(G.affecting, forced=1))
-						//	bumped = TRUE // for shrapnel
-						//	return FALSE
 						G.affecting.pre_bullet_act(src)
 						attack_mob(G.affecting)
 						if (!G.affecting.lying)
@@ -662,6 +648,10 @@
 							if (O.bullet_act(src, def_zone) != PROJECTILE_CONTINUE)
 								if (O && !O.gcDestroyed)
 									passthrough = FALSE
+
+	for(var/obj/structure/window/barrier/S in T)
+		if (!S.CanPassOut(src))
+			passthrough = FALSE
 
 	for (var/obj/structure/vehicleparts/frame/F in loc)
 		var/penloc = F.get_opposite_wall(F.get_wall_name(direction))

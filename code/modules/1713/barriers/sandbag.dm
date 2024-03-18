@@ -189,8 +189,8 @@
 	return FALSE
 
 /obj/structure/window/barrier/bullet_act(var/obj/item/projectile/Proj)
-
 	if (health <= 0)
+		visible_message("<span class = 'warning'>[src] getting destroyed.</span>")
 		qdel(src)
 
 /obj/structure/window/barrier/ex_act(severity)
