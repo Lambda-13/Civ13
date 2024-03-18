@@ -367,7 +367,7 @@
 	if(distance <= 3)
 		hitchance = 100
 
-	if (prob(hitchance))
+	if (prob(hitchance) * 3)
 		hit_zone = def_zone
 	else
 		for(var/part in redirection_parts)
