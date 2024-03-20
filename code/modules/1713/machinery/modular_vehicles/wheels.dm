@@ -374,11 +374,14 @@
 		if(turret)
 			turret.draw_aiming_line(buckled_mob)
 			turret.gunner = buckled_mob
-	if (buckled_mob && istype(buckled_mob, /mob/living/human) && buckled_mob.put_in_active_hand(controls) == FALSE)
-		buckled_mob << "Your hands are full!"
-		return
+		if (istype(buckled_mob, /mob/living/human))
+			if(buckled_mob.put_in_active_hand(controls) == FALSE)
+				buckled_mob << "Your hands are full!"
+				return
+			else
+				controls.azoom.Grant(buckled_mob)
 
-/obj/structure/bed/chair/commander/attackby(var/obj/item/I, var/mob/living/human/H)
+/obj/structure/bed/chair/gunner/attackby(var/obj/item/I, var/mob/living/human/H)
 	if (buckled_mob && H == buckled_mob && istype(I, /obj/item/turret_controls))
 		H.remove_from_mob(I)
 		I.forceMove(src)
@@ -417,7 +420,6 @@
 	nothrow = TRUE
 	nodrop = TRUE
 	var/datum/action/toggle_scope/azoom
-	var/zoom_amt = ZOOM_CONSTANT * 2
 	var/obj/item/weapon/attachment/scope/adjustable/binoculars/periscope/optics
 	var/obj/structure/turret/turret = null
 	var/is_rotating = FALSE
@@ -426,6 +428,11 @@
 		..()
 		optics = new/obj/item/weapon/attachment/scope/adjustable/binoculars/periscope()
 		build_zooming()
+
+/obj/item/turret_controls/proc/get_zoom_amt()
+	if(!optics)
+		return ZOOM_CONSTANT
+	return optics.zoom_amt
 
 /obj/item/turret_controls/proc/build_zooming()
 	azoom = new()
@@ -667,10 +674,9 @@
 		buckled_mob.pixel_y = pixel_y
 		if(turret)
 			turret.commander = buckled_mob
-
-	if (buckled_mob && istype(buckled_mob, /mob/living/human) && buckled_mob.put_in_active_hand(periscope) == FALSE)
-		buckled_mob << "Your hands are full!"
-		return
+		if (istype(buckled_mob, /mob/living/human) && buckled_mob.put_in_active_hand(periscope) == FALSE)
+			buckled_mob << "Your hands are full!"
+			return
 
 /obj/structure/bed/chair/commander/attackby(var/obj/item/I, var/mob/living/human/H)
 	if (buckled_mob && H == buckled_mob && istype(I, /obj/item/weapon/attachment/scope/adjustable/binoculars/periscope))

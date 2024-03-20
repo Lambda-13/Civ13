@@ -36,7 +36,7 @@
 	var/distance = 5
 
 	var/rotation_speed = 0.5 // seconds for 1 degree
-	var/is_rotating = FALSE
+	var/stopped_rotation_time = 1
 
 	var/list/weapons = list()
 	var/selected_weapon = 1
@@ -46,6 +46,7 @@
 
 /obj/structure/turret/New()
 	..()
+
 	switch(dir)
 		if(EAST)
 			azimuth = 0
@@ -79,9 +80,9 @@
 		point_x = round(abs(i * cos(azimuth))) * sign(cos(azimuth))
 		point_y = round(abs(i * sin(azimuth))) * sign(sin(azimuth))
 		if (point_x != 0 || point_y != 0)
-			aiming_line = new('icons/effects/Targeted.dmi', loc = src, icon_state="point", pixel_x = point_x - pixel_x, pixel_y = point_y - pixel_y, layer = 14)
+			aiming_line = new('icons/effects/Targeted.dmi', loc = src, icon_state="point", pixel_x = point_x, pixel_y = point_y, layer = 14)
 			operator.client.images += aiming_line
-	aiming_line = new('icons/effects/Targeted.dmi', loc = src, icon_state="cannon_target", pixel_x = point_x - pixel_x, pixel_y = point_y - pixel_y, layer = 14)
+	aiming_line = new('icons/effects/Targeted.dmi', loc = src, icon_state="cannon_target", pixel_x = point_x, pixel_y = point_y, layer = 14)
 	operator.client.images += aiming_line
 
 /obj/structure/turret/update_icon()
@@ -198,8 +199,8 @@
 
 /obj/structure/turret/proc/icrease_target_azimuth(var/value)
 	azimuth_to_target += value
-	if(!is_rotating)
-		is_rotating = TRUE
+	if(stopped_rotation_time != 0 && world.time - stopped_rotation_time > 0.1)
+		stopped_rotation_time = 0
 		rotate_to_target()
 
 /obj/structure/turret/proc/icrease_target_distance(var/value)
@@ -237,7 +238,7 @@
 		spawn(0.15)
 			rotate_to_target()
 	else
-		is_rotating = FALSE
+		stopped_rotation_time = world.time
 
 /obj/structure/turret/proc/update_seats()
 	if(gunner_seat)
@@ -277,8 +278,6 @@
 		C.loc = loc
 		C.do_tank_fire(gunner)
 		C.forceMove(src)
-
-	do_html(gunner)
 
 	if(is_firing)
 		spawn(next_shot_delay)

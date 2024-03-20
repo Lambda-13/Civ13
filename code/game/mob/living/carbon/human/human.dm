@@ -1376,7 +1376,7 @@ var/list/coefflist = list()
 		look_amount = W.zoom_amt//May cause issues
 	else if(istype(get_active_hand(), /obj/item/turret_controls))
 		C = get_active_hand()
-		look_amount = C.zoom_amt
+		look_amount = C.get_zoom_amt()
 	else if(istype(get_active_hand(), /obj/item/weapon/gun))
 		G = get_active_hand()
 		if(G.attachments && G.attachments.len)

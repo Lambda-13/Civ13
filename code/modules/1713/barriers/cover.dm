@@ -6,11 +6,6 @@
 	if (P.def_zone in list("r_leg", "l_leg", "r_foot", "l_foot"))
 		return FALSE
 
-	if (ismob(P.original)) // projectile target
-		var/mob/m = P.original
-		if (m.lying || m.prone)
-			return FALSE
-
 // what is our chance of deflecting bullets regardless (compounded by check_cover)
 /proc/bullet_deflection_chance(obj/item/projectile/proj)
 	var/base = 100
@@ -34,67 +29,83 @@
 			return FALSE
 		else
 			return TRUE
-			
+
 	if (!istype(mover, /obj/item/projectile))
 		return TRUE
 
 	var/obj/item/projectile/proj = mover
 	proj.throw_source = proj.starting
 
-	if (ishuman(proj.firer) && !incomplete && (proj.firer.lying || proj.firer.prone))
-		visible_message("<span class = 'warning'>[mover] hits the [src]!</span>")
-		health -= round(proj.damage*0.2)
-		proj.damage = 0 // make sure we can't hurt people after hitting a sandbag
-		proj.invisibility = 101
-		proj.loc = null
-		qdel(proj) // because somehow we were still passing the sandbag
+	if(!check_dir(proj.get_direction()))
+		return TRUE
+
+	var/hitchance = 0
+	var/p_dist = proj.get_distance()
+	var/is_lying = FALSE
+
+	if(proj.firer.lying || proj.firer.prone)
+		is_lying = TRUE
+
+	if(p_dist > 3)
+		hitchance = sqrt(p_dist) * 15
+		if(incomplete)
+			hitchance /= 2
+		if(is_lying)
+			hitchance *= 2
+	else if (p_dist > 0 && is_lying && !incomplete)
+		hitchance = 100
+	else if (p_dist == 0 && !incomplete && is_lying)
+		hitchance = 100
+
+	if(target == loc && (proj.firer.lying || proj.firer.prone))
+		hitchance = 100
+
+	if(prob(hitchance))
+		visible_message("<span class = 'warning'>[src] getting hit by [proj].</span>")
+		health -= proj.damage * 0.1
+		bullet_act(proj)
 		return FALSE
-
-	if(proj.direction in check_dir())
-
-		if(check_cover(proj) && prob(33))
-			return TRUE
-
-		if (get_dist(proj.starting, loc) <= 1)
-			return TRUE
-
-		health -= round(proj.damage*0.2)
-		proj.damage = 0
-		proj.invisibility = 101
-		proj.loc = null
-		qdel(proj)
-		return FALSE
-
 	return TRUE
 
-//Без понятия для чего это
-/*	if (!mover.throw_source)
-		if (get_dir(loc, target) & dir)
-			return FALSE
-		else
-			return TRUE
+/obj/structure/window/barrier/proc/CanPassOut(var/obj/item/projectile/proj)
+	if(!check_dir(opposite_direction(proj.get_direction())))
+		return TRUE
 
-	switch (get_dir(mover.throw_source, get_turf(src)))
-		if (NORTH, NORTHEAST)
-			if (dir == EAST || dir == WEST || dir == NORTH)
-				return TRUE
-		if (SOUTH, SOUTHEAST)
-			if (dir == EAST || dir == WEST || dir == SOUTH)
-				return TRUE
-		if (EAST)
-			if (dir != WEST)
-				return TRUE
-		if (WEST)
-			if (dir != EAST)
-				return TRUE*/
+	var/hitchance = 0
+	var/p_dist = proj.get_distance()
+	var/is_lying = FALSE
 
-/obj/structure/window/barrier/proc/check_dir()
-	switch(opposite_direction(dir))
+	if(proj.firer.lying || proj.firer.prone)
+		is_lying = TRUE
+
+	if(p_dist > 3)
+		hitchance = sqrt(p_dist) * 15
+		if(incomplete)
+			hitchance /= 2
+		if(is_lying)
+			hitchance *= 2
+	else if (p_dist > 0 && is_lying)
+		hitchance = 100
+
+	if(prob(hitchance))
+		visible_message("<span class = 'warning'>[src] getting hit by [proj].</span>")
+		health -= proj.damage * 0.1
+		bullet_act(proj)
+		return FALSE
+	return TRUE
+
+/obj/structure/window/barrier/proc/check_dir(var/direction)
+	switch(dir)
 		if(SOUTH)
-			return list(SOUTH, SOUTHWEST, SOUTHEAST)
+			if(direction in list(SOUTH, SOUTHWEST, SOUTHEAST))
+				return TRUE
 		if(EAST)
-			return list(EAST, NORTHEAST, SOUTHEAST)
+			if(direction in list(EAST, NORTHEAST, SOUTHEAST))
+				return TRUE
 		if(NORTH)
-			return list(NORTH, NORTHEAST, NORTHWEST)
+			if(direction in list(NORTH, NORTHEAST, NORTHWEST))
+				return TRUE
 		if(WEST)
-			return list(WEST, SOUTHWEST, NORTHWEST)
+			if(direction in list(WEST, SOUTHWEST, NORTHWEST))
+				return TRUE
+	return FALSE

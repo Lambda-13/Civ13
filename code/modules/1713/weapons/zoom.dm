@@ -89,22 +89,6 @@ Parts of code courtesy of Super3222
 	w_class = ITEM_SIZE_HUGE
 	var/checking = FALSE
 
-/obj/item/weapon/attachment/scope/adjustable/binoculars/cannon_controls
-	name = "cannon_controls"
-	desc = "A solid metal cannon controls with scope."
-	icon_state = "cannon_controls"
-	max_zoom = ZOOM_CONSTANT*3
-	attachable = FALSE
-	value = 15
-	var/obj/structure/cannon/modern/gun = null
-	nothrow = TRUE
-	//nodrop = TRUE
-	w_class = ITEM_SIZE_HUGE
-
-/obj/item/weapon/attachment/scope/adjustable/binoculars/cannon_controls/Destroy()
-	gun = null
-	..()
-
 /obj/item/weapon/attachment/scope/adjustable/binoculars/periscope/naval
 	name = "periscope"
 	desc = "A solid metal periscope."

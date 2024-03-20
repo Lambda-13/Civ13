@@ -9,7 +9,6 @@
 	value = 0
 	flags = CONDUCT
 	var/angle = 0
-	var/direction = EAST
 	var/bumped = FALSE //Prevents it from hitting more than one guy at once
 	var/hitsound_wall = ""//"ricochet"
 	var/def_zone = ""	//Aiming at
@@ -171,9 +170,9 @@
 
 	//randomize clickpoint a bit based on dispersion
 	if (dispersion)
-		var/radius = round((dispersion*0.443)*world.icon_size*0.8) //0.443 = sqrt(pi)/4 = 2a, where a is the side length of a square that shares the same area as a circle with diameter = dispersion
-		p_x = between(0, p_x + rand(-radius, radius), world.icon_size)
-		p_y = between(0, p_y + rand(-radius, radius), world.icon_size)
+		var/radius = round(dispersion * 0.35 * world.icon_size) //0.443 = sqrt(pi)/4 = 2a, where a is the side length of a square that shares the same area as a circle with diameter = dispersion
+		p_x = between(0, p_x + radius, world.icon_size)
+		p_y = between(0, p_y + radius, world.icon_size)
 
 //called to launch a projectile from a gun
 /obj/item/projectile/proc/launch(atom/target, mob/user, obj/item/weapon/gun/launcher, var/target_zone, var/x_offset=0, var/y_offset=0)
@@ -368,7 +367,7 @@
 	if(distance <= 3)
 		hitchance = 100
 
-	if (prob(hitchance))
+	if (prob(hitchance) * 3)
 		hit_zone = def_zone
 	else
 		for(var/part in redirection_parts)
@@ -455,7 +454,10 @@
 		angle = 180 + (180 - abs(angle))
 	return angle
 
-/obj/item/projectile/proc/angle_dir(var/angle)
+/obj/item/projectile/proc/get_distance()
+	return permutated.len
+
+/obj/item/projectile/proc/get_direction()
 	if(angle >= 10 && angle <= 80)
 		return NORTHEAST
 	else if(angle > 80 && angle < 100)
@@ -481,6 +483,12 @@
 
 	if ((bumped && !forced) || (permutated.Find(T)))
 		return FALSE
+
+	var/direction = get_direction()
+
+	var/turf/previous_step =  starting
+	if(T!= starting)
+		previous_step = permutated[permutated.len]
 
 	var/passthrough = TRUE //if the projectile should continue flying
 	var/passthrough_message = null
@@ -521,7 +529,7 @@
 				bumped = TRUE
 				if (istype(src, /obj/item/projectile/shell))
 					var/obj/item/projectile/shell/S = src
-					S.initiate(permutated[permutated.len])
+					S.initiate(previous_step)
 				else
 					loc = null
 					qdel(src)
@@ -533,7 +541,7 @@
 				if (istype(src, /obj/item/projectile/shell))
 					var/obj/item/projectile/shell/S = src
 					if(S.initiated)
-						S.initiate(permutated[permutated.len])
+						S.initiate(previous_step)
 				visible_message("<span class = 'warning'>Снаряд пролетает сквозь [penloc] стену</span>")
 
 	if (!is_trench && launch_from_trench && !overcoming_trench)
@@ -544,42 +552,28 @@
 	else
 		// needs to be its own loop for reasons
 		for (var/obj/O in T.contents)
-			var/hitchance = 33 // a light, for example. This was 66%, but that was unusually accurate, thanks BYOND
+			var/hitchance = 0 // a light, for example. This was 66%, but that was unusually accurate, thanks BYOND
 			if (O == original)
-				if (istype(O, /obj/structure/table))
-					if (do_bullet_act(O))
-						bumped = TRUE
-						loc = null
-						qdel(src)
-						return FALSE
-				else if (isstructure(O) && !istype(O, /obj/structure/lamp))
-					hitchance = 50
-				else if (!isitem(O) && isnonstructureobj(O))
+				if (O.density)
 					if (!istype(O, /obj/covers/jail))
 						hitchance = 100
 					else
-						if (firer in range(1,O))
-							hitchance = 0
-						else
-							hitchance = 55
-
-				else if (isitem(O)) // any item
-					var/obj/item/I = O
-					hitchance = 9 * I.w_class // a pistol would be 50%
+						hitchance = 0
+				else if (isitem(O) && !density) // any item
+					hitchance = 0
 				if (prob(hitchance))
-					do_bullet_act(O)
-					bumped = TRUE
-					loc = null
-					qdel(src)
-					return FALSE
-				else
-					if (isitem(O) || (O.density && O.anchored)) // since it was on the ground
+					if (istype(O, /obj/structure))
+						var/obj/structure/S = O
+						if (!S.CanPass(src, original))
+							passthrough = FALSE
+					else
+						do_bullet_act(O)
 						bumped = TRUE
 						loc = null
 						qdel(src)
 						return FALSE
 					O.visible_message("<span class = 'warning'>[src] пролетает над [O]!</span>")
-				break
+					break
 	for (var/atom/movable/AM in T.contents)
 		if (!untouchable.Find(AM))
 			if (isliving(AM) && AM != firer)
@@ -589,9 +583,6 @@
 					var/obj/item/weapon/grab/G = locate() in L
 					if (G && G.state >= GRAB_NECK && G.affecting.stat < UNCONSCIOUS)
 						visible_message("<span class='danger'>[L] использует [G.affecting] в качестве щита!</span>")
-						//if (Bump(G.affecting, forced=1))
-						//	bumped = TRUE // for shrapnel
-						//	return FALSE
 						G.affecting.pre_bullet_act(src)
 						attack_mob(G.affecting)
 						if (!G.affecting.lying)
@@ -603,12 +594,13 @@
 
 						if (L.lying || L.prone)
 							if (firer_dist > 3)
-								hit_chace = 100 / firer_dist * 2.5
+								hit_chace = 100 - (sqrt(firer_dist) * 10)
 
 						// проверка на получение защиты от окопа
 						if (is_trench)
-							if (passed_trenches * 2 <= firer_dist)
-								hit_chace =  100 / firer_dist * 2
+							if (passed_trenches * 2 <= firer_dist && def_zone != "head")
+								hit_chace = 100 - (sqrt(firer_dist) * 15)
+								def_zone = "head"
 								if (L.lying || L.prone)
 									hit_chace = 0
 
@@ -619,7 +611,7 @@
 							passthrough = !attack_mob(L, firer_dist)
 						else
 							visible_message("<span class = 'warning'>[src] пролетает над [AM]!</span>")
-							def_zone = tmp_zone
+						def_zone = tmp_zone
 
 			else if (isobj(AM) && AM != firedfrom)
 				var/obj/O = AM
@@ -658,19 +650,22 @@
 								if (O && !O.gcDestroyed)
 									passthrough = FALSE
 
-	if (!istype(firedfrom, /obj/item/weapon/gun/projectile/automatic/stationary/))
-		for (var/obj/structure/vehicleparts/frame/F in loc)
-			var/penloc = F.get_opposite_wall(F.get_wall_name(direction))
-			if (F.is_ambrasure(penloc) && src.loc == starting)
-				visible_message("<span class = 'warning'>Пуля вылетает из амбразуры</span>")
-			else if (!F.CheckPen(src,penloc))
-				passthrough = FALSE
-				visible_message("<span class = 'warning'>Снаряд не пробивает [penloc] стену!</span>")
-				T.visible_message(passthrough_message)
-				F.bullet_act(src,penloc)
-				bumped = TRUE
-				loc = null
-				qdel(src)
+	for(var/obj/structure/window/barrier/S in T)
+		if (!S.CanPassOut(src))
+			passthrough = FALSE
+
+	for (var/obj/structure/vehicleparts/frame/F in loc)
+		var/penloc = F.get_opposite_wall(F.get_wall_name(direction))
+		if (F.is_ambrasure(penloc) && src.loc == starting)
+			visible_message("<span class = 'warning'>Пуля вылетает из амбразуры</span>")
+		else if (!F.CheckPen(src,penloc))
+			passthrough = FALSE
+			visible_message("<span class = 'warning'>Снаряд не пробивает [penloc] стену!</span>")
+			T.visible_message(passthrough_message)
+			F.bullet_act(src,penloc)
+			bumped = TRUE
+			loc = null
+			qdel(src)
 
 	//penetrating projectiles can pass through things that otherwise would not let them
 	++penetrating
@@ -720,7 +715,6 @@
 		firstmove = TRUE
 
 	angle = get_angle()
-	direction = angle_dir(angle)
 
 	if (src && loc)
 		if (--kill_count < 1)

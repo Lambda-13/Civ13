@@ -16,7 +16,7 @@
 	full_auto = TRUE
 	equiptimer = 12
 	firemodes = list(
-		list(name = "full auto",	burst=1, burst_delay=1.1, recoil=0, move_delay=3, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
+		list(name = "full auto",	burst=1, burst_delay=1.1, recoil=0, move_delay=3),
 		)
 	item_icons = list(
 		slot_l_hand_str = 'lambda/sanecman/icons/mob/space/lefthand_weapons.dmi',
@@ -55,8 +55,8 @@
 	weight = 3.63
 	equiptimer = 14
 	firemodes = list(
-		list(name = "semi auto",	burst=1, burst_delay=0.5, recoil=0, move_delay=1, dispersion = list(0.2, 0.4, 0.4, 0.4, 0.5)),
-		list(name = "full auto",	burst=1, burst_delay=1.2, recoil=0, move_delay=3, dispersion = list(0.7, 1.2, 1.2, 1.3, 1.5)),
+		list(name = "semi auto",	burst=1, burst_delay=0.5, recoil=0, move_delay=1),
+		list(name = "full auto",	burst=1, burst_delay=1.2, recoil=0, move_delay=3),
 		)
 	item_icons = list(
 		slot_l_hand_str = 'lambda/sanecman/icons/mob/space/lefthand_weapons.dmi',
@@ -95,8 +95,8 @@
 	full_auto = TRUE
 	equiptimer = 12
 	firemodes = list(
-		list(name = "semi auto",	burst=1, burst_delay=0.3, recoil=0, move_delay=1, dispersion = list(0.2, 0.4, 0.4, 0.4, 0.5)),
-		list(name = "full auto",	burst=1, burst_delay=0.4, recoil=0, move_delay=3, dispersion = list(0.8, 1.3, 1.3, 1.4, 1.6)),
+		list(name = "semi auto",	burst=1, burst_delay=0.3, recoil=0, move_delay=1),
+		list(name = "full auto",	burst=1, burst_delay=0.4, recoil=0, move_delay=3),
 		)
 	item_icons = list(
 		slot_l_hand_str = 'lambda/sanecman/icons/mob/space/lefthand_weapons.dmi',
@@ -146,8 +146,8 @@
 	equiptimer = 12
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
-		list(name = "semi auto",	burst=1, burst_delay=0.8, move_delay=2, dispersion = list(0.2, 0.1, 0.2, 0.3, 0.1)),
-		list(name = "full auto",	burst=1, burst_delay=1.3, move_delay=4, dispersion = list(1.2, 1.2, 1.3, 1.4, 1.8)),
+		list(name = "semi auto",	burst=1, burst_delay=0.8, move_delay=2),
+		list(name = "full auto",	burst=1, burst_delay=1.3, move_delay=4),
 		)
 	item_icons = list(
 		slot_l_hand_str = 'lambda/sanecman/icons/mob/space/lefthand_weapons.dmi',
@@ -356,7 +356,7 @@
 	magazine_type = /obj/item/ammo_magazine/tibannagas/space_war/lshk
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/space_war/lshk)
 	firemodes = list(
-		list(name = "full auto", burst=2, burst_delay=2, fire_delay=2, dispersion=list(0.8, 0.9, 1.0, 1.2, 1.3), accuracy=list(2))
+		list(name = "full auto", burst=2, burst_delay=2, fire_delay=2, accuracy=list(2))
 		)
 	item_icons = list(
 		slot_l_hand_str = 'lambda/sanecman/icons/mob/space/lefthand_weapons.dmi',
@@ -391,7 +391,7 @@
 	magazine_type = /obj/item/ammo_magazine/tibannagas/space_war/lg42
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/space_war/lg42)
 	firemodes = list(
-		list(name = "full auto", burst=2, burst_delay=2, fire_delay=2, dispersion=list(0.3, 0.4, 0.7, 0.9, 1.2), accuracy=list(2))
+		list(name = "full auto", burst=2, burst_delay=2, fire_delay=2, accuracy=list(2))
 		)
 	item_icons = list(
 		slot_l_hand_str = 'lambda/sanecman/icons/mob/space/lefthand_weapons.dmi',
@@ -433,8 +433,8 @@
 	magazine_type = /obj/item/ammo_magazine/tibannagas/space_war/tibannagas/lascgun
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/space_war/tibannagas/lasgun)
 	firemodes = list(
-		list(name = "semi auto",	burst=1, burst_delay=0.7, recoil=0, move_delay=2, dispersion = list(0.2, 0.4, 0.4, 0.5, 0.6)),
-		list(name = "full auto",	burst=1, burst_delay=1.2, recoil=0, move_delay=4, dispersion = list(1.1, 1.2, 1.3, 1.3, 1.5)),
+		list(name = "semi auto",	burst=1, burst_delay=0.7, recoil=0, move_delay=2),
+		list(name = "full auto",	burst=1, burst_delay=1.2, recoil=0, move_delay=4),
 		)
 	weight = 3.08
 	force = 20

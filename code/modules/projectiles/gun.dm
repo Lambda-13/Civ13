@@ -401,11 +401,14 @@
 
 	var/shot_accuracy = rand(-accuracy, accuracy)
 
-	if (world.time - user.last_movement < 4)
-		shot_accuracy *= 5
-		shot_recoil *= 2
+	var/dt_movement = world.time - user.last_movement
+	if (dt_movement > 0 && dt_movement < 4)
+		shot_accuracy = 0
+		while (abs(shot_accuracy) < 7) // даже боги рандома тебе не помогут попасть сходу
+			shot_accuracy = rand(-25, 25)
+		shot_recoil *= 5 / dt_movement 
 
-	var/shot_dispersion = clamp(shot_recoil + shot_accuracy, -45, 45)
+	var/shot_dispersion = clamp(shot_recoil + shot_accuracy, -30, 30)
 
 	P.dispersion = shot_dispersion
 
