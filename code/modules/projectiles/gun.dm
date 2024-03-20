@@ -404,7 +404,7 @@
 	var/dt_movement = world.time - user.last_movement
 	if (dt_movement > 0 && dt_movement < 4)
 		shot_accuracy = 0
-		while (abs(shot_accuracy) < 7) // даже боги рандома тебе не помогут попасть сходу
+		while (abs(shot_accuracy) < 4) // даже боги рандома тебе не помогут попасть сходу
 			shot_accuracy = rand(-25, 25)
 		shot_recoil *= 5 / dt_movement 
 
