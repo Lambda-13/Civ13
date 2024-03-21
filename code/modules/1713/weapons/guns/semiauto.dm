@@ -78,6 +78,7 @@
 	effectiveness_mod = 1.04
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	scope_mounts = list("kochetov")
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/semiautomatic/svt/update_icon()
 	..()
@@ -112,6 +113,7 @@
 	throwforce = 20
 	effectiveness_mod = 1.05
 	fire_sound = 'sound/weapons/guns/fire/ptrd.ogg'
+	accuracy = 1
 	recoil = 120
 	scope_x_offset = -1
 	scope_mounts = list("kochetov")
@@ -142,6 +144,7 @@
 	throwforce = 20
 	effectiveness_mod = 1.08
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/semiautomatic/remington11
 	name = "Remington 11"
@@ -157,6 +160,7 @@
 	slot_flags = SLOT_SHOULDER
 	weight = 3.85
 	load_delay = 4
+	accuracy = 2
 
 	gun_type = GUN_TYPE_RIFLE
 	force = 10
@@ -191,6 +195,7 @@
 	scope_mounts = list("kochetov", "dovetail")
 	barrel_x_offset = 15
 	scope_y_offset = -1
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/semiautomatic/sks/update_icon()
 	..()
@@ -291,6 +296,7 @@
 	effectiveness_mod = 1.05
 	scope_mounts = list ("swept_back")
 	barrel_x_offset = -1
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/semiautomatic/g43
 	name = "Gewehr 43"
@@ -318,6 +324,7 @@
 	effectiveness_mod = 1.06
 	scope_mounts = list ("swept_back")
 	barrel_x_offset = -1
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/semiautomatic/vg5
 	name = "Volkssturmkarabiner 98"
@@ -352,6 +359,8 @@
 	scope_x_offset = -1
 	scope_y_offset = -1
 
+	accuracy = 3
+
 /obj/item/weapon/gun/projectile/semiautomatic/m1garand
 	name = "M1 Garand"
 	desc = "An American semi-automatic rifle using .30-06 ammunition in a 8 round internal magazine."
@@ -377,6 +386,7 @@
 	throwforce = 20
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	effectiveness_mod = 0.95
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/semiautomatic/m1garand/match //Match grade weapons are built to a higher standard than service grade weapons.
 	name = "M1 Garand Match"
@@ -412,6 +422,7 @@
 	attachment_slots = ATTACH_BARREL|ATTACH_SCOPE|ATTACH_UNDER
 	effectiveness_mod = 1.07
 	recoil = 30
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/semiautomatic/m1carbine
 	name = "M1 Carbine"
@@ -436,6 +447,7 @@
 	throwforce = 20
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_SCOPE
 	effectiveness_mod = 0.98
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/semiautomatic/vintorez
 	name = "VSS Vintorez"
@@ -460,7 +472,7 @@
 	effectiveness_mod = 1.09
 	equiptimer = 8
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER
-	accuracy = 3
+	accuracy = 2
 	scope_mounts = list ("dovetail")
 	scope_x_offset = 2
 	scope_y_offset = -1
@@ -500,6 +512,7 @@
 	equiptimer = 15
 	accuracy_increase_mod = 2.0
 	shake_strength = 2
+	accuracy = 1
 	scope_mounts = list ("picatinny")
 
 /obj/item/weapon/gun/projectile/semiautomatic/barrett/sniper/New()

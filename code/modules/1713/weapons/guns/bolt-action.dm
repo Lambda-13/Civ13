@@ -173,7 +173,7 @@
 	gun_safety = FALSE
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	var/bolt_delay = 2
-	accuracy = 4
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/martini_henry
 	name = "Martini-Henry Rifle"
@@ -197,7 +197,7 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	max_shells = 1
 	load_delay = 7
-	accuracy = 4
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/rollingblock
 	name = "Rolling-Block Rifle"
@@ -230,7 +230,7 @@
 	effectiveness_mod = 0.98
 	ammo_type = /obj/item/ammo_casing/a43
 	magazine_type = /obj/item/ammo_magazine/c43
-	accuracy = 3
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/makeshiftbolt
 	name = "Makeshift Bolt"
@@ -255,7 +255,7 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	max_shells = 1
 	load_delay = 7
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/barrett
 	name = "Barrett M99"
@@ -430,7 +430,7 @@
 	good_mags = list(/obj/item/ammo_magazine/mosin)
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 18
-	accuracy = 3
+	accuracy = 2
 	barrel_x_offset = 16
 	barrel_y_offset = 17
 
@@ -448,6 +448,7 @@
 /obj/item/weapon/gun/projectile/boltaction/mosin/m30/sniper/New()
 	name = "Sniper Mosin 91/30"
 	scope_mounts = list("kochetov")
+	accuracy = 1
 	..()
 	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pu(src)
 	SP.attached(null,src,TRUE)
@@ -476,7 +477,7 @@
 	bolt_close_sound = 'sound/weapons/guns/interact/arisaka_close.ogg'
 	equiptimer = 18
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_UNDER
-	accuracy = 4
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka38
 	name = "Arisaka Type 38"
@@ -608,7 +609,7 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 19
-	accuracy = 5
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/madsenm47
 	name = "Madsen M47"
@@ -633,7 +634,7 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 20
-	accuracy = 5
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/mauser1890
 	name = "Mauser M1890"
@@ -658,7 +659,7 @@
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 15
-	accuracy = 5
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/mauser1893
 	name = "Mauser M1893"
@@ -683,7 +684,7 @@
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 15
-	accuracy = 4
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/mauser1893/mauser1893o
 	name = "Mauser M1893 (Ottoman)"
@@ -717,7 +718,7 @@
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 15
-	accuracy = 4
+	accuracy = 2
 	barrel_x_offset = 15
 
 /obj/item/weapon/gun/projectile/boltaction/vg //for balance reasons this gun wont use the STG mags instead it will use just clips also i dont know how to code in mag usage by bolties
@@ -744,7 +745,7 @@
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 15
-	accuracy = 4
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/mauser1903
 	name = "Mauser M1903"
@@ -756,7 +757,7 @@
 	good_mags = list(/obj/item/ammo_magazine/gewehr71)
 	effectiveness_mod = 0.96
 	equiptimer = 15
-	accuracy = 4
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98a
 	name = "Karabiner 98a"
@@ -767,7 +768,7 @@
 	weight = 3.5
 	effectiveness_mod = 0.97
 	equiptimer = 12
-	accuracy = 4
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98k
 	name = "Karabiner 98k"
@@ -778,7 +779,7 @@
 	weight = 3.7
 	effectiveness_mod = 1.05
 	equiptimer = 12
-	accuracy = 3
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98k/sniper/New()
 	name = "Sniper Karabiner 98k"
@@ -813,7 +814,7 @@
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 12
-	accuracy = 4
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/carcano
 	name = "carcano 1891"
@@ -837,7 +838,7 @@
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 14
-	accuracy = 5
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka35
 	name = "Arisaka Type 35"
@@ -861,7 +862,7 @@
 	good_mags = list(/obj/item/ammo_magazine/arisaka)
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 15
-	accuracy = 4
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/murata
 	name = "Type-22 Murata"
@@ -887,7 +888,7 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	blackpowder = TRUE
 	equiptimer = 17
-	accuracy = 6
+	accuracy = 2
 	/////need to add:
 	///Springfield Model
 	///1861,Pattern
@@ -920,7 +921,7 @@
 	good_mags = list(/obj/item/ammo_magazine/mosin)
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 17
-	accuracy = 4
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/enfield
 	name = "Lee-Enfield Mk. III"
@@ -945,7 +946,7 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	max_shells = 10
 	equiptimer = 15
-	accuracy = 4
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/lebel
 	name = "Lebel 1886/M93"
@@ -970,7 +971,7 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	max_shells = 8
 	equiptimer = 16
-	accuracy = 4
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/lebel/sniper/New()
 	name = "Sniper Lebel 1886/M93"
@@ -1002,7 +1003,7 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	max_shells = 3
 	equiptimer = 13
-	accuracy = 4
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/berthier/m16
 	name = "Berthier M1907/16"
@@ -1042,7 +1043,7 @@
 	value = 60
 	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_SHOULDER
 	equiptimer = 9
-	accuracy = 5
+	accuracy = 4
 	scope_mounts = list("kochetov")
 	barrel_x_offset = 6
 	barrel_y_offset = 8
