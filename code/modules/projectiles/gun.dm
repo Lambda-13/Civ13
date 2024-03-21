@@ -394,7 +394,7 @@
 
 	var/dt = world.time - last_shot_time
 
-	var/shot_recoil = next_shot_recoil / (dt * ergonomics)
+	var/shot_recoil = next_shot_recoil / (dt * ergonomics * 1.5)
 
 	if(user.lying || user.prone)
 		shot_recoil /= 2.5
