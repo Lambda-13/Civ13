@@ -394,6 +394,29 @@
 	<br>
 	"},  "window=artillery_window;border=1;can_close=1;can_resize=1;can_minimize=0;titlebar=1;size=400x400")
 
+/obj/structure/turret/bt7
+	turret_color = "#5c784f"
+	turret_icon = "bt7_turret"
+	name = "BT-7"
+
+	turret_x = -16
+	turret_y = 0
+
+	gunner_x = 9
+	gunner_y = -2
+
+	loader_x = -9
+	loader_y = -2
+
+	New()
+		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
+		gunner_seat.setup(src)
+		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
+		loader_seat.setup(src)
+		weapons.Add(new/obj/structure/cannon/modern/tank/russian76(src))
+		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/dp28/dt28(src))
+		..()
+
 /obj/structure/turret/t34
 	turret_color = "#3d5931"
 	turret_icon = "t34_turret"
@@ -762,7 +785,7 @@
 		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
 		commander_seat.setup(src)
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/stationary/autocannon/shipunov(src))
-		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/stationary/modern/pkm(src))
+		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/pkm(src))
 		..()
 
 /obj/structure/turret/btr80
@@ -776,21 +799,16 @@
 	turret_x = 16
 	turret_y = 0
 
-	gunner_x = 4
-	gunner_y = 0
-
-	commander_x = -4
-	commander_y = 0
+	gunner_x = 0
+	gunner_y = 4
 
 	rotation_speed = 0.4
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
 		gunner_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/stationary/autocannon/shipunov2a72(src))
-		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/stationary/modern/pkm(src))
+		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/pkm(src))
 		..()
 
 /obj/structure/turret/mtlb
@@ -812,7 +830,7 @@
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner/mtlb(src.loc)
 		gunner_seat.setup(src)
-		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/stationary/modern/pkm(src))
+		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/pkm(src))
 		..()
 
 /obj/structure/turret/pziv
@@ -1031,9 +1049,9 @@
 	gunner_y = -16
 
 	loader_x = 16
-	loader_y = 16
+	loader_y = 10
 
-	commander_x = -16
+	commander_x = -10
 	commander_y = 16
 
 	rotation_speed = 0.4

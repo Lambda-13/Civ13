@@ -367,7 +367,7 @@
 	if(distance <= 3)
 		hitchance = 100
 
-	if (prob(hitchance) * 3)
+	if (prob(hitchance) * 4)
 		hit_zone = def_zone
 	else
 		for(var/part in redirection_parts)
@@ -594,12 +594,12 @@
 
 						if (L.lying || L.prone)
 							if (firer_dist > 3)
-								hit_chace = 100 - (sqrt(firer_dist) * 10)
+								hit_chace = 100 - (sqrt(firer_dist) * 15)
 
 						// проверка на получение защиты от окопа
 						if (is_trench)
-							if (passed_trenches * 2 <= firer_dist && def_zone != "head")
-								hit_chace = 100 - (sqrt(firer_dist) * 15)
+							if (passed_trenches * 2 <= firer_dist)
+								hit_chace = 100 - (sqrt(firer_dist) * 10)
 								def_zone = "head"
 								if (L.lying || L.prone)
 									hit_chace = 0
