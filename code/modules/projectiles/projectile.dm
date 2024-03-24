@@ -364,7 +364,7 @@
 	var/hit_zone = null
 	var/hitchance = target_mob.body_part_size[def_zone]
 
-	var/distance_modifier = 6 / sqrt(distance)
+	var/distance_modifier = 10 / sqrt(distance)
 
 	if(distance <= 3)
 		hitchance = 100
