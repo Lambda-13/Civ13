@@ -39,7 +39,6 @@
 	ammo_type = /obj/item/ammo_casing/c8mmnambu
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 0.94
 	good_mags = list(/obj/item/ammo_magazine/c8mmnambu, /obj/item/ammo_magazine/c8mmnambu/empty)
 	bad_magazine_types = list(/obj/item/weapon/gun/projectile/submachinegun/type100)
 /obj/item/weapon/gun/projectile/pistol/nambu/update_icon()
@@ -62,9 +61,9 @@
 	ammo_type = /obj/item/ammo_casing/c8mmnambu
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 0.94
 	good_mags = list(/obj/item/ammo_magazine/c8mmnambu, /obj/item/ammo_magazine/c8mmnambu/empty)
 	bad_magazine_types = list(/obj/item/weapon/gun/projectile/submachinegun/type100)
+
 /obj/item/weapon/gun/projectile/pistol/ww2/nambu/update_icon()
 	..()
 	if (ammo_magazine)
@@ -85,7 +84,6 @@
 	ammo_type = /obj/item/ammo_casing/a9x19
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 0.96
 	good_mags = list(/obj/item/ammo_magazine/luger, /obj/item/ammo_magazine/luger/empty)
 	bad_magazine_types = list(/obj/item/ammo_magazine/mp40)
 /obj/item/weapon/gun/projectile/pistol/luger/update_icon()
@@ -108,7 +106,6 @@
 	ammo_type = /obj/item/ammo_casing/a9x19
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 0.96
 	good_mags = list(/obj/item/ammo_magazine/walther)
 	bad_magazine_types = list(/obj/item/ammo_magazine/mp40)
 
@@ -141,7 +138,6 @@
 	good_mags = list(/obj/item/ammo_magazine/glock17)
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 0.9
 	accuracy = 4
 
 /obj/item/weapon/gun/projectile/pistol/glock17/standardized
@@ -178,7 +174,7 @@
 	good_mags = list(/obj/item/ammo_magazine/sig250)
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 0.99
+
 /obj/item/weapon/gun/projectile/pistol/sig250/update_icon()
 	..()
 	if (ammo_magazine)
@@ -202,7 +198,6 @@
 	ammo_type = /obj/item/ammo_casing/a9x19
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 0.15
 
 /obj/item/weapon/gun/projectile/pistol/pl14/update_icon()
 	..()
@@ -227,7 +222,6 @@
 	ammo_type = /obj/item/ammo_casing/a9x19
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 1.05
 /obj/item/weapon/gun/projectile/pistol/mp443/update_icon()
 	..()
 	if (ammo_magazine)
@@ -251,7 +245,7 @@
 	ammo_type = /obj/item/ammo_casing/a9x19
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 0.95
+
 /obj/item/weapon/gun/projectile/pistol/tarus/update_icon()
 	..()
 	if (ammo_magazine)
@@ -275,7 +269,6 @@
 	ammo_type = /obj/item/ammo_casing/a45
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 1.40
 
 /obj/item/weapon/gun/projectile/pistol/p220/update_icon()
 	..()
@@ -306,7 +299,6 @@
 	ammo_type = /obj/item/ammo_casing/a9x19
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 1.6
 /obj/item/weapon/gun/projectile/pistol/iogb7/update_icon()
 	..()
 	if (ammo_magazine)
@@ -330,7 +322,6 @@
 	damage_modifier = 0.98
 	load_method = SINGLE_CASING | SPEEDLOADER
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 0.95
 /obj/item/weapon/gun/projectile/pistol/mauser/update_icon()
 	..()
 	if (ammo_magazine)
@@ -352,7 +343,6 @@
 	ammo_type = /obj/item/ammo_casing/a765x25
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 0.93
 /obj/item/weapon/gun/projectile/pistol/borchardt/update_icon()
 	..()
 	if (ammo_magazine)
@@ -375,7 +365,6 @@
 	ammo_type = /obj/item/ammo_casing/a32acp
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 0.95
 	pocket = TRUE
 	accuracy = 4
 
@@ -400,7 +389,6 @@
 	ammo_type = /obj/item/ammo_casing/a380acp
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 0.9
 
 /obj/item/weapon/gun/projectile/pistol/bergmann
 	name = "Bergmann No.2"
@@ -415,7 +403,6 @@
 	ammo_type = /obj/item/ammo_casing/c8mmnambu
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 0.9
 	accuracy = 4
 
 /obj/item/weapon/gun/projectile/pistol/bergmann/update_icon()
@@ -439,7 +426,6 @@
 	ammo_type = /obj/item/ammo_casing/a45acp
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 1.02
 	bad_magazine_types = list(/obj/item/ammo_magazine/thompson)
 	accuracy = 3
 
@@ -464,7 +450,6 @@
 	ammo_type = /obj/item/ammo_casing/a45acp
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 1.02
 	accuracy = 3
 
 /obj/item/weapon/gun/projectile/pistol/blackm1911/update_icon()
@@ -495,7 +480,6 @@
 	ammo_type = /obj/item/ammo_casing/a762x25
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 0.98
 	bad_magazine_types = list(/obj/item/ammo_magazine/c762x25_ppsh, /obj/item/ammo_magazine/c762x25_pps)
 	accuracy = 4
 
@@ -532,7 +516,6 @@
 	ammo_type = /obj/item/ammo_casing/a9x18
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 0.98
 	bad_magazine_types = list(/obj/item/ammo_magazine/c762x25_ppsh, /obj/item/ammo_magazine/c762x25_pps)
 
 /obj/item/weapon/gun/projectile/pistol/makarov/update_icon()
@@ -562,7 +545,6 @@
 	ammo_type = /obj/item/ammo_casing/a9x18
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 1.02
 	bad_magazine_types = list(/obj/item/ammo_magazine/makarov)
 	recoil = 30
 	accuracy = 2
@@ -580,7 +562,6 @@
 	ammo_type = /obj/item/ammo_casing/a9x19
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 1.10
 	accuracy = 1
 
 /obj/item/weapon/gun/projectile/pistol/m9beretta/update_icon()
@@ -610,7 +591,6 @@
 	ammo_type = /obj/item/ammo_casing/a9x19
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 1.12
 	accuracy = 2
 
 /obj/item/weapon/gun/projectile/pistol/m9beretta/tan/update_icon()
@@ -633,7 +613,6 @@
 	ammo_type = /obj/item/ammo_casing/a9x19
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 1.12
 	accuracy = 2
 
 /obj/item/weapon/gun/projectile/pistol/jericho941/update_icon()
@@ -656,7 +635,6 @@
 	ammo_type = /obj/item/ammo_casing/a50cal
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 1.02
 	accuracy = 3
 	bad_magazine_types = list(/obj/item/ammo_magazine/thompson)
 
@@ -681,7 +659,6 @@
 	ammo_type = /obj/item/ammo_casing/a44magnum
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 1.02
 	bad_magazine_types = list(/obj/item/ammo_magazine/thompson)
 	accuracy = 3
 
@@ -706,7 +683,6 @@
 	ammo_type = /obj/item/ammo_casing/a9x19
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 1.02
 	bad_magazine_types = list(/obj/item/ammo_magazine/thompson)
 	accuracy = 3
 
@@ -731,7 +707,6 @@
 	ammo_type = /obj/item/ammo_casing/a45acp
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 1.12
 	bad_magazine_types = list(/obj/item/ammo_magazine/thompson)
 	accuracy = 2
 

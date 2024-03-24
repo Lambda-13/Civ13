@@ -57,7 +57,6 @@
 		list(name = "full auto", burst=1, burst_delay=1.3),
 		)
 	sel_mode = 1
-	effectiveness_mod = 1.40
 	accuracy = 1
 	recoil = 20
 	scope_mounts = list ("picatinny")
@@ -89,7 +88,6 @@
 		list(name = "full auto",	burst=1, burst_delay=0.8),
 		)
 	sel_mode = 1
-	effectiveness_mod = 1.40
 	accuracy = 1
 	recoil = 20
 	scope_x_offset = -1

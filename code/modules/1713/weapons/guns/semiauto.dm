@@ -75,7 +75,6 @@
 	gun_type = GUN_TYPE_RIFLE
 	force = 10
 	throwforce = 20
-	effectiveness_mod = 1.04
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	scope_mounts = list("kochetov")
 	accuracy = 2
@@ -111,7 +110,6 @@
 	gun_type = GUN_TYPE_RIFLE
 	force = 10
 	throwforce = 20
-	effectiveness_mod = 1.05
 	fire_sound = 'sound/weapons/guns/fire/ptrd.ogg'
 	accuracy = 1
 	recoil = 120
@@ -142,7 +140,6 @@
 	gun_type = GUN_TYPE_RIFLE
 	force = 10
 	throwforce = 20
-	effectiveness_mod = 1.08
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	accuracy = 3
 
@@ -165,7 +162,6 @@
 	gun_type = GUN_TYPE_RIFLE
 	force = 10
 	throwforce = 20
-	effectiveness_mod = 1.80
 
 /obj/item/weapon/gun/projectile/semiautomatic/sks
 	name = "SKS"
@@ -190,7 +186,6 @@
 	gun_type = GUN_TYPE_RIFLE
 	force = 10
 	throwforce = 20
-	effectiveness_mod = 1.05
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	scope_mounts = list("kochetov", "dovetail")
 	barrel_x_offset = 15
@@ -217,7 +212,6 @@
 	item_state = "sks"
 	base_icon = "sksm"
 	weight = 3.8
-	effectiveness_mod = 1.06
 	max_shells = 0
 	magazine_type = /obj/item/ammo_magazine/sksm
 	good_mags = list(/obj/item/ammo_magazine/sks, /obj/item/ammo_magazine/sksm, /obj/item/ammo_magazine/rpk47, /obj/item/ammo_magazine/rpk47/drum, /obj/item/ammo_magazine/ak47, /obj/item/ammo_magazine/ak47/makeshift)
@@ -247,7 +241,6 @@
 	gun_type = GUN_TYPE_RIFLE
 	force = 10
 	throwforce = 20
-	effectiveness_mod = 1.03
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	accuracy = 1
 	scope_mounts = list ("dovetail")
@@ -293,7 +286,6 @@
 	force = 10
 	throwforce = 20
 	attachment_slots = ATTACH_SCOPE|ATTACH_IRONSIGHTS|ATTACH_BARREL
-	effectiveness_mod = 1.05
 	scope_mounts = list ("swept_back")
 	barrel_x_offset = -1
 	accuracy = 2
@@ -321,7 +313,6 @@
 	force = 10
 	throwforce = 20
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
-	effectiveness_mod = 1.06
 	scope_mounts = list ("swept_back")
 	barrel_x_offset = -1
 	accuracy = 2
@@ -350,7 +341,6 @@
 	force = 15
 	throwforce = 20
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
-	effectiveness_mod = 0.94
 	equiptimer = 16
 	mag_x_offset = -2
 
@@ -385,7 +375,6 @@
 	force = 10
 	throwforce = 20
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
-	effectiveness_mod = 0.95
 	accuracy = 2
 
 /obj/item/weapon/gun/projectile/semiautomatic/m1garand/match //Match grade weapons are built to a higher standard than service grade weapons.
@@ -395,7 +384,6 @@
 	weight = 4.8
 	force = 15
 	throwforce = 25
-	effectiveness_mod = 1.05
 
 /obj/item/weapon/gun/projectile/semiautomatic/ar15
 	name = "Bushmaster XM-15"
@@ -420,7 +408,6 @@
 	force = 10
 	throwforce = 20
 	attachment_slots = ATTACH_BARREL|ATTACH_SCOPE|ATTACH_UNDER
-	effectiveness_mod = 1.07
 	recoil = 30
 	accuracy = 3
 
@@ -446,7 +433,6 @@
 	force = 10
 	throwforce = 20
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_SCOPE
-	effectiveness_mod = 0.98
 	accuracy = 2
 
 /obj/item/weapon/gun/projectile/semiautomatic/vintorez
@@ -469,7 +455,6 @@
 		list(name = "single shot",burst=1, fire_delay=2)
 		)
 	gun_type = GUN_TYPE_RIFLE
-	effectiveness_mod = 1.09
 	equiptimer = 8
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER
 	accuracy = 2
@@ -508,7 +493,6 @@
 		list(name = "single shot",burst=1, fire_delay=25)
 		)
 	gun_type = GUN_TYPE_RIFLE
-	effectiveness_mod = 2.0
 	equiptimer = 15
 	accuracy_increase_mod = 2.0
 	shake_strength = 2
@@ -547,7 +531,6 @@
 	unload_sound = 'sound/weapons/guns/interact/barrett_magout.ogg'
 	fire_sound = 'sound/weapons/guns/fire/ptrd.ogg'
 	accuracy_increase_mod = 2.00
-	effectiveness_mod = 1.3
 	fire_delay = 5
 	equiptimer = 12
 	gun_safety = FALSE

@@ -158,7 +158,6 @@
 	force = 12
 	caliber = "a4570"
 	weight = 4.5
-	effectiveness_mod = 0.99
 	bolt_safety = FALSE
 	value = 80
 	shake_strength = 0
@@ -184,7 +183,6 @@
 	force = 13
 	caliber = "a577"
 	weight = 5
-	effectiveness_mod = 0.98
 	bolt_safety = FALSE
 	value = 90
 	shake_strength = 0
@@ -208,7 +206,6 @@
 	force = 13
 	caliber = "a4570"
 	weight = 5
-	effectiveness_mod = 1.02
 	bolt_safety = FALSE
 	value = 90
 	shake_strength = 0
@@ -227,7 +224,6 @@
 	name = "Rolling-Block Rifle"
 	desc = "A single-shot, rolling block rifle, with a long range. This Spanish one uses .43 cartridges."
 	caliber = "a43"
-	effectiveness_mod = 0.98
 	ammo_type = /obj/item/ammo_casing/a43
 	magazine_type = /obj/item/ammo_magazine/c43
 	accuracy = 2
@@ -241,7 +237,6 @@
 	force = 13
 	caliber = "a762x54"
 	weight = 5
-	effectiveness_mod = 0.98
 	bolt_safety = FALSE
 	value = 90
 	shake_strength = 0
@@ -272,7 +267,6 @@
 	slot_flags = null
 	caliber = "a50cal"
 	weight = 14.8
-	effectiveness_mod = 2.0
 	shake_strength = 3
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING
@@ -417,7 +411,6 @@
 	force = 12
 	caliber = "a762x54"
 	weight = 4.3
-	effectiveness_mod = 0.96
 	bolt_safety = FALSE
 	value = 100
 	shake_strength = 0
@@ -441,7 +434,6 @@
 	item_state ="mosin30"
 	base_icon = "mosin30"
 	weight = 4
-	effectiveness_mod = 1.02
 	equiptimer = 15
 	accuracy = 2
 
@@ -464,7 +456,6 @@
 	ammo_type = /obj/item/ammo_casing/a65x50
 	magazine_type = /obj/item/ammo_magazine/arisaka
 	good_mags = list(/obj/item/ammo_magazine/arisaka)
-	effectiveness_mod = 0.95
 	value = 100
 	slot_flags = SLOT_SHOULDER
 	shake_strength = 0
@@ -490,7 +481,6 @@
 	magazine_type = /obj/item/ammo_magazine/arisaka
 	good_mags = list(/obj/item/ammo_magazine/arisaka)
 	bolt_safety = FALSE
-	effectiveness_mod = 1.05
 	value = 100
 	slot_flags = SLOT_SHOULDER
 	shake_strength = 0
@@ -524,7 +514,6 @@
 	ammo_type = /obj/item/ammo_casing/a77x58
 	weight = 3.8
 	bolt_safety = FALSE
-	effectiveness_mod = 1.05
 	value = 100
 	slot_flags = SLOT_SHOULDER
 	magazine_type = /obj/item/ammo_magazine/arisaka99
@@ -545,7 +534,6 @@
 /obj/item/weapon/gun/projectile/boltaction/arisaka99/sniper
 	name = "Arisaka Type 99"
 	desc = "Japanese bolt-action rifle chambered in 7.7x58mm Arisaka ammunition."
-	effectiveness_mod = 1.06
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL|ATTACH_UNDER
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka99/sniper/New()
@@ -572,7 +560,6 @@
 	ammo_type = /obj/item/ammo_casing/a77x58_wood
 	magazine_type = /obj/item/ammo_magazine/arisaka99_training
 	good_mags = list(/obj/item/ammo_magazine/arisaka99, /obj/item/ammo_magazine/arisaka99_training)
-	effectiveness_mod = 1.05
 	value = 100
 	slot_flags = SLOT_SHOULDER
 	shake_strength = 0
@@ -598,7 +585,6 @@
 	ammo_type = /obj/item/ammo_casing/a765x53
 	magazine_type = /obj/item/ammo_magazine/gewehr71
 	good_mags = list(/obj/item/ammo_magazine/gewehr71)
-	effectiveness_mod = 0.85
 	value = 90
 	slot_flags = SLOT_SHOULDER
 	shake_strength = 0
@@ -623,7 +609,6 @@
 	magazine_type = /obj/item/ammo_magazine/gewehr71
 	good_mags = list(/obj/item/ammo_magazine/gewehr71)
 	bolt_safety = FALSE
-	effectiveness_mod = 0.85
 	value = 90
 	slot_flags = SLOT_SHOULDER
 	shake_strength = 0
@@ -649,7 +634,6 @@
 	magazine_type = /obj/item/ammo_magazine/gewehr71
 	good_mags = list(/obj/item/ammo_magazine/gewehr71)
 	bolt_safety = FALSE
-	effectiveness_mod = 0.89
 	value = 100
 	slot_flags = SLOT_SHOULDER
 	shake_strength = 0
@@ -674,7 +658,6 @@
 	magazine_type = /obj/item/ammo_magazine/mauser1893
 	good_mags = list(/obj/item/ammo_magazine/mauser1893)
 	bolt_safety = FALSE
-	effectiveness_mod = 0.91
 	value = 100
 	slot_flags = SLOT_SHOULDER
 	shake_strength = 0
@@ -708,7 +691,6 @@
 	magazine_type = /obj/item/ammo_magazine/gewehr98
 	good_mags = list(/obj/item/ammo_magazine/gewehr98)
 	bolt_safety = FALSE
-	effectiveness_mod = 0.95
 	value = 100
 	slot_flags = SLOT_SHOULDER
 	shake_strength = 0
@@ -734,7 +716,6 @@
 	magazine_type = /obj/item/ammo_magazine/vgclip
 	good_mags = list(/obj/item/ammo_magazine/vgclip)
 	bolt_safety = FALSE
-	effectiveness_mod = 0.92
 	value = 100
 	slot_flags = SLOT_SHOULDER
 	shake_strength = 0
@@ -755,7 +736,6 @@
 	ammo_type = /obj/item/ammo_casing/a765x53
 	magazine_type = /obj/item/ammo_magazine/gewehr71
 	good_mags = list(/obj/item/ammo_magazine/gewehr71)
-	effectiveness_mod = 0.96
 	equiptimer = 15
 	accuracy = 2
 
@@ -766,7 +746,6 @@
 	item_state = "kar98k"
 	base_icon = "kar98a"
 	weight = 3.5
-	effectiveness_mod = 0.97
 	equiptimer = 12
 	accuracy = 2
 
@@ -777,7 +756,6 @@
 	item_state = "kar98k"
 	base_icon = "kar98k"
 	weight = 3.7
-	effectiveness_mod = 1.05
 	equiptimer = 12
 	accuracy = 2
 
@@ -808,7 +786,6 @@
 	ammo_type = /obj/item/ammo_casing/a303
 	magazine_type = /obj/item/ammo_magazine/enfield
 	good_mags = list(/obj/item/ammo_magazine/enfield)
-	effectiveness_mod = 0.97
 	slot_flags = SLOT_SHOULDER
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING | SPEEDLOADER
@@ -828,7 +805,6 @@
 	magazine_type = /obj/item/ammo_magazine/carcano
 	good_mags = list(/obj/item/ammo_magazine/carcano)
 	bolt_safety = FALSE
-	effectiveness_mod = 0.85
 	value = 100
 	slot_flags = SLOT_SHOULDER
 	shake_strength = 0
@@ -850,7 +826,6 @@
 	weight = 3.8
 	ammo_type = /obj/item/ammo_casing/a65x50
 	bolt_safety = FALSE
-	effectiveness_mod = 0.98
 	value = 120
 	slot_flags = SLOT_SHOULDER
 	shake_strength = 0
@@ -874,7 +849,6 @@
 	weight = 3.8
 	ammo_type = /obj/item/ammo_casing/a8x53
 	bolt_safety = FALSE
-	effectiveness_mod = 0.75
 	value = 120
 	slot_flags = SLOT_SHOULDER
 	shake_strength = 0
@@ -908,7 +882,6 @@
 	force = 12
 	caliber = "a762x54"
 	weight = 4.0
-	effectiveness_mod = 0.96
 	bolt_safety = FALSE
 	value = 100
 	shake_strength = 0
@@ -932,7 +905,6 @@
 	force = 12
 	caliber = "a303"
 	weight = 4.5
-	effectiveness_mod = 0.99
 	bolt_safety = FALSE
 	value = 80
 	shake_strength = 0
@@ -957,7 +929,6 @@
 	force = 12
 	caliber = "a8x50"
 	weight = 4.4
-	effectiveness_mod = 0.97
 	bolt_safety = FALSE
 	value = 80
 	shake_strength = 0
@@ -989,7 +960,6 @@
 	force = 12
 	caliber = "a8x50"
 	weight = 3
-	effectiveness_mod = 0.94
 	bolt_safety = FALSE
 	value = 80
 	shake_strength = 0
@@ -1039,7 +1009,6 @@
 	damage_modifier = 0.8
 	weight = 1.4
 	w_class = ITEM_SIZE_SMALL
-	effectiveness_mod = 0.77
 	value = 60
 	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_SHOULDER
 	equiptimer = 9
@@ -1061,7 +1030,6 @@
 	magazine_type = /obj/item/ammo_magazine/m24
 	good_mags = list(/obj/item/ammo_magazine/m24)
 	bolt_safety = FALSE
-	effectiveness_mod = 1.15
 	value = 130
 	slot_flags = SLOT_SHOULDER
 	shake_strength = 0
@@ -1089,7 +1057,6 @@
 	force = 12
 	caliber = "a3006"
 	weight = 4.5
-	effectiveness_mod = 1.2
 	bolt_safety = FALSE
 	value = 80
 	shake_strength = 0

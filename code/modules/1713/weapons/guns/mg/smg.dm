@@ -126,7 +126,6 @@
 	throwforce = 30
 	weight = 3.5
 	equiptimer = 15
-	effectiveness_mod = 1.46
 	fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
 	firemodes = list(
 		list(name = "semi auto",    burst=1, burst_delay=0.7),
@@ -145,7 +144,6 @@
 	magazine_type = /obj/item/ammo_magazine/saiga12
 	weight = 3.5
 	equiptimer = 11
-	effectiveness_mod = 1.46
 	caliber = "12gauge"
 	slot_flags = SLOT_SHOULDER
 	handle_casings = EJECT_CASINGS
@@ -203,7 +201,6 @@
 		)
 
 	sel_mode = 1
-	effectiveness_mod = 1.05
 	recoil = 25
 	accuracy = 4
 
@@ -218,7 +215,6 @@
 		)
 
 	sel_mode = 1
-	effectiveness_mod = 0.95
 	recoil = 30
 	accuracy = 4
 
@@ -240,7 +236,6 @@
 		)
 
 	sel_mode = 1
-	effectiveness_mod = 1.01
 	recoil = 25
 	accuracy = 3
 
@@ -256,7 +251,6 @@
 		list(name = "full auto",    burst=1.2, burst_delay=1.4),
 		)
 	sel_mode = 1
-	effectiveness_mod = 0.90
 	recoil = 25
 	accuracy = 4
 
@@ -283,7 +277,6 @@
 		list(name = "full auto",	burst=1, burst_delay=1),
 		)
 	sel_mode = 1
-	effectiveness_mod = 1.2
 	recoil = 20
 	accuracy = 3
 	scope_mounts = list ("picatinny")
@@ -306,7 +299,6 @@
 		list(name = "full auto",	burst=1, burst_delay=0.4),
 		)
 	sel_mode = 1
-	effectiveness_mod = 0.95
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE
 
 	recoil = 40
@@ -337,7 +329,6 @@
 		list(name = "full auto",	burst=1, burst_delay=0.9),
 		)
 	sel_mode = 1
-	effectiveness_mod = 1.05
 	one_handed = TRUE
 	recoil = 35
 	accuracy = 3
@@ -359,7 +350,6 @@
 		list(name = "full auto",	burst=1, burst_delay=0.5),
 		)
 	sel_mode = 1
-	effectiveness_mod = 0.9
 	one_handed = TRUE
 	recoil = 30
 	accuracy = 4
@@ -382,7 +372,6 @@
 		list(name = "semi auto",	burst=1, burst_delay=0.2),
 		list(name = "full auto",	burst=1, burst_delay=0.3),
 		)
-	effectiveness_mod = 0.8
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS
 	one_handed = TRUE
@@ -406,7 +395,6 @@
 		list(name = "full auto",	burst=1, burst_delay=0.8),
 		)
 	sel_mode = 1
-	effectiveness_mod = 0.95
 	one_handed = TRUE
 	recoil = 30
 	accuracy = 4
@@ -432,7 +420,6 @@
 	accuracy = 10 // дай бог ты попадешь хоть одной пулей
 
 	sel_mode = 1
-	effectiveness_mod = 1.05
 	recoil = 25
 	accuracy = 5
 
@@ -455,7 +442,6 @@
 		)
 
 	sel_mode = 1
-	effectiveness_mod = 1.06
 	recoil = 25
 	accuracy = 3
 
@@ -478,7 +464,6 @@
 		)
 
 	sel_mode = 1
-	effectiveness_mod = 1.04
 	recoil = 35
 	accuracy = 3
 
@@ -502,7 +487,6 @@
 		)
 
 	sel_mode = 1
-	effectiveness_mod = 0.85
 	recoil = 25
 	accuracy = 5
 
@@ -515,7 +499,6 @@
 	weight = 3.1
 	attachment_slots = ATTACH_BARREL|ATTACH_UNDER
 	equiptimer = 6
-	effectiveness_mod = 0.98
 	recoil = 25
 	accuracy = 4
 
@@ -588,7 +571,6 @@
 	good_mags = list(/obj/item/ammo_magazine/c762x25_ppsh, /obj/item/ammo_magazine/c762x25_pps)
 	weight = 3.7
 	equiptimer = 15
-	effectiveness_mod = 0.84
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.5),
 		list(name = "full auto",	burst=1, burst_delay=1.3),
@@ -622,7 +604,6 @@
 		list(name = "full auto",	burst=1, burst_delay=1.3),
 		)
 	stat = "rifle"
-	effectiveness_mod = 1
 	sel_mode = 1
 	attachment_slots = ATTACH_UNDER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	recoil = 40
@@ -707,7 +688,6 @@
 		list(name = "semi auto",	burst=1, burst_delay=0.7),
 		list(name = "full auto",	burst=1, burst_delay=1.5),
 		)
-	effectiveness_mod = 1.07
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_SCOPE|ATTACH_UNDER
 	recoil = 30
@@ -738,7 +718,6 @@
 	base_icon = "aks74"
 	var/folded = FALSE
 	weight = 2.95
-	effectiveness_mod = 1.05
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/update_icon()
 	..()
@@ -783,7 +762,6 @@
 	base_icon = "aks74u"
 	folded = FALSE
 	weight = 2.7
-	effectiveness_mod = 1.02
 	damage_modifier = 0.95
 	equiptimer = 12
 	recoil = 40
@@ -838,7 +816,6 @@
 	base_icon = "aks74uso"
 	folded = FALSE
 	weight = 2.65
-	effectiveness_mod = 1.02
 	damage_modifier = 0.95
 	equiptimer = 12
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER|ATTACH_BARREL
@@ -855,7 +832,6 @@
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/aks74u/aks74uso/kgb
 	folded = TRUE
 	weight = 2.6
-	effectiveness_mod = 1.07
 	damage_modifier = 0.98
 	equiptimer = 10
 	recoil = 30
@@ -915,7 +891,6 @@
 		list(name = "semi auto",	burst=1, burst_delay=0.1),
 		list(name = "full auto",	burst=1, burst_delay=1.2),
 	)
-	effectiveness_mod = 1.08
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_SCOPE|ATTACH_UNDER
 	stat = "rifle"
@@ -936,7 +911,6 @@
 	base_icon = "ak12"
 	caliber = "a545x39"
 	weight = 3.05
-	effectiveness_mod = 1.13
 	magazine_type = /obj/item/ammo_magazine/ak74
 	good_mags = list(/obj/item/ammo_magazine/rpk74, /obj/item/ammo_magazine/rpk74/drum, /obj/item/ammo_magazine/ak74, /obj/item/ammo_magazine/ak74/ak74m)
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER|ATTACH_BARREL
@@ -956,7 +930,6 @@
 	base_icon = "ak12"
 	caliber = "a762x39"
 	weight = 3.07
-	effectiveness_mod = 1.13
 	fire_sound = 'sound/weapons/guns/fire/AKM.ogg'
 	magazine_type = /obj/item/ammo_magazine/ak47
 	good_mags = list(/obj/item/ammo_magazine/rpk47, /obj/item/ammo_magazine/rpk47/drum, /obj/item/ammo_magazine/ak47, /obj/item/ammo_magazine/ak47/makeshift)
@@ -984,7 +957,6 @@
 		list(name = "semi auto",	burst=1, burst_delay=0.3),
 		list(name = "full auto",	burst=1, burst_delay=1.1),
 	)
-	effectiveness_mod = 1.07
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_SCOPE
 	recoil = 30
@@ -1033,7 +1005,6 @@
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.5),
 	)
-	effectiveness_mod = 1.03
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	recoil = 40
@@ -1060,7 +1031,6 @@
 		list(name = "semi auto",	burst=1, burst_delay=0.3),
 		list(name = "full auto",	burst=1, burst_delay=1.1),
 	)
-	effectiveness_mod = 1.08
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_SCOPE|ATTACH_UNDER
 	barrel_x_offset = 13
@@ -1174,11 +1144,13 @@
 		list(name = "semi auto",	burst=1, burst_delay=0.6),
 		list(name = "full auto",	burst=1, burst_delay=1.2),
 	)
-	effectiveness_mod = 1.07
 	sel_mode = 1
 	recoil = 40
 	accuracy = 3
-
+	scope_x_offset = 0
+	scope_y_offset = -2
+	barrel_x_offset = 14
+	barrel_y_offset = 16
 	accuracy_increase_mod = 2.00
 	accuracy_decrease_mod = 6.00
 	scope_mounts = list ("picatinny")
@@ -1191,8 +1163,7 @@
 /obj/item/weapon/gun/projectile/submachinegun/m14/sniper/m21
 	name = "M21 SWS"
 	desc = "An American sniper rifle, chambered in 7.62x51mm."
-	effectiveness_mod = 1.12
-	sel_mode = 0
+	sel_mode = 1
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.6),
 		)
@@ -1218,7 +1189,6 @@
 		list(name = "semi auto",	burst=1, burst_delay=0.9),
 		list(name = "full auto",	burst=1, burst_delay=1.2),
 	)
-	effectiveness_mod = 1.03
 	sel_mode = 1
 	recoil = 50
 	accuracy = 3
@@ -1245,7 +1215,6 @@
 		list(name = "semi auto",	burst=1, burst_delay=0.9),
 		list(name = "full auto",	burst=1, burst_delay=1.2),
 	)
-	effectiveness_mod = 1.07
 	sel_mode = 1
 	recoil = 45
 	accuracy = 3
@@ -1270,7 +1239,6 @@
 		list(name = "semi auto",	burst=1, burst_delay=0.2),
 		list(name = "full auto",	burst=1, burst_delay=1.3),
 	)
-	effectiveness_mod = 1.08
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER|ATTACH_BARREL
 	recoil = 35
@@ -1297,13 +1265,11 @@
 	good_mags = list(/obj/item/ammo_magazine/scarh)
 	weight = 3.5
 	equiptimer = 11
-	effectiveness_mod = 1.05
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.2),
 		list(name = "full auto",	burst=1, burst_delay=1.2),
 	)
-	effectiveness_mod = 1.06
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER|ATTACH_BARREL
 	recoil = 45
@@ -1327,14 +1293,12 @@
 	shake_strength = 1
 	weight = 3.5
 	equiptimer = 11
-	effectiveness_mod = 1.46
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.6),
 		list(name = "burst fire",	burst=3, burst_delay=1.5),
 		list(name = "full auto",	burst=1, burst_delay=1.2),
 	)
-	effectiveness_mod = 1.60
 	sel_mode = 1
 	recoil = 50
 	accuracy = 2
@@ -1366,7 +1330,6 @@
 		list(name = "burst fire",	burst=3, burst_delay=1.5),
 		list(name = "full auto",	burst=1, burst_delay=1.2),
 	)
-	effectiveness_mod = 1.08
 	sel_mode = 1
 	recoil = 35
 	accuracy = 3
@@ -1410,7 +1373,6 @@
 		list(name = "semi auto",	burst=1, burst_delay=0.4),
 		list(name = "full auto",	burst=1, burst_delay=1.0),
 	)
-	effectiveness_mod = 1.15
 	sel_mode = 1
 	recoil = 10
 	accuracy = 2
@@ -1442,7 +1404,6 @@
 		list(name = "burst fire",	burst=3, burst_delay=1.5),
 		list(name = "full auto",	burst=1, burst_delay=1.0),
 	)
-	effectiveness_mod = 1.15
 	sel_mode = 1
 	recoil = 20
 	accuracy = 2
@@ -1468,7 +1429,6 @@
 	good_mags = list(/obj/item/ammo_magazine/qbz95)
 	weight = 3.5
 	equiptimer = 11
-	effectiveness_mod = 1.05
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.6),
@@ -1498,7 +1458,6 @@
 	firemodes = list(
 		list(name = "full auto",	burst=1, burst_delay=1.7),
 	)
-	effectiveness_mod = 0.85
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	recoil = 50
@@ -1525,7 +1484,6 @@
 		list(name = "semi auto",	burst=1, burst_delay=0.8),
 		list(name = "full auto",	burst=1, burst_delay=1.3),
 	)
-	effectiveness_mod = 1.20
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	recoil = 40
@@ -1567,7 +1525,6 @@
 		list(name = "semi auto",	burst=1, burst_delay=0.1),
 		list(name = "full auto",	burst=1, burst_delay=1.1),
 	)
-	effectiveness_mod = 1.20
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_UNDER
 	recoil = 30
@@ -1589,7 +1546,6 @@
 	name = "C8"
 	desc = "A Canadian Colt C8 assault rifle, chambered in 5.56x45mm."
 	equiptimer = 11
-	effectiveness_mod = 1.23
 
 /obj/item/weapon/gun/projectile/submachinegun/m2carbine
 	name = "M2 carbine"
@@ -1609,7 +1565,6 @@
 		list(name = "semi auto",	burst=1, burst_delay=1),
 		list(name = "full auto",	burst=1, burst_delay=2),
 	)
-	effectiveness_mod = 1.07
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	recoil = 35
@@ -1634,7 +1589,6 @@
 		list(name = "semi auto",	burst=1, burst_delay=1),
 		list(name = "full auto",	burst=1, burst_delay=2),
 	)
-	effectiveness_mod = 1.09
 	sel_mode = 1
 	recoil = 30
 	accuracy = 3

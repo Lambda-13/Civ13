@@ -22,7 +22,6 @@
 	gun_type = GUN_TYPE_RIFLE
 	force = 10
 	throwforce = 20
-	effectiveness_mod = 1.10
 	attachment_slots = null
 	handle_casings = REMOVE_CASINGS
 	can_tactical_reload = TRUE
@@ -80,7 +79,6 @@
 	gun_type = GUN_TYPE_RIFLE
 	force = 10
 	throwforce = 20
-	effectiveness_mod = 1.10
 	attachment_slots = null
 	handle_casings = REMOVE_CASINGS
 
@@ -108,7 +106,6 @@
 	gun_type = GUN_TYPE_RIFLE
 	force = 20
 	throwforce = 25
-	effectiveness_mod = 1.25
 	attachment_slots = null
 	handle_casings = REMOVE_CASINGS
 
@@ -136,7 +133,6 @@
 	gun_type = GUN_TYPE_RIFLE
 	force = 10
 	throwforce = 15
-	effectiveness_mod = 1.10
 	attachment_slots = null
 	handle_casings = REMOVE_CASINGS
 
@@ -164,7 +160,6 @@
 	gun_type = GUN_TYPE_RIFLE
 	force = 10
 	throwforce = 15
-	effectiveness_mod = 1.25
 	attachment_slots = null
 	handle_casings = REMOVE_CASINGS
 
@@ -192,7 +187,6 @@
 	gun_type = GUN_TYPE_RIFLE
 	force = 10
 	throwforce = 15
-	effectiveness_mod = 1.15
 	attachment_slots = null
 	handle_casings = REMOVE_CASINGS
 
@@ -210,7 +204,6 @@
 	ammo_type = /obj/item/ammo_casing/laser/b
 	load_method = MAGAZINE
 	handle_casings = REMOVE_CASINGS
-	effectiveness_mod = 1
 
 /obj/item/weapon/gun/projectile/pistol/laser/dc17
 	name = "DC-17 blaster"
@@ -221,7 +214,6 @@
 	name = "DC-17 Commando blaster"
 	desc = "A DC-17 Commando blaster pistol most commonly used by the Grand Army of the Republic Commandos."
 	icon_state = "DC-17c"
-	effectiveness_mod = 1.04
 
 /obj/item/weapon/gun/projectile/pistol/laser/dl44
 	name = "DL-44 blaster"
@@ -234,7 +226,6 @@
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/dl44)
 	weight = 0.5
 	ammo_type = /obj/item/ammo_casing/laser/pistol
-	effectiveness_mod = 1.02
 
 /obj/item/weapon/gun/projectile/pistol/laser/dh17
 	name = "DH-17 blaster"
@@ -247,7 +238,6 @@
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/dh17)
 	weight = 0.5
 	ammo_type = /obj/item/ammo_casing/laser/pistol
-	effectiveness_mod = 0.98
 
 /obj/item/weapon/gun/projectile/pistol/laser/westar34
 	name = "Westar-34 blaster"
@@ -260,7 +250,6 @@
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/westar34)
 	weight = 0.5
 	ammo_type = /obj/item/ammo_casing/laser/pistol
-	effectiveness_mod = 1.30
 /////////////////////////////STAT MG'S/////////////////////////////////////////
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/laser
 	name = "laser MG"
@@ -404,7 +393,6 @@
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/dcb2)
 	weight = 0.6
 	ammo_type = /obj/item/ammo_casing/laser/pistol/b
-	effectiveness_mod = 1.03
 
 /obj/item/weapon/gun/projectile/pistol/laser/dcb2/update_icon()
 	..()
@@ -449,7 +437,6 @@
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/laspistol)
 	weight = 0.7
 	ammo_type = /obj/item/ammo_casing/laser/pistol
-	effectiveness_mod = 1.04
 
 /obj/item/weapon/gun/projectile/pistol/laser/laspistol/update_icon()
 	..()

@@ -91,7 +91,6 @@
 	magazine_type = /obj/item/ammo_magazine/madsen
 	good_mags = list(/obj/item/ammo_magazine/madsen)
 	weight = 9.12
-	effectiveness_mod = 1.01
 	force = 20
 	throwforce = 30
 	slot_flags = SLOT_SHOULDER
@@ -112,7 +111,6 @@
 	throwforce = 30
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	slowdown = 0.2
-	effectiveness_mod = 1.00
 	has_telescopic = TRUE
 	slot_flags = SLOT_SHOULDER
 	recoil = 40
@@ -133,7 +131,6 @@
 	weight = 9.12
 	force = 20
 	throwforce = 30
-	effectiveness_mod = 1.05
 	bad_magazine_types = list(/obj/item/ammo_magazine/maxim)
 	firemodes = list(
 		list(name = "full auto", burst=1, burst_delay=1.3),
@@ -208,7 +205,6 @@
 	weight = 9.12
 	force = 20
 	throwforce = 30
-	effectiveness_mod = 1.02
 	bad_magazine_types = list(/obj/item/ammo_magazine/browning)
 	recoil = 40
 	accuracy = 3
@@ -230,7 +226,6 @@
 	weight = 12.50 //heavy piece of shit
 	force = 20
 	throwforce = 30
-	effectiveness_mod = 1.01
 
 /obj/item/weapon/gun/projectile/automatic/browning_lmg/update_icon()
 	..()
@@ -261,7 +256,6 @@
 	fire_sound = 	'sound/weapons/guns/fire/mg34.ogg'
 	force = 20
 	throwforce = 30
-	effectiveness_mod = 1.01
 	var/cover_open = FALSE
 	recoil = 40
 	accuracy = 3
@@ -317,6 +311,48 @@
 		return
 	..()
 
+/obj/item/weapon/gun/projectile/automatic/mg34/mg3
+	name = "MG3"
+	desc = "Modern German light machinegun chambered in 7.62x51mm. An utterly devastating support weapon."
+	icon_state = "mg3"
+	base_icon = "mg3"
+	caliber = "a762x51_weak"
+	ammo_type = /obj/item/ammo_casing/a762x51/weak
+	magazine_type = /obj/item/ammo_magazine/mg3belt
+	good_mags = list(/obj/item/ammo_magazine/mg3belt)
+	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE
+	recoil = 30
+	scope_mounts = list ("picatinny")
+	scope_x_offset = 7
+	scope_y_offset = 4
+	under_mounts = list ("picatinny")
+	under_x_offset = 7
+	under_y_offset = 4
+
+/obj/item/weapon/gun/projectile/automatic/mg34/mg3/update_icon()
+	..()
+	if (cover_open)
+		icon_state = "[base_icon]_open"
+	else
+		icon_state = "[base_icon]"
+	if (!ammo_magazine || !istype(ammo_magazine, /obj/item/ammo_magazine/mg3belt))
+		return
+	overlays -= mag_image
+	mag_image = image(icon = 'icons/obj/guns/parts.dmi', loc = src, icon_state = ammo_magazine.attached_icon_state + "[round(ammo_magazine.stored_ammo.len, 25)]", pixel_x = mag_x_offset, pixel_y = mag_y_offset)
+	overlays += mag_image
+
+/obj/item/weapon/gun/projectile/automatic/mg34/mg3/tactical/New()
+	..()
+	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/acog/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope/acog(src)
+	SP.attached(null,src,TRUE)
+
+	if (prob(50))
+		var/obj/item/weapon/attachment/under/foregrip/FP = new/obj/item/weapon/attachment/under/foregrip(src)
+		FP.attached(null,src,TRUE)
+	else
+		var/obj/item/weapon/attachment/under/laser/LS = new/obj/item/weapon/attachment/under/laser(src)
+		LS.attached(null,src,TRUE)
+
 ///////////////////////////////////////////////////////////////////////////
 /obj/item/weapon/gun/projectile/automatic/m60
 	name = "M60"
@@ -339,7 +375,6 @@
 	equiptimer = 25
 	load_delay = 50
 	slowdown = 1
-	effectiveness_mod = 1.04
 	recoil = 40
 	accuracy = 3
 
@@ -365,7 +400,6 @@
 	equiptimer = 25
 	load_delay = 50
 	slowdown = 1
-	effectiveness_mod = 1.07
 	recoil = 40
 	accuracy = 3
 	scope_mounts = list ("picatinny")
@@ -420,7 +454,6 @@
 	equiptimer = 25
 	load_delay = 50
 	slowdown = 0.8
-	effectiveness_mod = 1.07
 	recoil = 40
 	accuracy = 3
 	mag_x_offset = -3
@@ -483,9 +516,12 @@
 	equiptimer = 22
 	load_delay = 40
 	slowdown = 0.6
-	effectiveness_mod = 1.05
 	recoil = 30
 	accuracy = 2
+	scope_x_offset = -4
+	scope_y_offset = -5
+	barrel_x_offset = 14
+	barrel_y_offset = 17
 	scope_mounts = list ("dovetail")
 
 /obj/item/weapon/gun/projectile/automatic/rpd/update_icon()
@@ -516,7 +552,6 @@
 	equiptimer = 20
 	load_delay = 8
 	slowdown = 0.5
-	effectiveness_mod = 1.07
 	recoil = 25
 	accuracy = 2
 	scope_x_offset = -1
@@ -577,7 +612,6 @@
 	equiptimer = 21
 	load_delay = 8
 	slowdown = 0.4
-	effectiveness_mod = 1.03
 	recoil = 35
 	accuracy = 3
 	scope_x_offset = -1
@@ -585,7 +619,6 @@
 	scope_mounts = list ("dovetail")
 
 /obj/item/weapon/gun/projectile/automatic/rpk47/modern //too lazy to add in a new icon for now, will do it later
-	effectiveness_mod = 1.07
 	slowdown = 0.3
 	equiptimer = 18
 	load_delay = 19
@@ -616,7 +649,6 @@
 	equiptimer = 25
 	load_delay = 50
 	slowdown = 0.9
-	effectiveness_mod = 1.01
 	recoil = 40
 	accuracy = 3
 	scope_mounts = list ("picatinny")
@@ -653,12 +685,11 @@
 	equiptimer = 25
 	load_delay = 55
 	slowdown = 0.8
-	effectiveness_mod = 1.01
 	recoil = 60
 	accuracy = 1
 	scope_mounts = list ("dovetail")
-	scope_x_offset = -3
-	scope_y_offset = -5
+	scope_x_offset = -1
+	scope_y_offset = -4
 	mag_x_offset = -5
 	mag_y_offset = -2
 	New()
@@ -688,7 +719,6 @@
 	equiptimer = 21
 	load_delay = 21
 	slowdown = 0.5
-	effectiveness_mod = 1.01
 	recoil = 40
 	accuracy = 3
 	mag_x_offset = -5
@@ -725,7 +755,6 @@
 	fire_sound = 'sound/weapons/guns/fire/M60.ogg'
 	force = 20
 	throwforce = 30
-	effectiveness_mod = 1.07
 	recoil = 40
 	accuracy = 3
 	scope_mounts = list ("picatinny")

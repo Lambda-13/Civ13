@@ -390,7 +390,6 @@ Current Defines (_defines/attachment.dm)
 		//This should only be temporary until more attachment icons are made, then we switch to adding/removing icon masks
 		if (istype(G, /obj/item/weapon/gun/projectile))
 			var/obj/item/weapon/gun/projectile/W = G
-			W.sniper_scope = FALSE
 			W.scope = null
 		G.update_icon()
 	else
@@ -411,7 +410,6 @@ Current Defines (_defines/attachment.dm)
 		G.ergonomics *= ergonomics
 		if (istype(G, /obj/item/weapon/gun/projectile))
 			var/obj/item/weapon/gun/projectile/W = G
-			W.sniper_scope = TRUE
 			W.update_icon()
 	else
 		if (do_after(user, 15, user))
@@ -428,7 +426,6 @@ Current Defines (_defines/attachment.dm)
 			user << "<span class = 'notice'>You attach [src] to the [G].</span>"
 			if (istype(G, /obj/item/weapon/gun/projectile))
 				var/obj/item/weapon/gun/projectile/W = G
-				W.sniper_scope = TRUE
 				W.update_icon()
 		else
 			return

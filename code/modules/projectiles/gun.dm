@@ -86,8 +86,6 @@
 
 	var/gun_type = GUN_TYPE_GENERIC
 
-	var/autofiring = FALSE
-
 	var/gibs = FALSE
 	var/crushes = FALSE
 
@@ -394,7 +392,7 @@
 
 	var/dt = world.time - last_shot_time
 
-	var/shot_recoil = next_shot_recoil / (dt * ergonomics * 1.5)
+	var/shot_recoil = next_shot_recoil / (dt * ergonomics)
 
 	if(user.lying || user.prone)
 		shot_recoil /= 2.5
@@ -405,8 +403,8 @@
 	if (dt_movement > 0 && dt_movement < 4)
 		shot_accuracy = 0
 		while (abs(shot_accuracy) < 4) // даже боги рандома тебе не помогут попасть сходу
-			shot_accuracy = rand(-25, 25)
-		shot_recoil *= 5 / dt_movement 
+			shot_accuracy = rand(-20, 20)
+		shot_recoil *= 6 / dt_movement 
 
 	var/shot_dispersion = clamp(shot_recoil + shot_accuracy, -30, 30)
 

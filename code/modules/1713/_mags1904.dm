@@ -289,6 +289,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 /obj/item/ammo_magazine/mg3belt
 	name = "belt (7.62x51mm)"
 	icon_state = "maximbelt"
+	attached_icon_state = "belt_"
 	mag_type = MAGAZINE
 	caliber = "a762x51_weak"
 	w_class = ITEM_SIZE_LARGE

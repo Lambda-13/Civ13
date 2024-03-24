@@ -6,7 +6,6 @@
 	base_icon = "ak101"
 	weight = 3.6
 	var/folded = FALSE
-	effectiveness_mod = 1.11
 	caliber = "a556x45"
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	fire_sound = 'sound/weapons/guns/fire/AKM.ogg'
@@ -51,10 +50,8 @@
 /obj/item/weapon/gun/projectile/submachinegun/ak101/proc/set_stock()
 	if (folded)
 		slot_flags = SLOT_SHOULDER|SLOT_BELT
-		effectiveness_mod *= 0.85
 	else
 		slot_flags = SLOT_SHOULDER
-		effectiveness_mod /= 0.85
 
 
 /obj/item/weapon/gun/projectile/submachinegun/ak101/ak102
@@ -64,7 +61,6 @@
 	item_state = "ak74m"
 	base_icon = "ak101"
 	weight = 3
-	effectiveness_mod = 1.09
 	magazine_type = /obj/item/ammo_magazine/ak101
 	good_mags = list(/obj/item/ammo_magazine/ak101, /obj/item/ammo_magazine/ak101/drum)
 	equiptimer = 12
@@ -78,7 +74,6 @@
 	item_state = "ak101"
 	base_icon = "ak101"
 	weight = 3.6
-	effectiveness_mod = 1.08
 	caliber = "a762x39"
 	magazine_type = /obj/item/ammo_magazine/ak47
 	good_mags = list(/obj/item/ammo_magazine/rpk47, /obj/item/ammo_magazine/rpk47/drum, /obj/item/ammo_magazine/ak47, /obj/item/ammo_magazine/ak47/makeshift)
@@ -94,7 +89,6 @@
 	item_state = "ak74m"
 	base_icon = "ak101"
 	weight = 3.2
-	effectiveness_mod = 1.07
 	equiptimer = 12
 	accuracy = 3
 	recoil = 45
@@ -107,7 +101,6 @@
 	base_icon = "ak101"
 	caliber = "a545x39"
 	weight = 3.2
-	effectiveness_mod = 1.12
 	equiptimer = 12
 	magazine_type = /obj/item/ammo_magazine/ak74
 	good_mags = list(/obj/item/ammo_magazine/rpk74, /obj/item/ammo_magazine/rpk74/drum, /obj/item/ammo_magazine/ak74, /obj/item/ammo_magazine/ak74/ak74m)

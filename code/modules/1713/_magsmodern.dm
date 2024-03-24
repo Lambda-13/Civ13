@@ -293,7 +293,7 @@
 /obj/item/ammo_magazine/ammo127
 	name = "Ammo can (12.7x108mm)"
 	icon_state = "b127"
-	attached_icon_state = "nsv_mag"
+	attached_icon_state = "pkm_mag"
 	mag_type = MAGAZINE
 	caliber = "a127"
 	w_class = ITEM_SIZE_NORMAL

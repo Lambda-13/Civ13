@@ -103,7 +103,6 @@
 	force = 10
 	throwforce = 20
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE
-	effectiveness_mod = 1.07
 	caliber = "dart"
 	fire_sound = 'sound/weapons/guns/interact/garandload.ogg'
 	fire_sound_text = "a sharp metalic clack"
@@ -146,7 +145,6 @@
 	weight = 0.9
 	force = 3
 	throwforce = 20
-	effectiveness_mod = 1.07
 	caliber = "dart"
 	fire_sound = 'sound/weapons/guns/fire/Crossbow.ogg'
 	fire_sound_text = "someone blowing through a tube"
@@ -289,7 +287,6 @@
 	force = 10
 	throwforce = 20
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE
-	effectiveness_mod = 1.07
 	caliber = "dart"
 	fire_sound = 'sound/weapons/guns/interact/garandload.ogg'
 	fire_sound_text = "a sharp metalic clack"
@@ -330,7 +327,6 @@
 	force = 10
 	throwforce = 20
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE
-	effectiveness_mod = 1.07
 	caliber = "dart"
 	fire_sound = 'sound/weapons/guns/interact/garandload.ogg'
 	fire_sound_text = "a sharp metalic clack"

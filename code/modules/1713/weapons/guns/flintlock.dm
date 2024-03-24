@@ -104,7 +104,6 @@
 	force = 12
 	caliber = "musketball"
 	weight = 6.0
-	effectiveness_mod = 0.97
 	ammo_type = /obj/item/ammo_casing/musketball
 	value = 100
 	accuracy = 4
@@ -115,7 +114,6 @@
 	force = 11.5
 	caliber = "musketball"
 	weight = 6.0
-	effectiveness_mod = 0.98
 	ammo_type = /obj/item/ammo_casing/musketball
 	value = 100
 	item_state = "musket"
@@ -128,7 +126,6 @@
 	force = 10
 	caliber = "musketball"
 	weight = 5.0
-	effectiveness_mod = 0.97
 	ammo_type = /obj/item/ammo_casing/musketball
 	value = 100
 	item_state = "musket"
@@ -141,7 +138,6 @@
 	force = 10.2
 	caliber = "musketball"
 	weight = 4.7
-	effectiveness_mod = 0.93
 	ammo_type = /obj/item/ammo_casing/musketball
 	value = 100
 	item_state = "musket"
@@ -154,7 +150,6 @@
 	force = 11
 	caliber = "musketball"
 	weight = 5.9
-	effectiveness_mod = 0.98
 	ammo_type = /obj/item/ammo_casing/musketball
 	value = 100
 	item_state = "musket"
@@ -167,7 +162,6 @@
 	force = 11.3
 	caliber = "musketball"
 	weight = 5.6
-	effectiveness_mod = 0.98
 	ammo_type = /obj/item/ammo_casing/musketball
 	value = 100
 	item_state = "musket"
@@ -180,7 +174,6 @@
 	force = 12
 	caliber = "musketball"
 	weight = 6.0
-	effectiveness_mod = 1.20
 	ammo_type = /obj/item/ammo_casing/musketball
 	value = 110
 	item_state = "plexciomusket"
@@ -193,7 +186,6 @@
 	force = 12
 	caliber = "musketball"
 	weight = 6.0
-	effectiveness_mod = 0.97
 	ammo_type = /obj/item/ammo_casing/musketball
 	value = 100
 	item_state = "springfield"
@@ -207,7 +199,6 @@
 	force = 12
 	caliber = "musketball"
 	weight = 5.0
-	effectiveness_mod = 1.09
 	ammo_type = /obj/item/ammo_casing/musketball
 	value = 100
 	item_state = "springfield"
@@ -223,7 +214,6 @@
 	force = 8
 	caliber = "musketball"
 	weight = 4.0
-	effectiveness_mod = 0.87
 	ammo_type = /obj/item/ammo_casing/musketball
 	value = 80
 	equiptimer = 12
@@ -237,7 +227,6 @@
 	force = 8
 	caliber = "musketball"
 	weight = 4.0
-	effectiveness_mod = 0.75
 	ammo_type = /obj/item/ammo_casing/musketball
 	value = 45
 	accuracy = 5
@@ -255,7 +244,6 @@
 	fire_sound = 'sound/weapons/guns/fire/hpistol.ogg'
 	caliber = "musketball_pistol"
 	weight = 2.5
-	effectiveness_mod = 1
 	attachment_slots = ATTACH_IRONSIGHTS
 	ammo_type = /obj/item/ammo_casing/musketball_pistol
 	move_delay = 3
@@ -286,7 +274,6 @@
 	stat = "rifle"
 	weight = 4.5
 	value = 80
-	effectiveness_mod = 0.7
 	attachment_slots = ATTACH_IRONSIGHTS
 	ammo_type = /obj/item/ammo_casing/blunderbuss
 	gun_type = GUN_TYPE_SHOTGUN
@@ -310,7 +297,6 @@
 	fire_sound = 'sound/weapons/guns/fire/hpistol.ogg'
 	caliber = "musketball_pistol"
 	weight = 2.5
-	effectiveness_mod = 1
 	attachment_slots = ATTACH_IRONSIGHTS
 	ammo_type = /obj/item/ammo_casing/musketball_pistol
 	move_delay = 3
@@ -340,7 +326,6 @@
 	fire_sound = 'sound/weapons/guns/fire/hpistol.ogg'
 	caliber = "musketball_pistol"
 	weight = 2.9
-	effectiveness_mod = 1
 	attachment_slots = ATTACH_IRONSIGHTS
 	ammo_type = /obj/item/ammo_casing/musketball_pistol
 	move_delay = 3.4
@@ -364,7 +349,6 @@
 	fire_sound = 'sound/weapons/guns/fire/hpistol.ogg'
 	caliber = "musketball_pistol"
 	weight = 2.5
-	effectiveness_mod = 1
 	attachment_slots = ATTACH_IRONSIGHTS
 	ammo_type = /obj/item/ammo_casing/musketball_pistol
 	move_delay = 3
@@ -398,7 +382,6 @@
 	weight = 2.5
 	w_class = ITEM_SIZE_SMALL
 	value = 80
-	effectiveness_mod = 0.6
 	attachment_slots = ATTACH_IRONSIGHTS
 	ammo_type = /obj/item/ammo_casing/blunderbuss
 	accuracy = 6
