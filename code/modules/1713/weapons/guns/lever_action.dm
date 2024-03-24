@@ -142,7 +142,6 @@
 	caliber = "a44"
 	max_shells = 15
 	weight = 5.0
-	effectiveness_mod = 0.96
 	ammo_type = /obj/item/ammo_casing/a44
 	value = 150
 	blackpowder = TRUE
@@ -158,7 +157,6 @@
 	caliber = "a44"
 	max_shells = 15
 	weight = 6.0
-	effectiveness_mod = 0.97
 	ammo_type = /obj/item/ammo_casing/a44
 	value = 150
 	blackpowder = TRUE
@@ -174,7 +172,6 @@
 	caliber = "a4570"
 	max_shells = 15
 	weight = 6.1
-	effectiveness_mod = 0.99
 	ammo_type = /obj/item/ammo_casing/a4570
 	value = 150
 	blackpowder = TRUE
@@ -190,7 +187,6 @@
 	caliber = "a44"
 	max_shells = 15
 	weight = 5.6
-	effectiveness_mod = 0.97
 	ammo_type = /obj/item/ammo_casing/a44
 	value = 150
 	blackpowder = TRUE
@@ -206,7 +202,6 @@
 	caliber = "a44"
 	max_shells = 15
 	weight = 5.0
-	effectiveness_mod = 0.96
 	ammo_type = /obj/item/ammo_casing/a44
 	value = 150
 	blackpowder = TRUE
@@ -222,7 +217,6 @@
 	caliber = "a44"
 	max_shells = 28
 	weight = 5.9
-	effectiveness_mod = 0.87
 	ammo_type = /obj/item/ammo_casing/a44
 	value = 150
 	blackpowder = TRUE
@@ -238,7 +232,6 @@
 	caliber = "a44"
 	max_shells = 16
 	weight = 5.5
-	effectiveness_mod = 0.94
 	ammo_type = /obj/item/ammo_casing/a44
 	value = 150
 	blackpowder = TRUE

@@ -25,9 +25,9 @@
 		slot_shoulder_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
 		)
 	sel_mode = 1
-	effectiveness_mod = 1.05
 	recoil = 25
 	accuracy = 4
+
 /obj/item/ammo_magazine/tibannagas/space_war/ml40
 	name = "тибанновый блок питания МЛ-40"
 	icon = 'lambda/sanecman/icons/obj/guns/space_ammo.dmi'
@@ -105,7 +105,6 @@
 		slot_shoulder_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
 		)
 	sel_mode = 1
-	effectiveness_mod = 0.95
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE
 	recoil = 35
 	accuracy = 4
@@ -155,7 +154,6 @@
 		slot_back_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
 		slot_shoulder_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
 		)
-	effectiveness_mod = 1.20
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	recoil = 40
@@ -200,7 +198,6 @@
 		slot_shoulder_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
 		)
 	gun_type = GUN_TYPE_RIFLE
-	effectiveness_mod = 1.09
 	equiptimer = 8
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 
@@ -251,7 +248,6 @@
 	force = 10
 	throwforce = 20
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
-	effectiveness_mod = 1.06
 
 /obj/item/weapon/gun/projectile/semiautomatic/laser/l43/New()
 	..()
@@ -285,7 +281,6 @@
 	ammo_type = /obj/item/ammo_casing/laser/b
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 0.98
 	bad_magazine_types = list(/obj/item/ammo_magazine/tibannagas/space_war/c762x25_pplsh)
 
 /obj/item/weapon/gun/projectile/pistol/laser/lazganov/update_icon()
@@ -321,7 +316,6 @@
 	ammo_type = /obj/item/ammo_casing/laser
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
-	effectiveness_mod = 0.96
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/space_war/laserp38)
 	bad_magazine_types = list(/obj/item/ammo_magazine/tibannagas/space_war/ml40)
 

@@ -23,7 +23,6 @@
 /obj/item/weapon/gun/projectile
 	var/accuracy_increase_mod = 1.00
 	var/accuracy_decrease_mod = 1.00
-	var/effectiveness_mod = 1.00
 	var/KD_chance = 5
 	var/load_delay = 0
 
@@ -40,7 +39,7 @@
 	var/mob/living/human/firer = null
 	var/blackpowder = FALSE
 	secondary_action = TRUE
-	var/sniper_scope = FALSE
+
 /obj/item/weapon/gun/projectile/secondary_attack_self(mob/living/human/user)
 	if (gun_safety)
 		if (safetyon)

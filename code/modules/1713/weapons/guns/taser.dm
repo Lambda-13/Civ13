@@ -22,7 +22,6 @@
 	gun_type = GUN_TYPE_PISTOL
 	force = 10
 	throwforce = 20
-	effectiveness_mod = 1
 	attachment_slots = null
 	handle_casings = REMOVE_CASINGS
 

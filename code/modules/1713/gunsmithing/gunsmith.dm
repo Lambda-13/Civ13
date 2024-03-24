@@ -179,7 +179,6 @@
 					P.ammo_type = /obj/item/ammo_casing/a762x38
 
 			H << "You successfully convert \the [P]."
-			P.effectiveness_mod *= 0.9
 			if (!findtext(P.name,"(rechambered)"))
 				P.name = "[P.name] (rechambered)"
 			if (!findtext(P.desc,". Rechambered into"))
@@ -734,19 +733,20 @@
 	switch (stock_type)
 		if ("Rifle Wooden Stock")
 			equiptimer = 15
-			effectiveness_mod = 1.1
+			recoil *= 0.75
 		if ("Carbine Wooden Stock")
 			equiptimer = 12
-			effectiveness_mod = 1
+			recoil *= 0.85
 		if ("Pistol Grip")
 			equiptimer = 7
-			effectiveness_mod = 0.80
+			recoil *= 0.90
 		if ("Steel Stock")
 			equiptimer = 11
-			effectiveness_mod = 1
+			recoil *= 0.85
 		if ("Folding Stock")
 			equiptimer = 12
-			effectiveness_mod = 0.92
+			recoil *= 0.90
+
 
 	switch (receiver_type)
 		if ("Bolt-Action")
@@ -1003,26 +1003,26 @@
 
 	switch (barrel_type)
 		if ("Pistol Barrel")
-			effectiveness_mod *= 0.8
 			equiptimer -= 1
+			accuracy = 4
 		if ("Carbine Barrel")
-			effectiveness_mod *= 1
 			slot_flags &= ~SLOT_HOLSTER
+			accuracy = 3
 		if ("Rifle Barrel")
-			effectiveness_mod *=1.1
 			slot_flags &= ~SLOT_HOLSTER
 			slot_flags &= ~SLOT_BELT
 			equiptimer += 1
+			accuracy = 2
 		if ("Long Rifle Barrel")
-			effectiveness_mod *= 1.25
 			slot_flags &= ~SLOT_HOLSTER
 			slot_flags &= ~SLOT_BELT
 			equiptimer += 3
+			accuracy = 1
 		if ("Air-Cooled Barrel")
-			effectiveness_mod *= 1.05
 			slot_flags &= ~SLOT_HOLSTER
 			slot_flags &= ~SLOT_BELT
 			equiptimer += 5
+			accuracy = 3
 
 	var/tempdesc = ""
 	switch (caliber)
@@ -1398,8 +1398,6 @@
 /obj/item/weapon/gun/projectile/custom/proc/set_stock()
 	if (folded)
 		slot_flags = SLOT_SHOULDER|SLOT_BELT
-		effectiveness_mod *= 0.92
 	else
 		slot_flags = SLOT_SHOULDER
-		effectiveness_mod /= 0.92
 

@@ -86,8 +86,6 @@
 
 	var/gun_type = GUN_TYPE_GENERIC
 
-	var/autofiring = FALSE
-
 	var/gibs = FALSE
 	var/crushes = FALSE
 

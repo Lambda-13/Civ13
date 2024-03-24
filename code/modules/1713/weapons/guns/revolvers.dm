@@ -310,7 +310,6 @@
 	blackpowder = FALSE
 	cocked = FALSE
 	pocket = TRUE
-	effectiveness_mod = 0.93
 
 /obj/item/weapon/gun/projectile/revolver/coltpolicepositive/standardized
 
@@ -440,7 +439,6 @@
 	blackpowder = FALSE
 	cocked = FALSE
 	pocket = TRUE
-	effectiveness_mod = 0.9
 
 /obj/item/weapon/gun/projectile/revolver/sw3
 	name = "Orbea Hermanos"
@@ -460,7 +458,6 @@
 	blackpowder = FALSE
 	cocked = FALSE
 	pocket = FALSE
-	effectiveness_mod = 0.9
 	accuracy = 4
 
 /obj/item/weapon/gun/projectile/revolver/snw10
@@ -481,7 +478,6 @@
 	blackpowder = FALSE
 	cocked = FALSE
 	pocket = FALSE
-	effectiveness_mod = 0.9
 	accuracy = 4
 
 /obj/item/weapon/gun/projectile/revolver/t26_revolver
