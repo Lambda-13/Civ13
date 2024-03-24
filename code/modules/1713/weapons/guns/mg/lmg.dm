@@ -338,7 +338,7 @@
 	mag_image = image(icon = 'icons/obj/guns/parts.dmi', loc = src, icon_state = ammo_magazine.attached_icon_state + "[round(ammo_magazine.stored_ammo.len, 25)]", pixel_x = mag_x_offset, pixel_y = mag_y_offset)
 	overlays += mag_image
 
-/obj/item/weapon/gun/projectile/automatic/mg34/mg3/New()
+/obj/item/weapon/gun/projectile/automatic/mg34/mg3/tactical/New()
 	..()
 	var/obj/item/weapon/attachment/scope/adjustable/advanced/holographic/SP = new/obj/item/weapon/attachment/scope/adjustable/advanced/holographic(src)
 	SP.attached(null,src,TRUE)

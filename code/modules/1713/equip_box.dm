@@ -63,7 +63,7 @@
 			options["Sniper"] = list(/obj/item/weapon/gun/projectile/boltaction/singleshot/barrett/sniper,/obj/item/ammo_magazine/a50cal,/obj/item/ammo_magazine/a50cal)
 			options["Anti-Tank"] = list(/obj/item/weapon/gun/launcher/rocket/single_shot/m72law,/obj/item/weapon/gun/launcher/rocket/single_shot/m72law)
 			options["Breacher"] = list(/obj/item/weapon/gun/projectile/submachinegun/spas,/obj/item/ammo_magazine/shellbox,/obj/item/ammo_magazine/shellbox,/obj/item/ammo_magazine/shellbox/slug,/obj/item/clothing/head/helmet/modern/ach,/obj/item/clothing/accessory/armor/nomads/pcarriertan)
-			options["Fire-Support"] = list(/obj/item/weapon/gun/projectile/automatic/m249/suppressor,/obj/item/ammo_magazine/m249,/obj/item/ammo_magazine/m249)
+			options["Fire-Support"] = list(/obj/item/weapon/gun/projectile/automatic/mg34/mg3/tactical,/obj/item/ammo_magazine/mg3,/obj/item/ammo_magazine/mg3)
 			options["Grenadier"] = list(/obj/item/weapon/gun/launcher/grenade/standalone/hk69,/obj/item/clothing/accessory/storage/webbing/shell40mm)
 		if ("RUSSIAN")
 			options["Sniper"] = list(/obj/item/weapon/gun/projectile/semiautomatic/svd,/obj/item/ammo_magazine/svd,/obj/item/ammo_magazine/svd)
