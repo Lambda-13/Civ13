@@ -323,8 +323,11 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE
 	recoil = 30
 	scope_mounts = list ("picatinny")
-	scope_x_offset = 6
-	scope_y_offset = 3
+	scope_x_offset = 7
+	scope_y_offset = 4
+	under_mounts = list ("picatinny")
+	under_x_offset = 7
+	under_y_offset = 4
 
 /obj/item/weapon/gun/projectile/automatic/mg34/mg3/update_icon()
 	..()
@@ -340,8 +343,15 @@
 
 /obj/item/weapon/gun/projectile/automatic/mg34/mg3/tactical/New()
 	..()
-	var/obj/item/weapon/attachment/scope/adjustable/advanced/holographic/SP = new/obj/item/weapon/attachment/scope/adjustable/advanced/holographic(src)
+	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/acog/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope/acog(src)
 	SP.attached(null,src,TRUE)
+
+	if (prob(50))
+		var/obj/item/weapon/attachment/under/foregrip/FP = new/obj/item/weapon/attachment/under/foregrip(src)
+		FP.attached(null,src,TRUE)
+	else
+		var/obj/item/weapon/attachment/under/laser/LS = new/obj/item/weapon/attachment/under/laser(src)
+		LS.attached(null,src,TRUE)
 
 ///////////////////////////////////////////////////////////////////////////
 /obj/item/weapon/gun/projectile/automatic/m60
