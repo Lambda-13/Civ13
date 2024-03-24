@@ -311,6 +311,38 @@
 		return
 	..()
 
+/obj/item/weapon/gun/projectile/automatic/mg34/mg3
+	name = "MG3"
+	desc = "Modern German light machinegun chambered in 7.62x51mm. An utterly devastating support weapon."
+	icon_state = "mg3"
+	base_icon = "mg3"
+	caliber = "a762x51_weak"
+	ammo_type = /obj/item/ammo_casing/a762x51/weak
+	magazine_type = /obj/item/ammo_magazine/mg3belt
+	good_mags = list(/obj/item/ammo_magazine/mg3belt)
+	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE
+	recoil = 30
+	scope_mounts = list ("picatinny")
+	scope_x_offset = 6
+	scope_y_offset = 3
+
+/obj/item/weapon/gun/projectile/automatic/mg34/mg3/update_icon()
+	..()
+	if (cover_open)
+		icon_state = "[base_icon]_open"
+	else
+		icon_state = "[base_icon]"
+	if (!ammo_magazine || !istype(ammo_magazine, /obj/item/ammo_magazine/mg3belt))
+		return
+	overlays -= mag_image
+	mag_image = image(icon = 'icons/obj/guns/parts.dmi', loc = src, icon_state = ammo_magazine.attached_icon_state + "[round(ammo_magazine.stored_ammo.len, 25)]", pixel_x = mag_x_offset, pixel_y = mag_y_offset)
+	overlays += mag_image
+
+/obj/item/weapon/gun/projectile/automatic/mg34/mg3/New()
+	..()
+	var/obj/item/weapon/attachment/scope/adjustable/advanced/holographic/SP = new/obj/item/weapon/attachment/scope/adjustable/advanced/holographic(src)
+	SP.attached(null,src,TRUE)
+
 ///////////////////////////////////////////////////////////////////////////
 /obj/item/weapon/gun/projectile/automatic/m60
 	name = "M60"

@@ -288,8 +288,8 @@
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/mg3
 	name = "MG 3 machine gun"
 	desc = "A german heavy machinegun, using 7.62x51 NATO rounds."
-	icon_state = "mg3"
-	base_icon = "mg3"
+	icon_state = "mg3hmg"
+	base_icon = "mg3hmg"
 	caliber = "a792x57_weak"
 	magazine_type = /obj/item/ammo_magazine/mg3belt
 	good_mags = list(/obj/item/ammo_magazine/mg3belt)
