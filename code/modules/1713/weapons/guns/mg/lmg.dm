@@ -476,6 +476,10 @@
 	slowdown = 0.6
 	recoil = 30
 	accuracy = 2
+	scope_x_offset = -4
+	scope_y_offset = -5
+	barrel_x_offset = 14
+	barrel_y_offset = 17
 	scope_mounts = list ("dovetail")
 
 /obj/item/weapon/gun/projectile/automatic/rpd/update_icon()
@@ -642,8 +646,8 @@
 	recoil = 60
 	accuracy = 1
 	scope_mounts = list ("dovetail")
-	scope_x_offset = -3
-	scope_y_offset = -5
+	scope_x_offset = -1
+	scope_y_offset = -4
 	mag_x_offset = -5
 	mag_y_offset = -2
 	New()

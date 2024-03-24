@@ -1147,7 +1147,10 @@
 	sel_mode = 1
 	recoil = 40
 	accuracy = 3
-
+	scope_x_offset = 0
+	scope_y_offset = -2
+	barrel_x_offset = 14
+	barrel_y_offset = 16
 	accuracy_increase_mod = 2.00
 	accuracy_decrease_mod = 6.00
 	scope_mounts = list ("picatinny")
@@ -1160,7 +1163,7 @@
 /obj/item/weapon/gun/projectile/submachinegun/m14/sniper/m21
 	name = "M21 SWS"
 	desc = "An American sniper rifle, chambered in 7.62x51mm."
-	sel_mode = 0
+	sel_mode = 1
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.6),
 		)
