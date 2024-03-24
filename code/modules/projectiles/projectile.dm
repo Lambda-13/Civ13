@@ -364,10 +364,12 @@
 	var/hit_zone = null
 	var/hitchance = target_mob.body_part_size[def_zone]
 
+	var/distance_modifier = 6 / sqrt(distance)
+
 	if(distance <= 3)
 		hitchance = 100
 
-	if (prob(hitchance) * 4)
+	if (prob(hitchance * distance_modifier))
 		hit_zone = def_zone
 	else
 		for(var/part in redirection_parts)
