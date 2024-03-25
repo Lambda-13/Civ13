@@ -37,3 +37,6 @@ libbyhttp.so
 config/webhooks.json
 civ13od.dme
 odcomp.bat
+
+# ХВАТИТ ТРОГАТЬ ЭТОТ ФАЙЛ БЛЯДЬ
+config/host.txt
