@@ -3,6 +3,7 @@
 	desc = "A gun that fires bullets."
 	icon_state = "musket"
 	w_class = ITEM_SIZE_NORMAL
+	var/base_icon = "musket"
 
 	var/caliber = "musketball"		//determines which casings will fit
 	var/handle_casings = EJECT_CASINGS	//determines how spent casings should be handled
@@ -132,6 +133,10 @@
 		overlays += launcher_image
 
 /obj/item/weapon/gun/projectile/update_icon()
+	if(ammo_magazine)
+		item_state = "[base_icon]"
+	else
+		item_state = "[base_icon]_open"
 	update_attachment_icon()
 	update_held_icon()
 

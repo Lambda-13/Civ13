@@ -4,7 +4,7 @@
 	fire_sound = 'sound/weapons/guns/fire/smg.ogg'
 	silencer_fire_sound = 'sound/weapons/guns/fire/Gyrza-SD.ogg'
 	icon = 'icons/obj/guns/automatic.dmi'
-	var/base_icon = "smg"
+	base_icon = "smg"
 	// more accuracy than MGs, less than everything else
 	load_method = MAGAZINE
 	slot_flags = SLOT_SHOULDER|SLOT_BELT

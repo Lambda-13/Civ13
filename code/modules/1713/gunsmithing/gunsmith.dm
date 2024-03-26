@@ -698,7 +698,7 @@
 	var/chamber_offset = FALSE //how many empty chambers in the cylinder until you hit a round
 	var/single_action = FALSE
 	var/cocked = FALSE
-	var/base_icon = null
+	base_icon = null
 	var/folded = FALSE
 
 	//shotgun
