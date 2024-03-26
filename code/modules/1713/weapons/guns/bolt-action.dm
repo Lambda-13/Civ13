@@ -6,7 +6,7 @@
 	desc = "A bolt-action rifle of true ww2 (You shouldn't be seeing this)"
 	icon_state = "mosin"
 	item_state = "mosin" //placeholder
-	var/base_icon = "mosin"
+	base_icon = "mosin"
 	w_class = ITEM_SIZE_LARGE
 	force = 10
 	throwforce = 20

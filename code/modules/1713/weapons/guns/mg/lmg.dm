@@ -4,7 +4,7 @@
 	icon = 'icons/obj/guns/mgs.dmi'
 	force = 15
 	throwforce = 30
-	var/base_icon = "automatic"
+	base_icon = "automatic"
 	equiptimer = 28
 	load_delay = 12
 	gun_safety = TRUE

@@ -71,7 +71,7 @@
 //IMAGINARY DARTGUN BASE
 /obj/item/weapon/gun/projectile/dartgun
 	icon = 'icons/obj/guns/dartgun.dmi'
-	var/base_icon = "blowgun"
+	base_icon = "blowgun"
 	var/list/beakers = list() //All containers inside the gun.
 	var/list/mixing = list() //Containers being used for mixing.
 	var/max_beakers = 1

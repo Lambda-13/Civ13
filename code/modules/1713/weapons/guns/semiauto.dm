@@ -20,7 +20,7 @@
 	var/jammed_until = -1
 	var/jamcheck = 0
 	var/last_fire = -1
-	var/base_icon = "semiautomatic"
+	base_icon = "semiautomatic"
 	equiptimer = 12
 	gun_safety = TRUE
 	reload_sound = 'sound/weapons/guns/interact/semiauto_magin.ogg'
