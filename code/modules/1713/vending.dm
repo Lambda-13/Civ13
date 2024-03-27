@@ -576,17 +576,19 @@ obj/structure/vending/sofammo
 	icon_state = "ammo_crates"
 	products = list(
 		/obj/item/ammo_magazine/m16 = 50,
+		/obj/item/ammo_magazine/m16/mag5_60 = 10,
 		/obj/item/ammo_magazine/m14 = 50,
 		/obj/item/ammo_magazine/hk = 20,
 		/obj/item/ammo_magazine/scarh = 20,
 		/obj/item/ammo_magazine/m1911 = 50,
 		/obj/item/ammo_magazine/m9beretta = 50,
-		/obj/item/weapon/attachment/scope/adjustable/sniper_scope = 15,
+		/obj/item/weapon/attachment/scope/adjustable/sniper_scope/vortex_viper = 15,
 		/obj/item/weapon/attachment/scope/adjustable/sniper_scope/acog = 15,
 		/obj/item/weapon/attachment/scope/adjustable/advanced/reddot = 15,
 		/obj/item/weapon/attachment/scope/adjustable/advanced/holographic = 15,
 		/obj/item/weapon/attachment/under/laser = 15,
 		/obj/item/weapon/attachment/under/foregrip = 15,
+		/obj/item/weapon/attachment/silencer = 15,
 	)
 
 
@@ -1087,9 +1089,10 @@ obj/structure/vending/hezammo
 		/obj/item/ammo_magazine/makarov = 15,
 		/obj/item/ammo_magazine/pkm = 8,
 		/obj/item/ammo_magazine/maxim = 8,
-		/obj/item/weapon/attachment/scope/adjustable/sniper_scope/acog = 15,
+		/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pso1 = 15,
 		/obj/item/weapon/attachment/scope/adjustable/advanced/reddot = 15,
 		/obj/item/weapon/attachment/under/foregrip = 15,
+		/obj/item/weapon/attachment/silencer/rifle/pbs4 = 15,
 	)
 
 /obj/structure/vending/sovafghan/soviet/apparel
@@ -1479,6 +1482,12 @@ obj/structure/vending/hezammo
 		/obj/item/ammo_magazine/srm = 8,
 		/obj/item/ammo_magazine/srm/box = 8,
 		/obj/item/ammo_magazine/vintorez = 8,
+		/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pso1 = 15,
+		/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pso4 = 5,
+		/obj/item/weapon/attachment/under/foregrip = 5,
+		/obj/item/weapon/attachment/under/laser = 5,
+		/obj/item/weapon/attachment/silencer/rifle/pbs1 = 5,
+		/obj/item/weapon/attachment/silencer/rifle/pbs4 = 5,
 	)
 
 /obj/structure/vending/syria/armorgov
@@ -1553,6 +1562,11 @@ obj/structure/vending/hezammo
 		/obj/item/ammo_magazine/greasegun/box = 8,
 		/obj/item/ammo_magazine/m249 = 12,
 		/obj/item/ammo_magazine/sten2 = 15,
+		/obj/item/weapon/attachment/scope/adjustable/advanced/holographic = 15,
+		/obj/item/weapon/attachment/scope/adjustable/sniper_scope/acog = 15,
+		/obj/item/weapon/attachment/under/foregrip = 10,
+		/obj/item/weapon/attachment/under/laser = 10,
+		/obj/item/weapon/attachment/silencer = 15,
 	)
 
 /obj/structure/vending/syria/salv/armorreb
