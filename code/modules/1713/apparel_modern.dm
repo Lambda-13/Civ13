@@ -649,7 +649,7 @@
 /obj/item/clothing/under/omon
 	name = "russian OMON uniform" //Uniform used mostly in the 90's
 	desc = "An outfit designed and issued for the OMON forces of the Russian Federation."
-	icon_state = "omon"
+	icon_state = "milrus_omon"
 	item_state = "omon"
 	worn_state = "omon"
 
