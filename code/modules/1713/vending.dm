@@ -390,7 +390,10 @@
 	desc = "Basic gear for soldiers of the US Army."
 	icon_state = "equipment_usa"
 	products = list(
-		/obj/item/weapon/gun/projectile/semiautomatic/m1garand = 15,
+		/obj/item/weapon/gun/projectile/semiautomatic/m1garand = 20,
+		/obj/item/weapon/gun/projectile/submachinegun/thompson = 5,
+		/obj/item/weapon/gun/projectile/automatic/bar = 3,
+		/obj/item/weapon/gun/projectile/automatic/browning_lmg = 1,
 		/obj/item/weapon/attachment/bayonet = 20,
 		/obj/item/ammo_magazine/garand = 50,
 		/obj/item/ammo_magazine/springfield = 40,
@@ -448,6 +451,8 @@
 	if (map && (map.ID == MAP_NANKOU || map.ID == MAP_NANJING))
 		products = list(
 			/obj/item/weapon/gun/projectile/boltaction/arisaka38 = 15,
+			/obj/item/weapon/gun/projectile/automatic/type99 = 1,
+			/obj/item/ammo_magazine/type99 = 10,
 			/obj/item/ammo_magazine/arisakabox = 5,
 			/obj/item/ammo_magazine/arisaka = 50,
 			/obj/item/weapon/attachment/bayonet = 15,
@@ -456,9 +461,11 @@
 		products = list(
 			/obj/item/weapon/gun/projectile/boltaction/arisaka38 = 15,
 			/obj/item/weapon/gun/projectile/boltaction/arisaka99 = 5,
+			/obj/item/weapon/gun/projectile/automatic/type99 = 2,
 			/obj/item/ammo_magazine/arisakabox = 5,
 			/obj/item/ammo_magazine/arisaka = 50,
 			/obj/item/ammo_magazine/arisaka99 = 40,
+			/obj/item/ammo_magazine/type99 = 20,
 			/obj/item/weapon/attachment/bayonet = 15,
 		)
 
@@ -537,6 +544,7 @@
 		/obj/item/clothing/accessory/armor/coldwar/plates/interceptor = 10,
 		/obj/item/clothing/accessory/armor/coldwar/plates/interceptor/ucp = 10,
 		/obj/item/clothing/accessory/armor/coldwar/plates/interceptor/ocp = 10,
+		/obj/item/clothing/accessory/armor/nomads/thickcarrier = 5,
 		/obj/item/weapon/armorplates = 15,
 		/obj/item/clothing/accessory/armor/knee_protections = 15,
 		/obj/item/clothing/accessory/armor/elbow_protections = 15,
@@ -682,6 +690,8 @@ obj/structure/vending/sofammo
 	icon_state = "modern_german"
 	products = list(
 		/obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98k = 15,
+		/obj/item/weapon/gun/projectile/submachinegun/mp40 = 10,
+		/obj/item/weapon/gun/projectile/automatic/mg34 = 1,
 		/obj/item/weapon/attachment/bayonet = 25,
 	)
 
@@ -728,6 +738,9 @@ obj/structure/vending/sofammo
 	icon_state = "modern_british"
 	products = list(
 		/obj/item/weapon/gun/projectile/boltaction/mosin/m30 = 15,
+		/obj/item/weapon/gun/projectile/submachinegun/ppsh = 5,
+		/obj/item/weapon/gun/projectile/semiautomatic/svt = 5,
+		/obj/item/weapon/gun/projectile/automatic/dp28 = 1,
 		/obj/item/weapon/attachment/bayonet = 15,
 	)
 
@@ -736,11 +749,11 @@ obj/structure/vending/sofammo
 	desc = "A rack of war equipment."
 	icon_state = "modern_british"
 	products = list(
-		/obj/item/weapon/gun/projectile/submachinegun/ppsh = 1,
+		/obj/item/weapon/gun/projectile/submachinegun/ppsh = 5,
 		/obj/item/weapon/gun/projectile/submachinegun/ppd = 2,
 		/obj/item/weapon/gun/projectile/semiautomatic/svt = 10,
 		/obj/item/weapon/gun/projectile/pistol/tt30 = 15,
-		/obj/item/weapon/gun/projectile/automatic/dp28 = 2,
+		/obj/item/weapon/gun/projectile/automatic/dp28 = 3,
 		/obj/item/weapon/grenade/antitank/rpg40 = 2,
 		/obj/item/weapon/grenade/smokebomb = 2,
 		/obj/item/weapon/grenade/ww2/rgd33 = 5,
@@ -819,6 +832,7 @@ obj/structure/vending/hezammo
 		/obj/item/weapon/grenade/coldwar/m26= 20,
 		/obj/item/weapon/grenade/smokebomb/m18smoke = 20,
 		/obj/item/weapon/material/kitchen/utensil/knife/military = 30,
+		/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pso1 = 5,
 	)
 
 /obj/structure/vending/usa_apparel_modern
