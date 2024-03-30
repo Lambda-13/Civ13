@@ -408,19 +408,6 @@
 			return TRUE
 	return FALSE
 
-/obj/structure/vehicleparts/frame/proc/get_opposite_wall(var/w_name)
-	var/opposite_list = list (
-		"front" = "back",
-		"back" = "front",
-		"left" = "right",
-		"right" = "left",
-		"frontleft" = "backright",
-		"backleft" = "frontright",
-		"frontright" = "backleft",
-		"backright" = "frontleft"
-	)
-	return opposite_list[w_name]
-
 /obj/structure/vehicleparts/frame/proc/get_wall_name(var/w_dir)
 	var/w_dirs = list(NORTH, NORTHEAST, EAST, SOUTHEAST, SOUTH, SOUTHWEST, WEST, NORTHWEST)
 	var/w_names = list("back", "backleft", "left", "frontleft", "front", "frontright", "right", "backright")
@@ -492,11 +479,10 @@
 	proj.throw_source = proj.starting
 	var/firing_dist = get_dist(src.loc,proj.starting)
 	var/heavy_ap = proj.heavy_armor_penetration
-	if (wall_hp(penloc) <= 0)
+	if (wall_armor(penloc) > 0)
 		if (istype(proj, /obj/item/projectile/shell))
 			var/obj/item/projectile/shell/S = proj
 			S.initiated = TRUE
-		return TRUE
 	if (max(0,heavy_ap - firing_dist) >= wall_armor(penloc))
 		return TRUE
 
@@ -507,9 +493,6 @@
 	return FALSE
 
 /obj/structure/vehicleparts/frame/bullet_act(var/obj/item/projectile/proj, var/penloc = "front")
-	for (var/obj/structure/vehicleparts/frame/F in loc)
-		if (F.axis == axis)
-			return
 	if (mwheel && prob(30))
 		if (mwheel.ntype == "wheel")
 			mwheel.broken = TRUE
@@ -528,7 +511,7 @@
 				else if (mwheel.ntype == "track")
 					switch (PS.atype)
 						if ("HE")
-							for (var/mob/M in axis.transporting)
+							for (var/mob/M in loc)
 								shake_camera(M, 3, 3)
 							if (!mwheel.broken && prob(80))
 								mwheel.broken = TRUE
@@ -548,117 +531,58 @@
 								new/obj/effect/effect/smoke/small(loc)
 								update_icon()
 			else
-				var/adjdam = 0
-				switch (PS.atype)
-					if ("HE")
-						for (var/mob/living/M in axis.transporting)
-							shake_camera(M, 3, 3)
-							if (M.loc == loc)
-								var/tprob = 80
-								if (M.lying || M.prone)
-									tprob = 35
-								if (prob(tprob))
-									M.adjustBruteLoss(PS.damage)
-									visible_message("<span class='danger'>[M] is hit by the [PS]!</span>")
-									//playsound(loc, "pen_voice", 100, TRUE)
-						adjdam = proj.damage * 0.08
-					else if ("APCR")
-						for (var/mob/living/M in axis.transporting)
-							shake_camera(M, 1, 1)
-							if (M.loc == loc)
-								var/tprob = 80
-								if (M.lying || M.prone)
-									tprob = 35
-								if (prob(tprob))
-									M.adjustBruteLoss(PS.damage)
-									visible_message("<span class='danger'>[M] is hit by the [PS]!</span>")
-									//playsound(loc, "pen_voice", 100, TRUE)
-						adjdam = proj.damage * 0.5
-					else if ("AP")
-						for (var/mob/living/M in axis.transporting)
-							shake_camera(M, 1, 1)
-							if (M.loc == loc)
-								var/tprob = 80
-								if (M.lying || M.prone)
-									tprob = 35
-								if (prob(tprob))
-									M.adjustBruteLoss(PS.damage)
-									visible_message("<span class='danger'>[M] is hit by the [PS]!</span>")
-									//playsound(loc, "pen_voice", 100, TRUE)
-						adjdam = proj.damage * 0.3
-					else
-						for (var/mob/living/M in axis.transporting)
-							if (M.loc == loc)
-								var/tprob = 50
-								if (M.lying || M.prone)
-									tprob = 25
-								if (prob(tprob))
-									M.adjustBruteLoss(PS.damage)
-									visible_message("<span class='danger'>[M] попадает в [PS]!</span>")
-						adjdam = proj.damage * 0.05
+				var/adjdam = proj.heavy_armor_penetration * 0.1
 				switch(penloc)
 					if ("left")
 						w_left[5] -= adjdam
 						visible_message("<span class = 'danger'><big>The left hull is damaged!</big></span>")
-						//playsound(loc, "pen_voice", 100, TRUE)
 					if ("right")
 						w_right[5] -= adjdam
 						visible_message("<span class = 'danger'><big>The right hull is damaged!</big></span>")
-						//playsound(loc, "pen_voice", 100, TRUE)
 					if ("front")
 						w_front[5] -= adjdam
 						visible_message("<span class = 'danger'><big>The front hull is damaged!</big></span>")
-						//playsound(loc, "pen_voice", 100, TRUE)
 					if ("back")
 						w_back[5] -= adjdam
 						visible_message("<span class = 'danger'><big>The rear hull is damaged!</big></span>")
-						//playsound(loc, "pen_voice", 100, TRUE)
 					if ("frontleft")
 						if (w_left[4] > w_front[4] && w_left[5]>0 && w_front[5]>0)
 							w_left[5] -= adjdam
 							visible_message("<span class = 'danger'><big>The left hull is damaged!</big></span>")
-							//playsound(loc, "pen_voice", 100, TRUE)
 						else
 							w_front[5] -= adjdam
 							visible_message("<span class = 'danger'><big>The front hull is damaged!</big></span>")
-							//playsound(loc, "pen_voice", 100, TRUE)
 					if ("frontright")
 						if (w_right[4] > w_front[4] && w_right[5]>0 && w_front[5]>0)
 							w_right[5] -= adjdam
 							visible_message("<span class = 'danger'><big>The right hull is damaged!</big></span>")
-							//playsound(loc, "pen_voice", 100, TRUE)
 						else
 							w_front[5] -= adjdam
 							visible_message("<span class = 'danger'><big>The front hull is damaged!</big></span>")
-							//playsound(loc, "pen_voice", 100, TRUE)
 					if ("backleft")
 						if (w_left[4] > w_back[4] && w_left[5]>0 && w_back[5]>0)
 							w_left[5] -= adjdam
 							visible_message("<span class = 'danger'><big>The left hull is damaged!</big></span>")
-							//playsound(loc, "pen_voice", 100, TRUE)
 						else
 							w_back[5] -= adjdam
 							visible_message("<span class = 'danger'><big>The rear hull is damaged!</big></span>")
-							//playsound(loc, "pen_voice", 100, TRUE)
 					if ("backright")
 						if (w_right[4] > w_back[4] && w_right[5]>0 && w_back[5]>0)
 							w_right[5] -= adjdam
 							visible_message("<span class = 'danger'><big>The right hull is damaged!</big></span>")
-							//playsound(loc, "pen_voice", 100, TRUE)
 						else
 							w_back[5] -= adjdam
 							visible_message("<span class = 'danger'><big>The rear hull is damaged!</big></span>")
-							//playsound(loc, "pen_voice", 100, TRUE)
 		else
 			switch(penloc)
 				if ("left")
-					w_left[5] -= proj.damage * 0.01
+					w_left[5] -= proj.heavy_armor_penetration * 0.01
 				if ("right")
-					w_right[5] -= proj.damage * 0.01
+					w_right[5] -= proj.heavy_armor_penetration * 0.01
 				if ("front")
-					w_front[5] -= proj.damage * 0.01
+					w_front[5] -= proj.heavy_armor_penetration * 0.01
 				if ("back")
-					w_back[5] -= proj.damage * 0.01
+					w_back[5] -= proj.heavy_armor_penetration * 0.01
 		visible_message("<span class = 'warning'>\The [proj] hits \the [src]!</span>")
 		if (istype(proj, /obj/item/projectile/shell))
 			playsound(loc, pick('sound/effects/explosion1.ogg','sound/effects/explosion1.ogg'),100, TRUE)

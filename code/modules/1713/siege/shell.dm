@@ -186,6 +186,11 @@
 	caliber = 115
 	heavy_armor_penetration = 400
 	damage = 100
+/obj/item/cannon_ball/shell/tank/HEAT115
+	atype = "HEAT"
+	caliber = 115
+	heavy_armor_penetration = 350
+	damage = 100
 
 /obj/item/cannon_ball/shell/tank/HE120
 	atype = "HE"
@@ -200,7 +205,12 @@
 /obj/item/cannon_ball/shell/tank/APCR120
 	atype = "APCR"
 	caliber = 120
-	heavy_armor_penetration = 240
+	heavy_armor_penetration = 450
+	damage = 100
+/obj/item/cannon_ball/shell/tank/HEAT120
+	atype = "HEAT"
+	caliber = 120
+	heavy_armor_penetration = 450
 	damage = 100
 
 /obj/item/cannon_ball/shell/tank/HE122
@@ -226,6 +236,11 @@
 	damage = 140
 /obj/item/cannon_ball/shell/tank/APCR125
 	atype = "APCR"
+	caliber = 125
+	heavy_armor_penetration = 450
+	damage = 100
+/obj/item/cannon_ball/shell/tank/HEAT125
+	atype = "HEAT"
 	caliber = 125
 	heavy_armor_penetration = 450
 	damage = 100
