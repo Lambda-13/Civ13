@@ -488,7 +488,7 @@
 
 	var/direction = get_direction()
 
-	var/turf/previous_step =  starting
+	var/turf/previous_step = starting
 	if(T!= starting)
 		previous_step = permutated[permutated.len]
 
@@ -543,7 +543,7 @@
 				if (istype(src, /obj/item/projectile/shell))
 					var/obj/item/projectile/shell/S = src
 					if(S.initiated)
-						S.initiate(previous_step)
+						S.initiate(T)
 				visible_message("<span class = 'warning'>Снаряд пролетает сквозь [penloc] стену</span>")
 
 	if (!is_trench && launch_from_trench && !overcoming_trench)
@@ -657,7 +657,7 @@
 			passthrough = FALSE
 
 	for (var/obj/structure/vehicleparts/frame/F in loc)
-		var/penloc = F.get_opposite_wall(F.get_wall_name(direction))
+		var/penloc = F.get_wall_name(opposite_direction(direction))
 		if (F.is_ambrasure(penloc) && src.loc == starting)
 			visible_message("<span class = 'warning'>Пуля вылетает из амбразуры</span>")
 		else if (!F.CheckPen(src,penloc))
