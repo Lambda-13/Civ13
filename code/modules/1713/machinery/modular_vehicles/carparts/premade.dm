@@ -816,7 +816,7 @@
 	"3,1" = list(/obj/structure/vehicleparts/movement/tracks/left,/obj/structure/vehicleparts/frame/t72/lf,/obj/structure/radio/transmitter_receiver/nopower/tank/faction2),
 
 	"1,2" = list(/obj/structure/vehicleparts/frame/t72/right, /obj/structure/bed/chair/commander),
-	"2,2" = list(/obj/structure/vehicleparts/frame/t72,/obj/structure/cannon/modern/tank/autoloader/t90a,/obj/structure/shellrack/autoloader/full125),
+	"2,2" = list(/obj/structure/vehicleparts/frame/t72,/obj/structure/shellrack/autoloader/full125,/obj/structure/turret/t72),
 	"3,2" = list(/obj/structure/vehicleparts/frame/t72/left, /obj/structure/bed/chair/gunner),
 
 	"1,3" = list(/obj/structure/vehicleparts/frame/t72/right/door{doorcode = 4975}),
@@ -839,7 +839,7 @@
 	"3,1" = list(/obj/structure/vehicleparts/movement/tracks/left,/obj/structure/vehicleparts/frame/t72/lf,/obj/structure/radio/transmitter_receiver/nopower/tank/faction2),
 
 	"1,2" = list(/obj/structure/vehicleparts/frame/t72/right),
-	"2,2" = list(/obj/structure/vehicleparts/frame/t72, /obj/structure/shellrack/autoloader/full125/, /obj/structure/turret/t90a),
+	"2,2" = list(/obj/structure/vehicleparts/frame/t72, /obj/structure/shellrack/autoloader/full125/, /obj/structure/turret/t64bm),
 	"3,2" = list(/obj/structure/vehicleparts/frame/t72/left),
 
 	"1,3" = list(/obj/structure/vehicleparts/frame/t72/right/door{doorcode = 4975}),
@@ -862,7 +862,7 @@
 	"3,1" = list(/obj/structure/vehicleparts/movement/tracks/left,/obj/structure/vehicleparts/frame/t90a/lf,/obj/structure/radio/transmitter_receiver/nopower/tank/faction2),
 
 	"1,2" = list(/obj/structure/vehicleparts/frame/t90a/right, /obj/structure/bed/chair/commander),
-	"2,2" = list(/obj/structure/vehicleparts/frame/t90a,/obj/structure/cannon/modern/tank/autoloader/t90a,/obj/structure/shellrack/autoloader/full125),
+	"2,2" = list(/obj/structure/vehicleparts/frame/t90a,/obj/structure/turret/t80u/t80uk,/obj/structure/shellrack/autoloader/full125),
 	"3,2" = list(/obj/structure/vehicleparts/frame/t90a/left, /obj/structure/bed/chair/gunner),
 
 	"1,3" = list(/obj/structure/vehicleparts/frame/t90a/right/door{doorcode = 4975}),
@@ -885,7 +885,7 @@
 	"3,1" = list(/obj/structure/vehicleparts/movement/tracks/left,/obj/structure/vehicleparts/frame/t90a/lf,/obj/structure/radio/transmitter_receiver/nopower/tank/faction2),
 
 	"1,2" = list(/obj/structure/vehicleparts/frame/t90a/right),
-	"2,2" = list(/obj/structure/vehicleparts/frame/t90a, /obj/structure/shellrack/autoloader/full125, /obj/structure/turret/t90a),
+	"2,2" = list(/obj/structure/vehicleparts/frame/t90a, /obj/structure/shellrack/autoloader/full125, /obj/structure/turret/t72/t72b3),
 	"3,2" = list(/obj/structure/vehicleparts/frame/t90a/left),
 
 	"1,3" = list(/obj/structure/vehicleparts/frame/t90a/right/door{doorcode = 4975}),
@@ -907,7 +907,7 @@
 	"3,1" = list(/obj/structure/vehicleparts/movement/tracks/left,/obj/structure/vehicleparts/frame/t72/lf,/obj/structure/radio/transmitter_receiver/nopower/tank/faction2),
 
 	"1,2" = list(/obj/structure/vehicleparts/frame/t72/right),
-	"2,2" = list(/obj/structure/vehicleparts/frame/t72, /obj/structure/shellrack/autoloader/full125, /obj/structure/turret/t90a),
+	"2,2" = list(/obj/structure/vehicleparts/frame/t72, /obj/structure/shellrack/autoloader/full125, /obj/structure/turret/t72/t72m1),
 	"3,2" = list(/obj/structure/vehicleparts/frame/t72/left),
 
 	"1,3" = list(/obj/structure/vehicleparts/frame/t72/right/door{doorcode = 4975}),
