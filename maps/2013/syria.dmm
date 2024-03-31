@@ -460,7 +460,7 @@
 "iR" = (/obj/structure/wild/rock,/turf/floor/beach/sand/desert,/area/caribbean/no_mans_land/invisible_wall{climate = "semiarid"})
 "iS" = (/turf/floor/dirt/dust,/area/caribbean/no_mans_land/invisible_wall{climate = "semiarid"})
 "iT" = (/obj/effect/autoassembler,/obj/structure/vehicleparts/frame/omw22_2/right/door{doorcode = 5555},/obj/item/weapon/key/american{name = "T62M key"; code = 5555},/turf/floor/plating/road,/area/caribbean)
-"iU" = (/obj/structure/vehicleparts/frame/omw22_2,/obj/structure/shellrack/autoloader/full115,/turf/floor/plating/road,/area/caribbean)
+"iU" = (/obj/structure/vehicleparts/frame/omw22_2,/turf/floor/plating/road,/area/caribbean)
 "iV" = (/obj/item/weapon/storage/toolbox/emergency,/obj/structure/vehicleparts/frame/omw22_2/left,/turf/floor/plating/road,/area/caribbean)
 "iW" = (/obj/structure/vehicleparts/frame/omw22_2/right,/turf/floor/plating/road,/area/caribbean)
 "iX" = (/turf/floor/beach/sand,/area/caribbean/no_mans_land/invisible_wall{climate = "semiarid"})

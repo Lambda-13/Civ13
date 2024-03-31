@@ -308,7 +308,7 @@
 	setup_trajectory(starting_loc, new_target)
 
 //Called when the projectile intercepts a mob. Returns TRUE if the projectile hit the mob, FALSE if it missed and should keep flying.
-/obj/item/projectile/proc/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier=0)
+/obj/item/projectile/proc/attack_mob(var/mob/living/target_mob, var/distance)
 	if (firer && istype(firer, /mob/living/simple_animal/hostile/human) && target_mob && istype(target_mob, /mob/living/simple_animal/hostile/human))
 		var/mob/living/simple_animal/hostile/human/HM = firer
 		var/mob/living/simple_animal/hostile/human/HM2 = target_mob
@@ -447,7 +447,7 @@
 
 	if (!hit_zone)
 		return FALSE
-	playsound(get_turf(target_mob), "miss_sound", 100, TRUE)
+		playsound(get_turf(target_mob), "miss_sound", 100, TRUE)
 	return TRUE
 
 /obj/item/projectile/proc/get_angle()
@@ -655,6 +655,12 @@
 	for(var/obj/structure/window/barrier/S in T)
 		if (!S.CanPassOut(src))
 			passthrough = FALSE
+
+
+	if (istype(src, /obj/item/projectile/shell))
+		var/obj/item/projectile/shell/S = src
+		if(S.initiated)
+			S.initiate(T)
 
 	for (var/obj/structure/vehicleparts/frame/F in loc)
 		var/penloc = F.get_wall_name(opposite_direction(direction))

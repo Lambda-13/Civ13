@@ -731,7 +731,7 @@
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/pkm(src))
 		..()
 
-/obj/structure/turret/t80/t80uk
+/obj/structure/turret/t80u/t80uk
 	turret_icon = "t80uk_turret"
 	name = "T-80UK"
 

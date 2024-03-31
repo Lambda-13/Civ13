@@ -493,6 +493,9 @@
 	return FALSE
 
 /obj/structure/vehicleparts/frame/bullet_act(var/obj/item/projectile/proj, var/penloc = "front")
+	if(proj.fired_from_turret && proj.fired_from_axis) // пуля выпущеная из башни не имеет препятсятвий внутри той техники где она была выпущена
+		if(proj.fired_from_axis == axis)
+			return
 	if (mwheel && prob(30))
 		if (mwheel.ntype == "wheel")
 			mwheel.broken = TRUE
@@ -531,7 +534,9 @@
 								new/obj/effect/effect/smoke/small(loc)
 								update_icon()
 			else
-				var/adjdam = proj.heavy_armor_penetration * 0.1
+				var/adjdam = proj.heavy_armor_penetration
+				if(wall_armor(penloc) > heavy_armor_penetration)
+					adjdam /= 2
 				switch(penloc)
 					if ("left")
 						w_left[5] -= adjdam

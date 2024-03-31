@@ -23,12 +23,10 @@
 		return damage/2
 	return FALSE
 
-/obj/item/projectile/shell/attack_mob(var/mob/living/target_mob)
-	if (prob(80))
-		mob_passthrough_check = TRUE
-	else
-		mob_passthrough_check = FALSE
-	return ..()
+/obj/item/projectile/shell/attack_mob(var/mob/living/target_mob, var/distance)
+	. = ..()
+	if(.)
+		initiate(loc)
 
 /obj/item/projectile/shell/can_embed()
 	//prevent embedding if the projectile is passing through the mob
@@ -55,12 +53,7 @@
 
 /obj/item/projectile/shell/launch(atom/target, mob/user, obj/structure/cannon/modern/tank/launcher, var/x_offset=0, var/y_offset=0)
 	targloc = get_turf(target)
-	var/dx = targloc.x - launcher.x
-	var/dy = targloc.y - launcher.y
-	var/angle = Atan2(dx, dy) // N = 90
-	var/x1 = launcher.x + round(abs(4 * cos(angle))) * sign(cos(angle))
-	var/y1 = launcher.y + round(abs(4 * sin(angle))) * sign(sin(angle))
-	var/turf/curloc = locate(x1, y1, launcher.z)
+	var/turf/curloc = get_turf(launcher)
 	if (!istype(targloc) || !istype(curloc))
 		qdel(src)
 		return TRUE
@@ -71,6 +64,13 @@
 		firer = null
 		firer_original_dir = dir
 	firedfrom = launcher
+
+	if(user.buckled)
+		for (var/obj/structure/turret/T in curloc)
+			fired_from_turret = TRUE
+		for (var/obj/structure/vehicleparts/frame/F in curloc)
+			fired_from_axis = F.axis
+			layer = 11
 
 	original = target
 	loc = curloc
@@ -105,63 +105,56 @@
 		loc = null
 		qdel(src)
 	else if (atype == "APCR")
-		var/is_fragmentated = FALSE
-		for(var/obj/structure/vehicleparts/frame/F in T)
-			is_fragmentated = TRUE
-
-		if(!is_fragmentated) // при попадании куда либо кроме техники
+		if(!initiated)
 			explosion(T, 0, 0, 1, 0)
 			loc = null
 			qdel(src)
 			return
 
-		var/num_fragments = 4 * caliber_modifier
+		var/num_fragments = 2 * caliber_modifier
 
-		var/target_x = round(cos(angle) * 15)
-		var/target_y = round(sin(angle) * 15)
+		var/target_x = round(cos(angle) * 6)
+		var/target_y = round(sin(angle) * 6)
 
 		var/i
 		for (i = 0, i < num_fragments, i++)
-			spawn(i)
+			spawn(i * 0.01)
 				var/obj/item/projectile/bullet/pellet/fragment/P = new/obj/item/projectile/bullet/pellet/fragment(T)
 				P.damage = 15
 				P.pellets = num_fragments
 				P.range_step = 2
 				P.shot_from = name
-				P.launch_fragment(locate(x + target_x + rand(-4,4), y + target_y + rand(-4,4), z))
+				P.launch_fragment(locate(x + target_x + rand(-1,1), y + target_y + rand(-1,1), z))
 				for (var/mob/living/L in T)
 					P.attack_mob(L, 0, 0)
 	else if (atype == "HEAT")
-		var/num_fragments = 4 * caliber_modifier
+		var/num_fragments = 3 * caliber_modifier
 		var/heat_range = clamp(round(caliber_modifier / 2), 1, 4)
 
 		explosion(T, heat_range, heat_range + 1, heat_range + 2, 3)
 
-		var/primed = FALSE
-		for(var/obj/structure/vehicleparts/frame/F in T)
-			primed = TRUE
-
-		if(!primed)
+		if(!initiated)
 			loc = null
 			qdel(src)
 			return
 
-		var/target_x = round(cos(angle) * 10)
-		var/target_y = round(sin(angle) * 10)
+		var/target_x = round(cos(angle) * 6)
+		var/target_y = round(sin(angle) * 6)
 
 		var/i
-		loc = null
 		for (i = 0, i < num_fragments, i++)
-			spawn(i)
+			spawn(i * 0.01)
 				var/obj/item/projectile/bullet/pellet/fragment/P = new/obj/item/projectile/bullet/pellet/fragment(T)
 				P.damage = 15
 				P.pellets = num_fragments
 				P.range_step = 2
 				P.shot_from = name
-				P.launch_fragment(locate(x + target_x + rand(-3,3), y + target_y + rand(-3,3), z))
+				P.launch_fragment(locate(x + target_x + rand(-1,1), y + target_y + rand(-1,1), z))
 				for (var/mob/living/L in T)
 					P.attack_mob(L, 0, 0)
+		loc = null
 		qdel(src)
+		return
 
 //////////////////////////////////////////
 ////////////////CANNONBALL////////////////

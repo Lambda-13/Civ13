@@ -170,6 +170,11 @@
 	caliber = 100
 	heavy_armor_penetration = 220
 	damage = 100
+/obj/item/cannon_ball/shell/tank/HEAT100
+	atype = "HEAT"
+	caliber = 100
+	heavy_armor_penetration = 0
+	damage = 100
 
 /obj/item/cannon_ball/shell/tank/HE115
 	atype = "HE"
@@ -546,19 +551,12 @@
 		new /obj/item/cannon_ball/shell/tank/AP100(storage)
 	update_icon()
 
-/obj/structure/shellrack/autoloader/full115/New()
-	..()
-	for (var/i=1, i<=12, i++)
-		new /obj/item/cannon_ball/shell/tank/HE115(storage)
-	for (var/i=1, i<=4, i++)
-		new /obj/item/cannon_ball/shell/tank/AP115(storage)
-	update_icon()
-
-
 /obj/structure/shellrack/autoloader/full125/New()
 	..()
-	for (var/i=1, i<=12, i++)
+	for (var/i=1, i<=8, i++)
 		new /obj/item/cannon_ball/shell/tank/HE125(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/HEAT125(storage)
 	for (var/i=1, i<=4, i++)
 		new /obj/item/cannon_ball/shell/tank/APCR125(storage)
 	update_icon()
@@ -605,19 +603,34 @@
 
 /obj/structure/shellrack/full100/New()
 	..()
-	for (var/i=1, i<=10, i++)
+	for (var/i=1, i<=8, i++)
 		new /obj/item/cannon_ball/shell/tank/HE100(storage)
-	for (var/i=1, i<=6, i++)
+	for (var/i=1, i<=4, i++)
 		new /obj/item/cannon_ball/shell/tank/AP100(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/HEAT100(storage)
 	update_icon()
 
+/obj/structure/shellrack/full115/New()
+	..()
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/HE115(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/AP115(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/APCR115(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/HEAT115(storage)
+	update_icon()
 
 /obj/structure/shellrack/full120/New()
 	..()
-	for (var/i=1, i<=10, i++)
+	for (var/i=1, i<=8, i++)
 		new /obj/item/cannon_ball/shell/tank/HE120(storage)
-	for (var/i=1, i<=6, i++)
+	for (var/i=1, i<=4, i++)
 		new /obj/item/cannon_ball/shell/tank/APCR120(storage)
+	for (var/i=1, i<=4, i++)
+		new /obj/item/cannon_ball/shell/tank/HEAT120(storage)
 	update_icon()
 
 /obj/structure/shellrack/full122/New()
@@ -633,7 +646,7 @@
 	for (var/i=1, i<=4, i++)
 		new /obj/item/cannon_ball/shell/tank/HE125(storage)
 	for (var/i=1, i<=4, i++)
-		new /obj/item/cannon_ball/shell/tank/AP125(storage)
+		new /obj/item/cannon_ball/shell/tank/HEAT125(storage)
 	for (var/i=1, i<=4, i++)
 		new /obj/item/cannon_ball/shell/tank/APCR125(storage)
 	update_icon()
