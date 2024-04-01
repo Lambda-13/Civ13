@@ -43,6 +43,12 @@
 	var/p_dist = proj.get_distance()
 	var/is_lying = FALSE
 
+	if(!proj.firer)
+		visible_message("<span class = 'warning'>[src] getting hit by [proj].</span>")
+		health -= proj.damage * 0.1
+		bullet_act(proj)
+		return FALSE
+
 	if(proj.firer.lying || proj.firer.prone)
 		is_lying = TRUE
 
@@ -55,9 +61,6 @@
 	else if (p_dist > 0 && is_lying && !incomplete)
 		hitchance = 100
 	else if (p_dist == 0 && !incomplete && is_lying)
-		hitchance = 100
-
-	if(target == loc && (proj.firer.lying || proj.firer.prone))
 		hitchance = 100
 
 	if(prob(hitchance))
@@ -74,6 +77,12 @@
 	var/hitchance = 0
 	var/p_dist = proj.get_distance()
 	var/is_lying = FALSE
+
+	if(!proj.firer)
+		visible_message("<span class = 'warning'>[src] getting hit by [proj].</span>")
+		health -= proj.damage * 0.1
+		bullet_act(proj)
+		return FALSE
 
 	if(proj.firer.lying || proj.firer.prone)
 		is_lying = TRUE
