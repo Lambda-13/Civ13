@@ -18,6 +18,10 @@
 	var/turf/targloc = null
 	var/initiated = FALSE
 
+/obj/item/projectile/shell/update_icon()
+	..()
+	icon_state = "[atype]_shell"
+
 /obj/item/projectile/shell/get_structure_damage()
 	if (damage_type == BRUTE || damage_type == BURN)
 		return damage/2
@@ -82,6 +86,8 @@
 	silenced = FALSE
 
 	projectile_list += src
+
+	update_icon()
 
 	return FALSE
 
