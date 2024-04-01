@@ -77,10 +77,11 @@
 	var/point_x
 	var/point_y
 	for(i = 0, i < distance * 32, i+=32)
-		point_x = round(abs(i * cos(azimuth))) * sign(cos(azimuth))
-		point_y = round(abs(i * sin(azimuth))) * sign(sin(azimuth))
+		point_x = ceil(i * cos(azimuth))
+		point_y = ceil(i * sin(azimuth))
 		if (point_x != 0 || point_y != 0)
 			aiming_line = new('icons/effects/Targeted.dmi', loc = src, icon_state="point", pixel_x = point_x, pixel_y = point_y, layer = 14)
+			aiming_line.alpha = 255 - (i / 4)
 			operator.client.images += aiming_line
 	aiming_line = new('icons/effects/Targeted.dmi', loc = src, icon_state="cannon_target", pixel_x = point_x, pixel_y = point_y, layer = 14)
 	operator.client.images += aiming_line
@@ -261,8 +262,8 @@
 
 	var/next_shot_delay = 1
 
-	var/target_x = round(abs(distance * cos(azimuth))) * sign(cos(azimuth))
-	var/target_y = round(abs(distance * sin(azimuth))) * sign(sin(azimuth))
+	var/target_x = ceil(distance * cos(azimuth))
+	var/target_y = ceil(distance * sin(azimuth))
 
 	if(istype(weapons[selected_weapon], /obj/item/weapon/gun/projectile/automatic))
 		var/obj/item/weapon/gun/projectile/automatic/G = weapons[selected_weapon]
@@ -273,7 +274,7 @@
 		next_shot_delay = G.firemodes[G.sel_mode].burst_delay
 	else if(istype(weapons[selected_weapon], /obj/structure/cannon/modern/tank))
 		var/obj/structure/cannon/modern/tank/C = weapons[selected_weapon]
-		C.degree = azimuth
+		C.azimuth = azimuth
 		C.distance = distance
 		C.loc = loc
 		C.do_tank_fire(gunner)

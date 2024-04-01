@@ -36,7 +36,7 @@
 	var/see_amount_loaded = FALSE
 	var/autoloader = FALSE
 
-	var/degree = 270
+	var/azimuth = 270
 	var/distance = 5
 	var/scope_mod = TRUE
 	var/target_x = 0
@@ -164,7 +164,15 @@
 /obj/structure/cannon/New()
 	..()
 	cannon_piece_list += src
-
+	switch(dir)
+		if(EAST)
+			azimuth = 0
+		if(NORTH)
+			azimuth = 90
+		if(WEST)
+			azimuth = 180
+		if(SOUTH)
+			azimuth = 270
 
 /obj/structure/cannon/Destroy()
 	cannon_piece_list -= src
@@ -239,7 +247,7 @@
 		user = m
 		user.use_cannon(src)
 		scope_mod = TRUE
-		update_scope_image()
+		draw_aiming_line(user)
 		user << "you are using [user.using_cannon.name]"
 		do_html(user)
 
@@ -371,7 +379,6 @@
 			distance = 5
 
 	if (href_list["distance_1plus"])
-		user << SPAN_NOTICE("DISTANCE = [href_list["distance_1plus"]]!")
 		distance = distance + 1
 		if(distance > max_distance)
 			distance = max_distance
@@ -380,30 +387,30 @@
 		if(distance > max_distance)
 			distance = max_distance
 
-	if (href_list["set_degree"])
-		degree = input(user, "Set the Degree to what? (From [0] to [359] degrees - E = 0, N = 90, W = 180, S = 270)") as num
-		if(degree < 0)
-			degree += 360
-		if(degree >= 360)
-			degree -= 360
+	if (href_list["set_azimuth"])
+		azimuth = input(user, "Set the Azimuth to what? (From [0] to [359] degrees - E = 0, N = 90, W = 180, S = 270)") as num
+		if(azimuth < 0)
+			azimuth += 360
+		if(azimuth >= 360)
+			azimuth -= 360
 
-	if (href_list["degree_1minus"])
-		degree = degree - 1
-		if(degree < 0)
-			degree += 360
-	if (href_list["degree_10minus"])
-		degree = degree - 10
-		if(degree < 0)
-			degree += 360
+	if (href_list["azimuth_1minus"])
+		azimuth = azimuth - 1
+		if(azimuth < 0)
+			azimuth += 360
+	if (href_list["azimuth_10minus"])
+		azimuth = azimuth - 10
+		if(azimuth < 0)
+			azimuth += 360
 
-	if (href_list["degree_10plus"])
-		degree = degree + 10
-		if(degree >= 360)
-			degree -= 360
-	if (href_list["degree_1plus"])
-		degree = degree + 1
-		if(degree >= 360)
-			degree -= 360
+	if (href_list["azimuth_10plus"])
+		azimuth = azimuth + 10
+		if(azimuth >= 360)
+			azimuth -= 360
+	if (href_list["azimuth_1plus"])
+		azimuth = azimuth + 1
+		if(azimuth >= 360)
+			azimuth -= 360
 
 	// 90 north
 	// 180 west
@@ -411,26 +418,26 @@
 	// 360 = 0 east
 
 	get_target_coords()
-	update_scope_image()
+	draw_aiming_line(user)
 
 	if (course)
 		if (dir == NORTH)
-			degree = clamp(degree, 45, 134)
+			azimuth = clamp(azimuth, 45, 134)
 		else if (dir == WEST)
-			degree = clamp(degree, 135, 224)
+			azimuth = clamp(azimuth, 135, 224)
 		else if (dir == SOUTH)
-			degree = clamp(degree, 225, 315)
+			azimuth = clamp(azimuth, 225, 315)
 		else
-			if (degree >= 45)
-				degree = 44
-			if (degree < 315)
-				degree = 315
+			if (azimuth >= 45)
+				azimuth = 44
+			if (azimuth < 315)
+				azimuth = 315
 
-	if(degree >= 45 && degree < 135)
+	if(azimuth >= 45 && azimuth < 135)
 		dir = NORTH
-	else if(degree >= 135 && degree < 225)
+	else if(azimuth >= 135 && azimuth < 225)
 		dir = WEST
-	else if(degree >= 225 && degree < 315)
+	else if(azimuth >= 225 && azimuth < 315)
 		dir = SOUTH
 	else
 		dir = EAST
@@ -860,7 +867,7 @@
 		</center>
 		Shell: <a href='?src=\ref[src];load=1'>[loaded.len ? loaded[1].name : (autoloader ? "Click here to load shell" : "No shell loaded")]</a>[see_amount_loaded ? (loaded.len ? " <b>There are [loaded.len] [loaded[1].name]s loaded.</b>" : " <b>There is nothing loaded.</b>") : ""]<br><br>
 		Increase/Decrease distance: <a href='?src=\ref[src];distance_1minus=1'>-1</a> | <a href='?src=\ref[src];set_distance=1'>[distance] meters</a> | <a href='?src=\ref[src];distance_1plus=1'>+1</a><br><br>
-		Increase/Decrease angle: <a href='?src=\ref[src];degree_10plus=1'>+10</a> | <a href='?src=\ref[src];degree_1plus=1'>+1</a> | <a href='?src=\ref[src];set_degree=1'>[degree] degrees</a> | <a href='?src=\ref[src];degree_1minus=1'>-1</a> | <a href='?src=\ref[src];degree_10minus=1'>-10</a><br><br>
+		Increase/Decrease angle: <a href='?src=\ref[src];azimuth_10plus=1'>+10</a> | <a href='?src=\ref[src];azimuth_1plus=1'>+1</a> | <a href='?src=\ref[src];set_azimuth=1'>[azimuth] azimuth</a> | <a href='?src=\ref[src];azimuth_1minus=1'>-1</a> | <a href='?src=\ref[src];azimuth_10minus=1'>-10</a><br><br>
 		<br>
 		<center>
 		<a href='?src=\ref[src];fire=1'><b><big>FIRE!</big></b></a>
@@ -868,7 +875,7 @@
 		</body>
 		</html>
 		<br>
-		"},  "window=artillery_window;border=1;can_close=1;can_resize=1;can_minimize=0;titlebar=1;size=400x400")
+		"},  "window=artillery_window;border=1;can_close=1;can_resize=1;can_minimize=0;titlebar=1;size=500x400")
 	//		<A href = '?src=\ref[src];topic_type=[topic_custom_input];continue_num=1'>
 
 /mob/var/obj/structure/cannon/using_cannon = null
@@ -882,9 +889,10 @@
 /mob/proc/stop_using_cannon()
 	if (using_cannon)
 		src << "you are stopped using [using_cannon.name]"
-		using_cannon.delete_scope_image()
+		using_cannon.clear_aiming_line(src)
 		src << browse(null, "window=artillery_window")
 		using_cannon.scope_mod = FALSE
+		using_cannon.user = null
 		using_cannon = null
 
 /mob/living/human/Move()
@@ -893,53 +901,71 @@
 
 /obj/structure/cannon/proc/face_dir(var/new_dir)
 	if (new_dir == NORTH)
-		degree = 90
+		azimuth = 90
 	else if (new_dir == WEST)
-		degree = 180
+		azimuth = 180
 	else if (new_dir == SOUTH)
-		degree = 270
+		azimuth = 270
 	else
-		degree = 0
+		azimuth = 0
 	dir = new_dir
 	get_target_coords()
-	update_scope_image()
+	draw_aiming_line(user)
 
 /obj/structure/cannon/proc/get_target_coords()
-	target_x = round(abs(distance * cos(degree))) * sign(cos(degree))
-	target_y = round(abs(distance * sin(degree))) * sign(sin(degree))
+	target_x = ceil(distance * cos(azimuth))
+	target_y = ceil(distance * sin(azimuth))
 
 /obj/structure/cannon/proc/sway()
-	if(degree >= 45 && degree < 135)
+	if(azimuth >= 45 && azimuth < 135)
 		return target_x
-	else if(degree >= 135 && degree < 225)
+	else if(azimuth >= 135 && azimuth < 225)
 		return target_y
-	else if(degree >= 225 && degree < 315)
+	else if(azimuth >= 225 && azimuth < 315)
 		return (-1 * target_x)
 	else
 		return (-1 * target_y)
 
-/obj/structure/cannon/proc/delete_scope_image()
+/obj/structure/cannon/proc/clear_aiming_line(var/mob/operator)
 	for (var/image/img in usr.client.images)
 		if (img.icon_state == "point")
 			usr.client.images.Remove(img)
 		if (img.icon_state == "cannon_target")
 			usr.client.images.Remove(img)
 
-/obj/structure/cannon/proc/update_scope_image()
-	if (!scope_mod)
+/obj/structure/cannon/proc/draw_aiming_line(var/mob/operator)
+	if(!operator)
 		return
-	delete_scope_image()
-	var/image/targeted_image
-	get_target_coords()
-	var/i
-	for(i = 1, i < distance, i++)
-		var/point_x = round(abs(i * cos(degree))) * sign(cos(degree))
-		var/point_y = round(abs(i * sin(degree))) * sign(sin(degree))
+	clear_aiming_line(operator)
+	var/image/aiming_line
+	var/i = 0
+	var/point_x
+	var/point_y
+	for(i = 0, i < 15 * 32, i+=32)
+		point_x = ceil(i * cos(azimuth))
+		point_y = ceil(i * sin(azimuth))
 		if (point_x != 0 || point_y != 0)
-			targeted_image = new('icons/effects/Targeted.dmi', src, icon_state="point", pixel_x = point_x * 32, pixel_y = point_y * 32, layer = 12)
-			usr.client.images += targeted_image
-	targeted_image = new('icons/effects/Targeted.dmi', src, icon_state="cannon_target", pixel_x = target_x * 32, pixel_y = target_y * 32, layer = 12)
-	usr.client.images += targeted_image
+			aiming_line = new('icons/effects/Targeted.dmi', loc = src, icon_state="point", pixel_x = point_x, pixel_y = point_y, layer = 14)
+			aiming_line.alpha = 255 - (i / 1.15)
+			operator.client.images += aiming_line
+
+/obj/structure/cannon/modern/tank/draw_aiming_line(var/mob/operator)
+	if(!operator)
+		return
+	clear_aiming_line(operator)
+	var/image/aiming_line
+	var/i = 0
+	var/point_x
+	var/point_y
+	for(i = 0, i < distance * 32, i+=32)
+		point_x = ceil(i * cos(azimuth))
+		point_y = ceil(i * sin(azimuth))
+		if (point_x != 0 || point_y != 0)
+			aiming_line = new('icons/effects/Targeted.dmi', loc = src, icon_state="point", pixel_x = point_x, pixel_y = point_y, layer = 14)
+			aiming_line.alpha = 255 - (i / 4)
+			operator.client.images += aiming_line
+	aiming_line = new('icons/effects/Targeted.dmi', loc = src, icon_state="cannon_target", pixel_x = point_x, pixel_y = point_y, layer = 14)
+	operator.client.images += aiming_line
 
 /obj/structure/cannon/verb/rotate_left()
 	set category = null
@@ -953,9 +979,9 @@
 	if (!istype(usr, /mob/living))
 		return
 
-	degree += 90
-	if (degree >= 360)
-		degree -= 360
+	azimuth += 90
+	if (azimuth >= 360)
+		azimuth -= 360
 
 	switch(dir)
 		if (EAST)
@@ -987,7 +1013,7 @@
 				icon = 'icons/obj/cannon.dmi'
 				icon_state = "cannon"
 	get_target_coords()
-	update_scope_image()
+	draw_aiming_line(user)
 	return
 
 /obj/structure/cannon/verb/rotate_right()
@@ -1002,9 +1028,9 @@
 	if (!istype(usr, /mob/living))
 		return
 
-	degree -= 90
-	if (degree < 0)
-		degree += 360
+	azimuth -= 90
+	if (azimuth < 0)
+		azimuth += 360
 
 	switch(dir)
 		if (EAST)
@@ -1036,7 +1062,7 @@
 				icon = 'icons/obj/cannon.dmi'
 				icon_state = "cannon"
 	get_target_coords()
-	update_scope_image()
+	draw_aiming_line(user)
 	return
 /obj/structure/cannon/relaymove(var/mob/mob, direction)
 	if (direction)

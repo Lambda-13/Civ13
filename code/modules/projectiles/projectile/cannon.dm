@@ -48,7 +48,8 @@
 				T.ChangeTurf(/turf/floor/dirt/burned)
 			explosion(T, 1, 1, 1, 2)
 		else
-			initiate(T)
+			if(!initiated)
+				initiate(T)
 	spawn(50)
 		if (src)
 			qdel(src)
@@ -124,7 +125,7 @@
 
 		var/i
 		for (i = 0, i < num_fragments, i++)
-			spawn(i * 0.01)
+			spawn(i * 0.1)
 				var/obj/item/projectile/bullet/pellet/fragment/P = new/obj/item/projectile/bullet/pellet/fragment(T)
 				P.damage = 15
 				P.pellets = num_fragments
@@ -136,7 +137,6 @@
 	else if (atype == "HEAT")
 		var/num_fragments = 3 * caliber_modifier
 		var/heat_range = clamp(round(caliber_modifier / 2), 1, 4)
-
 		explosion(T, heat_range, heat_range + 1, heat_range + 2, 3)
 
 		if(!initiated)
@@ -149,13 +149,14 @@
 
 		var/i
 		for (i = 0, i < num_fragments, i++)
-			spawn(i * 0.01)
+			spawn(i * 0.1)
 				var/obj/item/projectile/bullet/pellet/fragment/P = new/obj/item/projectile/bullet/pellet/fragment(T)
 				P.damage = 15
 				P.pellets = num_fragments
 				P.range_step = 2
 				P.shot_from = name
-				P.launch_fragment(locate(x + target_x + rand(-1,1), y + target_y + rand(-1,1), z))
+				P.heavy_armor_penetration = src.heavy_armor_penetration / num_fragments * 2
+				P.launch_fragment(locate(x + target_x + rand(-2,1), y + target_y + rand(-2,2), z))
 				for (var/mob/living/L in T)
 					P.attack_mob(L, 0, 0)
 		loc = null
