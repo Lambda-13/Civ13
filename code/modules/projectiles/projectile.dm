@@ -524,8 +524,8 @@
 	if (T != starting)
 		for (var/obj/structure/vehicleparts/frame/F in T.contents)
 			var/penloc = F.get_wall_name(direction)
-			F.bullet_act(src,penloc)
 			if (!F.CheckPen(src,penloc))
+				F.bullet_act(src,penloc)
 				passthrough = FALSE
 				visible_message("<span class = 'warning'>Снаряд не пробивает [penloc] стену!</span>")
 				bumped = TRUE
@@ -537,14 +537,20 @@
 					qdel(src)
 				return FALSE
 			else
-				passthrough = TRUE
-				forceMove(T)
-				permutated += T
 				if (istype(src, /obj/item/projectile/shell))
 					var/obj/item/projectile/shell/S = src
 					if(S.initiated)
-						S.initiate(T)
-				visible_message("<span class = 'warning'>Снаряд пролетает сквозь [penloc] стену</span>")
+						if(S.atype == "HEAT")
+							S.initiate(previous_step)
+							return FALSE
+						else
+							F.bullet_act(src,penloc)
+							passthrough = TRUE
+							forceMove(T)
+							permutated += T
+							S.initiate(T)
+					else
+						visible_message("<span class = 'warning'>Снаряд пролетает сквозь [penloc] стену</span>")
 
 	if (!is_trench && launch_from_trench && !overcoming_trench)
 		overcoming_trench = TRUE

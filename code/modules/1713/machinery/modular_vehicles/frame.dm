@@ -534,60 +534,63 @@
 								new/obj/effect/effect/smoke/small(loc)
 								update_icon()
 			else
-				var/adjdam = proj.heavy_armor_penetration
+				var/damage_modifier = proj.heavy_armor_penetration
 				if(wall_armor(penloc) > heavy_armor_penetration)
-					adjdam /= 2
+					damage_modifier /= 2
 				switch(penloc)
 					if ("left")
-						w_left[5] -= adjdam
+						w_left[5] -= damage_modifier
 						visible_message("<span class = 'danger'><big>The left hull is damaged!</big></span>")
 					if ("right")
-						w_right[5] -= adjdam
+						w_right[5] -= damage_modifier
 						visible_message("<span class = 'danger'><big>The right hull is damaged!</big></span>")
 					if ("front")
-						w_front[5] -= adjdam
+						w_front[5] -= damage_modifier
 						visible_message("<span class = 'danger'><big>The front hull is damaged!</big></span>")
 					if ("back")
-						w_back[5] -= adjdam
+						w_back[5] -= damage_modifier
 						visible_message("<span class = 'danger'><big>The rear hull is damaged!</big></span>")
 					if ("frontleft")
 						if (w_left[4] > w_front[4] && w_left[5]>0 && w_front[5]>0)
-							w_left[5] -= adjdam
+							w_left[5] -= damage_modifier
 							visible_message("<span class = 'danger'><big>The left hull is damaged!</big></span>")
 						else
-							w_front[5] -= adjdam
+							w_front[5] -= damage_modifier
 							visible_message("<span class = 'danger'><big>The front hull is damaged!</big></span>")
 					if ("frontright")
 						if (w_right[4] > w_front[4] && w_right[5]>0 && w_front[5]>0)
-							w_right[5] -= adjdam
+							w_right[5] -= damage_modifier
 							visible_message("<span class = 'danger'><big>The right hull is damaged!</big></span>")
 						else
-							w_front[5] -= adjdam
+							w_front[5] -= damage_modifier
 							visible_message("<span class = 'danger'><big>The front hull is damaged!</big></span>")
 					if ("backleft")
 						if (w_left[4] > w_back[4] && w_left[5]>0 && w_back[5]>0)
-							w_left[5] -= adjdam
+							w_left[5] -= damage_modifier
 							visible_message("<span class = 'danger'><big>The left hull is damaged!</big></span>")
 						else
-							w_back[5] -= adjdam
+							w_back[5] -= damage_modifier
 							visible_message("<span class = 'danger'><big>The rear hull is damaged!</big></span>")
 					if ("backright")
 						if (w_right[4] > w_back[4] && w_right[5]>0 && w_back[5]>0)
-							w_right[5] -= adjdam
+							w_right[5] -= damage_modifier
 							visible_message("<span class = 'danger'><big>The right hull is damaged!</big></span>")
 						else
-							w_back[5] -= adjdam
+							w_back[5] -= damage_modifier
 							visible_message("<span class = 'danger'><big>The rear hull is damaged!</big></span>")
 		else
+			var/damage_modifier = proj.heavy_armor_penetration
+			if(wall_armor(penloc) > heavy_armor_penetration)
+				damage_modifier /= 2
 			switch(penloc)
 				if ("left")
-					w_left[5] -= proj.heavy_armor_penetration * 0.01
+					w_left[5] -= damage_modifier
 				if ("right")
-					w_right[5] -= proj.heavy_armor_penetration * 0.01
+					w_right[5] -= damage_modifier
 				if ("front")
-					w_front[5] -= proj.heavy_armor_penetration * 0.01
+					w_front[5] -= damage_modifier
 				if ("back")
-					w_back[5] -= proj.heavy_armor_penetration * 0.01
+					w_back[5] -= damage_modifier
 		visible_message("<span class = 'warning'>\The [proj] hits \the [src]!</span>")
 		if (istype(proj, /obj/item/projectile/shell))
 			playsound(loc, pick('sound/effects/explosion1.ogg','sound/effects/explosion1.ogg'),100, TRUE)
