@@ -592,7 +592,6 @@
 		if (istype(proj, /obj/item/projectile/shell))
 			playsound(loc, pick('sound/effects/explosion1.ogg','sound/effects/explosion1.ogg'),100, TRUE)
 			playsound(loc, 'sound/tank/bronja-ne-probita.ogg')
-			new/obj/effect/effect/smoke/small/fast(loc)
 		try_destroy()
 		return
 	else
