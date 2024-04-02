@@ -21,7 +21,7 @@
 "au" = (/obj/item/stack/material/barbwire/ten,/turf/floor/plating/concrete,/area/caribbean/roofed/desert)
 "av" = (/obj/structure/vehicleparts/movement/tracks/bmd2new/right_back,/obj/structure/vehicleparts/frame/bmd2/lb,/turf/floor/plating/road,/area/caribbean)
 "aw" = (/obj/structure/vehicleparts/frame/omw22_2,/obj/item/ammo_magazine/maxim,/obj/item/ammo_magazine/maxim,/obj/item/ammo_magazine/maxim,/obj/item/ammo_magazine/maxim,/turf/floor/plating/road,/area/caribbean)
-"ax" = (/obj/structure/shellrack/full100,/turf/floor/beach/sand/desert,/area/caribbean/nomads/desert)
+"ax" = (/obj/structure/shellrack/full100modern,/turf/floor/beach/sand/desert,/area/caribbean/nomads/desert)
 "ay" = (/obj/item/weapon/storage/toolbox/emergency,/obj/structure/vehicleparts/frame/omw22_2/left,/turf/floor/plating/road,/area/caribbean)
 "az" = (/obj/structure/vehicleparts/frame/omw22_2/right,/turf/floor/plating/road,/area/caribbean)
 "aA" = (/obj/structure/vehicleparts/frame/omw22_2,/obj/structure/shellrack/autoloader/full125,/obj/structure/turret/t72/t72m1,/turf/floor/plating/road,/area/caribbean)

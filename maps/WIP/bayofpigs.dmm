@@ -102,6 +102,7 @@
 "bX" = (/obj/structure/window/barrier{icon_state = "dirt_wall"; dir = 4},/turf/floor/grass,/area/caribbean)
 "bY" = (/obj/structure/wild/tree/live_tree,/turf/floor/plating/cobblestone/vertical,/area/caribbean)
 "bZ" = (/obj/structure/oven/stove,/turf/floor/wood,/area/caribbean/roofed)
+"ca" = (/obj/structure/vehicleparts/frame/su100/rbc,/obj/effect/autoassembler,/turf/floor/plating/road,/area/caribbean)
 "cb" = (/turf/floor/plating/white,/area/caribbean/roofed)
 "cc" = (/obj/structure/toilet,/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 1},/turf/floor/plating/steel,/area/caribbean/roofed)
 "cd" = (/obj/structure/closet/cabinet,/obj/item/clothing/under/industrial4,/turf/floor/wood,/area/caribbean/roofed)
@@ -194,6 +195,7 @@
 "dM" = (/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 1},/obj/structure/table/rack/shelf,/obj/item/weapon/storage/firstaid/surgery,/turf/floor/plating/steel,/area/caribbean/roofed)
 "dN" = (/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 1},/obj/structure/table/rack/shelf,/obj/item/weapon/storage/toolbox/electrical,/obj/item/weapon/storage/toolbox/blue,/obj/item/weapon/storage/toolbox/yellow,/turf/floor/plating/steel,/area/caribbean/roofed)
 "dO" = (/obj/structure/table/modern,/obj/item/weapon/storage/firstaid/combat/modern,/obj/item/weapon/storage/firstaid/surgery,/obj/item/weapon/storage/firstaid/surgery,/obj/item/weapon/storage/firstaid/adv,/obj/item/weapon/storage/firstaid/adv,/obj/item/weapon/storage/firstaid/adv,/obj/item/weapon/storage/firstaid/combat/modern,/obj/item/weapon/storage/firstaid/combat/modern,/obj/item/weapon/storage/firstaid/combat/modern,/obj/item/weapon/storage/firstaid/adv,/obj/item/weapon/storage/firstaid/adv,/turf/floor/plating/steel,/area/caribbean/roofed)
+"dP" = (/obj/structure/vehicleparts/frame/su100/bc,/turf/floor/plating/road,/area/caribbean)
 "dQ" = (/obj/effect/decal/warning_stripes{icon_state = "N-corner"; dir = 7},/obj/structure/barricade/antitank,/turf/floor/plating/concrete,/area/caribbean)
 "dR" = (/obj/structure/bed/chair,/turf/floor/plating/steel,/area/caribbean/roofed)
 "dS" = (/obj/structure/table/rack/shelf,/obj/item/weapon/storage/firstaid/combat/modern,/obj/item/weapon/storage/firstaid/combat/modern,/obj/item/weapon/storage/firstaid/adv,/obj/item/weapon/storage/firstaid/adv,/turf/floor/plating/steel,/area/caribbean/roofed)
@@ -303,6 +305,8 @@
 "fS" = (/obj/structure/vehicleparts/frame/m41/rf,/obj/structure/vehicleparts/movement/tracks/m41/right_front,/obj/item/ammo_magazine/a50cal_can,/obj/item/ammo_magazine/a50cal_can,/obj/item/ammo_magazine/a50cal_can,/obj/item/ammo_magazine/a50cal_can,/obj/structure/vehicleparts/axis/heavy/m41,/obj/item/weapon/gun/projectile/automatic/stationary/modern/m2browning,/turf/floor/plating/steel,/area/caribbean)
 "fT" = (/obj/structure/vehicleparts/frame/su100/rb,/obj/structure/engine/internal/diesel{enginesize = 20000},/obj/structure/vehicleparts/movement/tracks/t34/right_back,/turf/floor/plating/road,/area/caribbean)
 "fU" = (/obj/structure/vehicleparts/frame/m41/lf,/obj/structure/vehicleparts/movement/tracks/m41/left_front,/obj/structure/bed/chair/drivers/tank,/turf/floor/plating/steel,/area/caribbean)
+"fV" = (/obj/structure/vehicleparts/frame/su100/lbc,/turf/floor/plating/road,/area/caribbean)
+"fW" = (/obj/structure/vehicleparts/frame/su100/fc,/obj/structure/shellrack/full100ww2,/turf/floor/plating/road,/area/caribbean)
 "fX" = (/obj/structure/barbwire,/obj/structure/barbwire{icon_state = "barbwire"; dir = 4},/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/grass,/area/caribbean)
 "fY" = (/obj/structure/barbwire,/turf/floor/grass,/area/caribbean)
 "fZ" = (/obj/structure/wild/tallgrass,/obj/structure/barbwire,/turf/floor/grass,/area/caribbean)
@@ -310,8 +314,10 @@
 "gb" = (/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/grass,/area/caribbean)
 "gc" = (/obj/structure/cannon/mortar,/turf/floor/plating/concrete,/area/caribbean)
 "gd" = (/obj/structure/cannon/rocket/loaded{dir = 1},/turf/floor/plating/steel,/area/caribbean)
+"ge" = (/obj/structure/vehicleparts/frame/su100/rf,/obj/structure/vehicleparts/movement/tracks/t34/right_front,/obj/structure/shellrack/full100ww2,/turf/floor/plating/road,/area/caribbean)
 "gf" = (/obj/structure/shellrack/fullrocket,/turf/floor/plating/steel,/area/caribbean)
 "gg" = (/obj/structure/closet/crate/empty,/obj/item/cannon_ball/rocket,/obj/item/cannon_ball/rocket,/obj/item/cannon_ball/rocket,/obj/item/cannon_ball/rocket,/obj/item/cannon_ball/rocket,/obj/item/cannon_ball/rocket,/obj/item/cannon_ball/rocket,/obj/item/cannon_ball/rocket,/obj/item/cannon_ball/rocket,/obj/item/cannon_ball/rocket,/obj/item/cannon_ball/rocket,/turf/floor/plating/concrete,/area/caribbean)
+"gh" = (/obj/structure/vehicleparts/frame/su100/front,/obj/structure/vehicleparts/axis/heavy/su100,/obj/structure/turret/course/su100,/turf/floor/plating/road,/area/caribbean)
 "gj" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/item/weapon/wrench,/obj/item/weapon/attachment/scope/adjustable/binoculars/binoculars,/turf/floor/plating/steel,/area/caribbean)
 "gk" = (/obj/structure/sign/flag/reich,/obj/item/ammo_magazine/mg34,/obj/item/ammo_magazine/mg34,/obj/item/ammo_magazine/mg34belt,/obj/item/ammo_magazine/mg34belt,/obj/item/weapon/gun/projectile/automatic/mg34,/obj/item/weapon/gun/projectile/automatic/mg34,/turf/floor/plating/concrete,/area/caribbean/roofed)
 "gl" = (/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/dirt,/area/caribbean)
@@ -345,14 +351,8 @@
 "gT" = (/obj/structure/lamp/lamp_big/alwayson,/turf/floor/wood,/area/caribbean/roofed)
 "gU" = (/obj/structure/vehicleparts/frame/su100/back,/obj/item/weapon/key/soviet{name = "Cuban key"},/turf/floor/plating/road,/area/caribbean)
 "gV" = (/obj/structure/vehicleparts/frame/su100/lb,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled,/obj/structure/vehicleparts/movement/tracks/t34/left_back,/turf/floor/plating/road,/area/caribbean)
-"gW" = (/obj/structure/vehicleparts/frame/su100/rbc,/obj/structure/shellrack/full100,/obj/effect/autoassembler,/turf/floor/plating/road,/area/caribbean)
-"gX" = (/obj/structure/vehicleparts/frame/su100/bc,/obj/structure/shellrack/full100,/turf/floor/plating/road,/area/caribbean)
-"gY" = (/obj/structure/vehicleparts/frame/su100/lbc,/obj/structure/shellrack/full100,/turf/floor/plating/road,/area/caribbean)
 "gZ" = (/obj/structure/vehicleparts/frame/su100/rfc,/obj/structure/bed/chair/commander,/turf/floor/plating/road,/area/caribbean)
-"ha" = (/obj/structure/vehicleparts/frame/su100/fc,/obj/structure/bed/chair/loader,/turf/floor/plating/road,/area/caribbean)
 "hb" = (/obj/structure/vehicleparts/frame/su100/lfc,/obj/item/weapon/storage/toolbox/emergency,/turf/floor/plating/road,/area/caribbean)
-"hc" = (/obj/structure/vehicleparts/frame/su100/rf,/obj/structure/bed/chair/gunner,/obj/structure/vehicleparts/movement/tracks/t34/right_front,/turf/floor/plating/road,/area/caribbean)
-"hd" = (/obj/structure/vehicleparts/frame/su100/front,/obj/structure/vehicleparts/axis/heavy/su100,/obj/structure/cannon/modern/tank/russian100/course,/turf/floor/plating/road,/area/caribbean)
 "he" = (/obj/structure/vehicleparts/frame/su100/lf,/obj/structure/bed/chair/drivers/tank,/obj/structure/vehicleparts/movement/tracks/t34/left_front,/turf/floor/plating/road,/area/caribbean)
 "hf" = (/obj/structure/lamp/lamp_big/alwayson{dir = 8},/turf/floor/wood,/area/caribbean/roofed)
 "hg" = (/obj/structure/simple_door/key_door/anyone/wood,/turf/floor/wood,/area/caribbean/roofed)
@@ -425,9 +425,9 @@ ajaKajbIdfajaTaTaTaTaTHpaTaTcuaTaNaNbKbMaTaTcuxfyOaTaTajbNbObNaTcuaTbGbHaMaTaTaT
 ajaKajbTaTajajajaMajajajajEGajajajajajajdgajajajajajajajajajajdgajajajajEGajaTaTaTziaIaIaIaIaIaBaBaBaBaBaBaBaBaBaBaBaBaB
 ajaKajcgaTaTaTaTaTaTanajdTzFdTajchdududuaTduepajajajajchdududuaTduepajdTaTajaTaTaLajakakaIaIaIaBaBaBaBaBaBaBaBaBaBaBaBaB
 ajaKajATaTeWcuDsaTcuDZajdTcudTajeXaTaTaTaTaTfdajajajajeXaTaTaTaTaTfdajMHcuajfeXNaLajaxakakaIaIaBaBaBaBfTgUgVaBaBaBaBaBaB
-ajaKajajajajajajajajajajajajajajfhcuaTaTaTcufiajajajajfhcuaTaTaTcufiajajajajajajaLajaxaxakbwaIaBaBaBaBgWgXgYaBaBaBaBaBaB
-ajfjfwfwfwfwfwfwfwfwfwfwfwfwfwfwfwfxfyfAfyfxfwfwfwfwfwfwfxfyfAfyfwfwfwfwfwfwfwfwfBajaxaxaxakaIaBaBaBaBgZhahbaBaBaBaBaBaB
-ajajajajajajajajajajajajajajajajajfHfLfHfLfHajajajajajajfHfLfHfLfHajajajajajajajajajaxaxaxakaIaBaBaBaBhchdheaBaBaBaBaBaB
+ajaKajajajajajajajajajajajajajajfhcuaTaTaTcufiajajajajfhcuaTaTaTcufiajajajajajajaLajaxaxakbwaIaBaBaBaBcadPfVaBaBaBaBaBaB
+ajfjfwfwfwfwfwfwfwfwfwfwfwfwfwfwfwfxfyfAfyfxfwfwfwfwfwfwfxfyfAfyfwfwfwfwfwfwfwfwfBajaxaxaxakaIaBaBaBaBgZfWhbaBaBaBaBaBaB
+ajajajajajajajajajajajajajajajajajfHfLfHfLfHajajajajajajfHfLfHfLfHajajajajajajajajajaxaxaxakaIaBaBaBaBgeghheaBaBaBaBaBaB
 fXfXfXfYfZfYfYfYgagafYaxaxfYfYfYfYfYfYaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxakaIaBaBaBaBaBaBaBaBaBaBaBaBaB
 fYfYaxaxaxaxaxaxaxfMaxaxaxfzaxaxaxaxaxaxaxaxaxaxaxaxfYfYfYaxaxaxfYfYfYfYfYaxaxaxaxaxaxaxaxakaIaIaIaBaBaBaBaBaBaBaIaIaIaI
 axaxaxfYfYfYfYfYaxfYfYfYaxaxaxaxaxaxaxfMfYfYfYfYaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxakakakakbwaBaBaBaBaBbwakakakak
