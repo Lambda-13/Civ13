@@ -207,13 +207,12 @@ var/global/list/tank_names_usa = list("Charlie", "Alpha", "Foxtrot", "Tango", "E
 				moving = FALSE
 				stopmovementloop()
 				return FALSE
-			for(var/obj/covers/CV in TT && !(CV in transporting))
-				if (current_weight < 600)
-					if (CV.density || CV.wall)
-						visible_message("<span class='warning'>\the [src] hits \the [CV]!</span>","<span class='warning'>You hit \the [CV]!</span>")
-						moving = FALSE
-						stopmovementloop()
-						return FALSE
+			for(var/obj/covers/CV in T)
+				if (CV.density)
+					visible_message("<span class='warning'>\the [src] hits \the [CV]!</span>","<span class='warning'>You hit \the [CV]!</span>")
+					moving = FALSE
+					stopmovementloop()
+					return FALSE
 			for(var/obj/item/ammo_casing/AC in T)
 				if(!AC.BB)
 					qdel(AC) //to prevent the "empty empty empty empty"... spam
