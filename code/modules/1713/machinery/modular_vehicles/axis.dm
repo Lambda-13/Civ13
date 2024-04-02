@@ -181,6 +181,8 @@ var/global/list/tank_names_usa = list("Charlie", "Alpha", "Foxtrot", "Tango", "E
 								SA.crush()
 
 			for(var/obj/structure/O in T)
+				if(istype(O, /obj/structure/lamp/lamppost_small/alwayson))
+					qdel(O)
 				var/done = FALSE
 				for (var/obj/structure/vehicleparts/frame/FM in O.loc)
 					done = TRUE
