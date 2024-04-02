@@ -172,26 +172,6 @@
 	if(attacker.using_turret == src)
 		do_html(attacker)
 
-/obj/structure/turret/verb/rotate_left()
-	set category = null
-	set name = "Rotate Left"
-	set src in range(2, usr)
-
-	if (!istype(usr, /mob/living))
-		return
-
-	icrease_target_azimuth(90)
-
-/obj/structure/turret/verb/rotate_right()
-	set category = null
-	set name = "Rotate Right"
-	set src in range(2, usr)
-
-	if (!istype(usr, /mob/living))
-		return
-
-	icrease_target_azimuth(-90)
-
 /obj/structure/turret/proc/switch_weapon()
 	selected_weapon += 1
 
@@ -518,6 +498,110 @@
 		commander_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/russian85(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/dp28/dt28(src))
+		..()
+
+/obj/structure/turret/course
+	turret_color = "#4a5243"
+	turret_icon = "su100_turret"
+	name = "Course cannon"
+
+	gunner_x = 12
+	gunner_y = 8
+
+	loader_x = -6
+	loader_y = 18
+
+/obj/structure/turret/course/proc/turn_to_dir(var/tdir)
+	if(tdir == "left")
+		azimuth += 90
+	else if(tdir == "right")
+		azimuth -= 90
+	clamp_azimuth()
+	update_icon()
+
+/obj/structure/turret/course/rotate_to_target()
+	if(azimuth_to_target)
+		var/delta_azimuth = sign(azimuth_to_target)
+		azimuth += delta_azimuth
+		clamp_azimuth(azimuth)
+		azimuth_to_target -= delta_azimuth
+
+	var/continue_rotation = TRUE
+
+	switch(dir)
+		if(NORTH)
+			if(azimuth >= 135)
+				azimuth = 134
+				continue_rotation= FALSE
+			else if(azimuth < 45)
+				azimuth = 45
+				continue_rotation = FALSE
+		if(WEST)
+			if(azimuth >= 225)
+				azimuth = 224
+				continue_rotation = FALSE
+			else if(azimuth < 135)
+				azimuth = 135
+				continue_rotation = FALSE
+		if(SOUTH)
+			if(azimuth >= 315)
+				azimuth = 314
+				continue_rotation = FALSE
+			else if(azimuth < 225)
+				azimuth = 225
+				continue_rotation = FALSE
+		if(EAST)
+			if(azimuth >= 45 && azimuth <= 180)
+				azimuth = 44
+				continue_rotation = FALSE
+			else if(azimuth <= 315 && azimuth > 180)
+				azimuth = 316
+				continue_rotation = FALSE
+
+	update_icon()
+
+	if(azimuth_to_target != 0 && continue_rotation)
+		spawn(0.15)
+			rotate_to_target()
+	else
+		stopped_rotation_time = world.time
+
+/obj/structure/turret/course/su85m
+	turret_color = "#4a5243"
+	turret_icon = "su100_turret"
+	name = "SU-85M"
+
+	gunner_x = 12
+	gunner_y = 8
+
+	loader_x = -6
+	loader_y = 18
+
+	New()
+		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
+		gunner_seat.setup(src)
+		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
+		loader_seat.setup(src)
+		weapons.Add(new/obj/structure/cannon/modern/tank/russian85(src))
+		..()
+
+/obj/structure/turret/course/su100
+	turret_color = "#4a5243"
+	turret_icon = "su100_turret"
+	name = "SU-100"
+
+	gunner_x = 12
+	gunner_y = 8
+
+	loader_x = -6
+	loader_y = 18
+
+	New()
+		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
+		gunner_seat.setup(src)
+		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
+		loader_seat.setup(src)
+		weapons.Add(new/obj/structure/cannon/modern/tank/russian100(src))
 		..()
 
 /obj/structure/turret/is2

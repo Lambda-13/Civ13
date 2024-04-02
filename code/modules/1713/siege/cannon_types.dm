@@ -336,11 +336,6 @@
 	caliber = 85
 	anchored = TRUE
 
-/obj/structure/cannon/modern/tank/russian85/course
-	name = "85mm D-5S"
-	desc = "a 85mm Russian course cannon."
-	course = TRUE
-
 /obj/structure/cannon/modern/tank/russian85/su85
 	desc = "a 85mm SU-85 russian tank-based cannon."
 	icon_state = "tank_cannon"
@@ -371,10 +366,6 @@
 	maxrange = 33
 	caliber = 100
 	anchored = TRUE
-
-/obj/structure/cannon/modern/tank/russian100/course
-	desc = "a 100mm Russian course cannon."
-	course = TRUE
 
 /obj/structure/cannon/modern/tank/russian115
 	name = "115mm 2A20"

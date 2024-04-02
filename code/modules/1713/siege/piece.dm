@@ -42,8 +42,6 @@
 	var/target_x = 0
 	var/target_y = -5
 
-	var/course
-
 /obj/structure/cannon/verb/assemble()
 	set category = null
 	set name = "Assemble"
@@ -419,19 +417,6 @@
 
 	get_target_coords()
 	draw_aiming_line(user)
-
-	if (course)
-		if (dir == NORTH)
-			azimuth = clamp(azimuth, 45, 134)
-		else if (dir == WEST)
-			azimuth = clamp(azimuth, 135, 224)
-		else if (dir == SOUTH)
-			azimuth = clamp(azimuth, 225, 315)
-		else
-			if (azimuth >= 45)
-				azimuth = 44
-			if (azimuth < 315)
-				azimuth = 315
 
 	if(azimuth >= 45 && azimuth < 135)
 		dir = NORTH
@@ -972,10 +957,6 @@
 	set name = "Rotate Left"
 	set src in range(2, usr)
 
-	if (course && istype(usr, /mob/living))
-		usr << "You can't rotate course cannon"
-		return
-
 	if (!istype(usr, /mob/living))
 		return
 
@@ -1020,10 +1001,6 @@
 	set category = null
 	set name = "Rotate Right"
 	set src in range(2, usr)
-
-	if (course && istype(usr, /mob/living))
-		usr << "You can't rotate course cannon"
-		return
 
 	if (!istype(usr, /mob/living))
 		return

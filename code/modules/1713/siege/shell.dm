@@ -601,7 +601,15 @@
 		new /obj/item/cannon_ball/shell/tank/APCR75(storage)
 	update_icon()
 
-/obj/structure/shellrack/full100/New()
+/obj/structure/shellrack/full100ww2/New()
+	..()
+	for (var/i=1, i<=10, i++)
+		new /obj/item/cannon_ball/shell/tank/HE100(storage)
+	for (var/i=1, i<=6, i++)
+		new /obj/item/cannon_ball/shell/tank/AP100(storage)
+	update_icon()
+
+/obj/structure/shellrack/full100modern/New()
 	..()
 	for (var/i=1, i<=8, i++)
 		new /obj/item/cannon_ball/shell/tank/HE100(storage)
