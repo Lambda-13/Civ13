@@ -18,8 +18,8 @@
 	KD_chance = KD_CHANCE_MEDIUM
 	stat = "pistol"
 	aim_miss_chance_divider = 2.00
-	barrel_x_offset = 0
-	barrel_y_offset = 10
+	barrel_x_offset = 17
+	barrel_y_offset = 0
 
 /obj/item/weapon/gun/projectile/pistol/attackby(obj/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/weapon/attachment/bayonet))
@@ -27,6 +27,14 @@
 		return FALSE
 	else
 		return ..()
+
+/obj/item/weapon/gun/projectile/pistol/update_icon()
+	..()
+	if (silencer && (!silencer.fits || (silencer.fits && !silencer.fits.Find("pistol"))))
+		overlays -= barrel_image
+		var/part_icon_state = "pistol_[silencer.icon_state]"
+		barrel_image = image(icon = 'icons/obj/guns/parts.dmi', loc = src, icon_state = part_icon_state, pixel_x = barrel_x_offset, pixel_y = barrel_y_offset)
+		overlays += barrel_image
 
 /obj/item/weapon/gun/projectile/pistol/nambu
 	name = "Type A Nambu"
@@ -140,6 +148,10 @@
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	accuracy = 4
+
+/obj/item/weapon/gun/projectile/pistol/glock17/update_icon()
+	..()
+	overlays -= mag_image
 
 /obj/item/weapon/gun/projectile/pistol/glock17/standardized
 	magazine_type = /obj/item/ammo_magazine/emptymagazine/pistol
@@ -483,6 +495,8 @@
 	handle_casings = EJECT_CASINGS
 	bad_magazine_types = list(/obj/item/ammo_magazine/c762x25_ppsh, /obj/item/ammo_magazine/c762x25_pps)
 	accuracy = 4
+	barrel_x_offset = 19
+	barrel_y_offset = 0
 
 /obj/item/weapon/gun/projectile/pistol/tt30/update_icon()
 	..()

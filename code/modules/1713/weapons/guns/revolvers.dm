@@ -33,6 +33,8 @@
 	stat = "pistol"
 	aim_miss_chance_divider = 2.00
 	load_delay = 6
+	barrel_x_offset = 17
+	barrel_y_offset = 0
 
 /obj/item/weapon/gun/projectile/revolver/update_icon()
 	..()
@@ -41,6 +43,13 @@
 			icon_state = "[base_icon]_cocked"
 		else
 			icon_state = base_icon
+
+	if (silencer && (!silencer.fits || (silencer.fits && !silencer.fits.Find("pistol"))))
+		overlays -= barrel_image
+		var/part_icon_state = "pistol_[silencer.icon_state]"
+		barrel_image = image(icon = 'icons/obj/guns/parts.dmi', loc = src, icon_state = part_icon_state, pixel_x = barrel_x_offset, pixel_y = barrel_y_offset)
+		overlays += barrel_image
+
 /obj/item/weapon/gun/projectile/revolver/verb/spin_cylinder()
 	set name = "Spin cylinder"
 	set desc = "Fun when you're bored out of your skull."

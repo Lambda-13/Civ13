@@ -637,6 +637,7 @@ Current Defines (_defines/attachment.dm)
 	var/reduction = 50
 	var/caliber = "multicaliber"
 	ergonomics = 1.25
+	fits = null
 
 /obj/item/weapon/attachment/silencer/attached(mob/user, obj/item/weapon/gun/G, var/quick = FALSE)
 	if (istype(G, /obj/item/weapon/gun/projectile))
