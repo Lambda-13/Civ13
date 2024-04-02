@@ -83,7 +83,7 @@
 	..()
 	if (scope)
 		overlays -= scope_image
-		scope_image = image(icon = 'icons/obj/guns/parts.dmi', loc = src, icon_state = "pu_svt", pixel_x = mag_x_offset, pixel_y = mag_y_offset)
+		scope_image = image(icon = 'icons/obj/guns/parts.dmi', loc = src, icon_state = "pu_svt", pixel_x = scope_x_offset, pixel_y = scope_y_offset)
 		overlays += scope_image
 
 /obj/item/weapon/gun/projectile/semiautomatic/ptrs
