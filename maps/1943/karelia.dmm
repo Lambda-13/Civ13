@@ -209,12 +209,10 @@
 "ea" = (/obj/structure/bookcase,/turf/floor/wood,/area/caribbean/russian/land/inside/command{name = "Soviet HQ"})
 "eb" = (/obj/structure/wild/smallbush/winter,/turf/floor/winter,/area/caribbean/nomads/forest/snow)
 "ec" = (/obj/structure/window/barrier/snowwall{icon_state = "snow_wall"; dir = 1},/turf/floor/trench,/area/caribbean/nomads/forest/snow)
-"ed" = (/obj/structure/vehicleparts/frame/t34/rb,/obj/structure/engine/internal/diesel{enginesize = 20000},/obj/structure/vehicleparts/movement/tracks/t34/right_back,/obj/structure/vehicleparts/frame/t34/rb,/obj/structure/engine/internal/diesel{enginesize = 20000},/obj/structure/vehicleparts/movement/tracks/t34/right_back,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
 "ee" = (/obj/structure/barricade/steel,/turf/floor/plating/road,/area/caribbean/roofed)
 "ef" = (/obj/structure/grille/chainlinkfence{icon_state = "chainlinkfence"; dir = 8},/obj/structure/barbwire{icon_state = "barbwire"; dir = 8},/obj/structure/window/barrier/sandbag{dir = 8},/obj/structure/window/barrier/sandbag,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
 "eg" = (/obj/structure/window/barrier/snowwall,/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/winter,/area/caribbean/nomads/forest/snow)
 "eh" = (/obj/effect/autoassembler,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
-"ei" = (/obj/structure/vehicleparts/frame/t34/back,/obj/structure/vehicleparts/frame/t34/back,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
 "ej" = (/obj/structure/gate/barrier{breakable = 1},/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
 "ek" = (/obj/structure/table/wood,/obj/item/flashlight/lamp/littlelamp{on = 1},/turf/floor/plating/white,/area/caribbean/roofed)
 "el" = (/obj/structure/flag/soviet,/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/dirt/winter,/area/caribbean/nomads/forest/snow)
@@ -237,7 +235,6 @@
 "eC" = (/obj/structure/grille/chainlinkfence{icon_state = "chainlinkfence"; dir = 8},/obj/structure/barbwire{icon_state = "barbwire"; dir = 8},/obj/structure/window/barrier/sandbag{dir = 8},/turf/floor/winter,/area/caribbean/nomads/forest/snow)
 "eD" = (/obj/structure/bed/wood,/obj/effect/landmark{name = "JoinLateRU"; icon_state = "x1"},/turf/floor/wood,/area/caribbean/roofed)
 "eE" = (/obj/item/weapon/stool/wood,/obj/effect/landmark{name = "JoinLateRU"; icon_state = "x1"},/turf/floor/wood,/area/caribbean/roofed)
-"eF" = (/obj/structure/vehicleparts/frame/t34/lb,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled,/obj/structure/vehicleparts/movement/tracks/t34/left_back,/obj/structure/vehicleparts/frame/t34/lb,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled,/obj/structure/vehicleparts/movement/tracks/t34/left_back,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
 "eG" = (/obj/structure/vehicleparts/frame/t34/right/door,/obj/effect/autoassembler,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
 "eH" = (/obj/item/ammo_magazine/maxim,/obj/item/ammo_magazine/maxim,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
 "eI" = (/obj/structure/window/barrier/sandbag,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
@@ -262,7 +259,6 @@
 "fb" = (/obj/structure/brazier/loaded,/obj/structure/window/barrier/sandbag{dir = 8},/obj/structure/window/barrier/sandbag,/turf/floor/plating/concrete,/area/caribbean/german/inside{name = "Finnish Warehouse"})
 "fc" = (/obj/structure/sign/flag/finland{pixel_y = -32},/obj/structure/window/barrier/sandbag,/turf/floor/plating/concrete,/area/caribbean/german/inside{name = "Finnish Warehouse"})
 "fd" = (/obj/structure/window/barrier/snowwall{icon_state = "snow_wall"; dir = 8},/turf/floor/winter,/area/caribbean/nomads/forest/snow)
-"fe" = (/obj/structure/vehicleparts/frame/t34/right/door,/obj/effect/autoassembler,/obj/structure/vehicleparts/frame/t34/right/door,/obj/effect/autoassembler,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
 "ff" = (/obj/covers/brick_wall,/turf/wall/brick,/area/caribbean/russian/land/inside/command{name = "Soviet HQ"})
 "fg" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 8},/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
 "fh" = (/obj/structure/barbwire{icon_state = "barbwire"; dir = 8},/turf/floor/winter/grass,/area/caribbean/nomads/forest/snow)
@@ -273,7 +269,6 @@
 "fm" = (/obj/structure/closet/crate/ww2/mp40,/turf/floor/plating/concrete,/area/caribbean/german/inside{name = "Finnish Warehouse"})
 "fn" = (/obj/item/weapon/gun/projectile/pistol/luger,/obj/item/weapon/gun/projectile/pistol/luger,/obj/structure/closet/crate/empty,/obj/item/weapon/gun/projectile/pistol/luger,/obj/item/weapon/gun/projectile/pistol/luger,/obj/item/weapon/gun/projectile/pistol/luger,/obj/structure/sign/flag/finland{pixel_y = -32},/turf/floor/plating/concrete,/area/caribbean/german/inside{name = "Finnish Warehouse"})
 "fo" = (/obj/item/ammo_magazine/luger,/obj/item/ammo_magazine/luger,/obj/item/ammo_magazine/luger,/obj/item/ammo_magazine/luger,/obj/item/ammo_magazine/luger,/obj/item/ammo_magazine/luger,/obj/item/ammo_magazine/luger,/obj/structure/closet/crate/empty,/obj/item/ammo_magazine/luger,/obj/item/ammo_magazine/luger,/obj/item/ammo_magazine/luger,/obj/item/ammo_magazine/luger,/obj/item/ammo_magazine/luger,/obj/item/ammo_magazine/luger,/obj/item/ammo_magazine/luger,/obj/structure/lamp/lamp_small/alwayson{icon_state = "bulb"; dir = 4; light_range = 5; light_amt = 5},/turf/floor/plating/concrete,/area/caribbean/german/inside{name = "Finnish Warehouse"})
-"fp" = (/obj/structure/vehicleparts/frame/t34/bc,/obj/structure/shellrack/full76,/obj/structure/vehicleparts/frame/t34/bc,/obj/structure/shellrack/full76,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
 "fq" = (/obj/structure/window/barrier/sandbag,/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 8},/obj/structure/lamp/lamppost_small/alwayson,/turf/floor/winter,/area/caribbean/nomads/forest/snow)
 "fr" = (/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank,/turf/floor/plating/road,/area/caribbean/roofed)
 "fs" = (/obj/structure/bed/chair/drivers,/turf/floor/plating/road,/area/caribbean/roofed)
@@ -368,7 +363,6 @@
 "hd" = (/obj/structure/grille/chainlinkfence,/obj/structure/barbwire,/turf/floor/trench,/area/caribbean/nomads/forest/snow)
 "he" = (/obj/structure/lamp/lamp_big/alwayson{dir = 8},/turf/floor/plating/white,/area/caribbean/roofed)
 "hf" = (/obj/structure/sign/flag/finland{pixel_y = 32},/turf/floor/wood,/area/caribbean/roofed)
-"hg" = (/obj/structure/vehicleparts/frame/t34/left/door,/obj/item/weapon/storage/toolbox/emergency,/obj/structure/vehicleparts/frame/t34/left/door,/obj/item/weapon/storage/toolbox/emergency,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
 "hh" = (/obj/structure/table/wood,/obj/item/clothing/gloves/color/white,/turf/floor/plating/white,/area/caribbean/roofed)
 "hi" = (/obj/structure/lamp/lamp_big/alwayson{dir = 4},/turf/floor/plating/white,/area/caribbean/roofed)
 "hj" = (/obj/structure/barricade/steel,/obj/structure/window/barrier/sandbag,/turf/floor/winter,/area/caribbean/nomads/forest/snow)
@@ -461,15 +455,9 @@
 "iS" = (/obj/structure/bed/wood,/obj/effect/landmark{name = "JoinLateRU"; icon_state = "x1"},/obj/structure/lamp/lamp_big/alwayson{dir = 4},/turf/floor/wood,/area/caribbean/roofed)
 "iT" = (/obj/structure/vehicleparts/frame/t34/fc,/obj/structure/turret/t34,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
 "iU" = (/obj/structure/vehicleparts/frame/t34/left,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
-"iV" = (/obj/structure/vehicleparts/frame/t34/right,/obj/structure/vehicleparts/frame/t34/right,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
-"iW" = (/obj/structure/vehicleparts/frame/t34/fc,/obj/structure/turret/t34,/obj/structure/vehicleparts/frame/t34/fc,/obj/structure/turret/t34,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
-"iX" = (/obj/structure/vehicleparts/frame/t34/left,/obj/structure/vehicleparts/frame/t34/left,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
 "iY" = (/obj/structure/vehicleparts/frame/t34/rf,/obj/structure/vehicleparts/movement/tracks/t34/right_front,/obj/structure/bed/chair/mgunner/dt28,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
-"iZ" = (/obj/structure/vehicleparts/frame/t34/front,/obj/structure/vehicleparts/axis/heavy/t34,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
-"ja" = (/obj/structure/vehicleparts/frame/t34/lf,/obj/structure/vehicleparts/movement/tracks/t34/left_front,/obj/structure/bed/chair/drivers/tank,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
-"jb" = (/obj/structure/vehicleparts/frame/t34/rf,/obj/structure/vehicleparts/movement/tracks/t34/right_front,/obj/structure/bed/chair/mgunner/dt28,/obj/structure/vehicleparts/frame/t34/rf,/obj/structure/vehicleparts/movement/tracks/t34/right_front,/obj/structure/bed/chair/mgunner/dt28,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
-"jc" = (/obj/structure/vehicleparts/frame/t34/front,/obj/structure/vehicleparts/axis/heavy/t34,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/structure/vehicleparts/frame/t34/front,/obj/structure/vehicleparts/axis/heavy/t34,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
-"jd" = (/obj/structure/vehicleparts/frame/t34/lf,/obj/structure/vehicleparts/movement/tracks/t34/left_front,/obj/structure/bed/chair/drivers/tank,/obj/structure/vehicleparts/frame/t34/lf,/obj/structure/vehicleparts/movement/tracks/t34/left_front,/obj/structure/bed/chair/drivers/tank,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
+"iZ" = (/obj/structure/vehicleparts/frame/t34/front,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
+"ja" = (/obj/structure/vehicleparts/frame/t34/lf,/obj/structure/vehicleparts/movement/tracks/t34/left_front,/obj/structure/bed/chair/drivers/tank,/obj/structure/vehicleparts/axis/heavy/t34,/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
 "mu" = (/obj/structure/cannon/mortar,/turf/floor/wood,/area/caribbean/roofed)
 "nT" = (/obj/structure/grille/chainlinkfence{icon_state = "chainlinkfence"; dir = 8},/obj/structure/barbwire{icon_state = "barbwire"; dir = 8},/obj/structure/window/barrier/sandbag{dir = 8},/turf/floor/dirt/dust,/area/caribbean/nomads/forest/snow)
 "qv" = (/obj/structure/lamp/lamp_small/alwayson{icon_state = "bulb"; dir = 1},/obj/structure/closet/crate/sandbags,/turf/floor/wood,/area/caribbean/roofed)
@@ -665,8 +653,8 @@ icidhEhEfUifhLhEhEigihahhZiaahahahahahahahahahahahahahahahahahahahahahahahahahah
 icidhEhEeRfZfChEhEiLffiiahahahahahahahiMahiMahahahahahahahahahahahahiMahahiNahahahahahiMahahiOahahahahahahahahahahahahahahahahahahahahaheznTaaaaaqaaaaaqaaaaaaaaaaaaajajaaacaaaaaaaaaaajcLcLhlhvcXcScXcScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScS
 iciPhVhVhVhVhVhVhVhVhUijahahahahahgagjglgzgDgWgWgWeBeBgWgaahahgagaiqirdtdtgaiqgagagaiqirdtdtgagagagaeeeveveveeeeahahahahahahahahahahahahezefODODODODODcvaaaaaaaaaaaaajajaaaaaaebaaaaaaebajcLhlhvcXcScScScScScScScXcScScScScScScScScScScScScXcScXcXcScScScScScScScScScScScScScScScScScScScScScScScScScScScScS
 iciPhVhVhVhVhVhVhVhVhUijahahahahahgagfggghhhhwgWhAgkgkhAgaahahgaeDbfiQbfbfiQbfeDgahBbfqvbfbfiviwixgaexeveveKeLeeahahahahahahahahahahahahahdIaCctctaCereCfdaqaaaaajebajajajaaaaaaaaaaaaaaajcLhlhvcXcXcXcScScScScScScScScScXcScScScScScScScScScScScScScScScScScScScScScScScScScScScScScXcScScScScScScScScScScS
-icicichEhEfUhEhEfCiLffilahahahahahgahPgghMhNhigWhegggghigaahahgaiRbfbwbfbfbwbfiSgahBbfNtbfbfbfbfbfgaeNexeveOeUeeahahahavaZbAahahahedeieFahahbXbXbXUdOseCfdajajajaaaaaaaaaaaaaaaaaaczaaaaaaaahmhlcXcXcXcScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScS
-iciminhEiogYhEiogXigihahahahahahahgahOggekgggghQgghAgghAgaahahgaeDbfbfeEeEbfbfeDgaizbfbwbfbfiAiBiCgaeVexeveWeXeeahahaheGeJeMahahahfefphgahahbXaGbXUdOseCfdajajajaaaaaaaaaaaaaaajaaaaaaaaaaaahmhlcScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScS
-icicichEhEeRhEhEfUhEicahahahahahahgahTgggggggghQgggggghigaahahgaiRbfeEiDiEeEbfiSgahJbfbfbfbfbfmuWzgafjevevfkfreeahahahhKiTiUahahahiViWiXahahvGbXbXvGOseCfdgEajajaaacaaacaaaaaaaaaaaaaaaaaaaahmhlcScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScS
-ipicicicicicicicicicicahahahahahahgahWgghXgghXhQgghAgghAgaahahgaeDbfbweEeEbwbfeDgaitbfiFiGiGiHiIiIgafsfufxfzfAeeahahahiYiZjaahahahjbjcjdahahahahahahOseCfdajajajaaaaaaaaaaaaebaaaaaaaaaaaaaahmhlcScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScS
+icicichEhEfUhEhEfCiLffilahahahahahgahPgghMhNhigWhegggghigaahahgaiRbfbwbfbfbwbfiSgahBbfNtbfbfbfbfbfgaeNexeveOeUeeahahahavaZbAahahahavaZbAahahbXbXbXUdOseCfdajajajaaaaaaaaaaaaaaaaaaczaaaaaaaahmhlcXcXcXcScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScS
+iciminhEiogYhEiogXigihahahahahahahgahOggekgggghQgghAgghAgaahahgaeDbfbfeEeEbfbfeDgaizbfbwbfbfiAiBiCgaeVexeveWeXeeahahaheGeJeMahahaheGeJeMahahbXaGbXUdOseCfdajajajaaaaaaaaaaaaaaajaaaaaaaaaaaahmhlcScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScS
+icicichEhEeRhEhEfUhEicahahahahahahgahTgggggggghQgggggghigaahahgaiRbfeEiDiEeEbfiSgahJbfbfbfbfbfmuWzgafjevevfkfreeahahahhKiTiUahahahhKiTiUahahvGbXbXvGOseCfdgEajajaaacaaacaaaaaaaaaaaaaaaaaaaahmhlcScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScS
+ipicicicicicicicicicicahahahahahahgahWgghXgghXhQgghAgghAgaahahgaeDbfbweEeEbwbfeDgaitbfiFiGiGiHiIiIgafsfufxfzfAeeahahahiYiZjaahahahiYiZjaahahahahahahOseCfdajajajaaaaaaaaaaaaebaaaaaaaaaaaaaahmhlcScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScScS
 "}

@@ -468,7 +468,7 @@
 "iZ" = (/obj/structure/barricade/jap_h,/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/plating/cobblestone/vertical,/area/caribbean)
 "ja" = (/obj/structure/barricade/jap_h_r,/obj/structure/window/barrier/railing{icon_state = "sandstone"; dir = 4},/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/plating/cobblestone/vertical,/area/caribbean)
 "jb" = (/obj/structure/barricade/jap_h_l,/obj/structure/window/barrier/railing{icon_state = "sandstone"; dir = 8},/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/plating/cobblestone/vertical,/area/caribbean)
-"jc" = (/obj/structure/vehicleparts/axis/heavy/i_go,/obj/structure/vehicleparts/frame/i_go/front,/obj/item/weapon/storage/toolbox/emergency,/obj/structure/lamp/lamp_small/tank/red,/turf/floor/grass,/area/caribbean)
+"jc" = (/obj/structure/vehicleparts/frame/i_go/front,/obj/item/weapon/storage/toolbox/emergency,/obj/structure/lamp/lamp_small/tank/red,/turf/floor/grass,/area/caribbean)
 "jd" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 4},/obj/structure/barricade/jap_v,/turf/floor/grass,/area/caribbean)
 "je" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 8},/obj/structure/barricade/jap_v,/turf/floor/grass,/area/caribbean)
 "jf" = (/turf/floor/dirt/dust,/area/caribbean)
@@ -611,7 +611,7 @@
 "lM" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 4},/turf/floor/trench,/area/caribbean)
 "lN" = (/turf/floor/dirt/underground,/area/caribbean/no_mans_land/invisible_wall/one)
 "lO" = (/obj/structure/window/barrier/sandbag,/turf/floor/trench,/area/caribbean)
-"lQ" = (/obj/structure/vehicleparts/frame/i_go/lf,/obj/structure/vehicleparts/movement/tracks,/obj/structure/bed/chair/drivers,/turf/floor/grass,/area/caribbean)
+"lP" = (/obj/structure/vehicleparts/frame/i_go/lf,/obj/structure/vehicleparts/movement/tracks,/obj/structure/bed/chair/drivers,/obj/structure/vehicleparts/axis/heavy/i_go,/turf/floor/grass,/area/caribbean)
 "lR" = (/obj/covers/brick_wall,/turf/wall/brick,/area/caribbean/no_mans_land/invisible_wall/two)
 "lS" = (/obj/structure/sign/traffic/central{icon_state = "centralline"; dir = 8},/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/plating/road,/area/caribbean)
 "lT" = (/obj/covers/brick_wall,/obj/structure/sign/flag/medical,/turf/wall/brick,/area/caribbean/no_mans_land/invisible_wall/two)
@@ -1050,7 +1050,7 @@ aamJmKmKmKmKmKmKmKmLmJmMmMmHmHmMmMmHmMmMmHmMmMmMmNmOmPmQmRmBmyababababababababab
 aamJmKmSmTmKmKmKmKiKmJmHmMmMmNmHmVmWmXmXmYmZmZnamMmOmPmPnbmBmyababgWababababixididabmqmuigababjhabjhkwkBlIlIlIlIlIlIlIlIlIkCkAababjhabababablZlZlZabbDjIababgWabjhabbrabababababababababababababjfjfabab
 aanckEneiRmKmKmKmKngnhmMmMmMmMmMmZmZmZmZmZmZnimZmMmOmPmPnbmBmyababababababababmnmoabmDnRnYabababjhabkwkDlIlIlIlIlIlIlIlIlIlMkAababababababjhlZjLlZabbDbDababababababababababababababjhababababjfjfjfabab
 mMmJnjmKmKmKmKmKnkkFmJmMmMmMmMnmmZmZnnmZmZnnnomZmMmOmPmPnbmBmyabababababjhababmnmoabieociJabababjhababjJlIlIlIlIlIlIlIlIlImCjhgWabababababbrlZlZlZabbDbDabgWababababgWabababababababababababababjfjfabab
-mMmJnpmKmKmKmKmKngngmJmMmMmMmMmMmZmZnqnononrnsmZmMmOmPmPntmBnuabjfababababababjhababiLjclQababjhababababmCmCmCmCabababgWabababababababababablZlZlZjhbDbDabababjhababababababgWababababababababjfjfjfabab
+mMmJnpmKmKmKmKmKngngmJmMmMmMmMmMmZmZnqnononrnsmZmMmOmPmPntmBnuabjfababababababjhababiLjclPababjhababababmCmCmCmCabababgWabababababababababablZlZlZjhbDbDabababjhababababababgWababababababababjfjfjfabab
 mMmGnvnwnvnxnhnhnxnxmGmMmMmMmMmMnamZmZmZmZmZmZnamMmMnynymHmBnzababjsjsjsjTabababababababababababababababababababababababababjhjhababababjfjfawawlZabbDbDabababababjhababababababababababababjfjfabababab
 mMmMmMmMmMmMmMmMmMmMmMnAmMmMmMmMmMmMmMmMmMmMmMmMmMmMnymMmMmHnyjfjflXlXlYjmabababababababababababababababababababgWababababababababababababablZlZawjfbDbDabababababababjhabababababababababjfjfababjhjhgW
 mMmMmMmMmMmMmMmMmMmMmMmMmMmMmMmMmNmMmMmMmMmNmMmMmMnymMnynynynyabablIlIlMjUjfjfjfjfabjfjfjfabjfjfjfjfjfjfjfjfabababababababjfjfjfjfjfjfabjfjfawawawabaobDjfjfjfabjfabababababababababjfjfjfjfabababababab
@@ -1061,7 +1061,7 @@ mZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmMmNnEmMnVmMmMnymHmzmBmyjfababababababjhab
 mZmZnFmZnGmZnFmZnFmZmZmZmZmZnnmZmZmZmZmMmMnHmMmMmMmHmMmHmzmBmyababababjhababjrababmqmuigababababababababgWababgWababababababgWabababababjrablZlZmcgWbDbDababjhababjhababgWababababababjhabababababababab
 mZmZmZmZmZnnmZmZmZmZmZmZmZmZmZmZmZmZmZmMmMnImNmMmHmHmHmHmzmBmyababababababididixabmDnRnYababababababababababababababababababjhababababababablZlZlZabbDbDabababababababababababababababababababgWabababab
 mZmZnGmZnFmZnGmZnGmZmZmZmZmZmZmZmZmZmZmMmMnJmMmHnKnLnKmHmzmBmyabjhababababmnmoababieociJababababababababababababababgWabababjhababgWababbrablZlZlZabjIbDgWabababbrababababababgWabababababababababababaa
-mZmZnnmZmZmZmZmZmZnnmZmZmZmZmZmZmZmZmZmMmMnMmMmHnKnLnKmImzmBmyababababgWabmnmoababiLjclQabababababkJjhabababababababababababababababababbrabmglZlZabbDbDabababababababababjhababababgWabababababaaaaaaaa
+mZmZnnmZmZmZmZmZmZnnmZmZmZmZmZmZmZmZmZmMmMnMmMmHnKnLnKmImzmBmyababababgWabmnmoababiLjclPabababababkJjhabababababababababababababababababbrabmglZlZabbDbDabababababababababjhababababgWabababababaaaaaaaa
 namZmZmZmZmZmZmZmZmZnamZmZnBnCnBmZmZnamNmMnOmMmHnKnPnKmHmzmBmyabababababababababjhabababababababababababjhababababababjhababgWabababababjhablZlZlZabbDbDababjhgWababgWababababababjtabababababaaaaaaaaaa
 mMmMmMmMmMmMmMmMmMmMmMmMmMmMmMmMmMmMmMmMmMmMmMmHnKnKnKmHmzmBmyababababababjhabababababababababababababababababababgWabababababababababababablZlZlZabmfbDabababababababjhababgWabababababaaaaaaaaaaaaaaaa
 "}
