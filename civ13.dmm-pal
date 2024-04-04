@@ -4,3 +4,5 @@
 /area/caribbean/russian
 /obj/structure/barricade/tires
 /obj/structure/lamp/lamppost_small/alwayson
+/obj/item/ammo_magazine/browning
+/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueledgasoline

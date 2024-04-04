@@ -448,11 +448,11 @@
 "iF" = (/obj/structure/vehicleparts/frame/t34/fc,/obj/structure/turret/t34,/turf/floor/grass,/area/caribbean)
 "iG" = (/obj/structure/vehicleparts/frame/t34/left,/turf/floor/grass,/area/caribbean)
 "iH" = (/obj/structure/vehicleparts/frame/t34/rf,/obj/structure/vehicleparts/movement/tracks/t34/right_front,/obj/structure/bed/chair/mgunner/dt28,/turf/floor/plating/road,/area/caribbean)
-"iI" = (/obj/structure/vehicleparts/frame/t34/front,/obj/structure/vehicleparts/axis/heavy/t34,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/turf/floor/plating/road,/area/caribbean)
-"iJ" = (/obj/structure/vehicleparts/frame/t34/lf,/obj/structure/vehicleparts/movement/tracks/t34/left_front,/obj/structure/bed/chair/drivers/tank,/turf/floor/plating/road,/area/caribbean)
+"iI" = (/obj/structure/vehicleparts/frame/t34/front,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/turf/floor/plating/road,/area/caribbean)
+"iJ" = (/obj/structure/vehicleparts/frame/t34/lf,/obj/structure/vehicleparts/movement/tracks/t34/left_front,/obj/structure/bed/chair/drivers/tank,/obj/structure/vehicleparts/axis/heavy/t34,/turf/floor/plating/road,/area/caribbean)
 "iK" = (/obj/structure/vehicleparts/frame/t34/rf,/obj/structure/vehicleparts/movement/tracks/t34/right_front,/obj/structure/bed/chair/mgunner/dt28,/turf/floor/grass,/area/caribbean)
-"iL" = (/obj/structure/vehicleparts/frame/t34/front,/obj/structure/vehicleparts/axis/heavy/t34,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/turf/floor/grass,/area/caribbean)
-"iM" = (/obj/structure/vehicleparts/frame/t34/lf,/obj/structure/vehicleparts/movement/tracks/t34/left_front,/obj/structure/bed/chair/drivers/tank,/turf/floor/grass,/area/caribbean)
+"iL" = (/obj/structure/vehicleparts/frame/t34/front,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/obj/item/ammo_magazine/dp/dt,/turf/floor/grass,/area/caribbean)
+"iM" = (/obj/structure/vehicleparts/frame/t34/lf,/obj/structure/vehicleparts/movement/tracks/t34/left_front,/obj/structure/bed/chair/drivers/tank,/obj/structure/vehicleparts/axis/heavy/t34,/turf/floor/grass,/area/caribbean)
 "iS" = (/obj/item/weapon/plastique/russian,/obj/item/weapon/plastique/russian,/turf/floor/dirt,/area/caribbean/japanese/land/inside)
 
 (1,1,1) = {"
