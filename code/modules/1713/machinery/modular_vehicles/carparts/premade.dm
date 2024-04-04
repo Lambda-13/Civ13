@@ -419,7 +419,35 @@
 	"1,4" = list(/obj/structure/vehicleparts/frame/car/right/armored,/obj/structure/vehicleparts/movement/reversed),
 	"2,4" = list(/obj/structure/vehicleparts/frame/car/left/armored,/obj/structure/vehicleparts/movement/reversed,/obj/structure/vehicleparts/license_plate/eu/centered),
 	)
+///////////////////////////////////////////////SHIPS///////////////////////////////////////////////////////
+/obj/effects/premadevehicles/ship
 
+/obj/effects/premadevehicles/ship/lc13
+	name = "landing craft"
+	icon_state = "5x5"
+	custom_color = null
+	axis = /obj/structure/vehicleparts/axis/ship/heavy
+	tocreate = list(
+	"1,1" = list(/obj/structure/vehicleparts/frame/ship/steel/lc13/rf),
+	"2,1" = list(/obj/structure/vehicleparts/frame/ship/steel/lc13/f),
+	"3,1" = list(/obj/structure/vehicleparts/frame/ship/steel/lc13/lf),
+
+	"1,2" = list(/obj/structure/vehicleparts/frame/ship/steel/lc13/rfc),
+	"2,2" = list(/obj/structure/vehicleparts/frame/ship/steel/lc13/fc),
+	"3,2" = list(/obj/structure/vehicleparts/frame/ship/steel/lc13/lfc),
+
+	"1,3" = list(/obj/structure/vehicleparts/frame/ship/steel/lc13/rc),
+	"2,3" = list(/obj/structure/vehicleparts/frame/ship/steel/lc13/c),
+	"3,3" = list(/obj/structure/vehicleparts/frame/ship/steel/lc13/lc),
+
+	"1,4" = list(/obj/structure/vehicleparts/frame/ship/steel/lc13/rbc),
+	"2,4" = list(/obj/structure/vehicleparts/frame/ship/steel/lc13/bc,/obj/structure/vehicleparts/shipwheel),
+	"3,4" = list(/obj/structure/vehicleparts/frame/ship/steel/lc13/lbc),
+
+	"1,5" = list(/obj/structure/vehicleparts/frame/ship/steel/lc13/rb),
+	"2,5" = list(/obj/structure/vehicleparts/frame/ship/steel/lc13/b,/obj/structure/engine/internal/diesel/premade/chiha,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled),
+	"3,5" = list(/obj/structure/vehicleparts/frame/ship/steel/lc13/lb),
+	)
 ///////////////////////////////////////////////TANKS///////////////////////////////////////////////////////
 /obj/effects/premadevehicles/tank
 
