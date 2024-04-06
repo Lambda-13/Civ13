@@ -810,6 +810,29 @@
 	"3,4" = list(/obj/structure/vehicleparts/movement/tracks/t34/left_back,/obj/structure/vehicleparts/frame/su100/lb,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled)
 	)
 
+/obj/effects/premadevehicles/tank/t55
+	name = "T-55"
+	icon_state = "4x4"
+	custom_color = "#4a5243"
+	axis = /obj/structure/vehicleparts/axis/heavy/t55
+	tocreate = list(
+	"1,1" = list(/obj/structure/vehicleparts/movement/tracks/right,/obj/structure/vehicleparts/frame/t55/rf),
+	"2,1" = list(/obj/structure/vehicleparts/frame/t55/front),
+	"3,1" = list(/obj/structure/vehicleparts/movement/tracks/left,/obj/structure/vehicleparts/frame/t55/lf,/obj/structure/radio/transmitter_receiver/nopower/tank/faction2,/obj/structure/bed/chair/drivers/tank),
+
+	"1,2" = list(/obj/structure/vehicleparts/frame/t55/right),
+	"2,2" = list(/obj/structure/vehicleparts/frame/t55,/obj/structure/turret/t55),
+	"3,2" = list(/obj/structure/vehicleparts/frame/t55/left,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127),
+
+	"1,3" = list(/obj/structure/vehicleparts/frame/t55/right/door),
+	"2,3" = list(/obj/structure/vehicleparts/frame/t55),
+	"3,3" = list(/obj/structure/vehicleparts/frame/t55/left),
+
+	"1,4" = list(/obj/structure/vehicleparts/movement/tracks/left/reversed,/obj/structure/vehicleparts/frame/t55/rb, /obj/structure/engine/internal/diesel/premade/v12),
+	"2,4" = list(/obj/structure/vehicleparts/frame/t55/back),
+	"3,4" = list(/obj/structure/vehicleparts/movement/tracks/right/reversed,/obj/structure/vehicleparts/frame/t55/lb,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled)
+	)
+
 /obj/effects/premadevehicles/tank/t90a
 	name = "T-90A"
 	icon_state = "4x4"

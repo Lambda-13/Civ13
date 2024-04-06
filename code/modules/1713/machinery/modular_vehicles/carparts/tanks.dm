@@ -542,6 +542,62 @@
 	override_roof_icon = "mt_front_left_roof"
 	override_frame_icon = "mt_front_left_frame"
 
+//T-55 - Думаю, стоит на его основе делать всю технику до Т-70-й серии
+
+/obj/structure/vehicleparts/frame/t55
+	icon = 'icons/obj/vehicles/tankparts.dmi'
+	normal_icon = 'icons/obj/vehicles/tankparts.dmi'
+
+/obj/structure/vehicleparts/frame/t55/front
+	w_front = list("mt_front_frame",TRUE,TRUE,200,200,FALSE,FALSE)
+	override_roof_icon = "mt_front_roof"
+	override_frame_icon = "mt_front_frame"
+/obj/structure/vehicleparts/frame/t55/back
+	w_back = list("mt_back_frame",TRUE,TRUE,45,45,FALSE,FALSE)
+	override_roof_icon = "mt_back_roof"
+	override_frame_icon = "mt_back_frame"
+
+/obj/structure/vehicleparts/frame/t55/left
+	w_left = list("mt_left_frame",TRUE,TRUE,80,80,FALSE,FALSE)
+	override_roof_icon = "mt_left_roof"
+	override_frame_icon = "mt_left_frame"
+/obj/structure/vehicleparts/frame/t55/left/door
+	w_left = list("mt_left_door_frame",TRUE,TRUE,80,30,TRUE,TRUE)
+	// doorcode = 668643
+	override_roof_icon = "mt_left_door_roof"
+	override_frame_icon = "mt_left_door_frame"
+/obj/structure/vehicleparts/frame/t55/right
+	w_right = list("mt_right_frame",TRUE,TRUE,80,80,FALSE,FALSE)
+	override_roof_icon = "mt_right_roof"
+	override_frame_icon = "mt_right_frame"
+/obj/structure/vehicleparts/frame/t55/right/door
+	w_right = list("mt_right_door_frame",TRUE,TRUE,80,30,TRUE,TRUE)
+	// doorcode = 668643
+	override_roof_icon = "mt_right_door_roof"
+	override_frame_icon = "mt_right_door_frame"
+
+/obj/structure/vehicleparts/frame/t55/rb
+	w_right = list("c_wall",TRUE,TRUE,80,80,FALSE,FALSE)
+	w_back = list("mt_right_back_frame",TRUE,TRUE,50,50,FALSE,FALSE)
+	override_roof_icon = "mt_back_right_roof"
+	override_frame_icon = "mt_back_right_frame"
+/obj/structure/vehicleparts/frame/t55/lb
+	w_left = list("c_wall",TRUE,TRUE,80,80,FALSE,FALSE)
+	w_back = list("mt_back_left_frame",TRUE,TRUE,50,50,FALSE,FALSE)
+	override_roof_icon = "mt_back_left_roof"
+	override_frame_icon = "mt_back_left_frame"
+
+/obj/structure/vehicleparts/frame/t55/rf
+	w_right = list("c_wall",TRUE,TRUE,90,90,FALSE,FALSE)
+	w_front = list("mt_front_right_frame",TRUE,TRUE,450,450,FALSE,FALSE)
+	override_roof_icon = "mt_front_right_roof"
+	override_frame_icon = "mt_front_right_frame"
+/obj/structure/vehicleparts/frame/t55/lf
+	w_left = list("c_wall",TRUE,TRUE,90,90,FALSE,FALSE)
+	w_front = list("mt_front_left_frame",TRUE,TRUE,450,450,FALSE,FALSE)
+	override_roof_icon = "mt_front_left_roof"
+	override_frame_icon = "mt_front_left_frame"
+
 
 // Leopard 2a6
 
