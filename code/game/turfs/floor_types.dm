@@ -303,7 +303,7 @@
 	water_level = 200
 	density = FALSE
 	initial_flooring = /decl/flooring/water_deep
-	move_delay = 20
+	move_delay = 0
 
 /turf/floor/beach/water/deep/saltwater/shipline
 	icon_state = "ship_line"
