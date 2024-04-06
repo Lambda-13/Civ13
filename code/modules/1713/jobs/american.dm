@@ -158,7 +158,6 @@
 	is_ww2 = TRUE
 	uses_squads = TRUE
 	is_ardennes = TRUE
-	is_pigsbay = TRUE
 
 	min_positions = 2
 	max_positions = 8
@@ -218,7 +217,6 @@
 	is_ardennes = TRUE
 	is_medic = TRUE
 	is_ww2 = TRUE
-	is_pigsbay = TRUE
 	can_be_female = TRUE
 	min_positions = 1
 	max_positions = 4
@@ -498,7 +496,6 @@
 	is_ww2 = TRUE
 	is_tanker = TRUE
 	uses_squads = FALSE
-	is_pigsbay = TRUE
 
 	min_positions = 4
 	max_positions = 12
@@ -1474,13 +1471,12 @@
 
 	spawn_location = "JoinLateAM"
 
+	is_pigsbay = TRUE
+	is_ww2 = FALSE
+
 	is_squad_leader = TRUE
 	uses_squads = TRUE
-	is_radioman = FALSE
 	can_get_coordinates = TRUE
-	is_ww2 = FALSE
-	is_ardennes = FALSE
-	is_pigsbay = TRUE
 
 	min_positions = 2
 	max_positions = 10
@@ -1520,6 +1516,106 @@
 	H.setStat("machinegun", STAT_MEDIUM_HIGH)
 	return TRUE
 
+/datum/job/american/doctor_cuban
+	title = "US Doctor"
+	rank_abbreviation = "2lt."
+
+	spawn_location = "JoinLateRNSurgeon"
+
+	is_pigsbay = TRUE
+	is_ww2 = FALSE
+
+	is_medic = TRUE
+	can_be_female = TRUE
+	
+	min_positions = 1
+	max_positions = 4
+
+/datum/job/american/doctor_cuban/equip(var/mob/living/human/H)
+	if (!H)	return FALSE
+//shoes
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/us_ww2_boots(H), slot_shoes)
+//clothes
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/ww2/us(H), slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/jacket/doctor(H), slot_wear_suit)
+//head
+	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/ww2/us_medic(H), slot_head)
+//back
+	H.equip_to_slot_or_del(new /obj/item/roller(H), slot_r_hand)
+	H.equip_to_slot_or_del(new /obj/item/stack/medical/bruise_pack/bint/medic(H), slot_l_store)
+	H.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/surgery(H), slot_belt)
+	H.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/combat(H), slot_back)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/m1911(H), slot_l_hand)
+	if (time_of_day == "Night" || time_of_day == "Evening" || time_of_day == "Early Morning")
+		H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight(H), slot_wear_id)
+
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	var/obj/item/clothing/accessory/custom/armband/white = new /obj/item/clothing/accessory/custom/armband(null)
+	uniform.attackby(white, H)
+	var/obj/item/clothing/accessory/holster/hip/holsterh = new /obj/item/clothing/accessory/holster/hip(null)
+	uniform.attackby(holsterh, H)
+	give_random_name(H)
+	H.add_note("Role", "You are a <b>[title]</b>. Keep your soldiers healthy and breathing! The medics will bring you men to operate on.")
+	H.setStat("strength", STAT_NORMAL)
+	H.setStat("crafting", STAT_MEDIUM_LOW)
+	H.setStat("rifle", STAT_MEDIUM_LOW)
+	H.setStat("dexterity", STAT_NORMAL)
+	H.setStat("swords", STAT_MEDIUM_LOW)
+	H.setStat("pistol", STAT_MEDIUM_LOW)
+	H.setStat("bows", STAT_NORMAL)
+	H.setStat("medical", STAT_VERY_HIGH)
+	H.setStat("machinegun", STAT_MEDIUM_LOW)
+	return TRUE
+
+/*
+/datum/job/american/tanker_cuban
+	title = "US Tanker"
+	rank_abbreviation = "Cpl."
+
+	spawn_location = "JoinLateRN"
+
+	is_pigsbay = TRUE
+	is_tanker = TRUE
+	uses_squads = FALSE
+
+	min_positions = 2
+	max_positions = 8
+
+/datum/job/american/tanker_cuban/equip(var/mob/living/human/H)
+	if (!H)	return FALSE
+//shoes
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/us_ww2_boots(H), slot_shoes)
+
+//clothes
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/ww2/us_tanker(H), slot_w_uniform)
+//head
+	H.equip_to_slot_or_del(new /obj/item/clothing/head/ww2/us_tanker(H), slot_head)
+//back
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/semiautomatic/m1garand(H), slot_shoulder)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/m1911(H), slot_l_hand)
+	H.equip_to_slot_or_del(new /obj/item/weapon/key/american(H), slot_r_store)
+	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/m1911(H), slot_l_store)
+	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/us_ww2(H), slot_belt)
+	if (time_of_day == "Night" || time_of_day == "Evening" || time_of_day == "Early Morning")
+		H.equip_to_slot_or_del(new /obj/item/flashlight/militarylight(H), slot_wear_id)
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	var/obj/item/clothing/accessory/holster/hip/holsterh = new /obj/item/clothing/accessory/holster/hip(null)
+	uniform.attackby(holsterh, H)
+
+
+	give_random_name(H)
+	H.add_note("Role", "You are a <b>[title]</b>, a crewman. Follow orders and use your armor to defeat the enemy!")
+	H.setStat("strength", STAT_NORMAL)
+	H.setStat("crafting", STAT_MEDIUM_LOW)
+	H.setStat("rifle", STAT_MEDIUM_HIGH)
+	H.setStat("dexterity", STAT_NORMAL)
+	H.setStat("swords", STAT_NORMAL)
+	H.setStat("pistol", STAT_NORMAL)
+	H.setStat("bows", STAT_NORMAL)
+	H.setStat("medical", STAT_MEDIUM_LOW)
+	H.setStat("machinegun", STAT_MEDIUM_LOW)
+	return TRUE
+*/
 
 /datum/job/american/cuban_sniper
 	title = "US Sniper"
@@ -1527,10 +1623,10 @@
 
 	spawn_location = "JoinLateAMSniper"
 
-	is_ww2 = FALSE
-	uses_squads = TRUE
-	is_ardennes = FALSE
 	is_pigsbay = TRUE
+	is_ww2 = FALSE
+
+	uses_squads = TRUE
 
 	min_positions = 2
 	max_positions = 9
@@ -1575,10 +1671,10 @@
 
 	spawn_location = "JoinLateAM"
 
-	is_ww2 = FALSE
-	uses_squads = TRUE
-	is_ardennes = FALSE
 	is_pigsbay = TRUE
+	is_ww2 = FALSE
+
+	uses_squads = TRUE
 
 	min_positions = 2
 	max_positions = 12
@@ -1624,12 +1720,11 @@
 	title = "Ammo Bearer"
 	rank_abbreviation = "Pfc."
 
-	spawn_location = "JoinLateRN"
+	spawn_location = "JoinLateAM"
 
-	is_ww2 = FALSE
-	uses_squads = TRUE
-	is_ardennes = FALSE
 	is_pigsbay = TRUE
+
+	uses_squads = TRUE
 
 	min_positions = 2
 	max_positions = 12
@@ -1677,10 +1772,9 @@
 
 	spawn_location = "JoinLateAM"
 
-	is_ww2 = FALSE
-	uses_squads = TRUE
-	is_ardennes = FALSE
 	is_pigsbay = TRUE
+
+	uses_squads = TRUE
 
 	min_positions = 8
 	max_positions = 80
@@ -1785,17 +1879,15 @@
 	H.setStat("machinegun", STAT_MEDIUM_LOW)
 	return TRUE
 
-
+/*
 /datum/job/american/cuban_cia
 	title = "CIA Agent"
 	rank_abbreviation = "CIA"
 
 	spawn_location = "JoinLateCIA"
 
-	is_ww2 = FALSE
-	uses_squads = TRUE
-	is_ardennes = FALSE
 	is_pigsbay = TRUE
+	can_get_coordinates = TRUE
 
 	additional_languages = list("Spanish" = 80)
 	min_positions = 1
@@ -1836,3 +1928,4 @@
 	H.setStat("medical", STAT_NORMAL)
 	H.setStat("machinegun", STAT_MEDIUM_HIGH)
 	return TRUE
+*/
