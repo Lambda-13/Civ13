@@ -1028,11 +1028,6 @@
 			if (src.x < 256)
 				mosquito_proc()
 
-	if (map.chad_mode && map.ID != MAP_NOMADS_AFRICA)
-		spawn(2000)
-			mosquito_limit = 1
-			mosquito_proc()
-
 /obj/structure/sink/proc/mosquito_proc()
 	if (istype(src, /obj/structure/sink/puddle))
 		if (mosquito_count < mosquito_limit && mosquito_limit != 0)
