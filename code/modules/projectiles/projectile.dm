@@ -669,7 +669,11 @@
 	for (var/obj/structure/vehicleparts/frame/F in loc)
 		var/penloc = F.get_wall_name(opposite_direction(direction))
 		if (F.is_ambrasure(penloc) && src.loc == starting)
-			visible_message("<span class = 'warning'>Пуля вылетает из амбразуры</span>")
+			if(!istype(src, /obj/item/projectile/shell/missile))
+				visible_message("<span class = 'warning'>Пуля вылетает из амбразуры</span>")
+			else
+				var/obj/item/projectile/shell/missile/M = src
+				M.initiate(T)
 		else if (!F.CheckPen(src,penloc))
 			passthrough = FALSE
 			visible_message("<span class = 'warning'>Снаряд не пробивает [penloc] стену!</span>")
