@@ -39,18 +39,15 @@
 	return FALSE
 
 /obj/item/weapon/gun/launcher/process_projectile(obj/item/projectile, mob/user, atom/target, var/target_zone, var/params=null, var/pointblank=0, var/reflex=0)
-	update_release_force(projectile)
 	projectile.loc = get_turf(user)
-	projectile.throw_at(target, throw_distance, release_force, user)
-	projectile.dir = get_dir(src.loc, target.loc)
-	if (ishuman(user) && istype(projectile, /obj/item/missile))
-		var/obj/item/missile/MS = projectile
-		MS.firer = user
-	if (istype(projectile, /obj/item/missile))
-		var/obj/item/missile/M = projectile
-		M.startingturf = get_turf(user)
-	update_icon(projectile)
-	return TRUE
+
+	if(istype(projectile, /obj/item/projectile/shell))
+		var/obj/item/projectile/shell/P = projectile
+		P.dir = SOUTH
+		P.launch(target, user, src, 0, 0)
+		return TRUE
+
+	return FALSE
 
 /obj/item/weapon/gun/launcher/special_check(mob/user)
 	if (!user.has_empty_hand(both = FALSE))
@@ -120,10 +117,9 @@
 /obj/item/weapon/gun/launcher/rocket/consume_next_projectile()
 	if(rockets.len)
 		var/obj/item/ammo_casing/rocket/I = rockets[1]
-		var/obj/item/missile/M = new I.projectile_type(src)
+		var/obj/item/projectile/shell/missile/M = new I.projectile_type(src)
 		if (ishuman(src.loc))
 			M.dir = src.loc.dir
-		M.primed = 1
 		rockets -= I
 		return M
 	return null
@@ -518,7 +514,7 @@
 	name = "RPG rocket"
 	desc = "A high explosive warhead and propeller designed to be fired from a rocket launcher."
 	icon_state = "rocketshell"
-	projectile_type = /obj/item/missile
+	projectile_type = /obj/item/projectile/shell/missile/heat
 	caliber = "rocket"
 	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BELT
@@ -527,58 +523,58 @@
 	name = "M6A1 HEAT rocket"
 	desc = "A high explosive anti tank warhead and propeller designed to be fired from a rocket launcher."
 	icon_state = "m6a1"
-	projectile_type = /obj/item/missile
+	projectile_type = /obj/item/projectile/shell/missile/heat/bazooka
 	caliber = "bazooka"
 
 /obj/item/ammo_casing/rocket/rpb54
 	name = "RPzB. Gr. 4312"
 	desc = "A high explosive anti tank warhead and propeller designed to be fired from a Raketen-Panzerbüchse."
 	icon_state = "rpb54"
-	projectile_type = /obj/item/missile
+	projectile_type = /obj/item/projectile/shell/missile/heat/rpb54
 	caliber = "rpb54"
 
 /obj/item/ammo_casing/rocket/panzerfaust
 	name = "panzerfaust rocket"
 	desc = "A high explosive warhead and propeller designed to be fired from a panzerfaust launcher."
 	icon_state = "panzerfaust"
-	projectile_type = /obj/item/missile/explosive/panzerfaust
+	projectile_type = /obj/item/projectile/shell/missile/heat/panzerfaust
 
 /obj/item/ammo_casing/rocket/m72law
 	name = "M72 LAW rocket"
 	desc = "A high explosive warhead and propeller designed to be fired from a M72 LAW launcher."
 	icon_state = "rocket"
-	projectile_type = /obj/item/missile/explosive/m72law
+	projectile_type = /obj/item/projectile/shell/missile/heat/m72law
 
 /obj/item/ammo_casing/rocket/rpg22
 	name = "RPG 22 rocket"
 	desc = "A high explosive warhead and propeller designed to be fired from a RPG 22 launcher."
 	icon_state = "rocket"
-	projectile_type = /obj/item/missile/explosive/m72law
+	projectile_type = /obj/item/projectile/shell/missile/heat/m72law
 
 /obj/item/ammo_casing/rocket/pg7v
 	name = "PG-7V rocket"
 	desc = "A High-Explosive Anti-Tank (HEAT) warhead and propeller designed to be fired from a RPG-7 launcher."
 	icon_state = "pg7v"
-	projectile_type = /obj/item/missile/explosive
+	projectile_type = /obj/item/projectile/shell/missile/heat/pg7v
 
 /obj/item/ammo_casing/rocket/og7v
 	name = "OG-7V rocket"
 	desc = "A fragmentation warhead and propeller designed to be fired from a RPG-7 launcher."
 	icon_state = "og7v"
-	projectile_type = /obj/item/missile/fragmentation
+	projectile_type = /obj/item/projectile/shell/missile/og7v
 
 /obj/item/ammo_casing/rocket/piat
 	name = "SrB. HEAT MK I"
 	desc = "A High-Explosive Anti-Tank warhead designed to disable enemy vehicles and destroy fortifications."
 	icon_state = "piat"
-	projectile_type = /obj/item/missile/explosive/piat
+	projectile_type = /obj/item/projectile/shell/missile/heat/piat
 	caliber = "piat"
 
 /obj/item/ammo_casing/rocket/piat/mk3
 	name = "SrB. HEAT MK III"
 	desc = "A modernized High-Explosive Anti-Tank warhead designed to disable enemy vehicles and destroy fortifications."
 	icon_state = "piathe"
-	projectile_type = /obj/item/missile/explosive/piat44
+	projectile_type = /obj/item/projectile/shell/missile/piat44
 
 /obj/item/ammo_casing/rocket/nuclear
 	icon = 'icons/obj/cannon_ball.dmi'
@@ -586,7 +582,7 @@
 	desc = "A nuclear fucking rocket, you might want to step back a bit..."
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "nuclear"
-	projectile_type = /obj/item/missile/nuclear
+	projectile_type = /obj/item/projectile/shell/missile/nuclear
 	caliber = "nuclear"
 	w_class = ITEM_SIZE_LARGE
 
@@ -594,317 +590,75 @@
 	name = "ATGM rocket"
 	desc = "A High-Explosive (HEAT) guided missile warhead and propeller designed to be fired from a ATGM system."
 	icon_state = "atgmAP"
-	projectile_type = /obj/item/missile/explosive/atgm
-
-/obj/item/ammo_casing/rocket/atgm/apcr
-	name = "APCR ATGM rocket"
-	desc = "A Armor-piercing composite rigid (APCR) guided missile warhead and propeller designed to be fired from a ATGM system."
-	icon_state = "atgmAPCR"
-	projectile_type = /obj/item/missile/explosive/atgm/apcr
+	projectile_type = /obj/item/projectile/shell/missile/atgm/heat
 
 /obj/item/ammo_casing/rocket/atgm/he
 	name = "HEAT ATGM rocket"
 	desc = "A High-Explosive Anti-Tank (HEAT) guided missile warhead and propeller designed to be fired from a ATGM system."
 	icon_state = "atgmHE"
-	projectile_type = /obj/item/missile/explosive/atgm_he
+	projectile_type = /obj/item/projectile/shell/missile/atgm/he
 
-// Missile projectiles
+//////////////////////////////////////////
+/////////////GRENADE LAUNCHER/////////////
 
-/obj/item/missile
-	icon = 'icons/obj/grenade.dmi'
+/obj/item/projectile/shell/missile
 	icon_state = "missile"
-	var/primed = null
-	var/mob/living/human/firer = null
-	var/turf/startingturf = null
-	throwforce = 15
-	var/num_fragments = 6
-	var/spread_range = 6
-	var/fragment_type = /obj/item/projectile/bullet/pellet/fragment
-	var/fragment_damage = 15
-	var/damage_step = 2
-	heavy_armor_penetration = 300
-	allow_spin = FALSE
-	var/explosive = TRUE
-	flags = CONDUCT
-	throw_impact(atom/hit_atom)
-		if(primed)
-			explosion(hit_atom, 0, 1, 2, 3)
-			handle_vehicle_hit(hit_atom,firer)
-			var/turf/T = get_turf(hit_atom)
-			if(!T) return
-			var/target_x = 0
-			var/target_y = 0
+	atype = "HE"
+	heavy_armor_penetration = 10
+	caliber = 90
 
-			if (dir == SOUTH)
-				target_y = -10
-			else if (dir == NORTH)
-				target_y = 10
-			else if (dir == WEST)
-				target_x = -10
-			else
-				target_x = 10
-			var/i
-			for (i = 0, i < num_fragments, i++)
-				var/obj/item/projectile/bullet/pellet/fragment/P = new fragment_type(T)
-				P.damage = fragment_damage
-				P.pellets = num_fragments
-				P.range_step = damage_step
-				P.shot_from = name
-				P.launch_fragment(locate(src.x + target_x + rand(-5,5), src.y + target_y + rand(-5,5), src.z))
-
-				for (var/mob/living/L in T)
-					P.attack_mob(L, 0, 0)
-			spawn (5)
-				qdel(src)
-		else
-			..()
-		return
-/obj/item/missile/proc/handle_vehicle_hit(hit_atom, var/mob/living/human/firer = null)
-	for(var/obj/structure/vehicleparts/frame/F in range(1,hit_atom))
-		for (var/mob/M in F.axis.transporting)
-			shake_camera(M, 3, 3)
-		var/penloc = F.CheckPenLoc(src)
-		switch(penloc)
-			if ("left")
-				F.w_left[5] -= heavy_armor_penetration
-				visible_message(SPAN_DANGER("<big>The left hull gets damaged!</big>"))
-			if ("right")
-				F.w_right[5] -= heavy_armor_penetration
-				visible_message(SPAN_DANGER("<big>The right hull gets damaged!</big>"))
-			if ("front")
-				F.w_front[5] -= heavy_armor_penetration
-				visible_message(SPAN_DANGER("<big>The front hull gets damaged!</big>"))
-			if ("back")
-				F.w_back[5] -= heavy_armor_penetration
-				visible_message(SPAN_DANGER("<big>The rear hull gets damaged!</big>"))
-			if ("frontleft")
-				if (F.w_left[4] > F.w_front[4] && F.w_left[5]>0)
-					F.w_left[5] -= heavy_armor_penetration
-					visible_message(SPAN_DANGER("<big>The left hull gets damaged!</big>"))
-				else
-					F.w_front[5] -= heavy_armor_penetration
-					visible_message(SPAN_DANGER("<big>The front hull gets damaged!</big>"))
-			if ("frontright")
-				if (F.w_right[4] > F.w_front[4] && F.w_right[5]>0)
-					F.w_right[5] -= heavy_armor_penetration
-					visible_message(SPAN_DANGER("<big>The right hull gets damaged!</big>"))
-				else
-					F.w_front[5] -= heavy_armor_penetration
-					visible_message(SPAN_DANGER("<big>The front hull gets damaged!</big>"))
-			if ("backleft")
-				if (F.w_left[4] > F.w_back[4] && F.w_left[5]>0)
-					F.w_left[5] -= heavy_armor_penetration
-					visible_message(SPAN_DANGER("<big>The left hull gets damaged!</big>"))
-				else
-					F.w_back[5] -= heavy_armor_penetration
-					visible_message(SPAN_DANGER("<big>The rear hull gets damaged!</big>"))
-			if ("backright")
-				if (F.w_right[4] > F.w_back[4] && F.w_right[5]>0)
-					F.w_right[5] -= heavy_armor_penetration
-					visible_message(SPAN_DANGER("<big>The right hull gets damaged!</big>"))
-				else
-					F.w_back[5] -= heavy_armor_penetration
-					visible_message(SPAN_DANGER("<big>The rear hull gets damaged!</big>"))
-		F.try_destroy()
-		for(var/obj/structure/vehicleparts/movement/MV in F)
-			MV.broken = TRUE
-			MV.update_icon()
-		F.update_icon()
-		if (firer)
-			firer.awards["tank"]+=(heavy_armor_penetration/150)
-
-/obj/item/missile/explosive
-	heavy_armor_penetration = 300
-	throw_impact(atom/hit_atom)
-		if(primed)
-			explosion(hit_atom, 0, 1, 2, 3)
-			handle_vehicle_hit(hit_atom,firer)
-			var/turf/T = get_turf(hit_atom)
-			launch_fragments(T)
-			spawn (5)
-				qdel(src)
-		else
-			..()
-		return
-
-/obj/item/missile/explosive/proc/launch_fragments(var/turf/T)
-	if(!T)
-		return
-
-	var/missile_dir = get_dir(startingturf, loc)
-	var/target_x = 0
-	var/target_y = 0
-
-	if (missile_dir == SOUTH)
-		target_y = -10
-	else if (missile_dir == NORTH)
-		target_y = 10
-	else if (missile_dir == WEST)
-		target_x = -10
-	else if (missile_dir == EAST)
-		target_x = 10
-	else if (missile_dir == SOUTHWEST)
-		target_y = -10
-		target_x = -10
-	else if (missile_dir == SOUTHEAST)
-		target_y = -10
-		target_x = 10
-	else if (missile_dir == NORTHWEST)
-		target_y = 10
-		target_x = -10
-	else
-		target_y = 10
-		target_x = 10
-
-	var/i
-	for (i = 0, i < num_fragments, i++)
-		var/obj/item/projectile/bullet/pellet/fragment/P = new fragment_type(T)
-		P.damage = fragment_damage
-		P.pellets = num_fragments
-		P.range_step = damage_step
-		P.shot_from = name
-		P.launch_fragment(locate(src.x + target_x + rand(-2,2), src.y + target_y + rand(-2,2), src.z))
-
-		for (var/mob/living/L in T)
-			P.attack_mob(L, 0, 0)
-
-/obj/item/missile/explosive/panzerfaust
-	heavy_armor_penetration = 200
-	icon_state = "panzerfaust_missile"
-	throw_impact(atom/hit_atom)
-		if(primed)
-			explosion(hit_atom, 0, 1, 2, 3)
-			handle_vehicle_hit(hit_atom,firer)
-			var/turf/T = get_turf(hit_atom)
-			launch_fragments(T)
-			spawn (5)
-				qdel(src)
-		else
-			..()
-		return
-
-/obj/item/missile/explosive/m72law
-	heavy_armor_penetration = 350
-	icon_state = "missile"
-	throw_impact(atom/hit_atom)
-		if(primed)
-			explosion(hit_atom, 0, 1, 2, 3)
-			handle_vehicle_hit(hit_atom,firer)
-			var/turf/T = get_turf(hit_atom)
-			launch_fragments(T)
-			spawn (5)
-				qdel(src)
-		else
-			..()
-		return
-
-/obj/item/missile/explosive/piat
+/obj/item/projectile/shell/missile/heat
+	atype = "HEAT"
 	heavy_armor_penetration = 80
-	icon_state = "missile"
-	throw_impact(atom/hit_atom)
-		if(primed)
-			explosion(hit_atom, 0, 1, 2, 3)
-			handle_vehicle_hit(hit_atom,firer)
-			var/turf/T = get_turf(hit_atom)
-			launch_fragments(T)
-			spawn (5)
-				qdel(src)
-		else
-			..()
-		return
+	caliber = 90
 
-/obj/item/missile/explosive/piat44
-	heavy_armor_penetration = 140
-	icon_state = "missile"
-	throw_impact(atom/hit_atom)
-		if(primed)
-			explosion(hit_atom, 0, 1, 2, 3)
-			handle_vehicle_hit(hit_atom,firer)
-			var/turf/T = get_turf(hit_atom)
-			launch_fragments(T)
-			spawn (5)
-				qdel(src)
-		else
-			..()
-		return
+/obj/item/projectile/shell/missile/heat/bazooka
+	heavy_armor_penetration = 80
+	caliber = 60
 
-/obj/item/missile/nuclear
-	heavy_armor_penetration = 40
-	throw_impact(atom/hit_atom)
-		if(primed)
-			explosion(hit_atom, 1, 1, 2, 4)
-			radiation_pulse(hit_atom, 6, 20, 700, TRUE)
-			handle_vehicle_hit(hit_atom,firer)
-			qdel(src)
-		else
-			..()
-		return
-
-/obj/item/missile/fragmentation
-	heavy_armor_penetration = 6
-	throw_impact(atom/hit_atom)
-		if(primed)
-			explosion(hit_atom,0,1,3,1)
-			handle_vehicle_hit(hit_atom,firer)
-			var/turf/T = get_turf(hit_atom)
-			if(!T) return
-			var/list/target_turfs = getcircle(T, spread_range)
-			var/fragments_per_projectile = round(num_fragments/target_turfs.len)
-			for (var/turf/TT in target_turfs)
-				var/obj/item/projectile/bullet/pellet/fragment/P = new fragment_type(T)
-				P.damage = fragment_damage
-				P.pellets = fragments_per_projectile
-				P.range_step = damage_step
-				P.shot_from = name
-				P.launch_fragment(TT)
-			spawn (5)
-				qdel(src)
-		else
-			..()
-		return
-
-// ATGM
-
-
-/obj/item/missile/explosive/atgm
-	icon_state = "atgm_missile"
-	heavy_armor_penetration = 400
-	throw_impact(atom/hit_atom)
-		if(primed)
-			explosion(hit_atom, 0, 1, 2, 3)
-			handle_vehicle_hit(hit_atom,firer)
-			var/turf/T = get_turf(hit_atom)
-			launch_fragments(T)
-			spawn (5)
-				qdel(src)
-		else
-			..()
-		return
-
-/obj/item/missile/explosive/atgm_he
-	icon_state = "atgm_missile"
-	throw_impact(atom/hit_atom)
-		if(primed)
-			explosion(hit_atom,0,1,3,1)
-			handle_vehicle_hit(hit_atom,firer)
-			var/turf/T = get_turf(hit_atom)
-			if(!T) return
-			var/list/target_turfs = getcircle(T, spread_range)
-			var/fragments_per_projectile = round(num_fragments/target_turfs.len)
-			for (var/turf/TT in target_turfs)
-				var/obj/item/projectile/bullet/pellet/fragment/P = new fragment_type(T)
-				P.damage = fragment_damage
-				P.pellets = fragments_per_projectile
-				P.range_step = damage_step
-				P.shot_from = name
-				P.launch_fragment(TT)
-			spawn (5)
-				qdel(src)
-		else
-			..()
-		return
-
-/obj/item/missile/explosive/atgm/apcr
-	icon_state = "atgm_missile"
+/obj/item/projectile/shell/missile/heat/pg7v
 	heavy_armor_penetration = 300
+	caliber = 105
 
+/obj/item/projectile/shell/missile/og7v
+	heavy_armor_penetration = 10
+	caliber = 40
+
+/obj/item/projectile/shell/missile/heat/m72law
+	heavy_armor_penetration = 350
+	caliber = 66
+
+/obj/item/projectile/shell/missile/heat/piat
+	heavy_armor_penetration = 80
+	caliber = 76
+
+/obj/item/projectile/shell/missile/piat44
+	heavy_armor_penetration = 10
+	caliber = 76
+
+/obj/item/projectile/shell/missile/nuclear
+	atype = "NUCLEAR"
+
+/obj/item/projectile/shell/missile/heat/panzerfaust
+	icon_state = "panzerfaust_missile"
+	heavy_armor_penetration = 200
+	caliber = 150
+
+/obj/item/projectile/shell/missile/heat/rpb54
+	heavy_armor_penetration = 250
+	caliber = 88
+
+/obj/item/projectile/shell/missile/atgm
+	icon_state = "atgm_missile"
+	atype = "HE"
+	caliber = 120
+
+/obj/item/projectile/shell/missile/atgm/he
+	atype = "HE"
+	heavy_armor_penetration = 40
+	caliber = 120
+
+/obj/item/projectile/shell/missile/atgm/heat
+	atype = "HEAT"
+	heavy_armor_penetration = 800
+	caliber = 120
