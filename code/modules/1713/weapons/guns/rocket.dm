@@ -45,8 +45,8 @@
 		var/obj/item/projectile/shell/P = projectile
 		P.dir = SOUTH
 		P.launch(target, user, src, 0, 0)
+		update_icon()
 		return TRUE
-
 	return FALSE
 
 /obj/item/weapon/gun/launcher/special_check(mob/user)
@@ -62,6 +62,7 @@
 	name = "rocket launcher"
 	desc = "MAGGOT."
 	icon_state = "rocket"
+	var/base_icon = "rocket"
 	item_state = "rocket"
 	w_class = ITEM_SIZE_HUGE
 	throw_speed = 2
@@ -78,6 +79,16 @@
 	fire_delay = 6
 	equiptimer = 28
 	load_delay = 18
+
+/obj/item/weapon/gun/launcher/rocket/update_icon()
+	..()
+	if(rockets.len > 0)
+		icon_state = "[base_icon]"
+		item_state = "[base_icon]"
+	else
+		icon_state = "[base_icon]_empty"
+		item_state = "[base_icon]_empty"
+	update_held_icon()
 
 /obj/item/weapon/gun/launcher/rocket/examine(mob/user)
 	if(!..(user, 2))
@@ -135,6 +146,7 @@
 	name = "RPG-7"
 	desc = "Russian multi-use rocket."
 	icon_state = "rpg7_empty"
+	base_icon = "rpg7"
 	item_state = "rpg7"
 	slot_flags = SLOT_SHOULDER
 	force = 10
@@ -144,15 +156,6 @@
 	..()
 	rockets += new /obj/item/ammo_casing/rocket/pg7v(src)
 	update_icon()
-
-/obj/item/weapon/gun/launcher/rocket/rpg7/update_icon()
-	..()
-	if(rockets.len)
-		icon_state = "rpg7"
-		item_state = "rpg7"
-	else
-		icon_state = "rpg7_empty"
-		item_state = "rpg7_empty"
 
 /obj/item/weapon/gun/launcher/rocket/rpg7/makeshift
 	name = "RPG-7"
@@ -351,6 +354,7 @@
 	name = "Single Shot Launcher"
 	desc = "DONT USE THIS!"
 	icon_state = "panzerfaust"
+	base_icon = "panzerfaust"
 	item_state = "panzerfaust"
 	slot_flags = SLOT_SHOULDER | SLOT_BACK
 	force = 10
@@ -370,13 +374,6 @@
 		user << SPAN_WARNING("You can't reload a [src]!")
 		return
 
-/obj/item/weapon/gun/launcher/rocket/single_shot/update_icon()
-	..()
-	if(rockets.len)
-		icon_state = "[initial(icon_state)]"
-	else
-		icon_state = "[initial(icon_state)]"
-
 /obj/item/weapon/gun/launcher/rocket/single_shot/unload(mob/user)
 	if(rockets.len)
 		user << SPAN_WARNING("You can't unload a [src]!")
@@ -392,6 +389,7 @@
 	name = "Panzerfaust 60"
 	desc = "German single-use rocket."
 	icon_state = "panzerfaust"
+	base_icon = "panzerfaust"
 	item_state = "panzerfaust"
 	force = 10
 	shake_strength = 2
@@ -400,19 +398,11 @@
 	throw_distance = 10
 	rocket_path = /obj/item/ammo_casing/rocket/panzerfaust
 
-/obj/item/weapon/gun/launcher/rocket/single_shot/panzerfaust/update_icon()
-	..()
-	if(rockets.len)
-		icon_state = "[initial(icon_state)]"
-		item_state = "[initial(item_state)]"
-	else
-		icon_state = "[initial(icon_state)]_empty"
-		item_state = "[initial(item_state)]_empty"
-
 /obj/item/weapon/gun/launcher/rocket/single_shot/m72law
 	name = "M72 LAW"
 	desc = "A light, portable one-shot 66 mm (2.6 in) unguided anti-tank weapon."
 	icon_state = "m72law"
+	base_icon = "m72law"
 	item_state = "m72law"
 	force = 15
 	shake_strength = 2
@@ -425,6 +415,7 @@
 	name = "RPG 22"
 	desc = "A light, Russian portable one-shot 72.5 mm (2.85 in) unguided anti-tank weapon."
 	icon_state = "rpg22"
+	base_icon = "rpg22"
 	item_state = "rpg22"
 	force = 15
 	shake_strength = 2
@@ -438,73 +429,45 @@
 	name = "M1A1 Bazooka"
 	desc = "An American rocket launcher made for cracking open fortified defenses and enemy armor."
 	icon_state = "bazooka_empty"
+	base_icon = "bazooka"
 	item_state = "bazooka"
 	slot_flags = SLOT_SHOULDER
 	force = 10
 	caliber = "bazooka"
 
-/obj/item/weapon/gun/launcher/rocket/bazooka/update_icon()
-	..()
-	if(rockets.len)
-		icon_state = "bazooka"
-	else
-		icon_state = "bazooka_empty"
-
 /obj/item/weapon/gun/launcher/rocket/rpb54
 	name = "Raketen-Panzerbüchse 54"
 	desc = "A reusable 88mm anti-tank rocket launcher developed by Germany during World War II."
 	icon_state = "rpb54_empty"
+	base_icon = "rpb54"
 	item_state = "rpb54"
 	slot_flags = SLOT_SHOULDER
 	force = 10
 	caliber = "rpb54"
 	fire_sound = 'sound/weapons/guns/fire/panzershreck.ogg'
 
-/obj/item/weapon/gun/launcher/rocket/rpb54/update_icon()
-	..()
-	if(rockets.len)
-		icon_state = "rpb54"
-	else
-		icon_state = "rpb54_empty"
-
 //Fatman
 /obj/item/weapon/gun/launcher/rocket/fatman
 	name = "Fatman"
 	desc = "An American rocket launcher made for firing small nuclear rockets."
 	icon_state = "fatman_empty"
+	base_icon = "fatman"
 	item_state = "bazooka"
 	slot_flags = SLOT_SHOULDER
 	force = 10
 	caliber = "nuclear"
 
-/obj/item/weapon/gun/launcher/rocket/fatman/update_icon()
-	..()
-	if(rockets.len)
-		icon_state = "fatman"
-	else
-		icon_state = "fatman_empty"
-
 /obj/item/weapon/gun/launcher/rocket/piat
 	name = "PIAT MK1"
 	desc = "A reusable 83mm anti-tank weapon developed by Britain during World War II."
 	icon_state = "piat_empty"
+	base_icon = "piat"
 	item_state = "piat_empty"
 	slot_flags = SLOT_SHOULDER
 	force = 10
 	shake_strength = 4
 	caliber = "piat"
 	fire_sound = 'sound/weapons/guns/fire/piatfire.ogg'
-
-/obj/item/weapon/gun/launcher/rocket/piat/update_icon()
-	..()
-	if(rockets.len)
-		icon_state = "piat"
-		item_state = "piat"
-	else
-		icon_state = "piat_empty"
-		item_state = "piat_empty"
-	update_held_icon()
-	return
 
 ////////////////////////////////////////AMMO///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -606,6 +569,9 @@
 	atype = "HE"
 	heavy_armor_penetration = 10
 	caliber = 90
+
+/obj/item/projectile/shell/missile/update_icon()
+	return
 
 /obj/item/projectile/shell/missile/heat
 	atype = "HEAT"
