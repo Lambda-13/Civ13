@@ -62,7 +62,7 @@
 
 	var/fullscreen = FALSE
 
-	// Transparent image for maptext tooltip
-	var/obj/screen/tooltip = null
+	var/mouse_x = null
+	var/mouse_y = null
 
 /client/authenticate = FALSE
