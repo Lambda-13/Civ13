@@ -297,13 +297,8 @@
 	return launch(target, target_zone, x_offset, y_offset)
 
 //Used to change the direction of the projectile in flight.
-/obj/item/projectile/proc/redirect(var/new_x, var/new_y, var/atom/starting_loc, var/mob/new_firer=null)
-	var/turf/new_target = locate(new_x, new_y, z)
-
+/obj/item/projectile/proc/redirect(var/turf/new_target, var/atom/starting_loc)
 	original = new_target
-	if (new_firer)
-		firer = src
-		firer_original_dir = firer.dir
 
 	setup_trajectory(starting_loc, new_target)
 
@@ -364,9 +359,12 @@
 	var/hit_zone = null
 	var/hitchance = target_mob.body_part_size[def_zone]
 
-	var/distance_modifier = 10 / sqrt(distance)
+	var/distance_modifier = 0
 
-	if(distance <= 3)
+	if(distance_modifier > 0)
+		distance_modifier = 10 / sqrt(distance)
+
+	if(distance > 0 && distance <= 3)
 		hitchance = 100
 
 	if (prob(hitchance * distance_modifier))
@@ -725,7 +723,7 @@
 	var/firstmove = FALSE
 
 	if (!trajectory)
-		setup_trajectory()
+		setup_trajectory(loc)
 		firstmove = TRUE
 
 	angle = get_angle()
@@ -772,13 +770,6 @@
 					for (var/obj/structure/barricade/B in src_loc)
 						if (get_dist(firer, B) == 1)
 							_untouchable += B
-					if ((src == /obj/item/projectile/bullet/autocannon) || (src == /obj/item/missile/explosive/atgm) || (src == /obj/item/projectile/bullet/rifle/a50cal/weak))
-						for (var/obj/structure/vehicleparts/frame/F in src_loc)
-							if (get_dist(firer, F) <= 2)
-								_untouchable += F
-						for (var/obj/item/weapon/reagent_containers/glass/barrel/fueltank/F)
-							if (get_dist(firer, F) <= 2)
-								_untouchable += F
 		handleTurf(loc, untouchable = _untouchable)
 		before_move()
 		forceMove(location.return_turf())
@@ -800,10 +791,10 @@
 /obj/item/projectile/proc/before_move()
 	return FALSE
 
-/obj/item/projectile/proc/setup_trajectory()
+/obj/item/projectile/proc/setup_trajectory(var/turf/starting_loc)
 	// plot the initial trajectory
 	trajectory = new()
-	trajectory.setup(starting, original, pixel_x, pixel_y, dispersion)
+	trajectory.setup(starting_loc, original, pixel_x, pixel_y, dispersion)
 
 	// generate this now since all visual effects the projectile makes can use it
 	effect_transform = new()
