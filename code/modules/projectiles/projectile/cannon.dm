@@ -120,8 +120,8 @@
 
 		var/num_fragments = 2 * caliber_modifier
 
-		var/target_x = round(cos(angle) * 6)
-		var/target_y = round(sin(angle) * 6)
+		var/target_x = round(cos(angle) * 8)
+		var/target_y = round(sin(angle) * 8)
 
 		var/i
 		for (i = 0, i < num_fragments, i++)
@@ -131,7 +131,7 @@
 				P.pellets = num_fragments
 				P.range_step = 2
 				P.shot_from = name
-				P.launch_fragment(locate(x + target_x + rand(-1,1), y + target_y + rand(-1,1), z))
+				P.launch_fragment(locate(x + target_x + rand(-4,4), y + target_y + rand(-4,4), z))
 				for (var/mob/living/L in T)
 					P.attack_mob(L, 0, 0)
 	else if (atype == "HEAT")
@@ -156,7 +156,7 @@
 				P.range_step = 2
 				P.shot_from = name
 				P.heavy_armor_penetration = src.heavy_armor_penetration / num_fragments * 2
-				P.launch_fragment(locate(x + target_x + rand(-2,1), y + target_y + rand(-2,2), z))
+				P.launch_fragment(locate(x + target_x + rand(-3,3), y + target_y + rand(-3,3), z))
 				for (var/mob/living/L in T)
 					P.attack_mob(L, 0, 0)
 		loc = null
