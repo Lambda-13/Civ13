@@ -619,6 +619,42 @@
 	atype = "HE"
 	caliber = 120
 
+/obj/item/projectile/shell/missile/atgm/process()
+	if(permutated.len > 2 && firer)
+		var/mouse_x = firer.client.mouse_x
+		var/mouse_y = firer.client.mouse_y
+		var/mouse_turf = locate(mouse_x, mouse_y, z)
+		var/mouse_angle = round(Atan2(mouse_x - starting.x, mouse_y - starting.y))
+
+		if(get_dist(starting, loc) > get_dist(starting, mouse_turf))
+			initiate(loc)
+			return
+
+		if (mouse_angle < 0)
+			mouse_angle = 180 + (180 - abs(mouse_angle))
+
+		if(get_angle() < 90 && mouse_angle > 270)
+			mouse_angle -= 360
+		else if(mouse_angle < 90 && get_angle() > 270)
+			mouse_angle += 360
+
+		var/delta_angle = mouse_angle - get_angle()
+
+		var/new_angle = get_angle() 
+		if(abs(delta_angle) > 5)
+			new_angle += 1.25 * (delta_angle) / abs(delta_angle)
+		var/new_x = starting.x + ceil(cos(new_angle) * get_dist(starting, mouse_turf))
+		var/new_y = starting.y + ceil(sin(new_angle) * get_dist(starting, mouse_turf))
+		var/turf/new_target = locate(new_x, new_y, z)
+
+		transform = matrix()
+		trajectory = new()
+		trajectory.setup(loc, new_target)
+		trajectory.angle = new_angle
+		transform = turn(transform, -(trajectory.angle + 90))
+		new/obj/effect/effect/smoke/small/fast(loc)
+	..()
+
 /obj/item/projectile/shell/missile/atgm/he
 	atype = "HE"
 	heavy_armor_penetration = 40
