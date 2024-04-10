@@ -456,10 +456,6 @@
 		pj.throw_source = pj.starting
 		startingturf = pj.starting
 
-	else if (istype(proj, /obj/item/missile))
-		var/obj/item/missile/miss = proj
-		startingturf = miss.startingturf
-
 	else if (istype(proj, /obj/item/weapon/grenade/suicide_vest))
 		startingturf = get_turf(proj.loc)
 

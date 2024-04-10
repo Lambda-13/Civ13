@@ -1150,10 +1150,8 @@
 #include "lambda\rotipik\code\TDM_supplies\crates_loadout.dm"
 #include "lambda\rotipik\code\TDM_supplies\radios.dm"
 #include "lambda\sanecman\code\_globalvars\text.dm"
-#include "lambda\sanecman\code\erp\interactions.dm"
 #include "lambda\sanecman\code\factory_aw\map_metadata\factory_aw.dm"
 #include "lambda\sanecman\code\future\barrel.dm"
-#include "lambda\sanecman\code\game\objects\effects\decals\Cleanable\misc.dm"
 #include "lambda\sanecman\code\lifeweb\graga.dm"
 #include "lambda\sanecman\code\lifeweb\headset.dm"
 #include "lambda\sanecman\code\lifeweb\room_alarm.dm"
@@ -1166,5 +1164,5 @@
 #include "lambda\sanecman\code\soldier_stogie\soldier_stogie.dm"
 #include "lambda\sanecman\code\space\grenade.dm"
 #include "lambda\sanecman\code\space\gun.dm"
-#include "maps\1943\forest.dmm"
+#include "maps\1943\micromaha.dmm"
 // END_INCLUDE

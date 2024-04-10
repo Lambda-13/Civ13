@@ -105,13 +105,13 @@
 "ca" = (/turf/floor/dirt/dust,/area/caribbean)
 "cb" = (/obj/structure/barricade/antitank,/turf/floor/beach/water/shallowsaltwater,/area/caribbean/no_mans_land/invisible_wall/two)
 "cc" = (/turf/floor/beach/sand,/area/caribbean/no_mans_land/invisible_wall/two)
-"cd" = (/obj/structure/table/rack,/obj/item/weapon/storage/toolbox/emergency,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
+"cd" = (/obj/structure/closet/crate/sandbags,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
 "ce" = (/obj/structure/sign/minefield,/obj/structure/window/barrier/sandbag/incomplete,/turf/floor/dirt,/area/caribbean)
 "cf" = (/obj/structure/barricade/antitank,/turf/floor/beach/sand,/area/caribbean/no_mans_land/invisible_wall/two)
 "cg" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/barricade/antitank,/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/barricade/antitank,/turf/floor/dirt,/area/caribbean/forest)
 "ch" = (/obj/structure/simple_door/key_door/russian{unique_door_name = "American locked"},/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
-"ci" = (/obj/item/weapon/mop,/obj/item/weapon/soap,/obj/item/weapon/reagent_containers/glass/bucket,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
-"cj" = (/obj/structure/lamp/lamp_small/alwayson/red{icon_state = "bulb"; dir = 1},/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
+"ci" = (/obj/item/lightbulb/tube,/obj/structure/table/rack,/obj/item/weapon/wrench,/obj/item/weapon/storage/toolbox/emergency,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
+"cj" = (/obj/structure/lamp/lamp_small/alwayson/red{icon_state = "bulb"; dir = 1},/obj/effect/decal/cleanable/blood/oil,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
 "ck" = (/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 1},/obj/structure/optable,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
 "cl" = (/obj/structure/sink,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
 "cm" = (/obj/structure/curtain/medical,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
@@ -130,8 +130,8 @@
 "cz" = (/obj/effect/landmark{name = "JoinLateRN"},/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
 "cA" = (/obj/structure/window/barrier/sandbag/incomplete,/turf/floor/dirt,/turf/floor/trench,/area/caribbean)
 "cB" = (/obj/map_metadata/omaha/micromaha,/turf/floor/beach/water/deep/saltwater,/area/caribbean/sea/sea)
-"cC" = (/obj/item/lightbulb,/obj/item/lightbulb,/obj/item/lightbulb,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
-"cD" = (/obj/item/lightbulb/tube,/obj/item/lightbulb/tube,/obj/item/lightbulb/tube,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
+"cC" = (/obj/structure/table/rack,/obj/item/stack/material/wood/twentyfive,/obj/item/stack/material/wood/twentyfive,/obj/item/stack/material/wood/twentyfive,/obj/item/stack/material/wood/twentyfive,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
+"cD" = (/obj/item/stack/material/steel/twentyfive,/obj/item/stack/material/steel/twentyfive,/obj/item/stack/material/steel/twentyfive,/obj/structure/table/rack,/obj/effect/decal/cleanable/blood/oil,/obj/item/stack/material/steel/twentyfive,/obj/item/stack/material/steel/twentyfive,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
 "cE" = (/obj/structure/table/glass,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
 "cF" = (/obj/effect/decal/cleanable/vomit,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
 "cG" = (/obj/effect/decal/cleanable/blood/splatter,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
@@ -262,9 +262,8 @@
 "fb" = (/obj/item/weapon/gun/projectile/automatic/bar,/obj/item/weapon/gun/projectile/automatic/bar,/obj/item/weapon/gun/projectile/automatic/bar,/obj/structure/table/rack,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
 "fc" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/barbwire,/obj/structure/barricade/antitank,/turf/floor/beach/sand/dark,/area/caribbean/no_mans_land/invisible_wall)
 "fd" = (/obj/item/weapon/gun/projectile/boltaction/springfield/sniper,/obj/item/weapon/gun/projectile/boltaction/springfield/sniper,/obj/item/weapon/gun/projectile/boltaction/springfield/sniper,/obj/structure/table/rack,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
-"fe" = (/obj/item/stack/material/steel/twentyfive,/obj/item/stack/material/steel/twentyfive,/obj/item/stack/material/steel/twentyfive,/obj/structure/table/rack,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
-"ff" = (/obj/item/stack/material/steel/twentyfive,/obj/item/stack/material/steel/twentyfive,/obj/structure/table/rack,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
-"fg" = (/obj/item/stack/material/iron/twentyfive,/obj/structure/table/rack,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
+"fe" = (/obj/effect/decal/cleanable/blood/oil,/obj/structure/engine/internal/diesel/premade/chiha,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
+"ff" = (/obj/item/lightbulb,/obj/item/lightbulb,/obj/item/lightbulb,/obj/structure/table/rack,/obj/item/weapon/weldingtool,/obj/item/weapon/storage/toolbox/emergency,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
 "fh" = (/obj/item/ammo_casing/rocket/bazooka,/obj/item/ammo_casing/rocket/bazooka,/obj/item/ammo_casing/rocket/bazooka,/obj/item/weapon/gun/launcher/rocket/bazooka,/obj/item/weapon/gun/launcher/rocket/bazooka,/obj/structure/table/rack,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
 "fi" = (/obj/item/mine/ap/armed,/turf/wall/rockwall,/area/caribbean/forest)
 "fj" = (/obj/structure/wild/burnedbush,/turf/wall/rockwall,/area/caribbean/forest)
@@ -282,6 +281,7 @@
 "fv" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/beach/sand/dark,/area/caribbean/no_mans_land/invisible_wall)
 "fw" = (/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/beach/sand/dark,/area/caribbean/no_mans_land/invisible_wall)
 "fx" = (/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/dirt,/area/caribbean/no_mans_land/invisible_wall)
+"fA" = (/obj/item/stack/material/iron/twentyfive,/obj/structure/table/rack,/obj/item/stack/material/iron/twentyfive,/turf/floor/plating/road,/area/caribbean/sea/sea/ins)
 "fQ" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 8},/turf/floor/trench,/area/caribbean/german/objective)
 "fR" = (/turf/floor/trench,/area/caribbean/german/objective)
 "fS" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 4},/turf/floor/trench,/area/caribbean/german/objective)
@@ -449,10 +449,10 @@ apapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapap
 apapapapapapapacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacapapapapapap
 apapapapapapacacadadadadadadadbuadbVeMadbueRbVeMadbueRbVadadadadadadadadadadadadadadadadadadadadadadadadadacapapapapapap
 apapapapapacacadadadadadadadanadcQbVcRbVbVeBbVcRbVbVeBbVcQadadadadadadanadadadadadanadadadadadadanadadadadacapapapapapap
-apapapapapacamadanbTbUbVbWbVbXadcQbVcRbVbVeBbVcRbVbVeBbVcQadcicjciadckbVclbVcmcncococpcqclcrcsctcucvcwcxadacapapapapapap
-apapapapapacadadcybVczbVczbVczadcdbVcRbVbVeBbVcRbVbVeBbVcdadcCbVcDadcEbVbVbVcmbVcFbVbVbVcGbVbVbVbVbVbVcHadacapapapapapap
-apapapapapacadadcIbVbWbVbUbVbWadfebVcRbVbVeBbVcRbVbVeBbVffadbVbVbVadcEbVbVbVcmbVbVbVbVbVbVbVcLcLbVbVbVcMadacapapapapapap
-apapapapapacadadcycNczbVczbVcOadfgbVcRbVbVeBbVcRbVbVeBbVfgadbVbVbVadcSbVclcTcmbVcUcVcWbVcUbVcUcVbVbVbVcXadacapapapapapap
+apapapapapacamadanbTbUbVbWbVbXadcQbVcRbVbVeBbVcRbVbVeBbVcQadcCcjcQadckbVclbVcmcncococpcqclcrcsctcucvcwcxadacapapapapapap
+apapapapapacadadcybVczbVczbVczadcdbVcRbVbVeBbVcRbVbVeBbVcdadffbVciadcEbVbVbVcmbVcFbVbVbVcGbVbVbVbVbVbVcHadacapapapapapap
+apapapapapacadadcIbVbWbVbUbVbWadbVbVcRbVbVeBbVcRbVbVeBbVbVadcQbVcDadcEbVbVbVcmbVbVbVbVbVbVbVcLcLbVbVbVcMadacapapapapapap
+apapapapapacadadcycNczbVczbVcOadbVbVcRbVbVeBbVcRbVbVeBbVbVadfebVfAadcSbVclcTcmbVcUcVcWbVcUbVcUcVbVbVbVcXadacapapapapapap
 apapapapapacadadadancYanadadadadbVbVcRadadeBbVcRadadeBbVbVadancYadadadanadadadadadanadadadadcZadcYcYanadadacapapapapapap
 apapapapapacadadbTbVdabVbVbVbVbTbVbVdaeGeGbVbVdaeGeGbVbVdabTbVbVbVbVbVbTbVbVbVbVbTbVbVbVbVbVbTbVbVbVbVbTadacapapapapapap
 apapapapapacadadbVbVdabVbVbVbVbVbVbVdabVbVbVbVdabVbVbVbVdabVbVbVbVbVbVbVbVbVbVbVbVbVbVdbbVbVbVbVbVbVdcbVadacapapapapapap
