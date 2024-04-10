@@ -687,8 +687,8 @@
 		loader_seat.setup(src)
 		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
 		commander_seat.setup(src)
-		weapons.Add(new/obj/structure/cannon/modern/tank/russian100(src))
-		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/pkm(src))
+		weapons.Add(new/obj/structure/cannon/modern/tank/russian85(src))
+		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/stationary/modern/dshk(src))
 		..()
 
 /obj/structure/turret/t62
