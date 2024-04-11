@@ -868,7 +868,7 @@
 	"3,1" = list(/obj/structure/vehicleparts/movement/tracks/left,/obj/structure/vehicleparts/frame/t55/lf,/obj/structure/radio/transmitter_receiver/nopower/tank/faction2,/obj/structure/bed/chair/drivers/tank),
 
 	"1,2" = list(/obj/structure/vehicleparts/frame/t55/right),
-	"2,2" = list(/obj/structure/vehicleparts/frame/t55,/obj/structure/turret/t55),
+	"2,2" = list(/obj/structure/vehicleparts/frame/t55,/obj/structure/turret/t55,/obj/structure/shellrack/full100ww2),
 	"3,2" = list(/obj/structure/vehicleparts/frame/t55/left,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127),
 
 	"1,3" = list(/obj/structure/vehicleparts/frame/t55/right/door),
@@ -876,7 +876,7 @@
 	"3,3" = list(/obj/structure/vehicleparts/frame/t55/left),
 
 	"1,4" = list(/obj/structure/vehicleparts/movement/tracks/left/reversed,/obj/structure/vehicleparts/frame/t55/rb, /obj/structure/engine/internal/diesel/premade/v12),
-	"2,4" = list(/obj/structure/vehicleparts/frame/t55/back),
+	"2,4" = list(/obj/structure/vehicleparts/frame/t55/back,/obj/structure/shellrack/full100ww2),
 	"3,4" = list(/obj/structure/vehicleparts/movement/tracks/right/reversed,/obj/structure/vehicleparts/frame/t55/lb,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled)
 	)
 
