@@ -477,7 +477,6 @@
 #include "code\game\objects\map_metadata\clash.dm"
 #include "code\game\objects\map_metadata\colony.dm"
 #include "code\game\objects\map_metadata\compound.dm"
-#include "code\game\objects\map_metadata\cuba_pigs.dm"
 #include "code\game\objects\map_metadata\cursed_island.dm"
 #include "code\game\objects\map_metadata\drug_bust.dm"
 #include "code\game\objects\map_metadata\east_los_santos.dm"
@@ -1164,5 +1163,5 @@
 #include "lambda\sanecman\code\soldier_stogie\soldier_stogie.dm"
 #include "lambda\sanecman\code\space\grenade.dm"
 #include "lambda\sanecman\code\space\gun.dm"
-#include "maps\1943\micromaha.dmm"
+#include "maps\1969\waco.dmm"
 // END_INCLUDE
