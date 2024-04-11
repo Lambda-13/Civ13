@@ -1122,6 +1122,50 @@
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/stationary/autocannon/bushmaster(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/m249(src))
 		..()
+
+/obj/structure/turret/technical_dshk //Типо пулемёт для технички, да
+	turret_icon = ""
+	name = "Cursed DSHK"
+
+	icon = 'icons/obj/guns/mgs.dmi'
+	icon_state = "dshk"
+
+	turret_x = 16
+	turret_y = 7
+
+	gunner_x = 0
+	gunner_y = 4
+
+	rotation_speed = 0.2
+
+	New()
+		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
+		gunner_seat.setup(src)
+		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/stationary/modern/dshk(src))
+		..()
+
+/*
+/obj/structure/turret/technical_atgm //Типо ПТУР для технички, да
+	turret_icon = ""
+	name = "Cursed ATGM"
+
+	icon = 'icons/obj/guns/mgs.dmi'
+	icon_state = "atgm"
+
+	turret_x = 9
+	turret_y = -1
+
+	gunner_x = -8
+	gunner_y = 0
+
+	rotation_speed = 0.2
+
+	New()
+		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
+		gunner_seat.setup(src)
+		weapons.Add(new/obj/item/weapon/gun/launcher/rocket/rpg7(src))
+		..()
+*/
 /obj/structure/turret/m1abrams
 	turret_color = "#787859"
 	turret_icon = "m1a1_turret"
