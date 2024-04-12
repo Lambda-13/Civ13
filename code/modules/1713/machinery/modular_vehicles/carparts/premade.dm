@@ -29,6 +29,8 @@
 //////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////
 
+//Toyota - 5 тайловая машина, четыре места внутри, 2x2 багажник
+
 //////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////
 /// !!!ПАМЯТКА ДЛЯ КОДЕРАСТОВ ПРЕМЕЙДА: ПОМНИТЕ СЛЕДУЮЩЕЕ!!!
@@ -375,6 +377,51 @@
 
 	"1,3" = list(/obj/structure/vehicleparts/frame/car/tigr/rb,/obj/structure/bed/chair/office/dark,/obj/structure/vehicleparts/movement/armored/reversed,/obj/item/ammo_magazine/pkm/c100,/obj/item/ammo_magazine/pkm/c100,/obj/item/ammo_magazine/pkm/c100),
 	"2,3" = list(/obj/structure/vehicleparts/frame/car/tigr/lb,/obj/structure/bed/chair/office/dark,/obj/structure/vehicleparts/movement/armored/reversed,/obj/structure/vehicleparts/license_plate/eu/centered),
+	)
+
+//Toyota based
+/obj/effects/premadevehicles/car/toyota
+	name = "Toyota Hilux"
+	icon_state = "5x5"
+	custom_color = "#BDB76B"
+	axis = /obj/structure/vehicleparts/axis/car/toyota
+	tocreate = list(
+		"1,1" = list(/obj/structure/vehicleparts/frame/car/toyota/rf,/obj/structure/vehicleparts/movement,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/smalltank/fueleddiesel),
+		"2,1" = list(/obj/structure/vehicleparts/frame/car/toyota/lf,/obj/structure/vehicleparts/movement/reversed,/obj/structure/engine/internal/diesel/premade/v12),
+
+		"1,2" = list(/obj/structure/vehicleparts/frame/car/toyota/rfc,/obj/structure/bed/chair/office/dark),
+		"2,2" = list(/obj/structure/vehicleparts/frame/car/toyota/lfc,/obj/structure/bed/chair/drivers),
+
+		"1,3" = list(/obj/structure/vehicleparts/frame/car/toyota/rfcc,/obj/structure/bed/chair/office/dark),
+		"2,3" = list(/obj/structure/vehicleparts/frame/car/toyota/lfcc,/obj/structure/bed/chair/office/dark),
+
+		"1,4" = list(/obj/structure/vehicleparts/frame/car/toyota/rbc,/obj/structure/turret/technical_dshk),
+		"2,4" = list(/obj/structure/vehicleparts/frame/car/toyota/lbc,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127),
+
+		"1,5" = list(/obj/structure/vehicleparts/frame/car/toyota/rb,/obj/structure/vehicleparts/movement),
+		"2,5" = list(/obj/structure/vehicleparts/frame/car/toyota/lb,/obj/structure/vehicleparts/movement/reversed),
+	)
+//Toyota armored
+/obj/effects/premadevehicles/car/toyota/armored
+	name = "Toyota Modificated"
+	icon_state = "5x5"
+	custom_color = "#BDB76B"
+	axis = /obj/structure/vehicleparts/axis/car/toyota
+	tocreate = list(
+		"1,1" = list(/obj/structure/vehicleparts/frame/car/toyota_armored/rf,/obj/structure/vehicleparts/movement/armored,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/smalltank/fueleddiesel),
+		"2,1" = list(/obj/structure/vehicleparts/frame/car/toyota_armored/lf,/obj/structure/vehicleparts/movement/armored/reversed,/obj/structure/engine/internal/diesel/premade/v12),
+
+		"1,2" = list(/obj/structure/vehicleparts/frame/car/toyota_armored/rfc,/obj/structure/bed/chair/office/dark),
+		"2,2" = list(/obj/structure/vehicleparts/frame/car/toyota_armored/lfc,/obj/structure/bed/chair/drivers),
+
+		"1,3" = list(/obj/structure/vehicleparts/frame/car/toyota_armored/rfcc,/obj/structure/bed/chair/office/dark),
+		"2,3" = list(/obj/structure/vehicleparts/frame/car/toyota_armored/lfcc,/obj/structure/bed/chair/office/dark),
+
+		"1,4" = list(/obj/structure/vehicleparts/frame/car/toyota_armored/rbc),
+		"2,4" = list(/obj/structure/vehicleparts/frame/car/toyota_armored/lbc),
+
+		"1,5" = list(/obj/structure/vehicleparts/frame/car/toyota_armored/rb,/obj/structure/vehicleparts/movement/armored),
+		"2,5" = list(/obj/structure/vehicleparts/frame/car/toyota_armored/lb,/obj/structure/vehicleparts/movement/armored/reversed),
 	)
 
 ///////////////////////////////////////////////TRUCKS///////////////////////////////////////////////////////
@@ -821,7 +868,7 @@
 	"3,1" = list(/obj/structure/vehicleparts/movement/tracks/left,/obj/structure/vehicleparts/frame/t55/lf,/obj/structure/radio/transmitter_receiver/nopower/tank/faction2,/obj/structure/bed/chair/drivers/tank),
 
 	"1,2" = list(/obj/structure/vehicleparts/frame/t55/right),
-	"2,2" = list(/obj/structure/vehicleparts/frame/t55,/obj/structure/turret/t55),
+	"2,2" = list(/obj/structure/vehicleparts/frame/t55,/obj/structure/turret/t55,/obj/structure/shellrack/full100ww2),
 	"3,2" = list(/obj/structure/vehicleparts/frame/t55/left,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127),
 
 	"1,3" = list(/obj/structure/vehicleparts/frame/t55/right/door),
@@ -829,7 +876,7 @@
 	"3,3" = list(/obj/structure/vehicleparts/frame/t55/left),
 
 	"1,4" = list(/obj/structure/vehicleparts/movement/tracks/left/reversed,/obj/structure/vehicleparts/frame/t55/rb, /obj/structure/engine/internal/diesel/premade/v12),
-	"2,4" = list(/obj/structure/vehicleparts/frame/t55/back),
+	"2,4" = list(/obj/structure/vehicleparts/frame/t55/back,/obj/structure/shellrack/full100ww2),
 	"3,4" = list(/obj/structure/vehicleparts/movement/tracks/right/reversed,/obj/structure/vehicleparts/frame/t55/lb,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled)
 	)
 
