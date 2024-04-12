@@ -527,7 +527,12 @@
 				bumped = TRUE
 				if (istype(src, /obj/item/projectile/shell))
 					var/obj/item/projectile/shell/S = src
-					S.initiate(previous_step)
+					if (!istype(src, /obj/item/projectile/shell/missile))
+						S.initiate(previous_step)
+					else
+						forceMove(T)
+						permutated += T
+						S.initiate(T)
 				else
 					loc = null
 					qdel(src)
@@ -536,15 +541,11 @@
 				if (istype(src, /obj/item/projectile/shell))
 					var/obj/item/projectile/shell/S = src
 					if(S.initiated)
-						if(S.atype == "HEAT")
-							S.initiate(previous_step)
-							return FALSE
-						else
-							F.bullet_act(src,penloc)
-							passthrough = TRUE
-							forceMove(T)
-							permutated += T
-							S.initiate(T)
+						F.bullet_act(src,penloc)
+						passthrough = TRUE
+						forceMove(T)
+						permutated += T
+						S.initiate(T)
 					else
 						visible_message("<span class = 'warning'>Снаряд пролетает сквозь [penloc] стену</span>")
 
@@ -666,7 +667,7 @@
 
 	for (var/obj/structure/vehicleparts/frame/F in loc)
 		var/penloc = F.get_wall_name(opposite_direction(direction))
-		if (F.is_ambrasure(penloc) && src.loc == starting)
+		if (F.is_ambrasure(penloc) && loc == starting)
 			if(!istype(src, /obj/item/projectile/shell/missile))
 				visible_message("<span class = 'warning'>Пуля вылетает из амбразуры</span>")
 			else

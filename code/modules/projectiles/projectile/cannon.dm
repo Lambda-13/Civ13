@@ -137,12 +137,16 @@
 	else if (atype == "HEAT")
 		var/num_fragments = 3 * caliber_modifier
 		var/heat_range = clamp(round(caliber_modifier / 2), 1, 4)
-		explosion(T, heat_range, heat_range + 1, heat_range + 2, 3)
 
 		if(!initiated)
+			explosion(T, heat_range, heat_range + 1, heat_range + 2, 3)
 			loc = null
 			qdel(src)
 			return
+		if(permutated.len > 1)
+			explosion(permutated[permutated.len-1], heat_range, heat_range + 1, heat_range + 2, 3)
+		else
+			explosion(starting, heat_range, heat_range + 1, heat_range + 2, 3)
 
 		var/target_x = round(cos(angle) * 6)
 		var/target_y = round(sin(angle) * 6)
@@ -155,7 +159,6 @@
 				P.pellets = num_fragments
 				P.range_step = 2
 				P.shot_from = name
-				P.heavy_armor_penetration = src.heavy_armor_penetration / num_fragments * 2
 				P.launch_fragment(locate(x + target_x + rand(-3,3), y + target_y + rand(-3,3), z))
 				for (var/mob/living/L in T)
 					P.attack_mob(L, 0, 0)
