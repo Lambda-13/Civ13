@@ -313,18 +313,11 @@
 	w_left = list("c_windoweddoor",TRUE,TRUE,0,4,TRUE,FALSE)
 /obj/structure/vehicleparts/frame/car/toyota/rfcc
 	w_right = list("c_windoweddoor",TRUE,TRUE,0,4,TRUE,FALSE)
-/obj/structure/vehicleparts/frame/car/toyota/rbc
-	w_right = list("c_wall",TRUE,TRUE,5,0.1,FALSE,FALSE)
-	w_front = list("c_thin",TRUE,TRUE,1,0.1,FALSE,FALSE)
-	noroof = TRUE
-/obj/structure/vehicleparts/frame/car/toyota/lbc
-	w_left = list("c_wall",TRUE,TRUE,5,0.1,FALSE,FALSE)
-	w_front = list("c_thin",TRUE,TRUE,1,0.1,FALSE,FALSE)
-	noroof = TRUE
 /obj/structure/vehicleparts/frame/car/toyota/lb
 	icon_state = "frame_steel_corner_lb"
 	w_back = list("truckback_leftU",TRUE,TRUE,0,0.1,TRUE,FALSE)
 	w_left = list("none",TRUE,TRUE,0,0.1,FALSE,FALSE)
+	w_front = list("c_thin",TRUE,TRUE,1,0.1,FALSE,FALSE)
 	hasoverlay = "carback2_left"
 	removesroof = TRUE
 	override_roof_icon = "truckback_left_closed"
@@ -332,6 +325,7 @@
 	icon_state = "frame_steel_corner_rb"
 	w_back = list("truckback_rightU",TRUE,TRUE,0,0.1,TRUE,FALSE)
 	w_right = list("none",TRUE,TRUE,0,0.1,FALSE,FALSE)
+	w_front = list("c_thin",TRUE,TRUE,1,0.1,FALSE,FALSE)
 	hasoverlay = "carback2_right"
 	removesroof = TRUE
 	override_roof_icon = "truckback_right_closed"
@@ -357,22 +351,18 @@
 /obj/structure/vehicleparts/frame/car/toyota_armored/rfcc
 	w_right = list("c_windoweddoor",TRUE,TRUE,25,30,TRUE,FALSE)
 
-/obj/structure/vehicleparts/frame/car/toyota_armored/rbc
-	w_right = list("c_wall",TRUE,TRUE,5,0.1,FALSE,FALSE)
-	w_front = list("c_thin",TRUE,TRUE,1,0.1,FALSE,FALSE)
-/obj/structure/vehicleparts/frame/car/toyota_armored/lbc
-	w_left = list("c_wall",TRUE,TRUE,5,0.1,FALSE,FALSE)
-	w_front = list("c_thin",TRUE,TRUE,1,0.1,FALSE,FALSE)
 /obj/structure/vehicleparts/frame/car/toyota_armored/lb
 	icon_state = "frame_steel_corner_lb"
 	w_back = list("truckback_leftU",TRUE,TRUE,0,0.1,TRUE,FALSE)
 	w_left = list("none",TRUE,TRUE,0,0.1,FALSE,FALSE)
+	w_front = list("c_thin",TRUE,TRUE,1,0.1,FALSE,FALSE)
 	hasoverlay = "carback2_left"
 	override_roof_icon = "truckback_left_closed"
 /obj/structure/vehicleparts/frame/car/toyota_armored/rb
 	icon_state = "frame_steel_corner_rb"
 	w_back = list("truckback_rightU",TRUE,TRUE,0,0.1,TRUE,FALSE)
 	w_right = list("none",TRUE,TRUE,0,0.1,FALSE,FALSE)
+	w_front = list("c_thin",TRUE,TRUE,1,0.1,FALSE,FALSE)
 	hasoverlay = "carback2_right"
 	override_roof_icon = "truckback_right_closed"
 ////////////
