@@ -465,6 +465,7 @@
 #include "code\game\objects\map_metadata\bank_robbery.dm"
 #include "code\game\objects\map_metadata\barbarossa.dm"
 #include "code\game\objects\map_metadata\battleroyale.dm"
+#include "code\game\objects\map_metadata\bay_of_pigs.dm"
 #include "code\game\objects\map_metadata\berlin.dm"
 #include "code\game\objects\map_metadata\bohemia.dm"
 #include "code\game\objects\map_metadata\caloocan.dm"
