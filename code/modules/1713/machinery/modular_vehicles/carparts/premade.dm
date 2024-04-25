@@ -395,11 +395,8 @@
 		"1,3" = list(/obj/structure/vehicleparts/frame/car/toyota/rfcc,/obj/structure/bed/chair/office/dark),
 		"2,3" = list(/obj/structure/vehicleparts/frame/car/toyota/lfcc,/obj/structure/bed/chair/office/dark),
 
-		"1,4" = list(/obj/structure/vehicleparts/frame/car/toyota/rbc,/obj/structure/turret/technical_dshk),
-		"2,4" = list(/obj/structure/vehicleparts/frame/car/toyota/lbc,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127),
-
-		"1,5" = list(/obj/structure/vehicleparts/frame/car/toyota/rb,/obj/structure/vehicleparts/movement),
-		"2,5" = list(/obj/structure/vehicleparts/frame/car/toyota/lb,/obj/structure/vehicleparts/movement/reversed),
+		"1,4" = list(/obj/structure/vehicleparts/frame/car/toyota/rb,/obj/structure/vehicleparts/movement,/obj/structure/turret/technical_dshk),
+		"2,4" = list(/obj/structure/vehicleparts/frame/car/toyota/lb,/obj/structure/vehicleparts/movement/reversed,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127,/obj/item/ammo_magazine/ammo127),
 	)
 //Toyota armored
 /obj/effects/premadevehicles/car/toyota/armored
@@ -417,11 +414,8 @@
 		"1,3" = list(/obj/structure/vehicleparts/frame/car/toyota_armored/rfcc,/obj/structure/bed/chair/office/dark),
 		"2,3" = list(/obj/structure/vehicleparts/frame/car/toyota_armored/lfcc,/obj/structure/bed/chair/office/dark),
 
-		"1,4" = list(/obj/structure/vehicleparts/frame/car/toyota_armored/rbc),
-		"2,4" = list(/obj/structure/vehicleparts/frame/car/toyota_armored/lbc),
-
-		"1,5" = list(/obj/structure/vehicleparts/frame/car/toyota_armored/rb,/obj/structure/vehicleparts/movement/armored),
-		"2,5" = list(/obj/structure/vehicleparts/frame/car/toyota_armored/lb,/obj/structure/vehicleparts/movement/armored/reversed),
+		"1,4" = list(/obj/structure/vehicleparts/frame/car/toyota_armored/rb,/obj/structure/vehicleparts/movement/armored),
+		"2,4" = list(/obj/structure/vehicleparts/frame/car/toyota_armored/lb,/obj/structure/vehicleparts/movement/armored/reversed),
 	)
 
 ///////////////////////////////////////////////TRUCKS///////////////////////////////////////////////////////
