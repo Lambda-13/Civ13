@@ -18,6 +18,7 @@
 		"thermal" = list("type" = /obj/screen/thermaloverlay, "loc" = ui_thermal, "icon_state" = ui_blank),
 		"fov" = list("type" = /obj/screen/fov, "loc" = ui_fov, "icon_state" = ui_blank),
 		"gasmask" = list("type" = /obj/screen/gasmask, "loc" = ui_gasmask, "icon" = ui_hud_overlay, "icon_state" = ui_blank),
+		"aim_cross" = list("type" = /obj/screen/aiming_cross, "loc" = "1,1", "icon" = 'icons/mob/screen/aiming_cross.dmi', "icon_state" = "cross3"),
 	)
 	HUDneed = list(
 		"health"	  = list("type" = /obj/screen/health,	 "loc" = ui_nutrition, "icon" = ui_hud_health_liteweb),

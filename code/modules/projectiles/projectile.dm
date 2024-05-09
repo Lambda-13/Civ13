@@ -5,6 +5,7 @@
 	density = FALSE // we no longer use Bump() to detect collisions - Kachnov
 	anchored = TRUE //There's a reason this is here, Mport. God fucking damn it -Agouri. Find&Fix by Pete. The reason this is here is to stop the curving of emitter shots.
 	pass_flags = PASSTABLE
+	animate_movement = 0
 	mouse_opacity = FALSE
 	value = 0
 	flags = CONDUCT
@@ -65,9 +66,9 @@
 	var/firer_turf
 
 	// effect types to be used
-	var/muzzle_type = null
-	var/tracer_type = null
-	var/impact_type = null
+	var/muzzle_type
+	var/tracer_type
+	var/impact_type = /obj/effect/projectile/impact
 
 	var/passed_trenches = 0 // количество тайлов с окопами которые пуля пролетела подряд
 
@@ -479,13 +480,13 @@
 	if (!T || !istype(T))
 		return FALSE
 
-	if ((bumped && !forced) || (permutated.Find(T)))
+	if ((bumped && !forced) || (permutated.len && permutated.Find(T)))
 		return FALSE
 
 	var/direction = get_direction()
 
 	var/turf/previous_step = starting
-	if(T!= starting)
+	if(T!= starting && permutated.len)
 		previous_step = permutated[permutated.len]
 
 	var/passthrough = TRUE //if the projectile should continue flying
@@ -511,8 +512,9 @@
 	else
 		passed_trenches = 0
 
-	if (!is_trench && launch_from_trench && firer.prone && !overcoming_trench) // стрельба лежа из окопа в окоп невозможна
-		T.visible_message("<span class = 'warning'>[name] попдает в стенку окопа!</span>")
+	if (!is_trench && launch_from_trench && firer.prone && !overcoming_trench) // shooting while lying down from trench to trench is impossible [translated]
+		T.visible_message(SPAN_WARNING("\The [name] hits the wall of the trench!"))
+		on_impact(previous_step)
 		qdel(src)
 		return
 
@@ -527,24 +529,28 @@
 				bumped = TRUE
 				if (istype(src, /obj/item/projectile/shell))
 					var/obj/item/projectile/shell/S = src
-					S.initiate(previous_step)
+					if (!istype(src, /obj/item/projectile/shell/missile))
+						S.initiate(previous_step)
+					else
+						forceMove(T)
+						permutated += T
+						on_impact(T)
+						S.initiate(T)
 				else
+					on_impact(T)
 					loc = null
 					qdel(src)
 				return FALSE
 			else
 				if (istype(src, /obj/item/projectile/shell))
 					var/obj/item/projectile/shell/S = src
+					on_impact(T)
 					if(S.initiated)
-						if(S.atype == "HEAT")
-							S.initiate(previous_step)
-							return FALSE
-						else
-							F.bullet_act(src,penloc)
-							passthrough = TRUE
-							forceMove(T)
-							permutated += T
-							S.initiate(T)
+						F.bullet_act(src,penloc)
+						passthrough = TRUE
+						forceMove(T)
+						permutated += T
+						S.initiate(T)
 					else
 						visible_message("<span class = 'warning'>Снаряд пролетает сквозь [penloc] стену</span>")
 
@@ -559,18 +565,22 @@
 			var/hitchance = 0 // a light, for example. This was 66%, but that was unusually accurate, thanks BYOND
 			if (O == original)
 				if (O.density)
-					if (!istype(O, /obj/covers/jail))
-						hitchance = 100
-					else
+					if (istype(O, /obj/covers/jail))
 						hitchance = 0
+					else
+						hitchance = 100
 				else if (isitem(O) && !density) // any item
 					hitchance = 0
 				if (prob(hitchance))
 					if (istype(O, /obj/structure))
 						var/obj/structure/S = O
 						if (!S.CanPass(src, original))
+							on_impact(T)
+							do_bullet_act(O)
 							passthrough = FALSE
 					else
+						permutated += T
+						on_impact(T)
 						do_bullet_act(O)
 						bumped = TRUE
 						loc = null
@@ -613,6 +623,7 @@
 
 						if (prob(hit_chace))
 							passthrough = !attack_mob(L, firer_dist)
+							return
 						else
 							visible_message("<span class = 'warning'>[src] пролетает над [AM]!</span>")
 						def_zone = tmp_zone
@@ -648,7 +659,7 @@
 										if (!S.climbable && !istype(S, /obj/structure/vehicleparts/frame))
 											passthrough_message = "<span class = 'warning'>[name] пробивает насквозь [S]!</span>"
 					if (istype(O, /obj/covers/repairedfloor) && istype(src, /obj/item/projectile/shell))
-						if ((prob(18) && src.atype == "cannonball") || src.atype != "cannonball")
+						if ((src.atype == "cannonball" && prob(18)) || src.atype != "cannonball")
 							O.pre_bullet_act(src)
 							if (O.bullet_act(src, def_zone) != PROJECTILE_CONTINUE)
 								if (O && !O.gcDestroyed)
@@ -656,17 +667,18 @@
 
 	for(var/obj/structure/window/barrier/S in T)
 		if (!S.CanPassOut(src))
+			do_bullet_act(T)
 			passthrough = FALSE
-
 
 	if (istype(src, /obj/item/projectile/shell))
 		var/obj/item/projectile/shell/S = src
 		if(S.initiated)
+			on_impact(T)
 			S.initiate(T)
 
 	for (var/obj/structure/vehicleparts/frame/F in loc)
 		var/penloc = F.get_wall_name(opposite_direction(direction))
-		if (F.is_ambrasure(penloc) && src.loc == starting)
+		if (F.is_ambrasure(penloc) && loc == starting)
 			if(!istype(src, /obj/item/projectile/shell/missile))
 				visible_message("<span class = 'warning'>Пуля вылетает из амбразуры</span>")
 			else
@@ -675,7 +687,6 @@
 		else if (!F.CheckPen(src,penloc))
 			passthrough = FALSE
 			visible_message("<span class = 'warning'>Снаряд не пробивает [penloc] стену!</span>")
-			T.visible_message(passthrough_message)
 			F.bullet_act(src,penloc)
 			bumped = TRUE
 			loc = null
@@ -692,6 +703,7 @@
 	if (istype(src, /obj/item/projectile/shell))
 		if (loc == trajectory.target)
 			var/obj/item/projectile/shell/S = src
+			permutated += T
 			S.initiate(loc)
 			return FALSE
 
@@ -775,11 +787,12 @@
 		handleTurf(loc, untouchable = _untouchable)
 		before_move()
 		forceMove(location.return_turf())
+		update_icon()
 
 		if (!did_muzzle_effect)
-			muzzle_effect(effect_transform)
-		else if (!bumped)
-			tracer_effect(effect_transform)
+			muzzle_effect()
+		else if (!bumped && loc)
+			tracer_effect()
 
 /obj/item/projectile/proc/do_bullet_act(var/atom/A, var/zone)
 	if (A && A != firer && A != firedfrom)
@@ -800,49 +813,46 @@
 
 	// generate this now since all visual effects the projectile makes can use it
 	effect_transform = new()
-	effect_transform.Scale(1, TRUE)
-	effect_transform.Turn(-trajectory.angle)		//no idea why this has to be inverted, but it works
-	transform = turn(transform, -(trajectory.angle + 90)) //no idea why 90 needs to be added, but it works
+	effect_transform.Turn(-trajectory.return_angle())		//no idea why this has to be inverted, but it works
 
-/obj/item/projectile/proc/muzzle_effect(var/matrix/T)
+	transform = turn(transform, -(trajectory.return_angle() + 90)) //no idea why 90 needs to be added, but it works
 
+/obj/item/projectile/update_icon()
+	var/dist = permutated.len * world.icon_size
+	pixel_x = (cos(angle) * dist) - ((x - starting.x) * world.icon_size)
+	pixel_y = (sin(angle) * dist) - ((y - starting.y) * world.icon_size)
+
+/obj/item/projectile/proc/muzzle_effect()
 	if (silenced)
 		did_muzzle_effect = TRUE
 		return
-
 	if (ispath(muzzle_type))
-		var/obj/effect/projectile/M = new muzzle_type(get_turf(firedfrom))
-
+		var/obj/effect/projectile/M = new muzzle_type(starting)
 		if (istype(M))
-			M.set_transform(T)
-			M.pixel_x = 20 * cos (angle)
-			M.pixel_y = 20 * sin (angle)
-			M.activate()
-
+			M.activate(get_angle())
 	did_muzzle_effect = TRUE
 
-/obj/item/projectile/proc/tracer_effect(var/matrix/M)
+/obj/item/projectile/proc/tracer_effect()
 	if (ispath(tracer_type))
-		var/obj/effect/projectile/P = new tracer_type(location.loc)
+		for(var/i = 1, i <= 2, i++)
+			var/obj/effect/projectile/P = new tracer_type(starting)
+			if (istype(P))
+				P.alpha *= 0.6 / i
+				var/px_dist = ((permutated.len - 1) * world.icon_size) + (i * 16)
+				P.activate(get_angle(), px_dist, starting)
 
-		if (istype(P))
-			P.set_transform(M)
-			P.pixel_x = location.pixel_x
-			P.pixel_y = location.pixel_y
-		/*	if (!hitscan)
-				P.activate(step_delay)	//if not a hitscan projectile, remove after a single delay
-			else*/
-			P.activate()
+/obj/item/projectile/proc/impact_effect()
+	if (ispath(impact_type))
+		var/turf/effect_loc = null
+		if(permutated.len > 0)
+			effect_loc = permutated[permutated.len]
+		else
+			effect_loc = starting
+		for(var/i = 0, i < 5, i++)
+			var/obj/effect/projectile/P = new impact_type(effect_loc)
+			if (istype(P))
+				P.activate(get_angle())
 
-/obj/item/projectile/proc/impact_effect(var/matrix/M)
-	if (ispath(tracer_type))
-		var/obj/effect/projectile/P = new impact_type(location.loc)
-
-		if (istype(P))
-			P.set_transform(M)
-			P.pixel_x = location.pixel_x
-			P.pixel_y = location.pixel_y
-			P.activate()
 
 //Helper proc to check if you can hit them or not.
 
