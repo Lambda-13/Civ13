@@ -1159,7 +1159,7 @@
 	icon_state = "huge-bullet"
 	spent_icon = "huge-casing"
 	weight = 1
-	projectile_type = /obj/item/projectile/bullet/autocannon/a25mm_ap
+	projectile_type = /obj/item/projectile/shell/autocannon/a25_ap
 	caliber = "a25"
 	value = 2
 
@@ -1169,7 +1169,7 @@
 	icon_state = "huge-bullet"
 	spent_icon = "huge-casing"
 	weight = 1
-	projectile_type = /obj/item/projectile/bullet/autocannon/frag/a25mm_he
+	projectile_type = /obj/item/projectile/shell/autocannon/a25_he
 	caliber = "a25"
 	value = 2
 
@@ -1179,7 +1179,7 @@
 	icon_state = "huge-bullet"
 	spent_icon = "huge-casing"
 	weight = 1
-	projectile_type = /obj/item/projectile/bullet/autocannon/a30mm_ap
+	projectile_type = /obj/item/projectile/shell/autocannon/a30_ap
 	caliber = "a30"
 	value = 2
 
@@ -1189,7 +1189,7 @@
 	icon_state = "huge-bullet"
 	spent_icon = "huge-casing"
 	weight = 1
-	projectile_type = /obj/item/projectile/bullet/autocannon/frag/a30mm_he
+	projectile_type = /obj/item/projectile/shell/autocannon/a30_he
 	caliber = "a30"
 	value = 2
 

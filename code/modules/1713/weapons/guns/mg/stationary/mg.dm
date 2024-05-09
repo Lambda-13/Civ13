@@ -322,6 +322,14 @@
 	recoil = 1
 	accuracy = 1
 
+/obj/item/weapon/gun/projectile/automatic/stationary/autocannon/process_projectile(obj/projectile, mob/user, atom/target, var/target_zone, var/params=null)
+	var/obj/item/projectile/P = projectile
+	P.loc = get_turf(user)
+	P.dispersion = clamp(rand(-accuracy, accuracy), -30, 30)
+	if(!P.launch(target, user, src))
+		return FALSE
+	return TRUE
+
 /obj/item/weapon/gun/projectile/automatic/stationary/autocannon/bushmaster
 	name = "25mm M242 'Bushmaster' Autocannon"
 	icon_state = "autocannon"
