@@ -289,6 +289,8 @@
 "fC" = (/obj/item/weapon/material/shovel/trench,/turf/floor/trench,/area/caribbean/nomads/forest/snow)
 "fD" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 8},/obj/item/weapon/material/shovel/trench,/turf/floor/trench,/area/caribbean/nomads/forest/snow)
 "fE" = (/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueledgasoline,/turf/floor/dirt/burned,/area/caribbean/nomads/forest/snow)
+"fF" = (/obj/item/weapon/gun/projectile/submachinegun/stg,/turf/floor/winter,/area/caribbean/nomads/forest/snow)
+"fG" = (/obj/item/ammo_magazine/stg,/turf/floor/winter,/area/caribbean/nomads/forest/snow)
 "fH" = (/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 8},/turf/floor/wood,/area/caribbean/houses)
 "fI" = (/turf/floor/plating/steel,/area/caribbean/houses)
 "fK" = (/obj/structure/simple_door/key_door/anyone/wood,/turf/floor/wood,/area/caribbean/houses)
@@ -884,8 +886,8 @@ qnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnbXercjfcqedX
 qnqnqnveqnqnqnqnqnqnqnRlRlRlRlRlRlRlRlRlRlRlRlRlRlRlRlqnqnveqnqnqnqnqnfecwffqeaifHususauai
 qnaaqeqeqeqeqeqeqeqeqeRpaKaLaLaLaLaLaLaLaLaLaLaLaLaKRpqeqeqeqeqeqeqeqeczcGcHqeaiaujUjUauai
 qnqeqeafafafafafafafdqaPaMWxWGWKWKWLWGWGWGWGWGWGWNaMaPafafafafafafqeqeqnqnqnqeaiaiaiaiaiai
-qnqeafdqdqafasafafWYafaNaNXdXZYeasafafXZYeafafceDzaOaPYmafafPvPvPvPvqeqnqnqnqeqeqeqeqeqeqe
-qnqeafafafYmafafafafdqaNaPXdasasYsasasasafYDafZYDzaPaPafafafafafafafqepMpMpMqePvafafafPvPv
+qnqeafdqdqafasafafWYafaNaNXdXZYeasafafXZYeaffFceDzaOaPYmafafPvPvPvPvqeqnqnqnqeqeqeqeqeqeqe
+qnqeafafafYmafafafafdqaNaPXdasasYsasasasafYDfGZYDzaPaPafafafafafafafqepMpMpMqePvafafafPvPv
 qnqeafafafafafafdqdqafaPaNafaQEyEyEyEyEyaQcAafcfafaPaTasasafafafafafrPweIinOlwPvPvafPvafPv
 qnqeafafafafdqdqafafafaPaPdqaQFtFtWIWIFtSjasafrqafaPaPafafafWYafafafUtJCqnQUlZPvPvPvafafYm
 qnNzdqafafoWafafafoWafaPaPdqaSNlUDUDUDUDSjaQafrqafaTaTasasasasafafCTGoUfUfUfGoIYafPvafafaf
