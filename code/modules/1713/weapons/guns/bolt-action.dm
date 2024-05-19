@@ -1051,9 +1051,9 @@
 /obj/item/weapon/gun/projectile/boltaction/springfield
 	name = "M1903 Springfield"
 	desc = "A bolt-action rifle made in 1903, chambered in .30-06 with a 5 round internal magazine."
-	icon_state ="springfield_ww2"
-	item_state ="springfield_ww2"
-	base_icon = "springfield_ww2"
+	icon_state ="springfield"
+	item_state ="springfield"
+	base_icon = "springfield"
 	force = 12
 	caliber = "a3006"
 	weight = 4.5
