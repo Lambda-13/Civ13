@@ -15,6 +15,7 @@ var/list/admin_verbs_default = list(
 	/client/proc/getruntimelog					 // allows us to access runtime logs to somebody,
 	)
 var/list/admin_verbs_admin = list(
+	/client/proc/set_map,
 	/client/proc/enable_fov,
 	/client/proc/disable_fov,
 	/client/proc/remove_dead_bodies,
@@ -463,6 +464,14 @@ var/list/admin_verbs_host = list(
 			mob << "<span class = 'notice'>You are now <b>visible</b> in Staffwho.</span>"
 		else
 			mob << "<span class = 'notice'>You are <b>no longer visible</b> in Staffwho.</span>"
+
+/client/proc/set_map()
+	set name = "Set Map"
+	set category = "Админ"
+	var/new_map_name = input("Enter the next map name.", "Karak")
+	mob << "the next map name is [new_map_name]"
+	processes.python.execute("mapswap.py", new_map_name)
+	return
 
 /client/proc/player_panel()
 	set name = "Player Panel"
