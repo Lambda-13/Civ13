@@ -1,3 +1,4 @@
+/*
 /datum/job/civilian
 	faction = "Human"
 
@@ -48,4 +49,4 @@
 	give_random_name(H)
 
 	return TRUE
-
+*/

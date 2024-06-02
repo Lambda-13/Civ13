@@ -1,3 +1,4 @@
+/*
 obj/map_metadata/camp_blugo
 	ID = MAP_CAMP_BLUGO
 	title = "Blugoslavia Camp"
@@ -45,3 +46,4 @@ obj/map_metadata/camp_blugo/job_enabled_specialcheck(var/datum/job/J)
 
 /obj/map_metadata/camp_blugo/continental/faction1_can_cross_blocks()
 	return (processes.ticker.playtime_elapsed >= 15000 || admin_ended_all_grace_periods)
+*/
