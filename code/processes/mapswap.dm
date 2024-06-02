@@ -295,6 +295,7 @@
 				MAP_HUNT = 6,
 				MAP_FOOTBALL = 6,
 				MAP_GULAG13 = 6,
+				MAP_CAMP_BLUGO = 5, 
 //				MAP_ABASHIRI = 6,
 //				MAP_RIVER_KWAI = 0,
 				MAP_LITTLE_CREEK = 6,
