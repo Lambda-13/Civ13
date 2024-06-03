@@ -468,9 +468,9 @@ var/list/admin_verbs_host = list(
 /client/proc/set_map()
 	set name = "Set Map"
 	set category = "Админ"
-	var/new_map_name = input("Enter the next map name.", "Karak")
-	mob << "the next map name is [new_map_name]"
-	processes.python.execute("mapswap.py", new_map_name)
+	var/new_map_name = input("Enter the next map name.", "Set Map")
+	processes.python.execute("mapswap.py", list(uppertext(new_map_name)))
+	world << "<span class = 'danger'>Меняем карту!</span> <span class='notice'>Нажми сюда что бы переподключиться (обычно нажимают если не сработало переподключение): <b>byond://[world.internet_address]:[world.port]</b></span>"
 	return
 
 /client/proc/player_panel()
