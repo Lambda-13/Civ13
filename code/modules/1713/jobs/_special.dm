@@ -66,7 +66,6 @@
 /datum/job/var/is_nva = FALSE
 /datum/job/var/is_warlords = FALSE
 /datum/job/var/is_redka = FALSE
-/*/datum/job/var/is_bluga = FALSE*/
 /datum/job/var/is_blugi = FALSE
 /datum/job/var/is_yellowag = FALSE
 /datum/job/var/is_skinhead = FALSE
