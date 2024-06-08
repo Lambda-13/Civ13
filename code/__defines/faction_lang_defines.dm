@@ -62,8 +62,6 @@
 			return "Red Army"
 		else if (map.ID == "SKINHEADS")
 			return "Skinheads"
-/*		else if (map.ID == "CAMP_BLUGO")
-			return "Blugoslavs"*/
 		else if (map.ID == "YELTSIN")
 			return "Militia"
 		else if (map.ID == "AFRICAN_WARLORDS")

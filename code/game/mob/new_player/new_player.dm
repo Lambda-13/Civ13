@@ -467,7 +467,13 @@ var/global/redirect_all_players = null
 			WWalert(src, "Because you died in combat, you must wait [wait] more minutes to respawn.", "Error")
 			return FALSE
 
-		var/factjob = "RDF" // на время учений все не зарегистрированные в синюю команду игроки автоматически заходят за красных
+		var/factjob
+		for (var/i in faction_list_red)
+			var/temp_ckey = lowertext(i)
+			temp_ckey = replacetext(temp_ckey," ", "")
+			temp_ckey = replacetext(temp_ckey,"_", "")
+			if (temp_ckey == client.ckey)
+				factjob = "RDF"
 		if (!factjob)
 			for (var/i in faction_list_blue)
 				var/temp_ckey = lowertext(i)
