@@ -40,6 +40,8 @@
 	processes.epochswap = src
 
 /process/epochswap/fire()
+	if(map.admins_cahnged_map)
+		return
 	// no SCHECK here
 	if (is_ready())
 		spawn(20)
@@ -180,6 +182,8 @@
 
 /process/mapswap/fire()
 	// no SCHECK here
+	if(map.admins_cahnged_map)
+		return
 	done = FALSE
 	if (is_ready())
 		ready = FALSE
