@@ -470,6 +470,8 @@ var/list/admin_verbs_host = list(
 	set category = "Админ"
 	var/new_map_name = input("Enter the next map name.", "Set Map")
 	ticker.finished = TRUE
+	spawn(20)
+		vote.reset()
 	processes.python.execute("mapswap.py", list(uppertext(new_map_name)))
 	world << "<span class = 'danger'>Меняем карту!</span> <span class='notice'>Нажми сюда что бы переподключиться (обычно нажимают если не сработало переподключение): <b>byond://[world.internet_address]:[world.port]</b></span>"
 	return
