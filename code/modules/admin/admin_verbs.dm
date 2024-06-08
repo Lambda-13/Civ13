@@ -15,6 +15,7 @@ var/list/admin_verbs_default = list(
 	/client/proc/getruntimelog					 // allows us to access runtime logs to somebody,
 	)
 var/list/admin_verbs_admin = list(
+	/client/proc/set_map,
 	/client/proc/enable_fov,
 	/client/proc/disable_fov,
 	/client/proc/remove_dead_bodies,
@@ -1152,6 +1153,16 @@ var/global/gc_helper_on = FALSE
 		return
 	else
 		gc_helper(result)
+
+/client/proc/set_map()
+	set name = "Set Map"
+	set category = "Админ"
+	var/new_map_name = input("Enter the next map name.", "Set Map")
+	map.admins_cahnged_map = new_map_name
+	ticker.finished = TRUE
+	processes.python.execute("mapswap.py", list(uppertext(new_map_name)))
+	world << "<span class = 'danger'>Меняем карту!</span> <span class='notice'>Нажми сюда что бы переподключиться (обычно нажимают если не сработало переподключение): <b>byond://[world.internet_address]:[world.port]</b></span>"
+	return
 
 /*/client/proc/swapmap()
 	set category = "Дебаг"

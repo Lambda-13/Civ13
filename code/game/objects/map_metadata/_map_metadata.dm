@@ -84,6 +84,7 @@ var/civmax_research = list(230,230,230)
 	var/time_both_sides_locked = -1
 	var/time_to_end_round_after_both_sides_locked = 9000
 	var/admins_triggered_roundend = FALSE
+	var/admins_cahnged_map = null
 	var/admins_triggered_noroundend = FALSE
 	var/list/faction_targets = list()
 
