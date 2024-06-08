@@ -1144,8 +1144,6 @@
 #include "code\processes\lighting\sources.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "lambda\legasy\blugo.dm"
-#include "lambda\legasy\camp_campaign_blugo.dm"
 #include "lambda\rotipik\code\chainsaw.dm"
 #include "lambda\rotipik\code\global_lists.dm"
 #include "lambda\rotipik\code\TDM_supplies\crates.dm"
