@@ -242,8 +242,8 @@
 
 	var/next_shot_delay = 1
 
-	var/target_x = trunc(distance * cos(azimuth))
-	var/target_y = trunc(distance * sin(azimuth))
+	var/target_x = ceil(distance * cos(azimuth))
+	var/target_y = ceil(distance * sin(azimuth))
 
 	if(istype(weapons[selected_weapon], /obj/item/weapon/gun/projectile/automatic))
 		var/obj/item/weapon/gun/projectile/automatic/G = weapons[selected_weapon]
