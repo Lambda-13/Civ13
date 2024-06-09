@@ -1159,7 +1159,7 @@ var/global/gc_helper_on = FALSE
 	set category = "Админ"
 	var/new_map_name = input("Enter the next map name.", "Set Map")
 	map.admins_cahnged_map = new_map_name
-	world.Reboot()
+	ticker.finished = TRUE
 	processes.python.execute("mapswap.py", list(uppertext(new_map_name)))
 	world << "<span class = 'danger'>Меняем карту!</span> <span class='notice'>Нажми сюда что бы переподключиться (обычно нажимают если не сработало переподключение): <b>byond://[world.internet_address]:[world.port]</b></span>"
 	return
