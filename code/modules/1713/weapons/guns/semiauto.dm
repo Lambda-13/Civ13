@@ -77,7 +77,7 @@
 	throwforce = 20
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	scope_mounts = list("kochetov")
-	accuracy = 2
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/semiautomatic/svt/update_icon()
 	..()
@@ -111,7 +111,7 @@
 	force = 10
 	throwforce = 20
 	fire_sound = 'sound/weapons/guns/fire/ptrd.ogg'
-	accuracy = 1
+	accuracy = 0
 	recoil = 120
 	scope_x_offset = -1
 	scope_mounts = list("kochetov")
@@ -141,7 +141,7 @@
 	force = 10
 	throwforce = 20
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
-	accuracy = 3
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/semiautomatic/remington11
 	name = "Remington 11"
@@ -242,7 +242,7 @@
 	force = 10
 	throwforce = 20
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
-	accuracy = 1
+	accuracy = 0
 	scope_mounts = list ("dovetail")
 	scope_y_offset = -3
 
@@ -349,7 +349,7 @@
 	scope_x_offset = -1
 	scope_y_offset = -1
 
-	accuracy = 3
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/semiautomatic/m1garand
 	name = "M1 Garand"
@@ -409,7 +409,7 @@
 	throwforce = 20
 	attachment_slots = ATTACH_BARREL|ATTACH_SCOPE|ATTACH_UNDER
 	recoil = 30
-	accuracy = 3
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/semiautomatic/m1carbine
 	name = "M1 Carbine"
@@ -457,7 +457,7 @@
 	gun_type = GUN_TYPE_RIFLE
 	equiptimer = 8
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER
-	accuracy = 2
+	accuracy = 1
 	scope_mounts = list ("dovetail")
 	scope_x_offset = 2
 	scope_y_offset = -1
@@ -496,7 +496,7 @@
 	equiptimer = 15
 	accuracy_increase_mod = 2.0
 	shake_strength = 2
-	accuracy = 1
+	accuracy = 0
 	scope_mounts = list ("picatinny")
 
 /obj/item/weapon/gun/projectile/semiautomatic/barrett/sniper/New()

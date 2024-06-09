@@ -18,7 +18,7 @@
 		)
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER|ATTACH_BARREL
-	accuracy = 2
+	accuracy = 1
 	recoil = 30
 	scope_mounts = list ("dovetail", "picatinny")
 	under_mounts = list ("picatinny", "gp25_mount")
@@ -64,7 +64,7 @@
 	magazine_type = /obj/item/ammo_magazine/ak101
 	good_mags = list(/obj/item/ammo_magazine/ak101, /obj/item/ammo_magazine/ak101/drum)
 	equiptimer = 12
-	accuracy = 3
+	accuracy = 1
 	recoil = 35
 
 /obj/item/weapon/gun/projectile/submachinegun/ak101/ak103
@@ -78,7 +78,7 @@
 	magazine_type = /obj/item/ammo_magazine/ak47
 	good_mags = list(/obj/item/ammo_magazine/rpk47, /obj/item/ammo_magazine/rpk47/drum, /obj/item/ammo_magazine/ak47, /obj/item/ammo_magazine/ak47/makeshift)
 	equiptimer = 15
-	accuracy = 2
+	accuracy = 1
 	recoil = 40
 
 
@@ -90,7 +90,7 @@
 	base_icon = "ak100"
 	weight = 3.2
 	equiptimer = 12
-	accuracy = 3
+	accuracy = 2
 	recoil = 45
 
 /obj/item/weapon/gun/projectile/submachinegun/ak101/ak105

@@ -26,7 +26,7 @@
 		)
 	sel_mode = 1
 	recoil = 25
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/ammo_magazine/tibannagas/space_war/ml40
 	name = "тибанновый блок питания МЛ-40"
@@ -66,7 +66,7 @@
 		)
 	sel_mode = 1
 	recoil = 20
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/ammo_magazine/tibannagas/space_war/c762x25_pplsh
 	name = "тибанновый блок питания ППЛ-41"
@@ -107,7 +107,7 @@
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE
 	recoil = 35
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/semiautomatic/laser/laser/lg34/scope/New()
 	..()

@@ -146,7 +146,7 @@
 	value = 150
 	blackpowder = TRUE
 	load_delay = 4
-	accuracy = 4
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/leveraction/winchesterm1876
 	name = "Winchester M1876"
@@ -161,7 +161,7 @@
 	value = 150
 	blackpowder = TRUE
 	load_delay = 4.2
-	accuracy = 4
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/leveraction/winchesterm1886
 	name = "Winchester M1886"
@@ -176,7 +176,7 @@
 	value = 150
 	blackpowder = TRUE
 	load_delay = 4.4
-	accuracy = 4
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/leveraction/winchesterm1892
 	name = "Winchester M1892"
@@ -191,7 +191,7 @@
 	value = 150
 	blackpowder = TRUE
 	load_delay = 4.1
-	accuracy = 4
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/leveraction/goldchester
 	name = "Golden Winchester M1873"
@@ -206,7 +206,7 @@
 	value = 150
 	blackpowder = TRUE
 	load_delay = 4
-	accuracy = 4
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/leveraction/evansrepeater
 	name = "Evans repeating rifle"
@@ -221,7 +221,7 @@
 	value = 150
 	blackpowder = TRUE
 	load_delay = 4.2
-	accuracy = 5
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/leveraction/henryrepeater
 	name = "Henry repeating rifle"
@@ -236,4 +236,4 @@
 	value = 150
 	blackpowder = TRUE
 	load_delay = 3.5
-	accuracy = 4
+	accuracy = 2

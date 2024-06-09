@@ -23,7 +23,7 @@
 	full_auto = TRUE
 	fire_delay = 0
 	recoil = 5
-	accuracy = 2
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/maxim
 	name = "Maxim 1895"
@@ -39,7 +39,7 @@
 		)
 	ammo_type = /obj/item/ammo_casing/a762x54/weak
 	recoil = 5
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/maxim/ww2
 	name = "Maxim"
@@ -56,7 +56,7 @@
 		)
 	ammo_type = /obj/item/ammo_casing/a762x54/weak
 	recoil = 5
-	accuracy = 3
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/mg08
 	name = "Maschinengewehr 08"
@@ -72,7 +72,7 @@
 		)
 	ammo_type = /obj/item/ammo_casing/a792x57/weak
 	recoil = 5
-	accuracy = 3
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/dt
 	name = "DT-28 machine gun"
@@ -87,7 +87,7 @@
 		)
 	ammo_type = /obj/item/ammo_casing/a762x54/weak
 	recoil = 5
-	accuracy = 3
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/pkm
 	name = "PKM machine gun"
@@ -102,7 +102,7 @@
 		)
 	ammo_type = /obj/item/ammo_casing/a762x54/weak
 	recoil = 5
-	accuracy = 3
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/dshk
 	name = "DShK machine gun"
@@ -117,7 +117,7 @@
 		list(name = "full auto", burst=2, burst_delay=2, fire_delay=2, accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a127
-	recoil = 5
+	recoil = 10
 	accuracy = 1
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/nsvt
@@ -134,8 +134,8 @@
 		list(name = "full auto", burst=1, burst_delay=0.8, recoil = 0),
 	)
 	ammo_type = /obj/item/ammo_casing/a127
-	recoil = 5
-	accuracy = 1
+	recoil = 15
+	accuracy = 0
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/foldable
 	anchored = TRUE
@@ -171,7 +171,7 @@
 		)
 	ammo_type = /obj/item/ammo_casing/a762x54/weak
 	recoil = 5
-	accuracy = 3
+	accuracy = 2
 
 	path = /obj/item/weapon/foldable/pkm
 
@@ -188,8 +188,8 @@
 		list(name = "full auto", burst=6, burst_delay=2, fire_delay=2, accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a303/weak
-	recoil = 25
-	accuracy = 3
+	recoil = 5
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/hotchkiss1914
 	name = "Hotchkiss M1914 machine gun"
@@ -201,7 +201,7 @@
 	good_mags = list(/obj/item/ammo_magazine/hotchkiss)
 	ammo_type = /obj/item/ammo_casing/a8x50/weak
 	recoil = 5
-	accuracy = 3
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/type3
 	name = "Type 3 machine gun"
@@ -213,7 +213,7 @@
 	good_mags = list(/obj/item/ammo_magazine/type3)
 	ammo_type = /obj/item/ammo_casing/a65x50/weak
 	recoil = 5
-	accuracy = 3
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/type98
 	name = "Type 92 machine gun"
@@ -230,7 +230,7 @@
 	ammo_type = /obj/item/ammo_casing/a77x58
 	attachment_slots = ATTACH_SCOPE
 	recoil = 5
-	accuracy = 3
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/type98/update_icon()
 	icon_state = "type92hmg[ammo_magazine ? round(ammo_magazine.stored_ammo.len, 5) : "_empty"]"
@@ -249,7 +249,7 @@
 		)
 	ammo_type = /obj/item/ammo_casing/a3006
 	recoil = 5
-	accuracy = 3
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/browning/update_icon()
 	icon_state = "browning[ammo_magazine ? round(ammo_magazine.stored_ammo.len, 50) : "_empty"]"
@@ -268,7 +268,7 @@
 		)
 	ammo_type = /obj/item/ammo_casing/a50cal/weak
 	recoil = 5
-	accuracy = 1
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/mg34
 	name = "MG 34 machine gun"
@@ -283,7 +283,7 @@
 		)
 	ammo_type = /obj/item/ammo_casing/a792x57/weak
 	recoil = 5
-	accuracy = 3
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/mg3
 	name = "MG 3 machine gun"
@@ -298,7 +298,7 @@
 		)
 	ammo_type = /obj/item/ammo_casing/a762x51/weak
 	recoil = 5
-	accuracy = 3
+	accuracy = 2
 
 // Autocannons
 
@@ -319,7 +319,7 @@
 	ammo_type = /obj/item/ammo_casing/a30mm_ap
 	is_hmg = TRUE
 	full_auto = FALSE
-	recoil = 1
+	recoil = 5
 	accuracy = 1
 
 /obj/item/weapon/gun/projectile/automatic/stationary/autocannon/process_projectile(obj/projectile, mob/user, atom/target, var/target_zone, var/params=null)
