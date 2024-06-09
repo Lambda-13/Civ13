@@ -701,7 +701,7 @@
 		--penetrating
 
 	if (istype(src, /obj/item/projectile/shell))
-		if (loc == trajectory.target)
+		if (permutated.len > get_dist(starting, trajectory.target) + rand(-1, 1))
 			var/obj/item/projectile/shell/S = src
 			permutated += T
 			S.initiate(loc)
