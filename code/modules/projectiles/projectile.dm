@@ -193,7 +193,7 @@
 			fired_from_turret = TRUE
 		for (var/obj/structure/vehicleparts/frame/F in curloc)
 			fired_from_axis = F.axis
-			layer = 11
+			layer = 14
 
 	firer = user
 	firer_original_dir = firer.dir
@@ -701,7 +701,7 @@
 		--penetrating
 
 	if (istype(src, /obj/item/projectile/shell))
-		if (loc == trajectory.target)
+		if (permutated.len > get_dist(starting, trajectory.target) + rand(-1, 1))
 			var/obj/item/projectile/shell/S = src
 			permutated += T
 			S.initiate(loc)
@@ -826,10 +826,17 @@
 	if (silenced)
 		did_muzzle_effect = TRUE
 		return
-	if (ispath(muzzle_type))
+	if (ispath(muzzle_type) && !did_muzzle_effect)
 		var/obj/effect/projectile/M = new muzzle_type(starting)
 		if (istype(M))
+			M.layer = layer
 			M.activate(get_angle())
+	if(!istype(muzzle_type, /obj/effect/projectile/laser))
+		for(var/i = 0, i < 15, i++)
+			spawn (i * 0.3)
+				var/obj/effect/projectile/bullet/muzzle/gunsmoke/S = new/obj/effect/projectile/bullet/muzzle/gunsmoke(starting)
+				S.layer = layer
+				S.activate(get_angle())
 	did_muzzle_effect = TRUE
 
 /obj/item/projectile/proc/tracer_effect()
@@ -837,6 +844,7 @@
 		for(var/i = 1, i <= 2, i++)
 			var/obj/effect/projectile/P = new tracer_type(starting)
 			if (istype(P))
+				P.layer = layer
 				P.alpha *= 0.6 / i
 				var/px_dist = ((permutated.len - 1) * world.icon_size) + (i * 16)
 				P.activate(get_angle(), px_dist, starting)
@@ -851,6 +859,7 @@
 		for(var/i = 0, i < 5, i++)
 			var/obj/effect/projectile/P = new impact_type(effect_loc)
 			if (istype(P))
+				P.layer = layer
 				P.activate(get_angle())
 
 
