@@ -888,8 +888,8 @@
 	draw_aiming_line(user)
 
 /obj/structure/cannon/proc/get_target_coords()
-	target_x = ceil(distance * cos(azimuth))
-	target_y = ceil(distance * sin(azimuth))
+	target_x = trunc(distance * cos(azimuth))
+	target_y = trunc(distance * sin(azimuth))
 
 /obj/structure/cannon/proc/sway()
 	if(azimuth >= 45 && azimuth < 135)
@@ -917,8 +917,8 @@
 	var/point_x
 	var/point_y
 	for(i = 0, i < 15 * 32, i+=32)
-		point_x = ceil(i * cos(azimuth))
-		point_y = ceil(i * sin(azimuth))
+		point_x = trunc(i * cos(azimuth))
+		point_y = trunc(i * sin(azimuth))
 		if (point_x != 0 || point_y != 0)
 			aiming_line = new('icons/effects/Targeted.dmi', loc = src, icon_state="point", pixel_x = point_x, pixel_y = point_y, layer = 14)
 			aiming_line.alpha = 255 - (i / 1.15)
@@ -933,8 +933,8 @@
 	var/point_x
 	var/point_y
 	for(i = 0, i < distance * 32, i+=32)
-		point_x = ceil(i * cos(azimuth))
-		point_y = ceil(i * sin(azimuth))
+		point_x = trunc(i * cos(azimuth))
+		point_y = trunc(i * sin(azimuth))
 		if (point_x != 0 || point_y != 0)
 			aiming_line = new('icons/effects/Targeted.dmi', loc = src, icon_state="point", pixel_x = point_x, pixel_y = point_y, layer = 14)
 			aiming_line.alpha = 255 - (i / 4)
