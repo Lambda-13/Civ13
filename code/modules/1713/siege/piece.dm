@@ -497,12 +497,17 @@
 							high = FALSE
 
 						var/hit = FALSE
-						var/dispersion_dir = rand(0, 360)
-						var/dispersion_dist = rand(0, distance * 0.2)
-						var/dispersion_x = trunc(cos(dispersion_dir) * dispersion_dist)
-						var/dispersion_y = trunc(sin(dispersion_dir) * dispersion_dist)
-						var/tx = clamp(x + target_x + dispersion_x, 1, world.maxx)
-						var/ty = clamp(y + target_y + dispersion_y, 1, world.maxy)
+						var/scattering = distance * 0.1
+						var/tx = x + target_x + rand(-scattering, scattering)
+						var/ty = y + target_y + rand(-scattering, scattering)
+						if (tx < 1)
+							tx = 1
+						if (tx > world.maxx)
+							tx = world.maxx
+						if (ty < 1)
+							ty = 1
+						if (ty > world.maxy)
+							ty = world.maxy
 						target = locate(tx, ty, z)
 						var/highcheck = high
 						var/area/target_area = get_area(target)
@@ -634,12 +639,17 @@
 								high = FALSE
 
 							var/hit = FALSE
-							var/dispersion_dir = rand(0, 360)
-							var/dispersion_dist = rand(0, distance * 0.2)
-							var/dispersion_x = trunc(cos(dispersion_dir) * dispersion_dist)
-							var/dispersion_y = trunc(sin(dispersion_dir) * dispersion_dist)
-							var/tx = clamp(x + target_x + dispersion_x, 1, world.maxx)
-							var/ty = clamp(y + target_y + dispersion_y, 1, world.maxy)
+
+							var/tx = x + target_x + rand(-1,1)
+							var/ty = y + target_y + rand(-1,1)
+							if (tx < 1)
+								tx = 1
+							if (tx > world.maxx)
+								tx = world.maxx
+							if (ty < 1)
+								ty = 1
+							if (ty > world.maxy)
+								ty = world.maxy
 							target = locate(tx, ty, z)
 							var/highcheck = high
 							var/area/target_area = get_area(target)
