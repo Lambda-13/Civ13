@@ -25,7 +25,7 @@
 	maxhealth = 55
 	gtype = "pistol"
 	load_method = SINGLE_CASING|SPEEDLOADER
-	accuracy = 10
+	accuracy = 3
 
 	accuracy_increase_mod = 1.50
 	accuracy_decrease_mod = 2.00
@@ -467,7 +467,7 @@
 	blackpowder = FALSE
 	cocked = FALSE
 	pocket = FALSE
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/revolver/snw10
 	name = "Smith & Wesson M.10"
@@ -487,7 +487,7 @@
 	blackpowder = FALSE
 	cocked = FALSE
 	pocket = FALSE
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/revolver/t26_revolver
 	name = "Type 26 revolver"
@@ -772,7 +772,7 @@
 	stat = "pistol"
 	aim_miss_chance_divider = 2.00
 	load_delay = 6
-	accuracy = 10
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/capnball/update_icon()
 	..()
@@ -902,7 +902,7 @@
 	blackpowder = TRUE
 	cocked = FALSE
 	load_delay = 45
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/capnball/pocketpistol
 	name = "Colt Pocket-Pistol M1849"
@@ -920,7 +920,7 @@
 	blackpowder = TRUE
 	cocked = FALSE
 	load_delay = 30
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/capnball/walker
 	name = "Colt Walker M1846"
@@ -938,7 +938,7 @@
 	blackpowder = TRUE
 	cocked = FALSE
 	load_delay = 40
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/capnball/pocketm1849
 	name = "Colt Police Pocket-Pistol M1849"
@@ -956,7 +956,7 @@
 	blackpowder = TRUE
 	cocked = FALSE
 	load_delay = 38
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/capnball/navym1851
 	name = "Colt Navy Revolver M1851"
@@ -974,7 +974,7 @@
 	blackpowder = TRUE
 	cocked = FALSE
 	load_delay = 40
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/capnball/navym1861
 	name = "Colt Navy Revolver M1861"
@@ -992,7 +992,7 @@
 	blackpowder = TRUE
 	cocked = FALSE
 	load_delay = 37
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/capnball/
 	name = "Colt Army Revolver M1860"

@@ -37,7 +37,7 @@
 	gtype = "none"
 	load_delay = 30
 	aim_miss_chance_divider = 3.00
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/bow/shortbow
 	name = "shortbow"
@@ -66,7 +66,7 @@
 	load_delay = 10
 	projtype = "arrow"
 	w_class = ITEM_SIZE_NORMAL
-	accuracy = 6
+	accuracy = 5
 
 /obj/item/weapon/gun/projectile/bow/longbow
 	name = "longbow"
@@ -95,7 +95,7 @@
 	load_delay = 12
 	projtype = "arrow"
 	recoil = 1
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/bow/compoundbow
 	name = "compound bow"
@@ -165,7 +165,7 @@ obj/item/weapon/gun/projectile/bow/Fire()
 	flammable = TRUE
 	load_delay = 10
 	projtype = "stone"
-	accuracy = 10
+	accuracy = 6
 
 /obj/item/weapon/gun/projectile/bow/New()
 	..()

@@ -31,7 +31,7 @@ obj/item/weapon/gun/projectile/ancient
 	var/gunpowder = FALSE
 	var/bullet = FALSE
 	gtype = "rifle"
-	accuracy = 5
+	accuracy = 4
 
 	load_delay = 200
 	aim_miss_chance_divider = 3.00

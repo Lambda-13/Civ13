@@ -172,7 +172,7 @@
 	gun_safety = FALSE
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	var/bolt_delay = 2
-	accuracy = 2
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/martini_henry
 	name = "Martini-Henry Rifle"
@@ -284,7 +284,7 @@
 	bolt_open = FALSE
 	bolt_safety = FALSE
 	bolt_delay = 3
-	accuracy = 1
+	accuracy = 0
 	scope_mounts = list("picatinny")
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/barrett/sniper/New()
@@ -323,7 +323,7 @@
 	bolt_open = FALSE
 	bolt_safety = FALSE
 	bolt_delay = 6
-	accuracy = 1
+	accuracy = 0
 	scope_mounts = list("kochetov")
 
 	scope_x_offset = -1
@@ -366,7 +366,7 @@
 	bolt_open = FALSE
 	bolt_safety = FALSE
 	bolt_delay = 6
-	accuracy = 1
+	accuracy = 0
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/special_check(mob/user)
 	if (bolt_open)
@@ -435,12 +435,12 @@
 	base_icon = "mosin30"
 	weight = 4
 	equiptimer = 15
-	accuracy = 2
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/boltaction/mosin/m30/sniper/New()
 	name = "Sniper Mosin 91/30"
 	scope_mounts = list("kochetov")
-	accuracy = 1
+	accuracy = 0
 	..()
 	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope/pu(src)
 	SP.attached(null,src,TRUE)
@@ -493,12 +493,13 @@
 	bolt_close_sound = 'sound/weapons/guns/interact/arisaka_close.ogg'
 	equiptimer = 18
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL|ATTACH_UNDER
-	accuracy = 2
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka38/sniper
 	name = "Arisaka Type 97"
 	desc = "Japanese bolt-action rifle chambered in 6.5x50mm Arisaka ammunition."
 	scope_mounts = list("type97_cronstein")
+	accuracy = 0
 /obj/item/weapon/gun/projectile/boltaction/arisaka38/sniper/New()
 	..()
 	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/type97/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope/type97(src)
@@ -528,12 +529,13 @@
 	bolt_close_sound = 'sound/weapons/guns/interact/arisaka_close.ogg'
 	equiptimer = 18
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL|ATTACH_UNDER
-	accuracy = 2
+	accuracy = 1
 	scope_mounts = list("type97_cronstein")
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka99/sniper
 	name = "Arisaka Type 99"
 	desc = "Japanese bolt-action rifle chambered in 7.7x58mm Arisaka ammunition."
+	accuracy = 0
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL|ATTACH_UNDER
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka99/sniper/New()
@@ -700,7 +702,7 @@
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 15
-	accuracy = 2
+	accuracy = 1
 	barrel_x_offset = 15
 
 /obj/item/weapon/gun/projectile/boltaction/vg //for balance reasons this gun wont use the STG mags instead it will use just clips also i dont know how to code in mag usage by bolties
@@ -747,7 +749,7 @@
 	base_icon = "kar98a"
 	weight = 3.5
 	equiptimer = 12
-	accuracy = 2
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98k
 	name = "Karabiner 98k"
@@ -757,11 +759,12 @@
 	base_icon = "kar98k"
 	weight = 3.7
 	equiptimer = 12
-	accuracy = 2
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98k/sniper/New()
 	name = "Sniper Karabiner 98k"
 	scope_mounts = list("swept_back")
+	accuracy = 0
 	..()
 	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/zf39/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope/zf39(src)
 	SP.attached(null,src,TRUE)
@@ -918,7 +921,7 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	max_shells = 10
 	equiptimer = 15
-	accuracy = 2
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/boltaction/lebel
 	name = "Lebel 1886/M93"
@@ -942,11 +945,12 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	max_shells = 8
 	equiptimer = 16
-	accuracy = 2
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/boltaction/lebel/sniper/New()
 	name = "Sniper Lebel 1886/M93"
 	scope_mounts = list("apx_cronstein")
+	accuracy = 0
 	..()
 	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/apx/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope/apx(src)
 	SP.attached(null,src,TRUE)
@@ -1039,7 +1043,7 @@
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 12
-	accuracy = 1
+	accuracy = 0
 	scope_mounts = list("picatinny")
 	scope_x_offset = -1
 

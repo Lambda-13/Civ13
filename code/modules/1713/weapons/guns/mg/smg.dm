@@ -15,7 +15,7 @@
 	gtype = "smg"
 
 	recoil = 8 // по сравнению с автоматами отдача контролируется проще, но разброс в разы выше
-	accuracy = 10
+	accuracy = 3
 
 	accuracy_increase_mod = 1.00
 	accuracy_decrease_mod = 1.50
@@ -159,7 +159,7 @@
 		list(name = "semi auto",    burst=1, burst_delay=0.7),
 		)
 	recoil = 60
-	accuracy = 5
+	accuracy = 3
 	sel_mode = 1
 	scope_x_offset = -2
 	scope_y_offset = -3
@@ -202,7 +202,7 @@
 
 	sel_mode = 1
 	recoil = 25
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/submachinegun/mp40/mp38
 	name = "MP38"
@@ -216,7 +216,7 @@
 
 	sel_mode = 1
 	recoil = 30
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/submachinegun/ermaemp
 	name = "Erma-Emp"
@@ -252,7 +252,7 @@
 		)
 	sel_mode = 1
 	recoil = 25
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/submachinegun/mp40/blyskawica/update_icon()
 	..()
@@ -302,7 +302,7 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE
 
 	recoil = 40
-	accuracy = 4
+	accuracy = 2
 
 	scope_mounts = list ("swept_back")
 	scope_x_offset = 2
@@ -352,7 +352,7 @@
 	sel_mode = 1
 	one_handed = TRUE
 	recoil = 30
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/submachinegun/tec9
 	name = "TEC-9"
@@ -376,7 +376,7 @@
 	attachment_slots = ATTACH_IRONSIGHTS
 	one_handed = TRUE
 	recoil = 25
-	accuracy = 5
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/submachinegun/skorpion
 	name = "Skorpion"
@@ -397,7 +397,7 @@
 	sel_mode = 1
 	one_handed = TRUE
 	recoil = 30
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/submachinegun/greasegun
 	name = "M3A1 SMG"
@@ -416,12 +416,10 @@
 	firemodes = list(
 		list(name = "full auto",	burst=1, burst_delay=1.4),
 		)
-	recoil = 10
-	accuracy = 10 // дай бог ты попадешь хоть одной пулей
 
 	sel_mode = 1
 	recoil = 25
-	accuracy = 5
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/submachinegun/thompson
 	name = "Thompson M1A1"
@@ -521,7 +519,7 @@
 		)
 	sel_mode = 1
 	recoil = 20
-	accuracy = 4
+	accuracy = 3
 	barrel_x_offset = 12
 	barrel_y_offset = 14
 
@@ -551,7 +549,7 @@
 		list(name = "full auto",	burst=1, burst_delay=1.1),
 		)
 	recoil = 25
-	accuracy = 4
+	accuracy = 3
 	sel_mode = 1
 	mag_x_offset = 4
 	mag_y_offset = -2
@@ -576,7 +574,7 @@
 		list(name = "full auto",	burst=1, burst_delay=1.3),
 		)
 	recoil = 20
-	accuracy = 4
+	accuracy = 3
 	sel_mode = 1
 
 	barrel_x_offset = 14
@@ -691,7 +689,7 @@
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_SCOPE|ATTACH_UNDER
 	recoil = 30
-	accuracy = 3
+	accuracy = 2
 	scope_mounts = list ("dovetail")
 	under_mounts = list ("gp25_mount")
 	under_x_offset = 1
@@ -765,7 +763,7 @@
 	damage_modifier = 0.95
 	equiptimer = 12
 	recoil = 40
-	accuracy = 4
+	accuracy = 2
 
 	barrel_x_offset = 12
 	barrel_y_offset = 12
@@ -835,7 +833,7 @@
 	damage_modifier = 0.98
 	equiptimer = 10
 	recoil = 30
-	accuracy = 3
+	accuracy = 2
 
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/aks74u/aks74uso/kgb/New()
@@ -895,7 +893,7 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_SCOPE|ATTACH_UNDER
 	stat = "rifle"
 	recoil = 30
-	accuracy = 3
+	accuracy = 2
 	scope_mounts = list ("dovetail", "picatinny")
 	under_mounts = list ("picatinny", "gp25_mount")
 	under_x_offset = 1
@@ -960,7 +958,7 @@
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_SCOPE
 	recoil = 30
-	accuracy = 3
+	accuracy = 2
 	barrel_x_offset = 16
 	barrel_y_offset = 16
 	scope_x_offset = -3
@@ -979,7 +977,7 @@
 		list(name = "semi auto",	burst=1, burst_delay=0.3),
 	)
 	recoil = 30
-	accuracy = 3
+	accuracy = 1
 	scope_x_offset = 0
 	scope_y_offset = -1
 	mag_x_offset = 1
@@ -1008,7 +1006,7 @@
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	recoil = 40
-	accuracy = 3
+	accuracy = 1
 	barrel_x_offset = 16
 	barrel_y_offset = 16
 	under_mounts = list ("picatinny", "m203_mount")
@@ -1146,7 +1144,7 @@
 	)
 	sel_mode = 1
 	recoil = 40
-	accuracy = 3
+	accuracy = 0
 	scope_x_offset = 0
 	scope_y_offset = -2
 	barrel_x_offset = 14
@@ -1168,7 +1166,7 @@
 		list(name = "semi auto",	burst=1, burst_delay=0.6),
 		)
 	recoil = 40
-	accuracy = 2
+	accuracy = 0
 
 /obj/item/weapon/gun/projectile/submachinegun/g3
 	name = "H&K G3"
@@ -1191,7 +1189,7 @@
 	)
 	sel_mode = 1
 	recoil = 50
-	accuracy = 3
+	accuracy = 1
 
 	mag_x_offset = 2
 	mag_y_offset = 3
@@ -1217,7 +1215,7 @@
 	)
 	sel_mode = 1
 	recoil = 45
-	accuracy = 3
+	accuracy = 1
 
 /obj/item/weapon/gun/projectile/submachinegun/scarl
 	name = "FN SCAR-L"
@@ -1242,7 +1240,7 @@
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER|ATTACH_BARREL
 	recoil = 35
-	accuracy = 3
+	accuracy = 2
 	barrel_x_offset = 16
 	barrel_y_offset = 16
 	mag_x_offset = 2
@@ -1273,7 +1271,7 @@
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER|ATTACH_BARREL
 	recoil = 45
-	accuracy = 2
+	accuracy = 1
 	barrel_x_offset = 16
 	barrel_y_offset = 16
 	scope_mounts = list ("picatinny")
@@ -1301,7 +1299,7 @@
 	)
 	sel_mode = 1
 	recoil = 50
-	accuracy = 2
+	accuracy = 3
 	attachment_slots = ATTACH_BARREL|ATTACH_IRONSIGHTS|ATTACH_UNDER
 	scope_mounts = list ("picatinny")
 	barrel_y_offset = 17
@@ -1332,7 +1330,7 @@
 	)
 	sel_mode = 1
 	recoil = 35
-	accuracy = 3
+	accuracy = 2
 	mag_x_offset = -2
 	mag_y_offset = -3
 	barrel_x_offset = 15
@@ -1375,7 +1373,7 @@
 	)
 	sel_mode = 1
 	recoil = 10
-	accuracy = 2
+	accuracy = 3
 
 	scope_mounts = list ("picatinny")
 
@@ -1406,7 +1404,7 @@
 	)
 	sel_mode = 1
 	recoil = 20
-	accuracy = 2
+	accuracy = 3
 	scope_x_offset = 6
 	scope_y_offset = 5
 	under_x_offset = 6
@@ -1437,7 +1435,7 @@
 	sel_mode = 1
 	attachment_slots = ATTACH_BARREL|ATTACH_IRONSIGHTS|ATTACH_UNDER
 	recoil = 25
-	accuracy = 3
+	accuracy = 2
 	scope_mounts = list ("picatinny")
 	under_mounts = list ("picatinny")
 
@@ -1461,7 +1459,7 @@
 	sel_mode = 1
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	recoil = 50
-	accuracy = 5
+	accuracy = 4
 	under_mounts = list ("gp25_mount")
 
 /obj/item/weapon/gun/projectile/submachinegun/vz58
@@ -1591,7 +1589,7 @@
 	)
 	sel_mode = 1
 	recoil = 30
-	accuracy = 3
+	accuracy = 2
 	barrel_x_offset = 10
 	barrel_y_offset = 11
 	scope_x_offset = 1

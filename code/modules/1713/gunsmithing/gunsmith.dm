@@ -1004,25 +1004,25 @@
 	switch (barrel_type)
 		if ("Pistol Barrel")
 			equiptimer -= 1
-			accuracy = 4
+			accuracy = 3
 		if ("Carbine Barrel")
 			slot_flags &= ~SLOT_HOLSTER
-			accuracy = 3
+			accuracy = 2
 		if ("Rifle Barrel")
 			slot_flags &= ~SLOT_HOLSTER
 			slot_flags &= ~SLOT_BELT
 			equiptimer += 1
-			accuracy = 2
+			accuracy = 1
 		if ("Long Rifle Barrel")
 			slot_flags &= ~SLOT_HOLSTER
 			slot_flags &= ~SLOT_BELT
 			equiptimer += 3
-			accuracy = 1
+			accuracy = 0
 		if ("Air-Cooled Barrel")
 			slot_flags &= ~SLOT_HOLSTER
 			slot_flags &= ~SLOT_BELT
 			equiptimer += 5
-			accuracy = 3
+			accuracy = 2
 
 	var/tempdesc = ""
 	switch (caliber)

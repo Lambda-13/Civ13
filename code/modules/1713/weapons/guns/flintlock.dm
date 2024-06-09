@@ -33,7 +33,7 @@
 	fire_delay = 5
 	equiptimer = 20
 	maxhealth = 20
-	accuracy = 5
+	accuracy = 4
 
 	load_delay = 110 //11 seconds for rifles, 8 seconds for pistols & blunderbuss
 	aim_miss_chance_divider = 3.00
@@ -106,7 +106,7 @@
 	weight = 6.0
 	ammo_type = /obj/item/ammo_casing/musketball
 	value = 100
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/flintlock/m1752
 	name = "M1752 mosquete"
@@ -118,7 +118,7 @@
 	value = 100
 	item_state = "musket"
 	icon_state = "mosquete1752"
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/flintlock/jezail
 	name = "Jezail musket"
@@ -130,7 +130,7 @@
 	value = 100
 	item_state = "musket"
 	icon_state = "jezail"
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/flintlock/kabyle
 	name = "Kabyle musket"
@@ -142,7 +142,7 @@
 	value = 100
 	item_state = "musket"
 	icon_state = "moukalla"
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/flintlock/brownbess
 	name = "Brownbess musket"
@@ -154,7 +154,7 @@
 	value = 100
 	item_state = "musket"
 	icon_state = "brownbess"
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/flintlock/charleville
 	name = "Charleville mousquet"
@@ -166,7 +166,7 @@
 	value = 100
 	item_state = "musket"
 	icon_state = "charleville_mousquet"
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/flintlock/plexico
 	name = "flintlock musket"
@@ -178,7 +178,7 @@
 	value = 110
 	item_state = "plexciomusket"
 	icon_state = "plexciomusket"
-	accuracy = 1
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/flintlock/springfield
 	name = "Springfield M1861 Musket"
@@ -191,7 +191,7 @@
 	item_state = "springfield"
 	icon_state = "springfield"
 	load_delay = 70
-	accuracy = 4
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/flintlock/springfield1795
 	name = "Springfield 1795 Musket"
@@ -204,7 +204,7 @@
 	item_state = "springfield"
 	icon_state = "springfield1795"
 	load_delay = 80
-	accuracy = 1
+	accuracy = 2
 
 /obj/item/weapon/gun/projectile/flintlock/musketoon
 	name = "flintlock musketoon"
@@ -217,7 +217,7 @@
 	ammo_type = /obj/item/ammo_casing/musketball
 	value = 80
 	equiptimer = 12
-	accuracy = 5
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/flintlock/crude
 	name = "crude musket"
@@ -229,7 +229,7 @@
 	weight = 4.0
 	ammo_type = /obj/item/ammo_casing/musketball
 	value = 45
-	accuracy = 5
+	accuracy = 4
 
 /obj/item/weapon/gun/projectile/flintlock/pistol
 	// less accurate than rifles against still targets, but better against moving targets
@@ -280,7 +280,7 @@
 	fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
 	equiptimer = 15
 	// 15% more accurate than SMGs
-	accuracy = 5
+	accuracy = 4
 
 	accuracy_increase_mod = 1.05
 	accuracy_decrease_mod = 1.10
@@ -312,7 +312,6 @@
 	KD_chance = KD_CHANCE_LOW
 	stat = "pistol"
 	aim_miss_chance_divider = 1.70
-	accuracy = 10
 	accuracy = 4
 
 /obj/item/weapon/gun/projectile/flintlock/duellingpistol
@@ -384,4 +383,4 @@
 	value = 80
 	attachment_slots = ATTACH_IRONSIGHTS
 	ammo_type = /obj/item/ammo_casing/blunderbuss
-	accuracy = 6
+	accuracy = 4
