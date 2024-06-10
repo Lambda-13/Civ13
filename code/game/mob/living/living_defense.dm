@@ -93,7 +93,7 @@
 			damage *= (penetration / armor)
 		else
 			playsound(src, "ric_sound", 50, TRUE, -2)
-			damage = 0
+			damage = P.damage * 0.01
 	H.damage_armor(def_zone, (P.damage - damage) * 0.01)
 	if (ishuman(src))
 		if (H.takes_less_damage)
