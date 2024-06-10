@@ -394,7 +394,7 @@
 
 	if(dt_movement <= 6 && user.m_intent != "stealth")
 		accuracy_range = 30
-	else if (dt_movement < 10)
+	else if (dt_movement < 10 && user.m_intent != "stealth")
 		accuracy_range = 40 / (dt_movement - 6)
 
 	return recoil_range + accuracy_range
