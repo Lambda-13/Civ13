@@ -93,8 +93,8 @@
 			damage *= (penetration / armor)
 		else
 			playsound(src, "ric_sound", 50, TRUE, -2)
-			damage = P.damage * 0.01
-	H.damage_armor(def_zone, (P.damage - damage) * 0.01)
+			damage = P.damage * 0.05
+	H.damage_armor(def_zone, (P.damage - damage) * 0.1)
 	if (ishuman(src))
 		if (H.takes_less_damage)
 			damage /= H.getStatCoeff("strength")
