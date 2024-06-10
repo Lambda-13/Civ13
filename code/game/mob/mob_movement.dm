@@ -29,7 +29,7 @@
 	return get_run_delay() * 1.5
 
 /mob/proc/get_stealth_delay()
-	return get_run_delay() * 3
+	return get_run_delay() * 5
 
 /mob/proc/get_prone_delay()
 	return get_run_delay() * 7

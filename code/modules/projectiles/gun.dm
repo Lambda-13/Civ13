@@ -392,9 +392,9 @@
 	if(user.lying || user.prone)
 		recoil_range /= 2
 
-	if(dt_movement <= 6)
+	if(dt_movement <= 6 && user.m_intent != "stealth")
 		accuracy_range = 30
-	else if (dt_movement < 10)
+	else if (dt_movement < 10 && user.m_intent != "stealth")
 		accuracy_range = 40 / (dt_movement - 6)
 
 	return recoil_range + accuracy_range
@@ -433,7 +433,7 @@
 
 	if (dt_movement <= 6)
 		shot_accuracy = rand(-20, 20)
-	else if (dt_movement < 10)
+	else if (dt_movement < 10 && user.m_intent != "stealth")
 		var/accuracy_range = 20 / sqrt(dt_movement - 6)
 		shot_accuracy = rand(-accuracy_range, accuracy_range)
 		if (abs(shot_accuracy) < 5) // even RNjesus won’t help you get there right away
