@@ -289,8 +289,7 @@
 "fC" = (/obj/item/weapon/material/shovel/trench,/turf/floor/trench,/area/caribbean/nomads/forest/snow)
 "fD" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 8},/obj/item/weapon/material/shovel/trench,/turf/floor/trench,/area/caribbean/nomads/forest/snow)
 "fE" = (/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueledgasoline,/turf/floor/dirt/burned,/area/caribbean/nomads/forest/snow)
-"fF" = (/obj/item/weapon/gun/projectile/submachinegun/stg,/turf/floor/winter,/area/caribbean/nomads/forest/snow)
-"fG" = (/obj/item/ammo_magazine/stg,/turf/floor/winter,/area/caribbean/nomads/forest/snow)
+"fF" = (/obj/item/weapon/reagent_containers/food/snacks/orangecakeslice,/turf/floor/dirt/burned,/area/caribbean/no_mans_land/capturable/one)
 "fH" = (/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 8},/turf/floor/wood,/area/caribbean/houses)
 "fI" = (/turf/floor/plating/steel,/area/caribbean/houses)
 "fK" = (/obj/structure/simple_door/key_door/anyone/wood,/turf/floor/wood,/area/caribbean/houses)
@@ -874,7 +873,7 @@ qnqeqeAAdqvMasafafafSRqeqeQRIqABtLtLILtLJgVZVZtLILtLtLILtLJgtLJwKLQbqeqnqnqnqnve
 qnqeqeAAafafafafizafSRqeqeQRmOmOVZeIeKeIeLVZVZtLpwmOmOeKeIVZeImOQRqeqeqnjKqnqnqnqnqnqnqnqn
 qnqeqeAAasafafZuafasSRqeqeQRtLLttLtLtLtLtLtLtLtLtLCItLVZtLLztLZPQRqeqeqnqnqnqnqnqnqnqnqnqn
 qnqeqeAAukafasafafafSRqeqeQRtLMBtLtKtLCILztLMJtLtLCItLtLtLtLtLtLQRqeqeqnqnqnaaqeqeqeqeqeqe
-qnqeqeAAukukafafafafSRqewyCVtLNpVZtKtLCICICINCAPCICIVZtLtKtKOmtLUeQbqeqnqnqnqeqeqeqeqeqeqe
+qnqeqeAAukukafafafafSRqewyCVtLNpfFtKtLCICICINCAPCICIVZtLtKtKOmtLUeQbqeqnqnqnqeqeqeqeqeqeqe
 veqeqeAAukafafafZudqSRqewyOALzVZtLGatLtLtLtLtLtLtLLtVZtLVZGatLtLUeQbqeqnqnqnqeaiaiaiaiaiai
 qnqeqeAAukafafafafafSRqeqetXvytKtKtLZPtKVZVZtLtKtKtLOEtLtKentKtLQRqeqeqnqnqnqeaiOLOMOMPFai
 qnqeqedUukukafafafafdSqeqeQRtLtLtLtLLttLtLPJPJPKtLtLMBtLtLLztLtLQRqeqeqnqnqnqeaiPYfIfIQcai
@@ -886,8 +885,8 @@ qnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnbXercjfcqedX
 qnqnqnveqnqnqnqnqnqnqnRlRlRlRlRlRlRlRlRlRlRlRlRlRlRlRlqnqnveqnqnqnqnqnfecwffqeaifHususauai
 qnaaqeqeqeqeqeqeqeqeqeRpaKaLaLaLaLaLaLaLaLaLaLaLaLaKRpqeqeqeqeqeqeqeqeczcGcHqeaiaujUjUauai
 qnqeqeafafafafafafafdqaPaMWxWGWKWKWLWGWGWGWGWGWGWNaMaPafafafafafafqeqeqnqnqnqeaiaiaiaiaiai
-qnqeafdqdqafasafafWYafaNaNXdXZYeasafafXZYeaffFceDzaOaPYmafafPvPvPvPvqeqnqnqnqeqeqeqeqeqeqe
-qnqeafafafYmafafafafdqaNaPXdasasYsasasasafYDfGZYDzaPaPafafafafafafafqepMpMpMqePvafafafPvPv
+qnqeafdqdqafasafafWYafaNaNXdXZYeasafafXZYeafafceDzaOaPYmafafPvPvPvPvqeqnqnqnqeqeqeqeqeqeqe
+qnqeafafafYmafafafafdqaNaPXdasasYsasasasafYDafZYDzaPaPafafafafafafafqepMpMpMqePvafafafPvPv
 qnqeafafafafafafdqdqafaPaNafaQEyEyEyEyEyaQcAafcfafaPaTasasafafafafafrPweIinOlwPvPvafPvafPv
 qnqeafafafafdqdqafafafaPaPdqaQFtFtWIWIFtSjasafrqafaPaPafafafWYafafafUtJCqnQUlZPvPvPvafafYm
 qnNzdqafafoWafafafoWafaPaPdqaSNlUDUDUDUDSjaQafrqafaTaTasasasasafafCTGoUfUfUfGoIYafPvafafaf
