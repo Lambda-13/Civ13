@@ -251,7 +251,7 @@
 	item_state = "scale_armor"
 	worn_state = "scale_armor"
 	body_parts_covered = UPPER_TORSO
-	armor = list(melee = 65, arrow = 45, gun = 10, energy = 15, bomb = 45, bio = 20, rad = 45)
+	armor = list(melee = 65, arrow = 45, gun = ARMOR_CLASS*2, energy = 15, bomb = 45, bio = 20, rad = 45)
 	value = 40
 	slowdown = 0.8
 	health = 47
@@ -263,7 +263,7 @@
 	item_state = "early_chainmail"
 	worn_state = "early_chainmail"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	armor = list(melee = 50, arrow = 35, gun = 7, energy = 15, bomb = 30, bio = 20, rad = FALSE)
+	armor = list(melee = 50, arrow = 35, gun = ARMOR_CLASS, energy = 15, bomb = 30, bio = 20, rad = FALSE)
 	value = 30
 	slowdown = 0.6
 	health = 50
@@ -288,7 +288,7 @@
 	item_state = "egyptian_lamellar"
 	worn_state = "egyptian_lamellar"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	armor = list(melee = 50, arrow = 35, gun = 7, energy = 15, bomb = 40, bio = 20, rad = FALSE) //identical to bronze armor
+	armor = list(melee = 50, arrow = 35, gun = ARMOR_CLASS, energy = 15, bomb = 40, bio = 20, rad = FALSE) //identical to bronze armor
 	value = 25
 	slowdown = 0.7
 	health = 48
@@ -300,7 +300,7 @@
 	item_state = "chinese_lamellar"
 	worn_state = "chinese_lamellar"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	armor = list(melee = 50, arrow = 35, gun = 7, energy = 15, bomb = 40, bio = 20, rad = FALSE)
+	armor = list(melee = 50, arrow = 35, gun = ARMOR_CLASS, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 	value = 25
 	slowdown = 0.7
 	health = 48
@@ -313,7 +313,7 @@
 	item_state = "scaled_armor"
 	worn_state = "scaled_armor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	armor = list(melee = 50, arrow = 35, gun = 7, energy = 15, bomb = 40, bio = 20, rad = FALSE)
+	armor = list(melee = 50, arrow = 35, gun = ARMOR_CLASS, energy = 15, bomb = 40, bio = 20, rad = FALSE)
 	value = 25
 	slowdown = 0.7
 	health = 48
@@ -326,7 +326,7 @@
 	item_state = "aztec_harness"
 	worn_state = "aztec_harness"
 	body_parts_covered = UPPER_TORSO
-	armor = list(melee = 35, arrow = 15, gun = 2, energy = 2, bomb = 2, bio = FALSE, rad = FALSE)
+	armor = list(melee = 35, arrow = 15, gun = FALSE, energy = 2, bomb = 2, bio = FALSE, rad = FALSE)
 	value = 40
 	slowdown = 0.2
 	health = 18
@@ -338,7 +338,7 @@
 	item_state = "gator_scale_armor"
 	worn_state = "gator_scale_armor"
 	body_parts_covered = UPPER_TORSO
-	armor = list(melee = 45, arrow = 25, gun = 5, energy = 10, bomb = 20, bio = 20, rad = 10)
+	armor = list(melee = 45, arrow = 25, gun = FALSE, energy = 10, bomb = 20, bio = 20, rad = 10)
 	value = 40
 	slowdown = 0.2
 	health = 18
@@ -406,7 +406,7 @@
 	worn_state = "roman"
 	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 50, arrow = 40, gun = 10, energy = 15, bomb = 50, bio = 20, rad = FALSE)
+	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 35
 
 /obj/item/clothing/head/helmet/roman_decurion
@@ -418,7 +418,7 @@
 	worn_state = "roman_d"
 	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 50, arrow = 40, gun = 10, energy = 15, bomb = 50, bio = 20, rad = FALSE)
+	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 35
 
 /obj/item/clothing/head/helmet/roman_centurion
@@ -430,7 +430,7 @@
 	worn_state = "roman_c"
 	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 50, arrow = 40, gun = 10, energy = 15, bomb = 50, bio = 20, rad = FALSE)
+	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 35
 
 /obj/item/clothing/head/helmet/gladiator
@@ -441,7 +441,7 @@
 	worn_state = "gladiator"
 	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 60, arrow = 45, gun = 10, energy = 15, bomb = 50, bio = 20, rad = FALSE)
+	armor = list(melee = 60, arrow = 45, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 40
 
 /obj/item/clothing/head/helmet/solinvictus
@@ -452,7 +452,7 @@
 	worn_state = "sol_invictus"
 	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = BLOCKHAIR
-	armor = list(melee = 65, arrow = 50, gun = 10, energy = 15, bomb = 50, bio = 20, rad = FALSE)
+	armor = list(melee = 65, arrow = 50, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	restricts_view = 2
 	health = 55
 	slowdown = 0.25
@@ -465,7 +465,7 @@
 	worn_state = "leonidas"
 	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = BLOCKHAIR
-	armor = list(melee = 60, arrow = 45, gun = 5, energy = 15, bomb = 50, bio = 20, rad = FALSE)
+	armor = list(melee = 60, arrow = 45, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	restricts_view = 1
 	health = 50
 	slowdown = 0.10
@@ -478,7 +478,7 @@
 	worn_state = "new_greek"
 	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 62, arrow = 44, gun = 10, energy = 15, bomb = 50, bio = 20, rad = FALSE)
+	armor = list(melee = 62, arrow = 44, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 40
 
 /obj/item/clothing/head/helmet/greek_commander
@@ -489,7 +489,7 @@
 	worn_state = "spartan"
 	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 62, arrow = 44, gun = 10, energy = 15, bomb = 50, bio = 20, rad = FALSE)
+	armor = list(melee = 62, arrow = 44, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 40
 
 /obj/item/clothing/head/helmet/greek_sl
@@ -500,7 +500,7 @@
 	worn_state = "athenian"
 	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 62, arrow = 44, gun = 10, energy = 15, bomb = 50, bio = 20, rad = FALSE)
+	armor = list(melee = 62, arrow = 44, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 40
 
 /obj/item/clothing/head/helmet/egyptian
@@ -511,7 +511,7 @@
 	worn_state = "egyptian_bronze_headdress"
 	body_parts_covered = HEAD|EYES
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 50, arrow = 40, gun = 10, energy = 15, bomb = 50, bio = 20, rad = FALSE)
+	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 35
 	heat_protection = HEAD|FACE|EYES
 
@@ -623,7 +623,7 @@
 	worn_state = "spartan"
 	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 50, arrow = 40, gun = 5, energy = 15, bomb = 50, bio = 20, rad = FALSE)
+	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 40
 
 /obj/item/clothing/head/helmet/greek_sl/nomads
@@ -634,7 +634,7 @@
 	worn_state = "athenian"
 	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 50, arrow = 40, gun = 5, energy = 15, bomb = 50, bio = 20, rad = FALSE)
+	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 40
 
 /obj/item/clothing/head/helmet/roman/nomads
@@ -1177,7 +1177,7 @@
 	icon_state = "aries"
 	item_state = "aries"
 	worn_state = "aries"
-	armor = list(melee = 70, arrow = 60, gun = 20, energy = 15, bomb = 60, bio = 20, rad = FALSE)
+	armor = list(melee = 70, arrow = 60, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 20, rad = FALSE)
 	health = 60
 
 /obj/item/clothing/head/helmet/anax/athena
@@ -1186,7 +1186,7 @@
 	icon_state = "athena"
 	item_state = "athena"
 	worn_state = "athena"
-	armor = list(melee = 70, arrow = 60, gun = 20, energy = 15, bomb = 60, bio = 20, rad = FALSE)
+	armor = list(melee = 70, arrow = 60, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 20, rad = FALSE)
 	health = 60
 
 /obj/item/clothing/head/helmet/asterix/apollo
@@ -1195,7 +1195,7 @@
 	icon_state = "apollo"
 	item_state = "apollo"
 	worn_state = "apollo"
-	armor = list(melee = 50, arrow = 40, gun = 5, energy = 15, bomb = 50, bio = 20, rad = FALSE)
+	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 40
 	slowdown = -0.25 //actually reduces your slowdown
 
@@ -1206,7 +1206,7 @@
 	item_state = "vitalstatistix"
 	worn_state = "vitalstatistix"
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 50, arrow = 40, gun = 5, energy = 15, bomb = 50, bio = 20, rad = FALSE)
+	armor = list(melee = 50, arrow = 40, gun = ARMOR_CLASS, energy = 15, bomb = 50, bio = 20, rad = FALSE)
 	health = 40
 
 /obj/item/clothing/head/helmet/egyptian/anubis
@@ -1216,7 +1216,7 @@
 	item_state = "anubis"
 	worn_state = "anubis"
 	flags_inv = BLOCKHAIR
-	armor = list(melee = 70, arrow = 60, gun = 20, energy = 15, bomb = 60, bio = 20, rad = FALSE)
+	armor = list(melee = 70, arrow = 60, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 20, rad = FALSE)
 	health = 60
 
 /obj/item/clothing/head/helmet/egyptian/osiris
@@ -1226,7 +1226,7 @@
 	item_state = "osiris"
 	worn_state = "osiris"
 	flags_inv = BLOCKHAIR
-	armor = list(melee = 70, arrow = 60, gun = 20, energy = 15, bomb = 60, bio = 20, rad = FALSE)
+	armor = list(melee = 70, arrow = 60, gun = ARMOR_CLASS, energy = 15, bomb = 60, bio = 20, rad = FALSE)
 	health = 60
 
 /obj/item/clothing/head/atef
@@ -1314,7 +1314,7 @@
 	item_state = "settra"
 	worn_state = "settra"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	armor = list(melee = 95, arrow = 90, gun = 30, energy = 20, bomb = 70, bio = 20, rad = 45)
+	armor = list(melee = 95, arrow = 90, gun = ARMOR_CLASS, energy = 20, bomb = 70, bio = 20, rad = 45)
 	value = 70
 	slowdown = 1
 	health = 90
