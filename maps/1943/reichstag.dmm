@@ -1,6 +1,6 @@
 "aa" = (/turf/floor/grass,/area/caribbean/no_mans_land)
 "ab" = (/turf/floor/dirt,/area/caribbean/no_mans_land)
-"ac" = (/obj/effect/landmark{icon_state = "x1"; name = "JoinLateRUSap"},/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"ac" = (/obj/effect/landmark{name = "JoinLateRUSap"; icon_state = "x1"},/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "ad" = (/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land)
 "ae" = (/obj/structure/grille/ironfence{icon_state = "iron_fence"; dir = 8},/turf/floor/grass,/area/caribbean/no_mans_land)
 "af" = (/obj/structure/wild/tree/live_tree,/turf/floor/grass,/area/caribbean/no_mans_land)
@@ -170,8 +170,8 @@
 "dn" = (/obj/structure/wild/tallgrass,/turf/floor/dirt,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "do" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/structure/railing,/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "dp" = (/obj/structure/wild/smallbush,/obj/structure/wild/smallbush,/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"dq" = (/obj/effect/landmark{icon_state = "x3"; name = "JoinLateRU"},/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"dr" = (/obj/effect/landmark{icon_state = "x3"; name = "JoinLateRUDoc"},/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"dq" = (/obj/effect/landmark{name = "JoinLateRU"; icon_state = "x3"},/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"dr" = (/obj/effect/landmark{name = "JoinLateRUDoc"; icon_state = "x3"},/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "ds" = (/obj/covers/carpet/redcarpet,/obj/structure/bookcase,/obj/item/weapon/book,/turf/floor/plating/steel,/area/caribbean/german/reichstag/lobby)
 "dt" = (/obj/covers/carpet/redcarpet,/obj/structure/potted_plant,/turf/floor/plating/steel,/area/caribbean/german/reichstag/lobby)
 "du" = (/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 1},/turf/floor/plating/steel,/area/caribbean/german/reichstag/lobby)
@@ -215,17 +215,17 @@
 "eg" = (/obj/item/stack/medical/bruise_pack/bint,/obj/item/stack/medical/bruise_pack/bint,/obj/item/stack/medical/bruise_pack/bint,/obj/item/stack/medical/bruise_pack/bint,/obj/item/stack/medical/bruise_pack/bint,/obj/item/stack/medical/bruise_pack/bint,/obj/item/stack/medical/bruise_pack/bint,/obj/item/stack/medical/bruise_pack/bint,/obj/structure/closet/crate/ww2,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "eh" = (/obj/structure/barricade/vertical,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "ei" = (/obj/structure/bed/roller,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"ej" = (/obj/effect/landmark{icon_state = "x3"; name = "JoinLateRU"},/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"ej" = (/obj/effect/landmark{name = "JoinLateRU"; icon_state = "x3"},/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "ek" = (/obj/structure/barricade/vertical,/obj/structure/sign/flag/medical,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "el" = (/obj/structure/barricade/vertical,/obj/structure/sign/flag/medical,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"em" = (/obj/structure/wild/smallbush,/obj/effect/landmark{icon_state = "x3"; name = "JoinLateRU"},/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"en" = (/obj/effect/landmark{icon_state = "x3"; name = "JoinLateRU"},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"em" = (/obj/structure/wild/smallbush,/obj/effect/landmark{name = "JoinLateRU"; icon_state = "x3"},/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"en" = (/obj/effect/landmark{name = "JoinLateRU"; icon_state = "x3"},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "eo" = (/obj/structure/barricade/vertical,/obj/structure/barricade/horizontal,/obj/structure/window/barrier/rock,/turf/floor/plating/concrete,/area/caribbean/no_mans_land)
 "ep" = (/obj/structure/barricade/horizontal,/obj/structure/window/barrier/rock,/turf/floor/plating/concrete,/area/caribbean/no_mans_land)
 "eq" = (/obj/structure/closet/cabinet,/obj/item/weapon/storage/firstaid/adv,/obj/item/weapon/storage/firstaid/adv,/obj/item/stack/medical/splint,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "er" = (/obj/structure/barricade/vertical,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"es" = (/obj/structure/wild/tallgrass,/obj/effect/landmark{icon_state = "x3"; name = "JoinLateRU"},/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"et" = (/obj/effect/landmark{icon_state = "x3"; name = "JoinLateRU"},/turf/floor/dirt,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"es" = (/obj/structure/wild/tallgrass,/obj/effect/landmark{name = "JoinLateRU"; icon_state = "x3"},/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"et" = (/obj/effect/landmark{name = "JoinLateRU"; icon_state = "x3"},/turf/floor/dirt,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "eu" = (/obj/structure/simple_door/key_door/russian,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "ev" = (/obj/structure/closet/anchored,/obj/item/weapon/key/russian,/obj/item/weapon/key/russian,/obj/item/weapon/whistle,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "ew" = (/obj/structure/vending/sovietweapons,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
@@ -472,7 +472,7 @@
 "jd" = (/obj/item/weapon/reagent_containers/blood/OPlus,/obj/item/weapon/reagent_containers/blood/OPlus,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
 "je" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
 "jf" = (/obj/structure/sign/flag/red,/turf/wall/stone,/area/caribbean/german/reichstag/second)
-"jg" = (/obj/covers/carpet/redcarpet,/obj/structure/filingcabinet,/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 1},/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
+"jg" = (/obj/covers/carpet/redcarpet,/obj/structure/filingcabinet,/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 1},/turf/floor/plating/steel,/area/caribbean/no_mans_land/invisible_wall/two)
 "jh" = (/obj/covers/carpet/redcarpet,/obj/structure/filingcabinet,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
 "ji" = (/obj/covers/carpet/redcarpet,/turf/wall/gold,/area/caribbean/german/reichstag/second)
 "jj" = (/obj/structure/bookcase,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
@@ -506,7 +506,7 @@
 "jL" = (/obj/covers/carpet/redcarpet,/obj/structure/table/glass,/obj/item/weapon/telephone,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
 "jM" = (/obj/covers/carpet/redcarpet,/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 4},/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
 "jN" = (/obj/covers/carpet/redcarpet,/obj/structure/table/glass,/obj/item/weapon/paper,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
-"jO" = (/obj/covers/carpet/redcarpet,/obj/structure/bed/chair/comfy/blue{icon_state = "chair_padding"; dir = 8},/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
+"jO" = (/obj/covers/carpet/redcarpet,/obj/effect/landmark{name = "JoinLateGE"},/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
 "jP" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 4},/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
 "jQ" = (/obj/covers/carpet/redcarpet,/obj/structure/table/glass,/obj/item/weapon/pen/pencil,/obj/item/weapon/reagent_containers/pill/pervitin,/obj/item/weapon/reagent_containers/pill/pervitin,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
 "jR" = (/obj/structure/table/wood,/obj/item/weapon/reagent_containers/syringe/sulfanomides,/obj/item/weapon/reagent_containers/syringe/sulfanomides,/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 8},/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
@@ -535,7 +535,7 @@
 "ko" = (/obj/structure/barricade/horizontal,/obj/covers/brick_wall,/obj/structure/barbwire,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
 "kp" = (/obj/structure/barricade/antitank,/obj/structure/barbwire,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
 "kq" = (/obj/covers/brick_wall,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
-"kr" = (/obj/covers/carpet/redcarpet,/obj/structure/filingcabinet,/obj/structure/lamp/lamp_big/alwayson,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
+"kr" = (/obj/covers/carpet/redcarpet,/obj/structure/filingcabinet,/turf/floor/plating/steel,/area/caribbean/no_mans_land/invisible_wall/two)
 "ks" = (/obj/structure/barbwire,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
 "kt" = (/obj/structure/barricade/horizontal,/obj/structure/barbwire,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
 "ku" = (/obj/structure/bed/chair{icon_state = "chair"; dir = 4},/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
@@ -641,7 +641,7 @@
 "mq" = (/obj/structure/closet/cabinet,/obj/item/weapon/storage/firstaid/surgery,/obj/item/weapon/storage/firstaid/surgery,/obj/item/weapon/doctor_handbook,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "mr" = (/obj/structure/closet/cabinet,/obj/item/weapon/storage/firstaid/combat,/obj/item/weapon/storage/firstaid/combat,/obj/item/stack/medical/splint,/obj/item/weapon/doctor_handbook,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "ms" = (/obj/structure/iv_drip,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"mt" = (/obj/effect/landmark{name = "JoinLateGECap"},/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
+"mt" = (/obj/structure/table/wood,/obj/item/ammo_magazine/g43,/obj/item/ammo_magazine/gewehr98box,/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
 "mu" = (/obj/structure/bed/roller,/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
 "mv" = (/obj/item/weapon/paper/crumpled/bloody,/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
 "mw" = (/obj/structure/window/barrier/rock{icon_state = "rock_barricade"; dir = 8},/obj/structure/window/barrier/sandbag,/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
@@ -654,8 +654,8 @@
 "mD" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 4},/obj/structure/window/barrier/sandbag,/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
 "mE" = (/obj/structure/bed/chair/wood/red,/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
 "mF" = (/obj/structure/table/wood,/obj/item/ammo_magazine/stg,/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
-"mG" = (/obj/structure/closet/cabinet,/turf/floor/plating/steel,/area/caribbean/no_mans_land/invisible_wall/two)
-"mH" = (/obj/effect/landmark{name = "JoinLateGE"},/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
+"mG" = (/obj/structure/bed/chair/wood/wings{icon_state = "wooden_chair_wings"; dir = 8},/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
+"mH" = (/obj/structure/table/wood,/obj/item/ammo_magazine/emptyclip,/obj/item/ammo_magazine/emptyclip,/obj/item/ammo_magazine/emptyclip,/obj/item/ammo_magazine/emptyclip,/obj/item/ammo_magazine/emptyclip,/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
 "mI" = (/obj/effect/landmark{name = "JoinLateGEDoc"},/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
 "mJ" = (/obj/structure/table/wood,/obj/item/stack/medical/bruise_pack/bint,/obj/item/stack/medical/bruise_pack/bint,/obj/item/stack/medical/splint,/obj/item/stack/medical/splint,/obj/item/clothing/gloves/color/white,/obj/item/weapon/doctor_handbook,/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
 "mK" = (/obj/item/weapon/storage/firstaid/surgery,/obj/structure/closet,/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
@@ -669,7 +669,7 @@
 "mS" = (/obj/item/weapon/gun/projectile/automatic/stationary/modern/maxim/ww2{icon_state = "maxim_ww2"; dir = 1},/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "mT" = (/obj/item/ammo_magazine/maxim,/obj/item/ammo_magazine/maxim,/obj/item/ammo_magazine/maxim,/obj/item/ammo_magazine/maxim,/obj/item/ammo_magazine/maxim,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "mU" = (/obj/structure/table/wood,/obj/item/weapon/storage/fancy/cigarettes/randompack{icon_state = "atika"; randomize = 0},/obj/item/weapon/storage/fancy/cigarettes/randompack{icon_state = "atika"; randomize = 0},/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof/objective)
-"mV" = (/obj/structure/table/wood,/obj/item/ammo_magazine/g43,/obj/item/ammo_magazine/gewehr98box,/turf/floor/plating/steel,/area/caribbean/no_mans_land/invisible_wall/two)
+"mV" = (/obj/structure/bed/chair{icon_state = "chair"; dir = 4},/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
 "mW" = (/obj/effect/decal/cleanable/blood/splatter,/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
 "mX" = (/obj/item/roller,/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
 "mY" = (/obj/item/ammo_magazine/mg34belt,/obj/item/ammo_magazine/mg34belt,/turf/floor/plating/steel,/area/caribbean/no_mans_land)
@@ -681,9 +681,9 @@
 "ne" = (/obj/item/weapon/grenade/ww2/rgd33,/obj/item/weapon/grenade/ww2/rgd33,/obj/item/weapon/grenade/ww2/rgd33,/obj/item/weapon/grenade/ww2/rgd33,/obj/item/weapon/grenade/ww2/rgd33,/obj/item/weapon/grenade/ww2/rgd33,/obj/item/weapon/grenade/ww2/rgd33,/obj/item/weapon/grenade/ww2/rgd33,/obj/structure/closet/crate/ww2{name = "RGD-33 crate"},/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "nf" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 8},/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof/objective)
 "ng" = (/obj/item/stack/material/barbwire,/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof/objective)
-"nh" = (/obj/effect/landmark{icon_state = "x3"; name = "JoinLateRUCap"},/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"ni" = (/obj/item/weapon/stool/wood,/obj/effect/landmark{icon_state = "x3"; name = "JoinLateRUCap"},/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"nj" = (/obj/effect/landmark{icon_state = "x3"; name = "JoinLateRUCap"},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"nh" = (/obj/effect/landmark{name = "JoinLateRUCap"; icon_state = "x3"},/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"ni" = (/obj/item/weapon/stool/wood,/obj/effect/landmark{name = "JoinLateRUCap"; icon_state = "x3"},/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"nj" = (/obj/effect/landmark{name = "JoinLateRUCap"; icon_state = "x3"},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "nk" = (/obj/structure/filingcabinet/filingcabinet,/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 1},/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
 "nl" = (/obj/item/weapon/plastique/russian,/obj/item/weapon/plastique/russian,/obj/item/weapon/plastique/russian,/obj/item/weapon/plastique/russian,/obj/item/weapon/plastique/russian,/obj/structure/closet/crate/ww2,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "nm" = (/turf/floor/plating/road,/area/caribbean/no_mans_land/invisible_wall/one)
@@ -692,19 +692,24 @@
 "np" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/turf/floor/grass,/area/caribbean/no_mans_land/invisible_wall/one)
 "nq" = (/obj/covers/cobblestone/stairs{icon_state = "rampdark"},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall/one)
 "nr" = (/obj/structure/wild/tallgrass,/turf/floor/grass,/area/caribbean/no_mans_land/invisible_wall/one)
-"ns" = (/turf/wall/stone,/area/caribbean/no_mans_land/invisible_wall/two)
-"nt" = (/turf/floor/plating/steel,/area/caribbean/no_mans_land/invisible_wall/two)
-"nu" = (/turf/wall/stone{opacity = 0},/area/caribbean/no_mans_land/invisible_wall/two)
-"nv" = (/obj/structure/bed/chair/wood/wings{icon_state = "wooden_chair_wings"; dir = 8},/turf/floor/plating/steel,/area/caribbean/no_mans_land/invisible_wall/two)
-"nw" = (/obj/structure/table/wood,/obj/item/ammo_magazine/emptyclip,/obj/item/ammo_magazine/emptyclip,/obj/item/ammo_magazine/emptyclip,/obj/item/ammo_magazine/emptyclip,/obj/item/ammo_magazine/emptyclip,/turf/floor/plating/steel,/area/caribbean/no_mans_land/invisible_wall/two)
-"nx" = (/obj/structure/bed/chair{icon_state = "chair"; dir = 4},/turf/floor/plating/steel,/area/caribbean/no_mans_land/invisible_wall/two)
+"ns" = (/obj/covers/carpet/redcarpet,/obj/structure/bed/chair,/turf/floor/plating/steel,/area/caribbean/no_mans_land/invisible_wall/two)
+"nt" = (/obj/covers/carpet/redcarpet,/obj/structure/table/wood,/obj/item/weapon/paper,/turf/floor/plating/steel,/area/caribbean/no_mans_land/invisible_wall/two)
+"nu" = (/obj/covers/carpet/redcarpet,/turf/floor/plating/steel,/area/caribbean/no_mans_land/invisible_wall/two)
+"nv" = (/obj/covers/carpet/redcarpet,/obj/structure/table/wood,/turf/floor/plating/steel,/area/caribbean/no_mans_land/invisible_wall/two)
+"nw" = (/obj/covers/carpet/redcarpet,/obj/structure/bed/chair{icon_state = "chair"; dir = 1},/turf/floor/plating/steel,/area/caribbean/no_mans_land/invisible_wall/two)
+"nx" = (/obj/covers/carpet/redcarpet,/obj/structure/filingcabinet,/obj/structure/lamp/lamp_big/alwayson,/turf/floor/plating/steel,/area/caribbean/no_mans_land/invisible_wall/two)
 "ny" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 4},/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof/objective)
+"nz" = (/obj/effect/landmark{name = "JoinLateGE"},/obj/covers/carpet/redcarpet,/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
+"nA" = (/obj/covers/carpet/redcarpet,/obj/structure/bed/chair/comfy/blue{icon_state = "chair_padding"; dir = 8},/obj/effect/landmark{name = "JoinLateGECap"},/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
+"nB" = (/obj/covers/carpet/redcarpet,/obj/effect/landmark{name = "JoinLateGE"},/obj/effect/landmark{name = "JoinLateGE"},/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
+"nC" = (/obj/covers/carpet/tealcarpet,/obj/effect/landmark{name = "JoinLateGE"},/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
+"nD" = (/obj/item/weapon/gun/launcher/rocket/single_shot/panzerfaust,/obj/item/weapon/gun/launcher/rocket/single_shot/panzerfaust,/obj/item/weapon/gun/launcher/rocket/single_shot/panzerfaust,/obj/item/weapon/gun/launcher/rocket/single_shot/panzerfaust,/obj/item/weapon/gun/launcher/rocket/single_shot/panzerfaust,/obj/item/weapon/gun/launcher/rocket/single_shot/panzerfaust,/obj/structure/closet/crate/ww2{name = "RGD-33 crate"},/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 
 (1,1,1) = {"
 aaabaaaaaaaaaaanaaaaadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeaaaaaaaaaaaaaaaaaaaaaa
 afaaaaafaaaaabaaafaaadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadagaaaaaaaaaaahahaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeaaaaaaaaaaaaaaahaiaaaa
-aaabanaaafananaaaaaaadadajakakakakakakatadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadakakakakakakakajadaeaaaaafaaaaafaaaaaaabaa
+aaabanaaafananaaaaaaadadajakakakakakakakadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadakakakakakakakajadaeaaaaafaaaaafaaaaaaabaa
 aaaaanababaaaaaaababadadakajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajakadaeaaaaaaahaaaaaaaaaaaaaa
 aaaaafaaaaaaaaaaababadadakalalalalalalalalajamcAdscAdsdtajdudvdwdudvdwdudwdwdudvdwdudwdvduajdwdydzdAdBdwalalalalalalalalajakadaeaaaaaaaaaaaaaaaaaaafaa
 aaaaaaaaanaaafahaaaaadadakajdIdwdwdwdwdwdwajdCdCdCdCdCajajdDdEdwdwdFdEdwdwdwdwdDdGdwdwdHdGajajdIdwdJdBdwdwdwdwdwdwdwdwdwajakadaeaaaaaaaaaaaaaaafaaaaaa
@@ -772,7 +777,7 @@ crchcHchcfcmcmcfcncscpcfcfcfcfcfcfcfcmcmcmcmcmcmcmcmcmcmcfcfcmecasdYasealGlHchch
 chchcHchcfcmcmcfdlchdmcfcfcfcfcfcmcmcmcmcmmSmSmTmnmnewmcewmccfehnhnhninhnjerchcqcrckcqchchcHchcrchcHcHchchcfcfcmcmcmcmcmcfcfcfcmcmcmcmcmcmcmcmcmcmcmcm
 chdnchchcfcmcmcfcfdocfcfcfcfcmcmcmcmcmcmcmcmcmcmcfcfcfchcHchcfernilJlKlLnierlMmbcHchchchchcqchchcqcHchchcfcfcmcmcmcmcmcfcfchcfcfcfcmcmcmcmcmcmcmcmcmcm
 cqcqchchcfdXdXdYdZeaeaeaebdYdYdYecedcmcmcmcmcfcfcfchchchchcHchcfcflIlIcmcmcmmcmcchchcHchchchchchchchchcfcfcmcmcmcmcmcfcfckchchchcfcfcfcmcmcmcmcmcmcmcm
-cqdpcHchcfdXdXdYdYdYdYdYdYdYdYdYeecmcmcmcfnlncndnechckcrchcHchchcfcfcmcmcmcmcmcfegchcqcHchcrckchcHchcfcfcmcmcmcmcmcfcfchchchcHchchchcfcfcfcmcmcmcmcmcm
+cqdpcHchcfdXdXdYdYdYdYdYdYdYdYdYeecmcmcmcfnlncndnenDckcrchcHchchcfcfcmcmcmcmcmcfegchcqcHchcrckchcHchcfcfcmcmcmcmcmcfcfchchchcHchchchcfcfcfcmcmcmcmcmcm
 chchcrchcfeheheieieieieieimompcmcmcmcfcfcfchchcHchdqcqchdqdqdqchchcfcfejcmaccmcmefcfchchchchchchchcfcfcmcmcmcmcmcfcfchchcHchchdichcHchchcfcfcfcmcmcmcm
 chchchchcfekehcmcmcmcmcmcmcmcmcmelcfcfchchchcHdqchcHcHchdqchemdqdqchcfencmejcmejcmcfcfchcqchcrchcfcfcmcmcmcmcmcfcfchchcrcqcHchchcHchchchchchcfcfcfcmcm
 crcNchchcfehehmqmreqmsmsmscmcfcferchchdqdqcrchdrdrdrescrdqdqdqetcrchdqcfenejcmejejcmcfcfchchchcfcfcmcmcmcmcmcfcfchchcqchchchcrchchckcqcrchchchchcfcfcf
@@ -867,15 +872,15 @@ dxdxdxdxdxdxdxdxdxdxdxdxitiyiwiwiwiwiwiwiwitiwiwiwiwiwiziziziziziziziAiwitiwiwiz
 dxdxdxdxdxdxdxdxdxdxdxdxitiCiCiCiCiCiCiCiwiDiwiwiwiwiwiEiFiGiziGiFiEiwiwitiwiwiEiFiGiziGiFiEiwiwiwiBiwiDiwiHiwiIiwiJiwiKitdxdxdxdxdxdxdxdxdxdxdxdxdxdx
 dxdxdxdxdxdxdxdxdxdxdxdxitiLkjiwiwiwiwkjiwitiwiwiwiwiwiMiFiNiOiPiFiMiwiwitiQiwiMiFiPiRiSiFiMiwiwiwiBiwitiwiIkjiJiwiTkjiJitdxdxdxdxdxdxdxdxdxdxdxdxdxdx
 dxdxdxdxdxdxdxdxdxdxdxdxititititititititititititiwiwiwiEiFiUiziViFiEiwiwitiwiQiEiFiWiziXiFiEiwiQiQititititititititititititdxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxdxitiYiZjajbixjcjbiwjbjditjeiwjeiziziziziziziziwiwitiQiwiziziziziziziziwiwiwjfjgjhjhjgjijijijijijiitdxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxdxitjajjjkiwiwiwiwiwiwjlitiwiwiwiEiFiGiziGiFiEiwjmitjniwiEiFiGiziGiFiEiwiwiwitjojojpjhjijqjrjsjsjtjidxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxdxitjuiwjviwjbiwjbjbiwjmjwjniwiwiMiFjxjyiNiFiMiwiwiDiwiwiMiFjxjziPiFiMiwiwjmjAjBjCjpjhjDjpjpjpjpjpjEdxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxdxitiZiwiwiwjFiwiwiwiwiwiDiwiwiwiEiFjHiziXiFiEiwjmitjniwiEiFiUiziViFiEiwiwiwjIjpjpjpjpjJjKjpjLjpjMjDdxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxdxitjaiwjvjbiwjbjbjbiwiwiDiwiwiwizizizizizizizjeiwitiwiwiziziziziziziziwiwiwjIjpjpjpjpjIjpjpjNjOjpjEdxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxdxitjjiwjviwiwiwiwiwiwiwiDiwiwiwiEiFiGiziGiFiEiwjPitjniwiEiFiGiziGiFiEiwiwiwjIjpjpjpjpjJjKjpjQjpjMjDdxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxdxitjRiwjvjbiwjbjbjbiwjSjwjnjejeiMiFiSjzjTiFiMiwiwiDiwiwiMiFiSjUjxiFiMiwiwjmjAjCjBjpjhjDjpjpjpjpjpjEdxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxdxitjViwiwiwiwiwiwiwiwjWitjXjYjXiEiFiUizjZiFiEiwjmitkaiwiEiFiUiziXiFiEiwkbiwitkckcjpjhjikdkdkdkdkejidxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxdxitjVkfkgkhkikjjWkkklkmitknknkoizizizizizizizjeiwitiwiwizizizizizizizkpjjkqjfkrjhjhkrjijijijijijiitdxdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxdxitiYiZjajbixjcjbiwjbjditjeiwjeiziziziziziziziwiwitiQiwiziziziziziziziwiwiwjfjgkrkrjgjijijijijijiitdxdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxdxitjajjjkiwiwiwiwiwiwjlitiwiwiwiEiFiGiziGiFiEiwjmitjniwiEiFiGiziGiFiEiwiwiwitnsjojpjhjijqjrjsjsjtjidxdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxdxitjuiwjviwjbiwjbjbiwjmjwjniwiwiMiFjxjyiNiFiMiwiwiDiwiwiMiFjxjziPiFiMiwiwjmjAntjCjpjhjDjpjpjpjpjpjEdxdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxdxitiZiwiwiwjFiwiwiwiwiwiDiwiwiwiEiFjHiziXiFiEiwjmitjniwiEiFiUiziViFiEiwiwiwjInujOnBnzjJjKjpjLjpjMjDdxdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxdxitjaiwjvjbiwjbjbjbiwiwiDiwiwiwizizizizizizizjeiwitiwiwiziziziziziziziwiwiwjInunznznzjIjpjpjNnAjpjEdxdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxdxitjjiwjviwiwiwiwiwiwiwiDiwiwiwiEiFiGiziGiFiEiwjPitjniwiEiFiGiziGiFiEiwiwiwjInunznznzjJjKjpjQjpjMjDdxdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxdxitjRiwjvjbiwjbjbjbiwjSjwjnjejeiMnCiSjzjTiFiMiwiwiDiwiwiMiFiSjUjxnCiMiwiwjmjAnvjBjpjhjDjpjpjpjpjpjEdxdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxdxitjViwiwiwiwiwiwiwiwjWitjXjYjXiEiFiUizjZiFiEiwjmitkaiwiEiFiUiziXiFiEiwkbiwitnwkcjpjhjikdkdkdkdkejidxdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxdxitjVkfkgkhkikjjWkkklkmitknknkoizizizizizizizjeiwitiwiwizizizizizizizkpjjkqjfnxkrkrnxjijijijijijiitdxdxdxdxdxdxdxdxdxdxdxdxdxdx
 dxdxdxdxdxdxdxdxdxdxdxdxititititititititititititkqkpksiEiFiGiziGiFiEiwjeitiwiwiEiFiGiziGiFiEkqjYktititititititititititititdxdxdxdxdxdxdxdxdxdxdxdxdxdx
 dxdxdxdxdxdxdxdxdxdxdxdxitiCnkiCiCiCiCnkiCitjjjjkuiwkbiMiFjTjUiNiFiMiwiwitiwiwiMiFjTjyjxiFiMkvkskwiwiwitiwixkxiwiwkxixkxitdxdxdxdxdxdxdxdxdxdxdxdxdxdx
 dxdxdxdxdxdxdxdxdxdxdxdxitiwiwiwiwiwiwiwiwiDiwiwiwiwiwiEiFiUiziViFiEiwiwitiwiQiEiFkyizkziFiEiwiwiwiwiwiDiwiwkAiZkAiZkBiZitdxdxdxdxdxdxdxdxdxdxdxdxdxdx
@@ -952,14 +957,14 @@ dxdxdxdxdxdxdxdxdxdxdxdxkJlokLkLkLkLkLkLkLkLkLkLkLkLkLkVkVkVkVkVkVkVkVkVkVkVkVkV
 dxdxdxdxdxdxdxdxdxdxdxdxkJlvkLkLkLkLkLkLkLkLkLkLkLkLkLkVkVkVkVkVkVkVkVkVkVkVkVkVkVkVkVkVkVkVlwkLkLlxkLkLkLkLkLkLkLkLkLkLkJdxdxdxdxdxdxdxdxdxdxdxdxdxdx
 dxdxdxdxdxdxdxdxdxdxdxdxkJlvlvlykLkLkLlzkLkLkLlakLkLkLkVkVkVkVkVkVkVkVkVkVkVkVkVkVkVkVkVkVkVlAkLkLkLkLkLkLkLkLkLkLkLkLkLkJdxdxdxdxdxdxdxdxdxdxdxdxdxdx
 dxdxdxdxdxdxdxdxdxdxdxdxkJkLkLkLkLkLkLlBkLkLkLkLkLkLkLkLkVkVkVkVkVkVkVkVkVkVkVkVkVkVkVkVkVlClDkLkLkLkLkLkLkLkLkLkLkLkLkLkJdxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxdxkJldldldldlEkLkLkLkLkLlxkLkLkLkLlFkVkVkVkVkVkVkVkVkVkVkVkVkVkVkVldldlOkLkLkLkLkWkLntmGntntntntntkJdxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxdxkJlQlQlQlRkVlRkLkLkLkLkLkLkLkZkLlFkLkVkVkVkVkVkVkVkVkVkVkVkVkVlflflllSkLkLkLkLlTlUmVnsnsnsntntntnudxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxkJkJkLlWkLkVkVkVkLkLkLkLkLkLkLkLkLlFkLlXkVkVkVkVkVkVkVkVkVkVkVlYkLkLljlqkLkLkLkLkLlPnvnskVkVmtkLkLnukJdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxkJkJmukLkLkVkVlRkLkLmvkLkLkLkLlqkLmwmxmymzkVmAkVkVmAkVkVkVkVmBmymCkLmDlqkLkLkLkLmEmFnwnskVkVmtmHmHnukJdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxkJkJmumImImJmKmLkLkLkLkLkLkLkLlqkLmMmMmymymNmOmPmQmRmUlXlXmymymymCmykLkLkLkLkLkLkLkLnxntmtmtmtmHmHnukJdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxkJkJmumImImWkLljkLljkLkLkLmXmXlqkLnamMmymymymynbmynbmymymymymymymCmynylqkWkLkLkLkLkLntntmtmHmHmHmHnukJdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxkJkJkLkLkLkLkLkLkLljkLmXmXmXmXkLkLnfngmymymymymymymymymymymymymymymymClqkLkLkLkLkLkLntntkLmHmHmHmHnukJdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJnununununununukJdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxdxkJldldldldlEkLkLkLkLkLlxkLkLkLkLlFkVkVkVkVkVkVkVkVkVkVkVkVkVkVkVldldlOkLkLkLkLkWkLkLlPkLkLkLkLkLkJdxdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxdxkJlQlQlQlRkVlRkLkLkLkLkLkLkLkZkLlFkLkVkVkVkVkVkVkVkVkVkVkVkVkVlflflllSkLkLkLkLlTlUmtkVkVkVkLkLkLkJdxdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxkJkJkLlWkLkVkVkVkLkLkLkLkLkLkLkLkLlFkLlXkVkVkVkVkVkVkVkVkVkVkVlYkLkLljlqkLkLkLkLkLlPmGkVkVkVkLkLkLkJkJdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxkJkJmukLkLkVkVlRkLkLmvkLkLkLkLlqkLmwmxmymzkVmAkVkVmAkVkVkVkVmBmymCkLmDlqkLkLkLkLmEmFmHkVkVkVkLkLkLkJkJdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxkJkJmumImImJmKmLkLkLkLkLkLkLkLlqkLmMmMmymymNmOmPmQmRmUlXlXmymymymCmykLkLkLkLkLkLkLkLmVkLkLkLkLkLkLkJkJdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxkJkJmumImImWkLljkLljkLkLkLmXmXlqkLnamMmymymymynbmynbmymymymymymymCmynylqkWkLkLkLkLkLkLkLkLkLkLkLkLkJkJdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxkJkJkLkLkLkLkLkLkLljkLmXmXmXmXkLkLnfngmymymymymymymymymymymymymymymymClqkLkLkLkLkLkLkLkLkLkLkLkLkLkJkJdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJkJdxdxdxdxdxdxdxdxdxdxdxdxdx
 dxdxdxdxdxdxdxdxdxdxdxkIkJkJkJkJkJkJdxdxdxdxdxdxdxdxdxdxkJkIkJkIkJkIkJkIkJkIkJkIkJkIkJkIkJdxdxdxdxdxdxdxdxdxdxkJkJkJkJkJkJkIdxdxdxdxdxdxdxdxdxdxdxdxdx
 dxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdx
 dxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdx
