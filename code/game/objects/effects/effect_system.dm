@@ -162,7 +162,7 @@ steam.start() -- spawns the effect
 /obj/effect/effect/smoke
 	name = "smoke"
 	icon_state = "smoke"
-	opacity = TRUE
+	opacity = FALSE
 	anchored = 0.0
 	mouse_opacity = FALSE
 	var/amount = 6.0
