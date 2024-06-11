@@ -1,7 +1,6 @@
 /obj/item/projectile/bullet/pellet/fragment
-	damage = 18
+	damage = 30
 	range_step = 2 //controls damage falloff with distance. projectiles lose a "pellet" each time they travel this distance. Can be a non-integer.
-	kill_count = 6
 
 	base_spread = FALSE //causes it to be treated as a shrapnel explosion instead of cone
 	spread_step = 12
@@ -13,11 +12,21 @@
 	embed = TRUE
 	sharp = TRUE
 
-/obj/item/projectile/bullet/pellet/fragment/short_range
-	kill_count = 4
+	New()
+		..()
+		damage = rand(30, 60)
+		kill_count = rand(4,5)
+		armor_penetration = ARMOR_CLASS*rand(1,3)
 
-/obj/item/projectile/bullet/pellet/fragment/strong
-	damage = 30
+/obj/item/projectile/bullet/pellet/fragment/short_range/New()
+	..()
+	kill_count = rand(2,4)
+	armor_penetration = ARMOR_CLASS*rand(2,4)
+
+/obj/item/projectile/bullet/pellet/fragment/strong/New()
+	..()
+	kill_count = rand(2,6)
+	armor_penetration = ARMOR_CLASS*rand(1,2)
 
 /obj/item/weapon/grenade/frag
 	name = "fragmentation grenade"
