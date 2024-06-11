@@ -73,14 +73,14 @@
 "bu" = (/obj/structure/barbwire{icon_state = "barbwire"; dir = 8},/obj/structure/barbwire,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall)
 "bv" = (/obj/structure/window/barrier/sandbag,/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 8},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land)
 "bw" = (/obj/structure/window/barrier/sandbag,/turf/floor/plating/road,/area/caribbean/no_mans_land)
-"bx" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall)
-"by" = (/obj/covers/cobblestone/stairs{icon_state = "rampdark"},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall)
+"bx" = (/turf/floor/dirt,/area/caribbean/no_mans_land/invisible_wall)
+"by" = (/obj/structure/wild/bush/big,/turf/floor/grass,/area/caribbean/no_mans_land/invisible_wall)
 "bz" = (/obj/structure/window/barrier/sandbag,/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 4},/turf/floor/plating/road,/area/caribbean/no_mans_land)
 "bA" = (/obj/structure/window/barrier/railing/stone,/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 8},/turf/floor/plating/concrete,/area/caribbean/no_mans_land)
 "bB" = (/obj/structure/barricade/vertical,/turf/floor/plating/concrete,/area/caribbean/no_mans_land)
 "bC" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 4},/obj/structure/window/barrier/railing/stone,/turf/floor/plating/concrete,/area/caribbean/no_mans_land)
 "bD" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/turf/floor/dirt,/area/caribbean/no_mans_land)
-"bE" = (/obj/covers/cobblestone/stairs{icon_state = "rampdark"},/obj/structure/barbwire,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall)
+"bE" = (/obj/structure/barricade/antitank,/turf/floor/grass,/area/caribbean/no_mans_land/invisible_wall)
 "bF" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/barbwire,/turf/floor/grass,/area/caribbean/no_mans_land)
 "bG" = (/obj/structure/wild/bush/big,/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/barbwire,/turf/floor/dirt,/area/caribbean/no_mans_land)
 "bH" = (/obj/structure/wild/bush/big,/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/window/barrier/sandbag,/turf/floor/grass,/area/caribbean/no_mans_land)
@@ -90,25 +90,25 @@
 "bL" = (/obj/structure/grille/ironfence{icon_state = "iron_fence"; dir = 8},/obj/structure/grille/ironfence{icon_state = "iron_fence"; dir = 1},/turf/floor/grass,/area/caribbean/no_mans_land)
 "bM" = (/obj/structure/grille/ironfence{icon_state = "iron_fence"; dir = 1},/turf/floor/grass,/area/caribbean/no_mans_land)
 "bN" = (/obj/structure/grille/ironfence{icon_state = "iron_fence"; dir = 1},/turf/floor/dirt,/area/caribbean/no_mans_land)
-"bO" = (/obj/structure/barricade/antitank,/turf/floor/grass,/area/caribbean/no_mans_land)
-"bP" = (/obj/structure/wild/bush/big,/obj/structure/barbwire,/obj/structure/barricade/antitank,/turf/floor/dirt,/area/caribbean/no_mans_land)
-"bQ" = (/obj/structure/wild/bush/big,/obj/structure/barbwire,/turf/floor/dirt,/area/caribbean/no_mans_land)
-"bR" = (/obj/structure/barbwire,/turf/floor/grass,/area/caribbean/no_mans_land)
-"bS" = (/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/obj/structure/barricade/antitank,/turf/floor/dirt,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"bT" = (/obj/structure/barricade,/obj/structure/window/barrier{icon_state = "dirt_wall"; dir = 4},/turf/floor/dirt,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"bO" = (/obj/structure/wild/bush/big,/obj/structure/barbwire,/obj/structure/barricade/antitank,/turf/floor/dirt,/area/caribbean/no_mans_land/invisible_wall)
+"bP" = (/obj/structure/wild/bush/big,/obj/structure/barbwire,/turf/floor/dirt,/area/caribbean/no_mans_land/invisible_wall)
+"bQ" = (/obj/structure/barbwire,/turf/floor/grass,/area/caribbean/no_mans_land/invisible_wall)
+"bR" = (/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/obj/structure/barricade/antitank,/turf/floor/dirt,/area/caribbean/no_mans_land/invisible_wall)
+"bS" = (/obj/structure/barricade,/obj/structure/window/barrier{icon_state = "dirt_wall"; dir = 4},/turf/floor/dirt,/area/caribbean/no_mans_land/invisible_wall)
+"bT" = (/obj/structure/barricade/antitank,/turf/floor/dirt,/area/caribbean/no_mans_land/invisible_wall)
 "bU" = (/obj/structure/window/barrier{icon_state = "dirt_wall"; dir = 1},/turf/floor/dirt,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"bV" = (/obj/structure/wild/tallgrass,/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/obj/structure/barricade,/obj/structure/window/barrier,/obj/structure/window/barrier{icon_state = "dirt_wall"; dir = 4},/turf/floor/dirt,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"bV" = (/obj/structure/wild/tallgrass,/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/obj/structure/barricade,/obj/structure/window/barrier,/obj/structure/window/barrier{icon_state = "dirt_wall"; dir = 4},/turf/floor/dirt,/area/caribbean/no_mans_land/invisible_wall)
 "bW" = (/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"bX" = (/obj/structure/barricade/antitank,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"bY" = (/obj/structure/barricade/horizontal,/obj/structure/window/barrier,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"bZ" = (/obj/structure/barricade/horizontal,/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/obj/structure/window/barrier,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"ca" = (/obj/structure/barricade/horizontal,/turf/floor/dirt,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"cb" = (/obj/structure/barricade/antitank,/turf/floor/dirt,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"bX" = (/obj/structure/barricade/antitank,/turf/floor/plating/road,/area/caribbean/no_mans_land/invisible_wall)
+"bY" = (/obj/structure/barricade/horizontal,/obj/structure/window/barrier,/turf/floor/plating/road,/area/caribbean/no_mans_land/invisible_wall)
+"bZ" = (/obj/structure/barricade/horizontal,/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/obj/structure/window/barrier,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall)
+"ca" = (/obj/structure/barricade/horizontal,/turf/floor/dirt,/area/caribbean/no_mans_land/invisible_wall)
+"cb" = (/obj/structure/barricade/horizontal,/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall)
 "cc" = (/obj/structure/barricade/antitank,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"cd" = (/obj/structure/barricade/horizontal,/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"ce" = (/obj/structure/wild/bush/big,/obj/structure/barricade/antitank,/turf/floor/grass,/area/caribbean/no_mans_land)
+"cd" = (/obj/structure/wild/bush/big,/obj/structure/barricade/antitank,/turf/floor/grass,/area/caribbean/no_mans_land/invisible_wall)
+"ce" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1},/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 4},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "cf" = (/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"cg" = (/obj/structure/barbwire,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"cg" = (/obj/structure/wild/bush/big,/turf/floor/dirt,/area/caribbean/no_mans_land/invisible_wall)
 "ch" = (/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "ci" = (/obj/structure/window/barrier/rock,/turf/floor/plating/concrete,/area/caribbean/no_mans_land)
 "cj" = (/turf/floor/grass,/area/caribbean/no_mans_land/invisible_wall/one)
@@ -133,35 +133,35 @@
 "cC" = (/obj/structure/barricade/horizontal,/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/dirt,/area/caribbean/no_mans_land/invisible_wall)
 "cD" = (/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall)
 "cE" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1},/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 4},/obj/structure/barricade,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall)
-"cF" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1},/obj/structure/barbwire,/obj/structure/barricade/antitank,/turf/floor/plating/concrete,/area/caribbean/no_mans_land)
-"cG" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1},/obj/structure/barbwire,/turf/floor/plating/concrete,/area/caribbean/no_mans_land)
+"cF" = (/obj/structure/wild/bush/big,/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"cG" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 8},/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1},/obj/structure/barbwire{icon_state = "barbwire"; dir = 8},/obj/structure/barbwire,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "cH" = (/obj/structure/wild/smallbush,/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"cI" = (/obj/structure/barbwire,/obj/structure/barricade/antitank,/turf/floor/plating/concrete,/area/caribbean/no_mans_land)
+"cI" = (/obj/structure/barbwire{icon_state = "barbwire"; dir = 8},/obj/structure/barbwire,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "cJ" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 8},/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1},/obj/structure/barbwire{icon_state = "barbwire"; dir = 8},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall)
 "cK" = (/obj/structure/barbwire,/obj/structure/barricade/antitank,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall)
 "cL" = (/obj/structure/barbwire,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall)
-"cM" = (/obj/structure/barbwire,/turf/floor/plating/concrete,/area/caribbean/no_mans_land)
+"cM" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "cN" = (/obj/structure/wild/smallbush,/turf/floor/dirt,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"cO" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 8},/obj/structure/window/barrier/railing/stone,/turf/floor/plating/concrete,/area/caribbean/no_mans_land)
+"cO" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 8},/turf/floor/plating/concrete,/area/caribbean/no_mans_land/invisible_wall)
 "cP" = (/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall/one)
 "cQ" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/turf/floor/dirt,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"cR" = (/obj/structure/window/barrier/sandbag,/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"cR" = (/obj/structure/window/barrier/sandbag,/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/obj/structure/barricade/antitank,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "cS" = (/obj/structure/window/barrier/sandbag,/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 4},/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "cT" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "cU" = (/obj/structure/window/barrier/sandbag,/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 8},/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "cV" = (/obj/structure/cannon/modern{icon_state = "modern_cannon"; dir = 1},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "cW" = (/obj/structure/barricade/antitank,/obj/structure/window/barrier,/obj/structure/window/barrier{icon_state = "dirt_wall"; dir = 4},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall)
-"cX" = (/obj/structure/window/barrier/sandbag,/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"cX" = (/obj/structure/window/barrier/sandbag,/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/obj/structure/barricade/antitank,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "cY" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 8},/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1},/obj/structure/barbwire{icon_state = "barbwire"; dir = 8},/obj/structure/barricade/antitank,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall)
-"cZ" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 8},/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1},/obj/structure/barbwire{icon_state = "barbwire"; dir = 8},/obj/structure/barbwire,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall)
+"cZ" = (/turf/floor/plating/concrete,/area/caribbean/no_mans_land/invisible_wall)
 "da" = (/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "db" = (/obj/structure/closet/crate/ww2/artillery_shells,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "dc" = (/obj/structure/window/barrier/sandbag,/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 4},/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "dd" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"de" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1},/obj/structure/barbwire{icon_state = "barbwire"; dir = 8},/obj/structure/barbwire,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall)
+"de" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1},/obj/structure/barbwire,/obj/structure/barricade/antitank,/turf/floor/plating/concrete,/area/caribbean/no_mans_land/invisible_wall)
 "df" = (/obj/structure/window/barrier/sandbag,/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 8},/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"dg" = (/obj/covers/cobblestone/stairs{icon_state = "rampdark"},/obj/structure/barbwire,/obj/structure/barricade/antitank,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall)
-"dh" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1},/obj/structure/barbwire,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall)
+"dg" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1},/obj/structure/barbwire,/turf/floor/plating/concrete,/area/caribbean/no_mans_land/invisible_wall)
+"dh" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1},/turf/floor/plating/concrete,/area/caribbean/no_mans_land/invisible_wall)
 "di" = (/obj/structure/wild/tree/live_tree,/obj/structure/wild/tallgrass,/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "dj" = (/obj/structure/cannon/modern{icon_state = "modern_cannon"; dir = 1},/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "dk" = (/obj/structure/closet/crate/ww2/artillery_shells,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
@@ -226,9 +226,9 @@
 "er" = (/obj/structure/barricade/vertical,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "es" = (/obj/structure/wild/tallgrass,/obj/effect/landmark{name = "JoinLateRU"; icon_state = "x3"},/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "et" = (/obj/effect/landmark{name = "JoinLateRU"; icon_state = "x3"},/turf/floor/dirt,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"eu" = (/obj/structure/simple_door/key_door/russian,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"ev" = (/obj/structure/closet/anchored,/obj/item/weapon/key/russian,/obj/item/weapon/key/russian,/obj/item/weapon/whistle,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"ew" = (/obj/structure/vending/sovietweapons,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"eu" = (/obj/covers/brick_wall,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"ev" = (/obj/structure/window/barrier/sandbag/incomplete{icon_state = "sandbag_66%"; dir = 4},/obj/covers/brick_wall,/turf/floor/dirt,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"ew" = (/obj/item/weapon/gun/projectile/automatic/stationary/modern/maxim/ww2{icon_state = "maxim_ww2"; dir = 1},/turf/floor/trench,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "ex" = (/obj/structure/window/barrier/sandbag,/turf/floor/plating/steel,/area/caribbean/german/reichstag/lobby)
 "ey" = (/obj/structure/window/barrier/sandbag,/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 4},/obj/structure/barricade/horizontal,/turf/floor/plating/steel,/area/caribbean/german/reichstag/lobby)
 "ez" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 4},/obj/structure/barricade/horizontal,/turf/floor/plating/steel,/area/caribbean/german/reichstag/lobby)
@@ -274,7 +274,7 @@
 "fn" = (/obj/structure/closet/crate/empty,/obj/item/weapon/gun/projectile/boltaction/carcano,/obj/item/weapon/gun/projectile/boltaction/carcano,/turf/floor/plating/steel,/area/caribbean/german/reichstag/lobby)
 "fo" = (/obj/structure/barricade/steel,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "fp" = (/obj/structure/closet/crate/empty,/obj/item/weapon/gun/projectile/boltaction/berthier/m16,/obj/item/weapon/gun/projectile/boltaction/berthier/m16,/obj/item/weapon/gun/projectile/boltaction/berthier/m16,/turf/floor/plating/steel,/area/caribbean/german/reichstag/lobby)
-"fq" = (/obj/item/weapon/stool/prison,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"fq" = (/obj/structure/barricade/vertical,/obj/structure/barricade/horizontal,/obj/covers/brick_wall,/turf/floor/dirt,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "fr" = (/obj/structure/lamp/lamp_big/alwayson/white{icon_state = "tube"; dir = 8},/turf/floor/plating/white,/area/caribbean/german/reichstag/lobby)
 "fs" = (/obj/item/weapon/reagent_containers/glass/bucket,/obj/item/weapon/mop,/obj/structure/lamp/lamp_big/alwayson/white{icon_state = "tube"; dir = 4},/turf/floor/plating/white,/area/caribbean/german/reichstag/lobby)
 "ft" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 4},/obj/structure/window/barrier/sandbag,/turf/floor/plating/steel,/area/caribbean/german/reichstag/lobby)
@@ -474,7 +474,7 @@
 "jf" = (/obj/structure/sign/flag/red,/turf/wall/stone,/area/caribbean/german/reichstag/second)
 "jg" = (/obj/covers/carpet/redcarpet,/obj/structure/filingcabinet,/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 1},/turf/floor/plating/steel,/area/caribbean/no_mans_land/invisible_wall/two)
 "jh" = (/obj/covers/carpet/redcarpet,/obj/structure/filingcabinet,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
-"ji" = (/obj/covers/carpet/redcarpet,/turf/wall/gold,/area/caribbean/german/reichstag/second)
+"ji" = (/obj/covers/carpet/redcarpet,/turf/wall/gold,/area/caribbean/no_mans_land/invisible_wall/two)
 "jj" = (/obj/structure/bookcase,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
 "jk" = (/obj/effect/decal/cleanable/blood/splatter,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
 "jl" = (/obj/item/weapon/reagent_containers/blood/empty,/obj/item/weapon/reagent_containers/blood/empty,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
@@ -495,13 +495,13 @@
 "jA" = (/obj/structure/sign/flag/nazi,/turf/wall/stone,/area/caribbean/german/reichstag/second)
 "jB" = (/obj/covers/carpet/redcarpet,/obj/structure/table/wood,/obj/item/weapon/paper,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
 "jC" = (/obj/covers/carpet/redcarpet,/obj/structure/table/wood,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
-"jD" = (/obj/covers/carpet/redcarpet,/obj/structure/sign/flag/red2,/turf/wall/gold,/area/caribbean/german/reichstag/second)
-"jE" = (/obj/structure/window/classic/metal,/obj/structure/curtain/open/bed{name = "curtain"},/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
+"jD" = (/turf/wall/stone,/area/caribbean/no_mans_land/invisible_wall/two)
+"jE" = (/obj/covers/carpet/redcarpet,/obj/structure/sign/flag/red2,/turf/wall/gold,/area/caribbean/no_mans_land/invisible_wall/two)
 "jF" = (/obj/effect/decal/cleanable/blood,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
 "jG" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 4},/obj/structure/window/barrier/rock,/turf/floor/plating/concrete,/area/caribbean/no_mans_land)
 "jH" = (/obj/covers/carpet/tealcarpet,/obj/structure/filingcabinet/chestdrawer,/obj/structure/lamp/lamp_small/alwayson{icon_state = "bulb"; dir = 4},/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
 "jI" = (/obj/structure/simple_door/gold,/obj/covers/carpet/redcarpet,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
-"jJ" = (/obj/covers/carpet/redcarpet,/obj/structure/sign/flag/nazi,/turf/wall/gold,/area/caribbean/german/reichstag/second)
+"jJ" = (/obj/structure/window/classic/metal,/obj/structure/curtain/open/bed{name = "curtain"},/turf/floor/plating/steel,/area/caribbean/no_mans_land/invisible_wall/two)
 "jK" = (/obj/covers/carpet/redcarpet,/obj/structure/potted_plant,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
 "jL" = (/obj/covers/carpet/redcarpet,/obj/structure/table/glass,/obj/item/weapon/telephone,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
 "jM" = (/obj/covers/carpet/redcarpet,/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 4},/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
@@ -603,13 +603,13 @@
 "lE" = (/obj/structure/closet/crate/ww2,/obj/item/weapon/attachment/scope/adjustable/sniper_scope,/obj/item/weapon/attachment/scope/adjustable/sniper_scope,/obj/item/weapon/melee/classic_baton/whip,/obj/item/weapon/melee/classic_baton,/obj/item/weapon/storage/pill_bottle/pervitin,/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
 "lF" = (/obj/structure/window/barrier/rock{icon_state = "rock_barricade"; dir = 8},/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
 "lG" = (/obj/structure/barricade/horizontal,/obj/structure/sign/flag/sov,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"lH" = (/obj/structure/barricade/horizontal,/obj/structure/barricade/vertical,/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"lH" = (/obj/structure/barricade/horizontal,/obj/structure/barricade/vertical,/obj/structure/barricade/antitank,/obj/structure/barricade/antitank,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "lI" = (/obj/item/weapon/stool/wood,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "lJ" = (/obj/structure/table/wood,/obj/item/weapon/paper,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "lK" = (/obj/structure/radio/transmitter_receiver/nopower/faction2{name = "soviet radio"},/obj/structure/table/wood,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "lL" = (/obj/structure/table/wood,/obj/item/weapon/storage/fancy/cigarettes/randompack{icon_state = "pachka_papiros"; randomize = 0},/obj/item/weapon/storage/fancy/cigarettes/randompack{icon_state = "pachka_papiros"; randomize = 0},/obj/item/weapon/flame/lighter/zippo,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "lM" = (/obj/item/weapon/radio/faction2{name = "soviet portable radio"},/obj/item/weapon/radio/faction2{name = "soviet portable radio"},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"lN" = (/obj/structure/closet/anchored,/obj/item/weapon/handcuffs,/obj/item/weapon/handcuffs,/obj/item/weapon/handcuffs,/obj/item/weapon/handcuffs,/obj/item/weapon/handcuffs,/obj/item/weapon/handcuffs,/obj/item/weapon/handcuffs,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"lN" = (/obj/structure/barricade/horizontal,/obj/structure/window/barrier/sandbag/incomplete{icon_state = "sandbag_66%"},/obj/covers/brick_wall,/turf/floor/dirt,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "lO" = (/obj/item/weapon/reagent_containers/food/drinks/drinkingglass,/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
 "lP" = (/obj/structure/closet/cabinet,/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
 "lQ" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/bed/roller,/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
@@ -621,8 +621,8 @@
 "lW" = (/obj/effect/decal/cleanable/blood,/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
 "lX" = (/obj/item/weapon/radio/faction1{name = "german portable radio"},/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof/objective)
 "lY" = (/obj/structure/closet/crate/empty,/obj/item/weapon/grenade/ww2/stg1924,/obj/item/weapon/grenade/ww2/stg1924,/obj/item/weapon/grenade/ww2/stg1924,/obj/item/weapon/grenade/ww2/stg1924,/obj/item/weapon/grenade/ww2/stg1924,/obj/item/weapon/grenade/ww2/stg1924,/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof/objective)
-"lZ" = (/obj/structure/bed/chair{icon_state = "chair"; dir = 4},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
-"ma" = (/obj/structure/table/wood,/obj/item/weapon/melee/classic_baton,/obj/item/weapon/melee/classic_baton,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"lZ" = (/obj/covers/carpet/redcarpet,/obj/structure/sign/flag/nazi,/turf/wall/gold,/area/caribbean/no_mans_land/invisible_wall/two)
+"ma" = (/obj/structure/simple_door/gold,/obj/covers/carpet/redcarpet,/turf/floor/plating/steel,/area/caribbean/no_mans_land/invisible_wall/two)
 "mb" = (/obj/item/weapon/radio/faction2{name = "soviet portable radio"},/obj/item/weapon/radio/faction2{name = "soviet portable radio"},/obj/item/weapon/radio/faction2{name = "soviet portable radio"},/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "mc" = (/obj/structure/vending/sovietammo,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "md" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/turf/floor/dirt,/area/caribbean/no_mans_land/invisible_wall)
@@ -635,7 +635,7 @@
 "mk" = (/obj/structure/wild/bush,/turf/floor/grass,/area/caribbean/no_mans_land/invisible_wall)
 "ml" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/turf/floor/grass,/area/caribbean/no_mans_land/invisible_wall)
 "mm" = (/turf/floor/grass,/area/caribbean/no_mans_land/invisible_wall)
-"mn" = (/obj/structure/vending/sovietapparel,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"mn" = (/obj/item/ammo_magazine/maxim,/turf/floor/trench,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "mo" = (/obj/item/weapon/reagent_containers/blood/OMinus,/obj/item/weapon/reagent_containers/blood/OMinus,/obj/item/weapon/reagent_containers/blood/OMinus,/obj/item/weapon/reagent_containers/blood/OMinus,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "mp" = (/obj/item/weapon/reagent_containers/blood/empty,/obj/item/weapon/reagent_containers/blood/empty,/obj/item/weapon/reagent_containers/blood/empty,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
 "mq" = (/obj/structure/closet/cabinet,/obj/item/weapon/storage/firstaid/surgery,/obj/item/weapon/storage/firstaid/surgery,/obj/item/weapon/doctor_handbook,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
@@ -704,6 +704,69 @@
 "nB" = (/obj/covers/carpet/redcarpet,/obj/effect/landmark{name = "JoinLateGE"},/obj/effect/landmark{name = "JoinLateGE"},/turf/floor/plating/steel,/area/caribbean/german/reichstag/roof)
 "nC" = (/obj/covers/carpet/tealcarpet,/obj/effect/landmark{name = "JoinLateGE"},/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
 "nD" = (/obj/item/weapon/gun/launcher/rocket/single_shot/panzerfaust,/obj/item/weapon/gun/launcher/rocket/single_shot/panzerfaust,/obj/item/weapon/gun/launcher/rocket/single_shot/panzerfaust,/obj/item/weapon/gun/launcher/rocket/single_shot/panzerfaust,/obj/item/weapon/gun/launcher/rocket/single_shot/panzerfaust,/obj/item/weapon/gun/launcher/rocket/single_shot/panzerfaust,/obj/structure/closet/crate/ww2{name = "RGD-33 crate"},/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"nE" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 8},/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1},/obj/structure/barbwire{icon_state = "barbwire"; dir = 8},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"nF" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1},/obj/structure/barbwire{icon_state = "barbwire"; dir = 8},/obj/structure/barbwire,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"nG" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 4},/turf/floor/grass,/area/caribbean/no_mans_land/invisible_wall)
+"nH" = (/obj/structure/barbwire,/obj/structure/barricade/antitank,/turf/floor/plating/concrete,/area/caribbean/no_mans_land/invisible_wall)
+"nI" = (/obj/structure/barbwire,/turf/floor/plating/concrete,/area/caribbean/no_mans_land/invisible_wall)
+"nJ" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 4},/turf/floor/plating/concrete,/area/caribbean/no_mans_land/invisible_wall)
+"nK" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 8},/turf/floor/grass,/area/caribbean/no_mans_land/invisible_wall)
+"nL" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 4},/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"nM" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 8},/obj/structure/window/barrier/railing/stone,/turf/floor/plating/concrete,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"nN" = (/turf/floor/plating/concrete,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"nO" = (/obj/structure/barbwire,/obj/structure/barricade/antitank,/turf/floor/plating/concrete,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"nP" = (/obj/structure/barbwire,/turf/floor/plating/concrete,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"nQ" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 4},/obj/structure/window/barrier/railing/stone,/turf/floor/plating/concrete,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"nR" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 8},/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"nS" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall/one)
+"nT" = (/obj/covers/cobblestone/stairs{icon_state = "rampdark"},/obj/structure/barbwire,/obj/structure/barricade/antitank,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall/one)
+"nU" = (/obj/covers/cobblestone/stairs{icon_state = "rampdark"},/obj/structure/barbwire,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall/one)
+"nV" = (/obj/structure/window/barrier/railing/stone{icon_state = "stone"; dir = 1},/obj/structure/barbwire,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall/one)
+"nW" = (/obj/structure/barbwire{icon_state = "barbwire"; dir = 8},/obj/structure/barbwire,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/no_mans_land/invisible_wall/one)
+"nX" = (/obj/structure/window/barrier/sandbag,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"nY" = (/obj/item/weapon/gun/projectile/automatic/stationary/modern/maxim/ww2{icon_state = "maxim_ww2"; dir = 1},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"nZ" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 8},/obj/structure/window/barrier/sandbag,/obj/structure/barricade/antitank,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oa" = (/obj/structure/window/barrier/sandbag/incomplete{icon_state = "sandbag_66%"},/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"ob" = (/obj/structure/window/barrier/sandbag/incomplete,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oc" = (/obj/structure/barricade/horizontal,/obj/structure/barricade/antitank,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"od" = (/obj/structure/window/barrier/sandbag/incomplete{icon_state = "sandbag_66%"; dir = 1},/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oe" = (/obj/structure/barricade/steel,/obj/structure/barricade/horizontal,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"of" = (/obj/structure/window/barrier/sandbag/incomplete{icon_state = "sandbag_33%"; dir = 1},/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"og" = (/obj/structure/barricade/horizontal,/obj/structure/barricade/antitank,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oh" = (/obj/structure/barricade/horizontal,/obj/structure/barricade/vertical,/obj/structure/barricade/antitank,/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oi" = (/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/obj/structure/window/barrier/sandbag/incomplete{icon_state = "sandbag_66%"},/obj/structure/barricade/antitank,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oj" = (/obj/structure/barricade/horizontal,/obj/structure/barricade/steel,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"ok" = (/obj/structure/barricade/steel,/obj/structure/barricade/vertical,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"ol" = (/obj/structure/window/barrier/sandbag,/obj/structure/barricade/antitank,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"om" = (/obj/item/ammo_magazine/maxim,/obj/item/ammo_magazine/maxim,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"on" = (/obj/structure/barricade/antitank,/turf/floor/plating/road,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oo" = (/obj/structure/barricade/vertical,/obj/structure/barricade/horizontal,/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"op" = (/obj/structure/barricade/horizontal,/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oq" = (/obj/structure/barricade/vertical,/obj/structure/window/barrier/sandbag/incomplete{icon_state = "sandbag_33%"; dir = 8},/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"or" = (/turf/floor/trench,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"os" = (/obj/effect/landmark{name = "JoinLateRU"; icon_state = "x3"},/obj/structure/barricade/antitank,/obj/structure/barricade/antitank,/obj/structure/barricade/antitank,/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"ot" = (/obj/structure/barricade/vertical,/obj/structure/barricade/horizontal,/turf/floor/dirt,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"ou" = (/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 4},/obj/structure/window/barrier/sandbag,/obj/structure/window/barrier/sandbag,/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 4},/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
+"ov" = (/obj/structure/vending/sovietapparel,/turf/floor/trench,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"ow" = (/obj/structure/vending/sovietammo,/turf/floor/trench,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"ox" = (/obj/structure/barricade/horizontal,/obj/structure/window/barrier/sandbag,/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oy" = (/obj/structure/vending/sovietweapons,/turf/floor/trench,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oz" = (/obj/structure/barricade/horizontal,/obj/structure/barricade/steel,/turf/floor/dirt,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oA" = (/obj/structure/barricade/horizontal,/obj/structure/window/barrier/sandbag,/obj/structure/barricade/antitank,/turf/floor/dirt,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oB" = (/obj/structure/barricade/vertical,/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 4},/obj/structure/barricade/antitank,/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oC" = (/obj/structure/barricade/vertical,/obj/structure/window/barrier/sandbag/incomplete{icon_state = "sandbag_66%"; dir = 4},/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oD" = (/obj/structure/barricade/vertical,/obj/structure/window/barrier/sandbag/incomplete{icon_state = "sandbag_66%"; dir = 8},/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oE" = (/obj/structure/barricade/vertical,/obj/structure/barricade/steel,/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oF" = (/obj/structure/barricade/steel,/obj/structure/window/barrier/sandbag/incomplete{icon_state = "sandbag_66%"},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oG" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 4},/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
+"oH" = (/obj/structure/barricade/horizontal,/obj/structure/window/barrier/sandbag/incomplete{icon_state = "sandbag_66%"},/obj/structure/barricade/steel,/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oI" = (/obj/structure/barricade/horizontal,/obj/structure/window/barrier/sandbag,/obj/structure/barricade/antitank,/turf/floor/grass,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oJ" = (/obj/structure/barricade/steel,/obj/structure/barricade/horizontal,/obj/structure/window/barrier/sandbag/incomplete{icon_state = "sandbag_66%"},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oK" = (/obj/structure/barricade/horizontal,/obj/structure/window/barrier/sandbag,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oL" = (/obj/structure/barricade/steel,/obj/structure/barricade/horizontal,/obj/structure/window/barrier/sandbag,/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oM" = (/obj/structure/barricade/steel,/obj/structure/window/barrier/sandbag/incomplete{icon_state = "sandbag_66%"; dir = 8},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oN" = (/obj/structure/barricade/steel,/obj/structure/barricade/vertical,/obj/structure/window/barrier/sandbag/incomplete{icon_state = "sandbag_33%"; dir = 8},/turf/floor/plating/cobblestone/vertical/dark,/area/caribbean/russian/land/outside{name = "Soviet Base"})
+"oO" = (/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 8},/obj/structure/window/barrier/sandbag,/turf/floor/plating/steel,/area/caribbean/german/reichstag/second)
 
 (1,1,1) = {"
 aaabaaaaaaaaaaanaaaaadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadaeaaaaaaaaaaaaaaaaaaaaaa
@@ -753,34 +816,34 @@ aaanaaaaadararadaDaEaFadbkaYaYaYbfaHaHaHaHaHaHaJaHaHaHaHaHaHaHbjbjbjbjbjbjbjbjbj
 aaahahaabrarbsadaDaEaFadbkaYaYaaaPaHaHaHaHaHaHaJaHaHaHaHaHaHaHbjbjbjbjbjbjbjbjbjbjbjbjaHaHaHaHaHaHaHaHaJaHaHaHaHaHabababbbabbqaeaaafaaaaanaaaaanaaaaaa
 abaaahaabvbwbzadaDaEaFadbkaYaYaYbAaHaHaHaHaHaHaJaHaHaHaHaHaHbBbjbjbjbjbjbjbjbjbjbjbjbjaHaHaHaHaHaHaHaHaJaHaHaHaHaHbCbbmfabadbqaeaaaaaaaaaaaaaaaaaaafaa
 abaqanababararadbDaEbiabbkaaaYaYaabAbdaHaHaHaHaJaRaRaHaHaHaHbBaHaHaHbjbjbjbjbjbjaHaHaHaHaHbBaHaHaHbpaHbnaHaHaHbdbCbFbGbHbIbJbKbLbMbMbMbMbMbMbMbMbMbNbM
-ctcucvcwcxcyczmgcBcvcCcDcxcEabaYaYaaaabAaHaHaHaHaHaHaHaPaHaHbBaHaHaHaHaHaHaHaHaHaHaHaHaHaHbBaVaHaHaJaHaHaHaHbCbOaabPbQbRcJcKcLcLcxbobobobobobobobobobo
-bSbTcbbVbWbXbYbZcacbcacccdcWbtaaaYaYaYaabAbdaHaHaPaHaHaPaHaHaLaMmhaHaHaHaHaHaHaHaHaHaHaMmhaLaVaHaHaVaHaHbdbCaaaYceaYaacYbucfcgcccfcfcfcfcfcfcfcfcfcfcf
-chbUcHckcfclcmckcncocpcfcfcfbobtaaaaaYbbaaaabAaHaPaHciaPaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaVaHaHaVaHbCaaaaaYaYabaacZbucfcccfcfcqchchchcrcqchchcfcfcm
-crchchchcfcmcmcfcncscpcfcfcfcfbobxbtaaaYaYaYaabAaPaHaHcFcGcGcFcGcGcFaQaRaSeoaLepbhbhbhbhbhbhbhaHeJjGbCaaaYaYaYaacJdebucfcfcfcfchcrckchchchchchcfcfcmcm
-chcHchchcfcmcmcfcncscpcfcfcfcfcfcfbobtaaaaaYaYaOaPaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHcIcMcMcMcIaHaHaVaWaYaYaaaacJbucfcfcfcfcfcfchcHcqchcHcHchcfcfcmcmcm
-cqchcNchcfcmcmcfcncscpcfcfcfcfcfcfcfbobxbtaabbaOaPaHcIcMcMcIaHaHaHcIcMcMcIcMcMcIaHaHaHaHaHaHaHaHaHaVaWaYaacJdebucfcfcfcfcfcfcfchchchchchchcfcfcmcmcmcm
-chcHcHcHcfcmcmcfcncscpcfcfcfcfcfcfcfcfcfbobtaaaOcOaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHcIcMcMcMcIaHaHaHbCaWaacJbucfcfcfcfcfcfcfcfcfchcrcqcHchcfcfcmcmcmcmcm
-cjlVcjcjcPnmnmcPnnnonpcPcPcPcPcPcPcPcPcPcPbobxbxbybybybybybybydgbEbEbEdgbybybybybybybybybybybybybybydhdhbucPcPcPcPcPcPcPcPcPcPcjcjcjcjcPcPnmnmnmnmnmcP
+ctcucvcwcxcyczmgcBcvcCcDcxcEbxbybymmmmbAaHaHaHaHaHaHaHaPaHaHbBaHaHaHaHaHaHaHaHaHaHaHaHaHaHbBaVaHaHaJaHaHaHaHbCbEmmbObPbQcJcKcLcLcxbobobobobobobobobobo
+bRbSbTbVcDbXbYbZcabTcacxcbcWbtmmbybybymmbAbdaHaHaPaHaHaPaHaHaLaMmhaHaHaHaHaHaHaHaHaHaHaMmhaLaVaHaHaVaHaHbdbCmmbycdbymmcYbubocLcxbobobobobobobobobobobo
+chbUcHckcfclcmckcncocpcfcfcfcfcechchbycgmmmmbAaHaPaHciaPaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaHaVaHaHaVaHbCmmmmbycFckchcGcIcfcccfcfcqchchchcrcqchchcfcfcm
+crchchchcfcmcmcfcncscpcfcfcfcfcfcMcechcFbybymmbAcOcZcZdedgdgdedgdgdeaQaRaSeoaLepdhdhdhdhdhdhdhcZeJjGbCmmbybycFchnEnFcIcfcfcfcfchcrckchchchchchcfcfcmcm
+chcHchchcfcmcmcfcncscpcfcfcfcfcfcfcfcechchbybynGcOcZcZcZcZcZcZcZcZcZcZcZcZcZcZcZcZcZnHnInInInHcZcZnJnKbybychchnEcIcfcfcfcfcfcfchcHcqchcHcHchcfcfcmcmcm
+cqchcNchcfcmcmcfcncscpcfcfcfcfcfcfcfcfcMcechcgnGcOcZnHnInInHcZcZcZnHnInInHnInInHcZcZcZcZcZcZcZcZcZnJnKbychnEnFcIcfcfcfcfcfcfcfchchchchchchcfcfcmcmcmcm
+chcHcHcHcfcmcmcfcncscpcfcfcfcfcfcfcfcfcfcfcechnLnMnNnNnNnNnNnNnNnNnNnNnNnNnNnNnNnNnOnPnPnPnOnNnNnNnQnRchnEcIcfcfcfcfcfcfcfcfcfchcrcqcHchcfcfcmcmcmcmcm
+cjlVcjcjcPnmnmcPnnnonpcPcPcPcPcPcPcPcPcPcPcPnSnSnqnqnqnqnqnqnqnTnUnUnUnTnqnqnqnqnqnqnqnqnqnqnqnqnqnqnVnVnWcPcPcPcPcPcPcPcPcPcPcjcjcjcjcPcPnmnmnmnmnmcP
 aocjcjcjcPnmnmcPnnnonpcPcPcPcPcPcPcPcPcPcPcPcPnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqnqcPcPcPcPcPcPcPcPcPcPcPcPcjnrcjcPcPnmnmnmnmnmcPcP
 chchcHchcfcmcmcfcncscpcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfchchcfcfcmcmcmcmcmcfcfch
 mmmmmmbobomimibomjmkmdbobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobommbobomimimimimibobommmm
 bobobobobomimibomjmkmlbobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobobomimimimimibobommmmmm
 cmcmcmcmcmcmcmcfcncscpcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfbWcRdVbWcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcmcmcmcmcmcfcfckcrchcq
-cmcmcmcmcmcmcmcfcncocpcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfbWcScTcTcUbWcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcmcmcmcmcmcfcfchchcqckcH
-cfcfcfcfcfcmcmcfcncscpcffofofofofofofofocfcfcfcfcfcfcfcfcfcfcfcfcfcfcTcVcfcTcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcmcmcmcmcmcfcfchchcHchchch
-ckchchcfcfcmcmcfcncscpcffofqfqfqfqfqfqfocfcfcfcfcfcfcfbWcXdWdacmcmdbcmcmcmdbdbcmcmdacXdWdacmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcfcfchcrchchcqchch
-chchchchcfcmcmcfcncscpcffocfcfcfcfcfcffocfcfcfcfcfcfdadcdddddfdacmcmcmcmcmcmcmcmdadcdddddfdacmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcfcfcfchchchcHdich
-chcqchchcfcmcmcfcncscQcffocfcfcfcfcfcffocfcfcfcfcmcmcmdddjcmddcmcmcmcmcmcmcmcmcmcmdddjcmddcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcfcfcfchcHchch
-chchcHchcfcmcmcfcncscpcffofofofoeufofofocfcfcmcmcmcmcmdbcmcmcmcmcmcmcmcfcfcfcfcfdkdkcfcfcfcfcfcfcfcfcfcfcfcfcfcfcmcmcmcmcmcmcmcmcmcmcmcmcmcmcfcfcfchch
-chchchckcfcmcmcfcncocpcfevlNlZmacfcfcfcfcmcmcmcmcmcmcmdbcmcmcmcmcmcmcmcfcqcHcqchcHchchchchchchcHchchchchchchchcfcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcfcfcf
-crchcHchcfcmcmcfcncscpcfcfcfcfcfcfcfcmcmcmcmcmcmcmcmcmcmcfcfcmecasdYasealGlHchchchchchcHchchchchchcHcqcrchckcfcfcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcf
-chchcHchcfcmcmcfdlchdmcfcfcfcfcfcmcmcmcmcmmSmSmTmnmnewmcewmccfehnhnhninhnjerchcqcrckcqchchcHchcrchcHcHchchcfcfcmcmcmcmcmcfcfcfcmcmcmcmcmcmcmcmcmcmcmcm
-chdnchchcfcmcmcfcfdocfcfcfcfcmcmcmcmcmcmcmcmcmcmcfcfcfchcHchcfernilJlKlLnierlMmbcHchchchchcqchchcqcHchchcfcfcmcmcmcmcmcfcfchcfcfcfcmcmcmcmcmcmcmcmcmcm
-cqcqchchcfdXdXdYdZeaeaeaebdYdYdYecedcmcmcmcmcfcfcfchchchchcHchcfcflIlIcmcmcmmcmcchchcHchchchchchchchchcfcfcmcmcmcmcmcfcfckchchchcfcfcfcmcmcmcmcmcmcmcm
-cqdpcHchcfdXdXdYdYdYdYdYdYdYdYdYeecmcmcmcfnlncndnenDckcrchcHchchcfcfcmcmcmcmcmcfegchcqcHchcrckchcHchcfcfcmcmcmcmcmcfcfchchchcHchchchcfcfcfcmcmcmcmcmcm
-chchcrchcfeheheieieieieieimompcmcmcmcfcfcfchchcHchdqcqchdqdqdqchchcfcfejcmaccmcmefcfchchchchchchchcfcfcmcmcmcmcmcfcfchchcHchchdichcHchchcfcfcfcmcmcmcm
-chchchchcfekehcmcmcmcmcmcmcmcmcmelcfcfchchchcHdqchcHcHchdqchemdqdqchcfencmejcmejcmcfcfchcqchcrchcfcfcmcmcmcmcmcfcfchchcrcqcHchchcHchchchchchcfcfcfcmcm
-crcNchchcfehehmqmreqmsmsmscmcfcferchchdqdqcrchdrdrdrescrdqdqdqetcrchdqcfenejcmejejcmcfcfchchchcfcfcmcmcmcmcmcfcfchchcqchchchcrchchckcqcrchchchchcfcfcf
+cmcmcmcmcmcmcmcfcncocpcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfbWcScTcTcUbWcccfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcmcmcmcmcmcfcfchchcqckcH
+cfcfcfcfcfcmcmcfcncscpcfokeuoFoJoKoLoFfocfcfcfcfcfcfcfcfcfcfcfcfcfcfcTcVcfcTcfcfcfcfcfcfcccfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcmcmcmcmcmcfcfchchcHchchch
+ckchchcfcfcmcmcfcncscpcfokcfcfcfomnYcfoMcfcfcfcfcfcfcfbWoidWdacmcmdbcmcmcmdbdbcmcmcmcmcmcmcmcmdacXdWdacmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcfcfchcrchchcqchch
+chchchchcfcmcmcfcncscpcffocfcfcfcfcfcfoNcfcfcfcfcfcfdadcdddddfoiobcmcmcmcmcmcmcmcmcmcmcmcmcmdadcdddddfdacmcmcmcmcmcmcmcmcmcmcmcmcmcmcfcfcfchchchcHdich
+chcqchchcfcmcmcfcncscQcfokcfcfcfcfcfcfeuolnXcfcfcmofoddddjcmcmcmcmcmcmcmoncmcmcmcmcmcmcmcmcmcmdddjcmddcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcfcfcfchcHchch
+chchcHchcfcmcmcfcncscpcffofoojeucfoeoeeucfcfnZoaobcmcmdbcmcmcmcmcmcmcmcfcfcfcfcfdkdkcfcfcfcfcfcfcfcfcfcfcfcfcfcfcmcmcmcmcmcmcmcmcmcmcmcmcmcmcfcfcfchch
+chchchckcfcmcmcfcncocpcfcfcfcfcfcfcfcfcfcmcmcmcmcmcmcmdbcmcmcmcmcmcmcmcfckcHcqchotlNoxoAoHoIoHoochchchchchchchcfcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcfcfcf
+crchcHchcfcmcmcfcncscpcfcfcfcfcfcfcfcmcmcmcmcmcmcmcmcmcmcfcfcmlHasocasoglGohchchoBororeworororoDchcHcqcrchckcfcfcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcmcf
+chchcHchcfcmcmcfdlchdmcfcfcfcfcfcmcmcmcmcmmScmmTcmcmcfcfcfcfcfehnhnhninhnjerchcqoCovormnmnorowoqchcHcHchchcfcfcmcmcmcmcmcfcfcfcmcmcmcmcmcmcmcmcmcmcmcm
+chdnchchcfcmcmcfcfdocfcfcfcfcmcmcmcmcmcmcmcmcmcmcfcfcfchcHchcfernilJlKlLnierlMmbevovoroyoyorowoEcqcHchchcfcfcmcmcmcmcmcfcfchcfcfcfcmcmcmcmcmcmcmcmcmcm
+cqcqchchcfdXdXdYdZeaeaeaebdYdYdYecedcmcmcmcmcfcfcfchchchchcHchcfcflIlIcmcmcmmcmcfqozckopopckopoochchchcfcfcmcmcmcmcmcfcfckchchchcfcfcfcmcmcmcmcmcmcmcm
+cqdpcHchcfdXdXdYdYdYdYdYdYdYdYdYeecmcmcmcfnlncndnenDckcrchcHchchcfcfcmcmcmcmcmcfegckckcHchckckchcHchcfcfcmcmcmcmcmcfcfchchchcHchchchcfcfcfcmcmcmcmcmcm
+chchcrchcfeheheieieieieieimompcmcmcmcfcfcfchchcHchdqcqchdqosdqchchcfcfejcmaccmcmefcfchchchckchchchcfcfcmcmcmcmcmcfcfchchcHchchdichcHchchcfcfcfcmcmcmcm
+chchchchcfekehcmcmcmcmcmcmcmcmcmelcfcfchchchcHdqchcHcHchdqchemdqdqchcfencmejcmejcmcfcfchcqckcrchcfcfcmcmcmcmcmcfcfchchcrcqcHchchcHchchchchchcfcfcfcmcm
+crcNchchcfehehmqmreqmsmsmscmcfcferchchdqdqcrchdrdrdrescrdqdqdqetcrchdqcfenejcmejejcmcfcfckckckcfcfcmcmcmcmcmcfcfchchcqchchchcrchchckcqcrchchchchcfcfcf
 "}
 
 (1,1,2) = {"
@@ -867,20 +930,20 @@ dxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdx
 dxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdx
 dxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdx
 dxdxdxdxdxdxdxdxdxdxdxdxitiuiuiuititiuiuiuititiuiuiuititititiuiuiuitititititititiuiuiuititititiuiuiuititiuiuiuititiuiuiuitdxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxdxitivivivivivivivivitiwiwiwiwixiwiwiwiwiwiwiwixiwitiwixiwiwiwiwiwiwiwixiwiwiwiwitivivivivivivivivitdxdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxdxitivivivivivivivivitiwiwiwiwixiwiwiwiwiwiwiwixiwitiwixiwiwiwiwiwiwiwixiwiwiQiwitivivivivivivivivitdxdxdxdxdxdxdxdxdxdxdxdxdxdx
 dxdxdxdxdxdxdxdxdxdxdxdxitiyiwiwiwiwiwiwiwitiwiwiwiwiwiziziziziziziziAiwitiwiwiziziziziziziziwiwiwiBiwitiwiwiwiwiwiwiwiwitdxdxdxdxdxdxdxdxdxdxdxdxdxdx
 dxdxdxdxdxdxdxdxdxdxdxdxitiCiCiCiCiCiCiCiwiDiwiwiwiwiwiEiFiGiziGiFiEiwiwitiwiwiEiFiGiziGiFiEiwiwiwiBiwiDiwiHiwiIiwiJiwiKitdxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxdxitiLkjiwiwiwiwkjiwitiwiwiwiwiwiMiFiNiOiPiFiMiwiwitiQiwiMiFiPiRiSiFiMiwiwiwiBiwitiwiIkjiJiwiTkjiJitdxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxdxititititititititititititiwiwiwiEiFiUiziViFiEiwiwitiwiQiEiFiWiziXiFiEiwiQiQititititititititititititdxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxdxitiYiZjajbixjcjbiwjbjditjeiwjeiziziziziziziziwiwitiQiwiziziziziziziziwiwiwjfjgkrkrjgjijijijijijiitdxdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxdxitiLkjiwiwiwiwkjiwitiwiwiwiwiwiMiFiNiOiPiFiMiwiwitiQiwiMiFiPiRiSiFiMiwiwiwoOiwitiwiIkjiJiwiTkjiJitdxdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxdxititititititititititititiwiwiwiEiFiUiziViFiEiwiwitiwiQiEiFiWiziXiFiEiwiwiwititititititititititititdxdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxdxitiYiZjajbixjcjbiwjbjditjeiwjeiziziziziziziziwiwitiQiwiziziziziziziziwiwiwjfjgkrkrjgjijijijijijijDdxdxdxdxdxdxdxdxdxdxdxdxdxdx
 dxdxdxdxdxdxdxdxdxdxdxdxitjajjjkiwiwiwiwiwiwjlitiwiwiwiEiFiGiziGiFiEiwjmitjniwiEiFiGiziGiFiEiwiwiwitnsjojpjhjijqjrjsjsjtjidxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxdxitjuiwjviwjbiwjbjbiwjmjwjniwiwiMiFjxjyiNiFiMiwiwiDiwiwiMiFjxjziPiFiMiwiwjmjAntjCjpjhjDjpjpjpjpjpjEdxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxdxitiZiwiwiwjFiwiwiwiwiwiDiwiwiwiEiFjHiziXiFiEiwjmitjniwiEiFiUiziViFiEiwiwiwjInujOnBnzjJjKjpjLjpjMjDdxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxdxitjaiwjvjbiwjbjbjbiwiwiDiwiwiwizizizizizizizjeiwitiwiwiziziziziziziziwiwiwjInunznznzjIjpjpjNnAjpjEdxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxdxitjjiwjviwiwiwiwiwiwiwiDiwiwiwiEiFiGiziGiFiEiwjPitjniwiEiFiGiziGiFiEiwiwiwjInunznznzjJjKjpjQjpjMjDdxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxdxitjRiwjvjbiwjbjbjbiwjSjwjnjejeiMnCiSjzjTiFiMiwiwiDiwiwiMiFiSjUjxnCiMiwiwjmjAnvjBjpjhjDjpjpjpjpjpjEdxdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxdxitjuiwjviwjbiwjbjbiwjmjwjniwiwiMiFjxjyiNiFiMiwiwiDiwiwiMiFjxjziPiFiMiwiQoujAntjCjpjhjEjpjpjpjpjpjJdxdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxdxitiZiwiwiwjFiwiwiwiwiwiDiwiwiwiEiFjHiziXiFiEiwjmitjniwiEiFiUiziViFiEiwiBiwjInujOnBnzlZjKjpjLjpjMjEdxdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxdxitjaiwjvjbiwjbjbjbiwiwiDiwiwiwizizizizizizizjeiwitiwiwiziziziziziziziQiwiwjInunznznzmajpjpjNnAjpjJdxdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxdxitjjiwjviwiwiwiwiwiwiwiDiwiwiwiEiFiGiziGiFiEiwjPitjniwiEiFiGiziGiFiEoGiQiwjInunznznzlZjKjpjQjpjMjEdxdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxdxitjRiwjvjbiwjbjbjbiwjSjwjnjejeiMnCiSjzjTiFiMiwiwiDiwiwiMiFiSjUjxnCiMiwiwjmjAnvjBjpjhjEjpjpjpjpjpjJdxdxdxdxdxdxdxdxdxdxdxdxdxdx
 dxdxdxdxdxdxdxdxdxdxdxdxitjViwiwiwiwiwiwiwiwjWitjXjYjXiEiFiUizjZiFiEiwjmitkaiwiEiFiUiziXiFiEiwkbiwitnwkcjpjhjikdkdkdkdkejidxdxdxdxdxdxdxdxdxdxdxdxdxdx
-dxdxdxdxdxdxdxdxdxdxdxdxitjVkfkgkhkikjjWkkklkmitknknkoizizizizizizizjeiwitiwiwizizizizizizizkpjjkqjfnxkrkrnxjijijijijijiitdxdxdxdxdxdxdxdxdxdxdxdxdxdx
+dxdxdxdxdxdxdxdxdxdxdxdxitjVkfkgkhkikjjWkkklkmitknknkoizizizizizizizjeiwitiwiwizizizizizizizkpjjkqjfnxkrkrnxjijijijijijijDdxdxdxdxdxdxdxdxdxdxdxdxdxdx
 dxdxdxdxdxdxdxdxdxdxdxdxititititititititititititkqkpksiEiFiGiziGiFiEiwjeitiwiwiEiFiGiziGiFiEkqjYktititititititititititititdxdxdxdxdxdxdxdxdxdxdxdxdxdx
 dxdxdxdxdxdxdxdxdxdxdxdxitiCnkiCiCiCiCnkiCitjjjjkuiwkbiMiFjTjUiNiFiMiwiwitiwiwiMiFjTjyjxiFiMkvkskwiwiwitiwixkxiwiwkxixkxitdxdxdxdxdxdxdxdxdxdxdxdxdxdx
 dxdxdxdxdxdxdxdxdxdxdxdxitiwiwiwiwiwiwiwiwiDiwiwiwiwiwiEiFiUiziViFiEiwiwitiwiQiEiFkyizkziFiEiwiwiwiwiwiDiwiwkAiZkAiZkBiZitdxdxdxdxdxdxdxdxdxdxdxdxdxdx
