@@ -750,9 +750,11 @@
 			on_impact(loc) //for any final impact behaviours
 			qdel(src)
 			return
+		/*
 		if (map && firer && map.check_caribbean_block(firer, loc) && !map.allow_bullets_through_blocks.Find(get_area(src):type))
 			qdel(src)
 			return
+		*/
 		if ((!( current ) || loc == current))
 			current = locate(min(max(x + xo, 1), world.maxx), min(max(y + yo, 1), world.maxy), z)
 
