@@ -54,7 +54,7 @@
 		return
 	has_suit.overlays -= get_inv_overlay()
 	has_suit = null
-	if (user)
+	if (usr)
 		usr.put_in_hands(src)
 		add_fingerprint(user)
 	else
