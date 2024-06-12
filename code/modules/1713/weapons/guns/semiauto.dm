@@ -41,6 +41,7 @@
 /obj/item/weapon/gun/projectile/semiautomatic/handle_post_fire()
 	..()
 	var/reverse_health_percentage = (1-(health/maxhealth)+0.25)*100
+	/*
 	if (world.time - last_fire > 50)
 		jamcheck = 0
 	else
@@ -49,6 +50,7 @@
 	if (prob(jamcheck*reverse_health_percentage))
 		jammed_until = max(world.time + (jamcheck * 4), 40)
 		jamcheck = 0
+	*/
 
 	last_fire = world.time
 

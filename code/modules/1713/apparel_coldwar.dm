@@ -1024,7 +1024,7 @@
 	worn_state = "ssh_68_sovhelm"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 55, arrow = 75, gun = ARMOR_CLASS*3, energy = 24, bomb = 66, bio = 25, rad = FALSE)
+	armor = list(melee = 55, arrow = 75, gun = ARMOR_CLASS*2, energy = 24, bomb = 66, bio = 25, rad = FALSE)
 
 /obj/item/clothing/head/helmet/modern/ssh_68/med
 	icon_state = "ssh_68med"
