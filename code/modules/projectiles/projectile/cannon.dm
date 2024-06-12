@@ -63,7 +63,7 @@
 			effect_loc = permutated[permutated.len]
 		else
 			effect_loc = starting
-		for(var/i = 0, i < 10, i++)
+		for(var/i = 0, i < 20, i++)
 			var/obj/effect/projectile/P = new impact_type(effect_loc)
 			if (istype(P))
 				P.activate(get_angle())

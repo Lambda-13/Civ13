@@ -701,7 +701,7 @@
 		--penetrating
 
 	if (istype(src, /obj/item/projectile/shell))
-		if (get_dist(starting, src) > get_dist(starting, trajectory.target) + rand(-1, 1))
+		if (get_dist(starting, src) > get_dist(starting, trajectory.target) + rand(-2, 2))
 			var/obj/item/projectile/shell/S = src
 			permutated += T
 			S.initiate(loc)
@@ -827,14 +827,16 @@
 /obj/item/projectile/proc/muzzle_effect()
 	if (silenced)
 		did_muzzle_effect = TRUE
-		return
-	if (ispath(muzzle_type) && !did_muzzle_effect)
+	else if (ispath(muzzle_type) && !did_muzzle_effect)
 		var/obj/effect/projectile/M = new muzzle_type(starting)
 		if (istype(M))
 			M.layer = layer
 			M.activate(get_angle())
 	if(!istype(muzzle_type, /obj/effect/projectile/laser))
-		for(var/i = 0, i < 15, i++)
+		var/smoke_amount = 15
+		if(silenced)
+			smoke_amount = 25
+		for(var/i = 0, i < smoke_amount, i++)
 			spawn (i * 0.3)
 				var/obj/effect/projectile/bullet/muzzle/gunsmoke/S = new/obj/effect/projectile/bullet/muzzle/gunsmoke(starting)
 				S.layer = layer
