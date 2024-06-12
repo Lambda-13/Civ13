@@ -973,7 +973,7 @@
 	item_state = "greenkevlarvest"
 	worn_state = "greenkevlarvest"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	armor = list(melee = 67, arrow = 95, gun = ARMOR_CLASS*2, energy = 22, bomb = 60, bio = 20, rad = FALSE)
+	armor = list(melee = 67, arrow = 95, gun = ARMOR_CLASS*3, energy = 22, bomb = 60, bio = 20, rad = FALSE)
 	value = 90
 	slowdown = 0.3
 	w_class = ITEM_SIZE_LARGE
