@@ -14,8 +14,8 @@
 		loc = location
 
 /obj/effect/projectile/proc/activate(var/direction)
-	pixel_x = cos(direction) * 25
-	pixel_y = sin(direction) * 25
+	pixel_x = cos(direction) * 32
+	pixel_y = sin(direction) * 32
 	transform = turn(transform, -direction) 
 	call_time = world.time
 	update()
@@ -56,10 +56,10 @@
 	var/speed_modifier = 1
 
 /obj/effect/projectile/bullet/muzzle/gunsmoke/activate(var/direction)
-	pixel_x = cos(direction) * 16
-	pixel_y = sin(direction) * 16
+	pixel_x = cos(direction) * 13
+	pixel_y = sin(direction) * 13
 	call_time = world.time
-	var/dispersion = rand(-20, 20)
+	var/dispersion = rand(-25, 25)
 	angle = direction + dispersion
 	speed_modifier *= sqrt(abs(dispersion)) * 2
 	update()
