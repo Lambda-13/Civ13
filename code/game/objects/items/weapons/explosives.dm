@@ -115,7 +115,7 @@
 	var/connected = FALSE
 
 /obj/item/weapon/plastique/remote/explode()
-	explosion(get_turf(loc), 1, 1, 3, 3)
+	explosion(get_turf(loc), 2, 3, 4, 3)
 	playsound(get_turf(loc), "explosion", 100, TRUE)
 	qdel(src)
 
