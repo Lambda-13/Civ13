@@ -2186,7 +2186,6 @@
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/submachinegun/ppsh(H), slot_shoulder)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/c762x25_ppsh(H), slot_r_store)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/c762x25_ppsh(H), slot_l_store)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver/nagant_revolver(H), slot_l_hand)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/ww2/sapper/russian(H), slot_back)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/utility/sapper(H), slot_belt)
 	if (time_of_day == "Night" || time_of_day == "Evening" || time_of_day == "Early Morning")
@@ -2195,8 +2194,8 @@
 		H.equip_to_slot_or_del(new /obj/item/weapon/reagent_containers/food/drinks/bottle/canteen, slot_wear_id)
 
 	var/obj/item/clothing/under/uniform = H.w_uniform
-	var/obj/item/clothing/accessory/holster/hip/holsterh = new /obj/item/clothing/accessory/holster/hip(null)
-	uniform.attackby(holsterh, H)
+	var/obj/item/clothing/accessory/armor/modern/plate/breastplate = new /obj/item/clothing/accessory/armor/modern/plate(null)
+	uniform.attackby(breastplate, H)
 	give_random_name(H)
 	H.add_note("Role", "You are a <b>[title]</b>, a sapper of the Guards. Place mines or remove them, sandbags, barbed wire,destroy enemy tanks and positions, and help repair the vehicles!")
 	H.setStat("strength", STAT_HIGH)

@@ -27,8 +27,6 @@
 	firemodes = list(
 		list(name = "full auto", burst=1, burst_delay=0.8),
 	)
-	var/jammed_until = -1
-	var/jamcheck = 0
 	var/last_fire = -1
 
 	var/obj/structure/bed/chair/mgunner/mount = null
@@ -62,23 +60,10 @@
 	if (!user.has_empty_hand(both = FALSE))
 		user << "<span class='warning'>You need both hands to fire \the [src]!</span>"
 		return FALSE
-	if (jammed_until > world.time)
-		user << "<span class = 'danger'>\The [src] has jammed! You can't fire it until it has unjammed.</span>"
-		return FALSE
 	return TRUE
 
 /obj/item/weapon/gun/projectile/automatic/handle_post_fire()
 	..()
-	var/reverse_health_percentage = (1-(health/maxhealth)+0.25)*100
-	if (world.time - last_fire > 50)
-		jamcheck = 0
-	else
-		jamcheck += 0.1
-
-	if (prob(jamcheck*reverse_health_percentage))
-		jammed_until = max(world.time + (jamcheck * 5), 50)
-		jamcheck = 0
-
 	last_fire = world.time
 
 /obj/item/weapon/gun/projectile/automatic/madsen

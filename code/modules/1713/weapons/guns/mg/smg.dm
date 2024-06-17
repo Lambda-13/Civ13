@@ -23,8 +23,6 @@
 	stat = "machinegun"
 	w_class = ITEM_SIZE_NORMAL
 	attachment_slots = ATTACH_IRONSIGHTS
-	var/jammed_until = -1
-	var/jamcheck = 0
 	var/last_fire = -1
 	var/one_handed = FALSE
 	reload_sound = 'sound/weapons/guns/interact/AR15Reload.ogg'
@@ -37,9 +35,6 @@
 		return FALSE
 	if (!user.has_empty_hand(both = FALSE) && one_handed == FALSE)
 		user << "<span class='warning'>You need both hands to fire \the [src]!</span>"
-		return FALSE
-	if (jammed_until > world.time)
-		user << "<span class = 'danger'>\The [src] has jammed! You can't fire it until it has unjammed.</span>"
 		return FALSE
 	return TRUE
 
@@ -73,16 +68,6 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/handle_post_fire()
 	..()
-	var/reverse_health_percentage = (1-(health/maxhealth)+0.25)*100
-	if (world.time - last_fire > 50)
-		jamcheck = 0
-	else
-		jamcheck += 0.12
-
-	if (prob(jamcheck*reverse_health_percentage))
-		jammed_until = max(world.time + (jamcheck * 4), 45)
-		jamcheck = 0
-
 	last_fire = world.time
 
 /obj/item/weapon/gun/projectile/submachinegun/spas

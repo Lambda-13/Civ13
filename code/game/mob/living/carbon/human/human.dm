@@ -194,6 +194,9 @@ var/list/coefflist = list()
 				if (statname != "stamina")
 					stat("[capitalize(statname)]: ", "[coeff]x average")
 
+/mob/living/human/forceMove(atom/destination, var/special_event)
+	..()
+	update_vision_cone()
 
 /mob/living/human/ex_act(severity)
 	if (!blinded)
