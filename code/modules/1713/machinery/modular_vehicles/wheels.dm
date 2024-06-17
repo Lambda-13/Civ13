@@ -203,6 +203,8 @@
 /obj/structure/bed/chair/drivers/post_buckle_mob()
 	if (axis)
 		axis.driver = buckled_mob
+	if(buckled_mob)
+		buckled_mob.update_vision_cone()
 	if (buckled_mob && istype(buckled_mob, /mob/living/human) && buckled_mob.put_in_active_hand(wheel) == FALSE)
 		buckled_mob << "Your hands are full!"
 		return
@@ -293,6 +295,7 @@
 
 /obj/structure/bed/chair/mgunner/post_buckle_mob()
 	if (buckled_mob && istype(buckled_mob, /mob/living/human) && mg)
+		buckled_mob.update_vision_cone()
 		if(buckled_mob.put_in_active_hand(mg) == FALSE)
 			buckled_mob << "Your hands are full!"
 			return

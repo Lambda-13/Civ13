@@ -272,6 +272,7 @@
 	if (M == buckled_mob)
 		M.pixel_y = 6
 		M.old_y = 6
+		M.update_vision_cone()
 		density = TRUE
 		icon_state = "up"
 	else
