@@ -32,7 +32,7 @@
 	flammable = TRUE
 	projtype = "bolt"
 	icotype = "crossbow"
-	equiptimer = 25
+	equiptimer = 12
 	load_delay = 60
 	aim_miss_chance_divider = 3.00
 	accuracy = 1

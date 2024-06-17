@@ -26,7 +26,7 @@
 	var/KD_chance = 5
 	var/load_delay = 0
 
-	equiptimer = 10
+	equiptimer = 5
 
 	stat = "rifle"
 

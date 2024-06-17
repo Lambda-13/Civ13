@@ -731,19 +731,19 @@
 		icon_state = override_sprite
 	switch (stock_type)
 		if ("Rifle Wooden Stock")
-			equiptimer = 15
+			equiptimer = 7
 			recoil *= 0.75
 		if ("Carbine Wooden Stock")
-			equiptimer = 12
+			equiptimer = 6
 			recoil *= 0.85
 		if ("Pistol Grip")
-			equiptimer = 7
+			equiptimer = 3
 			recoil *= 0.90
 		if ("Steel Stock")
-			equiptimer = 11
+			equiptimer = 5
 			recoil *= 0.85
 		if ("Folding Stock")
-			equiptimer = 12
+			equiptimer = 6
 			recoil *= 0.90
 
 

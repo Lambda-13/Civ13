@@ -33,7 +33,7 @@
 	flammable = TRUE
 	var/projtype = "arrow"
 	var/icotype = "bow"
-	equiptimer = 20
+	equiptimer = 10
 	gtype = "none"
 	load_delay = 30
 	aim_miss_chance_divider = 3.00

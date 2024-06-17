@@ -8,7 +8,7 @@
 	// more accuracy than MGs, less than everything else
 	load_method = MAGAZINE
 	slot_flags = SLOT_SHOULDER|SLOT_BELT
-	equiptimer = 12
+	equiptimer = 6
 	gun_safety = TRUE
 	load_delay = 8
 	gun_type = GUN_TYPE_RIFLE
@@ -56,7 +56,7 @@
 	good_mags = list(/obj/item/ammo_magazine/stg)
 	weight = 4.6
 	load_delay = 8
-	equiptimer = 15
+	equiptimer = 7
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.8),
 		list(name = "full auto",	burst=1, burst_delay=1.5),
@@ -110,7 +110,7 @@
 	force = 15
 	throwforce = 30
 	weight = 3.5
-	equiptimer = 15
+	equiptimer = 7
 	fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
 	firemodes = list(
 		list(name = "semi auto",    burst=1, burst_delay=0.7),
@@ -128,7 +128,7 @@
 	desc = "A 12 gauge semi-automatic, gas-operated combat shotgun used by Russian Armed Forces."
 	magazine_type = /obj/item/ammo_magazine/saiga12
 	weight = 3.5
-	equiptimer = 11
+	equiptimer = 5
 	caliber = "12gauge"
 	slot_flags = SLOT_SHOULDER
 	handle_casings = EJECT_CASINGS
@@ -180,7 +180,7 @@
 	magazine_type = /obj/item/ammo_magazine/mp40
 	good_mags = list(/obj/item/ammo_magazine/mp40)
 	full_auto = TRUE
-	equiptimer = 12
+	equiptimer = 6
 	firemodes = list(
 		list(name = "full auto",	burst=1, burst_delay=1.1),
 		)
@@ -194,7 +194,7 @@
 	desc = "Early German submachinegun with an underfolding stock, chambered in 9mm Luger."
 	weight = 4.10
 	full_auto = TRUE
-	equiptimer = 13
+	equiptimer = 6
 	firemodes = list(
 		list(name = "full auto",	burst=1, burst_delay=1.1),
 		)
@@ -215,7 +215,7 @@
 	magazine_type = /obj/item/ammo_magazine/mp40/erma
 	good_mags = list(/obj/item/ammo_magazine/mp40,/obj/item/ammo_magazine/mp40/erma)
 	full_auto = TRUE
-	equiptimer = 14
+	equiptimer = 7
 	firemodes = list(
 		list(name = "full auto",	burst=1, burst_delay=1.1),
 		)
@@ -231,7 +231,7 @@
 	item_state = "blyskawica"
 	base_icon = "blyskawica"
 	weight = 4.12
-	equiptimer = 10
+	equiptimer = 5
 	firemodes = list(
 		list(name = "full auto",    burst=1.2, burst_delay=1.4),
 		)
@@ -253,7 +253,7 @@
 	item_state = "mp5"
 	base_icon = "mp5"
 	weight = 2.9
-	equiptimer = 8
+	equiptimer = 4
 	fire_sound = 'sound/weapons/guns/fire/MP5.ogg'
 	magazine_type = /obj/item/ammo_magazine/mp40/mp5
 	good_mags = list(/obj/item/ammo_magazine/mp40/mp5)
@@ -278,7 +278,7 @@
 	magazine_type = /obj/item/ammo_magazine/fg42
 	good_mags = list(/obj/item/ammo_magazine/fg42,/obj/item/ammo_magazine/fg42/small)
 	full_auto = TRUE
-	equiptimer = 12
+	equiptimer = 6
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.3),
 		list(name = "full auto",	burst=1, burst_delay=0.4),
@@ -305,7 +305,7 @@
 	base_icon = "uzi"
 	caliber = "a9x19"
 	weight = 2.1
-	equiptimer = 5
+	equiptimer = 2
 	fire_sound = 'sound/weapons/guns/fire/9mm.ogg'
 	magazine_type = /obj/item/ammo_magazine/uzi
 	good_mags = list(/obj/item/ammo_magazine/uzi)
@@ -325,7 +325,7 @@
 	item_state = "mac10"
 	base_icon = "mac10"
 	weight = 1.7
-	equiptimer = 7
+	equiptimer = 3
 	caliber = "a45acp"
 	fire_sound = 'sound/weapons/guns/fire/45ACP.ogg'
 	magazine_type = /obj/item/ammo_magazine/mac10
@@ -351,7 +351,7 @@
 	magazine_type = /obj/item/ammo_magazine/tec9
 	good_mags = list(/obj/item/ammo_magazine/tec9)
 	weight = 1.3
-	equiptimer = 8
+	equiptimer = 4
 	slot_flags = SLOT_SHOULDER | SLOT_BELT
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.2),
@@ -371,7 +371,7 @@
 	base_icon = "skorpion"
 	caliber = "a9x19"
 	weight = 1.1
-	equiptimer = 6
+	equiptimer = 3
 	fire_sound = 'sound/weapons/guns/fire/9mm.ogg'
 	magazine_type = /obj/item/ammo_magazine/skorpion
 	good_mags = list(/obj/item/ammo_magazine/skorpion)
@@ -397,7 +397,7 @@
 	good_mags = list(/obj/item/ammo_magazine/greasegun)
 	full_auto = TRUE
 	slot_flags = SLOT_BELT|SLOT_SHOULDER
-	equiptimer = 7
+	equiptimer = 3
 	firemodes = list(
 		list(name = "full auto",	burst=1, burst_delay=1.4),
 		)
@@ -419,7 +419,7 @@
 	good_mags = list(/obj/item/ammo_magazine/thompson, /obj/item/ammo_magazine/tommy)
 	full_auto = TRUE
 	slot_flags = SLOT_BELT|SLOT_SHOULDER
-	equiptimer = 8
+	equiptimer = 4
 	firemodes = list(
 		list(name = "full auto",	burst=1, burst_delay=1.2),
 		)
@@ -441,7 +441,7 @@
 	magazine_type = /obj/item/ammo_magazine/type100
 	good_mags = list(/obj/item/ammo_magazine/type100)
 	full_auto = TRUE
-	equiptimer = 12
+	equiptimer = 6
 	firemodes = list(
 		list(name = "full auto",	burst=1, burst_delay=1.3),
 		)
@@ -464,7 +464,7 @@
 	good_mags = list(/obj/item/ammo_magazine/sten2)
 	full_auto = TRUE
 	slot_flags = SLOT_SHOULDER
-	equiptimer = 8
+	equiptimer = 4
 	firemodes = list(
 		list(name = "full auto",	burst=1, burst_delay=1.25),
 		)
@@ -481,7 +481,7 @@
 	base_icon = "sten2"
 	weight = 3.1
 	attachment_slots = ATTACH_BARREL|ATTACH_UNDER
-	equiptimer = 6
+	equiptimer = 3
 	recoil = 25
 	accuracy = 4
 
@@ -497,7 +497,7 @@
 	magazine_type = /obj/item/ammo_magazine/c762x25_ppsh
 	good_mags = list(/obj/item/ammo_magazine/c762x25_ppsh, /obj/item/ammo_magazine/c762x25_pps)
 	weight = 3.63
-	equiptimer = 14
+	equiptimer = 7
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.5),
 		list(name = "full auto",	burst=1, burst_delay=1.2),
@@ -515,7 +515,7 @@
 	name = "Type 50"
 	desc = "Chinese Variant of the Iconic Soviet submachinegun. Chambered in 7.62x25mm Tokarev."
 	weight = 3.61
-	equiptimer = 11
+	equiptimer = 5
 
 /obj/item/weapon/gun/projectile/submachinegun/pps
 	name = "PPS-43"
@@ -529,7 +529,7 @@
 	magazine_type = /obj/item/ammo_magazine/c762x25_pps
 	good_mags = list(/obj/item/ammo_magazine/c762x25_ppsh, /obj/item/ammo_magazine/c762x25_pps)
 	weight = 3.04
-	equiptimer = 10
+	equiptimer = 5
 	firemodes = list(
 		list(name = "full auto",	burst=1, burst_delay=1.1),
 		)
@@ -553,7 +553,7 @@
 	magazine_type = /obj/item/ammo_magazine/c762x25_ppsh
 	good_mags = list(/obj/item/ammo_magazine/c762x25_ppsh, /obj/item/ammo_magazine/c762x25_pps)
 	weight = 3.7
-	equiptimer = 15
+	equiptimer = 7
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.5),
 		list(name = "full auto",	burst=1, burst_delay=1.3),
@@ -580,7 +580,7 @@
 	magazine_type = /obj/item/ammo_magazine/ak47
 	good_mags = list(/obj/item/ammo_magazine/rpk47, /obj/item/ammo_magazine/rpk47/drum, /obj/item/ammo_magazine/ak47, /obj/item/ammo_magazine/ak47/makeshift)
 	weight = 3.47
-	equiptimer = 15
+	equiptimer = 7
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.2),
@@ -634,7 +634,7 @@
 		recoil *= 1.5
 		icon_state = "[base_icon]_folded"
 		usr << "You extend the stock on \the [src]."
-		equiptimer = 15
+		equiptimer = 7
 		set_stock()
 		update_icon()
 	else
@@ -642,7 +642,7 @@
 		folded = TRUE
 		icon_state = "[base_icon]"
 		usr << "You collapse the stock on \the [src]."
-		equiptimer = 7
+		equiptimer = 4
 		set_stock()
 		update_icon()
 
@@ -664,7 +664,7 @@
 	magazine_type = /obj/item/ammo_magazine/ak74
 	good_mags = list(/obj/item/ammo_magazine/rpk74, /obj/item/ammo_magazine/rpk74/drum, /obj/item/ammo_magazine/ak74, /obj/item/ammo_magazine/ak74/ak74m)
 	weight = 3.07
-	equiptimer = 15
+	equiptimer = 7
 	slot_flags = SLOT_SHOULDER
 	stat = "rifle"
 	firemodes = list(
@@ -718,7 +718,7 @@
 		recoil *= 1.5
 		icon_state = "[base_icon]_folded"
 		usr << "You extend the stock on \the [src]."
-		equiptimer = 15
+		equiptimer = 7
 		set_stock()
 		update_icon()
 	else
@@ -726,7 +726,7 @@
 		folded = TRUE
 		icon_state = "[base_icon]"
 		usr << "You collapse the stock on \the [src]."
-		equiptimer = 7
+		equiptimer = 4
 		set_stock()
 		update_icon()
 
@@ -746,7 +746,7 @@
 	folded = FALSE
 	weight = 2.7
 	damage_modifier = 0.95
-	equiptimer = 12
+	equiptimer = 6
 	recoil = 40
 	accuracy = 2
 
@@ -772,7 +772,7 @@
 		recoil *= 1.5
 		icon_state = "[base_icon]_folded"
 		usr << "You extend the stock on \the [src]."
-		equiptimer = 15
+		equiptimer = 7
 		set_stock()
 		update_icon()
 	else
@@ -780,7 +780,7 @@
 		folded = TRUE
 		icon_state = "[base_icon]"
 		usr << "You collapse the stock on \the [src]."
-		equiptimer = 7
+		equiptimer = 4
 		set_stock()
 		update_icon()
 
@@ -800,7 +800,7 @@
 	folded = FALSE
 	weight = 2.65
 	damage_modifier = 0.95
-	equiptimer = 12
+	equiptimer = 6
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER|ATTACH_BARREL
 	scope_mounts = list ("dovetail", "picatinny")
 	under_mounts = list ("picatinny")
@@ -816,7 +816,7 @@
 	folded = TRUE
 	weight = 2.6
 	damage_modifier = 0.98
-	equiptimer = 10
+	equiptimer = 5
 	recoil = 30
 	accuracy = 2
 
@@ -844,7 +844,7 @@
 		recoil *= 1.5
 		icon_state = "[base_icon]_folded"
 		usr << "You extend the stock on \the [src]."
-		equiptimer = 15
+		equiptimer = 7
 		set_stock()
 		update_icon()
 	else
@@ -852,7 +852,7 @@
 		folded = TRUE
 		icon_state = "[base_icon]"
 		usr << "You collapse the stock on \the [src]."
-		equiptimer = 7
+		equiptimer = 4
 		set_stock()
 		update_icon()
 
@@ -868,7 +868,7 @@
 	magazine_type = /obj/item/ammo_magazine/ak74/ak74m
 	good_mags = list(/obj/item/ammo_magazine/rpk74, /obj/item/ammo_magazine/rpk74/drum, /obj/item/ammo_magazine/ak74, /obj/item/ammo_magazine/ak74/ak74m)
 	weight = 3.07
-	equiptimer = 15
+	equiptimer = 7
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.1),
@@ -897,7 +897,7 @@
 	magazine_type = /obj/item/ammo_magazine/ak74
 	good_mags = list(/obj/item/ammo_magazine/rpk74, /obj/item/ammo_magazine/rpk74/drum, /obj/item/ammo_magazine/ak74, /obj/item/ammo_magazine/ak74/ak74m)
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER|ATTACH_BARREL
-	equiptimer = 12
+	equiptimer = 6
 	sel_mode = 1
 	recoil = 25
 	accuracy = 2
@@ -917,7 +917,7 @@
 	magazine_type = /obj/item/ammo_magazine/ak47
 	good_mags = list(/obj/item/ammo_magazine/rpk47, /obj/item/ammo_magazine/rpk47/drum, /obj/item/ammo_magazine/ak47, /obj/item/ammo_magazine/ak47/makeshift)
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER|ATTACH_BARREL
-	equiptimer = 12
+	equiptimer = 6
 	sel_mode = 1
 	recoil = 30
 	accuracy = 2
@@ -934,7 +934,7 @@
 	magazine_type = /obj/item/ammo_magazine/m16
 	good_mags = list(/obj/item/ammo_magazine/m16, /obj/item/ammo_magazine/m16/mag5_60, /obj/item/ammo_magazine/ar15)
 	weight = 3.07
-	equiptimer = 15
+	equiptimer = 7
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.3),
@@ -982,7 +982,7 @@
 	magazine_type = /obj/item/ammo_magazine/ar10
 	good_mags = list(/obj/item/ammo_magazine/ar10)
 	weight = 3.07
-	equiptimer = 15
+	equiptimer = 7
 	slot_flags = SLOT_SHOULDER
 	full_auto = FALSE
 	firemodes = list(
@@ -1008,7 +1008,7 @@
 	unload_sound = 'sound/weapons/guns/interact/AR15Unload.ogg'
 	magazine_type = /obj/item/ammo_magazine/m16
 	weight = 3.07
-	equiptimer = 9
+	equiptimer = 4
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.3),
@@ -1121,7 +1121,7 @@
 	good_mags = list(/obj/item/ammo_magazine/m14)
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	weight = 3.6
-	equiptimer = 15
+	equiptimer = 7
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.6),
@@ -1166,7 +1166,7 @@
 	good_mags = list(/obj/item/ammo_magazine/hk)
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	weight = 4.2
-	equiptimer = 15
+	equiptimer = 7
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.9),
@@ -1192,7 +1192,7 @@
 	good_mags = list(/obj/item/ammo_magazine/fal)
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	weight = 3.8
-	equiptimer = 12
+	equiptimer = 6
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.9),
@@ -1216,7 +1216,7 @@
 	magazine_type = /obj/item/ammo_magazine/m16
 	good_mags = list(/obj/item/ammo_magazine/m16, /obj/item/ammo_magazine/m16/mag5_60, /obj/item/ammo_magazine/ar15)
 	weight = 3
-	equiptimer = 10
+	equiptimer = 5
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.2),
@@ -1247,7 +1247,7 @@
 	magazine_type = /obj/item/ammo_magazine/scarh
 	good_mags = list(/obj/item/ammo_magazine/scarh)
 	weight = 3.5
-	equiptimer = 11
+	equiptimer = 5
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.2),
@@ -1275,7 +1275,7 @@
 	good_mags = list(/obj/item/ammo_magazine/ar12)
 	shake_strength = 1
 	weight = 3.5
-	equiptimer = 11
+	equiptimer = 5
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.6),
@@ -1306,7 +1306,7 @@
 	good_mags = list(/obj/item/ammo_magazine/scarh)
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_SCOPE|ATTACH_UNDER
 	weight = 3.8
-	equiptimer = 13
+	equiptimer = 6
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.6),
@@ -1350,7 +1350,7 @@
 	good_mags = list(/obj/item/ammo_magazine/p90)
 	attachment_slots = ATTACH_BARREL|ATTACH_IRONSIGHTS|ATTACH_SCOPE
 	weight = 2.3
-	equiptimer = 8
+	equiptimer = 4
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.4),
@@ -1380,7 +1380,7 @@
 	good_mags = list(/obj/item/ammo_magazine/glock17, /obj/item/ammo_magazine/glock17/victor)
 	attachment_slots = ATTACH_BARREL|ATTACH_IRONSIGHTS|ATTACH_UNDER|ATTACH_SCOPE
 	weight = 3
-	equiptimer = 4
+	equiptimer = 2
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.4),
@@ -1411,7 +1411,7 @@
 	magazine_type = /obj/item/ammo_magazine/qbz95
 	good_mags = list(/obj/item/ammo_magazine/qbz95)
 	weight = 3.5
-	equiptimer = 11
+	equiptimer = 5
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.6),
@@ -1436,7 +1436,7 @@
 	magazine_type = /obj/item/ammo_magazine/ak47/makeshift
 	good_mags = list(/obj/item/ammo_magazine/rpk47, /obj/item/ammo_magazine/rpk47/drum, /obj/item/ammo_magazine/ak47, /obj/item/ammo_magazine/ak47/makeshift)
 	weight = 3.8
-	equiptimer = 15
+	equiptimer = 7
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "full auto",	burst=1, burst_delay=1.7),
@@ -1461,7 +1461,7 @@
 	magazine_type = /obj/item/ammo_magazine/ak47
 	good_mags = list(/obj/item/ammo_magazine/rpk47, /obj/item/ammo_magazine/rpk47/drum, /obj/item/ammo_magazine/ak47, /obj/item/ammo_magazine/ak47/makeshift)
 	weight = 2.93
-	equiptimer = 12
+	equiptimer = 6
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.8),
@@ -1502,7 +1502,7 @@
 	magazine_type = /obj/item/ammo_magazine/m16
 	good_mags = list(/obj/item/ammo_magazine/m16)
 	weight = 2.98
-	equiptimer = 13
+	equiptimer = 6
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.1),
@@ -1528,7 +1528,7 @@
 /obj/item/weapon/gun/projectile/submachinegun/c7/c8
 	name = "C8"
 	desc = "A Canadian Colt C8 assault rifle, chambered in 5.56x45mm."
-	equiptimer = 11
+	equiptimer = 5
 
 /obj/item/weapon/gun/projectile/submachinegun/m2carbine
 	name = "M2 carbine"
@@ -1542,7 +1542,7 @@
 	magazine_type = /obj/item/ammo_magazine/m1carbine
 	good_mags = list(/obj/item/ammo_magazine/m1carbine, /obj/item/ammo_magazine/m1carbine/big)
 	weight = 3.4
-	equiptimer = 11
+	equiptimer = 5
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=1),
@@ -1565,7 +1565,7 @@
 	ammo_type = /obj/item/ammo_casing/a9x39
 	magazine_type = /obj/item/ammo_magazine/srm
 	good_mags = list(/obj/item/ammo_magazine/srm,/obj/item/ammo_magazine/srm/srms,/obj/item/ammo_magazine/vintorez)
-	equiptimer = 12
+	equiptimer = 6
 	var/folded = FALSE
 	weight = 2
 	firemodes = list(
@@ -1598,7 +1598,7 @@
 		recoil *= 1.5
 		icon_state = "[base_icon]_folded"
 		usr << "You extend the stock on \the [src]."
-		equiptimer = 15
+		equiptimer = 7
 		set_stock()
 		update_icon()
 	else
@@ -1606,7 +1606,7 @@
 		folded = TRUE
 		icon_state = "[base_icon]"
 		usr << "You collapse the stock on \the [src]."
-		equiptimer = 7
+		equiptimer = 4
 		set_stock()
 		update_icon()
 
