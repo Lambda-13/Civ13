@@ -63,6 +63,12 @@
 	visible_message("<span class='danger'>The [name] gets destroyed!</span>")
 	..()
 
+/obj/structure/bed/chair/drivers/forceMove(atom/destination, var/special_event)
+	..()
+	if(buckled_mob)
+		buckled_mob.dir = dir
+		buckled_mob.update_vision_cone()
+
 /obj/item/vehicleparts/wheel/modular/attack_self(mob/living/human/H)
 	if(!control)
 		return
@@ -190,7 +196,9 @@
 	return M
 
 /obj/structure/bed/chair/drivers/update_icon()
-	return
+	if(buckled_mob)
+		buckled_mob.dir = dir
+		buckled_mob.update_vision_cone()
 
 /obj/structure/bed/chair/drivers/post_buckle_mob()
 	if (axis)
@@ -265,6 +273,13 @@
 			mg.nothrow = TRUE
 			mg.nodrop = TRUE
 			mg.recoil = 1
+
+/obj/structure/bed/chair/mgunner/forceMove(atom/destination, var/special_event)
+	..()
+	if(buckled_mob)
+		buckled_mob.dir = dir
+		buckled_mob.update_vision_cone()
+
 /obj/structure/bed/chair/mgunner/rotate_right()
 	return
 
@@ -272,7 +287,9 @@
 	return
 
 /obj/structure/bed/chair/mgunner/update_icon()
-	return
+	if(buckled_mob)
+		buckled_mob.dir = dir
+		buckled_mob.update_vision_cone()
 
 /obj/structure/bed/chair/mgunner/post_buckle_mob()
 	if (buckled_mob && istype(buckled_mob, /mob/living/human) && mg)
@@ -341,6 +358,12 @@
 	controls.turret = origin_turret
 	update_icon()
 
+/obj/structure/bed/chair/gunner/forceMove(atom/destination, var/special_event)
+	..()
+	if(buckled_mob)
+		buckled_mob.dir = dir
+		buckled_mob.update_vision_cone()
+
 /obj/structure/bed/chair/gunner/update_icon()
 	if(!turret)
 		return
@@ -364,6 +387,7 @@
 
 	if(buckled_mob)
 		buckled_mob.dir = dir
+		buckled_mob.update_vision_cone()
 		buckled_mob.pixel_x = pixel_x
 		buckled_mob.pixel_y = pixel_y
 
@@ -373,6 +397,7 @@
 	if(buckled_mob)
 		buckled_mob.pixel_x = pixel_x
 		buckled_mob.pixel_y = pixel_y
+		buckled_mob.update_vision_cone()
 		if(turret)
 			turret.draw_aiming_line(buckled_mob)
 			turret.gunner = buckled_mob
@@ -499,6 +524,7 @@
 		buckled_mob.dir = dir
 		buckled_mob.pixel_x = pixel_x
 		buckled_mob.pixel_y = pixel_y
+		buckled_mob.update_vision_cone()
 
 /obj/item/turret_controls/proc/rotate()
 	if(!turret)
@@ -550,6 +576,12 @@
 	turret = origin_turret
 	update_icon()
 
+/obj/structure/bed/chair/loader/forceMove(atom/destination, var/special_event)
+	..()
+	if(buckled_mob)
+		buckled_mob.dir = dir
+		buckled_mob.update_vision_cone()
+
 /obj/structure/bed/chair/loader/update_icon()
 	if(!turret)
 		return
@@ -575,12 +607,14 @@
 		buckled_mob.dir = dir
 		buckled_mob.pixel_x = pixel_x
 		buckled_mob.pixel_y = pixel_y
+		buckled_mob.update_vision_cone()
 
 /obj/structure/bed/chair/loader/post_buckle_mob()
 	update_icon()
 	if(buckled_mob)
 		buckled_mob.pixel_x = pixel_x
 		buckled_mob.pixel_y = pixel_y
+		buckled_mob.update_vision_cone()
 		if(turret)
 			turret.loader = buckled_mob
 
@@ -621,6 +655,12 @@
 /obj/structure/bed/chair/commander/proc/setup(var/obj/structure/turret/origin_turret)
 	turret = origin_turret
 	update_icon()
+
+/obj/structure/bed/chair/commander/forceMove(atom/destination, var/special_event)
+	..()
+	if(buckled_mob)
+		buckled_mob.dir = dir
+		buckled_mob.update_vision_cone()
 
 /obj/structure/bed/chair/commander/user_unbuckle_mob(mob/user)
 	var/mob/living/M = unbuckle_mob()
@@ -669,11 +709,13 @@
 		buckled_mob.dir = dir
 		buckled_mob.pixel_x = pixel_x
 		buckled_mob.pixel_y = pixel_y
+		buckled_mob.update_vision_cone()
 
 /obj/structure/bed/chair/commander/post_buckle_mob()
 	if(buckled_mob)
 		buckled_mob.pixel_x = pixel_x
 		buckled_mob.pixel_y = pixel_y
+		buckled_mob.update_vision_cone()
 		if(turret)
 			turret.commander = buckled_mob
 		if (istype(buckled_mob, /mob/living/human) && buckled_mob.put_in_active_hand(periscope) == FALSE)
