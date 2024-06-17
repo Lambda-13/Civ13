@@ -83,7 +83,7 @@
 				return TRUE
 		else
 			return !faction1_can_cross_blocks()
-			return !faction2_can_cross_blocks()
+		return !faction2_can_cross_blocks()
 	return FALSE
 
 /obj/map_metadata/bay_of_pigs/update_win_condition()
