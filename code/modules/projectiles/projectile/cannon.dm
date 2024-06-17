@@ -195,6 +195,7 @@
 /obj/item/projectile/shell/autocannon
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "bullet"
+	tracer_type = /obj/effect/projectile/tracer
 
 /obj/item/projectile/shell/autocannon/New()
 	..()
