@@ -690,8 +690,7 @@
 	var/check_bolt_lock = FALSE //For locking the bolt. Didn't put this in with check_bolt to avoid issues
 	var/bolt_safety = FALSE //If true, locks the bolt when gun is empty
 	var/next_reload = -1
-	var/jammed_until = -1
-	var/jamcheck = 0
+
 	var/last_fire = -1
 
 	//revolver
@@ -1125,88 +1124,15 @@
 	if (bolt_open && receiver_type == "Bolt-Action")
 		user << "<span class='warning'>You can't fire [src] while the bolt is open!</span>"
 		return FALSE
-	if (jammed_until > world.time)
-		user << "<span class = 'danger'>\The [src] has jammed! You can't fire it until it has unjammed.</span>"
-		return FALSE
 	update_icon()
 	return TRUE
 
 
 /obj/item/weapon/gun/projectile/custom/handle_post_fire()
 	..()
-	var/reverse_health_percentage = (1-(health/maxhealth)+0.25)*100
-	if (receiver_type == "Semi-Auto (large)" || receiver_type == "Semi-Auto (small)" )
-		if (world.time - last_fire > 50)
-			jamcheck = 0
-		else
-			if (barrel_type == "Air-Cooled Barrel")
-				jamcheck += 0.2
-			else
-				jamcheck += 0.6
-
-		if (prob(jamcheck*reverse_health_percentage))
-			jammed_until = max(world.time + (jamcheck * 4), 40)
-			jamcheck = 0
-
-		last_fire = world.time
-
-	else if (receiver_type == "Bolt-Action")
-		if (last_fire != -1)
-			if (world.time - last_fire <= 7)
-				jamcheck += 4
-			else if (world.time - last_fire <= 10)
-				jamcheck += 3
-			else if (world.time - last_fire <= 20)
-				jamcheck += 2
-			else if (world.time - last_fire <= 30)
-				++jamcheck
-			else if (world.time - last_fire <= 40)
-				++jamcheck
-			else if (world.time - last_fire <= 50)
-				++jamcheck
-			else
-				jamcheck = 0
-		else
-			++jamcheck
-
-		if (prob(jamcheck*reverse_health_percentage))
-			jammed_until = max(world.time + (jamcheck * 5), 50)
-			jamcheck = 0
-		if (blackpowder)
-			spawn (1)
-				new/obj/effect/effect/smoke/chem(get_step(src, dir))
-		last_fire = world.time
-
-	else if (receiver_type == "Revolver")
-		cocked = TRUE
-	else if (receiver_type == "Open-Bolt (small)" || receiver_type == "Dual Selective Fire" || receiver_type == "Triple Selective Fire")
-		if (world.time - last_fire > 50)
-			jamcheck = 0
-		else
-			if (barrel_type == "Air-Cooled Barrel")
-				jamcheck += 0.1
-			else
-				jamcheck += 0.3
-
-		if (prob(jamcheck*reverse_health_percentage))
-			jammed_until = max(world.time + (jamcheck * 4), 45)
-			jamcheck = 0
-
-		last_fire = world.time
-	else if (receiver_type == "Open-Bolt (large)")
-		if (world.time - last_fire > 50)
-			jamcheck = 0
-		else
-			if (barrel_type =="Air-Cooled Barrel")
-				jamcheck += 0.1
-			else
-				jamcheck += 0.6
-
-		if (prob(jamcheck*reverse_health_percentage))
-			jammed_until = max(world.time + (jamcheck * 5), 50)
-			jamcheck = 0
-
-		last_fire = world.time
+	if (blackpowder)
+		spawn (1)
+			new/obj/effect/effect/smoke/chem(get_step(src, dir))
 	update_icon()
 
 

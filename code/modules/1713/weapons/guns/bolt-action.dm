@@ -48,8 +48,6 @@
 	var/check_bolt_lock = FALSE //For locking the bolt. Didn't put this in with check_bolt to avoid issues
 	var/bolt_safety = FALSE //If true, locks the bolt when gun is empty
 	var/next_reload = -1
-	var/jammed_until = -1
-	var/jamcheck = 0
 	var/last_fire = -1
 
 /obj/item/weapon/gun/projectile/boltaction/attack_self(mob/user)
@@ -113,29 +111,6 @@
 
 /obj/item/weapon/gun/projectile/boltaction/handle_post_fire()
 	..()
-	var/reverse_health_percentage = (1-(health/maxhealth)+0.25)*100
-
-	if (last_fire != -1)
-		if (world.time - last_fire <= 7)
-			jamcheck += 4
-		else if (world.time - last_fire <= 10)
-			jamcheck += 3
-		else if (world.time - last_fire <= 20)
-			jamcheck += 2
-		else if (world.time - last_fire <= 30)
-			++jamcheck
-		else if (world.time - last_fire <= 40)
-			++jamcheck
-		else if (world.time - last_fire <= 50)
-			++jamcheck
-		else
-			jamcheck = 0
-	else
-		++jamcheck
-
-	if (prob(jamcheck*reverse_health_percentage))
-		jammed_until = max(world.time + (jamcheck * 5), 50)
-		jamcheck = 0
 	if (blackpowder)
 		spawn (1)
 			new/obj/effect/effect/smoke/chem(get_step(src, dir))

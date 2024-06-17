@@ -40,8 +40,6 @@
 
 	var/cocked = FALSE
 	var/check_cocked = FALSE //Keeps the bolt from being interfered with
-	var/jammed_until = -1
-	var/jamcheck = 0
 	var/last_fire = -1
 
 /obj/item/weapon/gun/projectile/flintlock/attack_self(mob/user)

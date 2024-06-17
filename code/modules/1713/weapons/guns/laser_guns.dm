@@ -52,7 +52,6 @@
 
 /obj/item/weapon/gun/projectile/semiautomatic/laser/handle_post_fire()
 	..()
-	jamcheck = 0
 	last_fire = world.time
 
 /obj/item/weapon/gun/projectile/semiautomatic/laser/dc15
@@ -273,7 +272,6 @@
 	return
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/laser/handle_post_fire()
 	..()
-	jamcheck = 0
 	last_fire = world.time
 
 /obj/item/weapon/gun/projectile/automatic/stationary/modern/laser/repeating_laser
@@ -334,7 +332,6 @@
 	return
 /obj/item/weapon/gun/projectile/automatic/laser/handle_post_fire()
 	..()
-	jamcheck = 0
 	last_fire = world.time
 
 /obj/item/weapon/gun/projectile/automatic/laser/z6
