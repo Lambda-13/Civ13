@@ -104,9 +104,10 @@
 				is_firing_from_vehicle = TRUE
 			if (is_firing_from_vehicle)
 				if ((H.loc != A.loc) && (A.x != 0 && A.y != 0))
-					H.dir = get_dir(H,A)
+					if(!H.buckled)
+						H.dir = get_dir(H,A)
 					var/dt = world.time - GN.last_shot_time
-					if(dt > GN.firemodes[GN.sel_mode].burst_delay)
+					if(dt >= GN.firemodes[GN.sel_mode].burst_delay)
 						GN.Fire(A,H,params)
 		if (istype(H.buckled, /obj/structure/bed/chair/commander)) //TO DO TODO: move it to wheels.dm
 			var/obj/item/weapon/attachment/scope/adjustable/binoculars/periscope/P
@@ -134,23 +135,9 @@
 			scramble(A)
 			return
 	if (stat || paralysis || stunned || weakened)
-		return
-	if (!prone)
-		face_atom(A) // change direction to face what you clicked on
-	else
-		var/cdir = get_dir(src, A)
-		if (cdir == NORTH || cdir == NORTHWEST || cdir == NORTHEAST || cdir == WEST)
-			dir = WEST
-			var/matrix/M = matrix()
-			M.Turn(-90)
-			M.Translate(1,-6)
-			transform = M
-		else
-			dir = EAST
-			var/matrix/M = matrix()
-			M.Turn(90)
-			M.Translate(1,-6)
-			transform = M
+		return	
+	if(!buckled)
+		dir = get_dir(src, A)
 	if (!canClick()) // in the year 2000...
 		return
 	if (istype(A, /obj/structure/multiz/ladder/ww2)) // stop looking down a ladder
@@ -247,7 +234,8 @@
 	sdepth = A.storage_depth_turf()
 	if (isturf(A) || isturf(A.loc) || (sdepth != -1 && sdepth <= 1))
 		if (A.Adjacent(src) || (W && W == get_active_hand() && (istype(W, /obj/item/weapon/barrier))) && A.rangedAdjacent(src)) // see adjacent.dm
-			dir = get_dir(src, A)
+			if(!buckled)
+				dir = get_dir(src, A)
 			if (W && istype(W, /obj/item/weapon/barrier) && A.rangedAdjacent(src) && (isturf(A) || istype(A, /obj/structure/window/barrier/incomplete)))
 				if (get_active_hand() != W)
 					return
@@ -492,10 +480,12 @@
 	scrambling = TRUE
 	lying = TRUE
 	facing_dir = dir
+	/*
 	if (dir == NORTH || dir == NORTHWEST || dir == NORTHEAST || dir == WEST)
 		dir = WEST
 	else
 		dir = EAST
+	*/
 	sleep(get_prone_delay())
 	var/nloc = loc
 	if (nloc == oloc)
