@@ -19,7 +19,7 @@
 
 	var/last_fire = -1
 	base_icon = "semiautomatic"
-	equiptimer = 12
+	equiptimer = 6
 	gun_safety = TRUE
 	reload_sound = 'sound/weapons/guns/interact/semiauto_magin.ogg'
 	unload_sound = 'sound/weapons/guns/interact/semiauto_magout.ogg'
@@ -324,7 +324,7 @@
 	force = 15
 	throwforce = 20
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
-	equiptimer = 16
+	equiptimer = 8
 	mag_x_offset = -2
 
 	scope_mounts = list ("swept_back")
@@ -438,7 +438,7 @@
 		list(name = "single shot",burst=1, fire_delay=2)
 		)
 	gun_type = GUN_TYPE_RIFLE
-	equiptimer = 8
+	equiptimer = 4
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER
 	accuracy = 1
 	scope_mounts = list ("dovetail")
@@ -476,7 +476,7 @@
 		list(name = "single shot",burst=1, fire_delay=25)
 		)
 	gun_type = GUN_TYPE_RIFLE
-	equiptimer = 15
+	equiptimer = 7
 	accuracy_increase_mod = 2.0
 	shake_strength = 2
 	accuracy = 0
@@ -515,7 +515,7 @@
 	fire_sound = 'sound/weapons/guns/fire/ptrd.ogg'
 	accuracy_increase_mod = 2.00
 	fire_delay = 5
-	equiptimer = 12
+	equiptimer = 6
 	gun_safety = FALSE
 	load_delay = 20
 
@@ -524,5 +524,5 @@
 	desc = "An old blugoslavian semi-auto, anti-tank rifle chambered in 15x115. This one comes with a integrated Scope."
 	icon_state = "bamt"
 	has_telescopic = TRUE
-	equiptimer = 14
+	equiptimer = 7
 	weight = 10

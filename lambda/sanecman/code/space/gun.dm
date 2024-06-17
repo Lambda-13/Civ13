@@ -14,7 +14,7 @@
 	magazine_type = /obj/item/ammo_magazine/tibannagas/space_war/ml40
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/space_war/ml40)
 	full_auto = TRUE
-	equiptimer = 12
+	equiptimer = 6
 	firemodes = list(
 		list(name = "full auto",	burst=1, burst_delay=1.1, recoil=0, move_delay=3),
 		)
@@ -53,7 +53,7 @@
 	magazine_type = /obj/item/ammo_magazine/tibannagas/space_war/c762x25_pplsh
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/space_war/c762x25_pplsh)
 	weight = 3.63
-	equiptimer = 14
+	equiptimer = 7
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.5, recoil=0, move_delay=1),
 		list(name = "full auto",	burst=1, burst_delay=1.2, recoil=0, move_delay=3),
@@ -93,7 +93,7 @@
 	magazine_type = /obj/item/ammo_magazine/tibannagas/space_war/lg34
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/space_war/lg34)
 	full_auto = TRUE
-	equiptimer = 12
+	equiptimer = 6
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.3, recoil=0, move_delay=1),
 		list(name = "full auto",	burst=1, burst_delay=0.4, recoil=0, move_delay=3),
@@ -142,7 +142,7 @@
 	magazine_type = /obj/item/ammo_magazine/tibannagas/space_war/al47
 	good_mags = list(/obj/item/ammo_magazine/tibannagas/space_war/al47)
 	weight = 2.93
-	equiptimer = 12
+	equiptimer = 6
 	slot_flags = SLOT_SHOULDER
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.8, move_delay=2),
@@ -198,7 +198,7 @@
 		slot_shoulder_str = 'lambda/sanecman/icons/mob/space/shoulder_weapons.dmi',
 		)
 	gun_type = GUN_TYPE_RIFLE
-	equiptimer = 8
+	equiptimer = 4
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 
 /obj/item/weapon/gun/projectile/semiautomatic/laser/laserez/New()

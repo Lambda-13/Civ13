@@ -6,7 +6,7 @@
 	fire_delay = 3
 	item_state = "pistol"
 	base_icon = "pistol"
-	equiptimer = 5
+	equiptimer = 2
 	gun_safety = TRUE
 	gun_type = GUN_TYPE_PISTOL
 	handle_casings = EJECT_CASINGS
@@ -369,7 +369,7 @@
 	desc = "An early, compact Colt pistol chambered in .32 ACP."
 	icon_state = "coltpockethammerless"
 	w_class = ITEM_SIZE_SMALL
-	equiptimer = 4
+	equiptimer = 2
 	caliber = "a32acp"
 	fire_sound = 'sound/weapons/guns/fire/32ACP.ogg'
 	magazine_type = /obj/item/ammo_magazine/colthammerless

@@ -4,7 +4,7 @@
 	fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
 	icon = 'icons/obj/guns/rifles.dmi'
 	// 15% more accurate than SMGs
-	equiptimer = 17
+	equiptimer = 8
 	magazine_type = /obj/item/ammo_magazine/shellbox
 
 	accuracy_increase_mod = 1.00

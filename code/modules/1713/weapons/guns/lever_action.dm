@@ -33,7 +33,7 @@
 	fire_delay = 2
 	blackpowder = FALSE
 	handle_casings = HOLD_CASINGS
-	equiptimer = 15
+	equiptimer = 7
 	gtype = "rifle"
 	load_delay = 8
 	aim_miss_chance_divider = 2.50

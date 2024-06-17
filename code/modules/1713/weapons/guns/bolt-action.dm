@@ -32,7 +32,7 @@
 	KD_chance = KD_CHANCE_HIGH
 	stat = "rifle"
 	fire_delay = 2
-	equiptimer = 15
+	equiptimer = 7
 	gun_safety = TRUE
 	maxhealth = 20
 	gtype = "rifle"
@@ -253,7 +253,7 @@
 	bolt_close_sound = 'sound/weapons/guns/interact/barrett_bolt_close.ogg'
 	accuracy_increase_mod = 2.00
 	fire_delay = 10
-	equiptimer = 15
+	equiptimer = 7
 	gun_safety = TRUE
 	load_delay = 20
 	bolt_open = FALSE
@@ -292,7 +292,7 @@
 	accuracy_increase_mod = 2.00
 
 	fire_delay = 10
-	equiptimer = 20
+	equiptimer = 10
 	gun_safety = FALSE
 	load_delay = 20
 	bolt_open = FALSE
@@ -335,7 +335,7 @@
 	accuracy_increase_mod = 2.00
 
 	fire_delay = 4
-	equiptimer = 20
+	equiptimer = 10
 	gun_safety = FALSE
 	load_delay = 20
 	bolt_open = FALSE
@@ -397,7 +397,7 @@
 	magazine_type = /obj/item/ammo_magazine/mosin
 	good_mags = list(/obj/item/ammo_magazine/mosin)
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
-	equiptimer = 18
+	equiptimer = 9
 	accuracy = 2
 	barrel_x_offset = 16
 	barrel_y_offset = 17
@@ -409,7 +409,7 @@
 	item_state ="mosin30"
 	base_icon = "mosin30"
 	weight = 4
-	equiptimer = 15
+	equiptimer = 7
 	accuracy = 1
 
 /obj/item/weapon/gun/projectile/boltaction/mosin/m30/sniper/New()
@@ -441,7 +441,7 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	bolt_open_sound = 'sound/weapons/guns/interact/arisaka_open.ogg'
 	bolt_close_sound = 'sound/weapons/guns/interact/arisaka_close.ogg'
-	equiptimer = 18
+	equiptimer = 9
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_UNDER
 	accuracy = 2
 
@@ -466,7 +466,7 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	bolt_open_sound = 'sound/weapons/guns/interact/arisaka_open.ogg'
 	bolt_close_sound = 'sound/weapons/guns/interact/arisaka_close.ogg'
-	equiptimer = 18
+	equiptimer = 9
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL|ATTACH_UNDER
 	accuracy = 1
 
@@ -502,7 +502,7 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	bolt_open_sound = 'sound/weapons/guns/interact/arisaka_open.ogg'
 	bolt_close_sound = 'sound/weapons/guns/interact/arisaka_close.ogg'
-	equiptimer = 18
+	equiptimer = 9
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL|ATTACH_UNDER
 	accuracy = 1
 	scope_mounts = list("type97_cronstein")
@@ -547,7 +547,7 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	bolt_open_sound = 'sound/weapons/guns/interact/arisaka_open.ogg'
 	bolt_close_sound = 'sound/weapons/guns/interact/arisaka_close.ogg'
-	equiptimer = 18
+	equiptimer = 9
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_UNDER
 	accuracy = 2
 
@@ -571,7 +571,7 @@
 	load_method = SINGLE_CASING | SPEEDLOADER
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
-	equiptimer = 19
+	equiptimer = 9
 	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/madsenm47
@@ -595,7 +595,7 @@
 	load_method = SINGLE_CASING | SPEEDLOADER
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
-	equiptimer = 20
+	equiptimer = 10
 	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/mauser1890
@@ -619,7 +619,7 @@
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
-	equiptimer = 15
+	equiptimer = 7
 	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/mauser1893
@@ -643,7 +643,7 @@
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
-	equiptimer = 15
+	equiptimer = 7
 	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/mauser1893/mauser1893o
@@ -653,7 +653,7 @@
 	weight = 3.8
 	ammo_type = /obj/item/ammo_casing/a765x53
 	magazine_type = /obj/item/ammo_magazine/gewehr71
-	equiptimer = 15
+	equiptimer = 7
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98
 	name = "Gewehr 98"
@@ -676,7 +676,7 @@
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
-	equiptimer = 15
+	equiptimer = 7
 	accuracy = 1
 	barrel_x_offset = 15
 
@@ -702,7 +702,7 @@
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
-	equiptimer = 15
+	equiptimer = 7
 	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/mauser1903
@@ -713,7 +713,7 @@
 	ammo_type = /obj/item/ammo_casing/a765x53
 	magazine_type = /obj/item/ammo_magazine/gewehr71
 	good_mags = list(/obj/item/ammo_magazine/gewehr71)
-	equiptimer = 15
+	equiptimer = 7
 	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98a
@@ -723,7 +723,7 @@
 	item_state = "kar98k"
 	base_icon = "kar98a"
 	weight = 3.5
-	equiptimer = 12
+	equiptimer = 6
 	accuracy = 1
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98k
@@ -733,7 +733,7 @@
 	item_state = "kar98k"
 	base_icon = "kar98k"
 	weight = 3.7
-	equiptimer = 12
+	equiptimer = 6
 	accuracy = 1
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98k/sniper/New()
@@ -768,7 +768,7 @@
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
-	equiptimer = 12
+	equiptimer = 6
 	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/carcano
@@ -791,7 +791,7 @@
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
-	equiptimer = 14
+	equiptimer = 7
 	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka35
@@ -814,7 +814,7 @@
 	magazine_type = /obj/item/ammo_magazine/arisaka
 	good_mags = list(/obj/item/ammo_magazine/arisaka)
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
-	equiptimer = 15
+	equiptimer = 7
 	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/murata
@@ -839,7 +839,7 @@
 	good_mags = list(/obj/item/ammo_magazine/murata)
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	blackpowder = TRUE
-	equiptimer = 17
+	equiptimer = 8
 	accuracy = 2
 	/////need to add:
 	///Springfield Model
@@ -871,7 +871,7 @@
 	magazine_type = /obj/item/ammo_magazine/mosin
 	good_mags = list(/obj/item/ammo_magazine/mosin)
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
-	equiptimer = 17
+	equiptimer = 8
 	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/enfield
@@ -895,7 +895,7 @@
 	good_mags = list(/obj/item/ammo_magazine/enfield)
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	max_shells = 10
-	equiptimer = 15
+	equiptimer = 7
 	accuracy = 1
 
 /obj/item/weapon/gun/projectile/boltaction/lebel
@@ -919,7 +919,7 @@
 	good_mags = list(/obj/item/ammo_magazine/c8x50)
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	max_shells = 8
-	equiptimer = 16
+	equiptimer = 8
 	accuracy = 1
 
 /obj/item/weapon/gun/projectile/boltaction/lebel/sniper/New()
@@ -951,7 +951,7 @@
 	good_mags = list(/obj/item/ammo_magazine/c8x50_3clip)
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	max_shells = 3
-	equiptimer = 13
+	equiptimer = 6
 	accuracy = 2
 
 /obj/item/weapon/gun/projectile/boltaction/berthier/m16
@@ -960,7 +960,7 @@
 	magazine_type = /obj/item/ammo_magazine/c8x50_5clip
 	good_mags = list(/obj/item/ammo_magazine/c8x50_3clip)
 	max_shells = 5
-	equiptimer = 13
+	equiptimer = 6
 
 /obj/item/weapon/gun/projectile/boltaction/berthier/m16/sniper/New()
 	name = "Sniper Berthier M1907/16"
@@ -990,7 +990,7 @@
 	w_class = ITEM_SIZE_SMALL
 	value = 60
 	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_SHOULDER
-	equiptimer = 9
+	equiptimer = 4
 	accuracy = 4
 	scope_mounts = list("kochetov")
 	barrel_x_offset = 6
@@ -1017,7 +1017,7 @@
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING | SPEEDLOADER
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
-	equiptimer = 12
+	equiptimer = 6
 	accuracy = 0
 	scope_mounts = list("picatinny")
 	scope_x_offset = -1
@@ -1048,7 +1048,7 @@
 	good_mags = list(/obj/item/ammo_magazine/springfield,/obj/item/ammo_magazine/garand)
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	max_shells = 5
-	equiptimer = 12
+	equiptimer = 6
 	accuracy = 1
 
 /obj/item/weapon/gun/projectile/boltaction/springfield/sniper/New()

@@ -88,7 +88,7 @@
 	release_force = 15
 	throw_distance = 30
 	fire_delay = 6
-	equiptimer = 28
+	equiptimer = 14
 	load_delay = 18
 
 /obj/item/weapon/gun/launcher/rocket/update_icon()
