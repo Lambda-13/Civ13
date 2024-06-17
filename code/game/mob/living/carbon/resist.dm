@@ -153,7 +153,6 @@
 		update_inv_legcuffed()
 
 /mob/living/human/escape_buckle()
-	setClickCooldown(100)
 	if (!buckled) return
 
 	if (!restrained())
