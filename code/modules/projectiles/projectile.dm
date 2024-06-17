@@ -832,7 +832,7 @@
 		if (istype(M))
 			M.layer = layer
 			M.activate(get_angle())
-	if(!istype(muzzle_type, /obj/effect/projectile/laser))
+	if(!istype(muzzle_type, /obj/effect/projectile/laser) && ispath(muzzle_type))
 		var/smoke_amount = 15
 		if(silenced)
 			smoke_amount = 25
