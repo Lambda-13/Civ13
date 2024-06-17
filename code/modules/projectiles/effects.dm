@@ -61,7 +61,7 @@
 	call_time = world.time
 	var/dispersion = rand(-25, 25)
 	angle = direction + dispersion
-	speed_modifier *= sqrt(abs(dispersion)) * 2
+	speed_modifier *= sqrt(abs(dispersion))
 	update()
 
 /obj/effect/projectile/bullet/muzzle/gunsmoke/update()
