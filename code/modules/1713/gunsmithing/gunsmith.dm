@@ -1118,9 +1118,6 @@
 	if (gun_safety && safetyon)
 		user << "<span class='warning'>You can't fire \the [src] while the safety is on!</span>"
 		return FALSE
-	if (!user.has_empty_hand(both = FALSE) && (receiver_type != "Revolver" && receiver_type != "Semi-Auto (small)"))
-		user << "<span class='warning'>You need both hands to fire \the [src]!</span>"
-		return FALSE
 	if (bolt_open && receiver_type == "Bolt-Action")
 		user << "<span class='warning'>You can't fire [src] while the bolt is open!</span>"
 		return FALSE

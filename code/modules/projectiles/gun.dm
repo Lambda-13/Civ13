@@ -407,7 +407,11 @@
 		accuracy_range = 40 / (dt_movement - 6)
 
 	if(dt_picked_up < 10)
-		accuracy_range = 40 / sqrt(dt_picked_up) / ergonomics
+		accuracy_range += 40 / sqrt(dt_picked_up) / ergonomics
+
+	if(user.get_inactive_hand())
+		accuracy_range += 20
+
 	return recoil_range + accuracy_range
 
 //does the actual launching of the projectile
@@ -455,7 +459,10 @@
 	var/dt_picked_up = world.time - last_pick_up
 	if(dt_picked_up < 15)
 		var/accuracy_range = 30 / sqrt(dt_picked_up)
-		shot_accuracy = rand(-accuracy_range, accuracy_range)
+		shot_accuracy += rand(-accuracy_range, accuracy_range)
+
+	if(user.get_inactive_hand())
+		shot_accuracy += rand(-20, 20)
 
 	var/shot_dispersion = clamp(shot_recoil + shot_accuracy, -40, 40)
 

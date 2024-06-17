@@ -184,8 +184,6 @@ obj/item/weapon/gun/projectile/ancient/tanegashima
 	if (!lighted && !istype(src, /obj/item/weapon/gun/projectile/ancient/matchlock) && (/obj/item/weapon/gun/projectile/ancient/tanegashima))
 		user << "<span class='warning'>You can't fire \the [src] without lighting it!</span>"
 		return FALSE
-	if (!(user.has_empty_hand(both = FALSE)) && istype(src, /obj/item/weapon/gun/projectile/ancient/matchlock) && (/obj/item/weapon/gun/projectile/ancient/tanegashima))
-		user << "<span class='warning'>You need both hands to fire \the [src]!</span>"
 		return FALSE
 	return ..()
 

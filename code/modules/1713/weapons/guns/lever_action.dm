@@ -75,9 +75,6 @@
 		user << "<span class='warning'>You can't fire \the [src] while the chamber is empty!</span>"
 		return FALSE
 */
-	if (!(user.has_empty_hand(both = FALSE)))
-		user << "<span class='warning'>You need both hands to fire \the [src]!</span>"
-		return FALSE
 	return ..()
 
 /obj/item/weapon/gun/projectile/leveraction/consume_next_projectile()

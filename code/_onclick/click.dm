@@ -280,6 +280,7 @@
 					W.afterattack(A, src, FALSE, params)
 			else
 				RangedAttack(A, params)
+	update_vision_cone()
 	return
 
 /mob/proc/setClickCooldown(var/timeout)
