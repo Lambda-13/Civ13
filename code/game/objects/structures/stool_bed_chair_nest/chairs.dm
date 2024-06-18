@@ -13,7 +13,8 @@
 
 /obj/structure/bed/chair/post_buckle_mob()
 	update_icon()
-	buckled_mob.update_vision_cone()
+	if(buckled_mob)
+		buckled_mob.update_vision_cone()
 
 /obj/structure/bed/chair/update_icon()
 	..()

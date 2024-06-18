@@ -2,7 +2,7 @@
 	name = "explosive particles"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "explosion_particle"
-	opacity = TRUE
+	opacity = FALSE
 	anchored = TRUE
 	mouse_opacity = FALSE
 
@@ -39,7 +39,7 @@
 	name = "explosive particles"
 	icon = 'icons/effects/96x96.dmi'
 	icon_state = "explosion"
-	opacity = TRUE
+	opacity = FALSE
 	anchored = TRUE
 	mouse_opacity = FALSE
 	pixel_x = -32
