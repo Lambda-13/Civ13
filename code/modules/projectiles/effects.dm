@@ -14,8 +14,8 @@
 		loc = location
 
 /obj/effect/projectile/proc/activate(var/direction)
-	pixel_x = cos(direction) * 32
-	pixel_y = sin(direction) * 32
+	pixel_x = cos(direction) * 26
+	pixel_y = sin(direction) * 26
 	transform = turn(transform, -direction) 
 	call_time = world.time
 	update()
@@ -56,8 +56,8 @@
 	var/speed_modifier = 1
 
 /obj/effect/projectile/bullet/muzzle/gunsmoke/activate(var/direction)
-	pixel_x = cos(direction) * 13
-	pixel_y = sin(direction) * 13
+	pixel_x = cos(direction) * 14
+	pixel_y = sin(direction) * 14
 	call_time = world.time
 	var/dispersion = rand(-25, 25)
 	angle = direction + dispersion
@@ -72,6 +72,39 @@
 		return
 	alpha *= alpha_modifier
 	var/ds = 30
+	if(speed_modifier != 0)
+		ds /= speed_modifier
+	if(dt != 0)
+		ds /= dt 
+	pixel_x += cos(angle) * sqrt(ds)
+	pixel_y += sin(angle) * sqrt(ds)
+	spawn(update_time)
+		update()
+
+/obj/effect/projectile/bullet/muzzle/spark
+	icon_state = "spark_generic"
+	life_time = 1.5
+	alpha_modifier = 0.9
+	update_time = 0.2
+	var/speed_modifier = 1
+
+/obj/effect/projectile/bullet/muzzle/spark/activate(var/direction)
+	pixel_x = cos(direction) * 13
+	pixel_y = sin(direction) * 13
+	call_time = world.time
+	var/dispersion = rand(-40, 40)
+	angle = direction + dispersion
+	transform = turn(transform, -angle)
+	update()
+
+/obj/effect/projectile/bullet/muzzle/spark/update()
+	var/dt = world.time - call_time
+	if(dt > life_time)
+		loc = null
+		qdel(src)
+		return
+	alpha *= alpha_modifier
+	var/ds = 50
 	if(speed_modifier != 0)
 		ds /= speed_modifier
 	if(dt != 0)
@@ -108,7 +141,7 @@
 		qdel(src)
 		return
 	alpha *= alpha_modifier
-	var/ds = 20
+	var/ds = 15
 	if(speed_modifier != 0)
 		ds /= speed_modifier
 	if(dt != 0)
