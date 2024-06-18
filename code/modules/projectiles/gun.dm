@@ -349,7 +349,7 @@
 		playsound(user, silencer_fire_sound, 100-silencer.reduction, TRUE,100-silencer.reduction)
 	else
 		playsound(user, fire_sound, 100, TRUE,100)
-	if (muzzle_flash)
+	if (muzzle_flash && !silencer)
 		set_light(muzzle_flash)
 
 	var/datum/firemode/F = firemodes[sel_mode]
