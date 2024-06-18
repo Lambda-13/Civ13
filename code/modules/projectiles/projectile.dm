@@ -836,11 +836,17 @@
 		var/smoke_amount = 15
 		if(silenced)
 			smoke_amount = 25
+		for(var/i = 0, i < rand(1,3), i++)
+			spawn (i * 0.1)
+				var/obj/effect/projectile/bullet/muzzle/spark/S = new/obj/effect/projectile/bullet/muzzle/spark(starting)
+				S.layer = layer
+				S.activate(get_angle())
 		for(var/i = 0, i < smoke_amount, i++)
 			spawn (i * 0.3)
 				var/obj/effect/projectile/bullet/muzzle/gunsmoke/S = new/obj/effect/projectile/bullet/muzzle/gunsmoke(starting)
 				S.layer = layer
 				S.activate(get_angle())
+
 	did_muzzle_effect = TRUE
 
 /obj/item/projectile/proc/tracer_effect()
