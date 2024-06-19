@@ -34,6 +34,7 @@
 		"mode"		= list("type" = /obj/screen/mode,	   "loc" = "16,5"),
 		"secondary attack"   = list("type" = /obj/screen/kick_jump_bite,	   "loc" = "16,4"),
 		"m_intent"	= list("type" = /obj/screen/mov_intent, "loc" = "16,3"),
+		"p_intent"	= list("type" = /obj/screen/prone_intent, "loc" = ui_p_intent),
 		"throw"	   = list("type" = /obj/screen/HUDthrow,   "loc" = "16,2"),
 		"pull"		= list("type" = /obj/screen/pull,	   "loc" = "16,2"),
 		"drop"		= list("type" = /obj/screen/drop,	   "loc" = "16,2"),

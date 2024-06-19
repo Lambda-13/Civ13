@@ -28,6 +28,7 @@
 		"throw"	   = list("type" = /obj/screen/HUDthrow,   "loc" = ui_throw),
 		"pull"		= list("type" = /obj/screen/pull,	   "loc" = ui_pull),
 		"m_intent"	= list("type" = /obj/screen/mov_intent, "loc" = ui_m_intent),
+		"p_intent"	= list("type" = /obj/screen/prone_intent, "loc" = ui_p_intent),
 		"secondary attack"   = list("type" = /obj/screen/kick_jump_bite,	   "loc" = ui_secondary_attack),
 		"mode"		= list("type" = /obj/screen/mode,	   "loc" = ui_mode),
 		"tactic"	  = list("type" = /obj/screen/tactic,	 "loc" = ui_tactic),

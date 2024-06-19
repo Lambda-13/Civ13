@@ -882,10 +882,6 @@ obj/screen/tactic
 		return TRUE
 
 	if (C.m_intent == "run")
-		C.m_intent = "proning"
-	else if (C.m_intent == "proning")
-		if (C.facing_dir)
-			C.set_face_dir()
 		C.m_intent = "stealth"
 	else if (C.m_intent == "stealth")
 		C.m_intent = "walk"
@@ -893,28 +889,7 @@ obj/screen/tactic
 		C.m_intent = "run"
 	else
 		C.m_intent = "walk"
-
-	if (C.m_intent == "proning")
-		C.prone = TRUE
-		C.facing_dir = dir
-		if (C.dir == NORTH || C.dir == NORTHWEST || C.dir == NORTHEAST || C.dir == WEST)
-			C.dir = WEST
-		else
-			C.dir = EAST
-		var/matrix/M = matrix()
-		M.Turn(90)
-		M.Translate(1,-6)
-		update_icon()
-		C.transform = M
-		return
-
-	else
-		C.prone = FALSE
-		var/matrix/M = matrix()
-		M.Translate(0, 16*(C.size_multiplier-1))
-		C.transform = M
-		update_icon()
-		return
+	update_icon()
 
 /obj/screen/mov_intent/New()
 	..()
@@ -927,12 +902,34 @@ obj/screen/tactic
 			icon_state = "running"
 		if ("walk")
 			icon_state = "walking"
-		if ("proning")
-			icon_state = "proning"
 		if ("stealth")
 			icon_state = "stealth"
 
 //-----------------------mov_intent END------------------------------
+//-----------------------prone_intent---------------------------------
+/obj/screen/prone_intent
+	name = "prone_intent"
+
+	icon_state = "prone"
+	screen_loc = "14,2"
+
+/obj/screen/prone_intent/New()
+	..()
+	update_icon()
+
+/obj/screen/prone_intent/Click()
+	var/mob/living/human/C = parentmob
+	C.swich_prone()
+
+/obj/screen/prone_intent/update_icon()
+	var/mob/living/human/C = parentmob
+	if (C.m_intent == "proning")
+		icon_state = "prone_on"
+	else
+		icon_state = "prone"
+
+//-----------------------prone_intent END-----------------------------
+
 /obj/screen/equip
 	name = "equip"
 

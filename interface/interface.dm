@@ -129,7 +129,7 @@ Any-Mode: (hotkey doesn't need to be on)\n  \
 	src << HOTKEY_MODE_OPTIONS
 
 /mob/verb/a_intent_change(input as text)
-	set name = "a-intent"
+	set name = "a-intent" 
 	set hidden = TRUE
 
 	if (ishuman(src))
@@ -158,4 +158,29 @@ Any-Mode: (hotkey doesn't need to be on)\n  \
 
 	if (HUDneed.Find("mode"))
 		var/obj/screen/mode/I = HUDneed["mode"]
+		I.update_icon()
+
+/mob/living/human/verb/swich_prone()
+	set name = "p-intent-change"
+	set hidden = TRUE
+
+	if (m_intent == "proning")
+		if (do_after(src, 10, can_move = FALSE))
+			m_intent = prev_m_intent
+			prone = FALSE
+			var/matrix/M = matrix()
+			M.Translate(0, 16*(size_multiplier-1))
+			transform = M
+	else 
+		if (do_after(src, 5, can_move = FALSE))
+			prev_m_intent = m_intent
+			m_intent = "proning"
+			prone = TRUE
+			var/matrix/M = matrix()
+			M.Turn(90)
+			M.Translate(1,-6)
+			transform = M
+
+	if (HUDneed.Find("p_intent"))
+		var/obj/screen/intent/I = HUDneed["p_intent"]
 		I.update_icon()

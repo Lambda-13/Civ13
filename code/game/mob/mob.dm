@@ -1104,7 +1104,7 @@ mob/proc/yank_out_object()
 
 /mob/set_dir()
 	if (facing_dir)
-		if (!canface() || lying || prone || buckled || restrained())
+		if (!canface() || lying || buckled || restrained())
 			facing_dir = null
 		else if (dir != facing_dir)
 			return ..(facing_dir)
