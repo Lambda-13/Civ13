@@ -536,9 +536,9 @@
 		rotating_dir = 0
 		return
 	if (rotating_dir > 0)
-		turret.icrease_target_azimuth(1)
+		turret.rotate_to_target(1)
 	else if (rotating_dir < 0)
-		turret.icrease_target_azimuth(-1)
+		turret.rotate_to_target(-1)
 
 	spawn(0.1)
 		rotate()

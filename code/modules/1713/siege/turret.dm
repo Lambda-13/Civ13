@@ -32,11 +32,12 @@
 	var/commander_y = 0
 
 	var/azimuth = 0
-	var/azimuth_to_target = 0
 	var/distance = 5
 
-	var/rotation_speed = 0.5 // seconds for 1 degree
-	var/stopped_rotation_time = 1
+	var/max_speed = 0.5
+	var/current_speed = 0
+	var/last_rotation = 1
+	var/prev_direction = 1
 
 	var/list/weapons = list()
 	var/selected_weapon = 1
@@ -57,6 +58,7 @@
 		if(SOUTH)
 			azimuth = 270
 
+	last_move = world.time
 	update_icon()
 
 /obj/structure/turret/proc/clear_aiming_line(var/mob/operator)
@@ -178,12 +180,6 @@
 	if(selected_weapon > weapons.len)
 		selected_weapon = 1
 
-/obj/structure/turret/proc/icrease_target_azimuth(var/value)
-	azimuth_to_target += value
-	if(stopped_rotation_time != 0 && world.time - stopped_rotation_time > 0.1)
-		stopped_rotation_time = 0
-		rotate_to_target()
-
 /obj/structure/turret/proc/icrease_target_distance(var/value)
 	distance += value
 	if(distance < 5)
@@ -206,20 +202,23 @@
 	else if(azimuth < 0)
 		azimuth += 360
 
-/obj/structure/turret/proc/rotate_to_target()
-	if(azimuth_to_target)
-		var/delta_azimuth = sign(azimuth_to_target)
-		azimuth += delta_azimuth
-		clamp_azimuth(azimuth)
-		azimuth_to_target -= delta_azimuth
+/obj/structure/turret/proc/rotate_to_target(var/direction)
+	var/dt = world.time - last_rotation
+	current_speed -= dt * max_speed * 0.04
 
+	if(current_speed < 0 || direction != prev_direction)
+		current_speed = 0
+	current_speed += max_speed * 0.04
+
+	if(current_speed > max_speed)
+		current_speed = max_speed
+	azimuth += direction * current_speed
+
+	clamp_azimuth(azimuth)
 	update_icon()
 
-	if(azimuth_to_target != 0)
-		spawn(0.15)
-			rotate_to_target()
-	else
-		stopped_rotation_time = world.time
+	prev_direction = direction
+	last_rotation = world.time
 
 /obj/structure/turret/proc/update_seats()
 	if(gunner_seat)
@@ -389,6 +388,8 @@
 	loader_x = -9
 	loader_y = -2
 
+	max_speed = 1.1
+
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
 		gunner_seat.setup(src)
@@ -408,6 +409,8 @@
 
 	loader_x = -9
 	loader_y = -2
+
+	max_speed = 1.5
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -435,7 +438,7 @@
 	commander_x = 0
 	commander_y = 11
 
-	rotation_speed = 1
+	max_speed = 0.84
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -462,6 +465,8 @@
 	commander_x = 11
 	commander_y = 0
 
+	max_speed = 2.3
+
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
 		gunner_seat.setup(src)
@@ -487,7 +492,7 @@
 	commander_x = 14
 	commander_y = 12
 
-	rotation_speed = 0.9
+	max_speed = 1.1
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -519,52 +524,46 @@
 	clamp_azimuth()
 	update_icon()
 
-/obj/structure/turret/course/rotate_to_target()
-	if(azimuth_to_target)
-		var/delta_azimuth = sign(azimuth_to_target)
-		azimuth += delta_azimuth
-		clamp_azimuth(azimuth)
-		azimuth_to_target -= delta_azimuth
+/obj/structure/turret/course/rotate_to_target(var/direction)
+	var/dt = world.time - last_rotation
+	current_speed -= dt * max_speed * 0.04
 
-	var/continue_rotation = TRUE
+	if(current_speed < 0 || direction != prev_direction)
+		current_speed = 0
+	current_speed += max_speed * 0.04
+
+	if(current_speed > max_speed)
+		current_speed = max_speed
+	azimuth += direction * current_speed
+
+	clamp_azimuth(azimuth)
 
 	switch(dir)
 		if(NORTH)
 			if(azimuth >= 135)
 				azimuth = 134
-				continue_rotation= FALSE
 			else if(azimuth < 45)
 				azimuth = 45
-				continue_rotation = FALSE
 		if(WEST)
 			if(azimuth >= 225)
 				azimuth = 224
-				continue_rotation = FALSE
 			else if(azimuth < 135)
 				azimuth = 135
-				continue_rotation = FALSE
 		if(SOUTH)
 			if(azimuth >= 315)
 				azimuth = 314
-				continue_rotation = FALSE
 			else if(azimuth < 225)
 				azimuth = 225
-				continue_rotation = FALSE
 		if(EAST)
 			if(azimuth >= 45 && azimuth <= 180)
 				azimuth = 44
-				continue_rotation = FALSE
 			else if(azimuth <= 315 && azimuth > 180)
 				azimuth = 316
-				continue_rotation = FALSE
 
 	update_icon()
 
-	if(azimuth_to_target != 0 && continue_rotation)
-		spawn(0.15)
-			rotate_to_target()
-	else
-		stopped_rotation_time = world.time
+	prev_direction = direction
+	last_rotation = world.time
 
 /obj/structure/turret/course/su85m
 	turret_color = "#4a5243"
@@ -576,6 +575,8 @@
 
 	loader_x = -6
 	loader_y = 18
+
+	max_speed = 0.5
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -595,6 +596,8 @@
 
 	loader_x = -6
 	loader_y = 18
+
+	max_speed = 0.5
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -618,7 +621,7 @@
 	commander_x = 14
 	commander_y = 13
 
-	rotation_speed = 1.1
+	max_speed = 0.98
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -648,7 +651,7 @@
 	commander_x = 14
 	commander_y = 3
 
-	rotation_speed = 1.3
+	max_speed = 0.63
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -678,7 +681,7 @@
 	commander_x = 16
 	commander_y = 2
 
-	rotation_speed = 1.1
+	max_speed = 0.63
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -708,7 +711,7 @@
 	commander_x = 16
 	commander_y = 5
 
-	rotation_speed = 1
+	max_speed = 0.95
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -725,6 +728,7 @@
 	turret_color = "#5c5c4c"
 	turret_icon = "t62m_turret"
 	name = "T-62M"
+	max_speed = 0.89
 
 /obj/structure/turret/t62/t62mv
 	turret_color = "#5c5c4c"
@@ -745,7 +749,7 @@
 	commander_x = -16
 	commander_y = 6
 
-	rotation_speed = 0.7
+	max_speed = 1.43
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -770,7 +774,7 @@
 	commander_x = -14
 	commander_y = 7
 
-	rotation_speed = 0.8
+	max_speed = 1.2
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -784,12 +788,12 @@
 /obj/structure/turret/t72/t72m1
 	turret_icon = "t72m1_turret"
 	name = "T-72M1"
-	rotation_speed = 0.6
+	max_speed = 1.4
 
 /obj/structure/turret/t72/t72b3
 	turret_icon = "t72b3_turret"
 	name = "T-72B3"
-	rotation_speed = 0.3
+	max_speed = 2.23
 
 /obj/structure/turret/t80u
 	turret_color = "#5c5c4c"
@@ -805,7 +809,7 @@
 	commander_x = -14
 	commander_y = 5
 
-	rotation_speed = 0.6
+	max_speed = 1.4
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -819,6 +823,7 @@
 /obj/structure/turret/t80u/t80uk
 	turret_icon = "t80uk_turret"
 	name = "T-80UK"
+	max_speed = 1.4
 
 /obj/structure/turret/t90a
 	turret_color = "#4a5243"
@@ -834,7 +839,7 @@
 	commander_x = -14
 	commander_y = 6
 
-	rotation_speed = 0.6
+	max_speed = 1.4
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -862,7 +867,7 @@
 	commander_x = -4
 	commander_y = 0
 
-	rotation_speed = 0.3
+	max_speed = 1.79
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -887,7 +892,7 @@
 	gunner_x = 0
 	gunner_y = 4
 
-	rotation_speed = 0.4
+	max_speed = 17.9
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -910,7 +915,7 @@
 	gunner_x = 0
 	gunner_y = 0
 
-	rotation_speed = 0.9
+	max_speed = 1
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner/mtlb(src.loc)
@@ -935,7 +940,7 @@
 	commander_x = 0
 	commander_y = 11
 
-	rotation_speed = 1.1
+	max_speed = 0.9
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -965,7 +970,7 @@
 	commander_x = 0
 	commander_y = 11
 
-	rotation_speed = 1.3
+	max_speed = 0.96
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -995,7 +1000,7 @@
 	commander_x = -16
 	commander_y = 16
 
-	rotation_speed = 0.3
+	max_speed = 2.38
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -1025,7 +1030,7 @@
 	commander_x = -13
 	commander_y = 6
 
-	rotation_speed = 0.8
+	max_speed = 1.4
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -1055,7 +1060,7 @@
 	commander_x = -8
 	commander_y = 1
 
-	rotation_speed = 0.7
+	max_speed = 1.4
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -1082,7 +1087,7 @@
 	commander_x = -12
 	commander_y = 10
 
-	rotation_speed = 0.7
+	max_speed = 1.4
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -1112,7 +1117,7 @@
 	commander_x = 8
 	commander_y = 0
 
-	rotation_speed = 0.3
+	max_speed = 3.7
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -1136,7 +1141,7 @@
 	gunner_x = 0
 	gunner_y = 4
 
-	rotation_speed = 0.2
+	max_speed = 1
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -1183,7 +1188,7 @@
 	commander_x = -10
 	commander_y = 16
 
-	rotation_speed = 0.4
+	max_speed = 2.3
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -1213,7 +1218,7 @@
 	commander_x = -16
 	commander_y = 16
 
-	rotation_speed = 0.4
+	max_speed = 1.8
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
@@ -1240,7 +1245,7 @@
 	commander_x = -4
 	commander_y = 0
 
-	rotation_speed = 1
+	max_speed = 0.89
 
 	New()
 		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
