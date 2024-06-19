@@ -480,15 +480,9 @@
 	var/oloc = loc
 	scrambling = TRUE
 	lying = TRUE
-	facing_dir = dir
-	/*
-	if (dir == NORTH || dir == NORTHWEST || dir == NORTHEAST || dir == WEST)
-		dir = WEST
-	else
-		dir = EAST
-	*/
 	sleep(get_prone_delay())
 	var/nloc = loc
+	dir = get_dir(oloc, nloc)
 	if (nloc == oloc)
 		Move(F)
 	scrambling = FALSE

@@ -83,6 +83,7 @@
 	var/a_intent = I_HELP//Living
 	var/defense_intent = I_DODGE//Living. For dodging and parrying.
 	var/m_intent = "walk"//Living
+	var/prev_m_intent = "walk"
 	var/obj/buckled = null//Living
 	var/middle_click_intent = "kick" //For doing different things with middle click.
 	var/obj/item/shoulder = null//Living

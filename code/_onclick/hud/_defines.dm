@@ -66,6 +66,7 @@
 #define ui_drop "EAST-2:28,2:5" // "14,2"
 #define ui_resist "EAST-2:28,2:5" // "14,2"
 #define ui_m_intent "EAST-2:28,1:5" // "14,1"
+#define ui_p_intent "EAST-2:28,3:5" // "14,3"
 #define ui_secondary_attack "EAST-5:28,1:5" // "11,1"
 #define ui_mode "EAST-6:28,1:5" // "10,1"
 
