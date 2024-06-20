@@ -604,6 +604,11 @@
 	value = 6
 	heavy_armor_penetration = 34
 
+/obj/item/ammo_casing/a127/tracer
+	name = "12.7x108 T cartridge"
+	desc = "A big heavy brass tracer casing designed to penetrate armor."
+	projectile_type = /obj/item/projectile/bullet/rifle/a127/tracer
+
 /obj/item/ammo_casing/a145_ap
 	name = "14.5x114 AP cartridge"
 	desc = "A big heavy brass casing designed to penetrate armor."
@@ -669,7 +674,11 @@
 
 /obj/item/ammo_casing/a65x50/weak
 	projectile_type = /obj/item/projectile/bullet/rifle/a65x50/weak
-	caliber = "a65x50_weak"
+	caliber = "a65x50"
+
+/obj/item/ammo_casing/a65x50/tracer
+	projectile_type = /obj/item/projectile/bullet/rifle/a65x50/tracer
+	caliber = "a65x50"
 
 /obj/item/ammo_casing/a65x52
 	name = "6.5x52mm Carcano cartridge"
@@ -703,7 +712,7 @@
 
 /obj/item/ammo_casing/a8x50/weak
 	projectile_type = /obj/item/projectile/bullet/rifle/a8x50/weak
-	caliber = "a8x50_weak"
+	caliber = "a8x50"
 
 /obj/item/ammo_casing/c9mm_jap_revolver
 	name = "9x22mm Type 26 cartridge"
@@ -836,7 +845,11 @@
 
 /obj/item/ammo_casing/a792x57/weak
 	projectile_type = /obj/item/projectile/bullet/rifle/a792x57/weak
-	caliber = "a792x57_weak"
+	caliber = "a792x57"
+
+/obj/item/ammo_casing/a792x57/tracer
+	projectile_type = /obj/item/projectile/bullet/rifle/a792x57/tracer
+	caliber = "a792x57"
 
 /obj/item/ammo_casing/a765x53
 	name = "7.65x53mm Mauser cartridge"
@@ -878,6 +891,9 @@
 	caliber = "a77x58"
 	value = 8
 
+/obj/item/ammo_casing/a77x58/tracer
+	projectile_type = /obj/item/projectile/bullet/rifle/a77x58/tracer
+
 /obj/item/ammo_casing/a77x58_wood
 	name = "7.7x58mm bullet"
 	desc = "A brass casing."
@@ -911,7 +927,11 @@
 
 /obj/item/ammo_casing/a762x54/weak
 	projectile_type = /obj/item/projectile/bullet/rifle/a762x54/weak
-	caliber = "a762x54_weak"
+	caliber = "a762x54"
+
+/obj/item/ammo_casing/a762x54/tracer
+	projectile_type = /obj/item/projectile/bullet/rifle/a762x54/tracer
+	caliber = "a762x54"
 
 /obj/item/ammo_casing/a303
 	name = ".303 british cartridge"
@@ -925,7 +945,7 @@
 
 /obj/item/ammo_casing/a303/weak
 	projectile_type = /obj/item/projectile/bullet/rifle/a303/weak
-	caliber = "a303_weak"
+	caliber = "a303"
 
 /obj/item/ammo_casing/a3006
 	name = ".30-06 cartridge"
@@ -939,7 +959,9 @@
 
 /obj/item/ammo_casing/a3006/weak
 	projectile_type = /obj/item/projectile/bullet/rifle/a3006/weak
-	caliber = "a3006_weak"
+
+/obj/item/ammo_casing/a3006/tracer
+	projectile_type = /obj/item/projectile/bullet/rifle/a3006/tracer
 
 /obj/item/ammo_casing/a762x38
 	name = "7.62x38mmR cartridge"
@@ -1040,6 +1062,10 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a545x39
 	caliber = "a545x39"
 	value = 2
+
+/obj/item/ammo_casing/a545x39/tracer
+	projectile_type = /obj/item/projectile/bullet/rifle/a545x39/tracer
+
 /obj/item/ammo_casing/a545x39/rubber
 	name = "5.45x39mm cartridge Rubber"
 	desc = "A rubbery brass casing."
@@ -1079,8 +1105,13 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a556x45
 	caliber = "a556x45"
 	value = 2
+
+/obj/item/ammo_casing/a556x45/tracer
+	name = "5.56x45mm NATO Т cartridge"
+	projectile_type = /obj/item/projectile/bullet/rifle/a556x45/tracer
+
 /obj/item/ammo_casing/a762x51
-	name = "7.62x51mm NATO cartridge"
+	name = "7.62x51mm NATO FMJ cartridge"
 	desc = "A brass casing."
 	icon_state = "rifle-bullet"
 	spent_icon = "rifle-casing"
@@ -1091,10 +1122,14 @@
 
 /obj/item/ammo_casing/a762x51/weak
 	projectile_type = /obj/item/projectile/bullet/rifle/a762x51/weak
-	caliber = "a762x51_weak"
+	caliber = "a762x51"
+
+/obj/item/ammo_casing/a762x51/tracer
+	projectile_type = /obj/item/projectile/bullet/rifle/a762x51/tracer
+	caliber = "a762x51"
 
 /obj/item/ammo_casing/a762x39
-	name = "7.62x39mm cartridge"
+	name = "7.62x39mm ПС"
 	desc = "A brass casing."
 	icon_state = "rifle-bullet"
 	spent_icon = "rifle-casing"
@@ -1102,6 +1137,10 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a762x39
 	caliber = "a762x39"
 	value = 2
+
+/obj/item/ammo_casing/a762x39/tracer
+	name = "7.62x39mm Т"
+	projectile_type = /obj/item/projectile/bullet/rifle/a762x39/tracer
 
 /obj/item/ammo_casing/a762x33
 	name = "7.62x33mm cartridge"

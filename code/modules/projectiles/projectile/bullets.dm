@@ -130,6 +130,7 @@
 /* short-casing projectiles, like the kind used in pistols or SMGs */
 
 /obj/item/projectile/bullet/pistol
+	armor_penetration = ARMOR_CLASS*2
 	damage = 20
 
 /obj/item/projectile/bullet/pistol/medium
@@ -173,7 +174,7 @@
 	atype = "HE"
 
 /obj/item/projectile/bullet/pellet/a50cal_he/on_impact(var/atom/A) 	//Dont ask how, it works
-	impact_effect(effect_transform)
+	impact_effect()
 	playsound(src, "ric_sound", 50, TRUE, -2)
 	if (istype(A, /turf))
 		var/turf/T = A
@@ -235,7 +236,7 @@
 /* "Rifle" rounds */
 
 /obj/item/projectile/bullet/rifle
-	armor_penetration = 20
+	armor_penetration = ARMOR_CLASS*4
 	penetrating = 1
 
 

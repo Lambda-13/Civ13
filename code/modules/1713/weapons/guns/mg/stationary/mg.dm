@@ -30,7 +30,7 @@
 	desc = "Russian version of the original Maxim machinegun, on cart mount. Uses Russian 7.62x54mm rounds."
 	icon_state = "maxim"
 	base_icon = "maxim"
-	caliber = "a762x54_weak"
+	caliber = "a762x54"
 	fire_sound = 'sound/weapons/guns/fire/Maxim.ogg'
 	magazine_type = /obj/item/ammo_magazine/maxim
 	good_mags = list(/obj/item/ammo_magazine/maxim)
@@ -47,7 +47,7 @@
 	icon_state = "maxim_ww2"
 	base_icon = "maxim_ww2"
 	hardness = 90
-	caliber = "a762x54_weak"
+	caliber = "a762x54"
 	fire_sound = 'sound/weapons/guns/fire/Maxim.ogg'
 	magazine_type = /obj/item/ammo_magazine/maxim
 	good_mags = list(/obj/item/ammo_magazine/maxim)
@@ -63,7 +63,7 @@
 	desc = "German Heavy Maxim machinegun, based on the original Maxim. Uses 7.92x57mm Mauser rounds."
 	icon_state = "mg08"
 	base_icon = "mg08"
-	caliber = "a792x57_weak"
+	caliber = "a792x57"
 	fire_sound = 'sound/weapons/guns/fire/Maxim.ogg'
 	magazine_type = /obj/item/ammo_magazine/mg08
 	good_mags = list(/obj/item/ammo_magazine/mg08)
@@ -79,7 +79,7 @@
 	desc = "Soviet machinegun. Uses 7.62x54mm rounds."
 	icon_state = "dt28"
 	base_icon = "dt28"
-	caliber = "a762x54_weak"
+	caliber = "a762x54"
 	magazine_type = /obj/item/ammo_magazine/dp
 	good_mags = list(/obj/item/ammo_magazine/dp, /obj/item/ammo_magazine/dp/dt)
 	firemodes = list(
@@ -94,7 +94,7 @@
 	desc = "Soviet Heavy PKM machinegun. Uses 7.62x54mm rounds."
 	icon_state = "pkm"
 	base_icon = "pkm"
-	caliber = "a762x54_weak"
+	caliber = "a762x54"
 	magazine_type = /obj/item/ammo_magazine/pkm
 	good_mags = list(/obj/item/ammo_magazine/pkm, /obj/item/ammo_magazine/pkm/c100, /obj/item/ammo_magazine/maxim)
 	firemodes = list(
@@ -162,7 +162,7 @@
 	desc = "Soviet Heavy foldable PKM machinegun. Uses 7.62x54mm rounds."
 	icon_state = "pkm_foldable"
 	base_icon = "pkm_foldable"
-	caliber = "a762x54_weak"
+	caliber = "a762x54"
 	fire_sound = 'sound/weapons/guns/fire/Maxim.ogg'
 	magazine_type = /obj/item/ammo_magazine/pkm
 	good_mags = list(/obj/item/ammo_magazine/pkm, /obj/item/ammo_magazine/pkm/c100, /obj/item/ammo_magazine/maxim)
@@ -180,7 +180,7 @@
 	desc = "A water-cooled heavy machinegun, using .303 british rounds."
 	icon_state = "vickers"
 	base_icon = "vickers"
-	caliber = "a303_weak"
+	caliber = "a303"
 	fire_sound = 'sound/weapons/guns/fire/Vickers.ogg'
 	magazine_type = /obj/item/ammo_magazine/vickers
 	good_mags = list(/obj/item/ammo_magazine/vickers)
@@ -196,7 +196,7 @@
 	desc = "A french heavy machinegun, using 8x50mm Lebel rounds."
 	icon_state = "hotchkiss1914"
 	base_icon = "hotchkiss1914"
-	caliber = "a8x50_weak"
+	caliber = "a8x50"
 	magazine_type = /obj/item/ammo_magazine/hotchkiss
 	good_mags = list(/obj/item/ammo_magazine/hotchkiss)
 	ammo_type = /obj/item/ammo_casing/a8x50/weak
@@ -208,7 +208,7 @@
 	desc = "A japanese heavy machinegun based on the French Hotchkiss. Uses 6.5x50mm Arisaka rounds."
 	icon_state = "type3"
 	base_icon = "type3"
-	caliber = "a65x50_weak"
+	caliber = "a65x50"
 	magazine_type = /obj/item/ammo_magazine/type3
 	good_mags = list(/obj/item/ammo_magazine/type3)
 	ammo_type = /obj/item/ammo_casing/a65x50/weak
@@ -275,7 +275,7 @@
 	desc = "A german heavy machinegun, using 7.92x57 Mauser rounds."
 	icon_state = "mg34hmg"
 	base_icon = "mg34hmg"
-	caliber = "a792x57_weak"
+	caliber = "a792x57"
 	magazine_type = /obj/item/ammo_magazine/mg34belt
 	good_mags = list(/obj/item/ammo_magazine/mg34belt, /obj/item/ammo_magazine/mg34)
 	firemodes = list(
@@ -290,7 +290,7 @@
 	desc = "A german heavy machinegun, using 7.62x51 NATO rounds."
 	icon_state = "mg3hmg"
 	base_icon = "mg3hmg"
-	caliber = "a792x57_weak"
+	caliber = "a792x57"
 	magazine_type = /obj/item/ammo_magazine/mg3belt
 	good_mags = list(/obj/item/ammo_magazine/mg3belt)
 	firemodes = list(

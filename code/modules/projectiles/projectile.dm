@@ -9,6 +9,7 @@
 	mouse_opacity = FALSE
 	value = 0
 	flags = CONDUCT
+	layer = 0
 	var/angle = 0
 	var/bumped = FALSE //Prevents it from hitting more than one guy at once
 	var/hitsound_wall = ""//"ricochet"
@@ -74,7 +75,6 @@
 
 	var/datum/plot_vector/trajectory = null	// used to plot the path of the projectile
 	var/datum/vector_loc/location = null		// current location of the projectile in pixel space
-	var/matrix/effect_transform = null			// matrix to rotate and scale projectile effects - putting it here so it doesn't
 										//  have to be recreated multiple times
 
 	armor_penetration = 90
@@ -131,7 +131,7 @@
 	return TRUE
 
 /obj/item/projectile/proc/on_impact(var/atom/A)
-	impact_effect(effect_transform)		// generate impact effect
+	impact_effect()		// generate impact effect
 	playsound(src, "ric_sound", 50, TRUE, -2)
 
 	spawn(25)
@@ -193,7 +193,6 @@
 			fired_from_turret = TRUE
 		for (var/obj/structure/vehicleparts/frame/F in curloc)
 			fired_from_axis = F.axis
-			layer = 14
 
 	firer = user
 	firer_original_dir = firer.dir
@@ -680,6 +679,7 @@
 		var/penloc = F.get_wall_name(opposite_direction(direction))
 		if (F.is_ambrasure(penloc) && loc == starting)
 			if(!istype(src, /obj/item/projectile/shell/missile))
+				layer = 14
 				visible_message("<span class = 'warning'>Пуля вылетает из амбразуры</span>")
 			else
 				var/obj/item/projectile/shell/missile/M = src
@@ -789,6 +789,13 @@
 		handleTurf(loc, untouchable = _untouchable)
 		before_move()
 		forceMove(location.return_turf())
+		if(fired_from_turret)
+			layer = 14
+		else
+			layer = 4
+		if(tracer_type == /obj/effect/projectile/tracer/minor)
+			alpha = 64
+		visible_message("[tracer_type] [alpha]")
 		update_icon()
 
 		if (!did_muzzle_effect)
@@ -812,10 +819,6 @@
 	// plot the initial trajectory
 	trajectory = new()
 	trajectory.setup(starting_loc, original, pixel_x, pixel_y, dispersion)
-
-	// generate this now since all visual effects the projectile makes can use it
-	effect_transform = new()
-	effect_transform.Turn(-trajectory.return_angle())		//no idea why this has to be inverted, but it works
 
 	transform = turn(transform, -(trajectory.return_angle() + 90)) //no idea why 90 needs to be added, but it works
 
