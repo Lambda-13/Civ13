@@ -795,7 +795,6 @@
 			layer = 4
 		if(tracer_type == /obj/effect/projectile/tracer/minor)
 			alpha = 64
-		visible_message("[tracer_type] [alpha]")
 		update_icon()
 
 		if (!did_muzzle_effect)
