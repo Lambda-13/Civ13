@@ -300,6 +300,44 @@
 				tgt = pick("l_foot","r_foot","l_leg","r_leg","chest","groin","l_arm","r_arm","l_hand","r_hand","eyes","mouth","head")
 			if (!process_projectile(projectile, user, target, tgt, clickparams))
 				handle_post_fire(user, target, pointblank, reflex)
+				var/dt = clamp(world.time - last_shot_time, 1, world.time)
+				var/recoil_x = sqrt(recoil / dt / ergonomics) * 0.3
+				var/recoil_y = sqrt(recoil / dt / ergonomics) * 0.3
+				if(user.lying || user.prone)
+					recoil_x *= 0.75
+					recoil_y *= 0.75
+				switch(get_dir(loc, target))
+					if(NORTHEAST)
+						recoil_x *= 1
+						recoil_y *= 1
+					if(NORTH)
+						recoil_x *= 0
+						recoil_y *= 1
+					if(NORTHWEST)
+						recoil_x *= -1
+						recoil_y *= 1
+					if(WEST)
+						recoil_x *= -1
+						recoil_y *= 0
+					if(SOUTHWEST)
+						recoil_x *= -1
+						recoil_y *= -1
+					if(SOUTH)
+						recoil_x *= 0
+						recoil_y *= -1
+					if(SOUTHEAST)
+						recoil_x *= 1
+						recoil_y *= -1
+					if(EAST)
+						recoil_x *= 1
+						recoil_y *= 0
+
+				if(!user.buckled)
+					user.pixel_x -= recoil_x
+					user.pixel_y -= recoil_y
+					spawn(3.5)
+						user.pixel_x += recoil_x
+						user.pixel_y += recoil_y
 				update_icon()
 
 		if (i < _burst)
