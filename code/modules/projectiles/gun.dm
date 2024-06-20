@@ -335,7 +335,7 @@
 				if(!user.buckled)
 					user.pixel_x -= recoil_x
 					user.pixel_y -= recoil_y
-					spawn(3.5)
+					spawn(firemodes[sel_mode].burst_delay)
 						user.pixel_x += recoil_x
 						user.pixel_y += recoil_y
 				update_icon()
