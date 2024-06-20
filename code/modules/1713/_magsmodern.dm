@@ -1,10 +1,14 @@
 /obj/item/ammo_magazine/ak47
-	name = "AK магазин (7.62x39mm)"
+	name = "AK магазин (7.62x39mm). Заряжен Т-ПС-ПС"
 	icon_state = "ak47"
 	attached_icon_state = "ak47_magak"
 	mag_type = MAGAZINE
 	caliber = "a762x39"
-	ammo_type = /obj/item/ammo_casing/a762x39
+	ammo_type = list(
+		/obj/item/ammo_casing/a762x39/tracer,
+		/obj/item/ammo_casing/a762x39,
+		/obj/item/ammo_casing/a762x39,
+	)
 	max_ammo = 30
 	weight = 0.7
 	multiple_sprites = TRUE
@@ -21,12 +25,17 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/ak74
-	name = "AK-74 магазин (5.45x39mm)"
+	name = "AK-74 магазин (5.45x39mm). Заряжены Т-ПС-ПС-ПС"
 	icon_state = "ak74"
 	attached_icon_state = "ak74_magak"
 	mag_type = MAGAZINE
 	caliber = "a545x39"
-	ammo_type = /obj/item/ammo_casing/a545x39
+	ammo_type = list(
+		/obj/item/ammo_casing/a545x39/tracer,
+		/obj/item/ammo_casing/a545x39,
+		/obj/item/ammo_casing/a545x39,
+		/obj/item/ammo_casing/a545x39,
+	)
 	max_ammo = 30
 	weight = 0.5
 	multiple_sprites = TRUE
@@ -53,23 +62,22 @@
 	is_box = TRUE
 
 /obj/item/ammo_magazine/ak101
-	name = "AK-101 магазин (5.46x45mm)"
+	name = "AK-101 магазин (5.46x45mm). Заряжены T-FMJ-FMJ"
 	icon_state = "ak47"
 	attached_icon_state = "ak74m_magak"
 	mag_type = MAGAZINE
 	caliber = "a556x45"
-	ammo_type = /obj/item/ammo_casing/a556x45
+	ammo_type = list(
+		/obj/item/ammo_casing/a556x45/tracer,
+		/obj/item/ammo_casing/a556x45,
+		/obj/item/ammo_casing/a556x45,
+	)
 	max_ammo = 30
 	weight = 0.35
 	multiple_sprites = TRUE
 
-/obj/item/ammo_magazine/ak101/drum
-	name = "AK-101 барабанный магазин (5.46x45mm)"
-	icon_state = "tommydrum"
-	max_ammo = 75
-
 /obj/item/ammo_magazine/ak74/ak74m
-	name = "AK-74M магазин (5.45x39mm)"
+	name = "AK-74M магазин (5.45x39mm). Заряжены Т-ПС-ПС-ПС"
 	icon_state = "ak74m"
 	attached_icon_state = "ak74m_magak"
 
@@ -95,29 +103,37 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/m16
-	name = "STANAG (5.56x45mm)"
+	name = "STANAG (5.56x45mm). Заряжены T-FMJ-FMJ"
 	icon_state = "m16"
 	attached_icon_state = "m16_mag"
 	mag_type = MAGAZINE
 	caliber = "a556x45"
-	ammo_type = /obj/item/ammo_casing/a556x45
+	ammo_type = list(
+		/obj/item/ammo_casing/a556x45/tracer,
+		/obj/item/ammo_casing/a556x45,
+		/obj/item/ammo_casing/a556x45,
+	)
 	max_ammo = 30
 	weight = 0.5
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/m16/mag5_60
-	name = "MAG5-60 STANAG (5.56x45mm)"
+	name = "MAG5-60 STANAG (5.56x45mm). Заряжены T-FMJ-FMJ"
 	icon_state = "mag5_60"
 	attached_icon_state = "mag5_60_mag"
 	mag_type = MAGAZINE
 	caliber = "a556x45"
-	ammo_type = /obj/item/ammo_casing/a556x45
+	ammo_type = list(
+		/obj/item/ammo_casing/a556x45/tracer,
+		/obj/item/ammo_casing/a556x45,
+		/obj/item/ammo_casing/a556x45,
+	)
 	max_ammo = 60
 	weight = 1
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/m16/box
-	name = "патронная коробка (5.56x45mm)"
+	name = "патронная коробка (5.56x45mm). Заряжены FMJ"
 	icon_state = "556x45"
 	mag_type = MAGAZINE
 	caliber = "a556x45"
@@ -128,18 +144,21 @@
 	is_box = TRUE
 
 /obj/item/ammo_magazine/ar10
-	name = "AR-10 магазин (7.62x51mm)"
+	name = "AR-10 магазин (7.62x51mm). Заряжены T-FMJ"
 	icon_state = "m16"
 	mag_type = MAGAZINE
 	caliber = "a762x51"
 	attached_icon_state = "ar10_mag"
-	ammo_type = /obj/item/ammo_casing/a762x51
+	ammo_type = list(
+		/obj/item/ammo_casing/a762x51/tracer,
+		/obj/item/ammo_casing/a762x51,
+	)
 	max_ammo = 20
 	weight = 0.5
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/m14
-	name = "M14 магазин (7.62x51mm)"
+	name = "M14 магазин (7.62x51mm). Заряжены FMJ"
 	icon_state = "m14"
 	attached_icon_state = "m14_mag"
 	mag_type = MAGAZINE
@@ -268,115 +287,133 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/pkm
-	name = "ПKM пулемётная лента (7.62x54mmR)"
+	name = "ПKM пулемётная лента (7.62x54mmR). Заряжены ЛПС-Т-ЛПС-ПС"
 	icon_state = "maximbelt"
 	attached_icon_state = "belt_"
 	mag_type = MAGAZINE
-	caliber = "a762x54_weak"
+	caliber = "a762x54"
 	w_class = ITEM_SIZE_LARGE
-	ammo_type = /obj/item/ammo_casing/a762x54/weak
+	ammo_type = list(
+		/obj/item/ammo_casing/a762x54/weak,
+		/obj/item/ammo_casing/a762x54/tracer,
+		/obj/item/ammo_casing/a762x54/weak,
+		/obj/item/ammo_casing/a762x54
+	)
 	max_ammo = 250
 	multiple_sprites = TRUE
 	belt = TRUE
 
 /obj/item/ammo_magazine/pkm/c100
-	name = "короб для пулемётной ленты (7.62x54mmR)"
+	name = "короб для пулемётной ленты (7.62x54mmR). Заряжены ЛПС-Т-ЛПС-ПС"
 	icon_state = "b762x54"
 	attached_icon_state = "pkm_mag"
 	mag_type = MAGAZINE
-	caliber = "a762x54_weak"
+	caliber = "a762x54"
 	w_class = ITEM_SIZE_NORMAL
-	ammo_type = /obj/item/ammo_casing/a762x54/weak
+	ammo_type = list(
+		/obj/item/ammo_casing/a762x54/weak,
+		/obj/item/ammo_casing/a762x54/tracer,
+		/obj/item/ammo_casing/a762x54/weak,
+		/obj/item/ammo_casing/a762x54
+	)
 	max_ammo = 100
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/ammo127
-	name = "Ammo can (12.7x108mm)"
+	name = "Ammo can (12.7x108mm). Заряжены  БС-БТ"
 	icon_state = "b127"
 	attached_icon_state = "pkm_mag"
 	mag_type = MAGAZINE
 	caliber = "a127"
 	w_class = ITEM_SIZE_NORMAL
-	ammo_type = /obj/item/ammo_casing/a127
+	ammo_type = list(/obj/item/ammo_casing/a127, /obj/item/ammo_casing/a127/tracer)
 	max_ammo = 50
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/ammo127/box
-	name = "Ammo Box (12.7x108mm)"
+	name = "Ammo Box (12.7x108mm). Заряжены  БС-БТ"
 	icon_state = "ab127"
 	mag_type = MAGAZINE
 	caliber = "a127"
 	w_class = ITEM_SIZE_NORMAL
-	ammo_type = /obj/item/ammo_casing/a127
+	ammo_type = list(/obj/item/ammo_casing/a127, /obj/item/ammo_casing/a127/tracer)
 	max_ammo = 100
 	multiple_sprites = TRUE
 	is_box = TRUE
 
-/obj/item/ammo_magazine/ak47/drum
-	name = "AK барабанный магазин (7.62x39mm)"
-	icon_state = "tommydrum"
-	max_ammo = 75
-
-/obj/item/ammo_magazine/ak74/drum
-	name = "AK-74 барабанный магазин (5.45x39mm)"
-	max_ammo = 75
-	icon_state = "tommydrum"
-
 /obj/item/ammo_magazine/rpd
-	name = "RPD барабанный (7.62x39)"
+	name = "RPD барабанный (7.62x39). Заряжены  Т-ПС-ПС"
 	icon_state = "rpd"
 	attached_icon_state = "rpd_mag"
 	mag_type = MAGAZINE
 	caliber = "a762x39"
 	w_class = ITEM_SIZE_NORMAL
 
-	ammo_type = /obj/item/ammo_casing/a762x39
+	ammo_type = list(
+		/obj/item/ammo_casing/a762x39/tracer,
+		/obj/item/ammo_casing/a762x39,
+		/obj/item/ammo_casing/a762x39,
+	)
 	max_ammo = 100
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/rpk74
-	name = "RPK-74 магазин (7.62x39)"
+	name = "RPK-74 магазин (7.62x39). Заряжены Т-ПС-ПС"
 	icon_state = "rpk74mag"
 	attached_icon_state = "rpk74_mag"
 	mag_type = MAGAZINE
 	caliber = "a545x39"
 
 	w_class = ITEM_SIZE_SMALL
-	ammo_type = /obj/item/ammo_casing/a545x39
+	ammo_type = list(
+		/obj/item/ammo_casing/a545x39/tracer,
+		/obj/item/ammo_casing/a545x39,
+		/obj/item/ammo_casing/a545x39,
+	)
 	max_ammo = 45
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/rpk74/drum
-	name = "RPK-74 барабанный (5.45x39)"
+	name = "RPK-74 барабанный (5.45x39). Заряжены Т-ПС-ПС"
 	icon_state = "rpk74"
 	attached_icon_state = "drum"
 	mag_type = MAGAZINE
 	caliber = "a545x39"
 	w_class = ITEM_SIZE_NORMAL
 
-	ammo_type = /obj/item/ammo_casing/a545x39
+	ammo_type = list(
+		/obj/item/ammo_casing/a545x39/tracer,
+		/obj/item/ammo_casing/a545x39,
+		/obj/item/ammo_casing/a545x39,
+	)
 	max_ammo = 75
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/rpk47
-	name = "RPK-47 magazine (7.62x39mm)"
+	name = "RPK-47 magazine (7.62x39mm). Заряжены Т-ПС"
 	icon_state = "rpk47mag"
 	attached_icon_state = "rpk47_mag"
 	mag_type = MAGAZINE
 
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a762x39"
-	ammo_type = /obj/item/ammo_casing/a762x39
+	ammo_type = list(
+		/obj/item/ammo_casing/a762x39/tracer,
+		/obj/item/ammo_casing/a762x39,
+	)
 	max_ammo = 45
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/rpk47/drum
-	name = "RPK-47 drum (7.62x39mm)"
+	name = "RPK-47 drum (7.62x39mm). Заряжены Т-ПС"
 	icon_state = "rpk47"
 	attached_icon_state = "drum"
 	mag_type = MAGAZINE
 	caliber = "a762x39"
-	ammo_type = /obj/item/ammo_casing/a762x39
+	ammo_type = list(
+		/obj/item/ammo_casing/a762x39/tracer,
+		/obj/item/ammo_casing/a762x39,
+	)
 	w_class = ITEM_SIZE_NORMAL
 	max_ammo = 75
 	multiple_sprites = TRUE

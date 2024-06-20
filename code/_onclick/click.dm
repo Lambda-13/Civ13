@@ -482,7 +482,8 @@
 	lying = TRUE
 	sleep(get_prone_delay())
 	var/nloc = loc
-	dir = get_dir(oloc, nloc)
+	if(facing_dir != 0)
+		dir = get_dir(oloc, nloc)
 	if (nloc == oloc)
 		Move(F)
 	scrambling = FALSE

@@ -250,7 +250,7 @@
 	atype = "grapeshot"
 
 /obj/item/projectile/shell/cannonball/on_impact(var/atom/A)
-	impact_effect(effect_transform)		// generate impact effect
+	impact_effect()		// generate impact effect
 	playsound(src, artillery_in, 50, TRUE, -2)
 	if (istype(A, /turf))
 		var/turf/T = A

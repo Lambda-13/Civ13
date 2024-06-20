@@ -10,7 +10,7 @@
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	fire_sound = 'sound/weapons/guns/fire/AKM.ogg'
 	magazine_type = /obj/item/ammo_magazine/ak101
-	good_mags = list(/obj/item/ammo_magazine/ak101, /obj/item/ammo_magazine/ak101/drum)
+	good_mags = list(/obj/item/ammo_magazine/ak101)
 	equiptimer = 7
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.7, recoil=0, move_delay=2),
@@ -62,7 +62,7 @@
 	base_icon = "ak100"
 	weight = 3
 	magazine_type = /obj/item/ammo_magazine/ak101
-	good_mags = list(/obj/item/ammo_magazine/ak101, /obj/item/ammo_magazine/ak101/drum)
+	good_mags = list(/obj/item/ammo_magazine/ak101)
 	equiptimer = 6
 	accuracy = 1
 	recoil = 35

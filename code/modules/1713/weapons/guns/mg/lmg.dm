@@ -105,7 +105,7 @@
 	icon_state = "dp"
 	item_state = "dp"
 	base_icon = "dp"
-	caliber = "a762x54_weak"
+	caliber = "a762x54"
 	fire_sound = 'sound/weapons/guns/fire/DP28.ogg'
 	magazine_type = /obj/item/ammo_magazine/dp
 	good_mags = list(/obj/item/ammo_magazine/dp, /obj/item/ammo_magazine/dp/dt)
@@ -180,7 +180,7 @@
 	item_state = "bar"
 	base_icon = "bar"
 	slot_flags = SLOT_SHOULDER
-	caliber = "a3006_weak"
+	caliber = "a3006"
 	fire_sound = 'sound/weapons/guns/fire/M1918A2.ogg'
 	magazine_type = /obj/item/ammo_magazine/bar
 	good_mags = list(/obj/item/ammo_magazine/bar)
@@ -225,7 +225,7 @@
 	item_state = "mg34"
 	base_icon = "mg34"
 	max_shells = 50
-	caliber = "a792x57_weak"
+	caliber = "a792x57"
 	weight = 12.1
 	slot_flags = SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a792x57/weak
@@ -298,7 +298,7 @@
 	desc = "Modern German light machinegun chambered in 7.62x51mm. An utterly devastating support weapon."
 	icon_state = "mg3"
 	base_icon = "mg3"
-	caliber = "a762x51_weak"
+	caliber = "a762x51"
 	ammo_type = /obj/item/ammo_casing/a762x51/weak
 	magazine_type = /obj/item/ammo_magazine/mg3belt
 	good_mags = list(/obj/item/ammo_magazine/mg3belt)
@@ -342,7 +342,7 @@
 	icon_state = "m60"
 	item_state = "m60"
 	base_icon = "m60"
-	caliber = "a762x51_weak"
+	caliber = "a762x51"
 	fire_sound = 'sound/weapons/guns/fire/M60.ogg'
 	magazine_type = /obj/item/ammo_magazine/b762
 	good_mags = list(/obj/item/ammo_magazine/b762)
@@ -421,7 +421,7 @@
 	icon_state = "pkmp"
 	item_state = "pkmp"
 	base_icon = "pkmp"
-	caliber = "a762x54_weak"
+	caliber = "a762x54"
 	magazine_type = /obj/item/ammo_magazine/pkm/c100
 	good_mags = list(/obj/item/ammo_magazine/pkm/c100, /obj/item/ammo_magazine/maxim, /obj/item/ammo_magazine/pkm)
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
@@ -686,7 +686,7 @@
 	icon_state = "mg13"
 	item_state = "mg13"
 	base_icon = "mg13"
-	caliber = "a792x57_weak"
+	caliber = "a792x57"
 	magazine_type = /obj/item/ammo_magazine/mg13
 	good_mags = list(/obj/item/ammo_magazine/mg13, /obj/item/ammo_magazine/mg08)
 	weight = 9

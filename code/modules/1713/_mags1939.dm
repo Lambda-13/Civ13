@@ -46,12 +46,15 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/type99
-	name = "Type-99 Magazine"
+	name = "Type-99 Magazine. Заражены Т-ПС"
 	icon_state = "type99"
 	attached_icon_state = "type99_mag"
 	mag_type = MAGAZINE
 	caliber = "a77x58"
-	ammo_type = /obj/item/ammo_casing/a77x58
+	ammo_type = list(
+		/obj/item/ammo_casing/a77x58/tracer,
+		/obj/item/ammo_casing/a77x58,
+	)
 	max_ammo = 32
 	weight = 0.40
 	multiple_sprites = TRUE
@@ -68,13 +71,15 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/type92
-	name = "Type 92 ammo belt"
+	name = "Type 92 ammo belt. Заражены Т-ПС"
 	icon_state = "maximbelt"
 	mag_type = MAGAZINE
 	caliber = "a77x58"
 	w_class = ITEM_SIZE_LARGE
-
-	ammo_type = /obj/item/ammo_casing/a77x58
+	ammo_type = list(
+		/obj/item/ammo_casing/a77x58/tracer,
+		/obj/item/ammo_casing/a77x58,
+	)
 	max_ammo = 30
 	multiple_sprites = TRUE
 	var/slot = "decor"
@@ -133,12 +138,16 @@
 	attached_icon_state = "mp5_mag"
 
 /obj/item/ammo_magazine/fg42
-	name = "FG 42 magazine (7.92x57mm)"
+	name = "FG 42 magazine (7.92x57mm). Заряжены Т-ЛПС-ПС"
 	icon_state = "fg42"
 	attached_icon_state = "fg42_mag"
 	mag_type = MAGAZINE
 	caliber = "a792x57"
-	ammo_type = /obj/item/ammo_casing/a792x57
+	ammo_type = list(
+		/obj/item/ammo_casing/a792x57/tracer,
+		/obj/item/ammo_casing/a792x57/weak,
+		/obj/item/ammo_casing/a792x57
+	)
 	max_ammo = 20
 	weight = 0.28
 	multiple_sprites = TRUE
@@ -150,12 +159,16 @@
 	weight = 0.2
 
 /obj/item/ammo_magazine/mg34
-	name = "MG34 магазин (7.92x57mm)"
+	name = "MG34 магазин (7.92x57mm). Заряжены Т-ЛПС-ПС"
 	icon_state = "mg34"
 	attached_icon_state = "mg34_mag"
 	mag_type = MAGAZINE
-	caliber = "a792x57_weak"
-	ammo_type = /obj/item/ammo_casing/a792x57/weak
+	caliber = "a792x57"
+	ammo_type = list(
+		/obj/item/ammo_casing/a792x57/tracer,
+		/obj/item/ammo_casing/a792x57/weak,
+		/obj/item/ammo_casing/a792x57
+	)
 	max_ammo = 50
 	weight = 0.34
 	multiple_sprites = TRUE
@@ -165,7 +178,7 @@
 	icon_state = "mg13mag"
 	attached_icon_state = "mg13_mag"
 	mag_type = MAGAZINE
-	caliber = "a792x57_weak"
+	caliber = "a792x57"
 	ammo_type = /obj/item/ammo_casing/a792x57/weak
 	max_ammo = 25
 	weight = 0.15
@@ -216,18 +229,21 @@
 	multiple_sprites = TRUE
 
 obj/item/ammo_magazine/dp
-	name = "магазин ДП (7.62x54mmR)"
+	name = "магазин ДП (7.62x54mmR). Заряжены Т-ПС"
 	icon_state = "dp_disk"
 	attached_icon_state = "dp_mag"
 	mag_type = MAGAZINE
-	caliber = "a762x54_weak"
-	ammo_type = /obj/item/ammo_casing/a762x54/weak
+	caliber = "a762x54"
+	ammo_type = list(
+		/obj/item/ammo_casing/a762x54/tracer,
+		/obj/item/ammo_casing/a762x54,
+	)
 	max_ammo = 47
 	weight = 0.40
 	multiple_sprites = FALSE
 
 obj/item/ammo_magazine/dp/dt
-	name = "магазин ДТ (7.62x54mmR)"
+	name = "магазин ДТ (7.62x54mmR). Заряжены ПС-Т"
 	icon_state = "dt_drum"
 	attached_icon_state = "dt_mag"
 	max_ammo = 60
@@ -413,7 +429,7 @@ obj/item/ammo_magazine/dp/dt
 	clip = TRUE
 
 /obj/item/ammo_magazine/browning
-	name = "лента с патронами Браунинг"
+	name = "лента с патронами Браунинг. Заряжены T-W-FMJ"
 	icon_state = "maximbelt"
 	attached_icon_state = "belt_"
 	mag_type = MAGAZINE
@@ -421,8 +437,11 @@ obj/item/ammo_magazine/dp/dt
 	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_BELT|SLOT_SHOULDER
 	belt = TRUE
-
-	ammo_type = /obj/item/ammo_casing/a3006
+	ammo_type = list(
+		/obj/item/ammo_casing/a3006/tracer,
+		/obj/item/ammo_casing/a3006/weak,
+		/obj/item/ammo_casing/a3006,
+	)
 	max_ammo = 250
 	multiple_sprites = TRUE
 	var/slot = "decor"
@@ -432,11 +451,15 @@ obj/item/ammo_magazine/dp/dt
 	var/overlay_state = null
 
 /obj/item/ammo_magazine/bar
-	name = "BAR магазин (30-06)"
+	name = "BAR магазин (30-06). Заряжены T-W-FMJ"
 	icon_state = "bar"
 	attached_icon_state = "bar_mag"
-	caliber = "a3006_weak"
-	ammo_type = /obj/item/ammo_casing/a3006/weak
+	caliber = "a3006"
+	ammo_type = list(
+		/obj/item/ammo_casing/a3006/tracer,
+		/obj/item/ammo_casing/a3006/weak,
+		/obj/item/ammo_casing/a3006,
+	)
 	max_ammo = 20
 	weight = 0.038
 	mag_type = MAGAZINE

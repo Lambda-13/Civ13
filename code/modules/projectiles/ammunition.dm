@@ -364,7 +364,13 @@
 	if (isnull(initial_ammo) && ammo_type != null)
 		initial_ammo = max_ammo
 
-	if (initial_ammo && ammo_type != null)
+	if (islist(ammo_type))
+		var/list/A = ammo_type
+		while (stored_ammo.len < initial_ammo)
+			for(var/i = 1, i <= A.len && stored_ammo.len < initial_ammo, i++)
+				var/bullet_type = ammo_type[i] (src)
+				stored_ammo += new bullet_type (src)
+	else if (initial_ammo && ammo_type != null)
 		for (var/i in TRUE to initial_ammo)
 			stored_ammo += new ammo_type(src)
 	update_icon()

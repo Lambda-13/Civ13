@@ -48,7 +48,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "b762"
 	attached_icon_state = "m60_mag"
 	mag_type = MAGAZINE
-	caliber = "a762x51_weak"
+	caliber = "a762x51"
 	w_class = ITEM_SIZE_NORMAL
 	ammo_type = /obj/item/ammo_casing/a762x51/weak
 	max_ammo = 100
@@ -198,15 +198,15 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	is_box = TRUE
 
 /obj/item/ammo_magazine/maxim
-	name = "Maxim ammo belt"
+	name = "Maxim ammo belt. Заряжены ЛПС-Т-ПС"
 	icon_state = "maximbelt"
 	attached_icon_state = "belt_"
 	worn_state = "maximbelt"
 	mag_type = MAGAZINE
-	caliber = "a762x54_weak"
+	caliber = "a762x54"
 	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_BELT|SLOT_SHOULDER
-	ammo_type = /obj/item/ammo_casing/a762x54/weak
+	ammo_type = list(/obj/item/ammo_casing/a762x54/weak, /obj/item/ammo_casing/a762x54, /obj/item/ammo_casing/a762x54/tracer)
 	max_ammo = 250
 	multiple_sprites = TRUE
 	belt = TRUE
@@ -216,7 +216,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	icon_state = "maximbelt"
 	attached_icon_state = "belt_"
 	mag_type = MAGAZINE
-	caliber = "a792x57_weak"
+	caliber = "a792x57"
 	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_BELT|SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a792x57/weak
@@ -228,7 +228,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	name = "Vickers ammo belt"
 	icon_state = "maximbelt"
 	mag_type = MAGAZINE
-	caliber = "a303_weak"
+	caliber = "a303"
 	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_BELT|SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a303/weak
@@ -240,7 +240,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	name = "патронная коробка (.303 British)"
 	icon_state = "wood_ammobox"
 	mag_type = MAGAZINE
-	caliber = "a303_weak"
+	caliber = "a303"
 	w_class = ITEM_SIZE_HUGE
 	ammo_type = /obj/item/ammo_casing/a303/weak
 	max_ammo = 650
@@ -252,7 +252,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	name = "Hotchkiss ammo belt"
 	icon_state = "maximbelt"
 	mag_type = MAGAZINE
-	caliber = "a8x50_weak"
+	caliber = "a8x50"
 	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_BELT|SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a8x50/weak
@@ -265,7 +265,7 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	name = "Type 3 ammo belt"
 	icon_state = "maximbelt"
 	mag_type = MAGAZINE
-	caliber = "a65x50_weak"
+	caliber = "a65x50"
 	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_BELT|SLOT_SHOULDER
 	ammo_type = /obj/item/ammo_casing/a65x50/weak
@@ -274,27 +274,34 @@ RUSSO-JAPANESE WAR WEAPONS MAGS N AMMO
 	belt = TRUE
 
 /obj/item/ammo_magazine/mg34belt
-	name = "MG 34 ammo belt"
+	name = "MG 34 ammo belt. Заряжены Т-ЛПС-ПС"
 	icon_state = "maximbelt"
 	attached_icon_state = "belt_"
 	mag_type = MAGAZINE
-	caliber = "a792x57_weak"
+	caliber = "a792x57"
 	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_BELT|SLOT_SHOULDER
-	ammo_type = /obj/item/ammo_casing/a792x57/weak
+	ammo_type = list(
+		/obj/item/ammo_casing/a792x57/tracer,
+		/obj/item/ammo_casing/a792x57/weak,
+		/obj/item/ammo_casing/a792x57
+	)
 	max_ammo = 250
 	multiple_sprites = TRUE
 	belt = TRUE
 
 /obj/item/ammo_magazine/mg3belt
-	name = "belt (7.62x51mm)"
+	name = "belt (7.62x51mm). Заряжены Т-FMJ"
 	icon_state = "maximbelt"
 	attached_icon_state = "belt_"
 	mag_type = MAGAZINE
-	caliber = "a762x51_weak"
+	caliber = "a762x51"
 	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_BELT|SLOT_SHOULDER
-	ammo_type = /obj/item/ammo_casing/a762x51/weak
+	ammo_type = list(
+		/obj/item/ammo_casing/a762x51/tracer,
+		/obj/item/ammo_casing/a762x51,
+	)
 	max_ammo = 100
 	multiple_sprites = TRUE
 
