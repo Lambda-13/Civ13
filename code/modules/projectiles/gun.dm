@@ -301,8 +301,8 @@
 			if (!process_projectile(projectile, user, target, tgt, clickparams))
 				handle_post_fire(user, target, pointblank, reflex)
 				var/dt = clamp(world.time - last_shot_time, 1, world.time)
-				var/recoil_x = sqrt(recoil / dt / ergonomics) * 0.3
-				var/recoil_y = sqrt(recoil / dt / ergonomics) * 0.3
+				var/recoil_x = sqrt(recoil / dt / ergonomics) * 0.4
+				var/recoil_y = sqrt(recoil / dt / ergonomics) * 0.4
 				if(user.lying || user.prone)
 					recoil_x *= 0.75
 					recoil_y *= 0.75
@@ -336,8 +336,11 @@
 					user.pixel_x -= recoil_x
 					user.pixel_y -= recoil_y
 					spawn(firemodes[sel_mode].burst_delay)
-						user.pixel_x += recoil_x
-						user.pixel_y += recoil_y
+						user.pixel_x += recoil_x / 2
+						user.pixel_y += recoil_y / 2
+						spawn(firemodes[sel_mode].burst_delay)
+							user.pixel_x += recoil_x / 2
+							user.pixel_y += recoil_y / 2
 				update_icon()
 
 		if (i < _burst)
