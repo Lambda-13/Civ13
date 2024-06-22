@@ -417,8 +417,7 @@
 	},
 /area/caribbean/no_mans_land/invisible_wall/two)
 "nE" = (
-/obj/structure/sign/traffic/semicircle,
-/obj/item/weapon/basketball,
+/obj/structure/sign/traffic/semicircle
 /turf/floor/plating/cobblestone/vertical,
 /area/caribbean/no_mans_land/capturable/one/outside)
 "nN" = (
@@ -1389,7 +1388,6 @@
 /turf/floor/plating/cobblestone/vertical,
 /area/caribbean)
 "TT" = (
-/obj/structure/basketball_hoop,
 /obj/structure/sign/traffic/central{
 	dir = 1
 	},
@@ -1559,9 +1557,6 @@
 /turf/floor/dirt/dust,
 /area/caribbean/no_mans_land/capturable/two/outside)
 "ZM" = (
-/obj/structure/basketball_hoop{
-	dir = 1
-	},
 /obj/structure/sign/traffic/central,
 /turf/floor/plating/cobblestone/vertical,
 /area/caribbean/no_mans_land/capturable/one/outside)

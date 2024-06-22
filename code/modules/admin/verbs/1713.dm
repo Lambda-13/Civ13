@@ -14,13 +14,6 @@
 	config.tts_on = !config.tts_on
 	message_admins("[key_name(src)] changed turned the TTS setting [config.tts_on ? "on" : "off"].", key_name(src))
 
-/client/proc/set_teams()
-	set category = "Особенное"
-	set name = "Set Teams"
-	if (map && istype(map, /obj/map_metadata/football))
-		var/obj/map_metadata/football/FM = map
-		FM.assign_teams(triggerer = src)
-
 /client/proc/end_all_grace_periods()
 	set category = "Особенное"
 	set name = "End All Grace Periods"

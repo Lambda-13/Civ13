@@ -116,11 +116,7 @@
 	if (!isnull(riding_mob))
 		return 0
 	else
-		if (football)
-			tally *= 1.35
-			return tally
-		else
-			return tally
+		return tally
 
 /mob/living/human/slip_chance(var/prob_slip = 5)
 	if (!..())
