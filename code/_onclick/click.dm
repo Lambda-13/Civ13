@@ -446,7 +446,7 @@
 	lying = TRUE
 	sleep(get_prone_delay())
 	var/nloc = loc
-	if(facing_dir != 0)
+	if(facing_dir == 0)
 		dir = get_dir(oloc, nloc)
 	if (nloc == oloc)
 		Move(F)
