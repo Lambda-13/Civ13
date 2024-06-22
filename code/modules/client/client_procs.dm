@@ -5,6 +5,9 @@
 #define ABSOLUTE_MIN_CLIENT_VERSION 512
 #define REAL_MIN_CLIENT_VERSION 513
 #define PLAYERCAP 50
+
+GLOBAL_LIST_EMPTY(external_rsc_urls)
+
 	/*
 	When somebody clicks a link in game, this Topic is called first.
 	It does the stuff in this proc and  then is redirected to the Topic() proc for the src=[0xWhatever]
@@ -127,6 +130,7 @@ var/list/blacklisted_builds = list(
 	///////////
 	//CONNECT//
 	///////////
+
 /client/New(TopicData)
 
 	dir = NORTH
@@ -399,7 +403,13 @@ var/list/blacklisted_builds = list(
 
 //send resources to the client. It's here in its own proc so we can move it around easiliy if need be
 /client/proc/send_resources()
-
+#if (PRELOAD_RSC == 0)
+	var/static/next_external_rsc = 0
+	var/list/external_rsc_urls = GLOB.external_rsc_urls
+	if(length(external_rsc_urls))
+		next_external_rsc = WRAP(next_external_rsc+1, 1, GLOB.external_rsc_urls.len+1)
+		preload_rsc = GLOB.external_rsc_urls[next_external_rsc]
+#endif
 	getFiles(
 		'UI/images/uos94.png',
 		'UI/images/uos.png',
@@ -415,6 +425,12 @@ var/list/blacklisted_builds = list(
 	spawn (10) //removing this spawn causes all clients to not get verbs.
 		//Precache the client with all other assets slowly, so as to not block other browse() calls
 		getFilesSlow(src, asset_cache.cache, register_asset = FALSE)
+		//#if (PRELOAD_RSC == 0)
+		//for (var/name in GLOB.vox_sounds)
+		//	var/file = GLOB.vox_sounds[name]
+		//	Export("##action=load_rsc", file)
+		//	stoplag()
+		//#endif
 
 /mob/proc/MayRespawn()
 	return FALSE

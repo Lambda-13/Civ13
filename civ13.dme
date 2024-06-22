@@ -12,6 +12,7 @@
 // BEGIN_INCLUDE
 #include "_auxtools.dm"
 #include "code\__byond_version_compat.dm"
+#include "code\__preload_rsc.dm"
 #include "code\_macros.dm"
 #include "code\client_macros.dm"
 #include "code\global.dm"
@@ -46,6 +47,7 @@
 #include "code\__defines\items_clothing.dm"
 #include "code\__defines\maps.dm"
 #include "code\__defines\math_physics.dm"
+#include "code\__defines\maths.dm"
 #include "code\__defines\MC.dm"
 #include "code\__defines\misc.dm"
 #include "code\__defines\mobs.dm"
@@ -148,6 +150,7 @@
 #include "code\game\core.dm"
 #include "code\game\gameticker.dm"
 #include "code\game\lobby_music_player.dm"
+#include "code\game\setup_external_rsc.dm"
 #include "code\game\sound.dm"
 #include "code\game\area\areas.dm"
 #include "code\game\area\caribbean.dm"

@@ -21,16 +21,6 @@
 // We do not ship byond-tracy. Build it yourself here: https://github.com/mafemergency/byond-tracy/
 // #define USE_BYOND_TRACY
 
-#ifndef PRELOAD_RSC				//set to:
-#define PRELOAD_RSC 2			//	0 to allow using external resources or on-demand behaviour;
-#endif							//	1 to use the default behaviour;
-								//	2 for preloading absolutely everything;
-
-// Запускает билд на карте которая минимально нагружает систему
-//#ifdef LOWMEMORYMODE
-//#define FORCE_MAP "_maps/runtimestation.json"
-//#endif
-
 ///Used to find the sources of harddels, quite laggy, don't be surpised if it freezes your client for a good while
 //#define REFERENCE_TRACKING
 #ifdef REFERENCE_TRACKING

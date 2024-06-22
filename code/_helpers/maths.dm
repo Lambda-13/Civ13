@@ -20,39 +20,11 @@
 	var/a = arccos(x / sqrt(x*x + y*y))
 	return y >= 0 ? a : -a
 
-// Greatest Common Divisor: Euclid's algorithm.
-/proc/Gcd(a, b)
-	while (TRUE)
-		if (!b) return a
-		a %= b
-		if (!a) return b
-		b %= a
-
 /proc/Mean(...)
 	var/sum = FALSE
 	for (var/val in args)
 		sum += val
 	return sum / args.len
-
-// The quadratic formula. Returns a list with the solutions, or an empty list
-// if they are imaginary.
-/proc/SolveQuadratic(a, b, c)
-	ASSERT(a)
-
-	. = list()
-	var/discriminant = b*b - 4*a*c
-	var/bottom	   = 2*a
-
-	// Return if the roots are imaginary.
-	if (discriminant < 0)
-		return
-
-	var/root = sqrt(discriminant)
-	. += (-b + root) / bottom
-
-	// If discriminant == FALSE, there would be two roots at the same position.
-	if (discriminant != FALSE)
-		. += (-b - root) / bottom
 
 // stuff that was in the scripting folder, but was used elsewhere,
 // so had to be copied here

@@ -79,6 +79,8 @@ var/world_is_open = TRUE //В случае чего переключить на 
 		LIBCALL(extools, "maptick_initialize")()
 #endif
 
+	SetupExternalRSC()
+
 	if (map && istype(map,/obj/map_metadata/nomads_persistence_beta))
 		loop_checks = FALSE
 	config.post_load()

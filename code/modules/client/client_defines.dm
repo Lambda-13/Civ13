@@ -39,6 +39,7 @@
 	var/irc_admin			//IRC admin that spoke with them last.
 	var/mute_irc = FALSE
 
+	preload_rsc = PRELOAD_RSC
 
 		////////////////////////////////////
 		//things that require the database//
