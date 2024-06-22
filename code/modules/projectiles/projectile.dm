@@ -822,7 +822,9 @@
 	transform = turn(transform, -(trajectory.return_angle() + 90)) //no idea why 90 needs to be added, but it works
 
 /obj/item/projectile/update_icon()
-	var/dist = permutated.len * world.icon_size
+	var/dx = x - starting.x
+	var/dy = y - starting.y
+	var/dist = sqrt((dx * dx) + (dy * dy)) * world.icon_size
 	pixel_x = (cos(angle) * dist) - ((x - starting.x) * world.icon_size)
 	pixel_y = (sin(angle) * dist) - ((y - starting.y) * world.icon_size)
 
@@ -868,10 +870,12 @@
 			effect_loc = permutated[permutated.len]
 		else
 			effect_loc = starting
-		for(var/i = 0, i < 5, i++)
+		for(var/i = 0, i < 10, i++)
 			var/obj/effect/projectile/P = new impact_type(effect_loc)
 			if (istype(P))
 				P.layer = layer
+				P.pixel_x = pixel_x
+				P.pixel_y = pixel_y
 				P.activate(get_angle())
 
 

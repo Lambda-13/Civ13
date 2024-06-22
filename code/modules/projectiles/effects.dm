@@ -61,7 +61,7 @@
 	call_time = world.time
 	var/dispersion = rand(-25, 25)
 	angle = direction + dispersion
-	speed_modifier *= sqrt(abs(dispersion))
+	speed_modifier += sqrt(abs(dispersion))
 	update()
 
 /obj/effect/projectile/bullet/muzzle/gunsmoke/update()
@@ -121,17 +121,18 @@
 /obj/effect/projectile/impact
 	icon_state = "dust_cloud_generic"
 	life_time = 6
-	alpha_modifier = 0.8
+	alpha_modifier = 0.9
 	update_time = 0.5
 	var/speed_modifier = 1
 
 /obj/effect/projectile/impact/activate(var/direction)
-	pixel_x = cos(direction) * 32
-	pixel_y = sin(direction) * 32
+	pixel_x += cos(direction) * 32
+	pixel_y += sin(direction) * 32
 	call_time = world.time
 	var/dispersion = rand(-60, 60)
 	angle = direction + dispersion - 180
-	speed_modifier *= sqrt(abs(dispersion)) * 0.5
+	speed_modifier += sqrt(abs(dispersion)) * 0.5
+	alpha /= speed_modifier * 0.7
 	update()
 
 /obj/effect/projectile/impact/update()
@@ -141,7 +142,7 @@
 		qdel(src)
 		return
 	alpha *= alpha_modifier
-	var/ds = 15
+	var/ds = 10
 	if(speed_modifier != 0)
 		ds /= speed_modifier
 	if(dt != 0)
@@ -156,7 +157,7 @@
 	life_time = 10
 	alpha_modifier = 0.9
 	update_time = 0.6
-	speed_modifier = 1.5
+	speed_modifier = 0.7
 
 //----------------------------
 // Tracer
