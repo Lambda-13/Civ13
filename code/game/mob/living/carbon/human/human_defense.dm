@@ -216,10 +216,12 @@ bullet_act
 					last_harmed = Huser
 					Huser.civilization = "Killer"
 	if (istype(P, /obj/item/projectile/shell))
-		visible_message("<span class = 'danger'>[src] gets blown up by \the [P]!</span>")
-		gib()
-		spawn (0.01)
-			qdel(P)
+		var/obj/item/projectile/shell/SH = P
+		if(SH.caliber > 37)
+			visible_message("<span class = 'danger'>[src] gets blown up by \the [P]!</span>")
+			gib()
+			spawn (0.01)
+				qdel(P)
 	if ((def_zone == "chest" || def_zone == "groin") && prob(20))
 		if (back && istype(back, /obj/item/weapon/reagent_containers/glass/flamethrower))
 			var/obj/item/weapon/reagent_containers/glass/flamethrower/FM = back

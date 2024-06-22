@@ -948,14 +948,18 @@
 	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/autocannon_ap
-	name = "3UBR6 AP ammo belt"
+	name = "3UBR6 T-AP-HE ammo belt"
 	icon_state = "maximbelt"
 	worn_state = "maximbelt"
 	mag_type = MAGAZINE
 	caliber = "a30"
 	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_SHOULDER
-	ammo_type = /obj/item/ammo_casing/a30mm_ap
+	ammo_type = list(
+		/obj/item/ammo_casing/a30mm_ap/tracer,
+		/obj/item/ammo_casing/a30mm_ap,
+		/obj/item/ammo_casing/frag/a30mm_he,
+	)
 	max_ammo = 200
 	multiple_sprites = TRUE
 	belt = TRUE
@@ -963,19 +967,19 @@
 /obj/item/ammo_magazine/autocannon_ap/small
 	max_ammo = 10
 
-/obj/item/ammo_magazine/autocannon_ap/m242ap
-	name = "M242 AP ammo belt"
-	caliber = "a25"
-
 /obj/item/ammo_magazine/autocannon_he
-	name = "3UOR6 HE ammo belt"
+	name = "3UOR6 T-HE-HE ammo belt"
 	icon_state = "maximbelt"
 	worn_state = "maximbelt"
 	mag_type = MAGAZINE
 	caliber = "a30"
 	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK|SLOT_SHOULDER
-	ammo_type = /obj/item/ammo_casing/frag/a30mm_he
+	ammo_type = list(
+		/obj/item/ammo_casing/a30mm_ap/tracer,
+		/obj/item/ammo_casing/frag/a30mm_he,
+		/obj/item/ammo_casing/frag/a30mm_he,
+	)
 	max_ammo = 200
 	multiple_sprites = TRUE
 	belt = TRUE
@@ -984,8 +988,22 @@
 	max_ammo = 10
 
 /obj/item/ammo_magazine/autocannon_he/m242he
-	name = "M242 HE ammo belt"
+	name = "M242 T-HE-HE ammo belt"
 	caliber = "a25"
+	ammo_type = list(
+		/obj/item/ammo_casing/a25mm_ap/tracer,
+		/obj/item/ammo_casing/a25mm_he,
+		/obj/item/ammo_casing/a25mm_he,
+	)
+
+/obj/item/ammo_magazine/autocannon_ap/m242ap
+	name = "M242 T-AP-HE ammo belt"
+	caliber = "a25"
+	ammo_type = list(
+		/obj/item/ammo_casing/a25mm_ap/tracer,
+		/obj/item/ammo_casing/a25mm_ap,
+		/obj/item/ammo_casing/a25mm_he,
+	)
 
 /obj/item/ammo_magazine/flare
 	name = "flare casing pouch (.50 BMG)"
