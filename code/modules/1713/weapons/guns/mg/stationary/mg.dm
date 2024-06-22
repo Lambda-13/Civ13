@@ -320,7 +320,7 @@
 	is_hmg = TRUE
 	full_auto = FALSE
 	recoil = 5
-	accuracy = 1
+	accuracy = 3
 
 /obj/item/weapon/gun/projectile/automatic/stationary/autocannon/process_projectile(obj/projectile, mob/user, atom/target, var/target_zone, var/params=null)
 	var/obj/item/projectile/P = projectile

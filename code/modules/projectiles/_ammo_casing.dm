@@ -1202,6 +1202,10 @@
 	caliber = "a25"
 	value = 2
 
+/obj/item/ammo_casing/a25mm_ap/tracer
+	name = "M242 AP tracing"
+	projectile_type = /obj/item/projectile/shell/autocannon/a25_ap/tracer
+
 /obj/item/ammo_casing/a25mm_he
 	name = "M242 HE"
 	desc = "A VERY big brass casing."
@@ -1221,6 +1225,10 @@
 	projectile_type = /obj/item/projectile/shell/autocannon/a30_ap
 	caliber = "a30"
 	value = 2
+
+/obj/item/ammo_casing/a30mm_ap/tracer
+	name = "3UBR6 AP tracing"
+	projectile_type = /obj/item/projectile/shell/autocannon/a30_ap/tracer
 
 /obj/item/ammo_casing/frag/a30mm_he
 	name = "3UOR6 HE"

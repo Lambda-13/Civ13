@@ -195,7 +195,7 @@
 /obj/item/projectile/shell/autocannon
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "bullet"
-	tracer_type = /obj/effect/projectile/tracer
+	tracer_type = /obj/effect/projectile/tracer/minor
 
 /obj/item/projectile/shell/autocannon/New()
 	..()
@@ -216,6 +216,12 @@
 	heavy_armor_penetration = 65
 	caliber = 25
 
+/obj/item/projectile/shell/autocannon/a25_ap/tracer
+	atype = "AP"
+	heavy_armor_penetration = 65
+	caliber = 25
+	tracer_type = /obj/effect/projectile/tracer
+
 /obj/item/projectile/shell/autocannon/a30_he
 	atype = "HE"
 	heavy_armor_penetration = 8
@@ -225,6 +231,12 @@
 	atype = "AP"
 	heavy_armor_penetration = 82
 	caliber = 30
+
+/obj/item/projectile/shell/autocannon/a30_ap/tracer
+	atype = "AP"
+	heavy_armor_penetration = 82
+	caliber = 30
+	tracer_type = /obj/effect/projectile/tracer
 
 /obj/item/projectile/shell/autocannon/a35_fap
 	atype = "APCR"
