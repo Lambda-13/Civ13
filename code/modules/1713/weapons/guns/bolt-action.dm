@@ -149,6 +149,9 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	var/bolt_delay = 2
 	accuracy = 1
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/martini_henry
 	name = "Martini-Henry Rifle"
@@ -172,6 +175,9 @@
 	max_shells = 1
 	load_delay = 7
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/rollingblock
 	name = "Rolling-Block Rifle"
@@ -195,6 +201,9 @@
 	max_shells = 1
 	load_delay = 7
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/rollingblock/spanish
 	name = "Rolling-Block Rifle"
@@ -262,6 +271,9 @@
 	bolt_delay = 3
 	accuracy = 0
 	scope_mounts = list("picatinny")
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/barrett/sniper/New()
 	..()
@@ -300,6 +312,9 @@
 	bolt_safety = FALSE
 	bolt_delay = 6
 	accuracy = 0
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 	scope_mounts = list("kochetov")
 
 	scope_x_offset = -1
@@ -343,6 +358,9 @@
 	bolt_safety = FALSE
 	bolt_delay = 6
 	accuracy = 0
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/special_check(mob/user)
 	if (bolt_open)
@@ -400,6 +418,9 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 9
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 	barrel_x_offset = 16
 	barrel_y_offset = 17
 
@@ -445,6 +466,9 @@
 	equiptimer = 9
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_UNDER
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka38
 	name = "Arisaka Type 38"
@@ -470,6 +494,9 @@
 	equiptimer = 9
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL|ATTACH_UNDER
 	accuracy = 1
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka38/sniper
 	name = "Arisaka Type 97"
@@ -506,6 +533,9 @@
 	equiptimer = 9
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL|ATTACH_UNDER
 	accuracy = 1
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 	scope_mounts = list("type97_cronstein")
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka99/sniper
@@ -551,6 +581,9 @@
 	equiptimer = 9
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_UNDER
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr71
 	name = "Gewehr 71"
@@ -574,6 +607,9 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 9
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/madsenm47
 	name = "Madsen M47"
@@ -598,6 +634,9 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 10
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/mauser1890
 	name = "Mauser M1890"
@@ -622,6 +661,9 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 7
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/mauser1893
 	name = "Mauser M1893"
@@ -646,6 +688,9 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 7
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/mauser1893/mauser1893o
 	name = "Mauser M1893 (Ottoman)"
@@ -679,6 +724,9 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 7
 	accuracy = 1
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 	barrel_x_offset = 15
 
 /obj/item/weapon/gun/projectile/boltaction/vg //for balance reasons this gun wont use the STG mags instead it will use just clips also i dont know how to code in mag usage by bolties
@@ -705,6 +753,9 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 7
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/mauser1903
 	name = "Mauser M1903"
@@ -716,6 +767,9 @@
 	good_mags = list(/obj/item/ammo_magazine/gewehr71)
 	equiptimer = 7
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98a
 	name = "Karabiner 98a"
@@ -726,6 +780,9 @@
 	weight = 3.5
 	equiptimer = 6
 	accuracy = 1
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98k
 	name = "Karabiner 98k"
@@ -736,6 +793,9 @@
 	weight = 3.7
 	equiptimer = 6
 	accuracy = 1
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98k/sniper/New()
 	name = "Sniper Karabiner 98k"
@@ -771,6 +831,9 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 6
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/carcano
 	name = "carcano 1891"
@@ -794,6 +857,9 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 7
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka35
 	name = "Arisaka Type 35"
@@ -817,6 +883,9 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 7
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/murata
 	name = "Type-22 Murata"
@@ -842,6 +911,9 @@
 	blackpowder = TRUE
 	equiptimer = 8
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 	/////need to add:
 	///Springfield Model
 	///1861,Pattern
@@ -874,6 +946,9 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 8
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/enfield
 	name = "Lee-Enfield Mk. III"
@@ -898,6 +973,9 @@
 	max_shells = 10
 	equiptimer = 7
 	accuracy = 1
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/lebel
 	name = "Lebel 1886/M93"
@@ -922,6 +1000,9 @@
 	max_shells = 8
 	equiptimer = 8
 	accuracy = 1
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/lebel/sniper/New()
 	name = "Sniper Lebel 1886/M93"
@@ -954,6 +1035,9 @@
 	max_shells = 3
 	equiptimer = 6
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/berthier/m16
 	name = "Berthier M1907/16"
@@ -993,6 +1077,9 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_SHOULDER
 	equiptimer = 4
 	accuracy = 4
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 	scope_mounts = list("kochetov")
 	barrel_x_offset = 6
 	barrel_y_offset = 8
@@ -1020,6 +1107,9 @@
 	load_shell_sound = 'sound/weapons/guns/interact/clip_reload.ogg'
 	equiptimer = 6
 	accuracy = 0
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 	scope_mounts = list("picatinny")
 	scope_x_offset = -1
 
@@ -1051,6 +1141,9 @@
 	max_shells = 5
 	equiptimer = 6
 	accuracy = 1
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/boltaction/springfield/sniper/New()
 	..()

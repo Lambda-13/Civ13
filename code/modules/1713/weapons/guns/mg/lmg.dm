@@ -81,6 +81,9 @@
 	slot_flags = SLOT_SHOULDER
 	recoil = 40
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 25
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/automatic/type99
 	name = "Type 99 Light Machinegun"
@@ -100,6 +103,9 @@
 	slot_flags = SLOT_SHOULDER
 	recoil = 40
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 25
+	onehand_accuracy_debuff = 25
 	scope_mounts = list ("type97_cronstein")
 
 /obj/item/weapon/gun/projectile/automatic/dp28
@@ -122,6 +128,9 @@
 	)
 	recoil = 40
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 25
+	onehand_accuracy_debuff = 25
 	var/folded = FALSE
 
 /obj/item/weapon/gun/projectile/automatic/dp28/dt28
@@ -193,6 +202,9 @@
 	bad_magazine_types = list(/obj/item/ammo_magazine/browning)
 	recoil = 40
 	accuracy = 1
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 25
+	onehand_accuracy_debuff = 25
 
 ///////////////////////////M1919A6//////////////////////
 /obj/item/weapon/gun/projectile/automatic/browning_lmg
@@ -211,6 +223,9 @@
 	weight = 12.50 //heavy piece of shit
 	force = 20
 	throwforce = 30
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 25
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/automatic/browning_lmg/update_icon()
 	..()
@@ -244,6 +259,9 @@
 	var/cover_open = FALSE
 	recoil = 40
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 25
+	onehand_accuracy_debuff = 25
 	mag_x_offset = -5
 	mag_y_offset = -3
 
@@ -313,6 +331,9 @@
 	under_mounts = list ("picatinny")
 	under_x_offset = 7
 	under_y_offset = 4
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 25
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/automatic/mg34/mg3/update_icon()
 	..()
@@ -362,6 +383,9 @@
 	slowdown = 1
 	recoil = 40
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 25
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/automatic/m249
 	name = "M249 SAW"
@@ -387,6 +411,9 @@
 	slowdown = 1
 	recoil = 40
 	accuracy = 1
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 25
+	onehand_accuracy_debuff = 25
 	scope_mounts = list ("picatinny")
 	scope_y_offset = -1
 
@@ -441,6 +468,9 @@
 	slowdown = 0.8
 	recoil = 40
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 25
+	onehand_accuracy_debuff = 25
 	mag_x_offset = -3
 	mag_y_offset = 1
 	barrel_y_offset = 17
@@ -466,6 +496,9 @@
 	under_mounts = list ("picatinny")
 	under_x_offset = 3
 	under_y_offset = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 25
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/automatic/pkm/pkp/devastator/New()
 	..()
@@ -503,6 +536,9 @@
 	slowdown = 0.6
 	recoil = 30
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 25
+	onehand_accuracy_debuff = 25
 	scope_x_offset = -4
 	scope_y_offset = -5
 	barrel_x_offset = 14
@@ -539,6 +575,9 @@
 	slowdown = 0.5
 	recoil = 25
 	accuracy = 1
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 25
+	onehand_accuracy_debuff = 25
 	scope_x_offset = -1
 	scope_y_offset = -1
 	scope_mounts = list ("dovetail")
@@ -551,6 +590,9 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_UNDER|ATTACH_SCOPE|ATTACH_BARREL
 	recoil = 20
 	accuracy = 1
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 25
+	onehand_accuracy_debuff = 25
 	scope_mounts = list ("dovetail", "picatinny")
 	under_mounts = list ("picatinny")
 	mag_y_offset = -1
@@ -599,6 +641,9 @@
 	slowdown = 0.4
 	recoil = 35
 	accuracy = 1
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 25
+	onehand_accuracy_debuff = 25
 	scope_x_offset = -1
 	scope_y_offset = -1
 	scope_mounts = list ("dovetail")
@@ -612,6 +657,9 @@
 	desc = "A modernized Soviet machinegun chambered in 7.62x39 rounds."
 	recoil = 30
 	accuracy = 1
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 25
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/automatic/negev
 	name = "IWI Negev"
@@ -636,6 +684,9 @@
 	slowdown = 0.9
 	recoil = 40
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 25
+	onehand_accuracy_debuff = 25
 	scope_mounts = list ("picatinny")
 
 /obj/item/weapon/gun/projectile/automatic/negev/update_icon()
@@ -672,6 +723,9 @@
 	slowdown = 0.8
 	recoil = 60
 	accuracy = 1
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 25
+	onehand_accuracy_debuff = 25
 	scope_mounts = list ("dovetail")
 	scope_x_offset = -1
 	scope_y_offset = -4
@@ -706,6 +760,9 @@
 	slowdown = 0.5
 	recoil = 40
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 25
+	onehand_accuracy_debuff = 25
 	mag_x_offset = -5
 	mag_x_offset = -3
 
@@ -742,6 +799,9 @@
 	throwforce = 30
 	recoil = 40
 	accuracy = 2
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 25
+	onehand_accuracy_debuff = 25
 	scope_mounts = list ("picatinny")
 	mag_x_offset = -4
 	mag_y_offset = -2
