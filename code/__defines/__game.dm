@@ -27,19 +27,22 @@
 
 #define PREDATOR_TO_TOTAL_SPAWN_RATIO 1/20
 
+// Invisibility constants.
+#define INVISIBILITY_LIGHTING			 20
+#define INVISIBILITY_LEVEL_ONE			35
+#define INVISIBILITY_LEVEL_TWO			45
+#define INVISIBILITY_OBSERVER			 60
+#define INVISIBILITY_EYE				  61
+
+#define SEE_INVISIBLE_LIVING			  25
+#define SEE_INVISIBLE_OBSERVER_NOLIGHTING 45
+#define SEE_INVISIBLE_LEVEL_ONE		   35
+#define SEE_INVISIBLE_LEVEL_TWO		   45
+#define SEE_INVISIBLE_OBSERVER			25
+
 #define SEE_INVISIBLE_MINIMUM 5
-
-#define INVISIBILITY_LIGHTING 20
-
-#define SEE_INVISIBLE_LIVING 25
-
-#define INVISIBILITY_OBSERVER 60
-#define SEE_INVISIBLE_OBSERVER 60
-
 #define INVISIBILITY_MAXIMUM 100
-
 #define INVISIBILITY_ABSTRACT 101 //only used for abstract objects (e.g. spacevine_controller), things that are not really there.
-
 
 //Object specific defines
 #define CANDLE_LUM 3 //For how bright candles are
@@ -65,7 +68,8 @@
 //=================================================
 //Game mode related defines.
 
-#define TRANSITIONEDGE 3 //Distance from edge to move to another z-level
+#define TRANSITIONEDGE 7 // 3 // Distance from edge to move to another z-level.
+
 
 //Flags for zone sleeping
 #define ZONE_ACTIVE 1
@@ -92,12 +96,13 @@
 
 #define GAME_YEAR (text2num(time2text(world.realtime, "YYYY")) + 395)
 
-
-#define MAX_MESSAGE_LEN 1024
-#define MAX_PAPER_MESSAGE_LEN 3072
-#define MAX_BOOK_MESSAGE_LEN 9216
-#define MAX_NAME_LEN 26
-#define MAX_BROADCAST_LEN 512
+// Setting this much higher than 1024 could allow spammers to DOS the server easily.
+#define MAX_MESSAGE_LEN         1024
+#define MAX_PAPER_MESSAGE_LEN   3072
+#define MAX_BOOK_MESSAGE_LEN    9216
+#define MAX_LNAME_LEN           92
+#define MAX_NAME_LEN            48  // long german names and stuff
+#define MAX_BROADCAST_LEN       512
 
 
 /// Is something in the IC chat filter? This is config dependent.
