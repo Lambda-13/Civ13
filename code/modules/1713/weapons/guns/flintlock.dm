@@ -255,6 +255,9 @@
 	stat = "pistol"
 	aim_miss_chance_divider = 2.00
 	accuracy = 4
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/flintlock/blunderbuss
 	stat = "heavy"
@@ -379,3 +382,6 @@
 	attachment_slots = ATTACH_IRONSIGHTS
 	ammo_type = /obj/item/ammo_casing/blunderbuss
 	accuracy = 4
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 8
+	onehand_accuracy_debuff = 5

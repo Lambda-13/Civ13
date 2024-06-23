@@ -32,6 +32,9 @@
 	var/obj/structure/bed/chair/mgunner/mount = null
 
 	can_tactical_reload = TRUE
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 25
+	onehand_accuracy_debuff = 25
 
 /obj/item/weapon/gun/projectile/automatic/Fire(atom/target, mob/living/user, clickparams=null, pointblank=0, reflex=0, forceburst = -1, force = FALSE, accuracy_mod = 1)
 	if (mount)

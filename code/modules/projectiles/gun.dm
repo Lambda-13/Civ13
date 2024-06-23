@@ -70,7 +70,9 @@
 	var/list/scope_mounts = list() //List of extra compatible scopes
 
 	var/damage_modifier = 0
-
+	var/walk_accuracy_debuff = 20
+	var/pickup_accuracy_debuff = 20
+	var/onehand_accuracy_debuff = 20
 	var/last_pick_up = 0
 
 //	var/wielded = FALSE
@@ -443,15 +445,15 @@
 		recoil_range /= 2
 
 	if(dt_movement <= 6 && user.m_intent != "stealth")
-		accuracy_range = 30
+		accuracy_range = walk_accuracy_debuff
 	else if (dt_movement < 10 && user.m_intent != "stealth")
-		accuracy_range = 40 / (dt_movement - 6)
+		accuracy_range = walk_accuracy_debuff / (dt_movement - 6)
 
 	if(dt_picked_up < 10)
-		accuracy_range += 40 / sqrt(dt_picked_up) / ergonomics
+		accuracy_range += pickup_accuracy_debuff / sqrt(dt_picked_up) / ergonomics
 
 	if(user.get_inactive_hand())
-		accuracy_range += 20
+		accuracy_range += onehand_accuracy_debuff
 
 	return recoil_range + accuracy_range
 
@@ -488,22 +490,22 @@
 	var/dt_movement = world.time - user.last_movement
 
 	if (dt_movement <= 6)
-		shot_accuracy = rand(-20, 20)
+		shot_accuracy = rand(-walk_accuracy_debuff, walk_accuracy_debuff)
 	else if (dt_movement < 10 && user.m_intent != "stealth")
-		var/accuracy_range = 20 / sqrt(dt_movement - 6)
+		var/accuracy_range = walk_accuracy_debuff / sqrt(dt_movement - 6)
 		shot_accuracy = rand(-accuracy_range, accuracy_range)
-		if (abs(shot_accuracy) < 5) // even RNjesus won’t help you get there right away
+		if (abs(shot_accuracy) < walk_accuracy_debuff * 0.25) // even RNjesus won’t help you get there right away
 			shot_accuracy += 5
 		if(user.m_intent != "run")
 			shot_accuracy *= 0.75
 
 	var/dt_picked_up = world.time - last_pick_up
 	if(dt_picked_up < 15)
-		var/accuracy_range = 30 / sqrt(dt_picked_up)
+		var/accuracy_range = pickup_accuracy_debuff / sqrt(dt_picked_up)
 		shot_accuracy += rand(-accuracy_range, accuracy_range)
 
 	if(user.get_inactive_hand())
-		shot_accuracy += rand(-20, 20)
+		shot_accuracy += rand(-onehand_accuracy_debuff, onehand_accuracy_debuff)
 
 	var/shot_dispersion = clamp(shot_recoil + shot_accuracy, -40, 40)
 

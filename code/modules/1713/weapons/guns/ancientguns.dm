@@ -35,6 +35,9 @@ obj/item/weapon/gun/projectile/ancient
 
 	load_delay = 200
 	aim_miss_chance_divider = 3.00
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 20
 
 obj/item/weapon/gun/projectile/ancient/firelance
 	name = "fire lance"

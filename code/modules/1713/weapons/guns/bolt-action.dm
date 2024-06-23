@@ -50,6 +50,10 @@
 	var/next_reload = -1
 	var/last_fire = -1
 
+	walk_accuracy_debuff = 30
+	pickup_accuracy_debuff = 10
+	onehand_accuracy_debuff = 25
+
 /obj/item/weapon/gun/projectile/boltaction/attack_self(mob/user)
 	if (!check_bolt)//Keeps people from spamming the bolt
 		check_bolt++
