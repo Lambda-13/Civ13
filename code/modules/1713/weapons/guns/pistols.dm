@@ -20,6 +20,9 @@
 	aim_miss_chance_divider = 2.00
 	barrel_x_offset = 17
 	barrel_y_offset = 0
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/pistol/attackby(obj/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/weapon/attachment/bayonet))

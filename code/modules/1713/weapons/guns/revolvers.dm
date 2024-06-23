@@ -35,6 +35,9 @@
 	load_delay = 6
 	barrel_x_offset = 17
 	barrel_y_offset = 0
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/revolver/update_icon()
 	..()

@@ -13,6 +13,9 @@
 	load_delay = 8
 	gun_type = GUN_TYPE_RIFLE
 	gtype = "smg"
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 	recoil = 8 // по сравнению с автоматами отдача контролируется проще, но разброс в разы выше
 	accuracy = 3
