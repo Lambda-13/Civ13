@@ -132,10 +132,13 @@
 	if(!istype(target, /obj/item/weapon/detonator))
 		return
 	var/obj/item/weapon/detonator/D = target
-	if(connected = D.connect(src))
+
+	var/connected_target = D.connect(src)
+	if(connected && connected_target)
 		user << "you connected [name] to the [D]"
 	else
 		user << "you disconnected [name] from the [D]"
+
 	update_icon()
 
 /obj/item/weapon/detonator

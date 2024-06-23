@@ -1335,17 +1335,21 @@
 					Weaken(15)
 
 /mob/living/human/proc/handle_shock()
-	..()
-	if (status_flags & GODMODE)	return FALSE	//godmode
-	if (species && species.flags & NO_PAIN) return
 
-	if (health < config.health_threshold_softcrit)// health FALSE makes you immediately collapse
+	//godmode
+	if (status_flags & GODMODE)
+		return FALSE
+
+	if (species && species.flags & NO_PAIN)
+		return
+
+	// health FALSE makes you immediately collapse
+	if (health < config.health_threshold_softcrit)
 		shock_stage = max(shock_stage, 61)
 
 	traumatic_shock = updateshock()
 	if (traumatic_shock >= 80 && shock_stage < 160)
 		shock_stage += 1
-
 	else if (health < config.health_threshold_softcrit)
 		shock_stage = max(shock_stage, 61)
 	else
