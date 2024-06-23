@@ -107,7 +107,10 @@
 /obj/item/projectile/shell/proc/initiate(var/turf/T)
 	if(!T)
 		return
-	impact_effect()
+	if(initiated)
+		impact_effect()
+	else
+		turf_impact_effect()
 	var/caliber_modifier = clamp(round(caliber / 50), 0, 4)
 	if (!istype(T, /turf/floor/beach) && !istype(T, /turf/floor/broken_floor) && !istype(T, /turf/floor/trench))
 		T.ChangeTurf(/turf/floor/dirt/burned)
