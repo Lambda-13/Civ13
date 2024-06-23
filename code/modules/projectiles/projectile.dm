@@ -672,7 +672,7 @@
 	if (istype(src, /obj/item/projectile/shell))
 		var/obj/item/projectile/shell/S = src
 		if(S.initiated)
-			on_impact(T)
+			turf_impact_effect()
 			S.initiate(T)
 
 	for (var/obj/structure/vehicleparts/frame/F in loc)
@@ -747,7 +747,7 @@
 			for (var/atom/movable/AM in loc)
 				do_bullet_act(AM)
 			do_bullet_act(loc)
-			on_impact(loc) //for any final impact behaviours
+			turf_impact_effect()
 			qdel(src)
 			return
 		/*
@@ -878,6 +878,20 @@
 				P.pixel_y = pixel_y
 				P.activate(get_angle())
 
+/obj/item/projectile/proc/turf_impact_effect()
+	if (ispath(impact_type))
+		var/turf/effect_loc = null
+		if(permutated.len > 0)
+			effect_loc = permutated[permutated.len]
+		else
+			effect_loc = starting
+		for(var/i = 0, i < 10, i++)
+			var/obj/effect/projectile/P = new impact_type(effect_loc)
+			if (istype(P))
+				P.layer = layer
+				P.pixel_x = pixel_x
+				P.pixel_y = pixel_y
+				P.activate(270)
 
 //Helper proc to check if you can hit them or not.
 
