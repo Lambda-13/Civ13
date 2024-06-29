@@ -1821,7 +1821,7 @@
 "Jb" = (/obj/covers/vault,/obj/structure/sign/flag/vietnam,/turf/floor/plating/tiled/woodh,/area/caribbean/roofed)
 "Jc" = (/obj/structure/table/rack,/turf/floor/plating/tiled/dark,/area/caribbean/roofed)
 "Jd" = (/obj/structure/bed/chair/wood,/turf/floor/plating/tiled/dark,/area/caribbean/roofed)
-"Je" = (/obj/structure/bed/chair/gunner,/turf/floor/plating/tiled/dark,/area/caribbean/roofed)
+"Je" = (/turf/floor/plating/tiled/dark,/area/caribbean/roofed)
 "Jf" = (/obj/structure/barricade/tires{icon_state = "tire3"},/turf/floor/plating/tiled/woodh,/area/caribbean/roofed)
 "Jg" = (/obj/structure/railing/steel{icon_state = "railing0"; dir = 4},/turf/floor/grass,/area/caribbean)
 "Jh" = (/obj/item/vehicleparts/frame/bike,/turf/floor/plating/tiled/dark,/area/caribbean/roofed)

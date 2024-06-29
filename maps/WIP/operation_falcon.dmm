@@ -50,7 +50,7 @@
 "aX" = (/obj/structure/vehicleparts/frame/bradley/rbc,/obj/item/ammo_magazine/autocannon_he/m242he,/obj/item/ammo_magazine/autocannon_he/m242he,/obj/item/ammo_magazine/autocannon_ap/m242ap,/obj/item/ammo_magazine/autocannon_ap/m242ap,/obj/structure/turret/bradley,/turf/floor/plating/road,/area/caribbean)
 "aY" = (/obj/structure/vehicleparts/frame/bradley/lbc,/obj/item/weapon/key/american,/turf/floor/plating/road,/area/caribbean)
 "aZ" = (/obj/structure/vehicleparts/frame/bradley/rfc,/turf/floor/plating/road,/area/caribbean)
-"ba" = (/obj/structure/vehicleparts/frame/bradley/lfc,/obj/structure/radio/transmitter_receiver/nopower/tank/faction2,/obj/structure/bed/chair/commander,/turf/floor/plating/road,/area/caribbean)
+"ba" = (/obj/structure/vehicleparts/frame/bradley/lfc,/obj/structure/radio/transmitter_receiver/nopower/tank/faction2,/turf/floor/plating/road,/area/caribbean)
 "bb" = (/obj/structure/simple_door/key_door/anyone/wood,/turf/floor/wood,/area/caribbean/no_mans_land/capturable/two)
 "bc" = (/obj/structure/vehicleparts/frame/bradley/rf,/obj/structure/vehicleparts/movement/tracks/bradley/right_front,/obj/structure/engine/internal/diesel/premade/m113,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueled{density = 0},/turf/floor/plating/road,/area/caribbean)
 "bd" = (/obj/structure/bed/chair/wood{dir = 8},/turf/floor/plating/road,/area/caribbean/british/land/inside)

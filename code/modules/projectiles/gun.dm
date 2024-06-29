@@ -93,6 +93,8 @@
 	var/gibs = FALSE
 	var/crushes = FALSE
 
+	var/obj/structure/bed/chair/mount = null
+
 	health = 200 //guns are stronk, rarely exploded.
 
 /obj/item/weapon/gun/New()
@@ -240,6 +242,23 @@
 	..()
 
 /obj/item/weapon/gun/proc/Fire(atom/target, mob/living/user, clickparams=null, pointblank=0, reflex=0, forceburst = -1, force = FALSE, accuracy_mod = 1)
+	if (mount)
+		var/turf/firing_turf = get_turf(mount)
+		var/turf/target_turf = get_turf(target)
+		var/dx = target_turf.x - firing_turf.x
+		var/dy = target_turf.y - firing_turf.y
+		var/shot_angle = Atan2(dx, dy)
+		if (shot_angle < 0)
+			shot_angle = 180 + (180 - abs(shot_angle))
+		var/shot_dir = EAST
+		if(shot_angle >= 45 && shot_angle < 135)
+			shot_dir = NORTH
+		else if(shot_angle >= 135 && shot_angle < 225)
+			shot_dir = WEST
+		else if(shot_angle >= 225 && shot_angle < 315)
+			shot_dir = SOUTH
+		if(mount.dir != shot_dir)
+			return
 	if (!user || !target) return
 
 	add_fingerprint(user)
@@ -500,11 +519,11 @@
 			shot_accuracy *= 0.75
 
 	var/dt_picked_up = world.time - last_pick_up
-	if(dt_picked_up < 15)
+	if(dt_picked_up < 15 && loc == user)
 		var/accuracy_range = pickup_accuracy_debuff / sqrt(dt_picked_up)
 		shot_accuracy += rand(-accuracy_range, accuracy_range)
 
-	if(user.get_inactive_hand())
+	if(user.get_inactive_hand() && loc == user)
 		shot_accuracy += rand(-onehand_accuracy_debuff, onehand_accuracy_debuff)
 
 	var/shot_dispersion = clamp(shot_recoil + shot_accuracy, -40, 40)

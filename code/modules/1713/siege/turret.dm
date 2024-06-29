@@ -14,22 +14,8 @@
 	var/image/turret_image
 	var/image/turret_roof_image
 
-	var/mob/gunner = null
-	var/mob/loader = null
-	var/mob/commander = null
-
-	var/obj/structure/bed/chair/gunner/gunner_seat = null
-	var/obj/structure/bed/chair/loader/loader_seat = null
-	var/obj/structure/bed/chair/loader/commander_seat = null
-
-	var/gunner_x = 16
-	var/gunner_y = -16
-
-	var/loader_x = -16
-	var/loader_y = 0
-
-	var/commander_x = 10
-	var/commander_y = 0
+	var/list/obj/structure/bed/chair/turret_seat/seats = list()
+	var/list/positions = list()
 
 	var/azimuth = 0
 	var/distance = 5
@@ -43,11 +29,12 @@
 	var/selected_weapon = 1
 	var/is_firing = FALSE
 
+	var/list/walls = list()
+
 	var/broken = FALSE
 
 /obj/structure/turret/New()
 	..()
-
 	switch(dir)
 		if(EAST)
 			azimuth = 0
@@ -57,9 +44,92 @@
 			azimuth = 180
 		if(SOUTH)
 			azimuth = 270
-
 	last_move = world.time
+	create_seats()
 	update_icon()
+
+/obj/structure/turret/proc/get_wall_name(var/direction)
+	var/w_dirs = list(NORTH, NORTHEAST, EAST, SOUTHEAST, SOUTH, SOUTHWEST, WEST, NORTHWEST)
+	var/w_names = list("back", "backleft", "left", "frontleft", "front", "frontright", "right", "backright")
+	while (dir != w_dirs[1])
+		var/i = 8
+		var/buf = w_dirs[i];
+		for (, i > 1, i--)
+			w_dirs[i] = w_dirs[i - 1]
+		w_dirs[1] = buf
+	var/i
+	for (i = 1, i <= 8, i++)
+		if (direction == w_dirs[i])
+			return w_names[i]
+
+/obj/structure/turret/proc/get_wall_armor(var/direction)
+	var/wall_armor = 0
+	switch(direction)
+		if("frontleft")
+			wall_armor = walls["front"] + walls["left"]
+		if("frontright")
+			wall_armor = walls["front"] + walls["right"]
+		if("backleft")
+			wall_armor = walls["back"] + walls["left"]
+		if("backright")
+			wall_armor = walls["back"] + walls["right"]
+	if(wall_armor == 0)
+		wall_armor = walls[direction]
+	return wall_armor
+
+/obj/structure/turret/course/get_wall_armor()
+	return walls["front"]
+
+/obj/structure/turret/bullet_act(obj/item/projectile/P)
+	var/penloc = get_wall_name(P.get_direction())
+	if (get_wall_armor(penloc) < P.heavy_armor_penetration)
+		if(istype(P, /obj/item/projectile/shell))
+			var/obj/item/projectile/shell/S = P
+			S.initiated = TRUE
+			S.initiate(get_turf(src))
+		else
+			P.impact_effect()
+			P.loc = null
+			qdel(P)
+			return FALSE
+	else if(istype(P, /obj/item/projectile/shell))
+		var/obj/item/projectile/shell/S = P
+		var/i = P.permutated.len
+		while (i > 0) // Толщина крыши техники ещё не реализована поэтому в случае непробилия башни снаряд будет взрываться за пределами техники
+			var/frame_located = FALSE
+			for (var/obj/structure/vehicleparts/frame/F in P.permutated[i])
+				frame_located = TRUE
+			if(!frame_located)
+				S.initiate(P.permutated[i])
+				return FALSE
+			i -= 1
+	else
+		P.impact_effect()
+		P.loc = null
+		qdel(P)
+	return TRUE
+
+/obj/structure/turret/proc/create_seats()
+	if(!positions)
+		return
+	for(var/position in positions)
+		var/seat_type = positions[position]["type"]
+		var/obj/structure/bed/chair/turret_seat/S = new seat_type(src.loc)
+		if(istype(S, /obj/structure/bed/chair/turret_seat))
+			S.setup(src)
+		seats.Add(S)
+
+/obj/structure/turret/proc/get_seat(var/profession)
+	for(var/list/obj/structure/bed/chair/turret_seat/S in seats)
+		if(S.seat_type == profession)
+			return S
+	return FALSE
+
+/obj/structure/turret/proc/get_crewman(var/profession)
+	for(var/list/obj/structure/bed/chair/turret_seat/S in seats)
+		if(S.seat_type == profession)
+			return S.buckled_mob
+	return FALSE
 
 /obj/structure/turret/proc/clear_aiming_line(var/mob/operator)
 	if(!operator)
@@ -90,17 +160,13 @@
 
 /obj/structure/turret/update_icon()
 	..()
-	draw_aiming_line(gunner)
+	draw_aiming_line(get_crewman("gunner"))
 	update_dir()
-
 	pixel_x = 0
 	pixel_y = 0
-
 	var/vehicle_dir = 0
-
 	for (var/obj/structure/vehicleparts/frame/F in loc)
 		vehicle_dir = F.dir
-
 	if(vehicle_dir != 0)
 		switch(vehicle_dir)
 			if(NORTH)
@@ -115,14 +181,21 @@
 			if(EAST)
 				pixel_x = -turret_y
 				pixel_y = turret_x
-
 	update_seats()
 
 	var/ic = 'icons/obj/vehicles/vehicles256x256.dmi'
-	turret_image = image(icon=ic, loc=src, pixel_x = -112, pixel_y = -112, icon_state="[turret_icon][broken]", layer=12)
-	turret_image.color = turret_color
-	turret_roof_image = image(icon=ic, loc=src, pixel_x = -112, pixel_y = -112, icon_state="[turret_icon]_roof[broken]", layer=13)
-	turret_roof_image.color = turret_color
+	if(!turret_image)
+		turret_image = image(icon=ic, loc=src, layer=12)
+		turret_image.color = turret_color
+	turret_image.icon_state="[turret_icon][broken]"
+	turret_image.pixel_x = -112
+	turret_image.pixel_y = -112
+	if(!turret_roof_image)
+		turret_roof_image = image(icon=ic, loc=src, layer=13)
+		turret_roof_image.color = turret_color
+	turret_roof_image.icon_state="[turret_icon]_roof[broken]"
+	turret_roof_image.pixel_x = -112
+	turret_roof_image.pixel_y = -112
 
 /mob/var/obj/structure/turret/using_turret = null
 
@@ -155,14 +228,14 @@
 	if (M.buckled)
 		return
 	M.forceMove(loc)
-	if(gunner_seat && !gunner_seat.buckled_mob)
-		gunner_seat.buckle_mob(M)
+	if(get_seat("gunner") && !get_crewman("gunner"))
+		get_seat("gunner").buckle_mob(M)
 		M << "You are climbing on the gunner's seat."
-	else if(loader_seat && !loader_seat.buckled_mob)
-		loader_seat.buckle_mob(M)
+	else if(get_seat("loader") && !get_crewman("loader"))
+		get_seat("loader").buckle_mob(M)
 		M << "You are climbing on the loader's seat."
-	else if(commander_seat && !commander_seat.buckled_mob)
-		commander_seat.buckle_mob(M)
+	else if(get_seat("commander") && !get_crewman("commander"))
+		get_seat("commander").buckle_mob(M)
 		M << "You are climbing on the commander's seat."
 	else
 		M << "There are no free seats in the turret"
@@ -206,11 +279,11 @@
 	var/dt = world.time - last_rotation
 	current_speed -= dt * max_speed * 0.04
 
-	if(current_speed < 0 || direction != prev_direction)
+	if (current_speed < 0 || direction != prev_direction)
 		current_speed = 0
 	current_speed += max_speed * 0.04
 
-	if(current_speed > max_speed)
+	if (current_speed > max_speed)
 		current_speed = max_speed
 	azimuth += direction * current_speed
 
@@ -221,22 +294,26 @@
 	last_rotation = world.time
 
 /obj/structure/turret/proc/update_seats()
-	if(gunner_seat)
-		gunner_seat.update_icon()
-	if(loader_seat)
-		loader_seat.update_icon()
-	if(commander_seat)
-		commander_seat.update_icon()
+	for (var/list/obj/structure/bed/chair/turret_seat/S in seats)
+		S.update_icon()
 
 /obj/structure/turret/proc/open_fire()
-	if(!is_firing)
-		is_firing = TRUE
-		fire()
+	if (weapons && weapons.len >= selected_weapon)
+		if (istype(weapons[selected_weapon], /obj/item/weapon/gun/projectile/automatic))
+			var/obj/item/weapon/gun/projectile/automatic/G = weapons[selected_weapon]
+			var/stot_dt = world.time - G.last_fire
+			if (stot_dt > G.firemodes[G.sel_mode].burst_delay && !is_firing)
+				is_firing = TRUE
+				fire()
+		else if (!is_firing)
+			is_firing = TRUE
+			fire()
 
 /obj/structure/turret/proc/fire()
-	if(weapons.len < selected_weapon)
+	if (weapons.len < selected_weapon)
 		return
-	if(!gunner)
+	var/mob/gunner = get_crewman("gunner")
+	if (!gunner)
 		return
 
 	var/next_shot_delay = 1
@@ -244,14 +321,14 @@
 	var/target_x = ceil(distance * cos(azimuth))
 	var/target_y = ceil(distance * sin(azimuth))
 
-	if(istype(weapons[selected_weapon], /obj/item/weapon/gun/projectile/automatic))
+	if (istype(weapons[selected_weapon], /obj/item/weapon/gun/projectile/automatic))
 		var/obj/item/weapon/gun/projectile/automatic/G = weapons[selected_weapon]
 		G.recoil = 1
 		G.dir = dir
 		G.Fire(locate(x + target_x, y + target_y, z),gunner)
 
 		next_shot_delay = G.firemodes[G.sel_mode].burst_delay
-	else if(istype(weapons[selected_weapon], /obj/structure/cannon/modern/tank))
+	else if (istype(weapons[selected_weapon], /obj/structure/cannon/modern/tank))
 		var/obj/structure/cannon/modern/tank/C = weapons[selected_weapon]
 		C.azimuth = azimuth
 		C.distance = distance
@@ -259,7 +336,7 @@
 		C.do_tank_fire(gunner)
 		C.forceMove(src)
 
-	if(is_firing)
+	if (is_firing)
 		spawn(next_shot_delay)
 			fire()
 
@@ -276,15 +353,13 @@
 		M << "you started to loading [C.name]."
 		C.attackby(W, M)
 
-	do_html(M)
-
 /obj/structure/turret/Topic(href, href_list, hsrc)
 
 	var/mob/user = usr
 
-	if (href_list["switch"])
+	if (href_list["switch_weapon"])
 		switch_weapon()
-	if (href_list["load"])
+	if (href_list["load_weapon"])
 		if(weapons.len >= selected_weapon)
 			if(istype(weapons[selected_weapon], /obj/item/weapon/gun/projectile/automatic))
 				var/obj/item/weapon/gun/projectile/automatic/G = weapons[selected_weapon]
@@ -328,10 +403,10 @@
 /obj/structure/turret/proc/do_html(var/mob/m)
 	if (!m)
 		return
+	if(m == get_crewman("gunner"))
+		m << browse(get_gunner_menu(),  "window=artillery_window;border=1;can_close=1;can_resize=1;can_minimize=0;titlebar=1;size=400x400")
 
-	if(m != gunner)
-		return
-
+/obj/structure/turret/proc/get_gunner_menu()
 	var/weapon_name = "Any weapon selected"
 	var/loaded = "Nothing loaded"
 
@@ -346,56 +421,48 @@
 			weapon_name = C.name
 			if(C.loaded.len >= 1)
 				loaded = C.loaded[1].name
-	m << browse({"
-
+	var/menu = {"
 	<br>
 	<html>
-
 	<head>
 	[common_browser_style]
 	</head>
-
 	<body>
-
 	<script language="javascript">
-
 	function set(input) {
 	  window.location="byond://?src=\ref[src];action="+input.name+"&value="+input.value;
 	}
-
 	</script>
 	<center>
 	<big><b>[name]</b></big><br>
 	</center>
 	<big>Switch weapon:</big><br>
-	<big><a href='?src=\ref[src];switch=1'>[weapon_name]</a>|<a href='?src=\ref[src];load=1'>[loaded]</a></big><br>
+	<big><a href='?src=\ref[src];switch_weapon=1'>[weapon_name]</a>|<a href='?src=\ref[src];load_weapon=1'>[loaded]</a></big><br>
 	</body>
 	</html>
 	<br>
-	"},  "window=artillery_window;border=1;can_close=1;can_resize=1;can_minimize=0;titlebar=1;size=400x400")
+	"}
+	return menu
 
 /obj/structure/turret/bt7
 	turret_color = "#5c784f"
 	turret_icon = "bt7_turret"
 	name = "BT-7"
-
 	turret_x = -16
 	turret_y = 0
-
-	gunner_x = 9
-	gunner_y = -2
-
-	loader_x = -9
-	loader_y = -2
-
+	positions = list(
+		"gunner" = list("x" = 9, "y" = -2, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"commander" = list("x" = 9, "y" = -2, "type" = /obj/structure/bed/chair/turret_seat/commander),
+	)
+	walls = list (
+		"front" = 15,
+		"back" = 13,
+		"right" = 15,
+		"left" = 15,
+	)
 	max_speed = 1.1
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
-		loader_seat.setup(src)
-		weapons.Add(new/obj/structure/cannon/modern/tank/russian76(src))
+		weapons.Add(new/obj/structure/cannon/modern/tank/russian45(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/dp28/dt28(src))
 		..()
 
@@ -403,20 +470,18 @@
 	turret_color = "#3d5931"
 	turret_icon = "t34_turret"
 	name = "T-34"
-
-	gunner_x = 9
-	gunner_y = -2
-
-	loader_x = -9
-	loader_y = -2
-
+	positions = list(
+		"gunner" = list("x" = 9, "y" = -2, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"commander" = list("x" = -9, "y" = -2, "type" = /obj/structure/bed/chair/turret_seat/commander),
+	)
+	walls = list (
+		"front" = 50,
+		"back" = 50,
+		"right" = 50,
+		"left" = 50,
+	)
 	max_speed = 1.5
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
-		loader_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/russian76(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/dp28/dt28(src))
 		..()
@@ -425,28 +490,19 @@
 	turret_color = "#3d5931"
 	turret_icon = "kv1_turret"
 	name = "KV-1"
-
-	gunner_x = 9
-	gunner_y = -2
-
-	commander_x = 0
-	commander_y = 11
-
-	loader_x = -9
-	loader_y = -2
-
-	commander_x = 0
-	commander_y = 11
-
+	positions = list(
+		"gunner" = list("x" = 9, "y" = -2, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"loader" = list("x" = -9, "y" = -2, "type" = /obj/structure/bed/chair/turret_seat/loader),
+		"commander" = list("x" = 0, "y" = 11, "type" = /obj/structure/bed/chair/turret_seat/commander),
+	)
+	walls = list (
+		"front" = 90,
+		"back" = 75,
+		"right" = 75,
+		"left" = 75,
+	)
 	max_speed = 0.84
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
-		loader_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/russian76(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/dp28/dt28(src))
 		..()
@@ -455,52 +511,19 @@
 	turret_color = "#4a5243"
 	turret_icon = "t3485_turret"
 	name = "T-34-85"
-
-	gunner_x = 11
-	gunner_y = -12
-
-	loader_x = -11
-	loader_y = -2
-
-	commander_x = 11
-	commander_y = 0
-
+	positions = list(
+		"gunner" = list("x" = 11, "y" = -10, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"loader" = list("x" = -11, "y" = -2, "type" = /obj/structure/bed/chair/turret_seat/loader),
+		"commander" = list("x" = 11, "y" = 7, "type" = /obj/structure/bed/chair/turret_seat/commander),
+	)
+	walls = list (
+		"front" = 90,
+		"back" = 52,
+		"right" = 75,
+		"left" = 75,
+	)
 	max_speed = 2.3
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
-		loader_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
-		weapons.Add(new/obj/structure/cannon/modern/tank/russian85(src))
-		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/dp28/dt28(src))
-		..()
-
-/obj/structure/turret/is1
-	turret_color = "#4a5243"
-	turret_icon = "is1_turret"
-	name = "IS-1"
-
-	gunner_x = 14
-	gunner_y = -8
-
-	loader_x = -11
-	loader_y = 8
-
-	commander_x = 14
-	commander_y = 12
-
-	max_speed = 1.1
-
-	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
-		loader_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/russian85(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/dp28/dt28(src))
 		..()
@@ -509,12 +532,10 @@
 	turret_color = "#4a5243"
 	turret_icon = "su100_turret"
 	name = "Course cannon"
-
-	gunner_x = 12
-	gunner_y = 8
-
-	loader_x = -6
-	loader_y = 18
+	positions = list(
+		"gunner" = list("x" = 12, "y" = 8, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"loader" = list("x" = -6, "y" = 18, "type" = /obj/structure/bed/chair/turret_seat/loader),
+	)
 
 /obj/structure/turret/course/proc/turn_to_dir(var/tdir)
 	if(tdir == "left")
@@ -569,20 +590,15 @@
 	turret_color = "#4a5243"
 	turret_icon = "su100_turret"
 	name = "SU-85M"
-
-	gunner_x = 12
-	gunner_y = 8
-
-	loader_x = -6
-	loader_y = 18
-
+	positions = list(
+		"gunner" = list("x" = 12, "y" = 8, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"loader" = list("x" = -6, "y" = 18, "type" = /obj/structure/bed/chair/turret_seat/loader),
+	)
+	walls = list (
+		"front" = 130,
+	)
 	max_speed = 0.5
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
-		loader_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/russian85(src))
 		..()
 
@@ -590,46 +606,56 @@
 	turret_color = "#4a5243"
 	turret_icon = "su100_turret"
 	name = "SU-100"
-
-	gunner_x = 12
-	gunner_y = 8
-
-	loader_x = -6
-	loader_y = 18
-
+	positions = list(
+		"gunner" = list("x" = 12, "y" = 8, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"loader" = list("x" = -6, "y" = 13, "type" = /obj/structure/bed/chair/turret_seat/loader),
+	)
+	walls = list (
+		"front" = 130,
+	)
 	max_speed = 0.5
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
-		loader_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/russian100(src))
+		..()
+
+/obj/structure/turret/is1
+	turret_color = "#4a5243"
+	turret_icon = "is1_turret"
+	name = "IS-1"
+	positions = list(
+		"gunner" = list("x" = 14, "y" = -10, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"loader" = list("x" = -11, "y" = 8, "type" = /obj/structure/bed/chair/turret_seat/loader),
+		"commander" = list("x" = 13, "y" = 13, "type" = /obj/structure/bed/chair/turret_seat/commander),
+	)
+	walls = list (
+		"front" = 100,
+		"back" = 100,
+		"right" = 100,
+		"left" = 100,
+	)
+	max_speed = 1.1
+	New()
+		weapons.Add(new/obj/structure/cannon/modern/tank/russian85(src))
+		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/dp28/dt28(src))
 		..()
 
 /obj/structure/turret/is2
 	turret_color = "#4a5243"
 	turret_icon = "is2_turret"
 	name = "IS-2"
-
-	gunner_x = 14
-	gunner_y = -8
-
-	loader_x = -11
-	loader_y = 8
-
-	commander_x = 14
-	commander_y = 13
-
+	positions = list(
+		"gunner" = list("x" = 14, "y" = -10, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"loader" = list("x" = -14, "y" = 8, "type" = /obj/structure/bed/chair/turret_seat/loader/is2),
+		"commander" = list("x" = 13, "y" = 18, "type" = /obj/structure/bed/chair/turret_seat/commander/is2),
+	)
+	walls = list (
+		"front" = 120,
+		"back" = 100,
+		"right" = 100,
+		"left" = 100,
+	)
 	max_speed = 0.98
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
-		loader_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/russian122(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/dp28/dt28(src))
 		..()
@@ -638,28 +664,21 @@
 	turret_color = "#4a5243"
 	turret_icon = "is3_turret"
 	name = "IS-3"
-
 	turret_x = 0
 	turret_y = 16
-
-	gunner_x = 14
-	gunner_y = -12
-
-	loader_x = -14
-	loader_y = 3
-
-	commander_x = 14
-	commander_y = 3
-
+	positions = list(
+		"gunner" = list("x" = 14, "y" = -12, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"loader" = list("x" = -14, "y" = 3, "type" = /obj/structure/bed/chair/turret_seat/loader),
+		"commander" = list("x" = 14, "y" = 3, "type" = /obj/structure/bed/chair/turret_seat/commander),
+	)
+	walls = list (
+		"front" = 360,
+		"back" = 120,
+		"right" = 200,
+		"left" = 200,
+	)
 	max_speed = 0.63
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
-		loader_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/russian122(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/dp28/dt28(src))
 		..()
@@ -668,28 +687,20 @@
 	turret_color = "#5c5c4c"
 	turret_icon = "t55_turret"
 	name = "T-55"
-
 	turret_x = 0
 	turret_y = 16
-
-	gunner_x = 11
-	gunner_y = -17
-
-	loader_x = -13
-	loader_y = 3
-
-	commander_x = 16
-	commander_y = 2
-
-	max_speed = 0.63
-
+	positions = list(
+		"gunner" = list("x" = 11, "y" = -17, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"loader" = list("x" = -13, "y" = 3, "type" = /obj/structure/bed/chair/turret_seat/loader/t55),
+		"commander" = list("x" = 16, "y" = 2, "type" = /obj/structure/bed/chair/turret_seat/commander/t55),
+	)
+	walls = list (
+		"front" = 250,
+		"back" = 70,
+		"right" = 170,
+		"left" = 170,
+	)
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
-		loader_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/russian100(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/stationary/modern/dshk(src))
 		..()
@@ -698,28 +709,21 @@
 	turret_color = "#5c5c4c"
 	turret_icon = "t62a_turret"
 	name = "T-62"
-
 	turret_x = 0
 	turret_y = 8
-
-	gunner_x = 12
-	gunner_y = -16
-
-	loader_x = -18
-	loader_y = -2
-
-	commander_x = 16
-	commander_y = 5
-
+	positions = list(
+		"gunner" = list("x" = 12, "y" = -16, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"loader" = list("x" = -18, "y" = -2, "type" = /obj/structure/bed/chair/turret_seat/loader/t62),
+		"commander" = list("x" = 16, "y" = 5, "type" = /obj/structure/bed/chair/turret_seat/commander/t62),
+	)
+	walls = list (
+		"front" = 250,
+		"back" = 65,
+		"right" = 140,
+		"left" = 140,
+	)
 	max_speed = 0.95
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
-		loader_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/russian115(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/pkm(src))
 		..()
@@ -729,6 +733,12 @@
 	turret_icon = "t62m_turret"
 	name = "T-62M"
 	max_speed = 0.89
+	walls = list (
+		"front" = 400,
+		"back" = 65,
+		"right" = 400,
+		"left" = 400,
+	)
 
 /obj/structure/turret/t62/t62mv
 	turret_color = "#5c5c4c"
@@ -739,23 +749,20 @@
 	turret_color = "#5c5c4c"
 	turret_icon = "t64bm_turret"
 	name = "T-64BM"
-
 	turret_x = 0
 	turret_y = 16
-
-	gunner_x = 16
-	gunner_y = 5
-
-	commander_x = -16
-	commander_y = 6
-
+	positions = list(
+		"gunner" = list("x" = 16, "y" = 5, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"commander" = list("x" = -16, "y" = 6, "type" = /obj/structure/bed/chair/turret_seat/commander),
+	)
+	walls = list (
+		"front" = 600,
+		"back" = 65,
+		"right" = 400,
+		"left" = 400,
+	)
 	max_speed = 1.43
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/autoloader/t90a(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/pkm(src))
 		..()
@@ -764,23 +771,20 @@
 	turret_color = "#5c5c4c"
 	turret_icon = "t72_turret"
 	name = "T-72"
-
 	turret_x = 0
 	turret_y = 16
-
-	gunner_x = 14
-	gunner_y = 3
-
-	commander_x = -14
-	commander_y = 7
-
+	positions = list(
+		"gunner" = list("x" = 14, "y" = 11, "type" = /obj/structure/bed/chair/turret_seat/gunner/t72),
+		"commander" = list("x" = -15, "y" = 11, "type" = /obj/structure/bed/chair/turret_seat/commander/t72),
+	)
+	walls = list (
+		"front" = 500,
+		"back" = 65,
+		"right" = 300,
+		"left" = 300,
+	)
 	max_speed = 1.2
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/autoloader/t90a(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/pkm(src))
 		..()
@@ -799,23 +803,20 @@
 	turret_color = "#5c5c4c"
 	turret_icon = "t80u_turret"
 	name = "T-80U"
-
 	turret_x = 0
 	turret_y = 16
-
-	gunner_x = 16
-	gunner_y = 5
-
-	commander_x = -14
-	commander_y = 5
-
+	positions = list(
+		"gunner" = list("x" = 16, "y" = 11, "type" = /obj/structure/bed/chair/turret_seat/gunner/t80),
+		"commander" = list("x" = -14, "y" = 11, "type" = /obj/structure/bed/chair/turret_seat/commander/t80),
+	)
+	walls = list (
+		"front" = 600,
+		"back" = 65,
+		"right" = 400,
+		"left" = 400,
+	)
 	max_speed = 1.4
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/autoloader/t90a(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/pkm(src))
 		..()
@@ -829,23 +830,20 @@
 	turret_color = "#4a5243"
 	turret_icon = "t90a_turret"
 	name = "T-90A"
-
 	turret_x = 0
 	turret_y = 16
-
-	gunner_x = 16
-	gunner_y = 8
-
-	commander_x = -14
-	commander_y = 6
-
+	positions = list(
+		"gunner" = list("x" = 16, "y" = 11, "type" = /obj/structure/bed/chair/turret_seat/gunner/t90),
+		"commander" = list("x" = -14, "y" = 11, "type" = /obj/structure/bed/chair/turret_seat/commander/t90),
+	)
+	walls = list (
+		"front" = 600,
+		"back" = 65,
+		"right" = 400,
+		"left" = 400,
+	)
 	max_speed = 1.4
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/autoloader/t90a(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/pkm(src))
 		..()
@@ -854,26 +852,22 @@
 	turret_color = "#787859"
 	turret_icon = "bmd2_turret"
 	name = "BMD-2"
-
 	icon = 'icons/obj/guns/mgs.dmi'
 	icon_state = "autocannon"
-
 	turret_x = 16
 	turret_y = -16
-
-	gunner_x = 4
-	gunner_y = 0
-
-	commander_x = -4
-	commander_y = 0
-
+	positions = list(
+		"gunner" = list("x" = 4, "y" = 0, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"commander" = list("x" = -4, "y" = 0, "type" = /obj/structure/bed/chair/turret_seat/commander),
+	)
+	walls = list ( // взял у БМП-2. Необходимо уточнить
+		"front" = 40,
+		"back" = 11,
+		"right" = 30,
+		"left" = 30,
+	)
 	max_speed = 1.79
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/stationary/autocannon/shipunov(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/pkm(src))
 		..()
@@ -882,21 +876,21 @@
 	turret_color = "#4a5243"
 	turret_icon = "btr80_turret"
 	name = "BTR-80"
-
 	icon = 'icons/obj/guns/mgs.dmi'
 	icon_state = "autocannon"
-
 	turret_x = 16
 	turret_y = 0
-
-	gunner_x = 0
-	gunner_y = 4
-
+	positions = list(
+		"gunner" = list("x" = 0, "y" = 4, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+	)
+	walls = list ( // взял у БМП-2. Необходимо уточнить
+		"front" = 40,
+		"back" = 11,
+		"right" = 30,
+		"left" = 30,
+	)
 	max_speed = 17.9
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/stationary/autocannon/shipunov2a72(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/pkm(src))
 		..()
@@ -905,21 +899,21 @@
 	turret_color = "#4a5243"
 	turret_icon = "mtlb_turret"
 	name = "MTLB"
-
 	icon = 'icons/obj/guns/mgs.dmi'
 	icon_state = "pkm"
-
 	turret_x = 3
 	turret_y = 12
-
-	gunner_x = 0
-	gunner_y = 0
-
+	positions = list(
+		"gunner" = list("x" = 0, "y" = 0, "type" = /obj/structure/bed/chair/turret_seat/gunner/mtlb),
+	)
+	walls = list ( // взял от фонаря. Необходимо уточнить
+		"front" = 20,
+		"back" = 20,
+		"right" = 20,
+		"left" = 20,
+	)
 	max_speed = 1
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner/mtlb(src.loc)
-		gunner_seat.setup(src)
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/pkm(src))
 		..()
 
@@ -927,28 +921,21 @@
 	turret_color = "#585A5C"
 	turret_icon = "pziv_turret"
 	name = "PZ-IV"
-
 	turret_x = 0
 	turret_y = 16
-
-	gunner_x = 11
-	gunner_y = -2
-
-	loader_x = -11
-	loader_y = -2
-
-	commander_x = 0
-	commander_y = 11
-
+	positions = list(
+		"gunner" = list("x" = 11, "y" = -2, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"loader" = list("x" = -11, "y" = -2, "type" = /obj/structure/bed/chair/turret_seat/loader),
+		"commander" = list("x" = 0, "y" = 13, "type" = /obj/structure/bed/chair/turret_seat/commander/pziv),
+	)
+	walls = list (
+		"front" = 50,
+		"back" = 30,
+		"right" = 30,
+		"left" = 30,
+	)
 	max_speed = 0.9
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
-		loader_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/german75(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/stationary/modern/mg34(src))
 		..()
@@ -957,28 +944,19 @@
 	turret_color = "#585A5C"
 	turret_icon = "pziv_turret"
 	name = "PZ-VI"
-
-	turret_x = 0
-	turret_y = 16
-
-	gunner_x = 11
-	gunner_y = -2
-
-	loader_x = -11
-	loader_y = -2
-
-	commander_x = 0
-	commander_y = 11
-
+	positions = list(
+		"gunner" = list("x" = 11, "y" = -2, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"loader" = list("x" = -11, "y" = -2, "type" = /obj/structure/bed/chair/turret_seat/loader),
+		"commander" = list("x" = 0, "y" = 11, "type" = /obj/structure/bed/chair/turret_seat/commander/pziv),
+	)
+	walls = list (
+		"front" = 200,
+		"back" = 85,
+		"right" = 100,
+		"left" = 100,
+	)
 	max_speed = 0.96
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
-		loader_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/german88(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/stationary/modern/mg34(src))
 		..()
@@ -987,28 +965,21 @@
 	turret_color = "#4a5243"
 	turret_icon = "2a6_turret"
 	name = "2A6"
-
 	turret_x = 0
 	turret_y = 16
-
-	gunner_x = 16
-	gunner_y = -16
-
-	loader_x = 16
-	loader_y = 16
-
-	commander_x = -16
-	commander_y = 16
-
+	positions = list(
+		"gunner" = list("x" = 16, "y" = -16, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"loader" = list("x" = -16, "y" = -16, "type" = /obj/structure/bed/chair/turret_seat/loader),
+		"commander" = list("x" = -16, "y" = 16, "type" = /obj/structure/bed/chair/turret_seat/commander),
+	)
+	walls = list (
+		"front" = 700,
+		"back" = 80,
+		"right" = 300,
+		"left" = 300,
+	)
 	max_speed = 2.38
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
-		loader_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/leopard(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/stationary/modern/mg3(src))
 		..()
@@ -1017,28 +988,21 @@
 	turret_color = "#635931"
 	turret_icon = "m4_turret"
 	name = "M-4 Sherman"
-
 	turret_x = 0
 	turret_y = 8
-
-	gunner_x = 9
-	gunner_y = -8
-
-	loader_x = 9
-	loader_y = 8
-
-	commander_x = -13
-	commander_y = 6
-
+	positions = list(
+		"gunner" = list("x" = 9, "y" = -8, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"loader" = list("x" = 9, "y" = 8, "type" = /obj/structure/bed/chair/turret_seat/loader),
+		"commander" = list("x" = -13, "y" = 6, "type" = /obj/structure/bed/chair/turret_seat/commander/m4),
+	)
+	walls = list (
+		"front" = 70,
+		"back" = 50,
+		"right" = 50,
+		"left" = 50,
+	)
 	max_speed = 1.4
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
-		loader_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/american75(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/browning_lmg(src))
 		..()
@@ -1047,28 +1011,21 @@
 	turret_color = "#635931"
 	turret_icon = "m41_turret"
 	name = "M-41 Walker Bulldog"
-
 	turret_x = -16
 	turret_y = 0
-
-	gunner_x = 9
-	gunner_y = -8
-
-	loader_x = 9
-	loader_y = 8
-
-	commander_x = -8
-	commander_y = 1
-
+	positions = list(
+		"gunner" = list("x" = 9, "y" = -8, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"loader" = list("x" = 9, "y" = 8, "type" = /obj/structure/bed/chair/turret_seat/loader/m41),
+		"commander" = list("x" = -8, "y" = 1, "type" = /obj/structure/bed/chair/turret_seat/commander/m41),
+	)
+	walls = list (
+		"front" = 30,
+		"back" = 25,
+		"right" = 25,
+		"left" = 25,
+	)
 	max_speed = 1.4
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
-		loader_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/american76(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/browning_lmg(src))
 		..()
@@ -1077,25 +1034,19 @@
 	turret_color = "#635931"
 	turret_icon = "m48_turret"
 	name = "M-48 Patton"
-
-	gunner_x = 9
-	gunner_y = -8
-
-	loader_x = 9
-	loader_y = 8
-
-	commander_x = -12
-	commander_y = 10
-
+	positions = list(
+		"gunner" = list("x" = 9, "y" = -8, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"loader" = list("x" = 9, "y" = 8, "type" = /obj/structure/bed/chair/turret_seat/loader),
+		"commander" = list("x" = -12, "y" = 10, "type" = /obj/structure/bed/chair/turret_seat/commander),
+	)
+	walls = list (
+		"front" = 250,
+		"back" = 55,
+		"right" = 80,
+		"left" = 80,
+	)
 	max_speed = 1.4
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
-		loader_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/american90(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/browning_lmg(src))
 		..()
@@ -1104,26 +1055,20 @@
 	turret_color = "#787859"
 	turret_icon = "bradley_turret"
 	name = "Bradley"
-
 	icon = 'icons/obj/guns/mgs.dmi'
 	icon_state = "autocannon"
-
-	turret_x = 9
-	turret_y = -1
-
-	gunner_x = -8
-	gunner_y = 0
-
-	commander_x = 8
-	commander_y = 0
-
+	positions = list(
+		"gunner" = list("x" = 9, "y" = -1, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"commander" = list("x" = 8, "y" = 0, "type" = /obj/structure/bed/chair/turret_seat/commander),
+	)
+	walls = list (
+		"front" = 60,
+		"back" = 25,
+		"right" = 40,
+		"left" = 13,
+	)
 	max_speed = 3.7
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/stationary/autocannon/bushmaster(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/m249(src))
 		..()
@@ -1131,72 +1076,43 @@
 /obj/structure/turret/technical_dshk //Типо пулемёт для технички, да
 	turret_icon = ""
 	name = "Cursed DSHK"
-
 	icon = 'icons/obj/guns/mgs.dmi'
 	icon_state = "dshk"
-
 	turret_x = 16
 	turret_y = 7
-
-	gunner_x = 0
-	gunner_y = 4
-
+	positions = list(
+		"gunner" = list("x" = 0, "y" = 4, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+	)
+	walls = list (
+		"front" = 0,
+		"back" = 0,
+		"right" = 0,
+		"left" = 0,
+	)
 	max_speed = 1
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/stationary/modern/dshk(src))
 		..()
 
-/*
-/obj/structure/turret/technical_atgm //Типо ПТУР для технички, да
-	turret_icon = ""
-	name = "Cursed ATGM"
-
-	icon = 'icons/obj/guns/mgs.dmi'
-	icon_state = "atgm"
-
-	turret_x = 9
-	turret_y = -1
-
-	gunner_x = -8
-	gunner_y = 0
-
-	rotation_speed = 0.2
-
-	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		weapons.Add(new/obj/item/weapon/gun/launcher/rocket/rpg7(src))
-		..()
-*/
 /obj/structure/turret/m1abrams
 	turret_color = "#787859"
 	turret_icon = "m1a1_turret"
 	name = "M1A1_turret"
-
 	turret_x = 0
 	turret_y = 16
-
-	gunner_x = 16
-	gunner_y = -16
-
-	loader_x = 16
-	loader_y = 10
-
-	commander_x = -10
-	commander_y = 16
-
+	positions = list(
+		"gunner" = list("x" = 16, "y" = -16, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"loader" = list("x" = 16, "y" = 10, "type" = /obj/structure/bed/chair/turret_seat/loader),
+		"commander" = list("x" = -10, "y" = 16, "type" = /obj/structure/bed/chair/turret_seat/commander),
+	)
+	walls = list (
+		"front" = 500,
+		"back" = 60,
+		"right" = 200,
+		"left" = 200,
+	)
 	max_speed = 2.3
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
-		loader_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/m1a1_abrams(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/m249(src))
 		..()
@@ -1205,28 +1121,21 @@
 	turret_color = "#787859"
 	turret_icon = "challenger2_turret"
 	name = "Challenger-2"
-
 	turret_x = 0
 	turret_y = 16
-
-	gunner_x = -16
-	gunner_y = -16
-
-	loader_x = 16
-	loader_y = 16
-
-	commander_x = -16
-	commander_y = 16
-
+	positions = list(
+		"gunner" = list("x" = 16, "y" = -16, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"loader" = list("x" = 16, "y" = 16, "type" = /obj/structure/bed/chair/turret_seat/loader),
+		"commander" = list("x" = -16, "y" = 16, "type" = /obj/structure/bed/chair/turret_seat/commander),
+	)
+	walls = list (
+		"front" = 700,
+		"back" = 60,
+		"right" = 200,
+		"left" = 200,
+	)
 	max_speed = 1.8
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		loader_seat = new /obj/structure/bed/chair/loader(src.loc)
-		loader_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/leopard(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/stationary/modern/mg3(src))
 		..()
@@ -1235,23 +1144,19 @@
 	turret_color = "#787859"
 	turret_icon = "jap_turret"
 	name = "Chi-Ha"
-
-	turret_x = 0
-	turret_y = -8
-
-	gunner_x = 4
-	gunner_y = 0
-
-	commander_x = -4
-	commander_y = 0
-
+	positions = list(
+		"gunner" = list("x" = 0, "y" = -8, "type" = /obj/structure/bed/chair/turret_seat/gunner),
+		"loader" = list("x" = 4, "y" = 0, "type" = /obj/structure/bed/chair/turret_seat/loader),
+		"commander" = list("x" = -4, "y" = 0, "type" = /obj/structure/bed/chair/turret_seat/commander),
+	)
+	walls = list (
+		"front" = 25,
+		"back" = 25,
+		"right" = 25,
+		"left" = 25,
+	)
 	max_speed = 0.89
-
 	New()
-		gunner_seat = new /obj/structure/bed/chair/gunner(src.loc)
-		gunner_seat.setup(src)
-		commander_seat = new /obj/structure/bed/chair/commander(src.loc)
-		commander_seat.setup(src)
 		weapons.Add(new/obj/structure/cannon/modern/tank/japanese57(src))
 		weapons.Add(new/obj/item/weapon/gun/projectile/automatic/type99(src))
 		..()

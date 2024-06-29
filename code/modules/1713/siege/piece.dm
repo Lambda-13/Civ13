@@ -31,8 +31,8 @@
 	var/broken = FALSE
 	var/can_assemble = FALSE
 	var/assembled = TRUE
-	var/obj/structure/bed/chair/loader/loader_chair = null
-	var/obj/structure/bed/chair/gunner/gunner_chair = null
+	var/obj/structure/bed/chair/turret_seat/loader/loader_chair = null
+	var/obj/structure/bed/chair/turret_seat/gunner/gunner_chair = null
 	var/see_amount_loaded = FALSE
 	var/autoloader = FALSE
 
@@ -132,7 +132,7 @@
 			return
 		// load first and only slot
 		var/loadtime = caliber/2
-		if(M.buckled && istype(M.buckled, /obj/structure/bed/chair/loader))
+		if(M.buckled && istype(M.buckled, /obj/structure/bed/chair/turret_seat/loader))
 			loadtime /= 2
 		if (istype(src,/obj/structure/cannon/modern/naval))
 			loadtime = caliber
@@ -150,11 +150,11 @@
 			M << (anchored ? "<span class='notice'>You unfasten \the [src] from the floor.</span>" : "<span class='notice'>You secure \the [src] to the floor.</span>")
 			anchored = !anchored
 	else if (can_assemble && assembled)
-		if (!gunner_chair && istype(W, /obj/structure/bed/chair/gunner))
+		if (!gunner_chair && istype(W, /obj/structure/bed/chair/turret_seat/gunner))
 			M.remove_from_mob(W)
 			gunner_chair = W
 			W.anchored = TRUE
-		else if (!loader_chair && istype(W, /obj/structure/bed/chair/loader))
+		else if (!loader_chair && istype(W, /obj/structure/bed/chair/turret_seat/loader))
 			M.remove_from_mob(W)
 			loader_chair = W
 			W.anchored = TRUE
@@ -225,7 +225,7 @@
 			user = null
 	restart
 	var/found_gunner = FALSE
-	for (var/obj/structure/bed/chair/gunner/G in m.loc)
+	for (var/obj/structure/bed/chair/turret_seat/gunner/G in m.loc)
 		found_gunner = TRUE
 	if (!found_gunner && istype(src, /obj/structure/cannon/modern/tank) && !istype(src, /obj/structure/cannon/modern/tank/voyage))
 		m << "<span class = 'warning'>You need to be at the gunner's position to operate \the [src].</span>"
@@ -282,7 +282,7 @@
 
 	if (istype(src, /obj/structure/cannon/modern/tank) && !istype(src, /obj/structure/cannon/modern/tank/voyage))
 		var/found_gunner = FALSE
-		for (var/obj/structure/bed/chair/gunner/G in user.loc)
+		for (var/obj/structure/bed/chair/turret_seat/gunner/G in user.loc)
 			found_gunner = TRUE
 		if (!found_gunner)
 			user << "<span class = 'warning'>You need to be at the gunner's position to operate \the [src].</span>"
@@ -303,7 +303,7 @@
 						return
 					// load first and only slot
 					var/found_loader = FALSE
-					for (var/obj/structure/bed/chair/loader/L in user.loc)
+					for (var/obj/structure/bed/chair/turret_seat/loader/L in user.loc)
 						found_loader = TRUE
 					if (!found_loader && istype(src, /obj/structure/cannon/modern/tank) && !istype(src, /obj/structure/cannon/modern/tank/voyage))
 						user << SPAN_WARNING("You need to be at the loader's position to load \the [src].")

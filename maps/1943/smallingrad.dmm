@@ -664,7 +664,7 @@
 "AL" = (/obj/item/weapon/storage/toolbox/emergency,/turf/floor/plating/road,/area/caribbean/houses)
 "AO" = (/obj/structure/window/barrier/sandbag/incomplete{icon_state = "sandbag_66%"; dir = 8},/turf/floor/dirt/burned,/area/caribbean/no_mans_land/capturable/one)
 "AP" = (/obj/structure/table/modern/table,/obj/item/weapon/pen/pencil,/turf/floor/wood,/area/caribbean/no_mans_land/capturable/one)
-"AS" = (/obj/structure/bed/chair/loader{icon_state = "officechair_white"; dir = 1},/turf/floor/plating/road,/area/caribbean/houses)
+"AS" = (/turf/floor/plating/road,/area/caribbean/houses)
 "Bi" = (/obj/structure/lamp/lamppost_small/alwayson,/turf/floor/plating/road,/area/caribbean/nomads/forest/snow)
 "BE" = (/obj/structure/table/modern/table,/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,/turf/floor/dirt/burned,/area/caribbean/no_mans_land/capturable/one)
 "BH" = (/obj/structure/table/modern/table,/obj/structure/telegraph,/turf/floor/wood,/area/caribbean/no_mans_land/capturable/one)

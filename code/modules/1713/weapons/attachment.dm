@@ -585,7 +585,7 @@ Current Defines (_defines/attachment.dm)
 	ergonomics = 1.5
 
 /obj/item/weapon/gun/launcher/grenade/underslung/proc/attached(mob/user, obj/item/weapon/gun/G, var/quick = FALSE)
-	if(!G.under_mounts.Find(src.mount))
+	if(!G.under_mounts.Find(src.mount_type))
 		user << "[src.name] can't be attached!"
 		return
 	if (quick)

@@ -1332,8 +1332,8 @@ var/global/list/damage_icon_parts = list()
 			M.Scale(size_multiplier)
 			M.Translate(0, 16*(size_multiplier-1))
 			I.transform = M
-		plane = FLOOR_PLANE
-		I.plane = FLOOR_PLANE
+		//plane = FLOOR_PLANE
+		//I.plane = FLOOR_PLANE
 		overlays_standing[FIRE_LAYER] = I
 	else
 		if (plane==FLOOR_PLANE)
