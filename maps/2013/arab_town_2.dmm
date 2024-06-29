@@ -570,7 +570,7 @@
 "lc" = (/obj/covers/roads/dirt{icon_state = "d_roadhr"; dir = 4},/turf/floor/grass,/area/caribbean/desert)
 "ld" = (/obj/effect/landmark{name = "JoinLateRNCap"},/turf/floor/dirt/dust,/area/caribbean/british{name = "American Base"})
 "le" = (/obj/effect/landmark{name = "JoinLateRNCap"},/turf/floor/beach/sand/desert,/area/caribbean/british{name = "American Base"})
-"li" = (/obj/structure/vehicleparts/frame/bradley/lfc,/obj/structure/radio/transmitter_receiver/nopower/tank/faction2,/obj/structure/bed/chair/commander,/turf/floor/plating/road,/area/caribbean/british{name = "American Base"})
+"li" = (/obj/structure/vehicleparts/frame/bradley/lfc,/obj/structure/radio/transmitter_receiver/nopower/tank/faction2,/turf/floor/plating/road,/area/caribbean/british{name = "American Base"})
 "ll" = (/obj/structure/window/barrier/sandbag,/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 4},/turf/floor/trench,/area/caribbean/desert)
 "lm" = (/obj/item/ammo_casing/rocket/pg7v,/obj/item/ammo_casing/rocket/pg7v,/obj/item/ammo_casing/rocket/pg7v,/obj/item/ammo_casing/rocket/pg7v,/obj/item/ammo_casing/rocket/pg7v,/obj/item/ammo_casing/rocket/pg7v,/obj/item/ammo_casing/rocket/pg7v,/obj/structure/closet/crate/ww2,/turf/floor/plating/concrete,/area/caribbean/arab/caves{name = "Hezbollah HQ"})
 "ln" = (/obj/covers/brick_wall,/turf/wall/brick,/area/caribbean/desert/buildings{name = "Buildings"})

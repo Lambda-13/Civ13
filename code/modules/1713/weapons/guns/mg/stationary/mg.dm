@@ -114,7 +114,7 @@
 	magazine_type = /obj/item/ammo_magazine/ammo127
 	good_mags = list(/obj/item/ammo_magazine/ammo127)
 	firemodes = list(
-		list(name = "full auto", burst=2, burst_delay=2, fire_delay=2, accuracy=list(2))
+		list(name = "full auto", burst=1, burst_delay=2, fire_delay=2, accuracy=list(2))
 		)
 	ammo_type = /obj/item/ammo_casing/a127
 	recoil = 10

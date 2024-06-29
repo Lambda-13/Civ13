@@ -489,7 +489,7 @@
 	return FALSE
 
 /obj/structure/vehicleparts/frame/bullet_act(var/obj/item/projectile/proj, var/penloc = "front")
-	if(proj.fired_from_turret && proj.fired_from_axis) // пуля выпущеная из башни не имеет препятсятвий внутри той техники где она была выпущена
+	if(proj.fired_from_roof && proj.fired_from_axis) // пуля выпущеная из башни не имеет препятсятвий внутри той техники где она была выпущена
 		if(proj.fired_from_axis == axis)
 			return
 	if (mwheel && prob(30))

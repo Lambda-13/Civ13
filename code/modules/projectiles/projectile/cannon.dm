@@ -82,12 +82,16 @@
 		firer_original_dir = dir
 	firedfrom = launcher
 
-	if(user.buckled)
-		for (var/obj/structure/turret/T in curloc)
-			fired_from_turret = TRUE
+	if(user.buckled && istype(user.buckled, /obj/structure/bed/chair/turret_seat))
+		var/obj/structure/bed/chair/turret_seat/S = user.buckled
+		if(S.turret)
+			if(launcher.loc != user)
+				fired_from_roof = TRUE
+			else if (S.hatch_icon && S.is_open)
+				fired_from_roof = TRUE
 		for (var/obj/structure/vehicleparts/frame/F in curloc)
 			fired_from_axis = F.axis
-			layer = 11
+			layer = 14
 
 	original = target
 	loc = curloc

@@ -83,7 +83,7 @@ Parts of code courtesy of Super3222
 	max_zoom = ZOOM_CONSTANT*3
 	attachable = FALSE
 	value = 15
-	var/obj/structure/bed/chair/commander/commanderchair = null
+	var/obj/structure/bed/chair/turret_seat/commander/commanderchair = null
 	nothrow = TRUE
 	nodrop = TRUE
 	w_class = ITEM_SIZE_HUGE

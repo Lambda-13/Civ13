@@ -295,6 +295,18 @@
 	for (var/obj/structure/turret/T in view(view_dist, view_loc))
 		client.images += T.turret_image
 		client.images += T.turret_roof_image
+	for (var/obj/structure/bed/chair/turret_seat/S in view(view_dist, view_loc))
+		if(S.mg)
+			client.images += S.mg
+		if(get_dist(src, S) > 1)
+			if(S.hatch && !S.is_open)
+				client.images += S.hatch
+		else if (buckled && looking)
+			if(S.hatch && !S.is_open)
+				client.images += S.hatch
+
+	if (buckled && looking)
+		return
 
 	for (var/obj/structure/turret/T in view(1,client))
 
@@ -316,7 +328,7 @@
 	if (!client)
 		return
 
-	var/view_dist = client.view + 4 // + запас чтобы при передвижении не было видно прогрузку
+	var/view_dist = client.view + 6 // + запас чтобы при передвижении не было видно прогрузку
 
 	var/view_x_offset = 0
 	var/view_y_offset = 0
@@ -343,15 +355,13 @@
 		found = FRL
 	for (var/obj/structure/vehicleparts/frame/FR in view(view_dist, view_loc))
 		if (found)
-			if (FR.axis != found.axis && FR != found)
+			if ((FR.axis != found.axis && FR != found) || (buckled && looking))
 				client.images += FR.roof
 			else
 				client.images -= FR.roof
 		else
 			if (locate(FR) in view(view_dist, view_loc))
 				client.images += FR.roof
-			else
-				client.images -= FR.roof
 
 /mob/living/human
 	var/roofs_removed = TRUE

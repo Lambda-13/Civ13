@@ -129,7 +129,7 @@
 						movemento.pixel_y = -22
 						overlays += movemento
 	if (!noroof && axis)
-		roof = image(icon=icon, loc=src, icon_state="roof_steel[rand(1,4)]", layer=10)
+		roof = image(icon=icon, loc=src, icon_state="roof_steel[rand(1,4)]", layer=8)
 		roof.overlays.Cut()
 	else
 		roof = image(icon=icon, loc=src, icon_state="", layer=1)
@@ -153,12 +153,7 @@
 			else
 				ticon = normal_icon
 		if (axis)
-			if (axis.vehicle_type == "apc")
-				roof = image(icon=icon, loc=src, icon_state=replacetext(src.icon_state,"frame","roof"), layer=10.1)// This code parts needs adjustment in case layering issues re-appear
-			else
-				roof = image(icon=icon, loc=src, icon_state=replacetext(src.icon_state,"frame","roof"), layer=9.9)
-		else
-			roof = image(icon=icon, loc=src, icon_state=replacetext(src.icon_state,"frame","roof"), layer=9.9)
+			roof = image(icon=icon, loc=src, icon_state=replacetext(src.icon_state,"frame","roof"), layer=8)// This code parts needs adjustment in case layering issues re-appear
 
 		if (override_roof_icon)
 			roof.icon_state = override_roof_icon

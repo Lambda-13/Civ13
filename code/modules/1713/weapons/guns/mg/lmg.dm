@@ -29,32 +29,10 @@
 	)
 	var/last_fire = -1
 
-	var/obj/structure/bed/chair/mgunner/mount = null
-
 	can_tactical_reload = TRUE
 	walk_accuracy_debuff = 30
 	pickup_accuracy_debuff = 25
 	onehand_accuracy_debuff = 25
-
-/obj/item/weapon/gun/projectile/automatic/Fire(atom/target, mob/living/user, clickparams=null, pointblank=0, reflex=0, forceburst = -1, force = FALSE, accuracy_mod = 1)
-	if (mount)
-		var/turf/firing_turf = get_turf(mount)
-		var/turf/target_turf = get_turf(target)
-		var/dx = target_turf.x - firing_turf.x
-		var/dy = target_turf.y - firing_turf.y
-		var/shot_angle = Atan2(dx, dy)
-		if (shot_angle < 0)
-			shot_angle = 180 + (180 - abs(shot_angle))
-		var/shot_dir = EAST
-		if(shot_angle >= 45 && shot_angle < 135)
-			shot_dir = NORTH
-		else if(shot_angle >= 135 && shot_angle < 225)
-			shot_dir = WEST
-		else if(shot_angle >= 225 && shot_angle < 315)
-			shot_dir = SOUTH
-		if(mount.dir != shot_dir)
-			return
-	..()
 
 /obj/item/weapon/gun/projectile/automatic/special_check(mob/user)
 	if (gun_safety && safetyon)

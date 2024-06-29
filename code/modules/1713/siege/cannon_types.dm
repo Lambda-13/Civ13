@@ -203,10 +203,6 @@
 	maxrange = 27
 	assembled = FALSE
 	can_assemble = TRUE
-	New()
-		..()
-		loader_chair = new /obj/structure/bed/chair/loader(src)
-		gunner_chair = new /obj/structure/bed/chair/gunner(src)
 
 /obj/structure/cannon/modern/tank/american90
 	name = "90mm M41 gun"
@@ -285,10 +281,6 @@
 	maxrange = 38
 	assembled = FALSE
 	can_assemble = TRUE
-	New()
-		..()
-		loader_chair = new /obj/structure/bed/chair/loader(src)
-		gunner_chair = new /obj/structure/bed/chair/gunner(src)
 
 /obj/structure/cannon/modern/tank/russian122
 	name = "122mm M1943 D-25T"
@@ -322,10 +314,6 @@
 	firedelay = 1
 	assembled = FALSE
 	can_assemble = TRUE
-	New()
-		..()
-		loader_chair = new /obj/structure/bed/chair/loader(src)
-		gunner_chair = new /obj/structure/bed/chair/gunner(src)
 
 /obj/structure/cannon/modern/tank/russian85
 	name = "85mm S-53"
@@ -354,10 +342,6 @@
 	maxrange = 38
 	assembled = FALSE
 	can_assemble = TRUE
-	New()
-		..()
-		loader_chair = new /obj/structure/bed/chair/loader(src)
-		gunner_chair = new /obj/structure/bed/chair/gunner(src)
 
 /obj/structure/cannon/modern/tank/russian100
 	name = "100mm D10S"

@@ -32,7 +32,8 @@
 	var/launch_from_vehicle = FALSE
 	var/overcoming_trench = FALSE // if bullet flies out of trench, it will be more difficult to hit a target in another trench
 
-	var/fired_from_turret = FALSE
+	var/fired_from_roof = FALSE
+	var/shooting_roof_object = FALSE
 	var/obj/structure/vehicleparts/axis/fired_from_axis = null
 
 	var/p_x = 16
@@ -188,18 +189,31 @@
 	if (istype(curloc, /turf/floor/trench))
 		launch_from_trench = TRUE
 
-	if(user.buckled)
-		for (var/obj/structure/turret/T in curloc)
-			fired_from_turret = TRUE
+	if(user.buckled && istype(user.buckled, /obj/structure/bed/chair/turret_seat))
+		var/obj/structure/bed/chair/turret_seat/S = user.buckled
+		if(S.turret)
+			if(launcher.loc != user) // если оружие не в руках значит это курсовое вооружение башни
+				fired_from_roof = TRUE
+			else
+				if (!launcher.mount) // если оружие не смонтировано значит это личное оружие
+					if (S.hatch_icon && S.is_open) // из личного оружия можно вести огонь только есть открыт люк
+						fired_from_roof = TRUE
+				else
+					fired_from_roof = TRUE
+		else if (S.hatch_icon && S.is_open)
+			fired_from_roof = TRUE
 		for (var/obj/structure/vehicleparts/frame/F in curloc)
 			fired_from_axis = F.axis
 
+	for(var/obj/structure/bed/chair/turret_seat/S in targloc)
+		if(S.hatch_icon && S.is_open)
+			shooting_roof_object = TRUE
+	for(var/obj/structure/turret/T in targloc)
+		if(!istype(T, /obj/structure/turret/course))
+			shooting_roof_object = TRUE
 	firer = user
 	firer_original_dir = firer.dir
 	firedfrom = launcher
-
-	for(var/obj/structure/turret/T in curloc)
-
 
 	if (istype(firedfrom, /obj/item/weapon/gun/projectile/automatic/stationary))
 		if (prob(80))
@@ -476,6 +490,7 @@
 /obj/item/projectile/proc/handleTurf(var/turf/T, forced=0, var/list/untouchable = list())
 	if(atype == "NUCLEAR")
 		radiation_pulse(T, 	damage / 100, damage / 10, damage / 25, 0)
+
 	if (!T || !istype(T))
 		return FALSE
 
@@ -492,19 +507,25 @@
 	var/passthrough_message = null
 	var/is_trench = istype(T, /turf/floor/trench)
 
-	if(starting == T && fired_from_turret)
+	if(starting == T && fired_from_roof)
 		forceMove(T)
 		permutated += T
 		return TRUE
 
-	if(fired_from_turret && fired_from_axis) // пуля выпущеная из башни не имеет препятсятвий внутри той техники где она была выпущена
+	if(fired_from_roof && fired_from_axis) // пуля выпущеная из башни не имеет препятсятвий внутри той техники где она была выпущена
 		for (var/obj/structure/vehicleparts/frame/F in T)
 			if(fired_from_axis && fired_from_axis == F.axis)
 				forceMove(T)
 				permutated += T
 				return TRUE
 			else
-				fired_from_turret = FALSE
+				fired_from_roof = FALSE
+
+	if(passthrough)
+		passthrough = handle_structure_hit(T, untouchable)
+
+	if(shooting_roof_object && passthrough)
+		return handle_roof_hit(T)
 
 	if(is_trench)
 		passed_trenches += 1
@@ -558,111 +579,9 @@
 
 	if (T.density)
 		passthrough = FALSE
-	else
-		// needs to be its own loop for reasons
-		for (var/obj/O in T.contents)
-			var/hitchance = 0 // a light, for example. This was 66%, but that was unusually accurate, thanks BYOND
-			if (O == original)
-				if (O.density)
-					if (istype(O, /obj/covers/jail))
-						hitchance = 0
-					else
-						hitchance = 100
-				else if (isitem(O) && !density) // any item
-					hitchance = 0
-				if (prob(hitchance))
-					if (istype(O, /obj/structure))
-						var/obj/structure/S = O
-						if (!S.CanPass(src, original))
-							on_impact(T)
-							do_bullet_act(O)
-							passthrough = FALSE
-					else
-						permutated += T
-						on_impact(T)
-						do_bullet_act(O)
-						bumped = TRUE
-						loc = null
-						qdel(src)
-						return FALSE
-					O.visible_message("<span class = 'warning'>[src] пролетает над [O]!</span>")
-					break
-	for (var/atom/movable/AM in T.contents)
-		if (!untouchable.Find(AM))
-			if (isliving(AM) && AM != firer)
-				var/mob/living/L = AM
-				if ((!L.lying || T == get_turf(original) || execution))
-					// if they have a neck grab on someone, that person gets hit instead
-					var/obj/item/weapon/grab/G = locate() in L
-					if (G && G.state >= GRAB_NECK && G.affecting.stat < UNCONSCIOUS)
-						visible_message("<span class='danger'>[L] использует [G.affecting] в качестве щита!</span>")
-						G.affecting.pre_bullet_act(src)
-						attack_mob(G.affecting)
-						if (!G.affecting.lying)
-							passthrough = FALSE
-					else
-						var/firer_dist = get_dist(firer,T)
-						var/hit_chace = 100
-						var/tmp_zone = def_zone
 
-						if (L.lying || L.prone)
-							if (firer_dist > 3)
-								hit_chace = 100 - (sqrt(firer_dist) * 15)
-
-						// проверка на получение защиты от окопа
-						if (is_trench)
-							if (passed_trenches * 2 <= firer_dist)
-								hit_chace = 100 - (sqrt(firer_dist) * 10)
-								def_zone = "head"
-								if (L.lying || L.prone)
-									hit_chace = 0
-
-						if (firer_dist <= 3)
-							hit_chace = 100
-
-						if (prob(hit_chace))
-							passthrough = !attack_mob(L, firer_dist)
-							return
-						else
-							visible_message("<span class = 'warning'>[src] пролетает над [AM]!</span>")
-						def_zone = tmp_zone
-
-			else if (isobj(AM) && AM != firedfrom)
-				var/obj/O = AM
-				if (!(istype(O, /obj/structure/vehicleparts/frame) && O.loc == src.loc))
-					if (O.density || istype(O, /obj/structure/window/classic) || istype(O, /obj/structure/table)) // hack
-						O.pre_bullet_act(src)
-						if (O.bullet_act(src, def_zone) != PROJECTILE_CONTINUE)
-							if (O && !O.gcDestroyed)
-								if (O.density && !istype(O, /obj/structure))
-									if (istype(O, /obj/covers))
-										var/obj/covers/CVR = O
-										if (prob(100-CVR.hardness) && CVR.density)
-											passthrough = TRUE
-											passthrough_message = "<span class = 'warning'>[name] пробивает насквозь [CVR]!</span>"
-										else
-											passthrough = FALSE
-									else if (istype(O, /obj/item/weapon/gun/projectile/automatic/stationary))
-										var/obj/covers/MG = O
-										if (prob(100-MG.hardness))
-											passthrough = TRUE
-										else
-											passthrough = FALSE
-									else
-										passthrough = FALSE
-								else if (istype(O, /obj/structure))
-									var/obj/structure/S = O
-									if (!S.CanPass(src, original))
-										passthrough = FALSE
-									else if (S.density)
-										if (!S.climbable && !istype(S, /obj/structure/vehicleparts/frame))
-											passthrough_message = "<span class = 'warning'>[name] пробивает насквозь [S]!</span>"
-					if (istype(O, /obj/covers/repairedfloor) && istype(src, /obj/item/projectile/shell))
-						if ((src.atype == "cannonball" && prob(18)) || src.atype != "cannonball")
-							O.pre_bullet_act(src)
-							if (O.bullet_act(src, def_zone) != PROJECTILE_CONTINUE)
-								if (O && !O.gcDestroyed)
-									passthrough = FALSE
+	if(passthrough)
+		passthrough = handle_living_hit(T)
 
 	for(var/obj/structure/window/barrier/S in T)
 		if (!S.CanPassOut(src))
@@ -678,7 +597,7 @@
 	for (var/obj/structure/vehicleparts/frame/F in loc)
 		var/penloc = F.get_wall_name(opposite_direction(direction))
 		if (F.is_ambrasure(penloc) && loc == starting)
-			if(!istype(src, /obj/item/projectile/shell/missile))
+			if (!istype(src, /obj/item/projectile/shell/missile))
 				layer = 14
 				visible_message("<span class = 'warning'>Пуля вылетает из амбразуры</span>")
 			else
@@ -726,6 +645,142 @@
 	on_impact(T)
 	qdel(src)
 
+	return FALSE
+
+/obj/item/projectile/proc/handle_structure_hit(var/turf/T, var/list/untouchable = list())
+	for (var/obj/O in T.contents)
+		var/hitchance = 0 // a light, for example. This was 66%, but that was unusually accurate, thanks BYOND
+		if (O == original)
+			if (O.density)
+				if (istype(O, /obj/covers/jail))
+					hitchance = 0
+				else
+					hitchance = 100
+			else if (isitem(O) && !density) // any item
+				hitchance = 0
+			if (prob(hitchance))
+				if (istype(O, /obj/structure))
+					var/obj/structure/S = O
+					if (!S.CanPass(src, original))
+						on_impact(T)
+						do_bullet_act(O)
+						return FALSE
+				else
+					permutated += T
+					on_impact(T)
+					do_bullet_act(O)
+					loc = null
+					qdel(src)
+					return FALSE
+				O.visible_message("<span class = 'warning'>[src] пролетает над [O]!</span>")
+	for (var/atom/movable/AM in T.contents)
+		if (!untouchable.Find(AM))
+			if (isobj(AM) && AM != firedfrom)
+				var/obj/O = AM
+				if (!(istype(O, /obj/structure/vehicleparts/frame) && O.loc == src.loc))
+					if (O.density || istype(O, /obj/structure/window/classic) || istype(O, /obj/structure/table)) // hack
+						O.pre_bullet_act(src)
+						if (O.bullet_act(src, def_zone) != PROJECTILE_CONTINUE)
+							if (O && !O.gcDestroyed)
+								if (O.density && !istype(O, /obj/structure))
+									if (istype(O, /obj/covers))
+										var/obj/covers/CVR = O
+										if (prob(100-CVR.hardness) && CVR.density)
+											visible_message("<span class = 'warning'>[name] пробивает насквозь [CVR]!</span>")
+										else
+											on_impact(T)
+											qdel(src)
+											return FALSE
+									else if (istype(O, /obj/item/weapon/gun/projectile/automatic/stationary))
+										var/obj/covers/MG = O
+										if (prob(100-MG.hardness))
+											on_impact(T)
+											qdel(src)
+											return FALSE
+										else
+											on_impact(T)
+											qdel(src)
+											return FALSE
+									else
+										on_impact(T)
+										qdel(src)
+										return FALSE
+								else if (istype(O, /obj/structure))
+									var/obj/structure/S = O
+									if (!S.CanPass(src, original))
+										on_impact(T)
+										qdel(src)
+										return FALSE
+									else if (S.density)
+										if (!S.climbable && !istype(S, /obj/structure/vehicleparts/frame))
+											visible_message("<span class = 'warning'>[name] пробивает насквозь [S]!</span>")
+	return TRUE
+
+/obj/item/projectile/proc/handle_living_hit(var/turf/T)
+	if(permutated.len < 1)
+		return TRUE
+	var/is_trench = istype(T, /turf/floor/trench)
+	for (var/mob/living/L in T.contents)
+		if ((!L.lying || T == get_turf(original) || execution))
+			// if they have a neck grab on someone, that person gets hit instead
+			var/obj/item/weapon/grab/G = locate() in L
+			if (G && G.state >= GRAB_NECK && G.affecting.stat < UNCONSCIOUS)
+				visible_message("<span class='danger'>[L] использует [G.affecting] в качестве щита!</span>")
+				G.affecting.pre_bullet_act(src)
+				attack_mob(G.affecting)
+				if (!G.affecting.lying)
+					return FALSE
+			else
+				var/hit_chace = 100
+				var/tmp_zone = def_zone
+				if (L.lying || L.prone)
+					if (permutated.len > 3)
+						hit_chace = 100 - (sqrt(permutated.len) * 15)
+
+				// проверка на получение защиты от окопа
+				if (is_trench)
+					if (passed_trenches * 2 <= permutated.len)
+						hit_chace = 100 - (sqrt(permutated.len) * 10)
+						def_zone = "head"
+						if (L.lying || L.prone)
+							hit_chace = 0
+
+				if (permutated.len <= 3)
+					hit_chace = 100
+
+				if (prob(hit_chace))
+					return !attack_mob(L, permutated.len)
+				else
+					visible_message("<span class = 'warning'>[src] пролетает над [L]!</span>")
+				def_zone = tmp_zone
+	return TRUE
+
+/obj/item/projectile/proc/handle_roof_hit(var/turf/T)
+	var/passthrough = TRUE
+
+	if (T.density)
+		passthrough = FALSE
+
+	for (var/mob/living/L in T)
+		if (L.buckled && istype(L.buckled, /obj/structure/bed/chair/turret_seat))
+			var/obj/structure/bed/chair/turret_seat/S = L.buckled
+			var/firer_dist = get_dist(starting,T)
+			if (S.hatch_icon && S.is_open)
+				if (!attack_mob(L, firer_dist))
+					passthrough = FALSE
+
+	for (var/obj/structure/turret/TR in T)
+		if(!istype(TR, /obj/structure/turret/course))
+			return TR.bullet_act(src)
+
+	if (passthrough)
+		forceMove(T)
+		permutated += T
+		return TRUE
+
+	bumped = TRUE
+	on_impact(T)
+	qdel(src)
 	return FALSE
 
 /obj/item/projectile/ex_act()
@@ -789,8 +844,8 @@
 		handleTurf(loc, untouchable = _untouchable)
 		before_move()
 		forceMove(location.return_turf())
-		if(fired_from_turret)
-			layer = 14
+		if(fired_from_roof || shooting_roof_object)
+			layer = 15
 		else
 			layer = 4
 		if(tracer_type == /obj/effect/projectile/tracer/minor)

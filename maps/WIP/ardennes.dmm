@@ -48,7 +48,7 @@
 "aV" = (/obj/structure/window/classic/reinforced,/obj/structure/curtain/leather/open,/turf/floor/wood,/area/caribbean/roofed/tundra)
 "aW" = (/obj/effect/landmark{name = "JoinLateRN"},/turf/floor/dirt/winter,/area/caribbean/nomads/snow)
 "aX" = (/obj/effect/landmark{name = "JoinLateRNCap"},/turf/floor/dirt,/area/caribbean/nomads/snow)
-"aY" = (/obj/structure/vehicleparts/frame/m4{dir = 1},/turf/floor/dirt,/area/caribbean)
+"aY" = (/obj/structure/vehicleparts/frame/m4{dir = 1},/obj/item/ammo_magazine/a50cal_can,/obj/item/ammo_magazine/a50cal_can,/obj/item/ammo_magazine/a50cal_can,/obj/item/ammo_magazine/a50cal_can,/obj/item/ammo_magazine/a50cal_can,/obj/item/ammo_magazine/a50cal_can,/obj/item/ammo_magazine/a50cal_can,/turf/floor/dirt,/area/caribbean)
 "aZ" = (/obj/structure/vehicleparts/frame/m4/right/door{dir = 1},/obj/effect/autoassembler,/obj/item/weapon/radio/faction2,/turf/floor/dirt,/area/caribbean)
 "ba" = (/obj/structure/vehicleparts/frame/m4/lb{dir = 1},/obj/structure/vehicleparts/movement/tracks/reversed,/obj/item/weapon/reagent_containers/glass/barrel/fueltank/tank/fueledgasoline,/turf/floor/dirt,/area/caribbean)
 "bb" = (/obj/structure/bed/chair/office/dark,/obj/structure/vehicleparts/frame/car/rf/truck{noroof = 0},/turf/floor/dirt,/area/caribbean/nomads/snow)

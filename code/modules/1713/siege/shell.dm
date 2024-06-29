@@ -591,15 +591,7 @@
 		new /obj/item/cannon_ball/shell/tank/APCR75(storage)
 	update_icon()
 
-/obj/structure/shellrack/full75/american/New()
-	..()
-	for (var/i=1, i<=8, i++)
-		new /obj/item/cannon_ball/shell/tank/HE75(storage)
-	for (var/i=1, i<=6, i++)
-		new /obj/item/cannon_ball/shell/tank/AP75(storage)
-	for (var/i=1, i<=2, i++)
-		new /obj/item/cannon_ball/shell/tank/APCR75(storage)
-	update_icon()
+/obj/structure/shellrack/full75/american
 
 /obj/structure/shellrack/full100ww2/New()
 	..()
