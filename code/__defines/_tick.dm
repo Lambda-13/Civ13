@@ -1,8 +1,8 @@
 /// Tick limit while running normally
 #define TICK_BYOND_RESERVE 2
-#define TICK_LIMIT_RUNNING 80
+#define TICK_LIMIT_RUNNING 80 //90
 /// Tick limit used to resume things in stoplag
-#define TICK_LIMIT_TO_RUN 70
+#define TICK_LIMIT_TO_RUN 70 //85
 /// Tick limit for MC while running
 #define TICK_LIMIT_MC 70
 /// Tick limit while initializing
@@ -15,6 +15,8 @@
 
 /// Returns true if tick_usage is above the limit
 #define TICK_CHECK ( TICK_USAGE > Master.current_ticklimit )
+//#define TICK_CHECK ( world.tick_usage > TICK_LIMIT_RUNNING ? stoplag() : 0 )
+
 /// runs stoplag if tick_usage is above the limit
 #define CHECK_TICK ( TICK_CHECK ? stoplag() : 0 )
 

@@ -412,25 +412,7 @@
 		new_team = src.team
 	if (!new_team)
 		return
-	if (map && map.ID == MAP_FOOTBALL)
-		var/obj/map_metadata/football/FM = map
-		if (FM.team1 == src.team)
-			color1 = FM.teams[src.team][FM.team1_kit]["shirt_color"]
-			color2 = FM.teams[src.team][FM.team1_kit]["shorts_color"]
-		else if  (FM.team2 == src.team)
-			color1 = FM.teams[src.team][FM.team2_kit]["shirt_color"]
-			color2 = FM.teams[src.team][FM.team2_kit]["shorts_color"]
-		else
-			color1 = FM.teams[src.team]["main uniform"]["shirt_color"]
-			color2 = FM.teams[src.team]["main uniform"]["shorts_color"]
-		var/image/overc = image("icon" = icon, "icon_state" = "[bstyle]_1")
-		overc.color = color1
-		overlays += overc
-		var/image/overc1 = image("icon" = icon, "icon_state" = "[bstyle]_2")
-		overc1.color = color2
-		overlays += overc1
-		name = "[src.team] banner"
-		update_icon()
+
 /obj/structure/banner/faction/team/team1
 
 /obj/structure/banner/faction/team/team2

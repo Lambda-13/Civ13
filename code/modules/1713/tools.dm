@@ -308,7 +308,6 @@
 	if (!(user.has_empty_hand(both = FALSE)))
 		user << "<span class='warning'>You need both hands to use the [src]!</span>"
 		return FALSE
-	..()
 
 /obj/item/weapon/wirecutters/boltcutters
 	name = "boltcutters"

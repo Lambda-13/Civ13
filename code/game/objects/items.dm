@@ -266,7 +266,7 @@
 
 // apparently called whenever an item is removed from a slot, container, or anything else.
 /obj/item/proc/dropped(mob/user as mob)
-	..()
+
 	plane = GAME_PLANE
 	spawn (1)
 		if (dropsound)
@@ -423,8 +423,6 @@ var/list/global/slot_flags_enumeration = list(
 /obj/item/proc/mob_can_unequip(mob/M, slot, disable_warning = FALSE)
 	if (!slot) return FALSE
 	if (!M) return FALSE
-	if (istype(src, /obj/item/clothing/shoes/football) || istype(src, /obj/item/clothing/under/football))
-		return FALSE
 	if (!canremove)
 		return FALSE
 	if (!M.slot_is_accessible(slot, src, disable_warning? null : M))

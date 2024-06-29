@@ -271,7 +271,6 @@
 		list(/obj/item/weapon/storage/firstaid/combat,rand(150,250)),
 		list(/obj/item/weapon/storage/pill_bottle/penicillin,rand(150,250)),
 		list(/obj/item/weapon/storage/firstaid/surgery,rand(150,250)),
-		list(/obj/item/football,rand(13,37)),
 		list(/obj/item/weapon/reagent_containers/glass/barrel/jerrycan/diesel,rand(50,100)),
 		list(/obj/item/weapon/reagent_containers/glass/barrel/jerrycan/gasoline,rand(50,100)),
 		list(/obj/structure/closet/crate/airdrops/food,rand(500,750)),

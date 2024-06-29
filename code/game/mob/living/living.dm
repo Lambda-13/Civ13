@@ -156,12 +156,6 @@ default behaviour is:
 			return TRUE
 
 /mob/living/proc/can_swap_with(var/mob/living/tmob)
-	if (map && (map.ID == MAP_FOOTBALL || map.ID == MAP_FOOTBALL_CAMPAIGN))
-		return FALSE
-	if (ishuman(src))
-		var/mob/living/human/H = src
-		if (H.shoes && istype(H.shoes, /obj/item/clothing/shoes/football))
-			return FALSE
 	if (tmob.buckled || buckled)
 		return FALSE
 	//BubbleWrap: people in handcuffs are always switched around as if they were on 'help' intent to prevent a person being pulled from being seperated from their puller
@@ -745,10 +739,6 @@ default behaviour is:
 	if ( !AM || !usr || src==AM || !isturf(loc) )	//if there's no person pulling OR the person is pulling themself OR the object being pulled is inside something: abort!
 		return
 
-	if (AM.anchored || istype(AM, /obj/item/football))
-		src << "<span class='warning'>It won't budge!</span>"
-		return
-
 	var/mob/M = AM
 	if (ismob(AM))
 
@@ -772,12 +762,6 @@ default behaviour is:
 			M.LAssailant = null
 		else
 			M.LAssailant = usr
-
-	else if (isobj(AM))
-		var/obj/I = AM
-		if (!can_pull_size || can_pull_size < I.w_class || istype(I, /obj/item/football))
-			src << "<span class='warning'>It won't budge!</span>"
-			return
 
 	if (pulling)
 		var/pulling_old = pulling

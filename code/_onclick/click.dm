@@ -52,42 +52,6 @@
 		return
 	if (ishuman(src)) //src is user who is click and human
 		var/mob/living/human/H = src
-		if (istype(H.shoes, /obj/item/clothing/shoes/football)) //TODO TO DO: move it to football.dm
-			if (H.football)
-				var/obj/item/football/FB = H.football
-				H.do_attack_animation(H.football)
-				H.football = null
-				FB.owner = null
-				FB.last_owner = H
-				FB.throw_at(A, FB.throw_range, FB.throw_speed, H)
-				FB.owner = null
-				H.football = null
-				H.do_attack_animation(get_step(H,H.dir))
-				playsound(loc, 'sound/effects/football_kick.ogg', 100, 1)
-				visible_message("[src] kicks \the [FB.name].")
-				return
-			else if (ishuman(A) && get_dist(H,A) <= 1) //if we dont have the ball, try to apply pressure and take the ball without tackling
-				var/mob/living/human/HM = A
-				if (HM.civilization != H.civilization && H.stats["stamina"][1] >= 7) //no pressure on same team
-					H.setClickCooldown(10)
-					H.stats["stamina"][1] = max(H.stats["stamina"][1] - 7, 0)
-					H.do_attack_animation(HM)
-					var/obj/item/football/opponent_has_ball = null
-					if (HM.football)
-						opponent_has_ball = HM.football
-					if (prob(35) && opponent_has_ball)
-						H.visible_message("<font color='red'>[H] takes the ball from [HM]!</font>")
-						playsound(H.loc, 'sound/weapons/punch1.ogg', 50, 1)
-						HM.football = null
-						opponent_has_ball.last_owner = H
-						opponent_has_ball.owner = H
-						H.football = opponent_has_ball
-						opponent_has_ball.forceMove(H.loc)
-					else
-						H.visible_message("<font color='yellow'>[H] pressures [HM]!</font>")
-						H.do_attack_animation(HM)
-						playsound(H.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
-					return
 		if (istype(H.get_active_hand(), /obj/item/weapon/flamethrower)) //TO DO TODO: move it to flamethrower.dm
 			var/obj/item/weapon/flamethrower/FL = H.get_active_hand()
 			var/cdir = get_dir(H,A)
@@ -496,28 +460,11 @@
 	scrambling = FALSE
 
 /atom/proc/middle_click_intent_check(var/mob/M)
-	if (map && map.ID == MAP_FOOTBALL)
-		if (ishuman(M))
-			var/mob/living/human/H = M
-			if (H.football)
-				H.football.owner = null
-				H.football.last_owner = H
-				H.football = null
+	if(M.middle_click_intent == "kick")
+		return kick_act(M)
+	else if(M.middle_click_intent == "jump")
 		jump_act(src, M)
-	if (map && map.ID == MAP_FOOTBALL_CAMPAIGN)
-		if (ishuman(M))
-			var/mob/living/human/H = M
-			if (H.football)
-				H.football.owner = null
-				H.football.last_owner = H
-				H.football = null
-		jump_act(src, M)
+	else if(M.middle_click_intent == "bite")
+		bite_act(M)
 	else
-		if(M.middle_click_intent == "kick")
-			return kick_act(M)
-		else if(M.middle_click_intent == "jump")
-			jump_act(src, M)
-		else if(M.middle_click_intent == "bite")
-			bite_act(M)
-		else
-			M.swap_hand()
+		M.swap_hand()
