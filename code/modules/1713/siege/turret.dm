@@ -947,7 +947,7 @@
 	positions = list(
 		"gunner" = list("x" = 11, "y" = -2, "type" = /obj/structure/bed/chair/turret_seat/gunner),
 		"loader" = list("x" = -11, "y" = -2, "type" = /obj/structure/bed/chair/turret_seat/loader),
-		"commander" = list("x" = 0, "y" = 11, "type" = /obj/structure/bed/chair/turret_seat/commander),
+		"commander" = list("x" = 0, "y" = 11, "type" = /obj/structure/bed/chair/turret_seat/commander/pziv),
 	)
 	walls = list (
 		"front" = 200,
