@@ -151,6 +151,9 @@
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/pistol/glock17/update_icon()
 	..()
@@ -383,6 +386,9 @@
 	handle_casings = EJECT_CASINGS
 	pocket = TRUE
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/pistol/colthammerless/update_icon()
 	..()
@@ -420,6 +426,9 @@
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/pistol/bergmann/update_icon()
 	..()
@@ -444,6 +453,9 @@
 	handle_casings = EJECT_CASINGS
 	bad_magazine_types = list(/obj/item/ammo_magazine/thompson)
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/pistol/m1911/update_icon()
 	..()
@@ -467,6 +479,9 @@
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/pistol/blackm1911/update_icon()
 	..()
@@ -498,6 +513,9 @@
 	handle_casings = EJECT_CASINGS
 	bad_magazine_types = list(/obj/item/ammo_magazine/c762x25_ppsh, /obj/item/ammo_magazine/c762x25_pps)
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 	barrel_x_offset = 19
 	barrel_y_offset = 0
 
@@ -566,6 +584,9 @@
 	bad_magazine_types = list(/obj/item/ammo_magazine/makarov)
 	recoil = 30
 	accuracy = 2
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/pistol/m9beretta
 	name = "Beretta M9"
@@ -581,6 +602,9 @@
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	accuracy = 2
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/pistol/m9beretta/update_icon()
 	..()
@@ -632,6 +656,9 @@
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	accuracy = 2
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/pistol/jericho941/update_icon()
 	..()
@@ -654,6 +681,9 @@
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	accuracy = 2
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 	bad_magazine_types = list(/obj/item/ammo_magazine/thompson)
 
 /obj/item/weapon/gun/projectile/pistol/deagle/update_icon()
@@ -679,6 +709,9 @@
 	handle_casings = EJECT_CASINGS
 	bad_magazine_types = list(/obj/item/ammo_magazine/thompson)
 	accuracy = 2
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/pistol/deaglemagnum/update_icon()
 	..()
@@ -703,6 +736,9 @@
 	handle_casings = EJECT_CASINGS
 	bad_magazine_types = list(/obj/item/ammo_magazine/thompson)
 	accuracy = 2
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/pistol/browninghp/update_icon()
 	..()
@@ -727,6 +763,9 @@
 	handle_casings = EJECT_CASINGS
 	bad_magazine_types = list(/obj/item/ammo_magazine/thompson)
 	accuracy = 2
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/pistol/sti2011/update_icon()
 	..()

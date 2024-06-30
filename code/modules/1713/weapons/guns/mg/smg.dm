@@ -61,6 +61,9 @@
 		list(name = "semi auto",	burst=1, burst_delay=0.8),
 		list(name = "full auto",	burst=1, burst_delay=1.5),
 		)
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 
 	sel_mode = 1
@@ -90,6 +93,9 @@
 		list(name = "semi auto",    burst=1, burst_delay=0.7),
 		list(name = "full auto",    burst=1, burst_delay=1.2),
 		)
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 /obj/item/weapon/gun/projectile/submachinegun/spas/secondary_attack_self(mob/living/human/user)
 	switch_firemodes(user)
@@ -116,6 +122,9 @@
 		list(name = "semi auto",    burst=1, burst_delay=0.7),
 		list(name = "full auto",    burst=1, burst_delay=1.2),
 		)
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 /obj/item/weapon/gun/projectile/submachinegun/usas12/secondary_attack_self(mob/living/human/user)
 	switch_firemodes(user)
@@ -145,6 +154,9 @@
 		)
 	recoil = 60
 	accuracy = 3
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	sel_mode = 1
 	scope_x_offset = -2
 	scope_y_offset = -3
@@ -188,6 +200,9 @@
 	sel_mode = 1
 	recoil = 25
 	accuracy = 3
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 /obj/item/weapon/gun/projectile/submachinegun/mp40/mp38
 	name = "MP38"
@@ -202,6 +217,9 @@
 	sel_mode = 1
 	recoil = 30
 	accuracy = 3
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 /obj/item/weapon/gun/projectile/submachinegun/ermaemp
 	name = "Erma-Emp"
@@ -223,6 +241,9 @@
 	sel_mode = 1
 	recoil = 25
 	accuracy = 3
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 /obj/item/weapon/gun/projectile/submachinegun/mp40/blyskawica
 	name = "Blyskawica"
@@ -238,6 +259,9 @@
 	sel_mode = 1
 	recoil = 25
 	accuracy = 3
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 /obj/item/weapon/gun/projectile/submachinegun/mp40/blyskawica/update_icon()
 	..()
@@ -264,6 +288,9 @@
 	sel_mode = 1
 	recoil = 20
 	accuracy = 3
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	scope_mounts = list ("picatinny")
 
 /obj/item/weapon/gun/projectile/submachinegun/fg42
@@ -288,6 +315,9 @@
 
 	recoil = 40
 	accuracy = 2
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 	scope_mounts = list ("swept_back")
 	scope_x_offset = 2
@@ -317,6 +347,9 @@
 	one_handed = TRUE
 	recoil = 35
 	accuracy = 3
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 /obj/item/weapon/gun/projectile/submachinegun/mac10
 	name = "MAC-10"
@@ -338,6 +371,9 @@
 	one_handed = TRUE
 	recoil = 30
 	accuracy = 3
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 /obj/item/weapon/gun/projectile/submachinegun/tec9
 	name = "TEC-9"
@@ -362,6 +398,9 @@
 	one_handed = TRUE
 	recoil = 25
 	accuracy = 3
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 /obj/item/weapon/gun/projectile/submachinegun/skorpion
 	name = "Skorpion"
@@ -383,6 +422,9 @@
 	one_handed = TRUE
 	recoil = 30
 	accuracy = 3
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 /obj/item/weapon/gun/projectile/submachinegun/greasegun
 	name = "M3A1 SMG"
@@ -405,6 +447,9 @@
 	sel_mode = 1
 	recoil = 25
 	accuracy = 3
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 /obj/item/weapon/gun/projectile/submachinegun/thompson
 	name = "Thompson M1A1"
@@ -427,6 +472,9 @@
 	sel_mode = 1
 	recoil = 25
 	accuracy = 3
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 /obj/item/weapon/gun/projectile/submachinegun/type100
 	name = "Type-100"
@@ -449,6 +497,9 @@
 	sel_mode = 1
 	recoil = 35
 	accuracy = 3
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 /obj/item/weapon/gun/projectile/submachinegun/sten
 	name = "Sten MK II"
@@ -472,6 +523,9 @@
 	sel_mode = 1
 	recoil = 25
 	accuracy = 5
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 /obj/item/weapon/gun/projectile/submachinegun/sten/stv
 	name = "Sten MK V"
@@ -484,6 +538,9 @@
 	equiptimer = 3
 	recoil = 25
 	accuracy = 4
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 /obj/item/weapon/gun/projectile/submachinegun/ppsh
 	name = "PPSh-41"
@@ -505,6 +562,9 @@
 	sel_mode = 1
 	recoil = 20
 	accuracy = 3
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	barrel_x_offset = 12
 	barrel_y_offset = 14
 
@@ -535,6 +595,9 @@
 		)
 	recoil = 25
 	accuracy = 3
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	sel_mode = 1
 	mag_x_offset = 4
 	mag_y_offset = -2
@@ -560,6 +623,9 @@
 		)
 	recoil = 20
 	accuracy = 3
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	sel_mode = 1
 
 	barrel_x_offset = 14
@@ -591,6 +657,9 @@
 	attachment_slots = ATTACH_UNDER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL
 	recoil = 40
 	accuracy = 2
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	scope_mounts = list ("dovetail")
 	under_mounts = list ("gp25_mount")
 	under_x_offset = 1
@@ -675,6 +744,9 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_SCOPE|ATTACH_UNDER
 	recoil = 30
 	accuracy = 2
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	scope_mounts = list ("dovetail")
 	under_mounts = list ("gp25_mount")
 	under_x_offset = 1
@@ -749,6 +821,9 @@
 	equiptimer = 6
 	recoil = 40
 	accuracy = 2
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 	barrel_x_offset = 12
 	barrel_y_offset = 12
@@ -819,6 +894,9 @@
 	equiptimer = 5
 	recoil = 30
 	accuracy = 2
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/aks74u/aks74uso/kgb/New()
@@ -879,6 +957,9 @@
 	stat = "rifle"
 	recoil = 30
 	accuracy = 2
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	scope_mounts = list ("dovetail", "picatinny")
 	under_mounts = list ("picatinny", "gp25_mount")
 	under_x_offset = 1
@@ -901,6 +982,9 @@
 	sel_mode = 1
 	recoil = 25
 	accuracy = 2
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	scope_x_offset = -2
 	barrel_x_offset = 15
 	barrel_y_offset = 17
@@ -944,6 +1028,9 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_SCOPE
 	recoil = 30
 	accuracy = 2
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	barrel_x_offset = 16
 	barrel_y_offset = 16
 	scope_x_offset = -3
@@ -963,6 +1050,9 @@
 	)
 	recoil = 30
 	accuracy = 1
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	scope_x_offset = 0
 	scope_y_offset = -1
 	mag_x_offset = 1
@@ -992,6 +1082,9 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	recoil = 40
 	accuracy = 1
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	barrel_x_offset = 16
 	barrel_y_offset = 16
 	under_mounts = list ("picatinny", "m203_mount")
@@ -1130,6 +1223,9 @@
 	sel_mode = 1
 	recoil = 40
 	accuracy = 0
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	scope_x_offset = 0
 	scope_y_offset = -2
 	barrel_x_offset = 14
@@ -1175,6 +1271,9 @@
 	sel_mode = 1
 	recoil = 50
 	accuracy = 1
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 	mag_x_offset = 2
 	mag_y_offset = 3
@@ -1201,6 +1300,9 @@
 	sel_mode = 1
 	recoil = 45
 	accuracy = 1
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 /obj/item/weapon/gun/projectile/submachinegun/scarl
 	name = "FN SCAR-L"
@@ -1226,6 +1328,9 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER|ATTACH_BARREL
 	recoil = 35
 	accuracy = 2
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	barrel_x_offset = 16
 	barrel_y_offset = 16
 	mag_x_offset = 2
@@ -1257,6 +1362,9 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_UNDER|ATTACH_BARREL
 	recoil = 45
 	accuracy = 1
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	barrel_x_offset = 16
 	barrel_y_offset = 16
 	scope_mounts = list ("picatinny")
@@ -1285,6 +1393,9 @@
 	sel_mode = 1
 	recoil = 50
 	accuracy = 3
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	attachment_slots = ATTACH_BARREL|ATTACH_IRONSIGHTS|ATTACH_UNDER
 	scope_mounts = list ("picatinny")
 	barrel_y_offset = 17
@@ -1316,6 +1427,9 @@
 	sel_mode = 1
 	recoil = 35
 	accuracy = 2
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	mag_x_offset = -2
 	mag_y_offset = -3
 	barrel_x_offset = 15
@@ -1359,6 +1473,9 @@
 	sel_mode = 1
 	recoil = 10
 	accuracy = 3
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 	scope_mounts = list ("picatinny")
 
@@ -1390,6 +1507,9 @@
 	sel_mode = 1
 	recoil = 20
 	accuracy = 3
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	scope_x_offset = 6
 	scope_y_offset = 5
 	under_x_offset = 6
@@ -1421,6 +1541,9 @@
 	attachment_slots = ATTACH_BARREL|ATTACH_IRONSIGHTS|ATTACH_UNDER
 	recoil = 25
 	accuracy = 2
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	scope_mounts = list ("picatinny")
 	under_mounts = list ("picatinny")
 
@@ -1445,6 +1568,9 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	recoil = 50
 	accuracy = 4
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	under_mounts = list ("gp25_mount")
 
 /obj/item/weapon/gun/projectile/submachinegun/vz58
@@ -1471,6 +1597,9 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	recoil = 40
 	accuracy = 2
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	mag_x_offset = 2
 	under_mounts = list ("gp25_mount")
 
@@ -1512,6 +1641,9 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_UNDER
 	recoil = 30
 	accuracy = 2
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	scope_mounts = list ("picatinny")
 	under_mounts = list ("m203_mount")
 
@@ -1552,6 +1684,9 @@
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	recoil = 35
 	accuracy = 3
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 
 /obj/item/weapon/gun/projectile/submachinegun/srm
 	name = "SR-3"
@@ -1575,6 +1710,9 @@
 	sel_mode = 1
 	recoil = 30
 	accuracy = 2
+	walk_accuracy_debuff = 20
+	pickup_accuracy_debuff = 15
+	onehand_accuracy_debuff = 15
 	barrel_x_offset = 10
 	barrel_y_offset = 11
 	scope_x_offset = 1
