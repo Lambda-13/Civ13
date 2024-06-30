@@ -461,7 +461,10 @@
 			recoil_range -= sqrt(dt) * 1.5
 
 	if(user.lying || user.prone)
-		recoil_range /= 2
+		recoil_range *= 0.5
+
+	if(istype(get_turf(src), /turf/floor/trench) && check_trench_buff(target))
+		recoil_range *= 0.8
 
 	if(dt_movement <= 6 && user.m_intent != "stealth")
 		accuracy_range = walk_accuracy_debuff
@@ -502,7 +505,11 @@
 			shot_recoil = 0
 
 	if(user.lying || user.prone)
-		shot_recoil /= 2
+		shot_recoil *= 0.5
+
+	if(istype(get_turf(src), /turf/floor/trench) && check_trench_buff(target))
+		shot_recoil *= 0.8
+		user << "БАФФ ОТ ОКОПА"
 
 	var/shot_accuracy = rand(-accuracy, accuracy)
 
@@ -549,6 +556,21 @@
 		last_shot_time = world.time
 		return FALSE
 	return TRUE
+
+/obj/item/weapon/gun/proc/check_trench_buff(var/turf/target)
+	var/turf/fired_from = get_turf(src)
+	var/target_x_dir = 0
+	var/target_y_dir = 0
+	if(target.x - fired_from.x > 0)
+		target_x_dir = 1
+	else if (target.x - fired_from.x < 0)
+		target_x_dir = -1
+	if(target.y - fired_from.y > 0)
+		target_y_dir = 1
+	else if (target.y - fired_from.y < 0)
+		target_y_dir = -1
+	if(!istype(locate(fired_from.x + target_x_dir, fired_from.y + target_y_dir, fired_from.z), /turf/floor/trench))
+		return TRUE
 
 //Suicide handling.
 /obj/item/weapon/gun/var/mouthshoot = FALSE //To stop people from suiciding twice... >.>
