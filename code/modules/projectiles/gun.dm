@@ -463,9 +463,6 @@
 	if(user.lying || user.prone)
 		recoil_range *= 0.5
 
-	if(istype(get_turf(src), /turf/floor/trench) && check_trench_buff(target))
-		recoil_range *= 0.8
-
 	if(dt_movement <= 6 && user.m_intent != "stealth")
 		accuracy_range = walk_accuracy_debuff
 	else if (dt_movement < 10 && user.m_intent != "stealth")
@@ -508,8 +505,7 @@
 		shot_recoil *= 0.5
 
 	if(istype(get_turf(src), /turf/floor/trench) && check_trench_buff(target))
-		shot_recoil *= 0.8
-		user << "БАФФ ОТ ОКОПА"
+		shot_recoil *= 0.5
 
 	var/shot_accuracy = rand(-accuracy, accuracy)
 
