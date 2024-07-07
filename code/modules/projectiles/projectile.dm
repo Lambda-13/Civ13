@@ -541,6 +541,8 @@
 		for (var/obj/structure/vehicleparts/frame/F in T.contents)
 			var/penloc = F.get_wall_name(direction)
 			if (!F.CheckPen(src,penloc))
+				if(F != fired_from_axis)
+					layer = 15
 				F.bullet_act(src,penloc)
 				passthrough = FALSE
 				visible_message("<span class = 'warning'>Снаряд не пробивает [penloc] стену!</span>")
