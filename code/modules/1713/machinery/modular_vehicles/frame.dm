@@ -529,6 +529,7 @@
 								visible_message("<span class='danger'>\The [mwheel.name] breaks down!</span>")
 								new/obj/effect/effect/smoke/small(loc)
 								update_icon()
+				mwheel.update_icon()
 			else
 				var/damage_modifier = proj.heavy_armor_penetration
 				if(wall_armor(penloc) > heavy_armor_penetration)
@@ -592,9 +593,11 @@
 			playsound(loc, pick('sound/effects/explosion1.ogg','sound/effects/explosion1.ogg'),100, TRUE)
 			playsound(loc, 'sound/tank/bronja-ne-probita.ogg')
 		try_destroy()
+		update_icon()
 		return
 	else
 		..()
+		update_icon()
 
 /obj/structure/vehicleparts/frame/proc/try_destroy()
 	//format: type of wall, opacity, density, armor, current health, can open/close, is open?
@@ -630,10 +633,17 @@
 			Destroy()
 	update_icon()
 /obj/structure/vehicleparts/frame/Destroy()
+	if (broken)
+		visible_message("<span class='danger'>The frame gets wrecked!</span>")
+		loc = null
+		qdel(src)
+		return
 	if (!broken)
 		visible_message("<span class='danger'>The frame gets wrecked!</span>")
 		update_icon()
 		broken = TRUE
+		loc = null
+		qdel(src)
 	else if (!axis in contents)
 		axis = null
 		mwheel = null
