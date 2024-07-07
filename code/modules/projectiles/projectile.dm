@@ -202,8 +202,8 @@
 					fired_from_roof = TRUE
 		else if (S.hatch_icon && S.is_open)
 			fired_from_roof = TRUE
-		for (var/obj/structure/vehicleparts/frame/F in curloc)
-			fired_from_axis = F.axis
+	for (var/obj/structure/vehicleparts/frame/F in curloc)
+		fired_from_axis = F.axis
 
 	for(var/obj/structure/bed/chair/turret_seat/S in targloc)
 		if(S.hatch_icon && S.is_open)
@@ -487,6 +487,7 @@
 		return EAST
 
 /obj/item/projectile/proc/handleTurf(var/turf/T, forced=0, var/list/untouchable = list())
+	visible_message("fired from roof[fired_from_roof] [fired_from_axis]")
 	if(atype == "NUCLEAR")
 		radiation_pulse(T, 	damage / 100, damage / 10, damage / 25, 0)
 
@@ -520,11 +521,9 @@
 			else
 				fired_from_roof = FALSE
 
-	if(passthrough)
-		passthrough = handle_structure_hit(T, untouchable)
-
 	if(shooting_roof_object && passthrough)
-		return handle_roof_hit(T)
+		if(handle_structure_hit(T, untouchable))
+			return handle_roof_hit(T)
 
 	if(is_trench)
 		passed_trenches += 1
@@ -572,6 +571,9 @@
 						S.initiate(T)
 					else
 						visible_message("<span class = 'warning'>Снаряд пролетает сквозь [penloc] стену</span>")
+
+	if(passthrough)
+		passthrough = handle_structure_hit(T, untouchable)
 
 	if (!is_trench && launch_from_trench && !overcoming_trench)
 		overcoming_trench = TRUE
