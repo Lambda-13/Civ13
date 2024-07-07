@@ -487,7 +487,6 @@
 		return EAST
 
 /obj/item/projectile/proc/handleTurf(var/turf/T, forced=0, var/list/untouchable = list())
-	visible_message("fired from roof[fired_from_roof] [fired_from_axis]")
 	if(atype == "NUCLEAR")
 		radiation_pulse(T, 	damage / 100, damage / 10, damage / 25, 0)
 
