@@ -205,12 +205,18 @@
 	for (var/obj/structure/vehicleparts/frame/F in curloc)
 		fired_from_axis = F.axis
 
-	for(var/obj/structure/bed/chair/turret_seat/S in targloc)
-		if(S.hatch_icon && S.is_open)
+	if (istype(target, /mob))
+		var/mob/M = target
+		if (M.buckled && istype(M.buckled, /obj/structure/bed/chair/turret_seat))
+			var/obj/structure/bed/chair/turret_seat/S = M.buckled
+			if (S.hatch_icon && S.is_open)
+				shooting_roof_object = TRUE
+	if (istype(target, /obj/structure/bed/chair/turret_seat))
+		var/obj/structure/bed/chair/turret_seat/S = target
+		if (S.hatch_icon && S.is_open)
 			shooting_roof_object = TRUE
-	for(var/obj/structure/turret/T in targloc)
-		if(!istype(T, /obj/structure/turret/course))
-			shooting_roof_object = TRUE
+	else if (istype(target, /obj/structure/turret) && !istype(target, /obj/structure/turret/course))
+		shooting_roof_object = TRUE
 	firer = user
 	firer_original_dir = firer.dir
 	firedfrom = launcher
@@ -469,22 +475,23 @@
 	return permutated.len
 
 /obj/item/projectile/proc/get_direction()
-	if(angle >= 10 && angle <= 80)
-		return NORTHEAST
-	else if(angle > 80 && angle < 100)
-		return NORTH
-	else if(angle >= 100 && angle <= 170)
-		return NORTHWEST
-	else if(angle > 170 && angle < 190)
-		return WEST
-	else if(angle >= 190 && angle <= 260)
-		return SOUTHWEST
-	else if(angle > 260 && angle < 280)
-		return SOUTH
-	else if(angle >= 280 && angle <= 350)
-		return SOUTHEAST
-	else
-		return EAST
+	var/hdir = 0
+	var/vdir = 0
+	var/turf/previous_step = starting
+	if (permutated.len > 1)
+		previous_step = permutated[permutated.len - 1]
+	if (x - previous_step.x > 0)
+		hdir = EAST
+	else if (x - previous_step.x < 0)
+		hdir = WEST
+	if (y - previous_step.y > 0)
+		vdir = NORTH
+	else if (y - previous_step.y < 0)
+		vdir = SOUTH
+	if (hdir + vdir == 0)
+		return get_dir(previous_step, original)
+	
+	return hdir + vdir
 
 /obj/item/projectile/proc/handleTurf(var/turf/T, forced=0, var/list/untouchable = list())
 	if(atype == "NUCLEAR")
@@ -521,8 +528,12 @@
 				fired_from_roof = FALSE
 
 	if(shooting_roof_object && passthrough)
-		if(handle_structure_hit(T, untouchable))
-			return handle_roof_hit(T)
+		var/found_frame = FALSE
+		for(var/obj/structure/vehicleparts/frame/F in T)
+			found_frame = TRUE
+		if(!found_frame)
+			handle_structure_hit(T, untouchable)
+		return handle_roof_hit(T)
 
 	if(is_trench)
 		passed_trenches += 1
