@@ -12,7 +12,7 @@
 	tracer_type = /obj/effect/projectile/tracer/minor
 	muzzle_type = /obj/effect/projectile/bullet/muzzle
 	New()
-		kill_count = rand(17, 25)
+		kill_count = rand(20, 27)
 
 /obj/item/projectile/bullet/get_structure_damage()
 	if (damage_type == BRUTE || damage_type == BURN)
