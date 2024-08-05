@@ -152,4 +152,4 @@ handle.close()
 from discord import Webhook, RequestsWebhookAdapter
 
 webhook = Webhook.from_url(token, adapter=RequestsWebhookAdapter())
-webhook.send("Change map to {}. Join: <byond://cmi-ss13.ru:{}/>.".format(mapname,port))
+webhook.send("Change map to {}. Join: <byond://play.lambda13.online:{}/>.".format(mapname,port))
