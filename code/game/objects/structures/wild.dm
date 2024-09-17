@@ -16,8 +16,8 @@ var/list/seed_list_jungle
 	anchored = TRUE
 	var/sways = FALSE
 	var/amount = 0 //how much wood to drop. 0 = none
-	health = 100
-	maxhealth = 100
+	var/health = 100
+	var/maxhealth = 100
 	layer = 3.2
 	flammable = TRUE
 	not_movable = TRUE
@@ -139,29 +139,32 @@ var/list/seed_list_jungle
 /obj/structure/wild/CanPass(var/atom/movable/mover)
 	if (istype(mover, /obj/effect/effect/smoke))
 		return TRUE
+	else if (istype(mover, /obj/item/projectile))
+		if (prob(75) && density)
+			visible_message("<span class = 'warning'>The [mover.name] hits \the [src]!</span>")
+			return FALSE
+		else
+			return TRUE
 	else
 		return ..()
-
-/obj/structure/wild/proc/chop(var/obj/item/weapon/material/HT, mob/user)
-	visible_message("<span class='danger'>[user] begins to chop down \the [src]!</span>")
-	playsound(get_turf(src), 'sound/effects/wood_cutting.ogg', 100)
-	user.do_attack_animation(src)
-	if (do_after(user, 30*HT.chopping_speed, user.loc))
-		health = 0
-		try_destroy()
-		HT.health = HT.health - 0.25
-		if (HT.health <=0)
-			HT.shatter()
-		if (istype(user, /mob/living/human))
-			var/mob/living/human/H = user
-			H.adaptStat("strength", 1)
-		return
 
 /obj/structure/wild/attackby(obj/item/W as obj, mob/user as mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if (istype(W,/obj/item/weapon/material/hatchet) ||istype(W,/obj/item/weapon/material/boarding_axe) || istype(W,/obj/item/weapon/material/machete) || istype(W,/obj/item/weapon/material/machete1) || istype(W,/obj/item/weapon/material/twohanded/fireaxe) || istype(W,/obj/item/weapon/material/sword/kukri) || istype(W,/obj/item/weapon/material/sword/bolo) || istype(W,/obj/item/weapon/material/thrown/tomahawk) || istype(W,/obj/item/weapon/material/thrown/throwing_axe))
-		chop(W, user)
-		return
+		var/obj/item/weapon/material/HT = W
+		visible_message("<span class='danger'>[user] begins to chop down \the [src]!</span>")
+		playsound(get_turf(src), 'sound/effects/wood_cutting.ogg', 100)
+		user.do_attack_animation(src)
+		if (do_after(user, 30*HT.chopping_speed, user.loc))
+			health = 0
+			try_destroy()
+			HT.health = HT.health - 0.25
+			if (HT.health <=0)
+				HT.shatter()
+			if (istype(user, /mob/living/human))
+				var/mob/living/human/H = user
+				H.adaptStat("strength", 1)
+			return
 	else
 		switch(W.damtype)
 			if ("fire")
@@ -185,24 +188,12 @@ var/list/seed_list_jungle
 		return
 
 /obj/structure/wild/bullet_act(var/obj/item/projectile/proj)
-	if (istype(proj, /obj/item/projectile/shell))
-		if (istype(proj, /obj/item/projectile/shell/autocannon))
-			health -= proj.damage * 0.5
-		else
-			health -= proj.damage
-		try_destroy()
-		if (proj.atype == "HE" || proj.atype == "HEAT")
-			var/obj/item/projectile/shell/S = proj
-			S.initiated = TRUE
-		return PROJECTILE_CONTINUE
-	else
-		health -= proj.damage * 0.05
-	try_destroy()
-	if (proj.armor_penetration > hardness)
-		if (hardness > 0)
-			proj.ricochet(proj.get_angle() + rand(-45, 45), -proj.get_angle())
-		return PROJECTILE_CONTINUE
-	return FALSE
+	if (proj.damage > 200 && prob(33)) // makes shrapnel unable to take down trees
+		visible_message("<span class = 'danger'>[src] collapses!</span>")
+		qdel(src)
+	else if (istype(proj, /obj/item/projectile/shell))
+		visible_message("<span class = 'danger'>[src] is blown up!</span>")
+		qdel(src)
 
 ///////////////////////Trees////////////////////////////
 
@@ -211,147 +202,11 @@ var/list/seed_list_jungle
 	icon_state = "tree"
 	deadicon = "icons/obj/flora/wild.dmi"
 	deadicon_state = "deadtree"
-	opacity = FALSE
+	opacity = TRUE
 	density = TRUE
 	sways = TRUE
 	amount = 5
 	layer = 5.11
-	hardness = 10
-	var/is_rocking = FALSE
-	var/is_falling = FALSE
-	var/is_fallen = FALSE
-	var/fall_dir = 1
-
-/obj/structure/wild/tree/proc/rocking(var/severity = 1)
-	if (is_rocking)
-		return
-	is_rocking = TRUE
-	for (var/i in 1 to 5)
-		spawn(i * 0.5)
-			if (is_falling || is_fallen)
-				return
-			var/direction = 1
-			if (i % 2 != 0) // каждая вторая итерация
-				direction = -1
-			transform = new()
-			transform = turn(transform, direction / i * severity)
-			if (i == 5)
-				is_rocking = FALSE
-				return
-
-/obj/structure/wild/tree/proc/fall(var/speed_modifier = 1)
-	if (is_falling)
-		return
-	var/obj/structure/wild/tree_stump/S =  new/obj/structure/wild/tree_stump(loc)
-	S.pixel_x = pixel_x
-	S.pixel_y = pixel_y
-	S.icon_state = "[icon_state]_stump"
-	S.icon = icon
-	icon_state += "_fallen"
-	layer = MOB_LAYER - 0.5
-	var/x_offset = pixel_x
-	var/y_offset = pixel_y
-	is_falling = TRUE
-	var/rotation_angle = 5
-	var/t = 3 / speed_modifier // время анимации
-	for (var/i in 1 to 90 / rotation_angle)
-		spawn(t / sqrt(90 / (i * rotation_angle)))
-			transform = turn(transform, rotation_angle * fall_dir)
-			pixel_x = x_offset - (cos(i * rotation_angle + 90) * 16 * fall_dir)
-			pixel_y = y_offset - (sin(i * rotation_angle) * 16)
-	spawn(t + 2)
-		is_falling = FALSE
-		is_fallen = TRUE
-
-/obj/structure/wild/tree/chop(var/obj/item/weapon/material/HT, mob/user)	
-	if (is_fallen)
-		visible_message("<span class='danger'>[user] begins to process \the [src] into planks!</span>")
-		if (do_after(user, 30 * HT.chopping_speed, user.loc))
-			health = 0
-			try_destroy()
-			return
-	else if (!is_falling)
-		visible_message("<span class='danger'>[user] begins to chop down \the [src]!</span>")
-		playsound(get_turf(src), 'sound/effects/wood_cutting.ogg', 100)
-		user.do_attack_animation(src)
-		if (do_after(user, 30 * HT.chopping_speed, user.loc))
-			health = 50
-			fall()
-
-/obj/structure/wild/tree/proc/drop_resources()
-	var/obj/item/stack/material/wood/dropwood = new /obj/item/stack/material/wood(get_turf(src))
-	dropwood.amount = 4
-
-/obj/structure/wild/tree/ex_act(severity)
-	switch(severity)
-		if (1.0)
-			health -= 50
-		if (2.0)
-			if (prob(50))
-				health = 50
-			else
-				health -= 25
-		if (3.0)
-			health -= 25
-	try_destroy()
-
-/obj/structure/wild/tree/try_destroy()
-	if (health <= 0)
-		fall()
-		spawn(4)
-			visible_message("<span class='danger'>[src] is broken into pieces!</span>")
-			drop_resources()
-			qdel(src)
-	else if (health < 50 && !is_fallen)
-		fall()
-	else
-		rocking(3 * (maxhealth / health))
-
-/obj/structure/wild/tree/CanPass(atom/movable/mover)
-	if (istype(mover, /obj/item/projectile))
-		if (is_falling)
-			return TRUE
-		var/obj/item/projectile/proj = mover
-		if (get_dist(src, proj.starting) <= 1)
-			return TRUE
-		if (proj.original != src && prob(50))
-			return TRUE
-		else if (is_fallen)
-			var/p_dist = proj.get_distance()
-			var/is_lying = FALSE
-			var/hitchance = 0
-
-			if (!proj.firer) // если у снаряда нет стрелка значит это осколок от взрыва
-				return FALSE
-
-			if (proj.firer.lying || proj.firer.prone)
-				is_lying = TRUE
-
-			if (p_dist > 3)
-				hitchance = sqrt(p_dist) * 15
-				if (is_lying)
-					hitchance *= 2
-			else if (p_dist > 0)
-				if(is_lying || proj.original == src)
-					hitchance = 100
-			if (!prob(hitchance))
-				return TRUE
-	..()
-
-/obj/structure/wild/tree/bullet_act(var/obj/item/projectile/proj)
-	switch (proj.get_direction())
-		if(WEST)
-			fall_dir = -1
-		if(NORTHWEST)
-			fall_dir = -1
-		if(SOUTHWEST)
-			fall_dir = -1
-	for(var/i = 1, i <= 2, i++)
-		var/obj/effect/projectile/impact/splinter/S = new/obj/effect/projectile/impact/splinter(loc)
-		S.speed_modifier *= rand(5, 15) / 10 // диапазон от 0.5 до 1.5
-		S.layer = layer
-		S.activate(proj.get_angle() + rand (-45, 45))
-	. = ..()
 
 /obj/structure/wild/tree/anchored
 
@@ -362,15 +217,6 @@ var/list/seed_list_jungle
 		pixel_y = rand(0,16)
 
 /obj/structure/wild/tree/attackby(obj/item/W as obj, mob/user as mob)
-	if (is_falling && !is_fallen)
-		return
-	switch (get_dir(W, src))
-		if (WEST)
-			fall_dir = -1
-		if (NORTHWEST)
-			fall_dir = -1
-		if (SOUTHWEST)
-			fall_dir = -1
 	if (istype(W, /obj/item/weapon/material/kitchen/utensil/knife))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		health -= 10
@@ -410,9 +256,13 @@ var/list/seed_list_jungle
 	..()
 	icon_state = "tree_[rand(1,5)]"
 
-/obj/structure/wild/tree/dead_tree/drop_resources()
-	var/obj/item/stack/material/wood/dropwood = new /obj/item/stack/material/wood(get_turf(src))
-	dropwood.amount = rand(4,7)
+/obj/structure/wild/tree/dead_tree/try_destroy()
+	if (health <= 0)
+		visible_message("<span class='danger'>[src] is broken into pieces!</span>")
+		var/obj/item/stack/material/wood/dropwood = new /obj/item/stack/material/wood(get_turf(src))
+		dropwood.amount = rand(4,7)
+		qdel(src)
+		return
 
 /obj/structure/wild/tree/dead_tree/destroyed
 	name = "destroyed tree"
@@ -479,13 +329,17 @@ var/list/seed_list_jungle
 				current_icon = 'icons/obj/flora/bigtrees.dmi'
 		update_icon()
 
-/obj/structure/wild/tree/live_tree/drop_resources()
-	var/obj/item/stack/material/wood/dropwood = new /obj/item/stack/material/wood(get_turf(src))
-	dropwood.amount = 7
-	if (leaves > 0)
-		new/obj/item/stack/material/leaf(get_turf(src))
-		new/obj/item/stack/material/leaf(get_turf(src))
-		new/obj/item/stack/material/leaf(get_turf(src))
+/obj/structure/wild/tree/live_tree/try_destroy()
+	if (health <= 0)
+		visible_message("<span class='danger'>[src] is broken into pieces!</span>")
+		var/obj/item/stack/material/wood/dropwood = new /obj/item/stack/material/wood(get_turf(src))
+		dropwood.amount = 7
+		if (leaves>0)
+			new/obj/item/stack/material/leaf(get_turf(src))
+			new/obj/item/stack/material/leaf(get_turf(src))
+			new/obj/item/stack/material/leaf(get_turf(src))
+		qdel(src)
+		return
 
 /obj/structure/wild/tree/live_tree/snow
 	name = "tree"
@@ -632,6 +486,14 @@ var/list/seed_list_jungle
 		visible_message("<span class = 'warning'>[src] collapses.</span>")
 		qdel(src)
 
+/obj/structure/wild/tree/try_destroy()
+	if (health <= 0)
+		visible_message("<span class='danger'>[src] is broken into pieces!</span>")
+		var/obj/item/stack/material/wood/dropwood = new /obj/item/stack/material/wood(get_turf(src))
+		dropwood.amount = 4
+		qdel(src)
+		return
+
 /obj/structure/wild/palm/try_destroy()
 	if (health <= 0)
 		visible_message("<span class='danger'>[src] is broken into pieces!</span>")
@@ -640,7 +502,8 @@ var/list/seed_list_jungle
 		new/obj/item/stack/material/leaf/palm(get_turf(src))
 		new/obj/item/stack/material/leaf/palm(get_turf(src))
 		new/obj/item/stack/material/leaf/palm(get_turf(src))
-		Destroy()
+		qdel(src)
+		return
 
 /obj/structure/wild/palm/New()
 	..()
@@ -799,9 +662,6 @@ var/list/seed_list_jungle
 	layer = 5.1
 	health = 20
 	maxhealth = 20
-
-/obj/structure/wild/tallgrass/ex_act(severity)
-	qdel(src)
 
 /obj/structure/wild/flowers
 	name = "flowers"
