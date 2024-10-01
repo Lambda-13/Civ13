@@ -34,6 +34,9 @@
 	equiptimer = 10
 	maxhealth = 20
 	accuracy = 4
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 	load_delay = 110 //11 seconds for rifles, 8 seconds for pistols & blunderbuss
 	aim_miss_chance_divider = 3.00
@@ -102,6 +105,9 @@
 	ammo_type = /obj/item/ammo_casing/musketball
 	value = 100
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/flintlock/m1752
 	name = "M1752 mosquete"
@@ -114,6 +120,9 @@
 	item_state = "musket"
 	icon_state = "mosquete1752"
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/flintlock/jezail
 	name = "Jezail musket"
@@ -126,6 +135,9 @@
 	item_state = "musket"
 	icon_state = "jezail"
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/flintlock/kabyle
 	name = "Kabyle musket"
@@ -138,6 +150,9 @@
 	item_state = "musket"
 	icon_state = "moukalla"
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/flintlock/brownbess
 	name = "Brownbess musket"
@@ -150,6 +165,9 @@
 	item_state = "musket"
 	icon_state = "brownbess"
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/flintlock/charleville
 	name = "Charleville mousquet"
@@ -162,6 +180,9 @@
 	item_state = "musket"
 	icon_state = "charleville_mousquet"
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/flintlock/plexico
 	name = "flintlock musket"
@@ -174,6 +195,9 @@
 	item_state = "plexciomusket"
 	icon_state = "plexciomusket"
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/flintlock/springfield
 	name = "Springfield M1861 Musket"
@@ -187,6 +211,9 @@
 	icon_state = "springfield"
 	load_delay = 70
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/flintlock/springfield1795
 	name = "Springfield 1795 Musket"
@@ -200,6 +227,9 @@
 	icon_state = "springfield1795"
 	load_delay = 80
 	accuracy = 2
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/flintlock/musketoon
 	name = "flintlock musketoon"
@@ -213,6 +243,9 @@
 	value = 80
 	equiptimer = 6
 	accuracy = 4
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/flintlock/crude
 	name = "crude musket"
@@ -225,6 +258,9 @@
 	ammo_type = /obj/item/ammo_casing/musketball
 	value = 45
 	accuracy = 4
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/flintlock/pistol
 	// less accurate than rifles against still targets, but better against moving targets
@@ -279,6 +315,9 @@
 	equiptimer = 7
 	// 15% more accurate than SMGs
 	accuracy = 4
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 8
+	onehand_accuracy_debuff = 5
 
 	accuracy_increase_mod = 1.05
 	accuracy_decrease_mod = 1.10
@@ -311,6 +350,9 @@
 	stat = "pistol"
 	aim_miss_chance_divider = 1.70
 	accuracy = 4
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/flintlock/duellingpistol
 	name = "Duelling Flintlock "
@@ -334,6 +376,9 @@
 	gun_type = GUN_TYPE_PISTOL
 	equiptimer = 3
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/flintlock/pistoletmodeleanxiii
 	name = "Pistolet modèle An XIII"
@@ -362,6 +407,9 @@
 	stat = "pistol"
 	aim_miss_chance_divider = 1.70
 	accuracy = 4
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/flintlock/blunderbuss/pistol
 	stat = "heavy"

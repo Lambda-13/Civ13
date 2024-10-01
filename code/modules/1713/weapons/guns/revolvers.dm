@@ -471,6 +471,9 @@
 	cocked = FALSE
 	pocket = FALSE
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/revolver/snw10
 	name = "Smith & Wesson M.10"
@@ -491,6 +494,9 @@
 	cocked = FALSE
 	pocket = FALSE
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/revolver/t26_revolver
 	name = "Type 26 revolver"
@@ -743,6 +749,9 @@
 	blackpowder = TRUE
 	cocked = FALSE
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 ///////////////////cap n ball revolvers/////////////////
 
@@ -776,6 +785,9 @@
 	aim_miss_chance_divider = 2.00
 	load_delay = 6
 	accuracy = 4
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/capnball/update_icon()
 	..()
@@ -888,6 +900,9 @@
 	cocked = FALSE
 	load_delay = 40
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/capnball/babydragoon
 	name = "Colt Baby Dragoon M1848"
@@ -906,6 +921,9 @@
 	cocked = FALSE
 	load_delay = 45
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/capnball/pocketpistol
 	name = "Colt Pocket-Pistol M1849"
@@ -924,6 +942,9 @@
 	cocked = FALSE
 	load_delay = 30
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/capnball/walker
 	name = "Colt Walker M1846"
@@ -942,6 +963,9 @@
 	cocked = FALSE
 	load_delay = 40
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/capnball/pocketm1849
 	name = "Colt Police Pocket-Pistol M1849"
@@ -960,6 +984,9 @@
 	cocked = FALSE
 	load_delay = 38
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/capnball/navym1851
 	name = "Colt Navy Revolver M1851"
@@ -978,6 +1005,9 @@
 	cocked = FALSE
 	load_delay = 40
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/capnball/navym1861
 	name = "Colt Navy Revolver M1861"
@@ -996,6 +1026,9 @@
 	cocked = FALSE
 	load_delay = 37
 	accuracy = 3
+	walk_accuracy_debuff = 10
+	pickup_accuracy_debuff = 5
+	onehand_accuracy_debuff = 5
 
 /obj/item/weapon/gun/projectile/capnball/
 	name = "Colt Army Revolver M1860"
