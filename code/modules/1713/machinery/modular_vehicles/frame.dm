@@ -630,7 +630,7 @@
 	if (w_left[5]+w_right[5]+w_back[5]+w_front[5] <= 0)
 		broken = TRUE
 		if (prob(10))
-			Destroy()
+			Destroy()	
 	update_icon()
 /obj/structure/vehicleparts/frame/Destroy()
 	if (broken)
@@ -642,8 +642,6 @@
 		visible_message("<span class='danger'>The frame gets wrecked!</span>")
 		update_icon()
 		broken = TRUE
-		loc = null
-		qdel(src)
 	else if (!axis in contents)
 		axis = null
 		mwheel = null
