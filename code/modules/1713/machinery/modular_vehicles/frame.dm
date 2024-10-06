@@ -635,8 +635,6 @@
 /obj/structure/vehicleparts/frame/Destroy()
 	if (broken)
 		visible_message("<span class='danger'>The frame gets wrecked!</span>")
-		loc = null
-		qdel(src)
 		return
 	if (!broken)
 		visible_message("<span class='danger'>The frame gets wrecked!</span>")
